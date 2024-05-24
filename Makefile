@@ -21,3 +21,8 @@ check_linting: ## Verify code with lint tools, like pylint
 setup: ## Install dependencies
 	poetry install --sync
 .PHONY: setup
+
+doc: setup ## Build the doc
+	cd ./script-docs && make html
+	rm -rf ./docs && mkdir -p ./docs && mv ./script-docs/_build/html/* ./docs
+.PHONY: setup
