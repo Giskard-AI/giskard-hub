@@ -24,5 +24,5 @@ setup: ## Install dependencies
 
 doc: setup ## Build the doc
 	cd ./script-docs && rm -rf _build && make html
-	rm -rf ./docs && mkdir -p ./docs && mv ./script-docs/_build/html/* ./docs
+	rm -rf ./docs && mkdir -p ./docs && touch ./docs/.nojekyll && mv ./script-docs/_build/html/* ./docs
 .PHONY: setup
