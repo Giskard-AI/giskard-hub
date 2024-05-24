@@ -23,6 +23,6 @@ setup: ## Install dependencies
 .PHONY: setup
 
 doc: setup ## Build the doc
-	cd ./script-docs && make html
+	cd ./script-docs && rm -rf _build && make html
 	rm -rf ./docs && mkdir -p ./docs && mv ./script-docs/_build/html/* ./docs
 .PHONY: setup
