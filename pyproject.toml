@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "giskard-hub"
+version = "0.1.0"
+description = ""
+authors = ["Bazire <bazire@giskard.ai>"]
+readme = "README.md"
+packages = [{ include = "giskard_hub", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+typer = "^0.12.3"
+requests = "^2.32.2"
+
+
+[tool.poetry.group.dev.dependencies]
+sphinxawesome-theme = "^5.1.4"
+sphinx-copybutton = "^0.5.2"
+myst-parser = "^3.0.1"
+notebook = "^7.2.0"
+nbsphinx = "^0.9.4"
+black = "^24.4.2"
+isort = "^5.13.2"
+pylint = "^3.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+extend_skip_glob = [".history/*"]
+
+[tool.pylint.reports]
+reports = "y"
+output-format = "colorized"
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [ "line-too-long", "missing-module-docstring"]
