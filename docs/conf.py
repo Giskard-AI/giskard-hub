@@ -46,6 +46,7 @@ html_theme_options = {
     "logo_light": "_static/logo_black.png",
     "logo_dark": "_static/logo_white.png",
 }
+html_favicon = "_static/favicon.ico"
 
 
 # make github links resolve
@@ -103,4 +104,4 @@ def linkcode_resolve(domain, info):
     filename = fn.split("giskard_hub")[-1]
     print("##############")
 
-    return f"https://github.com/Giskard-AI/giskard-hub/blob/cli-lib/giskard-hub/src/giskard_hub{filename}{linespec}"
+    return f"https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub{filename}{linespec}"
