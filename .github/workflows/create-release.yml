@@ -1,0 +1,87 @@
+name: Start a new release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Tag to be created, in the form X.Y.Z"
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if organization member
+        id: is_organization_member
+        uses: JamesSingleton/is-organization-member@1.0.1
+        with:
+          organization: Giskard-AI
+          username: ${{ github.actor }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Interrupt job
+        if: ${{ steps.is_organization_member.outputs.result == 'false' }}
+        shell: bash
+        run: |
+          echo "Job failed due to user not being a member of Giskard-AI organization and the 'safe for build' label not being set on the PR"
+          exit 1
+
+      - name: Checkout code
+        uses: actions/checkout@v4.1.0
+        with:
+          fetch-tags: true
+          ref: main
+          token: ${{ secrets.RELEASE_PAT_TOKEN }} # Needed to trigger other actions
+
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      #----------------------------------------------
+      #  -----  install & configure poetry  -----
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      - name: Change version
+        run: poetry version ${{ inputs.version }}
+
+      - name: Build release candidate wheel
+        run: poetry build
+
+      - name: Configure git
+        run: |
+          git config --global user.name 'BotReleaser'
+          git config --global user.email 'bot.releaser@users.noreply.github.com'
+
+      - name: Adding file
+        run: |
+          git add pyproject.toml
+          git fetch --quiet --tags
+          git commit -m "v${{ inputs.version }}" --allow-empty
+          git tag v${{ inputs.version }}
+
+      - name: Push to main and tags
+        run: |
+          git push origin main
+          git push origin ${{ inputs.version }}
+
+      - name: Create Github Release
+        id: github-release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+          files: |
+              dist/giskard_hub-*.tar.gz
+              dist/giskard_hub-*.whl
+
+      - name: Push to Pipy
+        run: pdm publish --username "${{ secrets.PIPY_USERNAME }}" --password "${{ secrets.PIPY_PASSWORD }}"
