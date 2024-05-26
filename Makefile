@@ -23,6 +23,7 @@ setup: ## Install dependencies
 .PHONY: setup
 
 doc: setup ## Build the doc
+	cp ./README.md ./script-docs/README.md
 	cd ./script-docs && rm -rf _build && make html
 	rm -rf ./docs && mkdir -p ./docs && touch ./docs/.nojekyll && mv ./script-docs/_build/html/* ./docs
 .PHONY: setup
