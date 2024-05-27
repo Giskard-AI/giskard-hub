@@ -84,4 +84,4 @@ jobs:
               dist/giskard_hub-*.whl
 
       - name: Push to Pipy
-        run: pdm publish --username "${{ secrets.PIPY_USERNAME }}" --password "${{ secrets.PIPY_PASSWORD }}"
+        run: poetry publish --username "${{ secrets.PIPY_USERNAME }}" --password "${{ secrets.PIPY_PASSWORD }}"
