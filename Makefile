@@ -24,6 +24,6 @@ setup: ## Install dependencies
 
 doc: setup ## Build the doc
 	cp ./README.md ./script-docs/README.md
-	cd ./script-docs && rm -rf _build && make html
+	cd ./script-docs && rm -rf _build && poetry run make html
 	rm -rf ./docs && mkdir -p ./docs && touch ./docs/.nojekyll && mv ./script-docs/_build/html/* ./docs
 .PHONY: setup
