@@ -14,7 +14,6 @@ requests = "^2.32.2"
 
 [tool.poetry.group.dev.dependencies]
 sphinxawesome-theme = "^5.1.4"
-sphinx-copybutton = "^0.5.2"
 myst-parser = "^3.0.1"
 notebook = "^7.2.0"
 nbsphinx = "^0.9.4"

@@ -27,10 +27,6 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.linkcode",
     "sphinx.ext.githubpages",
-    # "sphinx_tabs.tabs",
-    "sphinx_copybutton",
-    #     "sphinx_tabs.tabs",
-    #     "sphinx_click",
 ]
 
 templates_path = ["_templates"]
