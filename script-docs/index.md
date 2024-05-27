@@ -25,6 +25,11 @@ README
 
 ./examples/example.ipynb
 ``` -->
+```{toctree}
+:caption: CLI
+:maxdepth: 3
+./cli
+```
 
 
 ```{toctree}
@@ -34,6 +39,8 @@ README
 
 ./sources
 ```
+
+
 <!--
 Indices and tables
 ==================
