@@ -27,3 +27,9 @@ doc: setup ## Build the doc
 	cd ./script-docs && rm -rf _build && poetry run make html
 	rm -rf ./docs && mkdir -p ./docs && touch ./docs/.nojekyll && mv ./script-docs/_build/html/* ./docs
 .PHONY: setup
+
+quick-doc: ## Build the doc & serve it locally
+	cp ./README.md ./script-docs/README.md
+	cd ./script-docs && rm -rf _build && poetry run make html
+	poetry run python3 -m http.server --directory ./script-docs/_build/html/
+.PHONY: quick-doc
