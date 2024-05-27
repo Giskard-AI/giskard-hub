@@ -196,5 +196,10 @@ def models(
     print(json.dumps([asdict(elt) for elt in client.get_models(project_id=project_id)]))
 
 
+typer_click_object = typer.main.get_group(app)
+
 if __name__ == "__main__":
-    app()
+    typer_click_object()
+
+# if __name__ == "__main__":
+#     app()
