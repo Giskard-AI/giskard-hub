@@ -200,6 +200,3 @@ typer_click_object = typer.main.get_group(app)
 
 if __name__ == "__main__":
     typer_click_object()
-
-# if __name__ == "__main__":
-#     app()

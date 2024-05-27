@@ -9,7 +9,7 @@
 import inspect
 import sys
 
-project = "Hub client"
+project = "Giskard Hub"
 copyright = "2024, Giskard"
 author = "Giskard"
 
