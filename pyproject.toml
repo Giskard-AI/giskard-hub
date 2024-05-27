@@ -23,6 +23,7 @@ nbsphinx = "^0.9.4"
 black = "^24.4.2"
 isort = "^5.13.2"
 pylint = "^3.2.2"
+sphinx-click = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -25,3 +25,7 @@ giskard_hub.cli module
     :members:
     :undoc-members:
     :show-inheritance:
+
+.. click:: giskard_hub.cli:typer_click_object
+   :prog: giskard_hub.cli
+   :nested: full
