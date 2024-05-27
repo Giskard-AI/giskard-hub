@@ -1,4 +1,4 @@
-giskard_hub
+Client
 ======================
 
 
@@ -10,14 +10,8 @@ giskard_hub.client module
     :undoc-members:
     :show-inheritance:
 
-giskard_hub.data module
-.........................................
-
-.. automodule:: giskard_hub.data
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+CLI
+======================
 giskard_hub.cli module
 .........................................
 
@@ -26,6 +20,13 @@ giskard_hub.cli module
     :undoc-members:
     :show-inheritance:
 
-.. click:: giskard_hub.cli:typer_click_object
-   :prog: giskard_hub.cli
-   :nested: full
+Data structure
+======================
+giskard_hub.data module
+.........................................
+
+.. automodule:: giskard_hub.data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
