@@ -12,9 +12,9 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
   
-    <title>Index | Hub client  documentation</title>
-    <meta property="og:title" content="Index | Hub client  documentation" />
-    <meta name="twitter:title" content="Index | Hub client  documentation" />
+    <title>Index | Giskard Hub  documentation</title>
+    <meta property="og:title" content="Index | Giskard Hub  documentation" />
+    <meta name="twitter:title" content="Index | Giskard Hub  documentation" />
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8d216cef" />
       <link rel="stylesheet" type="text/css" href="_static/theme.css?v=8958d2b4" />
       <link rel="icon" href="_static/favicon.ico" />
@@ -42,7 +42,7 @@
     <div class="hidden mr-4 md:flex">
       <a href="index.html" class="flex items-center mr-6">
           <img width="24" height="24" class="mr-2 hidden dark:block" src="_static/logo_white.png" alt="Logo" />
-        <img width="24" height="24" class="mr-2 dark:hidden" src="_static/logo_black.png" alt="Logo" /><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Hub client  documentation</span>
+        <img width="24" height="24" class="mr-2 dark:hidden" src="_static/logo_black.png" alt="Logo" /><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard Hub  documentation</span>
       </a></div><button
       class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
       type="button" @click="showSidebar = true">
@@ -99,7 +99,7 @@
 
     <a href="index.html" class="!justify-start text-sm md:!hidden bg-background">
         <img width="16" height="16" class="mr-2 hidden dark:block" src="_static/logo_white.png" alt="Logo" />
-        <img width="16" height="16" class="mr-2 dark:hidden" src="_static/logo_black.png" alt="Logo" /><span class="font-bold text-clip whitespace-nowrap">Hub client  documentation</span>
+        <img width="16" height="16" class="mr-2 dark:hidden" src="_static/logo_black.png" alt="Logo" /><span class="font-bold text-clip whitespace-nowrap">Giskard Hub  documentation</span>
     </a>
 
     <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
@@ -108,9 +108,15 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Quick Start</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI docs</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Code</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sources.html">giskard_hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html#cli">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html#data-structure">Data structure</a></li>
 </ul>
 
 </nav>
@@ -131,7 +137,7 @@
      class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
   <a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground"
      href="index.html">
-    <span class="hidden md:inline">Hub client  documentation</span>
+    <span class="hidden md:inline">Giskard Hub  documentation</span>
     <svg xmlns="http://www.w3.org/2000/svg"
          height="18"
          width="18"
@@ -151,6 +157,128 @@
 <div id="content" role="main">
 
   <h1 id="index">Index</h1>
+  <h2 id="Symbols">Symbols</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li>
+    --api-key
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-api-key">python--m-giskard_hub.cli-datasets command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-api-key">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-api-key">python--m-giskard_hub.cli-models command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-api-key">python--m-giskard_hub.cli-projects command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-api-key">python--m-giskard_hub.cli-results command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-api-key">python--m-giskard_hub.cli-update-evaluations command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --dataset-id
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-dataset-id">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --evaluation-path
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-evaluation-path">python--m-giskard_hub.cli-update-evaluations command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --execution-id
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-execution-id">python--m-giskard_hub.cli-results command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --folder-path
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-folder-path">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --hub-url
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-hub-url">python--m-giskard_hub.cli-datasets command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-hub-url">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-hub-url">python--m-giskard_hub.cli-models command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-hub-url">python--m-giskard_hub.cli-projects command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-hub-url">python--m-giskard_hub.cli-results command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-hub-url">python--m-giskard_hub.cli-update-evaluations command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li>
+    --interval-time
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-interval-time">python--m-giskard_hub.cli-results command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --local-mode
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --max-interval
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-max-interval">python--m-giskard_hub.cli-results command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --model-id
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-model-id">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --no-local-mode
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --project-id
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-project-id">python--m-giskard_hub.cli-datasets command line option</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-project-id">python--m-giskard_hub.cli-models command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --tags
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-tags">python--m-giskard_hub.cli-evaluate command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  </tr>
+      </table>
+  
   <h2 id="C">C</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
@@ -393,8 +521,6 @@
         <li><a href="sources.html#giskard_hub.data.TransientEvaluation.policies">(giskard_hub.data.TransientEvaluation attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="sources.html#giskard_hub.data.Project">Project (class in giskard_hub.data)</a>
 </li>
       <li><a href="sources.html#giskard_hub.data.Dataset.project_id">project_id (giskard_hub.data.Dataset attribute)</a>
@@ -405,6 +531,86 @@
       </ul></li>
       <li><a href="sources.html#giskard_hub.cli.projects">projects() (in module giskard_hub.cli)</a>
 </li>
+      <li>
+    python--m-giskard_hub.cli-datasets command line option
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-api-key">--api-key</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-hub-url">--hub-url</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-project-id">--project-id</a>
+</li>
+      </ul></li>
+      <li>
+    python--m-giskard_hub.cli-evaluate command line option
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-api-key">--api-key</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-dataset-id">--dataset-id</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-folder-path">--folder-path</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-hub-url">--hub-url</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">--local-mode</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-model-id">--model-id</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">--no-local-mode</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-tags">--tags</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li>
+    python--m-giskard_hub.cli-models command line option
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-api-key">--api-key</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-hub-url">--hub-url</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-project-id">--project-id</a>
+</li>
+      </ul></li>
+      <li>
+    python--m-giskard_hub.cli-projects command line option
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-api-key">--api-key</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-hub-url">--hub-url</a>
+</li>
+      </ul></li>
+      <li>
+    python--m-giskard_hub.cli-results command line option
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-api-key">--api-key</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-execution-id">--execution-id</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-hub-url">--hub-url</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-interval-time">--interval-time</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-max-interval">--max-interval</a>
+</li>
+      </ul></li>
+      <li>
+    python--m-giskard_hub.cli-update-evaluations command line option
+
+      <ul style="list-style-type:none">
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-api-key">--api-key</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-evaluation-path">--evaluation-path</a>
+</li>
+        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-hub-url">--hub-url</a>
+</li>
+      </ul></li>
   </ul></td>
   </tr>
       </table>
@@ -487,7 +693,7 @@
 </div></div>
 <aside id="right-sidebar" class="hidden text-sm xl:block">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2">
-<a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#C">C</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#D">D</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#E">E</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#F">F</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#G">G</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#H">H</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#I">I</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#L">L</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#M">M</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#N">N</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#O">O</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#P">P</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#R">R</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#S">S</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#T">T</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#U">U</a>
+<a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#Symbols">Symbols</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#C">C</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#D">D</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#E">E</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#F">F</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#G">G</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#H">H</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#I">I</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#L">L</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#M">M</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#N">N</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#O">O</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#P">P</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#R">R</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#S">S</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#T">T</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#U">U</a>
 </div>
 </aside>
         </main>
