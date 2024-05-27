@@ -24,7 +24,7 @@ jobs:
           git config --global user.email 'bot.releaser@users.noreply.github.com'
 
       - name: Merge latest code
-        run: git merge refs/tags/v0.1.0
+        run: git merge refs/tags/${{ github.ref_name }}
 
       - name: Set up python
         id: setup-python
@@ -42,15 +42,14 @@ jobs:
           installer-parallel: true
 
       - name: Install deps
-        run: poetry install --sync
+        run: make setup
 
       - name: Build the docs
         run: make doc
 
       - name: Adding built docs
         run: |
-          git add ./docs
-          git fetch --quiet --tags
+          git add -f ./docs
           git commit -m "Docs for latest tag" --allow-empty
 
       - name: Push to docs
