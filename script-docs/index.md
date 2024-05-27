@@ -28,12 +28,13 @@ README
 ```{toctree}
 :caption: CLI
 :maxdepth: 3
+:hidden:
 ./cli
 ```
 
 
 ```{toctree}
-:caption: Code
+:caption: Code Documentation
 :maxdepth: 2
 :hidden:
 
