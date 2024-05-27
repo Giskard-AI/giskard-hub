@@ -19,9 +19,3 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-
-quick-doc:
-	rm -rf ./_build
-	make html
-	python3 -m http.server --directory ./_build/html/
-.PHONY: quick-doc
