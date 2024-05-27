@@ -7,9 +7,17 @@ from typing import List, Optional, Union
 
 import requests
 
-from giskard_hub.data import (Dataset, Evaluation, LLMMessage, Metric, Model,
-                              ModelOutput, Project, TestResult,
-                              TransientEvaluation)
+from giskard_hub.data import (
+    Dataset,
+    Evaluation,
+    LLMMessage,
+    Metric,
+    Model,
+    ModelOutput,
+    Project,
+    TestResult,
+    TransientEvaluation,
+)
 
 
 class HubClient:
@@ -17,7 +25,9 @@ class HubClient:
 
     # Note(Bazire): This is not async code, because it probably won't be used with async code.
 
-    def __init__(self, hub_url: str, api_key: Optional[str] = None) -> None:
+    def __init__(
+        self, hub_url: Optional[str] = None, api_key: Optional[str] = None
+    ) -> None:
         if hub_url is None:
             hub_url = os.getenv("GSK_HUB_URL")
         if hub_url is None:

@@ -118,7 +118,7 @@ def results(
         typer.Option(envvar="GSK_HUB_URL", help="Base url of Hub backend"),
     ] = None,
 ):
-    """Update a started evaluation, to provide agent output to the hub"""
+    """Wait for the results of an execution and output them"""
     client = HubClient(hub_url=hub_url, api_key=api_key)
     print(
         json.dumps(
@@ -196,5 +196,7 @@ def models(
     print(json.dumps([asdict(elt) for elt in client.get_models(project_id=project_id)]))
 
 
+typer_click_object = typer.main.get_group(app)
+
 if __name__ == "__main__":
-    app()
+    typer_click_object()
