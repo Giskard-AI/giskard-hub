@@ -7,17 +7,17 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Welcome | Hub client  documentation</title>
-<meta content="Welcome | Hub client  documentation" property="og:title"/>
-<meta content="Welcome | Hub client  documentation" name="twitter:title"/>
+<title>Quick Start | Hub client  documentation</title>
+<meta content="Quick Start | Hub client  documentation" property="og:title"/>
+<meta content="Quick Start | Hub client  documentation" name="twitter:title"/>
 <link href="_static/pygments.css?v=8d216cef" rel="stylesheet" type="text/css"/>
 <link href="_static/theme.css?v=8958d2b4" rel="stylesheet" type="text/css"/>
 <link href="_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
 <link href="_static/favicon.ico" rel="icon"/>
 <link href="search.html" rel="search" title="Search"/>
 <link href="genindex.html" rel="index" title="Index"/>
-<link href="examples/example.html" rel="next" title="&lt;no title&gt;"/>
-<link href="index.html" rel="prev" title="Welcome to Hub client’s documentation!"/>
+<link href="sources.html" rel="next" title="giskard_hub"/>
+<link href="index.html" rel="prev" title="Welcome to the Giskard Hub’s client docs!"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -76,7 +76,7 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Code</span></p>
 <ul>
@@ -100,13 +100,174 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Welcome</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Quick Start</span>
 </nav>
 <div id="content" role="main">
-<section id="welcome">
-<h1>Welcome<a class="headerlink" href="#welcome" title="Link to this heading">¶</a></h1>
+<section id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h1>
+<section id="evaluating-from-your-jupyter-notebook">
+<h2>Evaluating from your Jupyter notebook<a class="headerlink" href="#evaluating-from-your-jupyter-notebook" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#evaluating-from-your-jupyter-notebook'">¶</a></h2>
+<p>Start by initializing a client.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">giskard_hub.client</span> <span class="kn">import</span> <span class="n">HubClient</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="c1"># Note: API key and Hub URL can also be provided by setting env variables GSK_API_KEY and GSK_HUB_URL</span>
+</span><span id="line-4"><span class="n">client</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">(</span>
+</span><span id="line-5">    <span class="n">api_key</span><span class="o">=</span><span class="s2">"GSK_API_KEY"</span><span class="p">,</span>
+</span><span id="line-6">    <span class="n">hub_url</span><span class="o">=</span><span class="s2">"GSK_HUB_URL"</span><span class="p">,</span>
+</span><span id="line-7"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>Next, retrieve relevant objects from the server (project, model &amp; dataset).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">giskard_hub.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Project</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="n">project</span><span class="p">:</span> <span class="n">Project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_projects</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="line-4"><span class="n">model</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_models</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="line-5"><span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_datasets</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></code></pre></div>
+</div>
+<p>You can then launch an evaluation, which downloads the dataset to be sent to your LLM agent for completion.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</span><span id="line-2"><span class="kn">from</span> <span class="nn">giskard_hub.data</span> <span class="kn">import</span> <span class="n">Evaluation</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="c1"># This will contain the messages, expected outputs, policies, IDs, tags, notes, etc</span>
+</span><span id="line-5"><span class="n">to_complete</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Evaluation</span><span class="p">]</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+</span><span id="line-6">    <span class="n">model_id</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-7">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-8"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>You can then send this to your LLM agent for output completion.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Dummy LLM agent</span>
+</span><span id="line-2"><span class="k">def</span> <span class="nf">dummy_model</span><span class="p">(</span><span class="n">all_data</span><span class="p">:</span> <span class="n">Evaluation</span><span class="p">):</span>
+</span><span id="line-3">    <span class="c1"># Simulated call to an agent and updating the evaluation</span>
+</span><span id="line-4">    <span class="n">all_data</span><span class="o">.</span><span class="n">set_output</span><span class="p">(</span><span class="s2">"Sorry, I can't answer your question."</span><span class="p">)</span>
+</span><span id="line-5">    <span class="c1"># Alternatively, could be done like this</span>
+</span><span id="line-6">    <span class="c1"># all_data.output = ModelOutput(response=LLMMessage(role="assistant", content="Sorry, I can't answer your question."), metadata={})</span>
+</span><span id="line-7">
+</span><span id="line-8"><span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">to_complete</span><span class="p">:</span>
+</span><span id="line-9">    <span class="n">dummy_model</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>You can then push the completed elements to the Hub. This will start the evaluation process on the Hub.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">updates</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">update_evaluations</span><span class="p">(</span><span class="n">to_complete</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>Next, either head to the Hub to inspect the evaluation results in details, or get summarized results directly in your
+development environment.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Extract the execution_id</span>
+</span><span id="line-2"><span class="n">execution_id</span> <span class="o">=</span> <span class="n">to_complete</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">execution_id</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="c1"># Extract the results from the Hub</span>
+</span><span id="line-5"><span class="n">results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">execution_id</span><span class="o">=</span><span class="n">execution_id</span><span class="p">)</span>
+</span><span id="line-6"><span class="n">results</span>
+</span></code></pre></div>
+</div>
 </section>
-</div></div>
+<section id="evaluating-using-a-python-script">
+<h2>Evaluating using a Python script<a class="headerlink" href="#evaluating-using-a-python-script" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#evaluating-using-a-python-script'">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</span><span id="line-2"><span class="kn">from</span> <span class="nn">giskard_hub.client</span> <span class="kn">import</span> <span class="n">HubClient</span>
+</span><span id="line-3"><span class="kn">from</span> <span class="nn">giskard_hub.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Evaluation</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Project</span>
+</span><span id="line-4">
+</span><span id="line-5">
+</span><span id="line-6"><span class="c1"># Dummy LLM agent</span>
+</span><span id="line-7"><span class="k">def</span> <span class="nf">dummy_model</span><span class="p">(</span><span class="n">all_data</span><span class="p">:</span> <span class="n">Evaluation</span><span class="p">):</span>
+</span><span id="line-8">    <span class="c1"># Simulated call to an agent and updating the evaluation</span>
+</span><span id="line-9">    <span class="n">all_data</span><span class="o">.</span><span class="n">set_output</span><span class="p">(</span><span class="s2">"Sorry, I can't answer your question."</span><span class="p">)</span>
+</span><span id="line-10">    <span class="c1"># Alternatively, could be done like this</span>
+</span><span id="line-11">    <span class="c1"># all_data.output = ModelOutput(response=LLMMessage(role="assistant", content="Sorry, I can't answer your question."), metadata={})</span>
+</span><span id="line-12">
+</span><span id="line-13"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="line-14">    <span class="c1"># Note: API key and Hub URL can also be provided by setting env variables GSK_API_KEY and GSK_HUB_URL</span>
+</span><span id="line-15">    <span class="n">client</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">(</span>
+</span><span id="line-16">        <span class="n">api_key</span><span class="o">=</span><span class="s2">"GSK_API_KEY"</span><span class="p">,</span>
+</span><span id="line-17">        <span class="n">hub_url</span><span class="o">=</span><span class="s2">"GSK_HUB_URL"</span><span class="p">,</span>
+</span><span id="line-18">    <span class="p">)</span>
+</span><span id="line-19">    <span class="n">project</span><span class="p">:</span> <span class="n">Project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_projects</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="line-20">    <span class="n">model</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_models</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="line-21">    <span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_datasets</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="line-22">    <span class="n">to_complete</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Evaluation</span><span class="p">]</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+</span><span id="line-23">        <span class="n">model_id</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-24">        <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-25">    <span class="p">)</span>
+</span><span id="line-26">    <span class="n">execution_id</span> <span class="o">=</span> <span class="n">to_complete</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">execution_id</span>
+</span><span id="line-27">    <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">to_complete</span><span class="p">:</span>
+</span><span id="line-28">        <span class="n">dummy_model</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span>
+</span><span id="line-29">
+</span><span id="line-30">    <span class="n">updates</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">update_evaluations</span><span class="p">(</span><span class="n">to_complete</span><span class="p">)</span>
+</span><span id="line-31">
+</span><span id="line-32">    <span class="n">results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">execution_id</span><span class="o">=</span><span class="n">execution_id</span><span class="p">)</span>
+</span><span id="line-33">    <span class="nb">print</span><span class="p">(</span><span class="s2">"Got results"</span><span class="p">)</span>
+</span><span id="line-34">    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="evaluating-using-cli">
+<h2>Evaluating using CLI<a class="headerlink" href="#evaluating-using-cli" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#evaluating-using-cli'">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="ch">#!/bin/bash</span>
+</span><span id="line-2"><span class="nb">set</span><span class="w"> </span>-eu
+</span><span id="line-3"><span class="c1"># Set env variable to avoid giving this info everytime</span>
+</span><span id="line-4"><span class="nb">export</span><span class="w"> </span><span class="nv">GSK_API_KEY</span><span class="o">=</span>GSK_API_KEY
+</span><span id="line-5"><span class="nb">export</span><span class="w"> </span><span class="nv">GSK_HUB_URL</span><span class="o">=</span>GSK_HUB_URL
+</span><span id="line-6"><span class="nv">folder_path</span><span class="o">=</span>./test-folder
+</span><span id="line-7">
+</span><span id="line-8">rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$folder_path</span>
+</span><span id="line-9">mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$folder_path</span>
+</span><span id="line-10">
+</span><span id="line-11"><span class="nv">project_id</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>-m<span class="w"> </span>giskard_hub.cli<span class="w"> </span>projects<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>--raw-output<span class="w"> </span>.<span class="o">[</span><span class="m">0</span><span class="o">]</span>.id<span class="k">)</span>
+</span><span id="line-12"><span class="nv">model_id</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>-m<span class="w"> </span>giskard_hub.cli<span class="w"> </span>models<span class="w"> </span>--project-id<span class="w"> </span><span class="nv">$project_id</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>--raw-output<span class="w"> </span>.<span class="o">[</span><span class="m">0</span><span class="o">]</span>.id<span class="k">)</span>
+</span><span id="line-13"><span class="nv">dataset_id</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>-m<span class="w"> </span>giskard_hub.cli<span class="w"> </span>datasets<span class="w"> </span>--project-id<span class="w"> </span><span class="nv">$project_id</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>--raw-output<span class="w"> </span>.<span class="o">[</span><span class="m">0</span><span class="o">]</span>.id<span class="k">)</span>
+</span><span id="line-14">
+</span><span id="line-15">python<span class="w"> </span>-m<span class="w"> </span>giskard_hub.cli<span class="w"> </span>evaluate<span class="w"> </span>--folder-path<span class="w"> </span><span class="nv">$folder_path</span><span class="w"> </span>--dataset-id<span class="w"> </span><span class="nv">$dataset_id</span><span class="w"> </span>--model-id<span class="w"> </span><span class="nv">$model_id</span><span class="w"> </span>--local-mode
+</span><span id="line-16"><span class="nv">execution_id</span><span class="o">=</span><span class="k">$(</span>find<span class="w"> </span><span class="nv">$folder_path</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">".json</span>$<span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>jq<span class="w"> </span>--raw-output<span class="w"> </span>.execution_id<span class="w"> </span><span class="o">{}</span><span class="k">)</span>
+</span><span id="line-17">
+</span><span id="line-18"><span class="c1"># Following line is faking a dummy LLM agent changing data in the json</span>
+</span><span id="line-19">find<span class="w"> </span><span class="nv">$folder_path</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">".json</span>$<span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'s|"output": null|"output": "Sorry, I cant answer your question."|g'</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</span><span id="line-20">python<span class="w"> </span>-m<span class="w"> </span>giskard_hub.cli<span class="w"> </span>update-evaluations<span class="w"> </span>--evaluation-path<span class="w"> </span><span class="nv">$folder_path</span>
+</span><span id="line-21">
+</span><span id="line-22">python<span class="w"> </span>-m<span class="w"> </span>giskard_hub.cli<span class="w"> </span>results<span class="w"> </span>--execution-id<span class="w"> </span><span class="nv">$execution_id</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="evaluating-a-single-dataset-entry">
+<h2>Evaluating a single dataset entry<a class="headerlink" href="#evaluating-a-single-dataset-entry" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#evaluating-a-single-dataset-entry'">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="line-2">    <span class="c1"># Initialise client</span>
+</span><span id="line-3">    <span class="n">client</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">(</span>
+</span><span id="line-4">        <span class="n">api_key</span><span class="o">=</span><span class="s2">"2b437295-dabe-4084-ba03-cdb259e3e678"</span><span class="p">,</span>
+</span><span id="line-5">        <span class="n">hub_url</span><span class="o">=</span><span class="s2">"http://backend.llm.localhost/"</span><span class="p">,</span>
+</span><span id="line-6">    <span class="p">)</span>
+</span><span id="line-7">
+</span><span id="line-8">    <span class="n">results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">single_eval</span><span class="p">(</span>
+</span><span id="line-9">        <span class="n">TransientEvaluation</span><span class="p">(</span>
+</span><span id="line-10">            <span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="n">LLMMessage</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What color is an orange ?"</span><span class="p">)],</span>
+</span><span id="line-11">            <span class="n">model_output</span><span class="o">=</span><span class="n">ModelOutput</span><span class="p">(</span>
+</span><span id="line-12">                <span class="n">response</span><span class="o">=</span><span class="n">LLMMessage</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"An orange is green."</span><span class="p">)</span>
+</span><span id="line-13">            <span class="p">),</span>
+</span><span id="line-14">            <span class="n">model_description</span><span class="o">=</span><span class="s2">"You are an agent that give informations about fruits"</span><span class="p">,</span>
+</span><span id="line-15">            <span class="n">policies</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-16">                <span class="s2">"Agent must never say the word 'orange'"</span><span class="p">,</span>
+</span><span id="line-17">                <span class="s2">"Agent must be polite"</span><span class="p">,</span>
+</span><span id="line-18">            <span class="p">],</span>
+</span><span id="line-19">            <span class="n">expected_output</span><span class="o">=</span><span class="s2">"Orange."</span><span class="p">,</span>
+</span><span id="line-20">        <span class="p">)</span>
+</span><span id="line-21">    <span class="p">)</span>
+</span><span id="line-22">    <span class="nb">print</span><span class="p">(</span><span class="s2">"Got results"</span><span class="p">)</span>
+</span><span id="line-23">    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+</section>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#evaluating-from-your-jupyter-notebook'" class="reference internal" href="#evaluating-from-your-jupyter-notebook">Evaluating from your Jupyter notebook</a></li>
+<li><a :data-current="activeSection === '#evaluating-using-a-python-script'" class="reference internal" href="#evaluating-using-a-python-script">Evaluating using a Python script</a></li>
+<li><a :data-current="activeSection === '#evaluating-using-cli'" class="reference internal" href="#evaluating-using-cli">Evaluating using CLI</a></li>
+<li><a :data-current="activeSection === '#evaluating-a-single-dataset-entry'" class="reference internal" href="#evaluating-a-single-dataset-entry">Evaluating a single dataset entry</a></li>
+</ul>
+</div>
+</aside>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">
