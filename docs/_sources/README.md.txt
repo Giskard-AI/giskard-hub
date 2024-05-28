@@ -1,5 +1,13 @@
 # Quick Start
 
+## Install the library
+
+The library is compatible with Python 3.9 - 3.12.
+
+```bash
+pip install giskard-hub
+```
+
 ## Evaluating from your Jupyter notebook
 
 Start by initializing a client.
