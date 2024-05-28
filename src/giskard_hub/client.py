@@ -60,6 +60,7 @@ class HubClient:
         dataset_id: str,
         tags: Optional[List[str]] = None,
         local_mode: bool = True,
+        name: Optional[str] = None,
         use_file: bool = False,
         folder: Optional[Path] = None,
     ) -> Union[str, Path, List[Evaluation]]:
@@ -85,13 +86,16 @@ class HubClient:
             dest += "/async"
         # TODO(Bazire): use URL parse urllib
         print("Starting execution...")
+        params = {"model_id": model_id}
+        if name is not None:
+            params["name"] = name
         criteria = {"dataset_id": dataset_id}
         if tags is not None and len(tags) > 0:
             criteria["tags"] = tags
         data = self._request(
             "POST",
             dest,
-            params={"model_id": model_id},
+            params=params,
             json=[criteria],
         )
 
