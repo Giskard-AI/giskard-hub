@@ -33,6 +33,9 @@ extensions = [
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+pygments_style = "lovelace"
+# To generate the dark theme, run the following command:
+# pygmentize -S one-dark -f html -a .dark > _static/pygments-dark.css
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -44,6 +47,7 @@ html_theme_options = {
     "logo_light": "_static/logo_black.png",
     "logo_dark": "_static/logo_white.png",
 }
+html_css_files = ["pygments-dark.css"]
 html_favicon = "_static/favicon.ico"
 
 
