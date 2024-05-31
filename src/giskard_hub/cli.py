@@ -6,7 +6,7 @@ from typing import Annotated, Optional
 import typer
 
 from giskard_hub.client import HubClient
-from giskard_hub.data import Evaluation
+from giskard_hub.data._entity import Evaluation
 
 app = typer.Typer()
 
