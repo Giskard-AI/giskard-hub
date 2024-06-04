@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Dict, List, Self
 
-from ._base import BaseData
+from ._base import BaseData, maybe_to_dict
 from ._entity import Entity
 from .chat import ChatMessage
 
@@ -60,10 +60,7 @@ class Model(Entity):
         ModelOutput
             The model response.
         """
-        return self._client.post(
-            f"/models/{self.id}/chat",
-            json=[msg.to_dict() for msg in messages],
-            cast_to=ModelOutput,
+        return self._client.models.chat(
+            model_id=self.id,
+            messages=messages,
         )
-
-

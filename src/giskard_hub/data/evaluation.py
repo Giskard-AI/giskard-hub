@@ -1,20 +1,19 @@
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass, field
 from time import sleep
-import time
 from typing import Any, Dict, List
-
-from giskard_hub import Conversation
-
-from ._base import BaseData
-from ._entity import Entity
-from .dataset import Dataset
-from .model import Model, ModelOutput
-from .task import TaskProgress, TaskStatus
 
 from rich.console import Console
 from rich.table import Table
+
+from ._base import BaseData
+from ._entity import Entity
+from .conversation import Conversation
+from .dataset import Dataset
+from .model import Model, ModelOutput
+from .task import TaskProgress, TaskStatus
 
 
 @dataclass
