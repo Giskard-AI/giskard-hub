@@ -16,7 +16,7 @@ def _maybe_headers_to_list(headers: Dict[str, str] | None):
 
 
 class ModelsResource(APIResource):
-    def retrieve(self, model_id: str):
+    def retrieve(self, model_id: str) -> Model:
         return self._client.get(f"/models/{model_id}", cast_to=Model)
 
     def create(
@@ -28,7 +28,7 @@ class ModelsResource(APIResource):
         supported_languages: List[str],
         headers: Dict[str, str] = None,
         project_id: str,
-    ):
+    ) -> Model:
         data = filter_not_given(
             {
                 "name": name,
@@ -55,7 +55,7 @@ class ModelsResource(APIResource):
         supported_languages: List[str] = NOT_GIVEN,
         headers: Dict[str, str] = NOT_GIVEN,
         project_id: str = NOT_GIVEN,
-    ):
+    ) -> Model:
         data = filter_not_given(
             {
                 "name": name,
@@ -72,20 +72,20 @@ class ModelsResource(APIResource):
             cast_to=Model,
         )
 
-    def delete(self, model_id: str | List[str]):
+    def delete(self, model_id: str | List[str]) -> None:
         if isinstance(model_id, str):
             model_id = [model_id]
 
-        return self._client.delete("/models", json=model_id)
+        self._client.delete("/models", json=model_id)
 
-    def list(self, project_id: str):
+    def list(self, project_id: str) -> List[Model]:
         return self._client.get(
             "/models", params={"project_id": project_id}, cast_to=Model
         )
 
-    def chat(self, model_id: str, messages: List[ChatMessage]):
+    def chat(self, model_id: str, messages: List[ChatMessage]) -> ModelOutput:
         return self._client.post(
             f"/models/{model_id}/chat",
-            json={"messages": maybe_to_dict(messages)},
+            json={"messages": [maybe_to_dict(msg) for msg in messages]},
             cast_to=ModelOutput,
         )

@@ -11,7 +11,7 @@ class DatasetsResource(APIResource):
     def retrieve(self, dataset_id: str):
         return self._client.get(f"/datasets/{dataset_id}", cast_to=Dataset)
 
-    def create(self, *, name: str, description: str, project_id: str):
+    def create(self, *, name: str, description: str, project_id: str) -> Dataset:
         return self._client.post(
             "/datasets",
             json={
@@ -29,7 +29,7 @@ class DatasetsResource(APIResource):
         name: str = NOT_GIVEN,
         description: str = NOT_GIVEN,
         project_id: str = NOT_GIVEN,
-    ):
+    ) -> Dataset:
         data = filter_not_given(
             {"name": name, "description": description, "project_id": project_id}
         )
@@ -39,13 +39,13 @@ class DatasetsResource(APIResource):
             cast_to=Dataset,
         )
 
-    def delete(self, dataset_id: str | List[str]):
+    def delete(self, dataset_id: str | List[str]) -> None:
         if isinstance(dataset_id, str):
             dataset_id = [dataset_id]
 
-        return self._with_client(self._client.delete("/datasets", json=dataset_id))
+        self._client.delete("/datasets", json=dataset_id)
 
-    def list(self, project_id: str):
+    def list(self, project_id: str) -> List[Dataset]:
         return self._client.get(
             "/datasets", params={"project_id": project_id}, cast_to=Dataset
         )
