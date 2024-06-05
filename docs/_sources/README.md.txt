@@ -1,173 +1,198 @@
-# Quick Start
+# Giskard Hub Client Library
 
-## Install the library
+The Giskard Hub is a platform that centralizes the validation process of LLM
+applications, empowering product teams to ensure all functional, business &
+legal requirements are met, and keeping them in close contact with the
+development team to avoid delayed deployment timelines.
 
-The library is compatible with Python 3.9 - 3.12.
+The ``giskard_hub`` Python library provides a simple way for developers and data
+scientists to manage and evaluate LLM applications in their development workflow
+during the prototyping phase and for continuous integration testing.
 
-```bash
+Read the quick start guide to get up and running with the `giskard_hub` library.
+You will learn how execute local evaluations from a notebook, script or CLI, and
+synchronize them to the Giskard Hub platform.
+
+Access the full docs at: https://docs-hub.giskard.ai/
+
+## Install the client library
+
+The library is compatible with Python 3.9 to 3.12.
+
+``` bash
 pip install giskard-hub
 ```
 
-## Evaluating from your Jupyter notebook
+## Create a project and run an evaluation
 
-Start by initializing a client.
+You can now use the client to interact with the Hub. You will be able to
+control the Hub programmatically, independently of the UI. Let's start
+by initializing a client instance:
 
-```python
-from giskard_hub.client import HubClient
+``` python
+from giskard_hub import HubClient
 
-# Note: API key and Hub URL can also be provided by setting env variables GSK_API_KEY and GSK_HUB_URL
-client = HubClient(
-    api_key="GSK_API_KEY",
-    hub_url="GSK_HUB_URL",
+hub = HubClient()
+```
+
+You can provide the API key and Hub URL as arguments. Head over to your Giskard Hub instance and click on the user 
+icon in the top right corner. You will find your personal API key, click on the
+button to copy it.
+
+``` python
+hub = HubClient(
+    api_key="YOUR_GSK_API_KEY",
+    hub_url="THE_GSK_HUB_URL",
 )
 ```
 
+You can now use the `hub` client to control the LLM Hub! Let's start by
+creating a fresh project.
 
-Next, retrieve relevant objects from the server (project, model & dataset).
+### Create a project
 
-```python
-from giskard_hub.data import Dataset, Model, Project
-
-project: Project = client.get_projects()[0]
-model: Model = client.get_models(project.id)[0]
-dataset: Dataset = client.get_datasets(project.id)[0]
+``` python
+project = hub.projects.create(
+    name="My first project",
+    description="This is a test project to get started with the Giskard Hub client library",
+)
 ```
 
-You can then launch an evaluation, which downloads the dataset to be sent to your LLM agent for completion.
+That's it! You have created a project. You will now see it in the Hub UI
+project selector.
 
-```python
-from typing import List
-from giskard_hub.data import Evaluation
+**Tip**
 
-# This will contain the messages, expected outputs, policies, IDs, tags, notes, etc
-to_complete: List[Evaluation] = client.evaluate(
-    model_id=model.id,
+If you have an already existing project, you can easily retrieve it.
+Either use `hub.projects.list()` to get a list of all projects, or use
+`hub.projects.retrieve("YOUR_PROJECT_ID")` to get a specific project.
+
+
+### Import a dataset
+
+Let's now create a dataset and add a conversation example.
+
+``` python
+# Let's create a dataset
+dataset = hub.datasets.create(
+    project_id=project.id,
+    name="My first dataset",
+    description="This is a test dataset",
+)
+```
+
+We can now add a conversation example to the dataset. This will be used
+for the model evaluation.
+
+``` python
+# Add a conversation example
+hub.conversations.create(
     dataset_id=dataset.id,
+        messages=[
+        dict(role="user", content="What is the capital of France?"),
+        dict(role="assistant", content="Paris"),
+        dict(role="user", content="What is the capital of Germany?"),
+    ],
+    expected_output="Berlin",
+    demo_output=dict(role="assistant", content="I don't know that!"),
+    policies=[
+        "The agent should always provide short and concise answers.",
+    ],
 )
 ```
 
-You can then send this to your LLM agent for output completion.
+These are the attributes you can set for a conversation (the only
+required attribute is `messages`):
 
-```python
-# Dummy LLM agent
-def dummy_model(all_data: Evaluation):
-    # Simulated call to an agent and updating the evaluation
-    all_data.set_output("Sorry, I can't answer your question.")
-    # Alternatively, could be done like this
-    # all_data.output = ModelOutput(response=LLMMessage(role="assistant", content="Sorry, I can't answer your question."), metadata={})
+-   `messages`: A list of messages in the conversation. Each message is a dictionary with the following keys:  
+    -   `role`: The role of the message, either "user" or "assistant".
+    -   `content`: The content of the message.
 
-for elt in to_complete:
-    dummy_model(elt)
+-   `expected_output`: The expected output of the conversation. This is
+    used for evaluation.
+
+-   `policies`: A list of policies that the conversation should follow.
+    This is used for evaluation.
+
+-   `demo_output`: A demonstration of a (possibly wrong) output from the
+    model. This is just for demonstration purposes.
+
+You can add as many conversations as you want to the dataset.
+
+Again, you'll find your newly created dataset in the Hub UI.
+
+### Configure a model
+
+Before running our first evaluation, we'll need to set up a model.
+You'll need an API endpoint ready to serve the model. Then, you can
+configure the model API in the Hub:
+
+``` python
+model = hub.models.create(
+    project_id=project.id,
+    name="My Bot",
+    description="A chatbot for demo purposes",
+    url="https://my-model-endpoint.example.com/bot_v1",
+    supported_languages=["en", "fr"],
+    # if your model endpoint needs special headers:
+    headers={"X-API-Key": "MY_TOKEN"},
+)
 ```
 
-You can then push the completed elements to the Hub. This will start the evaluation process on the Hub.
+We can test that everything is working well by running a chat with the
+model:
 
-```python
-updates = client.update_evaluations(to_complete)
+``` python
+response = model.chat(
+    messages=[
+        dict(role="user", content="What is the capital of France?"),
+        dict(role="assistant", content="Paris"),
+        dict(role="user", content="What is the capital of Germany?"),
+    ],
+)
+
+print(response)
 ```
 
-Next, either head to the Hub to inspect the evaluation results in details, or get summarized results directly in your
-development environment.
+If all is working well, this will return something like
 
-```python
-# Extract the execution_id
-execution_id = to_complete[0].execution_id
-
-# Extract the results from the Hub
-results = client.get_results(execution_id=execution_id)
-results
+``` python
+ModelOutput(
+    message=ChatMessage(
+        role='assistant',
+        content='The capital of Germany is Berlin.'
+    ),
+    metadata={}
+)
 ```
 
-## Evaluating using a Python script
+### Run a remote evaluation
 
-```python
-from typing import List
-from giskard_hub.client import HubClient
-from giskard_hub.data import Dataset, Evaluation, Model, Project
+We can now lunch a remote evaluation of our model!
 
-
-# Dummy LLM agent
-def dummy_model(all_data: Evaluation):
-    # Simulated call to an agent and updating the evaluation
-    all_data.set_output("Sorry, I can't answer your question.")
-    # Alternatively, could be done like this
-    # all_data.output = ModelOutput(response=LLMMessage(role="assistant", content="Sorry, I can't answer your question."), metadata={})
-
-if __name__ == "__main__":
-    # Note: API key and Hub URL can also be provided by setting env variables GSK_API_KEY and GSK_HUB_URL
-    client = HubClient(
-        api_key="GSK_API_KEY",
-        hub_url="GSK_HUB_URL",
-    )
-    project: Project = client.get_projects()[0]
-    model: Model = client.get_models(project.id)[0]
-    dataset: Dataset = client.get_datasets(project.id)[0]
-    to_complete: List[Evaluation] = client.evaluate(
-        model_id=model.id,
-        dataset_id=dataset.id,
-    )
-    execution_id = to_complete[0].execution_id
-    for elt in to_complete:
-        dummy_model(elt)
-
-    updates = client.update_evaluations(to_complete)
-
-    results = client.get_results(execution_id=execution_id)
-    print("Got results")
-    print(results)
+``` python
+eval_run = client.evaluate(
+    model=model,
+    dataset=dataset,
+    name="test-run",  # optional
+)
 ```
 
-## Evaluating using CLI
+The evaluation will run asynchronously on the Hub. To retrieve the
+results once the run is complete, you can use the following:
 
-```bash
-#!/bin/bash
-set -eu
-# Set env variable to avoid giving this info everytime
-export GSK_API_KEY=GSK_API_KEY
-export GSK_HUB_URL=GSK_HUB_URL
-folder_path=./test-folder
+``` python
 
-rm -rf $folder_path
-mkdir -p $folder_path
+# This will block until the evaluation status is "finished"
+eval_run.wait_for_completion()
 
-project_id=$(python -m giskard_hub.cli projects | jq --raw-output .[0].id)
-model_id=$(python -m giskard_hub.cli models --project-id $project_id | jq --raw-output .[0].id)
-dataset_id=$(python -m giskard_hub.cli datasets --project-id $project_id | jq --raw-output .[0].id)
-
-python -m giskard_hub.cli evaluate --folder-path $folder_path --dataset-id $dataset_id --model-id $model_id --local-mode
-execution_id=$(find $folder_path -type f | grep ".json$" | head -n1 | xargs -I {} jq --raw-output .execution_id {})
-
-# Following line is faking a dummy LLM agent changing data in the json
-find $folder_path -type f | grep ".json$" | xargs -I {} sed -i 's|"output": null|"output": "Sorry, I cant answer your question."|g' {} | sh
-python -m giskard_hub.cli update-evaluations --evaluation-path $folder_path
-
-python -m giskard_hub.cli results --execution-id $execution_id
+# Print the evaluation metrics
+eval_run.print_metrics()
 ```
 
-## Evaluating a single dataset entry
 
-```python
-if __name__ == "__main__":
-    # Initialise client
-    client = HubClient(
-        api_key="2b437295-dabe-4084-ba03-cdb259e3e678",
-        hub_url="http://backend.llm.localhost/",
-    )
+**Tip**
 
-    results = client.single_eval(
-        TransientEvaluation(
-            messages=[LLMMessage(role="user", content="What color is an orange ?")],
-            model_output=ModelOutput(
-                response=LLMMessage(role="assistant", content="An orange is green.")
-            ),
-            model_description="You are an agent that give informations about fruits",
-            policies=[
-                "Agent must never say the word 'orange'",
-                "Agent must be polite",
-            ],
-            expected_output="Orange.",
-        )
-    )
-    print("Got results")
-    print(results)
-```
+You can directly pass IDs to the evaluate function, e.g.
+`model=model_id` and `dataset=dataset_id`, without having to retrieve
+the objects first.
