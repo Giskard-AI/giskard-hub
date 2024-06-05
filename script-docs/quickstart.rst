@@ -208,12 +208,21 @@ We can now lunch a remote evaluation of our model!
         name="test-run",  # optional
     )
 
-The evaluation will run asynchronously on the Hub. To retrieve the results once
-the run is complete, you can use the following:
-    
+The evaluation will run asynchronously on the Hub. For this reason, the
+:class:`giskard_hub.dat.EvaluationRun` object returned by the ``evaluate``
+method may miss some attributes (e.g. ``eval_run.metrics`` may be empty) until
+the evaluation is complete.
+
+To wait until the evaluation run has finished running, you can use:
+
 .. code-block:: python
 
     eval_run.wait_for_completion()
+
+
+Once ready, you can print the evaluation metrics:
+    
+.. code-block:: python
 
     eval_run.print_metrics()
 

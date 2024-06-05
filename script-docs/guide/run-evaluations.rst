@@ -84,12 +84,30 @@ We can now launch the evaluation run:
     )
 
 
-The evaluation run will be queued and processed by the Hub. You can wait for
-its completion with the following code:
+The evaluation run will be queued and processed by the Hub. The ``evalute``
+method will immediately return an :class:`~giskard_hub.data.EvaluationRun` object
+while the evaluation is running. Note however that this object will not contain
+the evaluation results until the evaluation is completed.
+
+You can wait until the evaluation run has finished running with the 
+``wait_for_completion`` method:
 
 .. code-block:: python
 
-    eval_run.wait_for_completion()
+    eval_run.wait_for_completion(
+        # optionally, specify a timeout in seconds (10 min by default)
+        timeout=600
+    )
+
+
+This will block until the evaluation is completed and update the ``eval_run``
+object in-place. The method will wait for up to 10 minutes for the
+evaluation to complete. If the evaluation takes longer, the method will raise a
+``TimeoutError``.
+
+Then, you can print the results:
+
+.. code-block:: python
 
     # Let's print the evaluation results
     eval_run.print_metrics()
@@ -103,7 +121,7 @@ its completion with the following code:
 Once the evaluation is completed, may want to compare the results with some
 thresholds to decide whether to promote the model to production or not.
 
-You can retrieve the metrics from `eval_run.metrics`: this will contain a list
+You can retrieve the metrics from ``eval_run.metrics``: this will contain a list
 of :class:`~giskard_hub.data.Metric` objects.
 
 For example:

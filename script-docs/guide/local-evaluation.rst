@@ -107,11 +107,14 @@ We can now launch the evaluation run:
 
 
 The evaluation run will be queued and processed by the Hub. As usual, wait for
-its completion and print the results:
+the evaluation run to complete and then print the results:
 
 .. code-block:: python
 
+    # This will block until the evaluation is completed
     eval_run.wait_for_completion()
+
+    # Print the metrics
     eval_run.print_metrics()
 
 
