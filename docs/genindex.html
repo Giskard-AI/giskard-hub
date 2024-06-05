@@ -15,8 +15,12 @@
     <title>Index | Giskard Hub  documentation</title>
     <meta property="og:title" content="Index | Giskard Hub  documentation" />
     <meta name="twitter:title" content="Index | Giskard Hub  documentation" />
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8d216cef" />
-      <link rel="stylesheet" type="text/css" href="_static/theme.css?v=8958d2b4" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d8449d71" />
+      <link rel="stylesheet" type="text/css" href="_static/theme.css?v=ecdfb4fc" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments-dark.css?v=d7994ac5" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d7beac4d" />
+      <link rel="stylesheet" type="text/css" href="_static/awesome-sphinx-design.css?v=a54cf077" />
       <link rel="icon" href="_static/favicon.ico" />
         <link rel="search" title="Search" href="search.html" />
         <link rel="index" title="Index" href="#" />
@@ -106,17 +110,22 @@
       <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
   <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<p class="caption" role="heading"><span class="caption-text">User's Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/manage-datasets.html">Managing datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/run-evaluations.html">Run evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/local-evaluation.html">Evaluate local models</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Code Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Developer Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sources.html">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources.html#cli">CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources.html#data-structure">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Python API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/client.html">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/entities/index.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/resources/index.html">Resources</a></li>
+</ul>
+</li>
 </ul>
 
 </nav>
@@ -157,149 +166,50 @@
 <div id="content" role="main">
 
   <h1 id="index">Index</h1>
-  <h2 id="Symbols">Symbols</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li>
-    --api-key
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-api-key">python--m-giskard_hub.cli-datasets command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-api-key">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-api-key">python--m-giskard_hub.cli-models command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-api-key">python--m-giskard_hub.cli-projects command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-api-key">python--m-giskard_hub.cli-results command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-api-key">python--m-giskard_hub.cli-update-evaluations command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --dataset-id
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-dataset-id">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --evaluation-path
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-evaluation-path">python--m-giskard_hub.cli-update-evaluations command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --execution-id
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-execution-id">python--m-giskard_hub.cli-results command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --folder-path
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-folder-path">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --hub-url
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-hub-url">python--m-giskard_hub.cli-datasets command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-hub-url">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-hub-url">python--m-giskard_hub.cli-models command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-hub-url">python--m-giskard_hub.cli-projects command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-hub-url">python--m-giskard_hub.cli-results command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-hub-url">python--m-giskard_hub.cli-update-evaluations command line option</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li>
-    --interval-time
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-interval-time">python--m-giskard_hub.cli-results command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --local-mode
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --max-interval
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-max-interval">python--m-giskard_hub.cli-results command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --model-id
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-model-id">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --no-local-mode
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --project-id
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-project-id">python--m-giskard_hub.cli-datasets command line option</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-project-id">python--m-giskard_hub.cli-models command line option</a>
-</li>
-      </ul></li>
-      <li>
-    --tags
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-tags">python--m-giskard_hub.cli-evaluate command line option</a>
-</li>
-      </ul></li>
-  </ul></td>
-  </tr>
-      </table>
-  
-  <h2 id="B">B</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.BaseDataclass">BaseDataclass (class in giskard_hub.data)</a>
-</li>
-  </ul></td>
-  </tr>
-      </table>
-  
   <h2 id="C">C</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.LLMMessage.content">content (giskard_hub.data.LLMMessage attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Model.chat">chat() (giskard_hub.data.Model method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource.chat">(giskard_hub.resources.ModelsResource method)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Conversation">Conversation (class in giskard_hub.data)</a>
+      </ul></li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.ChatMessage">ChatMessage (class in giskard_hub.data)</a>
 </li>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient.close">close() (giskard_hub.client.SyncClient method)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.ChatMessage.content">content (giskard_hub.data.ChatMessage attribute)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation">Conversation (class in giskard_hub.data)</a>
+</li>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient.conversations">conversations (giskard_hub.client.HubClient attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/entities/index.html#giskard_hub.data.Dataset.conversations">(giskard_hub.data.Dataset property)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Evaluation.conversation">conversation (giskard_hub.data.Evaluation attribute)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ConversationsResource">ConversationsResource (class in giskard_hub.resources)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Entity.created_at">created_at (giskard_hub.data.Entity attribute)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ConversationsResource.create">create() (giskard_hub.resources.ConversationsResource method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/resources/index.html#giskard_hub.resources.DatasetsResource.create">(giskard_hub.resources.DatasetsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.create">(giskard_hub.resources.EvaluationsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource.create">(giskard_hub.resources.ModelsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ProjectsResource.create">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Dataset.create_conversation">create_conversation() (giskard_hub.data.Dataset method)</a>
+</li>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.create_local">create_local() (giskard_hub.resources.EvaluationsResource method)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.criteria">criteria (giskard_hub.data.EvaluationRun attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -308,20 +218,40 @@
   <h2 id="D">D</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Dataset">Dataset (class in giskard_hub.data)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Dataset">Dataset (class in giskard_hub.data)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.cli.datasets">datasets() (in module giskard_hub.cli)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.data.Conversation.demo_output">demo_output (giskard_hub.data.Conversation attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Dataset.description">description (giskard_hub.data.Dataset attribute)</a>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient.datasets">datasets (giskard_hub.client.HubClient attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.Model.description">(giskard_hub.data.Model attribute)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.datasets">(giskard_hub.data.EvaluationRun attribute)</a>
 </li>
-        <li><a href="sources.html#giskard_hub.data.Project.description">(giskard_hub.data.Project attribute)</a>
+      </ul></li>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.DatasetsResource">DatasetsResource (class in giskard_hub.resources)</a>
+</li>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient.delete">delete() (giskard_hub.client.SyncClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ConversationsResource.delete">(giskard_hub.resources.ConversationsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.DatasetsResource.delete">(giskard_hub.resources.DatasetsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.delete">(giskard_hub.resources.EvaluationsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource.delete">(giskard_hub.resources.ModelsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ProjectsResource.delete">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation.demo_output">demo_output (giskard_hub.data.Conversation attribute)</a>, <a href="reference/entities/index.html#id0">[1]</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Dataset.description">description (giskard_hub.data.Dataset attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/entities/index.html#giskard_hub.data.Model.description">(giskard_hub.data.Model attribute)</a>
+</li>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Project.description">(giskard_hub.data.Project attribute)</a>, <a href="reference/entities/index.html#id12">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -331,34 +261,20 @@
   <h2 id="E">E</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Entity">Entity (class in giskard_hub.data)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric.errored">errored (giskard_hub.data.Metric attribute)</a>, <a href="reference/entities/index.html#id5">[1]</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Evaluation.error">error (giskard_hub.data.Evaluation attribute)</a>
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.TestResult.error">(giskard_hub.data.TestResult attribute)</a>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient.evals">evals (giskard_hub.client.HubClient attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="sources.html#giskard_hub.data.Metric.errored">errored (giskard_hub.data.Metric attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun">EvaluationRun (class in giskard_hub.data)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.client.HubClient.evaluate">evaluate() (giskard_hub.client.HubClient method)</a>
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.cli.evaluate">(in module giskard_hub.cli)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Evaluation">Evaluation (class in giskard_hub.data)</a>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient.evaluations">evaluations (giskard_hub.client.HubClient attribute)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Evaluation.execution_id">execution_id (giskard_hub.data.Evaluation attribute)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource">EvaluationsResource (class in giskard_hub.resources)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Conversation.expected_output">expected_output (giskard_hub.data.Conversation attribute)</a>
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.TransientEvaluation.expected_output">(giskard_hub.data.TransientEvaluation attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation.expected_output">expected_output (giskard_hub.data.Conversation attribute)</a>, <a href="reference/entities/index.html#id1">[1]</a>
 </li>
-      </ul></li>
   </ul></td>
   </tr>
       </table>
@@ -366,18 +282,16 @@
   <h2 id="F">F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Metric.failed">failed (giskard_hub.data.Metric attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric.failed">failed (giskard_hub.data.Metric attribute)</a>, <a href="reference/entities/index.html#id6">[1]</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.BaseDataclass.from_dict">from_dict() (giskard_hub.data.BaseDataclass class method)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation.from_dict">from_dict() (giskard_hub.data.Conversation class method)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.Conversation.from_dict">(giskard_hub.data.Conversation class method)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.from_dict">(giskard_hub.data.EvaluationRun class method)</a>
 </li>
-        <li><a href="sources.html#giskard_hub.data.Evaluation.from_dict">(giskard_hub.data.Evaluation class method)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Model.from_dict">(giskard_hub.data.Model class method)</a>
 </li>
-        <li><a href="sources.html#giskard_hub.data.ModelOutput.from_dict">(giskard_hub.data.ModelOutput class method)</a>
-</li>
-        <li><a href="sources.html#giskard_hub.data.TransientEvaluation.from_dict">(giskard_hub.data.TransientEvaluation class method)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.ModelOutput.from_dict">(giskard_hub.data.ModelOutput class method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -387,35 +301,22 @@
   <h2 id="G">G</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.client.HubClient.get_datasets">get_datasets() (giskard_hub.client.HubClient method)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.client.HubClient.get_models">get_models() (giskard_hub.client.HubClient method)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.client.HubClient.get_projects">get_projects() (giskard_hub.client.HubClient method)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.client.HubClient.get_results">get_results() (giskard_hub.client.HubClient method)</a>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient.get">get() (giskard_hub.client.SyncClient method)</a>
 </li>
       <li>
-    giskard_hub.cli
+    giskard_hub.data
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#module-giskard_hub.cli">module</a>
+        <li><a href="reference/entities/index.html#module-giskard_hub.data">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li>
-    giskard_hub.client
+    giskard_hub.resources
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#module-giskard_hub.client">module</a>
-</li>
-      </ul></li>
-      <li>
-    giskard_hub.data
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#module-giskard_hub.data">module</a>
+        <li><a href="reference/resources/index.html#module-giskard_hub.resources">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -425,11 +326,11 @@
   <h2 id="H">H</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Model.headers">headers (giskard_hub.data.Model attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Model.headers">headers (giskard_hub.data.Model attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.client.HubClient">HubClient (class in giskard_hub.client)</a>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient">HubClient (class in giskard_hub.client)</a>
 </li>
   </ul></td>
   </tr>
@@ -438,7 +339,13 @@
   <h2 id="I">I</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Entity.id">id (giskard_hub.data.Entity attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.is_errored">is_errored() (giskard_hub.data.EvaluationRun method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.is_finished">is_finished() (giskard_hub.data.EvaluationRun method)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.is_running">is_running() (giskard_hub.data.EvaluationRun method)</a>
 </li>
   </ul></td>
   </tr>
@@ -447,7 +354,21 @@
   <h2 id="L">L</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.LLMMessage">LLMMessage (class in giskard_hub.data)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ConversationsResource.list">list() (giskard_hub.resources.ConversationsResource method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/resources/index.html#giskard_hub.resources.DatasetsResource.list">(giskard_hub.resources.DatasetsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.list">(giskard_hub.resources.EvaluationsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource.list">(giskard_hub.resources.ModelsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ProjectsResource.list">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.list_entries">list_entries() (giskard_hub.resources.EvaluationsResource method)</a>
 </li>
   </ul></td>
   </tr>
@@ -456,37 +377,35 @@
   <h2 id="M">M</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Conversation.messages">messages (giskard_hub.data.Conversation attribute)</a>
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.TransientEvaluation.messages">(giskard_hub.data.TransientEvaluation attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.ModelOutput.message">message (giskard_hub.data.ModelOutput attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="sources.html#giskard_hub.data.ModelOutput.metadata">metadata (giskard_hub.data.ModelOutput attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation.messages">messages (giskard_hub.data.Conversation attribute)</a>, <a href="reference/entities/index.html#id2">[1]</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Metric">Metric (class in giskard_hub.data)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.ModelOutput.metadata">metadata (giskard_hub.data.ModelOutput attribute)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Model">Model (class in giskard_hub.data)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric">Metric (class in giskard_hub.data)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.TransientEvaluation.model_description">model_description (giskard_hub.data.TransientEvaluation attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.metrics">metrics (giskard_hub.data.EvaluationRun attribute)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Model">Model (class in giskard_hub.data)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.TransientEvaluation.model_output">model_output (giskard_hub.data.TransientEvaluation attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.model">model (giskard_hub.data.EvaluationRun attribute)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.ModelOutput">ModelOutput (class in giskard_hub.data)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.ModelOutput">ModelOutput (class in giskard_hub.data)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.cli.models">models() (in module giskard_hub.cli)</a>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient.models">models (giskard_hub.client.HubClient attribute)</a>
+</li>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource">ModelsResource (class in giskard_hub.resources)</a>
 </li>
       <li>
     module
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#module-giskard_hub.cli">giskard_hub.cli</a>
+        <li><a href="reference/entities/index.html#module-giskard_hub.data">giskard_hub.data</a>
 </li>
-        <li><a href="sources.html#module-giskard_hub.client">giskard_hub.client</a>
-</li>
-        <li><a href="sources.html#module-giskard_hub.data">giskard_hub.data</a>
+        <li><a href="reference/resources/index.html#module-giskard_hub.resources">giskard_hub.resources</a>
 </li>
       </ul></li>
   </ul></td>
@@ -496,27 +415,18 @@
   <h2 id="N">N</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Dataset.name">name (giskard_hub.data.Dataset attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Dataset.name">name (giskard_hub.data.Dataset attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.Metric.name">(giskard_hub.data.Metric attribute)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.name">(giskard_hub.data.EvaluationRun attribute)</a>
 </li>
-        <li><a href="sources.html#giskard_hub.data.Model.name">(giskard_hub.data.Model attribute)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Metric.name">(giskard_hub.data.Metric attribute)</a>, <a href="reference/entities/index.html#id7">[1]</a>
 </li>
-        <li><a href="sources.html#giskard_hub.data.Project.name">(giskard_hub.data.Project attribute)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Model.name">(giskard_hub.data.Model attribute)</a>
 </li>
-        <li><a href="sources.html#giskard_hub.data.TestResult.name">(giskard_hub.data.TestResult attribute)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Project.name">(giskard_hub.data.Project attribute)</a>, <a href="reference/entities/index.html#id13">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  </tr>
-      </table>
-  
-  <h2 id="O">O</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Evaluation.output">output (giskard_hub.data.Evaluation attribute)</a>
-</li>
   </ul></td>
   </tr>
       </table>
@@ -524,108 +434,42 @@
   <h2 id="P">P</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Metric.passed">passed (giskard_hub.data.Metric attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric.passed">passed (giskard_hub.data.Metric attribute)</a>, <a href="reference/entities/index.html#id8">[1]</a>
+</li>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient.patch">patch() (giskard_hub.client.SyncClient method)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric.percentage">percentage (giskard_hub.data.Metric attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.TestResult.passed">(giskard_hub.data.TestResult attribute)</a>
+        <li><a href="reference/entities/index.html#id9">(giskard_hub.data.Metric property)</a>
 </li>
       </ul></li>
-      <li><a href="sources.html#giskard_hub.data.Conversation.policies">policies (giskard_hub.data.Conversation attribute)</a>
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.TransientEvaluation.policies">(giskard_hub.data.TransientEvaluation attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation.policies">policies (giskard_hub.data.Conversation attribute)</a>, <a href="reference/entities/index.html#id3">[1]</a>
 </li>
-      </ul></li>
-      <li><a href="sources.html#giskard_hub.data.Project">Project (class in giskard_hub.data)</a>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient.post">post() (giskard_hub.client.SyncClient method)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Dataset.project_id">project_id (giskard_hub.data.Dataset attribute)</a>
-
-      <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.Model.project_id">(giskard_hub.data.Model attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.print_metrics">print_metrics() (giskard_hub.data.EvaluationRun method)</a>
 </li>
-      </ul></li>
-      <li><a href="sources.html#giskard_hub.cli.projects">projects() (in module giskard_hub.cli)</a>
-</li>
-      <li>
-    python--m-giskard_hub.cli-datasets command line option
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-api-key">--api-key</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-hub-url">--hub-url</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-datasets-project-id">--project-id</a>
-</li>
-      </ul></li>
-      <li>
-    python--m-giskard_hub.cli-evaluate command line option
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-api-key">--api-key</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-dataset-id">--dataset-id</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-folder-path">--folder-path</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-hub-url">--hub-url</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">--local-mode</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-model-id">--model-id</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-local-mode">--no-local-mode</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-evaluate-tags">--tags</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li>
-    python--m-giskard_hub.cli-models command line option
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.progress">progress (giskard_hub.data.EvaluationRun attribute)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Project">Project (class in giskard_hub.data)</a>
+</li>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Dataset.project_id">project_id (giskard_hub.data.Dataset attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-api-key">--api-key</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.project_id">(giskard_hub.data.EvaluationRun attribute)</a>
 </li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-hub-url">--hub-url</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-models-project-id">--project-id</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Model.project_id">(giskard_hub.data.Model attribute)</a>
 </li>
       </ul></li>
-      <li>
-    python--m-giskard_hub.cli-projects command line option
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-api-key">--api-key</a>
+      <li><a href="reference/client.html#giskard_hub.client.HubClient.projects">projects (giskard_hub.client.HubClient attribute)</a>
 </li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-projects-hub-url">--hub-url</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ProjectsResource">ProjectsResource (class in giskard_hub.resources)</a>
 </li>
-      </ul></li>
-      <li>
-    python--m-giskard_hub.cli-results command line option
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-api-key">--api-key</a>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient.put">put() (giskard_hub.client.SyncClient method)</a>
 </li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-execution-id">--execution-id</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-hub-url">--hub-url</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-interval-time">--interval-time</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-results-max-interval">--max-interval</a>
-</li>
-      </ul></li>
-      <li>
-    python--m-giskard_hub.cli-update-evaluations command line option
-
-      <ul style="list-style-type:none">
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-api-key">--api-key</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-evaluation-path">--evaluation-path</a>
-</li>
-        <li><a href="cli.html#cmdoption-python-m-giskard_hub.cli-update-evaluations-hub-url">--hub-url</a>
-</li>
-      </ul></li>
   </ul></td>
   </tr>
       </table>
@@ -633,15 +477,23 @@
   <h2 id="R">R</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.TestResult.reason">reason (giskard_hub.data.TestResult attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.refresh">refresh() (giskard_hub.data.EvaluationRun method)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.ModelOutput.response">response (giskard_hub.data.ModelOutput attribute)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ConversationsResource.retrieve">retrieve() (giskard_hub.resources.ConversationsResource method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/resources/index.html#giskard_hub.resources.DatasetsResource.retrieve">(giskard_hub.resources.DatasetsResource method)</a>
 </li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.retrieve">(giskard_hub.resources.EvaluationsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource.retrieve">(giskard_hub.resources.ModelsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ProjectsResource.retrieve">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.cli.results">results() (in module giskard_hub.cli)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.data.LLMMessage.role">role (giskard_hub.data.LLMMessage attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.ChatMessage.role">role (giskard_hub.data.ChatMessage attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -650,13 +502,17 @@
   <h2 id="S">S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Evaluation.set_output">set_output() (giskard_hub.data.Evaluation method)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric.skipped">skipped (giskard_hub.data.Metric attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/entities/index.html#id10">(giskard_hub.data.Metric property)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.client.HubClient.single_eval">single_eval() (giskard_hub.client.HubClient method)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Model.supported_languages">supported_languages (giskard_hub.data.Model attribute)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Model.supported_languages">supported_languages (giskard_hub.data.Model attribute)</a>
+      <li><a href="reference/client.html#giskard_hub.client.SyncClient">SyncClient (class in giskard_hub.client)</a>
 </li>
   </ul></td>
   </tr>
@@ -665,19 +521,15 @@
   <h2 id="T">T</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Conversation.tags">tags (giskard_hub.data.Conversation attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Conversation.tags">tags (giskard_hub.data.Conversation attribute)</a>, <a href="reference/entities/index.html#id4">[1]</a>
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.data.Dataset.tags">(giskard_hub.data.Dataset attribute)</a>
+        <li><a href="reference/entities/index.html#giskard_hub.data.Dataset.tags">(giskard_hub.data.Dataset attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.TestResult">TestResult (class in giskard_hub.data)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.data.Metric.total">total (giskard_hub.data.Metric attribute)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.data.TransientEvaluation">TransientEvaluation (class in giskard_hub.data)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Metric.total">total (giskard_hub.data.Metric attribute)</a>, <a href="reference/entities/index.html#id11">[1]</a>
 </li>
   </ul></td>
   </tr>
@@ -686,29 +538,41 @@
   <h2 id="U">U</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.client.HubClient.update_evaluation">update_evaluation() (giskard_hub.client.HubClient method)</a>
-</li>
-      <li><a href="sources.html#giskard_hub.client.HubClient.update_evaluations">update_evaluations() (giskard_hub.client.HubClient method)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.ConversationsResource.update">update() (giskard_hub.resources.ConversationsResource method)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="sources.html#giskard_hub.cli.update_evaluations">(in module giskard_hub.cli)</a>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.DatasetsResource.update">(giskard_hub.resources.DatasetsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ModelsResource.update">(giskard_hub.resources.ModelsResource method)</a>
+</li>
+        <li><a href="reference/resources/index.html#giskard_hub.resources.ProjectsResource.update">(giskard_hub.resources.ProjectsResource method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="sources.html#giskard_hub.data.Entity.updated_at">updated_at (giskard_hub.data.Entity attribute)</a>
+      <li><a href="reference/resources/index.html#giskard_hub.resources.EvaluationsResource.update_entry">update_entry() (giskard_hub.resources.EvaluationsResource method)</a>
 </li>
-      <li><a href="sources.html#giskard_hub.data.Model.url">url (giskard_hub.data.Model attribute)</a>
+      <li><a href="reference/entities/index.html#giskard_hub.data.Model.url">url (giskard_hub.data.Model attribute)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="W">W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/entities/index.html#giskard_hub.data.EvaluationRun.wait_for_completion">wait_for_completion() (giskard_hub.data.EvaluationRun method)</a>
 </li>
   </ul></td>
   </tr>
       </table>
   
 
+</div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 </div></div>
 <aside id="right-sidebar" class="hidden text-sm xl:block">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2">
-<a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#Symbols">Symbols</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#B">B</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#C">C</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#D">D</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#E">E</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#F">F</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#G">G</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#H">H</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#I">I</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#L">L</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#M">M</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#N">N</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#O">O</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#P">P</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#R">R</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#S">S</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#T">T</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#U">U</a>
+<a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#C">C</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#D">D</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#E">E</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#F">F</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#G">G</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#H">H</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#I">I</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#L">L</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#M">M</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#N">N</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#P">P</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#R">R</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#S">S</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#T">T</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#U">U</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#W">W</a>
 </div>
 </aside>
         </main>
@@ -718,16 +582,17 @@
       <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
         <p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard&nbsp;Built with <a class="font-medium underline underline-offset-4"
     href="https://www.sphinx-doc.org"
-    rel="noreferrer">Sphinx 7.2.6</a></p>
+    rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
   </div>
   
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script defer="defer" src="_static/theme.js?v=8dc3ddfe"></script>
+    <script defer="defer" src="_static/theme.js?v=e82a16a3"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
   
 </body>
 </html>
