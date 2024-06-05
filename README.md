@@ -182,8 +182,11 @@ The evaluation will run asynchronously on the Hub. To retrieve the
 results once the run is complete, you can use the following:
 
 ``` python
+
+# This will block until the evaluation status is "finished"
 eval_run.wait_for_completion()
 
+# Print the evaluation metrics
 eval_run.print_metrics()
 ```
 
