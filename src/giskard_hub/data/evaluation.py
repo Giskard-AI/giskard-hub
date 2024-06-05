@@ -107,14 +107,14 @@ class EvaluationRun(Entity):
         return self.progress.status == TaskStatus.ERROR
 
     def wait_for_completion(
-        self, timeout: float = 300, poll_interval: float = 5
+        self, timeout: float = 600, poll_interval: float = 5
     ) -> EvaluationRun:
         """Wait for the evaluation to complete successfully.
 
         Parameters
         ----------
         timeout : int, optional
-            The timeout in seconds, by default 300
+            The timeout in seconds, by default 600
         poll_interval : int, optional
             The polling interval in seconds, by default 5.
 
