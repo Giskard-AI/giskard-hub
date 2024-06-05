@@ -202,7 +202,7 @@ We can now lunch a remote evaluation of our model!
 
 .. code-block:: python
 
-    eval_run = client.evaluate(
+    eval_run = hub.evaluate(
         model=model,
         dataset=dataset,
         name="test-run",  # optional
