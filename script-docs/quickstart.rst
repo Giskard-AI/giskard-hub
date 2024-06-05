@@ -39,7 +39,7 @@ You can set the following environment variables to avoid passing them as argumen
    :caption: Shell
 
    export GSK_API_KEY=your_api_key
-   export GSK_HUB_URL=https://your-giskard-hub-instance.com/
+   export GSK_HUB_URL=https://your-giskard-hub-instance.com/_api
 
 
 
@@ -148,6 +148,10 @@ Again, you'll find your newly created dataset in the Hub UI:
 
 Configure a model
 -----------------
+
+.. note:: In this section we will run evaluation against models configured in
+    the Hub. If you want to evaluate a local model that is not yet exposed with
+    an API, check the :doc:`/guide/local-evaluation`.
 
 Before running our first evaluation, we'll need to set up a model. You'll need an API endpoint ready to serve the model.
 Then, you can configure the model API in the Hub:
