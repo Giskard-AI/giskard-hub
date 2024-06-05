@@ -3,13 +3,16 @@ from .dataset import Dataset
 from .project import Project
 from .chat import ChatMessage
 from .model import Model
+from .evaluation import EvaluationRun, Metric, ModelOutput
 
 
 __all__ = [
-    "HubClient",
+    "Project",
     "Dataset",
     "Conversation",
     "ChatMessage",
-    "Project",
     "Model",
+    "ModelOutput",
+    "EvaluationRun",
+    "Metric",
 ]

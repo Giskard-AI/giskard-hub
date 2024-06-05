@@ -18,7 +18,28 @@ from .resources.projects import ProjectsResource
 
 
 class HubClient(SyncClient):
-    """Client class to handle interaction with the hub."""
+    """Client class to handle interaction with the hub.
+
+    Attributes
+    ----------
+    projects : ProjectsResource
+        Resource to interact with projects.
+
+    datasets : DatasetsResource
+        Resource to interact with datasets.
+
+    conversations : ConversationsResource
+        Resource to interact with conversations.
+
+    models : ModelsResource
+        Resource to interact with models.
+
+    evaluations : EvaluationsResource
+        Resource to interact with evaluations.
+
+    evals : EvaluationsResource
+        Alias for `evaluations`.
+    """
 
     projects: ProjectsResource
     datasets: DatasetsResource
@@ -32,6 +53,23 @@ class HubClient(SyncClient):
         api_key: Optional[str] = None,
         **kwargs,
     ) -> None:
+        """Initialize the client.
+
+        Parameters
+        ----------
+        hub_url : str, optional
+            URL of the Giskard Hub instance. If not provided, it will be read
+            from the `GSK_HUB_URL` env variable.
+        api_key : str, optional
+            API key to authenticate with the Giskard Hub. If not provided, it
+            will be read from the `GSK_API_KEY` env variable.
+
+        Raises
+        ------
+        ValueError
+            If the `hub_url` or `api_key` are not provided and the environment
+            variables are not set.
+        """
         if hub_url is None:
             hub_url = os.getenv("GSK_HUB_URL")
         if hub_url is None:

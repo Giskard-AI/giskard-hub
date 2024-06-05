@@ -43,15 +43,15 @@ You can set the following environment variables to avoid passing them as argumen
 
 
 
-Create a project and import a dataset
-=====================================
+Create a project and run an evaluation
+======================================
 
 You can now use the client to interact with the Hub. You will be able to control the Hub programmatically, independently
 of the UI. Let's start by initializing a client instance:
 
 .. code-block:: python
 
-    from giskard_hub.client import HubClient
+    from giskard_hub import HubClient
 
     hub = HubClient()
 

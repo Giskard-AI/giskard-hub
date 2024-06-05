@@ -8,6 +8,7 @@
 
 import inspect
 import sys
+import os
 
 project = "Giskard Hub"
 copyright = "2024, Giskard"
@@ -16,18 +17,20 @@ author = "Giskard"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
+sys.path.append(os.path.abspath("./sphinx_ext"))
 
 extensions = [
     "myst_parser",
-    "sphinxawesome_theme.highlighting",
     # "nbsphinx",
-    # "sphinx_design",
+    "sphinx_design",
     "sphinx.ext.todo",
     "sphinx.ext.napoleon",
     "sphinx.ext.autodoc",
     "sphinx.ext.linkcode",
     "sphinx.ext.githubpages",
     "sphinx_click",
+    "fix_dataclass",
+    # "sphinx_autodoc_typehints",
 ]
 
 templates_path = ["_templates"]
@@ -46,8 +49,10 @@ source_suffix = [".rst", ".md", ".ipynb"]
 html_theme_options = {
     "logo_light": "_static/logo_black.png",
     "logo_dark": "_static/logo_white.png",
+    "show_prev_next": True,
+    "show_scrolltop": True,
 }
-html_css_files = ["pygments-dark.css"]
+html_css_files = ["pygments-dark.css", "custom.css"]
 html_favicon = "_static/favicon.ico"
 
 
