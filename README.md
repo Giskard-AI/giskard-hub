@@ -1,4 +1,4 @@
-# Quick Start
+# Giskard Hub Client Library
 
 The Giskard Hub is a platform that centralizes the validation process of LLM
 applications, empowering product teams to ensure all functional, business &
@@ -12,6 +12,8 @@ during the prototyping phase and for continuous integration testing.
 Read the quick start guide to get up and running with the `giskard_hub` library.
 You will learn how execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.
+
+Access the full docs at: https://docs-hub.giskard.ai/
 
 ## Install the client library
 
