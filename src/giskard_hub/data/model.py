@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Dict, List, Self
 
-from ._base import BaseData, maybe_to_dict
+from ._base import BaseData
 from ._entity import Entity
 from .chat import ChatMessage
 

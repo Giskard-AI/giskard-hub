@@ -18,7 +18,27 @@ from .task import TaskProgress, TaskStatus
 
 @dataclass
 class Metric(BaseData):
-    """Evaluation metric."""
+    """Evaluation metric.
+
+    Attributes
+    ----------
+    name : str
+        The name of the metric (e.g. "correctness").
+    passed : int
+        The number of samples that passed evaluations.
+    failed : int
+        The number of samples that failed evaluations.
+    skipped: int
+        The number of samples that were not evaluated (typically because of
+        missing evaluation annotations).
+    errored : int
+        The number of samples that errored during evaluations.
+    total : int
+        The total number of samples (including the ones skipped).
+    percentage : float
+        The percentage of passed evaluations (not considering the skipped
+        samples).
+    """
 
     name: str
     passed: int
@@ -28,12 +48,10 @@ class Metric(BaseData):
 
     @property
     def skipped(self):
-        """Return the number of skipped evaluations."""
         return self.total - self.passed - self.failed - self.errored
 
     @property
     def percentage(self):
-        """Return the percentage of passed evaluations."""
         tot = self.total - self.skipped
         if tot == 0:
             return float("nan")

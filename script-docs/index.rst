@@ -1,5 +1,5 @@
-Giskard Hub documentation
-=========================
+Giskard Hub Docs
+================
 
 The Giskard Hub is a platform that centralizes the validation process of LLM
 applications, empowering product teams to ensure all functional, business &
@@ -18,33 +18,18 @@ synchronize them to the Giskard Hub platform.
    :caption: Getting Started
    :maxdepth: 1
 
-   index
    quickstart
 
 .. toctree::
-   :caption: Tutorials
+   :caption: User's Guide
    :maxdepth: 1
 
-   tutorials/index
-
+   guide/manage-datasets
+   guide/run-evaluations
+   guide/local-evaluation
 
 .. toctree::
-   :caption: CLI
-   :maxdepth: 1
+   :caption: Developer Reference
+   :maxdepth: 4
 
-   cli
-
-
-.. toctree::
-   :caption: API Reference
-   :maxdepth: 1
-
-   sources
-
-
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+   reference/index
