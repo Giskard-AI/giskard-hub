@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Callable, List
 
 from .data.chat import ChatMessage
@@ -15,11 +17,11 @@ class LocalModel:
         )
 
     @staticmethod
-    def from_callable(callable: Callable) -> "LocalModel":
+    def from_callable(callable_fn: Callable) -> "LocalModel":
         return CallableLocalModel(
-            name=callable.__name__,
-            description=callable.__doc__ or "",
-            callable=_validate_callable(callable),
+            name=callable_fn.__name__,
+            description=callable_fn.__doc__ or "",
+            callable=_validate_callable(callable_fn),
         )
 
 

@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from typing import List, Optional
 
-from giskard_hub.data import Conversation
-
 from ._entity import Entity
+from .conversation import Conversation
 
 
 @dataclass

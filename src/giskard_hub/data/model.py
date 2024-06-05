@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 from dataclasses import dataclass, field
-from typing import Dict, List, Self
+from typing import Dict, List
 
 from ._base import BaseData
 from ._entity import Entity
@@ -14,7 +16,7 @@ class ModelOutput(BaseData):
     metadata: Dict[str, any] = field(default_factory=dict)
 
     @classmethod
-    def from_dict(cls, data: Dict[str, any], **kwargs) -> Self:
+    def from_dict(cls, data: Dict[str, any], **kwargs) -> "BaseData":
         msg = data.get("response") or data.get("message")
         return cls(
             message=ChatMessage.from_dict(msg),

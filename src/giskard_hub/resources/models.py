@@ -2,9 +2,8 @@ from __future__ import annotations
 
 from typing import Dict, List
 
-from ..data.chat import ChatMessage
-
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
+from ..data.chat import ChatMessage
 from ..data.model import Model, ModelOutput
 from ._resource import APIResource
 

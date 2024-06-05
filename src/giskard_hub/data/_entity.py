@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
-from typing_extensions import Any, Dict, List
+from dateutil import parser
 
 if TYPE_CHECKING:
     from ..client import HubClient
@@ -59,10 +61,10 @@ class Entity(BaseData):
         raw_updated_at = data.get("updated_at", None)
 
         if raw_created_at:
-            data["created_at"] = datetime.fromisoformat(raw_created_at)
+            data["created_at"] = parser.parse(raw_created_at)
 
         if raw_updated_at:
-            data["updated_at"] = datetime.fromisoformat(raw_updated_at)
+            data["updated_at"] = parser.parse(raw_updated_at)
 
         entity = super().from_dict(data)
         entity._client = _client

@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 from dataclasses import dataclass, fields
-from typing import Literal, Self
-from typing_extensions import Any, Dict
+from typing import Any, Dict, Literal
 
 
 class NotGiven:
@@ -25,7 +26,7 @@ class BaseData:
     """Base dataclass containing utility function."""
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> Self:
+    def from_dict(cls, data: Dict[str, Any]) -> "BaseData":
         """Class method factory.
 
         Parameters

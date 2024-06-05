@@ -1,6 +1,8 @@
-from typing import Optional
-import httpx
+from __future__ import annotations
 
+from typing import Optional
+
+import httpx
 
 _default_http_client_kwargs = {
     "follow_redirects": True,

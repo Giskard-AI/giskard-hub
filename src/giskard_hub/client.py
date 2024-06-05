@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from typing import Callable, List, Optional, override
+from typing import Callable, List, Optional
 
 from ._base_client import SyncClient
 from ._evaluation import LocalModel
@@ -102,7 +102,6 @@ class HubClient(SyncClient):
     def evals(self):
         return self.evaluations
 
-    @override
     def _headers(self):
         return {
             "X-API-Key": self._api_key,

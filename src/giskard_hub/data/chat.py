@@ -1,8 +1,9 @@
-from ._base import BaseData
-
+from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Literal
+
+from ._base import BaseData
 
 
 @dataclass
