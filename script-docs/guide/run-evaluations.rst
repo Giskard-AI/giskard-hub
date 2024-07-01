@@ -76,7 +76,7 @@ We can now launch the evaluation run:
 
 .. code-block:: python
 
-    eval_run = evaluation = hub.evaluate(
+    eval_run = hub.evaluate(
         model=model.id,
         dataset=dataset_id
         # optionally, specify a name
@@ -84,7 +84,7 @@ We can now launch the evaluation run:
     )
 
 
-The evaluation run will be queued and processed by the Hub. The ``evalute``
+The evaluation run will be queued and processed by the Hub. The ``evaluate``
 method will immediately return an :class:`~giskard_hub.data.EvaluationRun` object
 while the evaluation is running. Note however that this object will not contain
 the evaluation results until the evaluation is completed.
