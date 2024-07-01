@@ -198,7 +198,7 @@ If all is working well, this will return something like
 Run a remote evaluation
 -----------------------
 
-We can now lunch a remote evaluation of our model!
+We can now launch a remote evaluation of our model!
 
 .. code-block:: python
 
