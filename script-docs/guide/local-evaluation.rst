@@ -98,7 +98,7 @@ We can now launch the evaluation run:
 
 .. code-block:: python
 
-    eval_run = evaluation = hub.evaluate(
+    eval_run = hub.evaluate(
         model=my_local_bot,
         dataset=dataset_id,
         # optionally, specify a name
