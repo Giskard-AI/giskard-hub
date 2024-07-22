@@ -124,9 +124,4 @@ the evaluation run to complete and then print the results:
     Evaluation metrics output
 
 You can also check the results in the Hub interface and compare it with other
-evaluation runs. For example, you can inspect each conversation and see the:
-
-.. figure:: ../_static/guide/local_eval_conv.png
-
-    Example of conversation evaluation. Note that our "echo" agent was used to
-    generate the response.
+evaluation runs.
