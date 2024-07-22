@@ -19,12 +19,6 @@ Get your API key
 Head over to your Giskard Hub instance and click on the user icon in the top right corner. You will find your personal
 API key, click on the button to copy it.
 
-.. image:: /_static/quickstart/api_key.png
-   :width: 779px
-   :scale: 50%
-   :align: center
-   :alt: ""
-
 .. note::
 
    If you don't see your API key in the UI, it means your administrator has not enabled API keys. Please contact them to get one. 
@@ -79,12 +73,7 @@ Create a project
         description="This is a test project to get started with the Giskard Hub client library",
     )
 
-That's it! You have created a project. You will now see it in the Hub UI project selector:
-
-.. image:: /_static/quickstart/new_project.png
-   :scale: 50%
-   :align: center
-   :alt: ""
+That's it! You have created a project.
 
 .. tip::
 
@@ -139,13 +128,6 @@ These are the attributes you can set for a conversation (the only required attri
 You can add as many conversations as you want to the dataset.
 
 
-Again, you'll find your newly created dataset in the Hub UI:
-
-.. image:: /_static/quickstart/dataset_conversation.png
-   :align: center
-   :alt: ""
-
-
 Configure a model
 -----------------
 
@@ -198,7 +180,7 @@ If all is working well, this will return something like
 Run a remote evaluation
 -----------------------
 
-We can now lunch a remote evaluation of our model!
+We can now launch a remote evaluation of our model!
 
 .. code-block:: python
 

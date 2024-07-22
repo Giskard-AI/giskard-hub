@@ -133,7 +133,6 @@
 <h2>Get your API key<a class="headerlink" href="#get-your-api-key" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#get-your-api-key'">¶</a></h2>
 <p>Head over to your Giskard Hub instance and click on the user icon in the top right corner. You will find your personal
 API key, click on the button to copy it.</p>
-<a class="reference internal image-reference" href="_images/api_key.png"><img alt='""' class="align-center" src="_images/api_key.png" style="width: 389.5px; height: 217.0px;"/></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you don’t see your API key in the UI, it means your administrator has not enabled API keys. Please contact them to get one.</p>
@@ -176,8 +175,7 @@ Hub URL as arguments:</p>
 </span><span id="line-4"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>That’s it! You have created a project. You will now see it in the Hub UI project selector:</p>
-<a class="reference internal image-reference" href="_images/new_project.png"><img alt='""' class="align-center" src="_images/new_project.png" style="width: 464.0px; height: 293.0px;"/></a>
+<p>That’s it! You have created a project.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you have an already existing project, you can easily retrieve it. Either use <code class="docutils literal notranslate"><span class="pre">hub.projects.list()</span></code> to get a
@@ -227,8 +225,6 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 <li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.</p></li>
 </ul>
 <p>You can add as many conversations as you want to the dataset.</p>
-<p>Again, you’ll find your newly created dataset in the Hub UI:</p>
-<img alt='""' class="align-center" src="_images/dataset_conversation.png"/>
 </section>
 <section id="configure-a-model">
 <h3>Configure a model<a class="headerlink" href="#configure-a-model" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#configure-a-model'">¶</a></h3>
@@ -276,7 +272,7 @@ Then, you can configure the model API in the Hub:</p>
 </section>
 <section id="run-a-remote-evaluation">
 <h3>Run a remote evaluation<a class="headerlink" href="#run-a-remote-evaluation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#run-a-remote-evaluation'">¶</a></h3>
-<p>We can now lunch a remote evaluation of our model!</p>
+<p>We can now launch a remote evaluation of our model!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
 </span><span id="line-3">    <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
