@@ -176,7 +176,7 @@ the CI/CD pipeline, we recommend setting the dataset ID in the environment.</p>
 </span></code></pre></div>
 </div>
 <p>We can now launch the evaluation run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">evaluation</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-3">    <span class="n">dataset</span><span class="o">=</span><span class="n">dataset_id</span>
 </span><span id="line-4">    <span class="c1"># optionally, specify a name</span>
@@ -184,7 +184,7 @@ the CI/CD pipeline, we recommend setting the dataset ID in the environment.</p>
 </span><span id="line-6"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>The evaluation run will be queued and processed by the Hub. The <code class="docutils literal notranslate"><span class="pre">evalute</span></code>
+<p>The evaluation run will be queued and processed by the Hub. The <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>
 method will immediately return an <a class="reference internal" href="../reference/entities/index.html#giskard_hub.data.EvaluationRun" title="giskard_hub.data.EvaluationRun"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluationRun</span></code></a> object
 while the evaluation is running. Note however that this object will not contain
 the evaluation results until the evaluation is completed.</p>
