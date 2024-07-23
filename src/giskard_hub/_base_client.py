@@ -75,7 +75,11 @@ class SyncClient:
         return self._request("DELETE", path, **kwargs)
 
     def close(self):
-        self._http.close()
+        try:
+            self._http.close()
+        except AttributeError:
+            # This may happen if the client was not properly initialized yet
+            pass
 
     def __del__(self):
         self.close()
