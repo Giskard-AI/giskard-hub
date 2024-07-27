@@ -6,7 +6,7 @@ from giskard_hub.data import Dataset, Evaluation, Model, Project
 
 def dummy_model(all_data: Evaluation):
     # Here, all data contains everything
-    # - policies
+    # - rules
     # - tags
     # - the conversation
     # and so on..
