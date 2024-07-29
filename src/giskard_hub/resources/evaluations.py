@@ -109,9 +109,11 @@ class EvaluationsResource(APIResource):
         data = filter_not_given(
             {
                 "output": output,
-                "results": [maybe_to_dict(result) for result in results]
-                if results
-                else NOT_GIVEN,
+                "results": (
+                    [maybe_to_dict(result) for result in results]
+                    if results
+                    else NOT_GIVEN
+                ),
             }
         )
         return self._client.patch(

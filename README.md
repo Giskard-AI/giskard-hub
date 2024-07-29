@@ -10,7 +10,7 @@ scientists to manage and evaluate LLM applications in their development workflow
 during the prototyping phase and for continuous integration testing.
 
 Read the quick start guide to get up and running with the `giskard_hub` library.
-You will learn how execute local evaluations from a notebook, script or CLI, and
+You will learn how to execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.
 
 Access the full docs at: https://docs-hub.giskard.ai/
@@ -95,7 +95,7 @@ hub.conversations.create(
     ],
     expected_output="Berlin",
     demo_output=dict(role="assistant", content="I don't know that!"),
-    policies=[
+    rules=[
         "The agent should always provide short and concise answers.",
     ],
 )
@@ -111,7 +111,7 @@ required attribute is `messages`):
 -   `expected_output`: The expected output of the conversation. This is
     used for evaluation.
 
--   `policies`: A list of policies that the conversation should follow.
+-   `rules`: A list of rules that the conversation should follow.
     This is used for evaluation.
 
 -   `demo_output`: A demonstration of a (possibly wrong) output from the
@@ -168,7 +168,7 @@ ModelOutput(
 
 ### Run a remote evaluation
 
-We can now lunch a remote evaluation of our model!
+We can now launch a remote evaluation of our model!
 
 ``` python
 eval_run = client.evaluate(
