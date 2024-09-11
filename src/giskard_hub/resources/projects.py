@@ -49,10 +49,7 @@ class ProjectsResource(APIResource):
         )
 
     def delete(self, project_id: str | List[str]):
-        if isinstance(project_id, str):
-            project_id = [project_id]
-
-        return self._client.delete("/projects", json=project_id)
+        return self._client.delete("/projects", params={"project_ids": project_id})
 
     def list(self):
         return self._client.get("/projects", cast_to=Project)

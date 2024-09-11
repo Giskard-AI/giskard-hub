@@ -72,10 +72,7 @@ class ModelsResource(APIResource):
         )
 
     def delete(self, model_id: str | List[str]) -> None:
-        if isinstance(model_id, str):
-            model_id = [model_id]
-
-        self._client.delete("/models", json=model_id)
+        self._client.delete("/models", params={"model_ids": model_id})
 
     def list(self, project_id: str) -> List[Model]:
         return self._client.get(
