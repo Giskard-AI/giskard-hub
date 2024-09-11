@@ -69,10 +69,7 @@ class ConversationsResource(APIResource):
         )
 
     def delete(self, conversation_id: str | List[str]) -> None:
-        if isinstance(conversation_id, str):
-            conversation_id = [conversation_id]
-
-        return self._client.delete("/conversations", json=conversation_id)
+        return self._client.delete("/conversations", params={"conversation_ids": conversation_id})
 
     def list(self, dataset_id: str) -> List[Conversation]:
         data = self._client.get(f"/datasets/{dataset_id}/conversations?limit=100000")
