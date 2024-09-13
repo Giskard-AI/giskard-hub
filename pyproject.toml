@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "giskard-hub"
-version = "1.0.0"
+version = "1.1.0"
 description = "The giskard_hub library allows you to interact with the Giskard Hub, a platform that centralizes the validation process of LLM applications, empowering product teams to ensure all functional, business & legal requirements are met, and keeping them in close contact with the development team to avoid delayed deployment timelines."
-authors = ["Bazire <bazire@giskard.ai>"]
+authors = ["Bazire <bazire@giskard.ai>", "Henrique Chaves <henrique@giskard.ai>"]
 readme = "README.md"
 packages = [{ include = "giskard_hub", from = "src" }]
 repository = "https://github.com/Giskard-AI/giskard-hub"

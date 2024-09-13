@@ -52,13 +52,13 @@ Import conversations
 --------------------
 
 You can now add conversations to the dataset. Conversations are a collection of messages together with evaluation
-parameters (e.g., the expected answer, or policies that the agent must meet when responding).
+parameters (e.g., the expected answer, or rules that the agent must follow when responding).
 
 The list of **messages** is the only required parameter. Each message is a dictionary with keys ``role`` and ``content``.
 
 .. note:: **Do not include last assistant answer in the list of messages.** In fact, during evaluation, we will pass
     the conversation to your agent and expect it to generate an assistant answer. The newly generated answer will
-    be evaluated against the expected output or the policies.
+    be evaluated against the expected output or the rules.
 
     If you want to show the last assistant answer to the user, you can include it in the conversation as ``demo_output``.
     In this way, it will be shown in the dataset, but not used in the evaluation.
@@ -66,7 +66,7 @@ The list of **messages** is the only required parameter. Each message is a dicti
 You can also pass two types of evaluation annotations:
 
 - **expected_output**  A reference answer that will be used to determine the correctness of the agent's response
-- **policies**  A list of requirements that the agent must meet when generating the answer.
+- **rules**  A list of rules that the agent must follow when generating the answer.
 
 For better organization, you can also assign tags to the conversation.
 
@@ -90,7 +90,7 @@ For better organization, you can also assign tags to the conversation.
 
         # Evaluation settings (optional)
         expected_output="I see, could you please give me the model number of the laptop?",
-        policies=[
+        rules=[
             "The assistant should employ a polite and friendly tone.",
         ],
     )

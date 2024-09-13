@@ -1,11 +1,7 @@
 from __future__ import annotations
 
 from .client import HubClient
-from .data import (
-    Dataset,
-    Model,
-    Project,
-)
+from .data import Dataset, Model, Project
 from .data.chat import ChatMessage
 from .data.conversation import Conversation
 

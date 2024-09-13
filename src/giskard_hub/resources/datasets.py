@@ -40,10 +40,7 @@ class DatasetsResource(APIResource):
         )
 
     def delete(self, dataset_id: str | List[str]) -> None:
-        if isinstance(dataset_id, str):
-            dataset_id = [dataset_id]
-
-        self._client.delete("/datasets", json=dataset_id)
+        self._client.delete("/datasets", params={"datasets_ids": dataset_id})
 
     def list(self, project_id: str) -> List[Dataset]:
         return self._client.get(

@@ -18,7 +18,7 @@ class ConversationsResource(APIResource):
         *,
         dataset_id: str,
         messages: List[ChatMessage],
-        policies: List[str] = NOT_GIVEN,
+        rules: List[str] = NOT_GIVEN,
         tags: List[str] = NOT_GIVEN,
         expected_output: Optional[str] = NOT_GIVEN,
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
@@ -27,7 +27,7 @@ class ConversationsResource(APIResource):
             {
                 "dataset_id": dataset_id,
                 "messages": [maybe_to_dict(msg) for msg in messages],
-                "policies": policies,
+                "rules": rules,
                 "tags": tags,
                 "expected_output": expected_output,
                 "demo_output": maybe_to_dict(demo_output),
@@ -45,7 +45,7 @@ class ConversationsResource(APIResource):
         *,
         dataset_id: str = NOT_GIVEN,
         messages: List[ChatMessage] = NOT_GIVEN,
-        policies: List[str] = NOT_GIVEN,
+        rules: List[str] = NOT_GIVEN,
         tags: List[str] = NOT_GIVEN,
         expected_output: Optional[str] = NOT_GIVEN,
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
@@ -53,10 +53,10 @@ class ConversationsResource(APIResource):
         data = filter_not_given(
             {
                 "dataset_id": dataset_id,
-                "messages": [maybe_to_dict(msg) for msg in messages]
-                if messages
-                else messages,
-                "policies": policies,
+                "messages": (
+                    [maybe_to_dict(msg) for msg in messages] if messages else messages
+                ),
+                "rules": rules,
                 "tags": tags,
                 "expected_output": expected_output,
                 "demo_output": maybe_to_dict(demo_output),
@@ -69,10 +69,7 @@ class ConversationsResource(APIResource):
         )
 
     def delete(self, conversation_id: str | List[str]) -> None:
-        if isinstance(conversation_id, str):
-            conversation_id = [conversation_id]
-
-        return self._client.delete("/conversations", json=conversation_id)
+        return self._client.delete("/conversations", params={"conversation_ids": conversation_id})
 
     def list(self, dataset_id: str) -> List[Conversation]:
         data = self._client.get(f"/datasets/{dataset_id}/conversations?limit=100000")

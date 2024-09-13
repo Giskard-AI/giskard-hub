@@ -19,14 +19,14 @@ class Conversation(Entity):
         List of tags for the conversation.
     expected_output : Optional[str], optional
         Expected output which will be used for correctness evaluation.
-    policies : List[str], optional
-        List of policies used for evaluation.
+    rules : List[str], optional
+        List of rules used for evaluation.
     demo_output : Optional[ChatMessage], optional
         Output of the agent for demonstration purposes.
     """
 
     messages: List[ChatMessage] = field(default_factory=list)
-    policies: List[str] = field(default_factory=list)
+    rules: List[str] = field(default_factory=list)
     tags: List[str] = field(default_factory=list)
     expected_output: Optional[str] = field(default=None)
     demo_output: Optional[ChatMessage] = field(default=None)

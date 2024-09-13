@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 import inspect
-import sys
 import os
+import sys
 
 project = "Giskard Hub"
 copyright = "2024, Giskard"
