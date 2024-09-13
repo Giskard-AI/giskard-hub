@@ -204,7 +204,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </span><span id="line-8">    <span class="p">],</span>
 </span><span id="line-9">    <span class="n">expected_output</span><span class="o">=</span><span class="s2">"Berlin"</span><span class="p">,</span>
 </span><span id="line-10">    <span class="n">demo_output</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"I don't know that!"</span><span class="p">),</span>
-</span><span id="line-11">    <span class="n">policies</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-11">    <span class="n">rules</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-12">        <span class="s2">"The agent should always provide short and concise answers."</span><span class="p">,</span>
 </span><span id="line-13">    <span class="p">],</span>
 </span><span id="line-14"><span class="p">)</span>
@@ -221,7 +221,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">expected_output</span></code>: The expected output of the conversation. This is used for evaluation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">policies</span></code>: A list of policies that the conversation should follow. This is used for evaluation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rules</span></code>: A list of rules that the conversation should follow. This is used for evaluation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.</p></li>
 </ul>
 <p>You can add as many conversations as you want to the dataset.</p>

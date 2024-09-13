@@ -111,7 +111,7 @@ We can now add a conversation example to the dataset. This will be used for the 
         ],
         expected_output="Berlin",
         demo_output=dict(role="assistant", content="I don't know that!"),
-        policies=[
+        rules=[
             "The agent should always provide short and concise answers.",
         ],
     )
@@ -122,7 +122,7 @@ These are the attributes you can set for a conversation (the only required attri
     - ``role``: The role of the message, either "user" or "assistant".
     - ``content``: The content of the message.
 - ``expected_output``: The expected output of the conversation. This is used for evaluation.
-- ``policies``: A list of policies that the conversation should follow. This is used for evaluation.
+- ``rules``: A list of rules that the conversation should follow. This is used for evaluation.
 - ``demo_output``: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.
 
 You can add as many conversations as you want to the dataset.
