@@ -125,7 +125,7 @@ development team to avoid delayed deployment timelines.</p>
 scientists to manage and evaluate LLM applications in their development workflow
 during the prototyping phase and for continuous integration testing.</p>
 <p>Read the quick start guide to get up and running with the <code class="docutils literal notranslate"><span class="pre">giskard_hub</span></code> library.
-You will learn how execute local evaluations from a notebook, script or CLI, and
+You will learn how to execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.</p>
 <p>Access the full docs at: https://docs-hub.giskard.ai/</p>
 <section id="install-the-client-library">
@@ -194,7 +194,7 @@ for the model evaluation.</p>
 </span><span id="line-8">    <span class="p">],</span>
 </span><span id="line-9">    <span class="n">expected_output</span><span class="o">=</span><span class="s2">"Berlin"</span><span class="p">,</span>
 </span><span id="line-10">    <span class="n">demo_output</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"I don't know that!"</span><span class="p">),</span>
-</span><span id="line-11">    <span class="n">policies</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-11">    <span class="n">rules</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-12">        <span class="s2">"The agent should always provide short and concise answers."</span><span class="p">,</span>
 </span><span id="line-13">    <span class="p">],</span>
 </span><span id="line-14"><span class="p">)</span>
@@ -211,7 +211,7 @@ required attribute is <code class="docutils literal notranslate"><span class="pr
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">expected_output</span></code>: The expected output of the conversation. This is
 used for evaluation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">policies</span></code>: A list of policies that the conversation should follow.
+<li><p><code class="docutils literal notranslate"><span class="pre">rules</span></code>: A list of rules that the conversation should follow.
 This is used for evaluation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the
 model. This is just for demonstration purposes.</p></li>
@@ -261,7 +261,7 @@ model:</p>
 </section>
 <section id="run-a-remote-evaluation">
 <h3>Run a remote evaluation<a class="headerlink" href="#run-a-remote-evaluation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#run-a-remote-evaluation'">¶</a></h3>
-<p>We can now lunch a remote evaluation of our model!</p>
+<p>We can now launch a remote evaluation of our model!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
 </span><span id="line-3">    <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
