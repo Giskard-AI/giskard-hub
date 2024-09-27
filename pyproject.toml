@@ -18,7 +18,7 @@ python-dateutil = "^2.9.0.post0"
 
 [tool.poetry.group.dev.dependencies]
 sphinxawesome-theme = "^5.1.4"
-myst-parser = "^3.0.1"
+myst-parser = "^4.0.0"
 notebook = "^7.2.0"
 nbsphinx = "^0.9.4"
 black = "^24.4.2"
