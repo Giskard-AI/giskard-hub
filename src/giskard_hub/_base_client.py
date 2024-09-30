@@ -10,15 +10,6 @@ _default_http_client_kwargs = {
 }
 
 
-class APIKeyHeader(httpx.Auth):
-    def __init__(self, api_key: str):
-        self.api_key = api_key
-
-    def auth_flow(self, request):
-        request.headers["X-API-Key"] = self.api_key
-        yield request
-
-
 class SyncClient:
     _http: httpx.Client
 
