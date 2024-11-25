@@ -91,6 +91,8 @@ Annotate a conversation
 
 To thoroughly test your bot, it's essential to provide a well-crafted expected response and clear rules. The following sections will guide you through this process.
 
+For a more detailed explanation on how to create business-specific tests, check out this `specific user guide <annotate.html>`_.
+
 
 How to write an expected response
 ----------------------------------
