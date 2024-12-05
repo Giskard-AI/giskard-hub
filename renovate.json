@@ -1,21 +1,21 @@
 {
-   "labels":[
+   "labels": [
       "dependencies"
    ],
-   "$schema":"https://docs.renovatebot.com/renovate-schema.json",
-   "extends":[
+   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+   "extends": [
       "config:recommended",
       "helpers:pinGitHubActionDigests",
       ":pinOnlyDevDependencies"
    ],
-   "packageRules":[
+   "packageRules": [
       {
-         "groupName":"{{manager}} dependencies",
-         "groupSlug":"{{manager}}-deps",
-         "matchPackagePatterns":[
+         "groupName": "{{manager}} dependencies",
+         "groupSlug": "{{manager}}-deps",
+         "matchUpdateTypes": [
             "*"
          ],
-         "matchUpdateTypes":[
+         "matchPackageNames": [
             "*"
          ]
       }
