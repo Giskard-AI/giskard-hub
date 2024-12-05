@@ -11,7 +11,7 @@ documentation = "https://docs-hub.giskard.ai/"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-httpx = "^0.27.0"
+httpx = ">=0.27.0,<1" # See https://python-poetry.org/docs/dependency-specification/#caret-requirements
 rich = "^13.7.1"
 python-dateutil = "^2.9.0.post0"
 
