@@ -16,6 +16,7 @@ On the Datasets page, click the "New dataset" button in the upper right corner o
 .. image:: /_static/images/hub/create-dataset.png
    :align: center
    :alt: "Create a dataset"
+   :width: 800
 
 After creating the dataset, you can either import multiple conversations or add individual conversations to it.
 
@@ -23,13 +24,14 @@ After creating the dataset, you can either import multiple conversations or add 
 Import conversations
 =====================
 
-To import conversations, click the "Import" button in the upper right corner of the screen. You can import data files in either JSON or JSONL format.
+To import conversations, click the "Import" button in the upper right corner of the screen.
 
 .. image:: /_static/images/hub/import-conversations.png
    :align: center
    :alt: "List of conversations"
+   :width: 800
 
-You can import data files in JSON or JSONL format, containing an array of conversations (or a conversation object per line, if JSONL).
+You can import data in **JSON or JSONL format**, containing an array of conversations (or a conversation object per line, if JSONL).
 
 Each conversation must be defined as a JSON object with a ``messages`` field containing the chat messages in OpenAI format. You can also specify these optional attributes:
 
@@ -40,6 +42,7 @@ Each conversation must be defined as a JSON object with a ``messages`` field con
 .. image:: /_static/images/hub/import-conversations-detail.png
    :align: center
    :alt: "Import a conversation"
+   :width: 800
 
 Here's an example of the structure and content in a dataset:
 
@@ -56,6 +59,22 @@ Here's an example of the structure and content in a dataset:
             "demo_output": {"role": "assistant", "content": "How can I help you ?"}
         }
     ]
+
+Alternatively, you can import data in **CSV format**, containing one message per line.
+
+Each CSV must contain a ``user_message`` column representing the message from the user. Additionally, the file can contain optional attributes:
+
+- ``bot_message``: the answer from the bot
+- ``expected_output``: the expected output of the agent
+- ``tag*``: the list of tags (i.e. tag_1,tag_2,...)
+- ``rule*``: the list of rules (i.e. rule_1,rule_2,...)
+
+Here's an example of the structure and content in a dataset:
+
+.. code-block::
+
+    user_message,bot_message,expected_output,tag_1,tag_2,rule_1,rule_2
+    Hi bot!,How can I help you?,How can I help you?,greetings,assistance,The agent should not do X,The agent should be polite
 
 
 Add a conversation
@@ -80,6 +99,7 @@ A conversation consists of the following components:
 .. image:: /_static/images/hub/add-conversation.png
    :align: center
    :alt: "Add a conversation"
+   :width: 800
 
 .. note::
 
@@ -184,7 +204,9 @@ Example policies
 
 - The agent should mention its references.
 
-- The agent should cite its references using the format [reference 1] for reference 1 and should not create a list, for example, [reference 1][reference 2][reference 3].
+- The agent should cite its references using the format [reference 1] for reference 1.
+
+- The agent should not create a list, for example, [reference 1][reference 2][reference 3].
 
 **Policies for Adversarial Questions**
 
@@ -219,3 +241,4 @@ To export conversations, click the "More" icon in the upper right corner of the 
 .. image:: /_static/images/hub/export-conversations.png
    :align: center
    :alt: "Export conversations"
+   :width: 800

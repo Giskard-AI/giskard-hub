@@ -2,22 +2,6 @@
 Annotate conversation
 ======================
 
-Introduction
-=============
-
-The Giskard Hub is a platform that centralizes the validation process of LLM applications, enabling product teams to ensure all functional, business, and legal requirements are met, and keeping them in close contact with the development team to avoid delayed deployment timelines.
-
-Developers of the AI models needs to collect some example of questions and conversations to check if the model is correct and improve it. Your expertise is highly crucial to collect realistic conversations and find edge cases that the developers might have missed.
-
-The Playground
-===============
-
-The playground is where you chat with your agent and check its response. The screen below shows the interface. The Chat section is where you interrogate the agent. You write your message on the bottom part of the screen. The left panel shows you the recent conversations. You can have as many conversations as you need. To add a new one, click the “New conversation” button. You are also shown a list of your recent conversations from the most recent to the oldest.
-
-TODO IMAGE
-
-Once you are satisfied with the conversation, you can send it to your dataset by clicking the “Send to dataset” button. We will talk about this in detail in the succeeding sections. Alternatively, you can delete the conversation by clicking the “Discard” button.
-
 Step-by-step guide
 ===================
 
@@ -149,7 +133,10 @@ Send to dataset
 
 When the conversation is sufficient enough for what it needs to contain, you can send it to the dataset which you then use to evaluate your model.
 
-TODO IMAGE
+.. image:: /_static/images/hub/playground-save.png
+   :align: center
+   :alt: "Save conversation to a dataset from the Playground"
+   :width: 800
 
 The screen above shows three sections:
 

@@ -20,12 +20,13 @@ Additionally, the dashboard lists your most recent evaluations and datasets for 
 .. image:: /_static/images/hub/dashboard.png
    :align: center
    :alt: "Dashboard"
+   :width: 800
 
 
 Create a project
 =================
 
-In this section, you will learn how to create a project. Before creating one, ensure you have properly configured the model (see Setup the model section). TODO LINK
+In this section, you will learn how to create a project. Before creating one, ensure you have properly configured the model (see `Setup up the model <quickstart.html#setup-the-model>`_ section).
 
 Click the “Account” icon in the upper right corner of the screen, then select “Settings”. The Settings page allows you to manage your projects and users (if you have the proper access rights).
 
@@ -34,6 +35,7 @@ In the Projects tab, click the "Create project" button. A modal will appear wher
 .. image:: /_static/images/hub/create-project.png
    :align: center
    :alt: "Create a project"
+   :width: 800
 
 Once the project is created, you can access its dashboard by clicking on it in the list. Alternatively, use the dropdown menu in the upper left corner of the screen to select the project you want to work on.
 
@@ -45,19 +47,21 @@ This section guides you through creating a new model.
 
 .. note::
     
-    Models are conversational agents configured through an API endpoint. They can be evaluated and tested within the Hub.
+    Models are conversational agents configured through an API endpoint. They can be evaluated against datasets.
 
 On the Agents page, under the Model tab, click the "New model" button.
 
 .. image:: /_static/images/hub/setup-model-list.png
    :align: center
    :alt: "List of models"
+   :width: 800
 
 The interface below displays the model details that need to be filled out.
 
 .. image:: /_static/images/hub/setup-model-detail.png
    :align: center
    :alt: "Setup the model"
+   :width: 800
 
 - ``Name``: The name of the agent.
 - ``Description``: Used to refine automatic evaluation and generation for better accuracy in your specific use case.
@@ -117,6 +121,7 @@ On the Agents page, under the Model tab, click the "Add knowledge base" button.
 .. image:: /_static/images/hub/import-kb-list.png
    :align: center
    :alt: "List of knowledge bases"
+   :width: 800
 
 
 The interface below displays the model details that need to be filled out.
@@ -124,6 +129,7 @@ The interface below displays the model details that need to be filled out.
 .. image:: /_static/images/hub/import-kb-detail.png
    :align: center
    :alt: "Import a knowledge base"
+   :width: 800
 
 - ``Name``: The name of the knowledge base.
 - ``File``: The document to upload, in CSV format, containing the knowledge base content. The file should have one column named "text" with the document content. If you're uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled "text, topic". Note the following rules:
@@ -135,3 +141,4 @@ The interface below displays information about the knowledge base and its conten
 .. image:: /_static/images/hub/import-kb-success.png
    :align: center
    :alt: "Imported knowledge base"
+   :width: 800

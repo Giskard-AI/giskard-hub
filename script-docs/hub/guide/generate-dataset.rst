@@ -2,15 +2,16 @@
 Generate a dataset
 ===================
 
-This section guides you through generating a test dataset when you don’t have one at your disposal.
+This section guides you through generating a test dataset when you don't have one at your disposal.
 
-On the Datasets page, click “Automatic generation” on the upper right corner of the screen. This will open a modal that provides you with two options: Conformity or Correctness.
+On the Datasets page, click "Automatic generation" on the upper right corner of the screen. This will open a modal that provides you with two options: Conformity or Correctness.
 
 In the Conformity tab, you can generate a dataset specific to testing whether your chatbot abides by the rules.
 
 .. image:: /_static/images/hub/generate-dataset-conformity.png
    :align: center
    :alt: "Generate conformity dataset"
+   :width: 800
 
 - ``Model``: Select the model you want to use for evaluating this dataset.
 
@@ -25,8 +26,9 @@ Generating a dataset with the Correctness metric is similar to Conformity, but t
 .. image:: /_static/images/hub/generate-dataset-correctness.png
    :align: center
    :alt: "Generate correctness dataset"
+   :width: 800
 
-However, dataset generation requires two additional pieces of information:
+However, in this case, dataset generation requires two additional pieces of information:
 
 - ``Knowledge Base``: Choose the knowledge base you want to use as a reference.
 

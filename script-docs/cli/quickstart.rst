@@ -210,7 +210,8 @@ Once ready, you can print the evaluation metrics:
 
 .. image:: /_static/images/cli/metrics_output.png
    :align: center
-   :alt: ""
+   :alt: "Metrics"
+   :width: 800
 
 
 .. tip:: 

@@ -13,6 +13,7 @@ On the Evaluations page, click the "Run Evaluation" button in the upper right co
 .. image:: /_static/images/hub/evaluation-list.png
    :align: center
    :alt: "List of evaluations"
+   :width: 800
 
 Next, set the parameters for the evaluation:
 
@@ -25,6 +26,7 @@ Next, set the parameters for the evaluation:
 .. image:: /_static/images/hub/evaluation-run.png
    :align: center
    :alt: "New evaluation run"
+   :width: 800
 
 The evaluation run is automatically named and assessed against the Correctness and Conformity metrics for each conversation.
 
@@ -37,9 +39,11 @@ The pie chart below displays the number of evaluations that passed, failed, or w
 .. image:: /_static/images/hub/evaluation-metrics.png
    :align: center
    :alt: "Evaluation metrics"
+   :width: 800
 
 When you click on a conversation in the Evaluation Runs, you’ll see detailed information on the Correctness and/or Conformity metrics, along with the reason for the result.
 
 .. image:: /_static/images/hub/evaluation-detail.png
    :align: center
    :alt: "Evaluation detail"
+   :width: 800
