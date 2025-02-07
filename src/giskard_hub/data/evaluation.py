@@ -184,9 +184,15 @@ class EvaluationEntry(Entity):
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "EvaluationEntry":
+        data = dict(data)
         data["conversation"] = Conversation.from_dict(data["conversation"])
         output = data.get("output")
         data["model_output"] = ModelOutput.from_dict(output) if output else None
+
+        run_id = data.get("evaluation_run_id") or data.get("execution_id")
+        if run_id:
+            data["run_id"] = run_id
+
         return super().from_dict(data, **kwargs)
 
 
