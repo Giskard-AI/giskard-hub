@@ -5,13 +5,14 @@ from typing import List, Optional
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage
 from ..data.conversation import CheckConfiguration, Conversation
-from ..data.dataset import Dataset
 from ._resource import APIResource
 
 
 class ConversationsResource(APIResource):
     def retrieve(self, conversation_id: str):
-        return self._client.get(f"/conversations/{conversation_id}", cast_to=Dataset)
+        return self._client.get(
+            f"/conversations/{conversation_id}", cast_to=Conversation
+        )
 
     def create(
         self,
