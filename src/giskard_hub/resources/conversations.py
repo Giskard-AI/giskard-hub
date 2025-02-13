@@ -4,7 +4,7 @@ from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage
-from ..data.conversation import CheckConfiguration, Conversation
+from ..data.conversation import TestCaseCheckConfig, Conversation
 from ._resource import APIResource
 
 
@@ -21,7 +21,7 @@ class ConversationsResource(APIResource):
         messages: List[ChatMessage],
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
         tags: List[str] = NOT_GIVEN,
-        checks: List[CheckConfiguration] = NOT_GIVEN,
+        checks: List[TestCaseCheckConfig] = NOT_GIVEN,
     ):
         data = filter_not_given(
             {
@@ -46,7 +46,7 @@ class ConversationsResource(APIResource):
         messages: List[ChatMessage] = NOT_GIVEN,
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
         tags: List[str] = NOT_GIVEN,
-        checks: List[CheckConfiguration] = NOT_GIVEN,
+        checks: List[TestCaseCheckConfig] = NOT_GIVEN,
     ) -> Conversation:
         data = filter_not_given(
             {
