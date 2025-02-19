@@ -9,9 +9,9 @@ from .chat import ChatMessage
 
 
 @dataclass
-class CheckConfiguration(BaseData):
-    check: str
-    params: dict[str, Any]
+class TestCaseCheckConfig(BaseData):
+    identifier: str
+    assertions: List[dict[str, Any]]
 
 
 @dataclass
@@ -26,14 +26,14 @@ class Conversation(Entity):
         Output of the agent for demonstration purposes.
     tags : List[str], optional
         List of tags for the conversation.
-    checks : List[CheckConfiguration], optional
+    checks : List[TestCaseCheckConfig], optional
         List of checks to be performed on the conversation.
     """
 
     messages: List[ChatMessage] = field(default_factory=list)
     demo_output: Optional[ChatMessage] = field(default=None)
     tags: List[str] = field(default_factory=list)
-    checks: List[CheckConfiguration] = field(default_factory=list)
+    checks: List[TestCaseCheckConfig] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "Conversation":
