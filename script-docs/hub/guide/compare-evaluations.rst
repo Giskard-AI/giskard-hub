@@ -8,7 +8,7 @@ On the Evaluations page, select at least two evaluations to compare, then click 
 
 .. image:: /_static/images/hub/comparison-overview.png
    :align: center
-   :alt: "Compaere evaluation runs"
+   :alt: "Compare evaluation runs"
    :width: 800
 
 First, it shows the key metrics: Correctness and Conformity. Next, it presents a table listing the conversations, which can be filtered by results, such as whether the conversations in both evaluations passed or failed the Correctness and/or Conformity metrics.
