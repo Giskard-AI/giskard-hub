@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "giskard-hub"
-version = "1.1.0"
+version = "1.1.1"
 description = "The giskard_hub library allows you to interact with the Giskard Hub, a platform that centralizes the validation process of LLM applications, empowering product teams to ensure all functional, business & legal requirements are met, and keeping them in close contact with the development team to avoid delayed deployment timelines."
-authors = ["Bazire <bazire@giskard.ai>", "Henrique Chaves <henrique@giskard.ai>"]
+authors = ["Giskard Team <hello@giskard.ai>"]
 readme = "README.md"
 packages = [{ include = "giskard_hub", from = "src" }]
 repository = "https://github.com/Giskard-AI/giskard-hub"
@@ -11,7 +11,7 @@ documentation = "https://docs-hub.giskard.ai/"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-httpx = "^0.27.0"
+httpx = ">=0.27.0,<1" # See https://python-poetry.org/docs/dependency-specification/#caret-requirements
 rich = "^13.7.1"
 python-dateutil = "^2.9.0.post0"
 
@@ -28,6 +28,7 @@ sphinx-click = "^6.0.0"
 sphinx-autobuild = "^2024.4.16"
 sphinx-autodoc-typehints = "^2.1.1"
 sphinx-design = "^0.6.0"
+pytest = "^8.3.4"
 
 [build-system]
 requires = ["poetry-core"]

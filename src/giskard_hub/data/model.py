@@ -9,18 +9,29 @@ from .chat import ChatMessage
 
 
 @dataclass
+class ExecutionError(BaseData):
+    """Model error."""
+
+    message: str
+    details: Dict[str, any] = field(default_factory=dict)
+
+
+@dataclass
 class ModelOutput(BaseData):
     """Model output."""
 
-    message: ChatMessage
+    message: ChatMessage | None = None
     metadata: Dict[str, any] = field(default_factory=dict)
+    error: ExecutionError | None = None
 
     @classmethod
     def from_dict(cls, data: Dict[str, any], **kwargs) -> "BaseData":
         msg = data.get("response") or data.get("message")
+        error = data.get("error")
         return cls(
-            message=ChatMessage.from_dict(msg),
+            message=ChatMessage.from_dict(msg) if msg else None,
             metadata=data.get("metadata", {}),
+            error=ExecutionError.from_dict(error) if error else None,
         )
 
 
