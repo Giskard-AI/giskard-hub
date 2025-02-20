@@ -138,7 +138,7 @@ Configure a model
 
 .. note:: In this section we will run evaluation against models configured in
     the Hub. If you want to evaluate a local model that is not yet exposed with
-    an API, check the :doc:`/guide/local-evaluation`.
+    an API, check the :doc:`guide/local-evaluation`.
 
 Before running our first evaluation, we'll need to set up a model. You'll need an API endpoint ready to serve the model.
 Then, you can configure the model API in the Hub:
@@ -213,9 +213,10 @@ Once ready, you can print the evaluation metrics:
 
     eval_run.print_metrics()
 
-.. image:: /_static/quickstart/metrics_output.png
+.. image:: /_static/images/cli/metrics_output.png
    :align: center
-   :alt: ""
+   :alt: "Metrics"
+   :width: 800
 
 
 .. tip:: 

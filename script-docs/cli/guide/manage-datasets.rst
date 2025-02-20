@@ -1,5 +1,5 @@
 =================
-Managing datasets
+Manage datasets
 =================
 
 In this section, we will show how to import datasets and conversations programmatically. This allows for full control
