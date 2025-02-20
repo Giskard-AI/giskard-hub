@@ -104,16 +104,16 @@ We can now add a conversation example to the dataset. This will be used for the 
     # Add a conversation example
     hub.conversations.create(
         dataset_id=dataset.id,
-            messages=[
+        messages=[
             dict(role="user", content="What is the capital of France?"),
             dict(role="assistant", content="Paris"),
             dict(role="user", content="What is the capital of Germany?"),
         ],
-        expected_output="Berlin",
         demo_output=dict(role="assistant", content="I don't know that!"),
-        rules=[
-            "The agent should always provide short and concise answers.",
-        ],
+        checks=[
+            dict(check="correctness", params={"reference": "Berlin"}),
+            dict(check="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
+        ]
     )
 
 These are the attributes you can set for a conversation (the only required attribute is ``messages``):
@@ -121,9 +121,14 @@ These are the attributes you can set for a conversation (the only required attri
 - ``messages``: A list of messages in the conversation. Each message is a dictionary with the following keys:
     - ``role``: The role of the message, either "user" or "assistant".
     - ``content``: The content of the message.
-- ``expected_output``: The expected output of the conversation. This is used for evaluation.
-- ``rules``: A list of rules that the conversation should follow. This is used for evaluation.
 - ``demo_output``: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.
+- ``checks``: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
+  - ``check``: The type of check. Currently, the following checks are supported:
+    - ``correctness``: The output of the model should match the reference.
+    - ``conformity``: The conversation should follow a set of rules.
+  - ``params``: A dictionary of parameters for the check. The parameters depend on the check type:
+    - For the ``correctness`` check, the parameter is ``reference``, which is the expected output.
+    - For the ``conformity`` check, the parameter is ``rules``, which is a list of rules that the conversation should follow.
 
 You can add as many conversations as you want to the dataset.
 
