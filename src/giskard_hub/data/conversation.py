@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-from ._base import BaseData
+from ._base import BaseData, format_checks_to_cli
 from ._entity import Entity
 from .chat import ChatMessage
 
@@ -46,4 +46,5 @@ class Conversation(Entity):
         obj.demo_output = (
             None if obj.demo_output is None else ChatMessage.from_dict(obj.demo_output)
         )
+        obj.checks = format_checks_to_cli(obj.checks)
         return obj
