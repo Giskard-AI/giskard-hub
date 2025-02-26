@@ -28,7 +28,7 @@ Create a project
 
 In this section, you will learn how to create a project. Before creating one, ensure you have properly configured the model (see `Setup up the model <quickstart.html#setup-the-model>`_ section).
 
-Click the “Account” icon in the upper right corner of the screen, then select “Settings”. The Settings page allows you to manage your projects and users (if you have the proper access rights).
+Click on the "Settings" icon on the left panel, this page allows you to manage your projects and users (if you have the proper access rights).
 
 In the Projects tab, click the "Create project" button. A modal will appear where you can enter your project's name and description.
 
@@ -49,7 +49,7 @@ This section guides you through creating a new model.
     
     Models are conversational agents configured through an API endpoint. They can be evaluated against datasets.
 
-On the Agents page, under the Model tab, click the "New model" button.
+On the Models page, click on the "New model" button.
 
 .. image:: /_static/images/hub/setup-model-list.png
    :align: center
@@ -116,7 +116,7 @@ This section guides you through importing your custom knowledge base.
 
     A **Knowledge Base** is a domain-specific collection of information. You can have several knowledge bases for different areas of your business.
 
-On the Agents page, under the Model tab, click the "Add knowledge base" button.
+On the Knowledge Bases, click on "Add Knowledge Base" button.
 
 .. image:: /_static/images/hub/import-kb-list.png
    :align: center

@@ -243,7 +243,7 @@ Policy comparison: Legitimate vs. Adversarial questions
 Export conversations
 =====================
 
-To export conversations, click the "More" icon in the upper right corner of the screen, then select "Export." This will export the complete list of conversations from the dataset.
+To export conversations, click the "More" icon in the upper right corner of the screen, then select "Export". This will export the complete list of conversations from the dataset.
 
 .. image:: /_static/images/hub/export-conversations.png
    :align: center

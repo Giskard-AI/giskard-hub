@@ -4,7 +4,9 @@ Set access rights
 
 This section provides guidance on managing users in the Hub.
 
-The Hub allows you to set access rights at two levels: global and scoped. To begin, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "User Management."
+The Hub allows you to set access rights at two levels: global and scoped. To begin, click on the "Settings" icon on the left panel, then select "Users".
+
+click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "User Management."
 
 .. image:: /_static/images/hub/access-settings.png
    :align: center
