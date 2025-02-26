@@ -30,9 +30,13 @@ Next, set the parameters for the evaluation:
 
 The evaluation run is automatically named and assessed against the Correctness and Conformity metrics for each conversation.
 
-- **Correctness**: Verifies if the agent's response matches the expected output.
+- **Correctness**: Verifies if the agent's response matches the expected output (reference answer).
 
 - **Conformity**: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
+
+- **Groundedness**: Ensures the agent's response is grounded in the conversation.
+
+- **String Match**: Checks if the agent's response contains a specific string, keyword, or sentence.
 
 The pie chart below displays the number of evaluations that passed, failed, or were unexecuted.
 
