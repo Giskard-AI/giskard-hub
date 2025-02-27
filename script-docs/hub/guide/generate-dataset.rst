@@ -15,9 +15,9 @@ In the Adversarial tab, you can generate a dataset specific to testing whether y
 
 - ``Dataset name``: Provide a name for the dataset.
 
-- ``Model``: Select the model you want to use for evaluating this dataset.
+- ``Agent``: Select the agent you want to use for evaluating this dataset.
 
-- ``Description``: Provide details about your model to help generate more relevant examples.
+- ``Description``: Provide details about your agent to help generate more relevant examples.
 
 - ``Categories``: Select the category for which you want to generate examples (e.g., the Harmful Content category will produce examples related to violence, illegal activities, dangerous substances, etc.).
 
