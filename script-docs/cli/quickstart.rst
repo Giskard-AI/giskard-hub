@@ -137,7 +137,7 @@ These are the attributes you can set for a conversation (the only required attri
 You can add as many conversations as you want to the dataset.
 
 
-Configure a model
+Configure a model/agent
 -----------------
 
 .. note:: In this section we will run evaluation against models configured in

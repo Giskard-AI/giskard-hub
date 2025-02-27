@@ -127,7 +127,7 @@ You can add as many conversations as you want to the dataset.
 
 Again, you'll find your newly created dataset in the Hub UI.
 
-### Configure a model
+### Configure a model/agent
 
 Before running our first evaluation, we'll need to set up a model.
 You'll need an API endpoint ready to serve the model. Then, you can
