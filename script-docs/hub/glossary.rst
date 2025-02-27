@@ -2,7 +2,7 @@
 Glossary
 =========
 
-- **Model**: conversational agent configured through an API endpoint. They can be evaluated and tested within the Hub.
+- **Agent**: conversational agent configured through an API endpoint. They can be evaluated and tested within the Hub.
 
 - **Knowledge Base**: domain-specific collection of information. You can have several knowledge bases for different areas of your business.
 
