@@ -76,7 +76,8 @@ Each CSV must contain a ``user_message`` column representing the message from th
 
 Here's an example of the structure and content in a dataset:
 
-.. code-block::
+.. code-block:: text
+
     user_message,bot_message,tag_1,tag_2,expected_output,rule_1,rule_2,check_1,check_2
     Hi bot!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
 
@@ -98,7 +99,7 @@ A conversation consists of the following components:
     - ``Conformity``: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
     - ``Groundedness``: Ensures the agent's response is grounded in the conversation.
     - ``String matching``: Checks if the agent's response contains a specific string, keyword, or sentence.
-    And any custom checks you may have defined.
+    - And any custom checks you may have defined.
 - ``Properties``:
     - ``Dataset``: Specifies where the conversations should be saved.
     - ``Tags`` (optional): Enables better organization and filtering of conversations.

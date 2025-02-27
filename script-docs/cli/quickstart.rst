@@ -123,16 +123,16 @@ These are the attributes you can set for a conversation (the only required attri
     - ``content``: The content of the message.
 - ``demo_output``: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.
 - ``checks``: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
-  - ``identifier``: The identifier of the check. If it's a built-in check, you will also need to provide the ``params`` dictionary. The built-in checks are:
-    - ``correctness``: The output of the model should match the reference.
-    - ``conformity``: The conversation should follow a set of rules.
-    - ``groundedness``: The output of the model should be grounded in the conversation.
-    - ``string_match``: The output of the model should contain a specific string (keyword or sentence).
-  - ``params``: A dictionary of parameters for the check. The parameters depend on the check type:
-    - For the ``correctness`` check, the parameter is ``reference`` (type: ``str``), which is the expected output.
-    - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the conversation should follow.
-    - For the ``groundedness`` check, the parameter is ``context`` (type: ``str``), which is the context in which the model should ground its output.
-    - For the ``string_match`` check, the parameter is ``keyword`` (type: ``str``), which is the string that the model's output should contain.
+    - ``identifier``: The identifier of the check. If it's a built-in check, you will also need to provide the ``params`` dictionary. The built-in checks are:
+        - ``correctness``: The output of the model should match the reference.
+        - ``conformity``: The conversation should follow a set of rules.
+        - ``groundedness``: The output of the model should be grounded in the conversation.
+        - ``string_match``: The output of the model should contain a specific string (keyword or sentence).
+    - ``params``: A dictionary of parameters for the check. The parameters depend on the check type:
+        - For the ``correctness`` check, the parameter is ``reference`` (type: ``str``), which is the expected output.
+        - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the conversation should follow.
+        - For the ``groundedness`` check, the parameter is ``context`` (type: ``str``), which is the context in which the model should ground its output.
+        - For the ``string_match`` check, the parameter is ``keyword`` (type: ``str``), which is the string that the model's output should contain.
 
 You can add as many conversations as you want to the dataset.
 
