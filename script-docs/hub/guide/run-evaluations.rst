@@ -2,13 +2,13 @@
 Run evaluations
 ================
 
-This section guides you through evaluating your model using a given dataset. For example, you might want to run evaluations systematically whenever you deploy an updated model in a pre-production or staging environment. This approach allows you to collaborate with your team to ensure the model performs as expected.
+This section guides you through evaluating your agent using a given dataset. For example, you might want to run evaluations systematically whenever you deploy an updated agent in a pre-production or staging environment. This approach allows you to collaborate with your team to ensure the agent performs as expected.
 
 
 Create a new evaluation
 ------------------------
 
-On the Evaluations page, click the "Run Evaluation" button in the upper right corner of the screen.
+On the Evaluations page, click on "Run evaluation" button in the upper right corner of the screen.
 
 .. image:: /_static/images/hub/evaluation-list.png
    :align: center
@@ -17,7 +17,7 @@ On the Evaluations page, click the "Run Evaluation" button in the upper right co
 
 Next, set the parameters for the evaluation:
 
-- ``Model``: Select the model you wish to evaluate.
+- ``Agent``: Select the agent you wish to evaluate.
 
 - ``Dataset``: Choose the dataset you want to use for the evaluation.
 
@@ -36,7 +36,7 @@ The evaluation run is automatically named and assessed against the Correctness a
 
 - **Groundedness**: Ensures the agent's response is grounded in the conversation.
 
-- **String Match**: Checks if the agent's response contains a specific string, keyword, or sentence.
+- **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
 
 The pie chart below displays the number of evaluations that passed, failed, or were unexecuted.
 
@@ -45,7 +45,7 @@ The pie chart below displays the number of evaluations that passed, failed, or w
    :alt: "Evaluation metrics"
    :width: 800
 
-When you click on a conversation in the Evaluation Runs, you’ll see detailed information on the Correctness and/or Conformity metrics, along with the reason for the result.
+When you click on a conversation in the Evaluation Runs, you’ll see detailed information on the metrics, along with the reason for the result.
 
 .. image:: /_static/images/hub/evaluation-detail.png
    :align: center
