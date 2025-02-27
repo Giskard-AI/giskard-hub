@@ -2,7 +2,7 @@
 Manage datasets
 ================
 
-This section will guide you through importing a dataset or adding a conversation to an existing one. You'll have full control over the import process, which is particularly useful when importing datasets or conversations in bulk—for instance, when importing production data.
+This section will guide you through importing a dataset or adding a conversation to an existing one. You'll have full control over the import process, which is particularly useful when importing datasets or conversations in bulk — for instance, when importing production data.
 
 .. note::
 
@@ -11,7 +11,7 @@ This section will guide you through importing a dataset or adding a conversation
 Create a new dataset
 =====================
 
-On the Datasets page, click the "New dataset" button in the upper right corner of the screen. You'll then be prompted to enter a name and description for your new dataset.
+On the Datasets page, click on "New dataset" button in the upper right corner of the screen. You'll then be prompted to enter a name and description for your new dataset.
 
 .. image:: /_static/images/hub/create-dataset.png
    :align: center
