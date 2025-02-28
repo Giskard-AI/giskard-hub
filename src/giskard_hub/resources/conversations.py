@@ -12,10 +12,10 @@ def _format_checks_to_backend(checks: list[CheckConfig]) -> list[TestCaseCheckCo
     return [
         {
             **check,
-            "assertions": (
-                [{"type": check["identifier"], **check.get("params", {})}]
-                if check.get("params", {})
-                else []
+            **(
+                {"assertions": [{"type": check["identifier"], **check["params"]}]}
+                if check.get("params")
+                else {}
             ),
         }
         for check in checks
