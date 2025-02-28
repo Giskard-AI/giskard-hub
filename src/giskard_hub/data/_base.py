@@ -21,40 +21,6 @@ def filter_not_given(data: Dict[str, any]) -> Dict[str, any]:
     return {k: v for k, v in data.items() if v is not NOT_GIVEN}
 
 
-def format_checks_to_backend(checks: list[dict[str, Any]] | None):
-    if not checks:
-        return []
-
-    return [
-        {
-            **check,
-            "assertions": (
-                [{"type": check["identifier"], **check.get("params", {})}]
-                if check.get("params", {})
-                else []
-            ),
-        }
-        for check in checks
-    ]
-
-
-def format_checks_to_cli(checks: list[dict[str, Any]]):
-    checks_formated = []
-    for check in checks:
-        check_formatted = {
-            "identifier": check["identifier"],
-            "enabled": check["enabled"],
-        }
-
-        if check["assertions"]:
-            check_formatted["params"] = check["assertions"][0]
-            check_formatted["params"].pop("type")
-
-        checks_formated.append(check_formatted)
-
-    return checks_formated
-
-
 @dataclass
 class BaseData:
     """Base dataclass containing utility function."""
