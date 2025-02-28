@@ -138,7 +138,7 @@ You can add as many conversations as you want to the dataset.
 
 
 Configure a model/agent
------------------
+-----------------------
 
 .. note:: In this section we will run evaluation against models configured in
     the Hub. If you want to evaluate a local model that is not yet exposed with

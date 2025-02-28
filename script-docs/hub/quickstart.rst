@@ -53,7 +53,7 @@ On the Agents page, click on the "New agent" button.
 
 .. image:: /_static/images/hub/setup-agent-list.png
    :align: center
-:alt: "List of agents"
+   :alt: "List of agents"
    :width: 800
 
 The interface below displays the agent details that need to be filled out.
