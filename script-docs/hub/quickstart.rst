@@ -1,8 +1,18 @@
 ==============
-Quick start
+Quickstart
 ==============
 
-The Hub is the user interface from which you can perform LLM evaluations. It can be deployed on-premise or in the cloud, depending on your specific needs.
+The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-steps workflow:
+
+1. **Generation of synthetic data** – Automate test case generation with a focus on legitimate and adversarial queries.
+2. **Business annotation** – Use domain knowledge to review and refine test cases through annotation tools.
+3. **Test execution automation** – Run evaluations and set up alerts for detected vulnerabilities.
+4. **Continuous red teaming** – Detect emerging vulnerabilities through proactive monitoring.
+
+.. image:: /_static/images/hub/hub-workflow.png
+   :align: center
+   :alt: "Create a project"
+   :width: 800
 
 .. note::
     Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's chatbot provides customer service support on their website, offering knowledge about the bank's products, services, and more.
