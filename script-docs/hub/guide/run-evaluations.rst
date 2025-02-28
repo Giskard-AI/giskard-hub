@@ -28,7 +28,7 @@ Next, set the parameters for the evaluation:
    :alt: "New evaluation run"
    :width: 800
 
-The evaluation run is automatically named and assessed against the Correctness and Conformity metrics for each conversation.
+The evaluation run is automatically named and assessed against the checks (built-in and custom ones) that were enabled in each conversation. The built-in checks include:
 
 - **Correctness**: Verifies if the agent's response matches the expected output (reference answer).
 
