@@ -8,6 +8,32 @@ from ._entity import Entity
 from .chat import ChatMessage
 
 
+def _format_checks_to_cli(checks: List[TestCaseCheckConfig]) -> List[CheckConfig]:
+    return [
+        {
+            "identifier": check["identifier"],
+            "enabled": check["enabled"],
+            **(
+                {"params": params}
+                if check.get("assertions")
+                and (
+                    params := {
+                        k: v for k, v in check["assertions"][0].items() if k != "type"
+                    }
+                )
+                else {}
+            ),
+        }
+        for check in checks
+    ]
+
+
+@dataclass
+class CheckConfig(BaseData):
+    identifier: str
+    params: Optional[dict[str, Any]] = None
+
+
 @dataclass
 class TestCaseCheckConfig(BaseData):
     identifier: str
@@ -46,4 +72,5 @@ class Conversation(Entity):
         obj.demo_output = (
             None if obj.demo_output is None else ChatMessage.from_dict(obj.demo_output)
         )
+        obj.checks = _format_checks_to_cli(obj.checks)
         return obj

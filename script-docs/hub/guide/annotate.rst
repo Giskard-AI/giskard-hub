@@ -8,7 +8,7 @@ Step-by-step guide
 In this section, we will walk you through how to write a conversation and send it to your dataset.
 
 Try a conversation
------------------
+------------------
 
 Conversations are a collection of messages together with evaluation parameters (i.e. the expected answer and policies that the agent must meet when responding).
 
@@ -143,7 +143,10 @@ The screen above shows three sections:
 - ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
 - ``Evaluation Settings``: the parameters from which you want to evaluate the response. It includes:
     - ``Expected response`` (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.
-    - ``Policies`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more policies. If it is not provided, we do not check for the Compliance metric.
+    - ``Rules`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.
+    - ``Context`` (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.
+    - ``Keyword`` (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
+    - And any custom checks you may have defined.
 - ``Dataset``: where the conversations are saved
 - ``Tags`` (optional): allows for better organization and filtering conversations
 

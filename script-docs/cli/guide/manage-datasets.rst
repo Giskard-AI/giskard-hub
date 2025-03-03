@@ -64,9 +64,11 @@ The list of **messages** is the only required parameter. Each message is a dicti
 
 You can also pass two types of evaluation annotations:
 
-- **checks** A list of checks that the agent must pass when generating the answer. For example, some available checks are:
+- **checks** A list of checks that the agent must pass when generating the answer. It can be a built-in or custom check. For example, the built-in checks are:
     - **correctness**  A reference answer that will be used to determine the correctness of the agent's response
     - **conformity**  A list of rules that the agent must follow when generating the answer.
+    - **groundedness**  A context in which the agent must ground its response.
+    - **string_match**  A keyword that the agent's response must contain.
 
 For better organization, you can also assign tags to the conversation.
 
@@ -90,8 +92,8 @@ For better organization, you can also assign tags to the conversation.
 
         # Evaluation checks (optional)
         checks=[
-            {"check": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
-            {"check": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
+            {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
+            {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
         ]
     )
 

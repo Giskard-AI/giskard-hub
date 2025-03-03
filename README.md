@@ -94,8 +94,8 @@ hub.conversations.create(
     ],
     demo_output=dict(role="assistant", content="I don't know that!"),
     checks=[
-        dict(check="correctness", params={"reference": "Berlin"}),
-        dict(check="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
+        dict(identifier="correctness", params={"reference": "Berlin"}),
+        dict(identifier="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
     ]
 )
 ```
@@ -112,18 +112,22 @@ required attribute is `messages`):
   model. This is just for demonstration purposes.
 
 - `checks`: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
-  - `check`: The type of check. Currently, the following checks are supported:
+  - `identifier`: The identifier of the check. If it's a built-in check, you will also need to provide the `params` dictionary. The built-in checks are:
     - `correctness`: The output of the model should match the reference.
     - `conformity`: The conversation should follow a set of rules.
-  - `params`: A dictionary of parameters for the check. The parameters depend on the check type:
-    - For the `correctness` check, the parameter is `reference`, which is the expected output.
-    - For the `conformity` check, the parameter is `rules`, which is a list of rules that the conversation should follow.
+    - `groundedness`: The output of the model should be grounded in the conversation.
+    - `string_match`: The output of the model should contain a specific string (keyword or sentence).
+  - `params`: A dictionary of parameters for built-in checks. The parameters depend on the check type:
+    - For the `correctness` check, the parameter is `reference` (type: `str`), which is the expected output.
+    - For the `conformity` check, the parameter is `rules` (type: `list[str]`), which is a list of rules that the conversation should follow.
+    - For the `groundedness` check, the parameter is `context` (type: `str`), which is the context in which the model should ground its output.
+    - For the `string_match` check, the parameter is `keyword` (type: `str`), which is the string that the model's output should contain.
 
 You can add as many conversations as you want to the dataset.
 
 Again, you'll find your newly created dataset in the Hub UI.
 
-### Configure a model
+### Configure a model/agent
 
 Before running our first evaluation, we'll need to set up a model.
 You'll need an API endpoint ready to serve the model. Then, you can

@@ -4,8 +4,22 @@ from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage
-from ..data.conversation import TestCaseCheckConfig, Conversation
+from ..data.conversation import CheckConfig, Conversation, TestCaseCheckConfig
 from ._resource import APIResource
+
+
+def _format_checks_to_backend(checks: list[CheckConfig]) -> list[TestCaseCheckConfig]:
+    return [
+        {
+            **check,
+            **(
+                {"assertions": [{"type": check["identifier"], **check["params"]}]}
+                if check.get("params")
+                else {}
+            ),
+        }
+        for check in checks
+    ]
 
 
 class ConversationsResource(APIResource):
@@ -20,8 +34,8 @@ class ConversationsResource(APIResource):
         dataset_id: str,
         messages: List[ChatMessage],
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
-        tags: List[str] = NOT_GIVEN,
-        checks: List[TestCaseCheckConfig] = NOT_GIVEN,
+        tags: Optional[List[str]] = [],
+        checks: Optional[List[CheckConfig]] = [],
     ):
         data = filter_not_given(
             {
@@ -29,9 +43,10 @@ class ConversationsResource(APIResource):
                 "messages": [maybe_to_dict(msg) for msg in messages],
                 "demo_output": maybe_to_dict(demo_output),
                 "tags": tags,
-                "checks": checks,
+                "checks": _format_checks_to_backend(checks),
             }
         )
+
         return self._client.post(
             "/conversations",
             json=data,
@@ -45,8 +60,8 @@ class ConversationsResource(APIResource):
         dataset_id: str = NOT_GIVEN,
         messages: List[ChatMessage] = NOT_GIVEN,
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
-        tags: List[str] = NOT_GIVEN,
-        checks: List[TestCaseCheckConfig] = NOT_GIVEN,
+        tags: Optional[List[str]] = NOT_GIVEN,
+        checks: Optional[List[CheckConfig]] = NOT_GIVEN,
     ) -> Conversation:
         data = filter_not_given(
             {
@@ -56,9 +71,10 @@ class ConversationsResource(APIResource):
                 ),
                 "demo_output": maybe_to_dict(demo_output),
                 "tags": tags,
-                "checks": checks,
+                "checks": _format_checks_to_backend(checks) if checks else checks,
             }
         )
+
         return self._client.patch(
             f"/conversations/{conversation_id}",
             json=data,
