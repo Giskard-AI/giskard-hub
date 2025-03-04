@@ -113,6 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="hub/quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/guide/generate-dataset.html">Generate a dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hub/guide/create-custom-checks.html">Create custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/guide/compare-evaluations.html">Compare evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/guide/playground.html">Experiment in the Playground</a></li>
@@ -187,6 +188,8 @@
       </ul></li>
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.ChatMessage">ChatMessage (class in giskard_hub.data)</a>
 </li>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.checks">checks (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id0">[1]</a>
+</li>
       <li><a href="cli/reference/client.html#giskard_hub.client.SyncClient.close">close() (giskard_hub.client.SyncClient method)</a>
 </li>
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.ChatMessage.content">content (giskard_hub.data.ChatMessage attribute)</a>
@@ -254,14 +257,14 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.demo_output">demo_output (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id0">[1]</a>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.demo_output">demo_output (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id1">[1]</a>
 </li>
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.Dataset.description">description (giskard_hub.data.Dataset attribute)</a>
 
       <ul style="list-style-type:none">
         <li><a href="cli/reference/entities/index.html#giskard_hub.data.Model.description">(giskard_hub.data.Model attribute)</a>
 </li>
-        <li><a href="cli/reference/entities/index.html#giskard_hub.data.Project.description">(giskard_hub.data.Project attribute)</a>, <a href="cli/reference/entities/index.html#id12">[1]</a>
+        <li><a href="cli/reference/entities/index.html#giskard_hub.data.Project.description">(giskard_hub.data.Project attribute)</a>, <a href="cli/reference/entities/index.html#id11">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -273,7 +276,7 @@
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.ModelOutput.error">error (giskard_hub.data.ModelOutput attribute)</a>
 </li>
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.errored">errored (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id5">[1]</a>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.errored">errored (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id4">[1]</a>
 </li>
       <li><a href="cli/reference/client.html#giskard_hub.client.HubClient.evals">evals (giskard_hub.client.HubClient attribute)</a>
 </li>
@@ -285,8 +288,6 @@
 </li>
       <li><a href="cli/reference/resources/index.html#giskard_hub.resources.EvaluationsResource">EvaluationsResource (class in giskard_hub.resources)</a>
 </li>
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.expected_output">expected_output (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id1">[1]</a>
-</li>
   </ul></td>
   </tr>
       </table>
@@ -294,7 +295,7 @@
   <h2 id="F">F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.failed">failed (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id6">[1]</a>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.failed">failed (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id5">[1]</a>
 </li>
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.from_dict">from_dict() (giskard_hub.data.Conversation class method)</a>
 
@@ -432,11 +433,11 @@
       <ul style="list-style-type:none">
         <li><a href="cli/reference/entities/index.html#giskard_hub.data.EvaluationRun.name">(giskard_hub.data.EvaluationRun attribute)</a>
 </li>
-        <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.name">(giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id7">[1]</a>
+        <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.name">(giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id6">[1]</a>
 </li>
         <li><a href="cli/reference/entities/index.html#giskard_hub.data.Model.name">(giskard_hub.data.Model attribute)</a>
 </li>
-        <li><a href="cli/reference/entities/index.html#giskard_hub.data.Project.name">(giskard_hub.data.Project attribute)</a>, <a href="cli/reference/entities/index.html#id13">[1]</a>
+        <li><a href="cli/reference/entities/index.html#giskard_hub.data.Project.name">(giskard_hub.data.Project attribute)</a>, <a href="cli/reference/entities/index.html#id12">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -446,14 +447,14 @@
   <h2 id="P">P</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.passed">passed (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id8">[1]</a>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.passed">passed (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id7">[1]</a>
 </li>
       <li><a href="cli/reference/client.html#giskard_hub.client.SyncClient.patch">patch() (giskard_hub.client.SyncClient method)</a>
 </li>
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.percentage">percentage (giskard_hub.data.Metric attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="cli/reference/entities/index.html#id9">(giskard_hub.data.Metric property)</a>
+        <li><a href="cli/reference/entities/index.html#id8">(giskard_hub.data.Metric property)</a>
 </li>
       </ul></li>
       <li><a href="cli/reference/client.html#giskard_hub.client.SyncClient.post">post() (giskard_hub.client.SyncClient method)</a>
@@ -505,8 +506,6 @@
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.ChatMessage.role">role (giskard_hub.data.ChatMessage attribute)</a>
 </li>
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.rules">rules (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id3">[1]</a>
-</li>
   </ul></td>
   </tr>
       </table>
@@ -517,7 +516,7 @@
       <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.skipped">skipped (giskard_hub.data.Metric attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="cli/reference/entities/index.html#id10">(giskard_hub.data.Metric property)</a>
+        <li><a href="cli/reference/entities/index.html#id9">(giskard_hub.data.Metric property)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -533,7 +532,7 @@
   <h2 id="T">T</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.tags">tags (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id4">[1]</a>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Conversation.tags">tags (giskard_hub.data.Conversation attribute)</a>, <a href="cli/reference/entities/index.html#id3">[1]</a>
 
       <ul style="list-style-type:none">
         <li><a href="cli/reference/entities/index.html#giskard_hub.data.Dataset.tags">(giskard_hub.data.Dataset attribute)</a>
@@ -541,7 +540,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.total">total (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id11">[1]</a>
+      <li><a href="cli/reference/entities/index.html#giskard_hub.data.Metric.total">total (giskard_hub.data.Metric attribute)</a>, <a href="cli/reference/entities/index.html#id10">[1]</a>
 </li>
   </ul></td>
   </tr>

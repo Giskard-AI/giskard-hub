@@ -11,7 +11,7 @@ On the Evaluations page, select at least two evaluations to compare, then click 
    :alt: "Compare evaluation runs"
    :width: 800
 
-First, it shows the key metrics: Correctness and Conformity. Next, it presents a table listing the conversations, which can be filtered by results, such as whether the conversations in both evaluations passed or failed the Correctness and/or Conformity metrics.
+First, it shows the success rate - the percentage of conversations that the checks passed in each evaluation. It also displays the percentage of each specific check. Next, it presents a table listing the conversations, which can be filtered by results, such as whether the conversations in both evaluations passed or failed the checks.
 
 Clicking on a conversation will show a detailed comparison.
 

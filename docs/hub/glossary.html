@@ -82,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/generate-dataset.html">Generate a dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create-custom-checks.html">Create custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/compare-evaluations.html">Compare evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/playground.html">Experiment in the Playground</a></li>
@@ -130,14 +131,18 @@
 <section id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h1>
 <ul class="simple">
-<li><p><strong>Model</strong>: conversational agent configured through an API endpoint. They can be evaluated and tested within the Hub.</p></li>
+<li><p><strong>Agent</strong>: conversational agent configured through an API endpoint. They can be evaluated and tested within the Hub.</p></li>
 <li><p><strong>Knowledge Base</strong>: domain-specific collection of information. You can have several knowledge bases for different areas of your business.</p></li>
 <li><p><strong>Dataset</strong>: a collection of conversations used to evaluate your agents.</p></li>
-<li><p><strong>Conversations</strong>: a collection of messages along with evaluation parameters, such as the expected answer or rules the agent must follow when responding.</p></li>
-<li><p><strong>Correctness</strong>: Verifies if the agent’s response matches the expected output.</p></li>
+<li><p><strong>Conversations</strong>: a collection of messages along with evaluation parameters (checks), such as the expected answer or rules the agent must follow when responding.</p></li>
+<li><p><strong>Correctness</strong>: Verifies if the agent’s response matches the expected output (reference answer).</p></li>
 <li><p><strong>Conformity</strong>: Ensures the agent’s response adheres to the rules, such as “The agent must be polite.”</p></li>
-<li><p><strong>Expected Response</strong>: A reference answer used to determine the correctness of the agent’s response.</p></li>
-<li><p><strong>Rules</strong>: A list of requirements the agent must meet when generating an answer. For example, “The agent must be polite.”</p></li>
+<li><p><strong>Groundedness</strong>: Ensures the agent’s response is grounded in the conversation.</p></li>
+<li><p><strong>String Match</strong>: Checks if the agent’s response contains a specific string, keyword, or sentence.</p></li>
+<li><p><strong>Reference</strong>: A reference answer that the agent must match when generating a response.</p></li>
+<li><p><strong>Rules</strong>: A list of requirements the agent must meet when generating an answer. For example, “The agent must be polite”.</p></li>
+<li><p><strong>Context</strong>: The context in which the agent must ground its response.</p></li>
+<li><p><strong>Keyword</strong>: A specific string, keyword, or sentence that the agent’s response must contain. For example, “I don’t know”.</p></li>
 </ul>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">

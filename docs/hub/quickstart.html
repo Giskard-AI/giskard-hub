@@ -82,6 +82,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/generate-dataset.html">Generate a dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/create-custom-checks.html">Create custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/compare-evaluations.html">Compare evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/playground.html">Experiment in the Playground</a></li>
@@ -136,41 +137,41 @@
 </div>
 <section id="the-dashboard">
 <h2>The Dashboard<a class="headerlink" href="#the-dashboard" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-dashboard'">¶</a></h2>
-<p>The Dashboard is the first page you’ll see upon logging in. It provides an overview of your project, displaying the number of models, datasets, evaluations, and knowledge bases.</p>
-<p>It also features a graph showing the model’s performance over time, measured by two metrics: Conformity and Correctness. By default, the bar graph displays Conformity—clicking the Correctness block switches the view to show Correctness data. We’ll delve into these metrics in more detail in the Evaluations section.</p>
+<p>The Dashboard is the first page you’ll see upon logging in. It provides an overview of your project, displaying the number of agents, datasets, evaluations, and knowledge bases.</p>
+<p>It also features a graph showing the agent’s performance over time, measured by the average success rate of the evaluations. The success rate is calculated based on some evaluation metrics, such as Conformity, Correctness, and more. We’ll delve into these metrics in more detail in the Evaluations section.</p>
 <p>Additionally, the dashboard lists your most recent evaluations and datasets for quick access.</p>
 <a class="reference internal image-reference" href="../_images/dashboard.png"><img alt='"Dashboard"' class="align-center" src="../_images/dashboard.png" style="width: 800px;"/>
 </a>
 </section>
 <section id="create-a-project">
 <h2>Create a project<a class="headerlink" href="#create-a-project" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-project'">¶</a></h2>
-<p>In this section, you will learn how to create a project. Before creating one, ensure you have properly configured the model (see <a class="reference external" href="quickstart.html#setup-the-model">Setup up the model</a> section).</p>
-<p>Click the “Account” icon in the upper right corner of the screen, then select “Settings”. The Settings page allows you to manage your projects and users (if you have the proper access rights).</p>
-<p>In the Projects tab, click the “Create project” button. A modal will appear where you can enter your project’s name and description.</p>
+<p>In this section, you will learn how to create a project.</p>
+<p>First, click on the “Settings” icon on the left panel, this page allows you to manage your projects and users (if you have the proper access rights).</p>
+<p>In the Projects tab, click on “Create project” button. A modal will appear where you can enter your project’s name and description.</p>
 <a class="reference internal image-reference" href="../_images/create-project.png"><img alt='"Create a project"' class="align-center" src="../_images/create-project.png" style="width: 800px;"/>
 </a>
 <p>Once the project is created, you can access its dashboard by clicking on it in the list. Alternatively, use the dropdown menu in the upper left corner of the screen to select the project you want to work on.</p>
 </section>
-<section id="setup-the-model">
-<h2>Setup the model<a class="headerlink" href="#setup-the-model" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#setup-the-model'">¶</a></h2>
-<p>This section guides you through creating a new model.</p>
+<section id="setup-an-agent">
+<h2>Setup an agent<a class="headerlink" href="#setup-an-agent" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#setup-an-agent'">¶</a></h2>
+<p>This section guides you through creating a new agent.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Models are conversational agents configured through an API endpoint. They can be evaluated against datasets.</p>
+<p>Agents are configured through an API endpoint. They can be evaluated against datasets.</p>
 </div>
-<p>On the Agents page, under the Model tab, click the “New model” button.</p>
-<a class="reference internal image-reference" href="../_images/setup-model-list.png"><img alt='"List of models"' class="align-center" src="../_images/setup-model-list.png" style="width: 800px;"/>
+<p>On the Agents page, click on the “New agent” button.</p>
+<a class="reference internal image-reference" href="../_images/setup-agent-list.png"><img alt='"List of agents"' class="align-center" src="../_images/setup-agent-list.png" style="width: 800px;"/>
 </a>
-<p>The interface below displays the model details that need to be filled out.</p>
-<a class="reference internal image-reference" href="../_images/setup-model-detail.png"><img alt='"Setup the model"' class="align-center" src="../_images/setup-model-detail.png" style="width: 800px;"/>
+<p>The interface below displays the agent details that need to be filled out.</p>
+<a class="reference internal image-reference" href="../_images/setup-agent-detail.png"><img alt='"Setup an agent"' class="align-center" src="../_images/setup-agent-detail.png" style="width: 800px;"/>
 </a>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: The name of the agent.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Description</span></code>: Used to refine automatic evaluation and generation for better accuracy in your specific use case.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Supported</span> <span class="pre">languages</span></code>: Add the languages your agent can handle. Note that this affects data generation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Supported</span> <span class="pre">Languages</span></code>: Add the languages your agent can handle. Note that this affects data generation.</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">Connection</span> <span class="pre">settings</span></code>:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">API</span> <span class="pre">endpoint</span></code>: The URL of your model’s API endpoint. This is where requests are sent to interact with your model.</p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">Connection</span> <span class="pre">Settings</span></code>:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">API</span> <span class="pre">Endpoint</span></code>: The URL of your agent’s API endpoint. This is where requests are sent to interact with your agent.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Headers</span></code>: These are useful for authentication and other custom headers</p></li>
 </ul>
 </dd>
@@ -216,10 +217,10 @@
 <p class="admonition-title">Note</p>
 <p>A <strong>Knowledge Base</strong> is a domain-specific collection of information. You can have several knowledge bases for different areas of your business.</p>
 </div>
-<p>On the Agents page, under the Model tab, click the “Add knowledge base” button.</p>
+<p>On the Knowledge Bases, click on “Add Knowledge Base” button.</p>
 <a class="reference internal image-reference" href="../_images/import-kb-list.png"><img alt='"List of knowledge bases"' class="align-center" src="../_images/import-kb-list.png" style="width: 800px;"/>
 </a>
-<p>The interface below displays the model details that need to be filled out.</p>
+<p>The interface below displays the knowledge base details that need to be filled out.</p>
 <a class="reference internal image-reference" href="../_images/import-kb-detail.png"><img alt='"Import a knowledge base"' class="align-center" src="../_images/import-kb-detail.png" style="width: 800px;"/>
 </a>
 <ul class="simple">
@@ -233,7 +234,7 @@
 </dl>
 </li>
 </ul>
-<p>The interface below displays information about the knowledge base and its content with corresponding topics. If no topics were uploaded with the knowledge base, Giskard Hub will identify and generate them for you. In the example below, the knowledge base is ready to be used with over 200 documents and 3 topics.</p>
+<p>The interface below displays information about the knowledge base and its content with corresponding topics. If no topics were uploaded with the knowledge base, Giskard Hub will identify and generate them for you. In the example below, the knowledge base is ready to be used with over 1200 documents and 7 topics.</p>
 <a class="reference internal image-reference" href="../_images/import-kb-success.png"><img alt='"Imported knowledge base"' class="align-center" src="../_images/import-kb-success.png" style="width: 800px;"/>
 </a>
 </section>
@@ -260,7 +261,7 @@
 <ul>
 <li><a :data-current="activeSection === '#the-dashboard'" class="reference internal" href="#the-dashboard">The Dashboard</a></li>
 <li><a :data-current="activeSection === '#create-a-project'" class="reference internal" href="#create-a-project">Create a project</a></li>
-<li><a :data-current="activeSection === '#setup-the-model'" class="reference internal" href="#setup-the-model">Setup the model</a></li>
+<li><a :data-current="activeSection === '#setup-an-agent'" class="reference internal" href="#setup-an-agent">Setup an agent</a></li>
 <li><a :data-current="activeSection === '#import-a-knowledge-base'" class="reference internal" href="#import-a-knowledge-base">Import a knowledge base</a></li>
 </ul>
 </div>

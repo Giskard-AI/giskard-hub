@@ -82,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../hub/quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/guide/generate-dataset.html">Generate a dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/guide/create-custom-checks.html">Create custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/guide/compare-evaluations.html">Compare evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/guide/playground.html">Experiment in the Playground</a></li>
@@ -207,16 +208,16 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Add a conversation example</span>
 </span><span id="line-2"><span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-3">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-</span><span id="line-4">        <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-4">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-5">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What is the capital of France?"</span><span class="p">),</span>
 </span><span id="line-6">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"Paris"</span><span class="p">),</span>
 </span><span id="line-7">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What is the capital of Germany?"</span><span class="p">),</span>
 </span><span id="line-8">    <span class="p">],</span>
-</span><span id="line-9">    <span class="n">expected_output</span><span class="o">=</span><span class="s2">"Berlin"</span><span class="p">,</span>
-</span><span id="line-10">    <span class="n">demo_output</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"I don't know that!"</span><span class="p">),</span>
-</span><span id="line-11">    <span class="n">rules</span><span class="o">=</span><span class="p">[</span>
-</span><span id="line-12">        <span class="s2">"The agent should always provide short and concise answers."</span><span class="p">,</span>
-</span><span id="line-13">    <span class="p">],</span>
+</span><span id="line-9">    <span class="n">demo_output</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"I don't know that!"</span><span class="p">),</span>
+</span><span id="line-10">    <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-11">        <span class="nb">dict</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="s2">"correctness"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"reference"</span><span class="p">:</span> <span class="s2">"Berlin"</span><span class="p">}),</span>
+</span><span id="line-12">        <span class="nb">dict</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="s2">"conformity"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"rules"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"The agent should always provide short and concise answers."</span><span class="p">]}),</span>
+</span><span id="line-13">    <span class="p">]</span>
 </span><span id="line-14"><span class="p">)</span>
 </span></code></pre></div>
 </div>
@@ -230,14 +231,38 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">expected_output</span></code>: The expected output of the conversation. This is used for evaluation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rules</span></code>: A list of rules that the conversation should follow. This is used for evaluation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">checks</span></code>: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">identifier</span></code>: The identifier of the check. If it’s a built-in check, you will also need to provide the <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary. The built-in checks are:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">correctness</span></code>: The output of the model should match the reference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conformity</span></code>: The conversation should follow a set of rules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groundedness</span></code>: The output of the model should be grounded in the conversation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string_match</span></code>: The output of the model should contain a specific string (keyword or sentence).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">params</span></code>: A dictionary of parameters for the check. The parameters depend on the check type:</dt><dd><ul>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">correctness</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">reference</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the expected output.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">conformity</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">rules</span></code> (type: <code class="docutils literal notranslate"><span class="pre">list[str]</span></code>), which is a list of rules that the conversation should follow.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">groundedness</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">context</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the context in which the model should ground its output.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">string_match</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">keyword</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the string that the model’s output should contain.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 <p>You can add as many conversations as you want to the dataset.</p>
 </section>
-<section id="configure-a-model">
-<h3>Configure a model<a class="headerlink" href="#configure-a-model" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#configure-a-model'">¶</a></h3>
+<section id="configure-a-model-agent">
+<h3>Configure a model/agent<a class="headerlink" href="#configure-a-model-agent" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#configure-a-model-agent'">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In this section we will run evaluation against models configured in
@@ -338,7 +363,7 @@ and <code class="docutils literal notranslate"><span class="pre">dataset=dataset
 <li><a :data-current="activeSection === '#create-a-project-and-run-an-evaluation'" class="reference internal" href="#create-a-project-and-run-an-evaluation">Create a project and run an evaluation</a><ul>
 <li><a :data-current="activeSection === '#create-a-project'" class="reference internal" href="#create-a-project">Create a project</a></li>
 <li><a :data-current="activeSection === '#import-a-dataset'" class="reference internal" href="#import-a-dataset">Import a dataset</a></li>
-<li><a :data-current="activeSection === '#configure-a-model'" class="reference internal" href="#configure-a-model">Configure a model</a></li>
+<li><a :data-current="activeSection === '#configure-a-model-agent'" class="reference internal" href="#configure-a-model-agent">Configure a model/agent</a></li>
 <li><a :data-current="activeSection === '#run-a-remote-evaluation'" class="reference internal" href="#run-a-remote-evaluation">Run a remote evaluation</a></li>
 </ul>
 </li>

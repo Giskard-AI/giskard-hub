@@ -82,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/guide/generate-dataset.html">Generate a dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hub/guide/create-custom-checks.html">Create custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/guide/compare-evaluations.html">Compare evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/guide/playground.html">Experiment in the Playground</a></li>
@@ -146,7 +147,7 @@
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="giskard_hub.data.Conversation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">giskard_hub.data.</span></span><span class="sig-name descname"><span class="pre">Conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.chat.ChatMessage"><span class="pre">ChatMessage</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demo_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.chat.ChatMessage"><span class="pre">ChatMessage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/data/conversation.py#L10-L45"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#giskard_hub.data.Conversation" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation'">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">giskard_hub.data.</span></span><span class="sig-name descname"><span class="pre">Conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.chat.ChatMessage"><span class="pre">ChatMessage</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demo_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.chat.ChatMessage"><span class="pre">ChatMessage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">TestCaseCheckConfig</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/data/conversation.py#L43-L76"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#giskard_hub.data.Conversation" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation'">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></p>
 <p>A Dataset entry representing a conversation.</p>
 <dl class="py attribute">
@@ -156,36 +157,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.ChatMessage">ChatMessage</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="giskard_hub.data.Conversation.tags">
-<span class="sig-name descname"><span class="pre">tags</span></span><a class="headerlink" href="#giskard_hub.data.Conversation.tags" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.tags'">¶</a></dt>
-<dd><p>List of tags for the conversation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[str], optional</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="giskard_hub.data.Conversation.expected_output">
-<span class="sig-name descname"><span class="pre">expected_output</span></span><a class="headerlink" href="#giskard_hub.data.Conversation.expected_output" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.expected_output'">¶</a></dt>
-<dd><p>Expected output which will be used for correctness evaluation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Optional[str], optional</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="giskard_hub.data.Conversation.rules">
-<span class="sig-name descname"><span class="pre">rules</span></span><a class="headerlink" href="#giskard_hub.data.Conversation.rules" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.rules'">¶</a></dt>
-<dd><p>List of rules used for evaluation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[str], optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -200,16 +171,36 @@
 </dl>
 </dd></dl>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="giskard_hub.data.Conversation.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><a class="headerlink" href="#giskard_hub.data.Conversation.tags" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.tags'">¶</a></dt>
+<dd><p>List of tags for the conversation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str], optional</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="giskard_hub.data.Conversation.checks">
+<span class="sig-name descname"><span class="pre">checks</span></span><a class="headerlink" href="#giskard_hub.data.Conversation.checks" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.checks'">¶</a></dt>
+<dd><p>List of checks to be performed on the conversation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[TestCaseCheckConfig], optional</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">demo_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.ChatMessage"><span class="pre">ChatMessage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id0" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id0'">¶</a></dt>
+<span class="sig-name descname"><span class="pre">checks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">TestCaseCheckConfig</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id0" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id0'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">expected_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id1" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id1'">¶</a></dt>
+<span class="sig-name descname"><span class="pre">demo_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#giskard_hub.data.ChatMessage" title="giskard_hub.data.ChatMessage"><span class="pre">ChatMessage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id1" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id1'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="giskard_hub.data.Conversation.from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference internal" href="#giskard_hub.data.Conversation" title="giskard_hub.data.conversation.Conversation"><span class="pre">Conversation</span></a></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/data/conversation.py#L34-L45"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#giskard_hub.data.Conversation.from_dict" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.from_dict'">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference internal" href="#giskard_hub.data.Conversation" title="giskard_hub.data.conversation.Conversation"><span class="pre">Conversation</span></a></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/data/conversation.py#L64-L76"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#giskard_hub.data.Conversation.from_dict" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.data.Conversation.from_dict'">¶</a></dt>
 <dd><p>Class method factory, allowing to filter from a dict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -223,11 +214,7 @@
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">rules</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id3" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id3'">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id4" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id4'">¶</a></dt>
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id3" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id3'">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 <dl class="py class">
@@ -429,32 +416,32 @@ samples).</p>
 </dl>
 </dd></dl>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">errored</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id4" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id4'">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
 <dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">errored</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id5" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id5'">¶</a></dt>
+<span class="sig-name descname"><span class="pre">failed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id5" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id5'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id6">
-<span class="sig-name descname"><span class="pre">failed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id6" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id6" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id7">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id7" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></dt>
+<span class="sig-name descname"><span class="pre">passed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id7" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></dt>
 <dd></dd></dl>
-<dl class="py attribute">
+<dl class="py property">
 <dt class="sig sig-object py" id="id8">
-<span class="sig-name descname"><span class="pre">passed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id8" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">percentage</span></span><a class="headerlink" href="#id8" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="id9">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">percentage</span></span><a class="headerlink" href="#id9" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></dt>
-<dd></dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="id10">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">skipped</span></span><a class="headerlink" href="#id10" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">skipped</span></span><a class="headerlink" href="#id9" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id11">
-<span class="sig-name descname"><span class="pre">total</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id11" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id11'">¶</a></dt>
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">total</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id10" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 <dl class="py class">
@@ -571,12 +558,12 @@ samples).</p>
 </dl>
 </dd></dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#id12" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id12'">¶</a></dt>
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#id11" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id11'">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id13" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id13'">¶</a></dt>
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id12" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id12'">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 </section>
@@ -607,16 +594,14 @@ samples).</p>
 </li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Conversation'" class="reference internal" href="#giskard_hub.data.Conversation"><code class="docutils literal notranslate"><span class="pre">Conversation</span></code></a><ul>
 <li><a :data-current="activeSection === '#giskard_hub.data.Conversation.messages'" class="reference internal" href="#giskard_hub.data.Conversation.messages"><code class="docutils literal notranslate"><span class="pre">Conversation.messages</span></code></a></li>
-<li><a :data-current="activeSection === '#giskard_hub.data.Conversation.tags'" class="reference internal" href="#giskard_hub.data.Conversation.tags"><code class="docutils literal notranslate"><span class="pre">Conversation.tags</span></code></a></li>
-<li><a :data-current="activeSection === '#giskard_hub.data.Conversation.expected_output'" class="reference internal" href="#giskard_hub.data.Conversation.expected_output"><code class="docutils literal notranslate"><span class="pre">Conversation.expected_output</span></code></a></li>
-<li><a :data-current="activeSection === '#giskard_hub.data.Conversation.rules'" class="reference internal" href="#giskard_hub.data.Conversation.rules"><code class="docutils literal notranslate"><span class="pre">Conversation.rules</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Conversation.demo_output'" class="reference internal" href="#giskard_hub.data.Conversation.demo_output"><code class="docutils literal notranslate"><span class="pre">Conversation.demo_output</span></code></a></li>
-<li><a :data-current="activeSection === '#id0'" class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Conversation.demo_output</span></code></a></li>
-<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Conversation.expected_output</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.data.Conversation.tags'" class="reference internal" href="#giskard_hub.data.Conversation.tags"><code class="docutils literal notranslate"><span class="pre">Conversation.tags</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.data.Conversation.checks'" class="reference internal" href="#giskard_hub.data.Conversation.checks"><code class="docutils literal notranslate"><span class="pre">Conversation.checks</span></code></a></li>
+<li><a :data-current="activeSection === '#id0'" class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Conversation.checks</span></code></a></li>
+<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Conversation.demo_output</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Conversation.from_dict'" class="reference internal" href="#giskard_hub.data.Conversation.from_dict"><code class="docutils literal notranslate"><span class="pre">Conversation.from_dict()</span></code></a></li>
 <li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Conversation.messages</span></code></a></li>
-<li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Conversation.rules</span></code></a></li>
-<li><a :data-current="activeSection === '#id4'" class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Conversation.tags</span></code></a></li>
+<li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Conversation.tags</span></code></a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Dataset'" class="reference internal" href="#giskard_hub.data.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a><ul>
@@ -653,13 +638,13 @@ samples).</p>
 <li><a :data-current="activeSection === '#giskard_hub.data.Metric.errored'" class="reference internal" href="#giskard_hub.data.Metric.errored"><code class="docutils literal notranslate"><span class="pre">Metric.errored</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Metric.total'" class="reference internal" href="#giskard_hub.data.Metric.total"><code class="docutils literal notranslate"><span class="pre">Metric.total</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Metric.percentage'" class="reference internal" href="#giskard_hub.data.Metric.percentage"><code class="docutils literal notranslate"><span class="pre">Metric.percentage</span></code></a></li>
-<li><a :data-current="activeSection === '#id5'" class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Metric.errored</span></code></a></li>
-<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Metric.failed</span></code></a></li>
-<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Metric.name</span></code></a></li>
-<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Metric.passed</span></code></a></li>
-<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Metric.percentage</span></code></a></li>
-<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Metric.skipped</span></code></a></li>
-<li><a :data-current="activeSection === '#id11'" class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Metric.total</span></code></a></li>
+<li><a :data-current="activeSection === '#id4'" class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Metric.errored</span></code></a></li>
+<li><a :data-current="activeSection === '#id5'" class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Metric.failed</span></code></a></li>
+<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Metric.name</span></code></a></li>
+<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Metric.passed</span></code></a></li>
+<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Metric.percentage</span></code></a></li>
+<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Metric.skipped</span></code></a></li>
+<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Metric.total</span></code></a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Model'" class="reference internal" href="#giskard_hub.data.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
@@ -683,8 +668,8 @@ samples).</p>
 <li><a :data-current="activeSection === '#giskard_hub.data.Project'" class="reference internal" href="#giskard_hub.data.Project"><code class="docutils literal notranslate"><span class="pre">Project</span></code></a><ul>
 <li><a :data-current="activeSection === '#giskard_hub.data.Project.name'" class="reference internal" href="#giskard_hub.data.Project.name"><code class="docutils literal notranslate"><span class="pre">Project.name</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.data.Project.description'" class="reference internal" href="#giskard_hub.data.Project.description"><code class="docutils literal notranslate"><span class="pre">Project.description</span></code></a></li>
-<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">Project.description</span></code></a></li>
-<li><a :data-current="activeSection === '#id13'" class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">Project.name</span></code></a></li>
+<li><a :data-current="activeSection === '#id11'" class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Project.description</span></code></a></li>
+<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">Project.name</span></code></a></li>
 </ul>
 </li>
 </ul>

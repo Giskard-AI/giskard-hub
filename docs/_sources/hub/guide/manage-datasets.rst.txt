@@ -2,7 +2,7 @@
 Manage datasets
 ================
 
-This section will guide you through importing a dataset or adding a conversation to an existing one. You'll have full control over the import process, which is particularly useful when importing datasets or conversations in bulk—for instance, when importing production data.
+This section will guide you through importing a dataset or adding a conversation to an existing one. You'll have full control over the import process, which is particularly useful when importing datasets or conversations in bulk — for instance, when importing production data.
 
 .. note::
 
@@ -11,7 +11,7 @@ This section will guide you through importing a dataset or adding a conversation
 Create a new dataset
 =====================
 
-On the Datasets page, click the "New dataset" button in the upper right corner of the screen. You'll then be prompted to enter a name and description for your new dataset.
+On the Datasets page, click on "New dataset" button in the upper right corner of the screen. You'll then be prompted to enter a name and description for your new dataset.
 
 .. image:: /_static/images/hub/create-dataset.png
    :align: center
@@ -35,9 +35,9 @@ You can import data in **JSON or JSONL format**, containing an array of conversa
 
 Each conversation must be defined as a JSON object with a ``messages`` field containing the chat messages in OpenAI format. You can also specify these optional attributes:
 
-- ``expected_output``: the expected output of the agent
-- ``rules``: a list of rules that the agent should follow
 - ``demo_output``: an object presenting the output of the agent at some point
+- ``tags``: a list of tags to categorize the conversation
+- ``checks``: a list of checks to evaluate the conversation, they can be built-in or custom ones
 
 .. image:: /_static/images/hub/import-conversations-detail.png
    :align: center
@@ -51,12 +51,15 @@ Here's an example of the structure and content in a dataset:
     [
         {
             "messages": [
-            {"role": "assistant", "content": "Hello!"},
-            {"role": "user", "content": "Hi Bot!"},
+                {"role": "assistant", "content": "Hello!"},
+                {"role": "user", "content": "Hi Bot!"},
             ],
-            "expected_output": "How can I help you?",
-            "rules": ["The agent should not do X"],
-            "demo_output": {"role": "assistant", "content": "How can I help you ?"}
+            "demo_output": {"role": "assistant", "content": "How can I help you ?"},
+            "tags": ["greetings"],
+            "checks": [
+                {"identifier": "correctness", "params": {"reference": "How can I help you?"}},
+                {"identifier": "conformity", "params": {"rules": ["The agent should not do X"]}},
+            ]
         }
     ]
 
@@ -64,17 +67,19 @@ Alternatively, you can import data in **CSV format**, containing one message per
 
 Each CSV must contain a ``user_message`` column representing the message from the user. Additionally, the file can contain optional attributes:
 
-- ``bot_message``: the answer from the bot
-- ``expected_output``: the expected output of the agent
+- ``bot_message``: the answer from the agent
 - ``tag*``: the list of tags (i.e. tag_1,tag_2,...)
-- ``rule*``: the list of rules (i.e. rule_1,rule_2,...)
+- ``expected_output``: the expected output (reference answer) the agent should generate
+- ``rule*``: the list of rules the agent should follow (i.e. rule_1,rule_2,...)
+- ``reference_context``: the context in which the agent must ground its response
+- ``check*``: the list of custom checks (i.e. check_1,check_2,...)
 
 Here's an example of the structure and content in a dataset:
 
-.. code-block::
+.. code-block:: text
 
-    user_message,bot_message,expected_output,tag_1,tag_2,rule_1,rule_2
-    Hi bot!,How can I help you?,How can I help you?,greetings,assistance,The agent should not do X,The agent should be polite
+    user_message,bot_message,tag_1,tag_2,expected_output,rule_1,rule_2,check_1,check_2
+    Hi bot!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
 
 
 Add a conversation
@@ -89,9 +94,12 @@ To add a conversation, click the "Add conversation" button in the upper right co
 A conversation consists of the following components:
 
 - ``Messages``: Contains the user's input and the agent's responses in a multi-message exchange.
-- ``Evaluation Settings`` (optional): Includes the following:
-    - ``Expected response``: A reference answer used to determine the correctness of the agent's response.
-    - ``Rules``: A list of requirements the agent must meet when generating an answer. For example, "The agent must be polite."
+- ``Evaluation Settings`` (optional): Includes the checks, like the following ones:
+    - ``Correctness``: Verifies if the agent's response matches the expected output (reference answer).
+    - ``Conformity``: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
+    - ``Groundedness``: Ensures the agent's response is grounded in the conversation.
+    - ``String matching``: Checks if the agent's response contains a specific string, keyword, or sentence.
+    - And any custom checks you may have defined.
 - ``Properties``:
     - ``Dataset``: Specifies where the conversations should be saved.
     - ``Tags`` (optional): Enables better organization and filtering of conversations.
@@ -236,7 +244,7 @@ Policy comparison: Legitimate vs. Adversarial questions
 Export conversations
 =====================
 
-To export conversations, click the "More" icon in the upper right corner of the screen, then select "Export." This will export the complete list of conversations from the dataset.
+To export conversations, click the "More" icon in the upper right corner of the screen, then select "Export". This will export the complete list of conversations from the dataset.
 
 .. image:: /_static/images/hub/export-conversations.png
    :align: center

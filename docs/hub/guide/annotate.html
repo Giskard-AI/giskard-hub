@@ -82,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generate-dataset.html">Generate a dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-custom-checks.html">Create custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare-evaluations.html">Compare evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="playground.html">Experiment in the Playground</a></li>
@@ -243,7 +244,10 @@
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">Evaluation</span> <span class="pre">Settings</span></code>: the parameters from which you want to evaluate the response. It includes:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Expected</span> <span class="pre">response</span></code> (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Policies</span></code> (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more policies. If it is not provided, we do not check for the Compliance metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rules</span></code> (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Context</span></code> (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Keyword</span></code> (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.</p></li>
+<li><p>And any custom checks you may have defined.</p></li>
 </ul>
 </dd>
 </dl>

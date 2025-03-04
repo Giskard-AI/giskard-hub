@@ -118,7 +118,7 @@ the evaluation run to complete and then print the results:
     eval_run.print_metrics()
 
 
-.. figure:: ../_static/quickstart/metrics_output.png
+.. figure:: /_static/images/cli/metrics_output.png
     :alt: Evaluation metrics output
 
     Evaluation metrics output
