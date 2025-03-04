@@ -24,7 +24,7 @@ Next, set the parameters for the check:
     - ``Correctness``: The output of the model should match the reference.
     - ``Conformity``: The conversation should follow a set of rules.
     - ``Groundedness``: The output of the model should be grounded in the conversation.
-    - ``String match``: The output of the model should contain a specific string (keyword or sentence).
+    - ``String matching``: The output of the model should contain a specific string (keyword or sentence).
 - And a set of parameters specific to the check type. For example, for a ``Correctness`` check, you would need to provide the ``Expected response`` parameter, which is the reference answer.
 
 .. image:: /_static/images/hub/create-checks-detail.png

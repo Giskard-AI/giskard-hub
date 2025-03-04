@@ -16,7 +16,7 @@ Glossary
 
 - **Groundedness**: Ensures the agent's response is grounded in the conversation.
 
-- **String Match**: Checks if the agent's response contains a specific string, keyword, or sentence.
+- **String Matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
 
 - **Reference**: A reference answer that the agent must match when generating a response.
 
