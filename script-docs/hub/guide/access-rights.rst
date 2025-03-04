@@ -4,14 +4,16 @@ Set access rights
 
 This section provides guidance on managing users in the Hub.
 
-The Hub allows you to set access rights at two levels: global and scoped. To begin, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "User Management."
+The Hub allows you to set access rights at two levels: global and scoped. To begin, click on the "Settings" icon on the left panel, then select "Users".
+
+click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "User Management."
 
 .. image:: /_static/images/hub/access-settings.png
    :align: center
    :alt: "Access rights"
    :width: 800
 
-Global permissions apply access rights across all projects. You can configure Create, Read, Edit, and Delete permissions for each page or entity. This is available in the following pages: Project, Dataset, Model, Knowledge Base, and Evaluation. Additionally, for features like the Playground, API Key Authentication, and Permission, you can enable or disable the users’ right to use it.
+Global permissions apply access rights across all projects. You can configure Create, Read, Edit, and Delete permissions for each page or entity. This is available in the following pages: Project, Dataset, Agent, Knowledge Base, and Evaluation. Additionally, for features like the Playground, API Key Authentication, and Permission, you can enable or disable the users’ right to use it.
 
 The rights are as follows:
 

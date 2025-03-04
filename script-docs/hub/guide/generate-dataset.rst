@@ -4,28 +4,30 @@ Generate a dataset
 
 This section guides you through generating a test dataset when you don't have one at your disposal.
 
-On the Datasets page, click "Automatic generation" on the upper right corner of the screen. This will open a modal that provides you with two options: Conformity or Correctness.
+On the Datasets page, click "Automatic generation" on the upper right corner of the screen. This will open a modal that provides you with two options: Adversarial or Document Based.
 
-In the Conformity tab, you can generate a dataset specific to testing whether your chatbot abides by the rules.
+In the Adversarial tab, you can generate a dataset specific to testing whether your chatbot abides by the rules.
 
-.. image:: /_static/images/hub/generate-dataset-conformity.png
+.. image:: /_static/images/hub/generate-dataset-adversarial.png
    :align: center
-   :alt: "Generate conformity dataset"
+   :alt: "Generate adversarial dataset"
    :width: 800
 
-- ``Model``: Select the model you want to use for evaluating this dataset.
+- ``Dataset name``: Provide a name for the dataset.
 
-- ``Description``: Provide details about your model to help generate more relevant examples.
+- ``Agent``: Select the agent you want to use for evaluating this dataset.
+
+- ``Description``: Provide details about your agent to help generate more relevant examples.
 
 - ``Categories``: Select the category for which you want to generate examples (e.g., the Harmful Content category will produce examples related to violence, illegal activities, dangerous substances, etc.).
 
 - ``Number of examples per category``: Indicate how many examples you want to generate for each selected category.
 
-Generating a dataset with the Correctness metric is similar to Conformity, but there is no need to select a category, and the number of examples is specified per topic instead.
+On the other hand, the Document Based tab allows you to generate a dataset with examples based on your knowledge base.
 
-.. image:: /_static/images/hub/generate-dataset-correctness.png
+.. image:: /_static/images/hub/generate-dataset-document-based.png
    :align: center
-   :alt: "Generate correctness dataset"
+   :alt: "Generate document based dataset"
    :width: 800
 
 However, in this case, dataset generation requires two additional pieces of information:

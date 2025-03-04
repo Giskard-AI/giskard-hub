@@ -4,8 +4,22 @@ from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage
-from ..data.conversation import Conversation
+from ..data.conversation import CheckConfig, Conversation, TestCaseCheckConfig
 from ._resource import APIResource
+
+
+def _format_checks_to_backend(checks: list[CheckConfig]) -> list[TestCaseCheckConfig]:
+    return [
+        {
+            **check,
+            **(
+                {"assertions": [{"type": check["identifier"], **check["params"]}]}
+                if check.get("params")
+                else {}
+            ),
+        }
+        for check in checks
+    ]
 
 
 class ConversationsResource(APIResource):
@@ -19,21 +33,20 @@ class ConversationsResource(APIResource):
         *,
         dataset_id: str,
         messages: List[ChatMessage],
-        rules: List[str] = NOT_GIVEN,
-        tags: List[str] = NOT_GIVEN,
-        expected_output: Optional[str] = NOT_GIVEN,
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
+        tags: Optional[List[str]] = [],
+        checks: Optional[List[CheckConfig]] = [],
     ):
         data = filter_not_given(
             {
                 "dataset_id": dataset_id,
                 "messages": [maybe_to_dict(msg) for msg in messages],
-                "rules": rules,
-                "tags": tags,
-                "expected_output": expected_output,
                 "demo_output": maybe_to_dict(demo_output),
+                "tags": tags,
+                "checks": _format_checks_to_backend(checks),
             }
         )
+
         return self._client.post(
             "/conversations",
             json=data,
@@ -46,10 +59,9 @@ class ConversationsResource(APIResource):
         *,
         dataset_id: str = NOT_GIVEN,
         messages: List[ChatMessage] = NOT_GIVEN,
-        rules: List[str] = NOT_GIVEN,
-        tags: List[str] = NOT_GIVEN,
-        expected_output: Optional[str] = NOT_GIVEN,
         demo_output: Optional[ChatMessage] = NOT_GIVEN,
+        tags: Optional[List[str]] = NOT_GIVEN,
+        checks: Optional[List[CheckConfig]] = NOT_GIVEN,
     ) -> Conversation:
         data = filter_not_given(
             {
@@ -57,12 +69,12 @@ class ConversationsResource(APIResource):
                 "messages": (
                     [maybe_to_dict(msg) for msg in messages] if messages else messages
                 ),
-                "rules": rules,
-                "tags": tags,
-                "expected_output": expected_output,
                 "demo_output": maybe_to_dict(demo_output),
+                "tags": tags,
+                "checks": _format_checks_to_backend(checks) if checks else checks,
             }
         )
+
         return self._client.patch(
             f"/conversations/{conversation_id}",
             json=data,
@@ -70,7 +82,9 @@ class ConversationsResource(APIResource):
         )
 
     def delete(self, conversation_id: str | List[str]) -> None:
-        return self._client.delete("/conversations", params={"conversation_ids": conversation_id})
+        return self._client.delete(
+            "/conversations", params={"conversation_ids": conversation_id}
+        )
 
     def list(self, dataset_id: str) -> List[Conversation]:
         data = self._client.get(f"/datasets/{dataset_id}/conversations?limit=100000")
