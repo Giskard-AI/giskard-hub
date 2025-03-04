@@ -100,5 +100,5 @@ Regular reports can be sent via email to notify teams of newly detected vulnerab
 
 .. image:: /_static/images/hub/alerting.png
    :align: center
-   :alt: "Alterting"
+   :alt: "Alerting"
    :width: 500

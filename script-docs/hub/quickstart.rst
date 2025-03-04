@@ -145,11 +145,11 @@ The interface below displays the knowledge base details that need to be filled o
    :width: 800
 
 - ``Name``: The name of the knowledge base.
-- ``File``: The document to upload, in CSV format, containing the knowledge base content. The file should have one column named "text" with the document content. If you're uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled "text, topic". Note the following rules:
-    - If the text has a value but the topic is blank, the topic will be set to 'Others'.
-    - If both the text and topic are blank, or if the text is blank but the topic has a value, the row will not be imported.
+- ``File``: The document to upload, in CSV format, containing the knowledge base content. The file should have one column named ``text`` with the document content. If you're uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled ``text,topic``. Note the following rules:
+    - If the ``text`` has a value but the ``topic`` is blank, the ``topic`` will be set to 'Others'. However, if all topics are blank, the ``topic`` will be automatically generated.
+    - If both the ``text`` and ``topic`` are blank, or if the ``text`` is blank but the ``topic`` has a value, the row will not be imported.
 
-The interface below displays information about the knowledge base and its content with corresponding topics. If no topics were uploaded with the knowledge base, Giskard Hub will identify and generate them for you. In the example below, the knowledge base is ready to be used with over 1200 documents and 7 topics.
+The interface below displays information about the knowledge base and its content with corresponding topics. If no topics were uploaded with the knowledge base, Giskard Hub will also identify and generate them for you. In the example below, the knowledge base is ready to be used with over 1200 documents and 7 topics.
 
 .. image:: /_static/images/hub/import-kb-success.png
    :align: center

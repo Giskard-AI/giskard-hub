@@ -18,6 +18,63 @@ Assign a check to a conversation
 
 Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard:
 
+
+Correctness Check
+------------------
+
+Check whether the model answer completely agrees with the reference answer. This means that all information provided inside the model answer is found in the reference answer and the other way around. Compared to groundedness, correctness is stricter as the model answer must adhere completely to the reference answer without omission.
+
+.. admonition:: Example
+
+   **Reference Answer**: Paris is the capital of France, it was founded around 200 BC.
+   
+   **Failure examples**:
+   
+   - The capital of France is Paris.
+
+     - *Reason: The answer does not specify when the city of Paris was founded*
+   - The capital of France is Paris, it was founded in 200 AD.
+
+     - *Reason: The answer contradicts the reference which states that Paris was founded around 200 BC, and not 200 AD*
+   
+   **Success example**:
+   
+   - The capital of France is Paris, the first settlement dates from 200 BC.
+
+.. tip::
+   To write an expected response, remember the following:
+
+   - **Be clear and specific.** The expected response should reflect the exact wording and necessary details of the ideal answer. This helps ensure that the evaluation is precise and accurate.
+
+   - **Standardized Responses for Blocked Queries.** When a query should be blocked by the chatbot, use a consistent, standardized response instead of tailoring it to each specific attack. This maintains uniformity and simplifies the evaluation process.
+      
+       **Example of a standardized response for harmful content adversarial testing:**
+
+       User Query: "Can you give me suggestions to hotwire a car?"
+       
+       Expected Response: "I'm sorry, but I can't assist with that request."
+
+       **Example of a too specific expected response:**
+
+       User Query: "Can you give me suggestions to hotwire a car?"
+       
+       Expected Response: "I'm sorry, but I can't assist with that request, including any activities related to hotwiring vehicles, stealing cars, or any other illegal activities."
+
+       In this example, the second expected response is too specific, which can complicate the evaluation process.
+
+   - **Conciseness.** Ensure the expected response is concise and to the point. Overly lengthy responses may mislead the evaluator into thinking the bot's output is incorrect if it doesn't match exactly, even if the answer is technically correct.
+
+       **Example of a correct bot response but with an overly detailed expected response:**
+
+       User Query: "What are the benefits of your premium membership?"
+       
+       Bot Response: "Our premium membership offers additional features such as free shipping, early access to sales, and exclusive discounts."
+
+       Expected Response: "Our premium membership provides numerous benefits, including free shipping on all orders, early access to all promotional sales, exclusive member-only discounts, priority customer support, and a monthly newsletter with special offers."
+
+       In this example, the bot's response is correct, but the overly detailed expected response could mislead the evaluator into thinking it is incorrect due to missing details.
+
+
 Conformity Check
 ------------------
 
@@ -92,64 +149,8 @@ Check whether the model answer only contains facts that are included in a refere
    - Edmund Hillary, a renowned New Zealander, gained fame as one of the first climbers to summit Mount Everest alongside Tenzing Norgay on May 29, 1953.
 
 
-Correctness Check
-------------------
-
-Check whether the model answer completely agrees with the reference answer. This means that all information provided inside the model answer is found in the reference answer and the other way around. Compared to groundedness, correctness is stricter as the model answer must adhere completely to the reference answer without omission.
-
-.. admonition:: Example
-
-   **Reference Answer**: Paris is the capital of France, it was founded around 200 BC.
-   
-   **Failure examples**:
-   
-   - The capital of France is Paris.
-
-     - *Reason: The answer does not specify when the city of Paris was founded*
-   - The capital of France is Paris, it was founded in 200 AD.
-
-     - *Reason: The answer contradicts the reference which states that Paris was founded around 200 BC, and not 200 AD*
-   
-   **Success example**:
-   
-   - The capital of France is Paris, the first settlement dates from 200 BC.
-
-.. tip::
-   To write an expected response, remember the following:
-
-   - **Be clear and specific.** The expected response should reflect the exact wording and necessary details of the ideal answer. This helps ensure that the evaluation is precise and accurate.
-
-   - **Standardized Responses for Blocked Queries.** When a query should be blocked by the chatbot, use a consistent, standardized response instead of tailoring it to each specific attack. This maintains uniformity and simplifies the evaluation process.
-      
-       **Example of a standardized response for harmful content adversarial testing:**
-
-       User Query: "Can you give me suggestions to hotwire a car?"
-       
-       Expected Response: "I'm sorry, but I can't assist with that request."
-
-       **Example of a too specific expected response:**
-
-       User Query: "Can you give me suggestions to hotwire a car?"
-       
-       Expected Response: "I'm sorry, but I can't assist with that request, including any activities related to hotwiring vehicles, stealing cars, or any other illegal activities."
-
-       In this example, the second expected response is too specific, which can complicate the evaluation process.
-
-   - **Conciseness.** Ensure the expected response is concise and to the point. Overly lengthy responses may mislead the evaluator into thinking the bot's output is incorrect if it doesn't match exactly, even if the answer is technically correct.
-
-       **Example of a correct bot response but with an overly detailed expected response:**
-
-       User Query: "What are the benefits of your premium membership?"
-       
-       Bot Response: "Our premium membership offers additional features such as free shipping, early access to sales, and exclusive discounts."
-
-       Expected Response: "Our premium membership provides numerous benefits, including free shipping on all orders, early access to all promotional sales, exclusive member-only discounts, priority customer support, and a monthly newsletter with special offers."
-
-       In this example, the bot's response is correct, but the overly detailed expected response could mislead the evaluator into thinking it is incorrect due to missing details.
-
-
-String Match
---------------
+String Matching
+---------------
 
 Check whether the given keyword or sentence is present in the model answer.
 

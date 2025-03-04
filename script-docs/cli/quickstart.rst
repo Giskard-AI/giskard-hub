@@ -1,5 +1,5 @@
 ===========
-Quick start
+Quickstart
 ===========
 
 Install the client library
@@ -35,7 +35,8 @@ You can set the following environment variables to avoid passing them as argumen
    export GSK_API_KEY=your_api_key
    export GSK_HUB_URL=https://your-giskard-hub-instance.com/_api
 
-
+.. tip::
+    Make sure you are using the correct URL for your Giskard Hub instance. The URL should end with ``/_api``.
 
 Create a project and run an evaluation
 ======================================
