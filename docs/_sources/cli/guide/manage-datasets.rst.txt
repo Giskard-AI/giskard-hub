@@ -51,22 +51,24 @@ If you already have a dataset, you can retrieve it by its ID:
 Import conversations
 --------------------
 
-You can now add conversations to the dataset. Conversations are a collection of messages together with evaluation
-parameters (e.g., the expected answer, or rules that the agent must follow when responding).
+You can now add conversations to the dataset. Conversations are a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).
 
 The list of **messages** is the only required parameter. Each message is a dictionary with keys ``role`` and ``content``.
 
 .. note:: **Do not include last assistant answer in the list of messages.** In fact, during evaluation, we will pass
     the conversation to your agent and expect it to generate an assistant answer. The newly generated answer will
-    be evaluated against the expected output or the rules.
+    be evaluated against the checks.
 
     If you want to show the last assistant answer to the user, you can include it in the conversation as ``demo_output``.
     In this way, it will be shown in the dataset, but not used in the evaluation.
 
 You can also pass two types of evaluation annotations:
 
-- **expected_output**  A reference answer that will be used to determine the correctness of the agent's response
-- **rules**  A list of rules that the agent must follow when generating the answer.
+- **checks** A list of checks that the agent must pass when generating the answer. It can be a built-in or custom check. For example, the built-in checks are:
+    - **correctness**  A reference answer that will be used to determine the correctness of the agent's response
+    - **conformity**  A list of rules that the agent must follow when generating the answer.
+    - **groundedness**  A context in which the agent must ground its response.
+    - **string_match**  A keyword that the agent's response must contain.
 
 For better organization, you can also assign tags to the conversation.
 
@@ -88,11 +90,11 @@ For better organization, you can also assign tags to the conversation.
         # Tags (optional)
         tags=["customer-support"],
 
-        # Evaluation settings (optional)
-        expected_output="I see, could you please give me the model number of the laptop?",
-        rules=[
-            "The assistant should employ a polite and friendly tone.",
-        ],
+        # Evaluation checks (optional)
+        checks=[
+            {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
+            {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
+        ]
     )
 
 You can add as many conversations as you want to the dataset.
