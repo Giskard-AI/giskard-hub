@@ -1,17 +1,20 @@
-==============
-Quickstart
-==============
+====================
+Quickstart & Setup
+====================
 
-The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-steps workflow:
+The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-step workflow:
 
-1. **Generation of synthetic data** – Automate test case generation with a focus on legitimate and adversarial queries.
-2. **Business annotation** – Use domain knowledge to review and refine test cases through annotation tools.
-3. **Test execution automation** – Run evaluations and set up alerts for detected vulnerabilities.
-4. **Continuous red teaming** – Detect emerging vulnerabilities through proactive monitoring.
+1. **Generation of synthetic data**: Automate test case generation with a focus on legitimate and adversarial queries.
+
+2. **Business annotation**: Use domain knowledge to review and refine test cases through annotation tools.
+
+3. **Test execution automation**: Run evaluations and set up alerts for detected vulnerabilities.
+
+4. **Continuous red teaming**: Detect emerging vulnerabilities through proactive monitoring.
 
 .. image:: /_static/images/hub/hub-workflow.png
    :align: center
-   :alt: "Create a project"
+   :alt: "The hub workflow"
    :width: 800
 
 .. note::
@@ -63,7 +66,7 @@ On the Agents page, click on the "New agent" button.
 
 .. image:: /_static/images/hub/setup-agent-list.png
    :align: center
-:alt: "List of agents"
+   :alt: "List of agents"
    :width: 800
 
 The interface below displays the agent details that need to be filled out.

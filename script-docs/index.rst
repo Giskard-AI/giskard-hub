@@ -11,15 +11,13 @@ development team to avoid delayed deployment timelines.
    :maxdepth: 1
 
    hub/quickstart
-   hub/guide/manage-datasets
-   hub/guide/generate-dataset
-   hub/guide/create-custom-checks
-   hub/guide/run-evaluations
-   hub/guide/compare-evaluations
-   hub/guide/playground
+   hub/guide/create-dataset
    hub/guide/annotate
-   hub/guide/access-rights
+   hub/guide/run-evaluations
+   hub/guide/playground
    hub/guide/continuous-red-teaming
+   hub/guide/create-custom-checks
+   hub/guide/access-rights
    hub/glossary
 
 
