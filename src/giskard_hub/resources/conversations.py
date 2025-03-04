@@ -2,11 +2,7 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from ..data._base import (
-    NOT_GIVEN,
-    filter_not_given,
-    maybe_to_dict,
-)
+from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage
 from ..data.conversation import CheckConfig, Conversation, TestCaseCheckConfig
 from ._resource import APIResource
