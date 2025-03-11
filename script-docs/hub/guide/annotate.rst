@@ -22,7 +22,7 @@ Assigning checks to a conversation enables you to set the right requirements for
 Correctness Check
 ------------------
 
-Check whether the model answer completely agrees with the reference answer. This means that all information provided inside the model answer is found in the reference answer and the other way around. Compared to groundedness, correctness is stricter as the model answer must adhere completely to the reference answer without omission.
+Check whether all information from the reference answer is present in the model answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent’s answer.
 
 .. admonition:: Example
 
@@ -128,7 +128,7 @@ Given a rule or criterion, check whether the model answer complies with this rul
 Groundedness Check
 --------------------
 
-Check whether the model answer only contains facts that are included in a reference context. There might be omissions in the model answer compared to the context, but all information given by the model must be grounded in the context. The Groundedness check is useful to test for potential hallucinations in the model answer
+Check whether all information from the bot’s answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent’s answer. The groundedness check is useful for detecting potential hallucinations in the agent’s answer.
 
 .. admonition:: Example
 
