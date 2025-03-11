@@ -8,6 +8,8 @@ Glossary
 
 - **Dataset**: a collection of conversations used to evaluate your agents.
 
+- **Checks**: a set of evaluations designed to ensure that an Agent exhibits appropriate behavior according to specified criteria. Checks can include correctness, groundedness, conformity, and others.
+
 - **Conversations**: a collection of messages along with evaluation parameters (checks), such as the expected answer or rules the agent must follow when responding.
 
 - **Correctness**: Verifies if the agent's response matches the expected output (reference answer).
