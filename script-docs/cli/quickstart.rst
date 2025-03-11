@@ -16,7 +16,7 @@ The library is compatible with Python 3.9 to 3.12.
 Get your API key
 ================
 
-Head over to your Giskard Hub instance and click on the user icon in the top right corner. You will find your personal
+Head over to your Giskard Hub instance and click on the user icon in the bottom left corner. You will find your personal
 API key, click on the button to copy it.
 
 .. note::
