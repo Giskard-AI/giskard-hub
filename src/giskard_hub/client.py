@@ -106,9 +106,22 @@ class HubClient(SyncClient):
         try:
             resp = self._http.get("/openapi.json")
             resp.raise_for_status()
+
+            content_type = resp.headers.get("Content-Type", "")
+            if "application/json" not in content_type:
+                raise HubConnectionError(
+                    f"Expected 'application/json' content type, but got '{content_type}' instead."
+                )
+
+            data = resp.json()
+            if "openapi" not in data:
+                raise HubConnectionError(
+                    "The response doesn't appear to include an OpenAPI specification "
+                    "('openapi' key is missing)."
+                )
         except Exception as e:
             raise HubConnectionError(
-                f"Failed to connect to Giskard Hub at {self._hub_url}. Error: {e}"
+                f"Failed to connect to Giskard Hub at {self._hub_url}."
             ) from e
 
         # Define the resources
