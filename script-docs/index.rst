@@ -32,7 +32,7 @@ You will learn how execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.
 
 .. toctree::
-   :caption: Giskard Hub Library
+   :caption: Giskard Python SDK
    :maxdepth: 1
 
    cli/quickstart

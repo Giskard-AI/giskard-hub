@@ -88,6 +88,10 @@ In this case, dataset generation requires two additional pieces of information:
 
 - ``Topics``: Select the topics within the chosen knowledge base from which you want to generate examples.
 
+Once you click on "Generate," you receive a dataset where:
+
+- The groundedness check is enabled: the context consists of the knowledge documents relevant to answering the query.
+- The correctness check is disabled, but its reference (expected output) is prefilled by the Hub. If you want to execute the dataset with the correctness check, you can either enable it manually or enable it for multiple conversations at once by selecting multiple conversations in the Dataset tab and enabling the correctness check.
 
 Import an existing dataset of tests
 =======================================

@@ -9,7 +9,7 @@ Once your test cases are generated, refined with business knowledge, and automat
 - **Cybersecurity research advances:** Newly discovered prompt injections or other vulnerabilities identified by the scientific community.
 - **New model versions are introduced:** Changes in prompts, updates to foundational models, or modifications in AI behavior.
 
-The Giskard Evaluation Hub conducts continuous red teaming by constantly enriching your test dataset by new cases. These new cases are generated from:
+Giskard conducts continuous red teaming by constantly enriching your test dataset by new cases. These new cases are generated from:
 
 - **Internal data** (e.g., RAG knowledge base)
 - **External data** (e.g., social media, news articles)
