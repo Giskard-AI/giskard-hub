@@ -104,7 +104,7 @@ class HubClient(SyncClient):
 
         # Check if the connection is valid
         try:
-            resp = self._http.get("/openapi.json")
+            resp = self._http.get("/_health")
             resp.raise_for_status()
 
             content_type = resp.headers.get("Content-Type", "")
@@ -114,10 +114,9 @@ class HubClient(SyncClient):
                 )
 
             data = resp.json()
-            if "openapi" not in data:
+            if data.get("status") != "ok":
                 raise HubConnectionError(
-                    "The response doesn't appear to include an OpenAPI specification "
-                    "('openapi' key is missing)."
+                    f"Health check status is not 'ok': {data.get('status')}"
                 )
         except Exception as e:
             raise HubConnectionError(
