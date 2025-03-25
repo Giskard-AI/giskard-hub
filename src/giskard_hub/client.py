@@ -74,7 +74,7 @@ class HubClient(SyncClient):
             If the `hub_url` or `api_key` are not provided and the environment
             variables are not set.
         HubConnectionError
-            If calling the `/openapi.json` endpoint fails (e.g. bad URL or server error).
+            If calling `/_health` endpoint fails or the response is not as expected.
         """
         if hub_url is None:
             hub_url = os.getenv("GSK_HUB_URL")
