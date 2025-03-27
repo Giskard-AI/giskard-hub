@@ -109,7 +109,14 @@ We can now add a conversation example to the dataset. This will be used for the 
             dict(role="assistant", content="Paris"),
             dict(role="user", content="What is the capital of Germany?"),
         ],
-        demo_output=dict(role="assistant", content="I don't know that!"),
+        demo_output=dict(
+            role="assistant",
+            content="I don't know that!",
+            metadata=dict(
+                response_time=random.random(),
+                test_metadata="No matter which kind of metadata",
+            ),
+        ),
         checks=[
             dict(identifier="correctness", params={"reference": "Berlin"}),
             dict(identifier="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
@@ -121,7 +128,7 @@ These are the attributes you can set for a conversation (the only required attri
 - ``messages``: A list of messages in the conversation. Each message is a dictionary with the following keys:
     - ``role``: The role of the message, either "user" or "assistant".
     - ``content``: The content of the message.
-- ``demo_output``: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.
+- ``demo_output``: A demonstration of a (possibly wrong) output from the model with an optional metadata. This is just for demonstration purposes.
 - ``checks``: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
     - ``identifier``: The identifier of the check. If it's a built-in check, you will also need to provide the ``params`` dictionary. The built-in checks are:
         - ``correctness``: The output of the model should match the reference.

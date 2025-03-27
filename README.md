@@ -92,7 +92,14 @@ hub.conversations.create(
         dict(role="assistant", content="Paris"),
         dict(role="user", content="What is the capital of Germany?"),
     ],
-    demo_output=dict(role="assistant", content="I don't know that!"),
+    demo_output=dict(
+        role="assistant",
+        content="I don't know that!",
+        metadata=dict(
+            response_time=random.random(),
+            test_metadata="No matter which kind of metadata",
+        ),
+    ),
     checks=[
         dict(identifier="correctness", params={"reference": "Berlin"}),
         dict(identifier="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
@@ -109,7 +116,7 @@ required attribute is `messages`):
   - `content`: The content of the message.
 
 - `demo_output`: A demonstration of a (possibly wrong) output from the
-  model. This is just for demonstration purposes.
+  model with an optional metadata. This is just for demonstration purposes.
 
 - `checks`: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
   - `identifier`: The identifier of the check. If it's a built-in check, you will also need to provide the `params` dictionary. The built-in checks are:
