@@ -27,4 +27,4 @@ def test_chat_message_with_metadata_can_instantiate_from_dict():
     chat_message = ChatMessageWithMetadata.from_dict(data)
     assert chat_message.role == "assistant"
     assert chat_message.content == "Sorry, I cannot help you with that."
-    assert not chat_message.metadata
+    assert chat_message.metadata is None
