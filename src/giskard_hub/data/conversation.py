@@ -48,7 +48,7 @@ class Conversation(Entity):
     ----------
     messages : List[ChatMessage]
         List of messages in the conversation. Each message is an object with a role and content attributes.
-    demo_output : Optional[ChatMessage], optional
+    demo_output : Optional[ChatMessageMetadata], optional
         Output of the agent for demonstration purposes.
     tags : List[str], optional
         List of tags for the conversation.

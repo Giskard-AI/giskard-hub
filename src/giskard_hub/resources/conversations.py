@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
-from ..data.chat import ChatMessage
+from ..data.chat import ChatMessage, ChatMessageWithMetadata
 from ..data.conversation import CheckConfig, Conversation, TestCaseCheckConfig
 from ._resource import APIResource
 
@@ -33,7 +33,7 @@ class ConversationsResource(APIResource):
         *,
         dataset_id: str,
         messages: List[ChatMessage],
-        demo_output: Optional[ChatMessage] = NOT_GIVEN,
+        demo_output: Optional[ChatMessageWithMetadata] = NOT_GIVEN,
         tags: Optional[List[str]] = [],
         checks: Optional[List[CheckConfig]] = [],
     ):
@@ -59,7 +59,7 @@ class ConversationsResource(APIResource):
         *,
         dataset_id: str = NOT_GIVEN,
         messages: List[ChatMessage] = NOT_GIVEN,
-        demo_output: Optional[ChatMessage] = NOT_GIVEN,
+        demo_output: Optional[ChatMessageWithMetadata] = NOT_GIVEN,
         tags: Optional[List[str]] = NOT_GIVEN,
         checks: Optional[List[CheckConfig]] = NOT_GIVEN,
     ) -> Conversation:
