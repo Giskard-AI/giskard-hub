@@ -74,7 +74,7 @@ class HubClient(SyncClient):
             If the `hub_url` or `api_key` are not provided and the environment
             variables are not set.
         HubConnectionError
-            If calling `/_health` endpoint fails or the response is not as expected.
+            If calling `/openapi.json` fails or the response doesn't include an OpenAPI specification.
         """
         if hub_url is None:
             hub_url = os.getenv("GSK_HUB_URL")
@@ -83,7 +83,7 @@ class HubClient(SyncClient):
                 "Missing Giskard Hub URL. Please provide it as an argument or set the env variable `GSK_HUB_URL`"
             )
         hub_url = hub_url.rstrip("/")
-        if "/_api" not in hub_url and auto_add_api_suffix:
+        if not hub_url.endswith("/_api") and auto_add_api_suffix:
             hub_url += "/_api"
 
         if api_key is None:
@@ -104,24 +104,19 @@ class HubClient(SyncClient):
 
         # Check if the connection is valid
         try:
-            resp = self._http.get("/_health")
+            resp = self._http.get("/openapi.json")
             resp.raise_for_status()
-
-            content_type = resp.headers.get("Content-Type", "")
-            if "application/json" not in content_type:
-                raise HubConnectionError(
-                    f"Expected 'application/json' content type, but got '{content_type}' instead."
-                )
-
             data = resp.json()
-            if data.get("status") != "ok":
-                raise HubConnectionError(
-                    f"Health check status is not 'ok': {data.get('status')}"
-                )
         except Exception as e:
             raise HubConnectionError(
                 f"Failed to connect to Giskard Hub at {self._hub_url}."
             ) from e
+
+        if "openapi" not in data:
+            raise HubConnectionError(
+                f"The response doesn't appear to include an OpenAPI specification "
+                "('openapi' key is missing)."
+            )
 
         # Define the resources
         self.projects = ProjectsResource(self)
