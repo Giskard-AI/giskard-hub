@@ -114,8 +114,7 @@ class HubClient(SyncClient):
 
         if "openapi" not in data:
             raise HubConnectionError(
-                f"The response doesn't appear to include an OpenAPI specification "
-                "('openapi' key is missing)."
+                f"The response doesn't appear to include an OpenAPI specification at {self._hub_url}."
             )
 
         # Define the resources
