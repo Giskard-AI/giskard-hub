@@ -1,8 +1,21 @@
-==============
-Quick start
-==============
+====================
+Quickstart & Setup
+====================
 
-The Hub is the user interface from which you can perform LLM evaluations. It can be deployed on-premise or in the cloud, depending on your specific needs.
+The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-step workflow:
+
+1. **Generation of synthetic data**: Automate test case generation with a focus on legitimate and adversarial queries.
+
+2. **Business annotation**: Use domain knowledge to review and refine test cases through annotation tools.
+
+3. **Test execution automation**: Run evaluations and set up alerts for detected vulnerabilities.
+
+4. **Continuous red teaming**: Detect emerging vulnerabilities through proactive monitoring.
+
+.. image:: /_static/images/hub/hub-workflow.png
+   :align: center
+   :alt: "The hub workflow"
+   :width: 800
 
 .. note::
     Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's chatbot provides customer service support on their website, offering knowledge about the bank's products, services, and more.
@@ -132,11 +145,11 @@ The interface below displays the knowledge base details that need to be filled o
    :width: 800
 
 - ``Name``: The name of the knowledge base.
-- ``File``: The document to upload, in CSV format, containing the knowledge base content. The file should have one column named "text" with the document content. If you're uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled "text, topic". Note the following rules:
-    - If the text has a value but the topic is blank, the topic will be set to 'Others'.
-    - If both the text and topic are blank, or if the text is blank but the topic has a value, the row will not be imported.
+- ``File``: The document to upload, in CSV format, containing the knowledge base content. The file should have one column named ``text`` with the document content. If you're uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled ``text,topic``. Note the following rules:
+    - If the ``text`` has a value but the ``topic`` is blank, the ``topic`` will be set to 'Others'. However, if all topics are blank, the ``topic`` will be automatically generated.
+    - If both the ``text`` and ``topic`` are blank, or if the ``text`` is blank but the ``topic`` has a value, the row will not be imported.
 
-The interface below displays information about the knowledge base and its content with corresponding topics. If no topics were uploaded with the knowledge base, Giskard Hub will identify and generate them for you. In the example below, the knowledge base is ready to be used with over 1200 documents and 7 topics.
+The interface below displays information about the knowledge base and its content with corresponding topics. If no topics were uploaded with the knowledge base, Giskard Hub will also identify and generate them for you. In the example below, the knowledge base is ready to be used with over 1200 documents and 7 topics.
 
 .. image:: /_static/images/hub/import-kb-success.png
    :align: center
