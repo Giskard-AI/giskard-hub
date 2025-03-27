@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Literal
+from typing import Any, Literal, Optional
 
 from ._base import BaseData
 
@@ -12,3 +12,8 @@ class ChatMessage(BaseData):
 
     role: Literal["system", "assistant", "user"]
     content: str
+
+
+@dataclass
+class ChatMessageWithMetadata(ChatMessage):
+    metadata: Optional[dict[str, Any]]

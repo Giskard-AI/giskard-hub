@@ -5,7 +5,7 @@ from typing import Any, Dict, List, Optional
 
 from ._base import BaseData
 from ._entity import Entity
-from .chat import ChatMessage
+from .chat import ChatMessage, ChatMessageWithMetadata
 
 
 def _format_checks_to_cli(checks: List[TestCaseCheckConfig]) -> List[CheckConfig]:
@@ -57,7 +57,7 @@ class Conversation(Entity):
     """
 
     messages: List[ChatMessage] = field(default_factory=list)
-    demo_output: Optional[ChatMessage] = field(default=None)
+    demo_output: Optional[ChatMessageWithMetadata] = field(default=None)
     tags: List[str] = field(default_factory=list)
     checks: List[TestCaseCheckConfig] = field(default_factory=list)
 
@@ -70,7 +70,7 @@ class Conversation(Entity):
             else [ChatMessage.from_dict(msg) for msg in obj.messages]
         )
         obj.demo_output = (
-            None if obj.demo_output is None else ChatMessage.from_dict(obj.demo_output)
+            None if obj.demo_output is None else ChatMessageWithMetadata.from_dict(obj.demo_output)
         )
         obj.checks = _format_checks_to_cli(obj.checks)
         return obj
