@@ -16,4 +16,4 @@ class ChatMessage(BaseData):
 
 @dataclass
 class ChatMessageWithMetadata(ChatMessage):
-    metadata: Optional[dict[str, Any]]
+    metadata: Optional[dict[str, Any]] = None
