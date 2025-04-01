@@ -70,7 +70,9 @@ class Conversation(Entity):
             else [ChatMessage.from_dict(msg) for msg in obj.messages]
         )
         obj.demo_output = (
-            None if obj.demo_output is None else ChatMessageWithMetadata.from_dict(obj.demo_output)
+            None
+            if obj.demo_output is None
+            else ChatMessageWithMetadata.from_dict(obj.demo_output)
         )
         obj.checks = _format_checks_to_cli(obj.checks)
         return obj

@@ -1,4 +1,3 @@
-
 from giskard_hub.data.chat import ChatMessage, ChatMessageWithMetadata
 
 
