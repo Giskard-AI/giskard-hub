@@ -4,9 +4,8 @@ Annotate test dataset
 
 Conversations are a collection of messages with evaluation parameters (i.e. the expected answer, rules that the agent must comply with, etc.). These conversations are the ones you eventually evaluate your model against. 
 
-The Annotation Studio provides an interface for reviewing and assigning evaluation criteria (checks) to conversations. 
+The Datasets section of the LLM Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations. 
 
-Since bot outputs are non-deterministic (they may vary at each execution of the bot), writing expected outputs and rules requires generating multiple bot outputs and testing evaluations against them. Refining test cases is then a **trial-and-error process** that demands proper iterative solutions, hence the need for a studio to design test requirements (ex: expected outputs, rules, contexts, etc.).
 
 Write a message
 ================
