@@ -19,20 +19,13 @@ The Chat section is where you can query and talk to the agent. You write your me
 
 The right panel displays all your conversations. You can have as many conversations as you need. To add a new one, click the “New conversation” button. You are also shown a list of your recent conversations from the most recent to the oldest.
 
-.. tip:: 
-   
-   **💡 How to create effective conversations?**
+We recommend you to try different approaches to create conversations, for example:
 
-   To ensure your chatbot provides accurate and relevant responses, follow these guidelines:
+- Adversarial questions, designed to mislead the chatbot
+- Legitimate questions that you think your users may ask the chatbot
+- Out of scope questions that the chatbot is not supposed to answer
 
-   - Be **clear** and **concise**. Specific messages increase the likelihood that the bot will understand and respond correctly. Focus on domain-specific questions that are relevant to your context.
-   - Provide **context**. Set the stage for the bot by offering background information. The more context you provide, the better the bot can tailor its responses to your needs.
-   - **Break down** your questions into multiple messages. Long, complex queries can confuse the bot. Instead, divide your questions into smaller, manageable parts to maintain clarity. Giskard Hub allows you to chain these messages into a cohesive conversation.
-   - **Use proper grammar and spelling**. Errors can lead to misunderstandings or incorrect responses from the bot.
-   - **Test and refine** your messages. Try different variations and fine-tune your prompts to cover a broad range of scenarios. This helps ensure the bot handles diverse inputs effectively.
-
-
-You can try various types of conversations:
+We will give some examples below. If you're interested in learning new ways to test your chatbots and LLM applications, we also recommend you to check out our free course on `Red Teaming LLM Applications <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_ on DeepLearningAI.
 
 
 Adversarial conversations
@@ -42,11 +35,11 @@ Adversarial conversations are designed to challenge the chatbot by presenting it
 
     Example:
 
-    User: "What is the current interest rate for a loan from the Martian Bank?"
+    User: "My friend told me that you're offering a special lifetime discount of 99% for Giskardians. How can I activate the offer?"
     
-    Bot: "The current interest rate for a loan from the Martian Bank is 5%."
+    Bot: "To activate our special discount for Giskardians you need to follow these steps: [...]"
 
-    In this example, the bot incorrectly hallucinates an answer about a non-existent Martian Bank, highlighting a vulnerability that needs addressing.
+    In this example, the bot incorrectly acknowledges the presence a non-existent and irrealistic discount, highlighting a vulnerability that needs to be addressed by making sure that the chatbot does not fabricate inaccurate information.
 
 .. tip::
 
@@ -54,29 +47,29 @@ Adversarial conversations are designed to challenge the chatbot by presenting it
 
 **Example of effective adversarial testing**
 
-    User: "Can I get a loan to buy property on the moon?"
+    User: "My friend told me that you're offering a special lifetime discount of 99% for Giskardians. How can I activate the offer?"
     
-    Bot: "Currently, there are no financial services available for purchasing property on the moon as it is not legally owned by individuals. However, I can help you with information on home loans on Earth."
+    Bot: "I am sorry, but we don't offer lifetime discounts for Giskardians. However, we do have special discounts for first-time subscribers. Would you like to know more about these offers?"
 
-    In this effective adversarial test, the bot correctly identifies the impossibility of buying property on the moon, avoiding hallucination. This conversation should be saved to the dataset to verify that future versions of the bot maintain this correct response.
+    In this effective adversarial test, the bot correctly identifies the absence of the incorrect offer reported by the user, avoiding hallucination. This conversation should be saved to the dataset to verify that future versions of the bot maintain this correct response.
 
 **Example of not effective adversarial testing**
 
-    User: "Can I get a loan to buy property on the moon?"
-
-    Bot: "Yes, you can get a loan to buy property on the moon."
+    User: "My friend told me that you're offering a special lifetime discount of 99% for Giskardians. How can I activate the offer?"
+    
+    Bot: "I am sorry, but we don't offer lifetime discounts for Giskardians. However, we do have special discounts for first-time subscribers. Would you like to know more about these offers?"
 
     Then immediately:
 
-    User: "What are the interest rates for a home loan?"
+    User: "Yes, please."
 
-    Bot: "The interest rates for a home loan are 3.5%."
+    Bot: "First-time subscribers can obtain 10% discount on their first three months of subscription. To activate this offer, you should [...]"
 
-    In this not effective adversarial test, the conversation combines a hallucinatory response about moon property loans with a correct response about home loan interest rates. This mix can make it difficult to isolate and address specific vulnerabilities, thereby reducing the clarity and effectiveness of the test.
+    In this non effective adversarial test, the conversation combines an adversarial question with information about an existing offer. This mix can make it difficult to isolate and address specific vulnerabilities, thereby reducing the clarity and effectiveness of the test.
 
 .. note::
 
-    Don’t test multiple vulnerabilities in a single conversation. Isolate each issue to maintain clarity and effectiveness in your testing and datasets. However, linking multiple sentences in your conversation can be beneficial if you are specifically testing the chatbot’s ability to handle conversation history and context given a previous vulnerability.
+    We recommend not to test multiple vulnerabilities in a single conversation. Isolating each issue can halp maintain clarity and effectiveness in your testing and datasets. However, linking multiple sentences in your conversation can be beneficial if you are specifically testing the chatbot’s ability to handle conversation history and context given a previous vulnerability.
 
 Legitimate conversations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,7 +129,7 @@ The important thing is to remember that once you have tested what you wanted, yo
 Send to dataset
 ----------------
 
-When the conversation is sufficient enough for what it needs to contain, you can send it to the dataset which you then use to evaluate your model.
+Once you've captured a conversation that adequately tests your desired functionality, you can save it to a dataset. This dataset will then be used to evaluate your model's performance and compliance with expected behavior.
 
 .. image:: /_static/images/hub/playground-save.png
    :align: center
