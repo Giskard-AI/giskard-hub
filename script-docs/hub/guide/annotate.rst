@@ -2,22 +2,29 @@
 Annotate test dataset
 ======================
 
-Conversations are a collection of messages with evaluation parameters (i.e. the expected answer, rules that the agent must comply with, etc.). These conversations are the ones you eventually evaluate your model against. 
+Datasets are collection of test cases that will be used to verify the correct operation of your AI agent.
+
+Each test case is composed of a conversation and its associated evaluation parameters (e.g. an expected answer, rules that the agent must respect, etc.).
+
+A conversation is a list of messages. In the simplest case, a conversation is composed by a single message by the user. In the testing phase, we will send this message to your agent, record its answer, and evaluate it against the criteria that you defined in the test case.
+
+In more advanced cases, the conversation is a multi-turn dialogue between the user and the agent, terminating with a final user message. When testing, we will pass the conversation history to your agent to generate the response that will be evaluated.
 
 The Datasets section of the LLM Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations. 
 
+.. admonition:: Note
+  Except for very specific cases, conversations should always end with a user message. The next agent response will be generated and evaluated at runtime.
 
-Write a message
-================
 
-A message is the user conversation with the bot that you want to test. 
+Create a conversation
+=====================
 
 .. image:: /_static/images/hub/annotation-studio.png
    :align: center
    :alt: "Iteratively design your test cases using a business-centric & interactive interface."
    :width: 800
 
-A message contains two key components:
+A conversation contains two key components:
 
 - **User message**: This is the prompt written by the user. It can be a query from a user.
 - **Assistant message**: This is the bot's answer to the user message. There are different ways to write an assistant message:
