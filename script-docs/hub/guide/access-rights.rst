@@ -17,22 +17,22 @@ Global permissions apply access rights across all projects. You can configure Cr
 
 The rights are as follows:
 
-- **Create**: users can create a new item specific to the page.
+- **Create**: users can create a new entity of the given type.
 
-- **Read**: users can see the items created in the page.
+- **Read**: users can see entities of the given type.
 
-- **Edit**: users can modify the items in the page.
+- **Edit**: users can modify entities of the given type.
 
-- **Delete**: users can permanently remove the items in the page.
+- **Delete**: users can permanently remove entities of the given type.
 
-- **Use**: users can use the feature.
+- **Use**: users can use the given feature.
 
 .. image:: /_static/images/hub/access-permissions.png
    :align: center
    :alt: "Set permissions"
    :width: 800
 
-Scoped permissions allow for more granular control. For each project, you can specify which pages or entities users are allowed to access. An example of where this may be useful is if you want your users to read everything in a project but only allow a few people to edit the dataset.
+Scoped permissions allow for granular control. For each project, you can specify which pages or entities users are allowed to access. An example of where this may be useful is if you want your users to read everything in a project but only allow a few people to edit the dataset.
 
 .. image:: /_static/images/hub/access-scope.png
    :align: center
