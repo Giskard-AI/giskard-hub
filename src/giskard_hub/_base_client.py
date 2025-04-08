@@ -1,8 +1,17 @@
 from __future__ import annotations
 
+import json
 from typing import Optional
 
 import httpx
+
+from .errors import (
+    HubAPIError,
+    HubAuthenticationError,
+    HubForbiddenError,
+    HubJSONDecodeError,
+    HubValidationError,
+)
 
 _default_http_client_kwargs = {
     "follow_redirects": True,
@@ -20,35 +29,97 @@ class SyncClient:
         return {}
 
     def _request(self, method: str, path: str, *, cast_to=None, **kwargs):
-        res = self._http.request(
-            method=method,
-            url=path,
-            headers=self._headers(),
-            **kwargs,
-        )
         try:
-            res.raise_for_status()
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == httpx.codes.UNPROCESSABLE_ENTITY:
-                raise ValueError("Validation error: " + e.response.text)
+            res = self._http.request(
+                method=method,
+                url=path,
+                headers=self._headers(),
+                **kwargs,
+            )
 
-            try:
-                detail = e.response.json()
-                raise httpx.HTTPStatusError(
-                    message="API Error: " + detail.get("detail", e.response.text),
-                    request=e.request,
-                    response=e.response,
+            # Handle authentication errors
+            if res.status_code == 401:
+                raise HubAuthenticationError(
+                    "Authentication failed. Please check your API key.",
+                    status_code=res.status_code,
+                    response_text=res.text,
                 )
-            except TypeError:
-                pass
 
-            raise e
-        data = res.json()
+            # Handle forbidden errors
+            if res.status_code == 403:
+                error_message = "You don't have permission to access this resource."
+                try:
+                    error_data = res.json()
+                    if "message" in error_data:
+                        error_message = error_data["message"]
+                except json.JSONDecodeError:
+                    pass
 
-        if cast_to:
-            data = self._cast_data_to(cast_to, data)
+                raise HubForbiddenError(
+                    error_message,
+                    status_code=res.status_code,
+                    response_text=res.text,
+                )
 
-        return data
+            # Handle validation errors
+            if res.status_code == 422:
+                error_message = "Validation error. Please check your request."
+                try:
+                    error_data = res.json()
+                    print(error_data)
+                    if "message" in error_data:
+                        error_message = error_data["message"]
+                    if "fields" in error_data:
+                        error_message = f"{error_message}\n{error_data['fields']}"
+                except json.JSONDecodeError:
+                    pass
+
+                raise HubValidationError(
+                    error_message,
+                    status_code=res.status_code,
+                    response_text=res.text,
+                )
+
+            # Handle other HTTP errors
+            try:
+                res.raise_for_status()
+            except httpx.HTTPStatusError as e:
+                error_message = e.response.text
+                try:
+                    error_data = e.response.json()
+                    if "message" in error_data:
+                        error_message = error_data["message"]
+                except json.JSONDecodeError:
+                    pass
+
+                raise HubAPIError(
+                    error_message,
+                    status_code=e.response.status_code,
+                    response_text=e.response.text,
+                )
+
+            # Parse response JSON
+            try:
+                data = res.json()
+            except json.JSONDecodeError as e:
+                raise HubJSONDecodeError(
+                    f"Failed to decode API response as JSON: {str(e)}",
+                    status_code=res.status_code,
+                    response_text=res.text,
+                )
+
+            if cast_to:
+                data = self._cast_data_to(cast_to, data)
+
+            return data
+
+        except HubAPIError:
+            raise
+        except Exception as e:
+            raise HubAPIError(
+                f"Unexpected error while making API request: {str(e)}",
+                response_text=str(e),
+            )
 
     def get(self, path: str, **kwargs):
         return self._request("GET", path, **kwargs)
