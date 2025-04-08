@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from typing import Optional
+from typing import Optional, Tuple
 
 import httpx
 
@@ -28,6 +28,32 @@ class SyncClient:
     def _headers(self):
         return {}
 
+    def _extract_error_message(self, response: httpx.Response, default_msg: str) -> str:
+        """Extract error message from response, falling back to default_msg if not found"""
+        try:
+            error_data = response.json()
+            if "message" in error_data:
+                return error_data["message"]
+        except json.JSONDecodeError:
+            pass
+        return default_msg
+
+    def _extract_validation_errors(self, response: httpx.Response) -> Tuple[str, str]:
+        """Extract validation error message and field errors from response"""
+        error_message = "Validation error. Please check your request."
+        fields_str = ""
+
+        try:
+            error_data = response.json()
+            if "message" in error_data:
+                error_message = error_data["message"]
+            if "fields" in error_data:
+                fields_str = str(error_data["fields"])
+        except json.JSONDecodeError:
+            pass
+
+        return error_message, fields_str
+
     def _request(self, method: str, path: str, *, cast_to=None, **kwargs):
         try:
             res = self._http.request(
@@ -47,14 +73,9 @@ class SyncClient:
 
             # Handle forbidden errors
             if res.status_code == 403:
-                error_message = "You don't have permission to access this resource."
-                try:
-                    error_data = res.json()
-                    if "message" in error_data:
-                        error_message = error_data["message"]
-                except json.JSONDecodeError:
-                    pass
-
+                error_message = self._extract_error_message(
+                    res, "You don't have permission to access this resource."
+                )
                 raise HubForbiddenError(
                     error_message,
                     status_code=res.status_code,
@@ -63,16 +84,9 @@ class SyncClient:
 
             # Handle validation errors
             if res.status_code == 422:
-                error_message = "Validation error. Please check your request."
-                try:
-                    error_data = res.json()
-                    print(error_data)
-                    if "message" in error_data:
-                        error_message = error_data["message"]
-                    if "fields" in error_data:
-                        error_message = f"{error_message}\n{error_data['fields']}"
-                except json.JSONDecodeError:
-                    pass
+                error_message, fields_str = self._extract_validation_errors(res)
+                if fields_str:
+                    error_message = f"{error_message}\n{fields_str}"
 
                 raise HubValidationError(
                     error_message,
@@ -84,14 +98,7 @@ class SyncClient:
             try:
                 res.raise_for_status()
             except httpx.HTTPStatusError as e:
-                error_message = e.response.text
-                try:
-                    error_data = e.response.json()
-                    if "message" in error_data:
-                        error_message = error_data["message"]
-                except json.JSONDecodeError:
-                    pass
-
+                error_message = self._extract_error_message(e.response, e.response.text)
                 raise HubAPIError(
                     error_message,
                     status_code=e.response.status_code,
