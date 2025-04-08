@@ -16,7 +16,6 @@ development team to avoid delayed deployment timelines.
    hub/guide/run-evaluations
    hub/guide/playground
    hub/guide/continuous-red-teaming
-   hub/guide/create-custom-checks
    hub/guide/access-rights
    hub/glossary
 
