@@ -90,15 +90,3 @@ Clicking on a conversation will show a detailed comparison.
    :align: center
    :alt: "Comparison details"
    :width: 800
-
-Get notified at production time with alerting
------------------------------------------------
-
-At production time, it is important to provide regular reports to business executives to identify key vulnerabilities in the bot. Test results may vary with each execution due to the stochastic nature of the bot. Therefore, it is crucial to run tests regularly (e.g., once a week) to monitor for new vulnerabilities over time. 
-
-Regular reports can be sent via email to notify teams of newly detected vulnerabilities.
-
-.. image:: /_static/images/hub/alerting.png
-   :align: center
-   :alt: "Alerting"
-   :width: 500

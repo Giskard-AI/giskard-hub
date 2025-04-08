@@ -9,7 +9,7 @@ Once your test cases are generated, refined with business knowledge, and automat
 - **Cybersecurity research advances:** Newly discovered prompt injections or other vulnerabilities identified by the scientific community.
 - **New model versions are introduced:** Changes in prompts, updates to foundational models, or modifications in AI behavior.
 
-Giskard conducts continuous red teaming by constantly enriching your test dataset by new cases. These new cases are generated from:
+Upon request, Giskard can offer a continuous red teaming service that constantly enriches your datasets with new test cases. These new test cases are generated from:
 
 - **Internal data** (e.g., RAG knowledge base)
 - **External data** (e.g., social media, news articles)
@@ -19,5 +19,3 @@ Giskard conducts continuous red teaming by constantly enriching your test datase
    :align: center
    :alt: "Continuous red teaming"
    :width: 800
-
-Combining email alerts with continuous red teaming allows you to be promptly notified when new vulnerabilities emerge within your AI agents.
