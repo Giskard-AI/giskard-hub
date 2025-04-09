@@ -54,7 +54,11 @@ Here's an example of the structure and content in a dataset:
                 {"role": "assistant", "content": "Hello!"},
                 {"role": "user", "content": "Hi Bot!"},
             ],
-            "demo_output": {"role": "assistant", "content": "How can I help you ?"},
+            "demo_output": {
+                "role": "assistant",
+                "content": "How can I help you ?",
+                "metadata": {"test_metadata": "No matter which kind of metadata"},
+            },
             "tags": ["greetings"],
             "checks": [
                 {"identifier": "correctness", "params": {"reference": "How can I help you?"}},
