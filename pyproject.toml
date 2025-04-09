@@ -26,7 +26,7 @@ isort = "6.0.1"
 pylint = "3.3.6"
 sphinx-click = "6.0.0"
 sphinx-autobuild = "2024.10.3"
-sphinx-autodoc-typehints = "2.5.0"
+sphinx-autodoc-typehints = "2.3.0"
 sphinx-design = "0.6.1"
 pytest = "8.3.5"
 
