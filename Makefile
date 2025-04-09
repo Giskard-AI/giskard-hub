@@ -16,12 +16,12 @@ format: ## Format all files inside backend with black & isort
 
 check_linting: ## Verify code with lint tools, like pylint
 	poetry run pylint ./src/giskard_hub
-.PHONY: check_format
+.PHONY: check_linting
 
 check_format: ## Verify code formatting
 	poetry run black --check .
 	poetry run isort -c .
-.PHONY: check_linting
+.PHONY: check_format
 
 setup: ## Install dependencies
 	poetry install --sync
