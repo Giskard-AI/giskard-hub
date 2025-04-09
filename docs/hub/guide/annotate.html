@@ -7,20 +7,20 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Annotate conversation | Giskard Hub  documentation</title>
-<meta content="Annotate conversation | Giskard Hub  documentation" property="og:title"/>
-<meta content="Annotate conversation | Giskard Hub  documentation" name="twitter:title"/>
-<link href="../../_static/pygments.css?v=d8449d71" rel="stylesheet" type="text/css"/>
-<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<title>Annotate test dataset | Giskard Hub  documentation</title>
+<meta content="Annotate test dataset | Giskard Hub  documentation" property="og:title"/>
+<meta content="Annotate test dataset | Giskard Hub  documentation" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../_static/custom.css?v=d7beac4d" rel="stylesheet" type="text/css"/>
-<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
-<link href="access-rights.html" rel="next" title="Set access rights"/>
-<link href="playground.html" rel="prev" title="Experiment in the Playground"/>
+<link href="run-evaluations.html" rel="next" title="Run and compare evaluations"/>
+<link href="create-dataset.html" rel="prev" title="Create test dataset"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -34,7 +34,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -79,21 +79,18 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manage-datasets.html">Manage datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generate-dataset.html">Generate a dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create-custom-checks.html">Create custom checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compare-evaluations.html">Compare evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="playground.html">Experiment in the Playground</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Annotate conversation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="access-rights.html">Set access rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart &amp; Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-dataset.html">Create test dataset</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Annotate test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run and compare evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playground.html">Create tests in playground</a></li>
 <li class="toctree-l1"><a class="reference internal" href="continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access-rights.html">Set access rights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub Library</span></p>
+<p class="caption" role="heading"><span class="caption-text">Giskard Python SDK</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/local-evaluation.html">Evaluate local models</a></li>
@@ -125,238 +122,265 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Annotate conversation</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Annotate test dataset</span>
 </nav>
 <div id="content" role="main">
-<section id="annotate-conversation">
-<h1>Annotate conversation<a class="headerlink" href="#annotate-conversation" title="Link to this heading">¶</a></h1>
-<section id="step-by-step-guide">
-<h2>Step-by-step guide<a class="headerlink" href="#step-by-step-guide" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#step-by-step-guide'">¶</a></h2>
-<p>In this section, we will walk you through how to write a conversation and send it to your dataset.</p>
-<section id="try-a-conversation">
-<h3>Try a conversation<a class="headerlink" href="#try-a-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#try-a-conversation'">¶</a></h3>
-<p>Conversations are a collection of messages together with evaluation parameters (i.e. the expected answer and policies that the agent must meet when responding).</p>
-<p>These conversations are the ones you eventually evaluate your model against. This ensures that the model works as expected and doesn’t hallucinate. Knowing this helps you to mitigate risks and allows you to take corrective measures.</p>
-<p>Creating conversations in the playground allows you to test your bot in a user-like environment. Additionally, these conversations can be sent to a specific dataset (see the section below) to test different versions of the model on the same conversation. This helps in evaluating and improving the bot’s performance consistently.</p>
-<section id="how-to-create-effective-conversations-with-your-chatbot">
-<h4>How to create effective conversations with your chatbot<a class="headerlink" href="#how-to-create-effective-conversations-with-your-chatbot" title="Link to this heading">¶</a></h4>
-<p>To ensure your chatbot provides accurate and relevant responses, follow these guidelines:</p>
-<ul class="simple">
-<li><p>Be <strong>clear</strong> and <strong>concise</strong>. Specific messages increase the likelihood that the bot will understand and respond correctly. Focus on domain-specific questions that are relevant to your context.</p></li>
-<li><p>Provide <strong>context</strong>. Set the stage for the bot by offering background information. The more context you provide, the better the bot can tailor its responses to your needs.</p></li>
-<li><p><strong>Break down</strong> your questions into multiple messages. Long, complex queries can confuse the bot. Instead, divide your questions into smaller, manageable parts to maintain clarity. Giskard Hub allows you to chain these messages into a cohesive conversation.</p></li>
-<li><p><strong>Use proper grammar and spelling</strong>. Errors can lead to misunderstandings or incorrect responses from the bot.</p></li>
-<li><p><strong>Test and refine</strong> your messages. Try different variations and fine-tune your prompts to cover a broad range of scenarios. This helps ensure the bot handles diverse inputs effectively.</p></li>
-</ul>
-</section>
-</section>
-<section id="types-of-conversations">
-<h3>Types of conversations<a class="headerlink" href="#types-of-conversations" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#types-of-conversations'">¶</a></h3>
-<section id="adversarial-conversations">
-<h4>Adversarial conversations<a class="headerlink" href="#adversarial-conversations" title="Link to this heading">¶</a></h4>
-<p>Adversarial conversations are designed to challenge the chatbot by presenting it with difficult, unexpected, or tricky questions. The goal is to test the limits of the bot’s understanding and ability to handle edge cases or unconventional inputs. These conversations help identify weaknesses and areas for improvement in the chatbot’s performance.</p>
-<blockquote>
-<div><p>Example:</p>
-<p>User: “What is the current interest rate for a loan from the Martian Bank?”</p>
-<p>Bot: “The current interest rate for a loan from the Martian Bank is 5%.”</p>
-<p>In this example, the bot incorrectly hallucinates an answer about a non-existent Martian Bank, highlighting a vulnerability that needs addressing.</p>
-</div></blockquote>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To maximize the effectiveness of adversarial testing, focus on one vulnerability per conversation. Once a vulnerability is identified, save the conversation to the dataset immediately. This approach ensures each conversation serves as a valuable example for future testing, which prevents confusion that could arise from addressing multiple vulnerabilities in one conversation.</p>
-</div>
-<p><strong>Example of effective adversarial testing</strong></p>
-<blockquote>
-<div><p>User: “Can I get a loan to buy property on the moon?”</p>
-<p>Bot: “Currently, there are no financial services available for purchasing property on the moon as it is not legally owned by individuals. However, I can help you with information on home loans on Earth.”</p>
-<p>In this effective adversarial test, the bot correctly identifies the impossibility of buying property on the moon, avoiding hallucination. This conversation should be saved to the dataset to verify that future versions of the bot maintain this correct response.</p>
-</div></blockquote>
-<p><strong>Example of not effective adversarial testing</strong></p>
-<blockquote>
-<div><p>User: “Can I get a loan to buy property on the moon?”</p>
-<p>Bot: “Yes, you can get a loan to buy property on the moon.”</p>
-<p>Then immediately:</p>
-<p>User: “What are the interest rates for a home loan?”</p>
-<p>Bot: “The interest rates for a home loan are 3.5%.”</p>
-<p>In this not effective adversarial test, the conversation combines a hallucinatory response about moon property loans with a correct response about home loan interest rates. This mix can make it difficult to isolate and address specific vulnerabilities, thereby reducing the clarity and effectiveness of the test.</p>
-</div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Don’t test multiple vulnerabilities in a single conversation. Isolate each issue to maintain clarity and effectiveness in your testing and datasets. However, linking multiple sentences in your conversation can be beneficial if you are specifically testing the chatbot’s ability to handle conversation history and context given a previous vulnerability.</p>
-</div>
-</section>
-<section id="legitimate-conversations">
-<h4>Legitimate conversations<a class="headerlink" href="#legitimate-conversations" title="Link to this heading">¶</a></h4>
-<p>Legitimate conversations simulate typical interactions that a user would have with the chatbot in a real-world scenario. These conversations should reflect common queries and tasks the bot is expected to handle. Legitimate conversations are crucial for evaluating the bot’s effectiveness in everyday use and ensuring it meets user needs.</p>
-<blockquote>
-<div><p>Example for a chatbot that sells home products:</p>
-<p>User: “What is the price of the latest model of your vacuum cleaner?”</p>
-<p>Bot: “The latest model of our vacuum cleaner is priced at $199.99. Would you like to place an order?”</p>
-</div></blockquote>
-</section>
-<section id="out-of-scope-questions">
-<h4>Out of scope questions<a class="headerlink" href="#out-of-scope-questions" title="Link to this heading">¶</a></h4>
-<p>In legitimate conversations, it can also be important to test out-of-scope questions. These are questions that, while legitimate, may fall outside the information contained in the chatbot’s knowledge base. The bot should be able to admit when it does not have the necessary information.</p>
-<p><strong>Example of an out-of-scope question</strong></p>
-<blockquote>
-<div><p>User: “Do you sell outdoor furniture?”</p>
-<p>Bot: “I’m sorry, but we currently do not sell outdoor furniture. We specialize in home products. Is there something else you are looking for?”</p>
-<p>This type of response shows that the bot correctly handles a legitimate but out-of-scope question by admitting it doesn’t know the answer and steering the user back to relevant topics.</p>
-</div></blockquote>
-</section>
-<section id="conversation-history-testing">
-<h4>Conversation history testing<a class="headerlink" href="#conversation-history-testing" title="Link to this heading">¶</a></h4>
-<p>In these kinds of conversations, it’s important to test the bot’s ability to handle conversation history. Concatenating multiple messages can be useful for this purpose.</p>
-<p><strong>Example testing conversation history</strong></p>
-<blockquote>
-<div><p>User: “Do you have any discounts on kitchen appliances?”</p>
-<p>Bot: “Yes, we currently have a 10% discount on all kitchen appliances.”</p>
-<p>User: “Great! Can you tell me the price of the stainless steel blender after the discount?”</p>
-<p>Bot: “The stainless steel blender is originally priced at $79.99. With the 10% discount, the final price is $71.99.”</p>
-</div></blockquote>
-<p>This example demonstrates effective conversation history handling for several reasons:</p>
-<ul class="simple">
-<li><p><strong>Context Retention:</strong> The bot retains the context of the initial discount discussion when answering the follow-up question. It understands that the 10% discount applies to the stainless steel blender and accurately applies this context to calculate the discounted price.</p></li>
-<li><p><strong>Accuracy:</strong> The bot accurately performs the calculation, showing that it can handle numerical data and apply discounts correctly.</p></li>
-<li><p><strong>User Guidance:</strong> The conversation flow guides the user from a general inquiry to a specific request, showcasing the bot’s ability to manage progressively detailed queries within the same context.</p></li>
-<li><p><strong>Relevance:</strong> Each response is relevant to the user’s questions, maintaining a coherent and logical conversation flow.</p></li>
-</ul>
-<p>The important thing is to remember that once you have tested what you wanted, you should send the conversation to the dataset, keeping the length of the conversations short and focused.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<ul class="simple">
-<li><p>Test out-of-scope questions to ensure the bot appropriately handles unknown queries.</p></li>
-<li><p>Use conversation history to test the bot’s ability to maintain context over multiple exchanges.</p></li>
-<li><p>Keep conversations short and focused to isolate specific functionalities.</p></li>
-<li><p>Regularly update your dataset with new test cases to continually improve the bot’s performance.</p></li>
-</ul>
-</div>
-</section>
-</section>
-<section id="send-to-dataset">
-<h3>Send to dataset<a class="headerlink" href="#send-to-dataset" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#send-to-dataset'">¶</a></h3>
-<p>When the conversation is sufficient enough for what it needs to contain, you can send it to the dataset which you then use to evaluate your model.</p>
-<a class="reference internal image-reference" href="../../_images/playground-save.png"><img alt='"Save conversation to a dataset from the Playground"' class="align-center" src="../../_images/playground-save.png" style="width: 800px;"/>
+<section id="annotate-test-dataset">
+<h1>Annotate test dataset<a class="headerlink" href="#annotate-test-dataset" title="Link to this heading">¶</a></h1>
+<p>Datasets are collection of test cases that will be used to verify the correct operation of your AI agent.</p>
+<p>Each test case is composed of a conversation and its associated evaluation parameters (e.g. an expected answer, rules that the agent must respect, etc.).</p>
+<p>A conversation is a list of messages. In the simplest case, a conversation is composed by a single message by the user. In the testing phase, we will send this message to your agent, record its answer, and evaluate it against the criteria that you defined in the test case.</p>
+<p>In more advanced cases, the conversation is a multi-turn dialogue between the user and the agent, terminating with a final user message. When testing, we will pass the conversation history to your agent to generate the response that will be evaluated.</p>
+<p>The Datasets section of the LLM Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations.</p>
+<section id="create-a-conversation">
+<h2>Create a conversation<a class="headerlink" href="#create-a-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-conversation'">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/annotation-studio.png"><img alt='"Iteratively design your test cases using a business-centric &amp; interactive interface."' class="align-center" src="../../_images/annotation-studio.png" style="width: 800px;"/>
 </a>
-<p>The screen above shows three sections:</p>
+<p>A conversation is a list of messages, alternating between <strong>user</strong> messages and <strong>assistant</strong> roles. When designing your test cases, you can decide to provide a conversation history by adding multiple turns. Remind however that the conversation should always end with a <strong>user</strong> message. The next <strong>assistant</strong> completion will be generated and evaluated at test time.</p>
+<section id="simple-conversation">
+<h3>Simple conversation<a class="headerlink" href="#simple-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#simple-conversation'">¶</a></h3>
+<p>In the simplest case, a conversation is composed by a single message by the user. Here’s an example:</p>
+<p>For example, if you want to test the ability of the model to handle a multi-turn conversation, you could write the following conversation:</p>
+<blockquote>
+<div><p><strong>User:</strong> Hello, which language is your open-source library written in?</p>
+</div></blockquote>
+</section>
+<section id="multi-turn-conversation">
+<h3>Multi-turn conversation<a class="headerlink" href="#multi-turn-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#multi-turn-conversation'">¶</a></h3>
+<p>If you want to test the ability of the model to handle a multi-turn conversation, you can write provide a conversation history with previous <strong>assistant</strong> messages:</p>
+<blockquote>
+<div><p><strong>User:</strong> Hello, I wanted to have more information about your open-source library.</p>
+<p><strong>Assistant:</strong> Hello! I’m happy to help you learn more about our library. What would you like to know?</p>
+<p><strong>User:</strong> Which language is it written in?</p>
+</div></blockquote>
+<p>You can provide as many turns as you want. Just remember that the conversation should always end with a <strong>user</strong> message, and the next <strong>assistant</strong> completion will be generated and evaluated at test time.</p>
+</section>
+<section id="answer-examples">
+<h3>Answer examples<a class="headerlink" href="#answer-examples" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#answer-examples'">¶</a></h3>
+<p>You can also provide an “answer example” for each test. The answer example will not be used at test time, but it can be useful while annotating the dataset with your evaluation criteria. In fact, you can test your evaluation criteria against the answer example to make sure they are working as expected.</p>
+<dl class="simple">
+<dt>There are multiple ways to provide an answer example:</dt><dd><ol class="arabic simple">
+<li><p>If you are importing a dataset, you can import the answer examples together with the conversations by providing a <cite>demo_output</cite> field. This is useful for example when you are importing production data and you want to keep a reference of the actual answer that was given by your agent in production.</p></li>
+<li><p>You can generate the bot’s answer by clicking on the three-dot button and selecting “Replace the assistant message”.</p></li>
+<li><p>You can also write your own ansewr example from scratch. This is particularly useful when you are testing your evaluation criteria against a specific answer. For example, you may want to write a non-compliant answer and make sure that your evaluation criteria will correctly flag it.</p></li>
+</ol>
+</dd>
+</dl>
+<p>If you haven’t added an answer example, by default, the Hub will populate this field with the assistant answer obtained upon the first evaluation run on your dataset.</p>
+</section>
+</section>
+<section id="assign-a-check-to-a-conversation">
+<h2>Assign a check to a conversation<a class="headerlink" href="#assign-a-check-to-a-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#assign-a-check-to-a-conversation'">¶</a></h2>
+<p>Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard:</p>
+<section id="correctness-check">
+<h3>Correctness Check<a class="headerlink" href="#correctness-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#correctness-check'">¶</a></h3>
+<p>Check whether all information from the reference answer is present in the model answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent’s answer.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><strong>Reference Answer</strong>: Paris is the capital of France, it was founded around 200 BC.</p>
+<p><strong>Failure examples</strong>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Messages</span></code>: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.</p></li>
+<li><p>The capital of France is Paris.</p>
+<ul>
+<li><p><em>Reason: The answer does not specify when the city of Paris was founded</em></p></li>
+</ul>
+</li>
+<li><p>The capital of France is Paris, it was founded in 200 AD.</p>
+<ul>
+<li><p><em>Reason: The answer contradicts the reference which states that Paris was founded around 200 BC, and not 200 AD</em></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Success example</strong>:</p>
+<ul class="simple">
+<li><p>The capital of France is Paris, the first settlement dates from 200 BC.</p></li>
+</ul>
+</div>
+</section>
+<section id="conformity-check">
+<h3>Conformity Check<a class="headerlink" href="#conformity-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conformity-check'">¶</a></h3>
+<p>Given a rule or criterion, check whether the model answer complies with this rule. This can be used to check business specific behavior or constraints. A conformity check may have several rules. Each rule should check a unique and unambiguous behavior. Here are a few examples of rules:</p>
+<ul class="simple">
+<li><p>The model should not talk about {{competitor company}}.</p></li>
+<li><p>The model should only answer in English.</p></li>
+<li><p>The model should always keep a professional tone.</p></li>
+</ul>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><strong>Rule</strong>: The model should not give any financial advice or personalized recommendations.</p>
+<p><strong>Failure example</strong>:</p>
+<ul class="simple">
+<li><p>You should definitely invest into bitcoin in addition to your saving plan, since you want to buy a flat quickly, the yield is much higher with bitcoin.</p>
+<ul>
+<li><p><em>Reason: The model answer contradicts the rule which states that the model should not give any financial advice or personalized recommendations.</em></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Success example</strong>:</p>
+<ul class="simple">
+<li><p>I’m sorry, I cannot give you specific financial advice, to get personalized recommandation I suggest that you contact our dedicated customer service.</p></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To write effective rules, remember the following best practices:</p>
+<ul class="simple">
+<li><p><strong>Avoid General Rules Unrelated to the Conversation</strong></p>
+<ul>
+<li><p><em>Example of wrong usage:</em> “The agent should not discriminate based on gender, sexual orientation, religion, or profession” when responding to a user question that has no connection to biases and discrimination.</p></li>
+<li><p><em>Reason:</em>  Unit test logic helps with diagnostics (1 test = 1 precise behavior). Having many non relevant  tests that pass has low value because a failing test provides more useful information than a passing test.</p></li>
+<li><p><em>Best Practice:</em> Minimize the number of rules per conversation and only choose rules likely to cause the test to fail.</p></li>
+</ul>
+</li>
+<li><p><strong>Break Down Policies into Multiple Ones</strong></p>
+<ul>
+<li><p><em>Example of wrong usage:</em> “The agent should not respond to requests about illegal topics and should focus on banking and insurance-related questions.”</p></li>
+<li><p><em>Reason:</em>  Long rules with large scope are difficult to maintain and interpret for the evaluator and they make it harder the debugging process.</p></li>
+<li><p><em>Best Practice:</em> Add multiple rules within the same check to ensure the entire set is interpreted globally.</p></li>
+</ul>
+</li>
+<li><p><strong>Write Custom Checks when your rules apply to multiple conversations</strong></p>
+<ul>
+<li><p>Creating and enabling a custom check for multiple conversations is useful when you want to display the evaluation results for all conversations where the custom check is enabled.</p></li>
+<li><p><em>Examples of generic rules that are likely to be used more than once</em>: “The agent should not discriminate based on gender, sexual orientation, religion, or profession.” “The bot should answer in English.”</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="groundedness-check">
+<h3>Groundedness Check<a class="headerlink" href="#groundedness-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#groundedness-check'">¶</a></h3>
+<p>Check whether all information from the bot’s answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent’s answer. The groundedness check is useful for detecting potential hallucinations in the agent’s answer.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><strong>Reference Context</strong>: Sir Edmund Hillary, a New Zealand mountaineer, became famous for being one of the first people to reach the summit of Mount Everest with Tenzing Norgay on May 29, 1953.</p>
+<p><strong>Failure examples</strong>:</p>
+<ul class="simple">
+<li><p>Edmund Hillary, born in 1919, was a great mountaineer who climb Mount Everest first.</p>
+<ul>
+<li><p><em>Reason: The reference context does not specify that Hillary was born in 1919</em></p></li>
+</ul>
+</li>
+<li><p>Edmund Hillary reached the summit of Mount Everest in 1952.</p>
+<ul>
+<li><p><em>Reason: The reference context states that Hillary reached the summit of Mount Everest in 1953, and not in 1952</em></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Success examples</strong>:</p>
+<ul class="simple">
+<li><p>Edmund Hillary was the first person to reach the summit of Mount Everest in 1953.</p></li>
+<li><p>Edmund Hillary, a renowned New Zealander, gained fame as one of the first climbers to summit Mount Everest alongside Tenzing Norgay on May 29, 1953.</p></li>
+</ul>
+</div>
+</section>
+<section id="string-matching">
+<h3>String Matching<a class="headerlink" href="#string-matching" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#string-matching'">¶</a></h3>
+<p>Check whether the given keyword or sentence is present in the model answer.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><strong>Keyword</strong>: “Hello”</p>
+<p><strong>Failure example</strong>:</p>
+<ul class="simple">
+<li><p>Hi, can I help you?</p>
+<ul>
+<li><p><em>Reason: The model answer does not contain the keyword ‘Hello’</em></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Success example</strong>:</p>
+<ul class="simple">
+<li><p>Hello, how may I help you today?</p></li>
+</ul>
+</div>
+</section>
+<section id="custom-check">
+<h3>Custom Check<a class="headerlink" href="#custom-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#custom-check'">¶</a></h3>
+<p>Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness and String matching) and can be used to evaluate the quality of your agent’s responses.</p>
+<p>The advantage of custom checks is that they can be tailored to your specific use case and can be enabled on many conversations at once.</p>
+<p>On the Checks page, you can create custom checks by clicking on the “New check” button in the upper right corner of the screen.</p>
+<a class="reference internal image-reference" href="../../_images/create-checks-list.png"><img alt='"List of checks"' class="align-center" src="../../_images/create-checks-list.png" style="width: 800px;"/>
+</a>
+<p>Next, set the parameters for the check:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: Give your check a name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Identifier</span></code>: A unique identifier for the check. It should be a string without spaces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Description</span></code>: A brief description of the check.</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">Evaluation</span> <span class="pre">Settings</span></code>: the parameters from which you want to evaluate the response. It includes:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Expected</span> <span class="pre">response</span></code> (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Rules</span></code> (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Context</span></code> (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Keyword</span></code> (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.</p></li>
-<li><p>And any custom checks you may have defined.</p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">Type</span></code>: The type of the check, which can be one of the following:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Correctness</span></code>: The output of the model should match the reference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Conformity</span></code>: The conversation should follow a set of rules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Groundedness</span></code>: The output of the model should be grounded in the conversation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">matching</span></code>: The output of the model should contain a specific string (keyword or sentence).</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Dataset</span></code>: where the conversations are saved</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Tags</span></code> (optional): allows for better organization and filtering conversations</p></li>
+<li><p>And a set of parameters specific to the check type. For example, for a <code class="docutils literal notranslate"><span class="pre">Correctness</span></code> check, you would need to provide the <code class="docutils literal notranslate"><span class="pre">Expected</span> <span class="pre">response</span></code> parameter, which is the reference answer.</p></li>
 </ul>
+<a class="reference internal image-reference" href="../../_images/create-checks-detail.png"><img alt='"Create a new check"' class="align-center" src="../../_images/create-checks-detail.png" style="width: 800px;"/>
+</a>
+<p>Once you have created a custom check, you can apply it to conversations in your dataset. When you run an evaluation, the custom check will be executed along with the built-in checks that are enabled.</p>
 </section>
-<section id="how-to-choose-the-dataset">
-<h3>How to choose the dataset?<a class="headerlink" href="#how-to-choose-the-dataset" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-choose-the-dataset'">¶</a></h3>
-<p>The dataset is where the conversations are saved. You can save all your conversations in one dataset. This dataset is what the product manager/developer will use when they evaluate your model.</p>
 </section>
+<section id="assign-a-tag-to-a-conversation">
+<h2>Assign a tag to a conversation<a class="headerlink" href="#assign-a-tag-to-a-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#assign-a-tag-to-a-conversation'">¶</a></h2>
+<p>Tags are optional but highly recommended for better organization. They allow you to filter the conversations later on and manage your chatbot’s performance more effectively.</p>
 <section id="how-to-choose-the-right-tag">
 <h3>How to choose the right tag?<a class="headerlink" href="#how-to-choose-the-right-tag" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-choose-the-right-tag'">¶</a></h3>
-<p>Tags are optional but highly recommended for better organization. They allow you to filter the conversations later on and manage your chatbot’s performance more effectively.</p>
 <p>To choose a tag, it is good to stick to a naming convention that you agreed on beforehand. Ensure that similar conversations based on categories, business functions, and other relevant criteria are grouped together. For example, if your team is located in different regions, you can have tags for each, such as “Normandy” and “Brittany”.</p>
-<section id="examples-of-tags">
-<h4>Examples of tags<a class="headerlink" href="#examples-of-tags" title="Link to this heading">¶</a></h4>
-<ol class="arabic">
-<li><dl class="simple">
-<dt><strong>Issue-Related Tags</strong>: These tags categorize the types of problems that might occur during a conversation.</dt><dd><p>Examples: “Hallucination”, “Misunderstanding”, “Incorrect Information”</p>
-</dd>
-</dl>
+<div class="admonition-categories-of-tags admonition">
+<p class="admonition-title">Categories of Tags</p>
+<ul>
+<li><p><strong>Issue-Related Tags</strong>: These tags categorize the types of problems that might occur during a conversation.</p>
+<p>Examples: “Hallucination”, “Misunderstanding”, “Incorrect Information”</p>
 </li>
-<li><dl>
-<dt><strong>Attack-Oriented Tags</strong>: These tags relate to specific types of adversarial testing or attacks.</dt><dd><p>Examples: “SQL Injection Attempt”, “Phishing Query”, “Illegal Request”</p>
+<li><p><strong>Attack-Oriented Tags</strong>: These tags relate to specific types of adversarial testing or attacks.</p>
+<p>Examples: “SQL Injection Attempt”, “Phishing Query”, “Illegal Request”</p>
+</li>
+<li><p><strong>Legitimate Question Tags</strong>: These tags categorize standard, everyday user queries.</p>
 <p>Examples: “Balance Inquiry”, “Loan Application”, “Account Opening”</p>
-</dd>
-</dl>
 </li>
-<li><p><strong>Legitimate Question Tags</strong>: These tags categorize standard, everyday user queries.</p></li>
-<li><dl class="simple">
-<dt><strong>Context-Specific Tags</strong>: These tags pertain to specific business contexts or types of interactions.</dt><dd><p>Examples: “Caisse d’Epargne”, “Banco Popular”, “Corporate Banking”</p>
-</dd>
-</dl>
+<li><p><strong>Context-Specific Tags</strong>: These tags pertain to specific business contexts or types of interactions.</p>
+<p>Examples: “Caisse d’Epargne”, “Banco Popular”, “Corporate Banking”</p>
 </li>
-<li><dl class="simple">
-<dt><strong>User Behavior Tags</strong>: These tags describe the nature of the user’s behavior or the style of interaction.</dt><dd><p>Examples: “Confused User”, “Angry Customer”, “New User”</p>
-</dd>
-</dl>
+<li><p><strong>User Behavior Tags</strong>: These tags describe the nature of the user’s behavior or the style of interaction.</p>
+<p>Examples: “Confused User”, “Angry Customer”, “New User”</p>
 </li>
-<li><dl class="simple">
-<dt><strong>Temporal Tags</strong>: Depending of the life cycle of the testing process of the model</dt><dd><p>Examples: “red teaming phase 1”, “red teaming phase 2”</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Policy based Tags</strong>: Tags on a policy</dt><dd><p>Examples: “le modèle doit répondre en français”</p>
-</dd>
-</dl>
-</li>
-</ol>
-</section>
-<section id="examples-of-what-not-to-do-with-tags">
-<h4>Examples of what not to do with tags<a class="headerlink" href="#examples-of-what-not-to-do-with-tags" title="Link to this heading">¶</a></h4>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt><strong>Too Specific Tags</strong>: Avoid using tags that are overly specific, as they can make filtering and grouping difficult.</dt><dd><p>Example: Using “Hallucination during balance inquiry on July 21st” instead of a more general tag “Hallucination”.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Inconsistent Tags</strong>: Ensure that tags are consistent and follow a hierarchy if necessary.</dt><dd><p>Example: Using both “Incorrect Info” and “Incorrect Information” can create confusion. Instead, choose one standardized term.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Redundant Tags</strong>: Avoid using redundant tags that do not add value.</dt><dd><p>Example: Using “Balance Inquiry” and “Balance Check” separately when they mean the same thing.</p>
-</dd>
-</dl>
-</li>
-</ol>
-</section>
-<section id="best-practices-for-using-tags">
-<h4>Best practices for using tags<a class="headerlink" href="#best-practices-for-using-tags" title="Link to this heading">¶</a></h4>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>Use Multiple Tags if Necessary</strong>: Apply multiple tags to a single conversation to cover all relevant aspects.</dt><dd><p>Example: A conversation with a confused user asking about loan applications could be tagged with “Confused User”, “Loan Application”, and “Misunderstanding”.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Hierarchical Tags</strong>: Implement a hierarchy in your tags to create a structured and clear tagging system.</dt><dd><p>Example: Use “User Issues &gt; Hallucination” to show the relationship between broader categories and specific issues.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Stick to Agreed Naming Conventions</strong>: Ensure that your team agrees on and follows a consistent naming convention for tags to maintain organization and clarity.</dt><dd><p>Example: Decide on using either plural or singular forms for all tags and stick to it.</p>
-</dd>
-</dl>
+<li><p><strong>Temporal Tags</strong>: Depending on the life cycle of the testing process of the model.</p>
+<p>Examples: “red teaming phase 1”, “red teaming phase 2”</p>
 </li>
 </ul>
-<p>By following these guidelines, you can choose the right tags that will help in organizing your conversations efficiently, making it easier to filter and analyze the chatbot’s performance.</p>
-</section>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li><p><strong>Use Multiple Tags if Necessary</strong>: Apply multiple tags to a single conversation to cover all relevant aspects.</p>
+<p>Example: A conversation with a confused user asking about loan applications could be tagged with “Confused User”, “Loan Application”, and “Misunderstanding”.</p>
+</li>
+<li><p><strong>Hierarchical Tags</strong>: Implement a hierarchy in your tags to create a structured and clear tagging system.</p>
+<p>Example: Use “User Issues &gt; Hallucination” to show the relationship between broader categories and specific issues.</p>
+</li>
+<li><p><strong>Stick to Agreed Naming Conventions</strong>: Ensure that your team agrees on and follows a consistent naming convention for tags to maintain organization and clarity.</p>
+<p>Example: Decide on using either plural or singular forms for all tags and stick to it.</p>
+</li>
+</ul>
+</div>
 </section>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="playground.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="create-dataset.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Experiment in the Playground
+        Create test dataset
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="access-rights.html">
-        Set access rights
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="run-evaluations.html">
+        Run and compare evaluations
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
@@ -365,26 +389,22 @@
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
-<li><a :data-current="activeSection === '#step-by-step-guide'" class="reference internal" href="#step-by-step-guide">Step-by-step guide</a><ul>
-<li><a :data-current="activeSection === '#try-a-conversation'" class="reference internal" href="#try-a-conversation">Try a conversation</a><ul>
-<li><a :data-current="activeSection === '#how-to-create-effective-conversations-with-your-chatbot'" class="reference internal" href="#how-to-create-effective-conversations-with-your-chatbot">How to create effective conversations with your chatbot</a></li>
+<li><a :data-current="activeSection === '#create-a-conversation'" class="reference internal" href="#create-a-conversation">Create a conversation</a><ul>
+<li><a :data-current="activeSection === '#simple-conversation'" class="reference internal" href="#simple-conversation">Simple conversation</a></li>
+<li><a :data-current="activeSection === '#multi-turn-conversation'" class="reference internal" href="#multi-turn-conversation">Multi-turn conversation</a></li>
+<li><a :data-current="activeSection === '#answer-examples'" class="reference internal" href="#answer-examples">Answer examples</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#types-of-conversations'" class="reference internal" href="#types-of-conversations">Types of conversations</a><ul>
-<li><a :data-current="activeSection === '#adversarial-conversations'" class="reference internal" href="#adversarial-conversations">Adversarial conversations</a></li>
-<li><a :data-current="activeSection === '#legitimate-conversations'" class="reference internal" href="#legitimate-conversations">Legitimate conversations</a></li>
-<li><a :data-current="activeSection === '#out-of-scope-questions'" class="reference internal" href="#out-of-scope-questions">Out of scope questions</a></li>
-<li><a :data-current="activeSection === '#conversation-history-testing'" class="reference internal" href="#conversation-history-testing">Conversation history testing</a></li>
+<li><a :data-current="activeSection === '#assign-a-check-to-a-conversation'" class="reference internal" href="#assign-a-check-to-a-conversation">Assign a check to a conversation</a><ul>
+<li><a :data-current="activeSection === '#correctness-check'" class="reference internal" href="#correctness-check">Correctness Check</a></li>
+<li><a :data-current="activeSection === '#conformity-check'" class="reference internal" href="#conformity-check">Conformity Check</a></li>
+<li><a :data-current="activeSection === '#groundedness-check'" class="reference internal" href="#groundedness-check">Groundedness Check</a></li>
+<li><a :data-current="activeSection === '#string-matching'" class="reference internal" href="#string-matching">String Matching</a></li>
+<li><a :data-current="activeSection === '#custom-check'" class="reference internal" href="#custom-check">Custom Check</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#send-to-dataset'" class="reference internal" href="#send-to-dataset">Send to dataset</a></li>
-<li><a :data-current="activeSection === '#how-to-choose-the-dataset'" class="reference internal" href="#how-to-choose-the-dataset">How to choose the dataset?</a></li>
-<li><a :data-current="activeSection === '#how-to-choose-the-right-tag'" class="reference internal" href="#how-to-choose-the-right-tag">How to choose the right tag?</a><ul>
-<li><a :data-current="activeSection === '#examples-of-tags'" class="reference internal" href="#examples-of-tags">Examples of tags</a></li>
-<li><a :data-current="activeSection === '#examples-of-what-not-to-do-with-tags'" class="reference internal" href="#examples-of-what-not-to-do-with-tags">Examples of what not to do with tags</a></li>
-<li><a :data-current="activeSection === '#best-practices-for-using-tags'" class="reference internal" href="#best-practices-for-using-tags">Best practices for using tags</a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#assign-a-tag-to-a-conversation'" class="reference internal" href="#assign-a-tag-to-a-conversation">Assign a tag to a conversation</a><ul>
+<li><a :data-current="activeSection === '#how-to-choose-the-right-tag'" class="reference internal" href="#how-to-choose-the-right-tag">How to choose the right tag?</a></li>
 </ul>
 </li>
 </ul>
@@ -395,20 +415,15 @@
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
-</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
-<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
-</svg>
-  Back to top
-</button>
+</div>
 <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
 <script src="../../_static/doctools.js?v=9a2dae69"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 </body>
 </html>

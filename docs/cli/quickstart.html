@@ -7,15 +7,15 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Quick start | Giskard Hub  documentation</title>
-<meta content="Quick start | Giskard Hub  documentation" property="og:title"/>
-<meta content="Quick start | Giskard Hub  documentation" name="twitter:title"/>
-<link href="../_static/pygments.css?v=d8449d71" rel="stylesheet" type="text/css"/>
-<link href="../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<title>Quickstart | Giskard Hub  documentation</title>
+<meta content="Quickstart | Giskard Hub  documentation" property="og:title"/>
+<meta content="Quickstart | Giskard Hub  documentation" name="twitter:title"/>
+<link href="../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../_static/custom.css?v=d7beac4d" rel="stylesheet" type="text/css"/>
-<link href="../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../_static/favicon.ico" rel="icon"/>
 <link href="../search.html" rel="search" title="Search"/>
 <link href="../genindex.html" rel="index" title="Index"/>
@@ -34,7 +34,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -79,21 +79,18 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../hub/quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/manage-datasets.html">Manage datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/generate-dataset.html">Generate a dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/create-custom-checks.html">Create custom checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/run-evaluations.html">Run evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/compare-evaluations.html">Compare evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/playground.html">Experiment in the Playground</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/annotate.html">Annotate conversation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hub/guide/access-rights.html">Set access rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/quickstart.html">Quickstart &amp; Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/guide/create-dataset.html">Create test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/guide/annotate.html">Annotate test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/guide/run-evaluations.html">Run and compare evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/guide/playground.html">Create tests in playground</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/guide/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hub/guide/access-rights.html">Set access rights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hub/glossary.html">Glossary</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub Library</span></p>
+<p class="caption" role="heading"><span class="caption-text">Giskard Python SDK</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/local-evaluation.html">Evaluate local models</a></li>
@@ -125,11 +122,11 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Quick start</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Quickstart</span>
 </nav>
 <div id="content" role="main">
-<section id="quick-start">
-<h1>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h1>
+<section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h1>
 <section id="install-the-client-library">
 <h2>Install the client library<a class="headerlink" href="#install-the-client-library" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#install-the-client-library'">¶</a></h2>
 <p>The library is compatible with Python 3.9 to 3.12.</p>
@@ -142,7 +139,7 @@
 </section>
 <section id="get-your-api-key">
 <h2>Get your API key<a class="headerlink" href="#get-your-api-key" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#get-your-api-key'">¶</a></h2>
-<p>Head over to your Giskard Hub instance and click on the user icon in the top right corner. You will find your personal
+<p>Head over to your Giskard Hub instance and click on the user icon in the bottom left corner. You will find your personal
 API key, click on the button to copy it.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -159,12 +156,16 @@ API key, click on the button to copy it.</p>
 </span></code></pre></div>
 </div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Make sure you are using the correct URL for your Giskard Hub instance. The URL should end with <code class="docutils literal notranslate"><span class="pre">/_api</span></code>.</p>
+</div>
 </section>
 <section id="create-a-project-and-run-an-evaluation">
 <h2>Create a project and run an evaluation<a class="headerlink" href="#create-a-project-and-run-an-evaluation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-project-and-run-an-evaluation'">¶</a></h2>
 <p>You can now use the client to interact with the Hub. You will be able to control the Hub programmatically, independently
 of the UI. Let’s start by initializing a client instance:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">giskard_hub</span> <span class="kn">import</span> <span class="n">HubClient</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
 </span><span id="line-2">
 </span><span id="line-3"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
 </span></code></pre></div>
@@ -213,12 +214,19 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </span><span id="line-6">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"Paris"</span><span class="p">),</span>
 </span><span id="line-7">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What is the capital of Germany?"</span><span class="p">),</span>
 </span><span id="line-8">    <span class="p">],</span>
-</span><span id="line-9">    <span class="n">demo_output</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"I don't know that!"</span><span class="p">),</span>
-</span><span id="line-10">    <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
-</span><span id="line-11">        <span class="nb">dict</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="s2">"correctness"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"reference"</span><span class="p">:</span> <span class="s2">"Berlin"</span><span class="p">}),</span>
-</span><span id="line-12">        <span class="nb">dict</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="s2">"conformity"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"rules"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"The agent should always provide short and concise answers."</span><span class="p">]}),</span>
-</span><span id="line-13">    <span class="p">]</span>
-</span><span id="line-14"><span class="p">)</span>
+</span><span id="line-9">    <span class="n">demo_output</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+</span><span id="line-10">        <span class="n">role</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span>
+</span><span id="line-11">        <span class="n">content</span><span class="o">=</span><span class="s2">"I don't know that!"</span><span class="p">,</span>
+</span><span id="line-12">        <span class="n">metadata</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+</span><span id="line-13">            <span class="n">response_time</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span>
+</span><span id="line-14">            <span class="n">test_metadata</span><span class="o">=</span><span class="s2">"No matter which kind of metadata"</span><span class="p">,</span>
+</span><span id="line-15">        <span class="p">),</span>
+</span><span id="line-16">    <span class="p">),</span>
+</span><span id="line-17">    <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-18">        <span class="nb">dict</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="s2">"correctness"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"reference"</span><span class="p">:</span> <span class="s2">"Berlin"</span><span class="p">}),</span>
+</span><span id="line-19">        <span class="nb">dict</span><span class="p">(</span><span class="n">identifier</span><span class="o">=</span><span class="s2">"conformity"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"rules"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"The agent should always provide short and concise answers."</span><span class="p">]}),</span>
+</span><span id="line-20">    <span class="p">]</span>
+</span><span id="line-21"><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <p>These are the attributes you can set for a conversation (the only required attribute is <code class="docutils literal notranslate"><span class="pre">messages</span></code>):</p>
@@ -231,7 +239,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </dd>
 </dl>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the model with an optional metadata. This is just for demonstration purposes.</p></li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">checks</span></code>: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:</dt><dd><ul>
 <li><dl class="simple">
@@ -375,20 +383,15 @@ and <code class="docutils literal notranslate"><span class="pre">dataset=dataset
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
-</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
-<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
-</svg>
-  Back to top
-</button>
+</div>
 <script src="../_static/documentation_options.js?v=5929fcd5"></script>
 <script src="../_static/doctools.js?v=9a2dae69"></script>
 <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../_static/theme.js?v=073f68d9"></script>
+<script defer="defer" src="../_static/theme.js?v=e82a16a3"></script>
 <script src="../_static/design-tabs.js?v=f930bc37"></script>
 </body>
 </html>

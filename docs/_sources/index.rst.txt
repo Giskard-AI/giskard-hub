@@ -11,30 +11,27 @@ development team to avoid delayed deployment timelines.
    :maxdepth: 1
 
    hub/quickstart
-   hub/guide/manage-datasets
-   hub/guide/generate-dataset
-   hub/guide/create-custom-checks
-   hub/guide/run-evaluations
-   hub/guide/compare-evaluations
-   hub/guide/playground
+   hub/guide/create-dataset
    hub/guide/annotate
-   hub/guide/access-rights
+   hub/guide/run-evaluations
+   hub/guide/playground
    hub/guide/continuous-red-teaming
+   hub/guide/access-rights
    hub/glossary
 
 
 ----
 
-The ``giskard_hub`` python library provides a simple way for developers and data
+The ``giskard_hub`` Python library provides a simple way for developers and data
 scientists to manage and evaluate LLM applications in their development workflow
 during the prototyping phase and for continuous integration testing.
 
-Read the quick start guide to get up and running with the ``giskard_hub`` library.
+Read the quickstart guide to get up and running with the ``giskard_hub`` library.
 You will learn how execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.
 
 .. toctree::
-   :caption: Giskard Hub Library
+   :caption: Giskard Python SDK
    :maxdepth: 1
 
    cli/quickstart
