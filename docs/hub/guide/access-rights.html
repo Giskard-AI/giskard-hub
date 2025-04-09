@@ -10,17 +10,17 @@
 <title>Set access rights | Giskard Hub  documentation</title>
 <meta content="Set access rights | Giskard Hub  documentation" property="og:title"/>
 <meta content="Set access rights | Giskard Hub  documentation" name="twitter:title"/>
-<link href="../../_static/pygments.css?v=d8449d71" rel="stylesheet" type="text/css"/>
-<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../_static/custom.css?v=d7beac4d" rel="stylesheet" type="text/css"/>
-<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
-<link href="continuous-red-teaming.html" rel="next" title="Continuous red teaming"/>
-<link href="annotate.html" rel="prev" title="Annotate conversation"/>
+<link href="../glossary.html" rel="next" title="Glossary"/>
+<link href="continuous-red-teaming.html" rel="prev" title="Continuous red teaming"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -34,7 +34,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -79,21 +79,18 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manage-datasets.html">Manage datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generate-dataset.html">Generate a dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create-custom-checks.html">Create custom checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compare-evaluations.html">Compare evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="playground.html">Experiment in the Playground</a></li>
-<li class="toctree-l1"><a class="reference internal" href="annotate.html">Annotate conversation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Set access rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart &amp; Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-dataset.html">Create test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotate.html">Annotate test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run and compare evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playground.html">Create tests in playground</a></li>
 <li class="toctree-l1"><a class="reference internal" href="continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Set access rights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub Library</span></p>
+<p class="caption" role="heading"><span class="caption-text">Giskard Python SDK</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/local-evaluation.html">Evaluate local models</a></li>
@@ -138,15 +135,15 @@
 <p>Global permissions apply access rights across all projects. You can configure Create, Read, Edit, and Delete permissions for each page or entity. This is available in the following pages: Project, Dataset, Agent, Knowledge Base, and Evaluation. Additionally, for features like the Playground, API Key Authentication, and Permission, you can enable or disable the users’ right to use it.</p>
 <p>The rights are as follows:</p>
 <ul class="simple">
-<li><p><strong>Create</strong>: users can create a new item specific to the page.</p></li>
-<li><p><strong>Read</strong>: users can see the items created in the page.</p></li>
-<li><p><strong>Edit</strong>: users can modify the items in the page.</p></li>
-<li><p><strong>Delete</strong>: users can permanently remove the items in the page.</p></li>
-<li><p><strong>Use</strong>: users can use the feature.</p></li>
+<li><p><strong>Create</strong>: users can create a new entity of the given type.</p></li>
+<li><p><strong>Read</strong>: users can see entities of the given type.</p></li>
+<li><p><strong>Edit</strong>: users can modify entities of the given type.</p></li>
+<li><p><strong>Delete</strong>: users can permanently remove entities of the given type.</p></li>
+<li><p><strong>Use</strong>: users can use the given feature.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../../_images/access-permissions.png"><img alt='"Set permissions"' class="align-center" src="../../_images/access-permissions.png" style="width: 800px;"/>
 </a>
-<p>Scoped permissions allow for more granular control. For each project, you can specify which pages or entities users are allowed to access. An example of where this may be useful is if you want your users to read everything in a project but only allow a few people to edit the dataset.</p>
+<p>Scoped permissions allow for granular control. For each project, you can specify which pages or entities users are allowed to access. An example of where this may be useful is if you want your users to read everything in a project but only allow a few people to edit the dataset.</p>
 <a class="reference internal image-reference" href="../../_images/access-scope.png"><img alt='"Set scope of permissions"' class="align-center" src="../../_images/access-scope.png" style="width: 800px;"/>
 </a>
 <div class="admonition note">
@@ -156,16 +153,16 @@
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="annotate.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="continuous-red-teaming.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Annotate conversation
+        Continuous red teaming
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="continuous-red-teaming.html">
-        Continuous red teaming
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../glossary.html">
+        Glossary
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
@@ -177,20 +174,15 @@
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
-</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
-<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
-</svg>
-  Back to top
-</button>
+</div>
 <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
 <script src="../../_static/doctools.js?v=9a2dae69"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 </body>
 </html>

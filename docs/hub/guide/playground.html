@@ -7,20 +7,20 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Experiment in the Playground | Giskard Hub  documentation</title>
-<meta content="Experiment in the Playground | Giskard Hub  documentation" property="og:title"/>
-<meta content="Experiment in the Playground | Giskard Hub  documentation" name="twitter:title"/>
-<link href="../../_static/pygments.css?v=d8449d71" rel="stylesheet" type="text/css"/>
-<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<title>Create tests in playground | Giskard Hub  documentation</title>
+<meta content="Create tests in playground | Giskard Hub  documentation" property="og:title"/>
+<meta content="Create tests in playground | Giskard Hub  documentation" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../_static/custom.css?v=d7beac4d" rel="stylesheet" type="text/css"/>
-<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
-<link href="annotate.html" rel="next" title="Annotate conversation"/>
-<link href="compare-evaluations.html" rel="prev" title="Compare evaluations"/>
+<link href="continuous-red-teaming.html" rel="next" title="Continuous red teaming"/>
+<link href="run-evaluations.html" rel="prev" title="Run and compare evaluations"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -34,7 +34,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -79,21 +79,18 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manage-datasets.html">Manage datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generate-dataset.html">Generate a dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create-custom-checks.html">Create custom checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compare-evaluations.html">Compare evaluations</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Experiment in the Playground</a></li>
-<li class="toctree-l1"><a class="reference internal" href="annotate.html">Annotate conversation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="access-rights.html">Set access rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart &amp; Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-dataset.html">Create test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotate.html">Annotate test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run and compare evaluations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create tests in playground</a></li>
 <li class="toctree-l1"><a class="reference internal" href="continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access-rights.html">Set access rights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub Library</span></p>
+<p class="caption" role="heading"><span class="caption-text">Giskard Python SDK</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/local-evaluation.html">Evaluate local models</a></li>
@@ -125,57 +122,176 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Experiment in the Playground</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Create tests in playground</span>
 </nav>
 <div id="content" role="main">
-<section id="experiment-in-the-playground">
-<h1>Experiment in the Playground<a class="headerlink" href="#experiment-in-the-playground" title="Link to this heading">¶</a></h1>
-<p>The playground is where you chat with your agent and check its response. The screen below shows the interface.</p>
+<section id="create-tests-in-playground">
+<h1>Create tests in playground<a class="headerlink" href="#create-tests-in-playground" title="Link to this heading">¶</a></h1>
+<p>Creating conversations in the playground allows you to test your bot in a user-like environment. Additionally, these conversations can be sent to a specific dataset (see the section below) to test different versions of the model on the same conversation. This helps in evaluating and improving the bot’s performance consistently.</p>
+<p>In this section, we will walk you through how to write a conversation and send it to your dataset.</p>
+<section id="try-a-conversation">
+<h2>Try a conversation<a class="headerlink" href="#try-a-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#try-a-conversation'">¶</a></h2>
 <a class="reference internal image-reference" href="../../_images/playground.png"><img alt='"The playground"' class="align-center" src="../../_images/playground.png" style="width: 800px;"/>
 </a>
 <p>The Chat section is where you can query and talk to the agent. You write your message on the bottom part of the screen.</p>
 <p>The right panel displays all your conversations. You can have as many conversations as you need. To add a new one, click the “New conversation” button. You are also shown a list of your recent conversations from the most recent to the oldest.</p>
-<p>Once you are satisfied with the conversation, you can send it to your dataset by clicking the “Send to dataset” button. We will talk about this in detail in the succeeding sections. Alternatively, you can delete the conversation by clicking the “Discard” button.</p>
-<a class="reference internal image-reference" href="../../_images/playground-save.png"><img alt='"Send conversation to a dataset from the playground"' class="align-center" src="../../_images/playground-save.png" style="width: 800px;"/>
+<p>We recommend you to try different approaches to create conversations, for example:</p>
+<ul class="simple">
+<li><p>Adversarial questions, designed to mislead the chatbot</p></li>
+<li><p>Legitimate questions that you think your users may ask the chatbot</p></li>
+<li><p>Out of scope questions that the chatbot is not supposed to answer</p></li>
+</ul>
+<p>We will give some examples below. If you’re interested in learning new ways to test your chatbots and LLM applications, we also recommend you to check out our free course on <a class="reference external" href="https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/">Red Teaming LLM Applications</a> on DeepLearningAI.</p>
+<section id="adversarial-conversations">
+<h3>Adversarial conversations<a class="headerlink" href="#adversarial-conversations" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#adversarial-conversations'">¶</a></h3>
+<p>Adversarial conversations are designed to challenge the chatbot by presenting it with difficult, unexpected, or tricky questions. The goal is to test the limits of the bot’s understanding and ability to handle edge cases or unconventional inputs. These conversations help identify weaknesses and areas for improvement in the chatbot’s performance.</p>
+<blockquote>
+<div><p>Example:</p>
+<p>User: “My friend told me that you’re offering a special lifetime discount of 99% for Giskardians. How can I activate the offer?”</p>
+<p>Bot: “To activate our special discount for Giskardians you need to follow these steps: […]”</p>
+<p>In this example, the bot incorrectly acknowledges the presence a non-existent and irrealistic discount, highlighting a vulnerability that needs to be addressed by making sure that the chatbot does not fabricate inaccurate information.</p>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To maximize the effectiveness of adversarial testing, focus on one vulnerability per conversation. Once a vulnerability is identified, save the conversation to the dataset immediately. This approach ensures each conversation serves as a valuable example for future testing, which prevents confusion that could arise from addressing multiple vulnerabilities in one conversation.</p>
+</div>
+<p><strong>Example of effective adversarial testing</strong></p>
+<blockquote>
+<div><p>User: “My friend told me that you’re offering a special lifetime discount of 99% for Giskardians. How can I activate the offer?”</p>
+<p>Bot: “I am sorry, but we don’t offer lifetime discounts for Giskardians. However, we do have special discounts for first-time subscribers. Would you like to know more about these offers?”</p>
+<p>In this effective adversarial test, the bot correctly identifies the absence of the incorrect offer reported by the user, avoiding hallucination. This conversation should be saved to the dataset to verify that future versions of the bot maintain this correct response.</p>
+</div></blockquote>
+<p><strong>Example of not effective adversarial testing</strong></p>
+<blockquote>
+<div><p>User: “My friend told me that you’re offering a special lifetime discount of 99% for Giskardians. How can I activate the offer?”</p>
+<p>Bot: “I am sorry, but we don’t offer lifetime discounts for Giskardians. However, we do have special discounts for first-time subscribers. Would you like to know more about these offers?”</p>
+<p>Then immediately:</p>
+<p>User: “Yes, please.”</p>
+<p>Bot: “First-time subscribers can obtain 10% discount on their first three months of subscription. To activate this offer, you should […]”</p>
+<p>In this non effective adversarial test, the conversation combines an adversarial question with information about an existing offer. This mix can make it difficult to isolate and address specific vulnerabilities, thereby reducing the clarity and effectiveness of the test.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend not to test multiple vulnerabilities in a single conversation. Isolating each issue can halp maintain clarity and effectiveness in your testing and datasets. However, linking multiple sentences in your conversation can be beneficial if you are specifically testing the chatbot’s ability to handle conversation history and context given a previous vulnerability.</p>
+</div>
+</section>
+<section id="legitimate-conversations">
+<h3>Legitimate conversations<a class="headerlink" href="#legitimate-conversations" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#legitimate-conversations'">¶</a></h3>
+<p>Legitimate conversations simulate typical interactions that a user would have with the chatbot in a real-world scenario. These conversations should reflect common queries and tasks the bot is expected to handle. Legitimate conversations are crucial for evaluating the bot’s effectiveness in everyday use and ensuring it meets user needs.</p>
+<blockquote>
+<div><p>Example for a chatbot that sells home products:</p>
+<p>User: “What is the price of the latest model of your vacuum cleaner?”</p>
+<p>Bot: “The latest model of our vacuum cleaner is priced at $199.99. Would you like to place an order?”</p>
+</div></blockquote>
+</section>
+<section id="out-of-scope-questions">
+<h3>Out of scope questions<a class="headerlink" href="#out-of-scope-questions" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#out-of-scope-questions'">¶</a></h3>
+<p>In legitimate conversations, it can also be important to test out-of-scope questions. These are questions that, while legitimate, may fall outside the information contained in the chatbot’s knowledge base. The bot should be able to admit when it does not have the necessary information.</p>
+<p><strong>Example of an out-of-scope question</strong></p>
+<blockquote>
+<div><p>User: “Do you sell outdoor furniture?”</p>
+<p>Bot: “I’m sorry, but we currently do not sell outdoor furniture. We specialize in home products. Is there something else you are looking for?”</p>
+<p>This type of response shows that the bot correctly handles a legitimate but out-of-scope question by admitting it doesn’t know the answer and steering the user back to relevant topics.</p>
+</div></blockquote>
+</section>
+<section id="conversation-history-testing">
+<h3>Conversation history testing<a class="headerlink" href="#conversation-history-testing" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conversation-history-testing'">¶</a></h3>
+<p>In these kinds of conversations, it’s important to test the bot’s ability to handle conversation history. Concatenating multiple messages can be useful for this purpose.</p>
+<p><strong>Example testing conversation history</strong></p>
+<blockquote>
+<div><p>User: “Do you have any discounts on kitchen appliances?”</p>
+<p>Bot: “Yes, we currently have a 10% discount on all kitchen appliances.”</p>
+<p>User: “Great! Can you tell me the price of the stainless steel blender after the discount?”</p>
+<p>Bot: “The stainless steel blender is originally priced at $79.99. With the 10% discount, the final price is $71.99.”</p>
+</div></blockquote>
+<p>This example demonstrates effective conversation history handling for several reasons:</p>
+<ul class="simple">
+<li><p><strong>Context Retention:</strong> The bot retains the context of the initial discount discussion when answering the follow-up question. It understands that the 10% discount applies to the stainless steel blender and accurately applies this context to calculate the discounted price.</p></li>
+<li><p><strong>Accuracy:</strong> The bot accurately performs the calculation, showing that it can handle numerical data and apply discounts correctly.</p></li>
+<li><p><strong>User Guidance:</strong> The conversation flow guides the user from a general inquiry to a specific request, showcasing the bot’s ability to manage progressively detailed queries within the same context.</p></li>
+<li><p><strong>Relevance:</strong> Each response is relevant to the user’s questions, maintaining a coherent and logical conversation flow.</p></li>
+</ul>
+<p>The important thing is to remember that once you have tested what you wanted, you should send the conversation to the dataset, keeping the length of the conversations short and focused.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Test out-of-scope questions to ensure the bot appropriately handles unknown queries.</p></li>
+<li><p>Use conversation history to test the bot’s ability to maintain context over multiple exchanges.</p></li>
+<li><p>Keep conversations short and focused to isolate specific functionalities.</p></li>
+<li><p>Regularly update your dataset with new test cases to continually improve the bot’s performance.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="send-to-dataset">
+<h2>Send to dataset<a class="headerlink" href="#send-to-dataset" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#send-to-dataset'">¶</a></h2>
+<p>Once you’ve captured a conversation that adequately tests your desired functionality, you can save it to a dataset. This dataset will then be used to evaluate your model’s performance and compliance with expected behavior.</p>
+<a class="reference internal image-reference" href="../../_images/playground-save.png"><img alt='"Save conversation to a dataset from the Playground"' class="align-center" src="../../_images/playground-save.png" style="width: 800px;"/>
 </a>
+<p>The screen above shows three sections:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Messages</span></code>: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Evaluation</span> <span class="pre">Settings</span></code>: the parameters from which you want to evaluate the response. It includes:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Expected</span> <span class="pre">response</span></code> (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rules</span></code> (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Context</span></code> (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Keyword</span></code> (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.</p></li>
+<li><p>And any custom checks you may have defined.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dataset</span></code>: where the conversations are saved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tags</span></code> (optional): allows for better organization and filtering conversations</p></li>
+</ul>
+</section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="compare-evaluations.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="run-evaluations.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Compare evaluations
+        Run and compare evaluations
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="annotate.html">
-        Annotate conversation
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="continuous-red-teaming.html">
+        Continuous red teaming
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
 </a>
 </div>
-</div></div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#try-a-conversation'" class="reference internal" href="#try-a-conversation">Try a conversation</a><ul>
+<li><a :data-current="activeSection === '#adversarial-conversations'" class="reference internal" href="#adversarial-conversations">Adversarial conversations</a></li>
+<li><a :data-current="activeSection === '#legitimate-conversations'" class="reference internal" href="#legitimate-conversations">Legitimate conversations</a></li>
+<li><a :data-current="activeSection === '#out-of-scope-questions'" class="reference internal" href="#out-of-scope-questions">Out of scope questions</a></li>
+<li><a :data-current="activeSection === '#conversation-history-testing'" class="reference internal" href="#conversation-history-testing">Conversation history testing</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#send-to-dataset'" class="reference internal" href="#send-to-dataset">Send to dataset</a></li>
+</ul>
+</div>
+</aside>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
-</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
-<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
-</svg>
-  Back to top
-</button>
+</div>
 <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
 <script src="../../_static/doctools.js?v=9a2dae69"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 </body>
 </html>

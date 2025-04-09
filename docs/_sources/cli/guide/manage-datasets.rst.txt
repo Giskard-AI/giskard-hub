@@ -85,7 +85,11 @@ For better organization, you can also assign tags to the conversation.
         ],
 
         # We can place a recorded answer as `demo_output` (optional)
-        demo_output={"role": "assistant", "content": "I see. Have you tried to restart the laptop?"},
+        demo_output={
+            "role": "assistant",
+            "content": "I see. Have you tried to restart the laptop?",
+            "metadata": {"test_metadata": "No matter which kind of metadata"},
+        },
 
         # Tags (optional)
         tags=["customer-support"],

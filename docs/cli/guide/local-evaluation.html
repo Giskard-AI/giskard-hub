@@ -10,12 +10,12 @@
 <title>Evaluate local models | Giskard Hub  documentation</title>
 <meta content="Evaluate local models | Giskard Hub  documentation" property="og:title"/>
 <meta content="Evaluate local models | Giskard Hub  documentation" name="twitter:title"/>
-<link href="../../_static/pygments.css?v=d8449d71" rel="stylesheet" type="text/css"/>
-<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../_static/custom.css?v=d7beac4d" rel="stylesheet" type="text/css"/>
-<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
@@ -34,7 +34,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -79,21 +79,18 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/manage-datasets.html">Manage datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/generate-dataset.html">Generate a dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/create-custom-checks.html">Create custom checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/run-evaluations.html">Run evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/compare-evaluations.html">Compare evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/playground.html">Experiment in the Playground</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/annotate.html">Annotate conversation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/access-rights.html">Set access rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/quickstart.html">Quickstart &amp; Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/create-dataset.html">Create test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/annotate.html">Annotate test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/run-evaluations.html">Run and compare evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/playground.html">Create tests in playground</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hub/guide/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/guide/access-rights.html">Set access rights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hub/glossary.html">Glossary</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub Library</span></p>
+<p class="caption" role="heading"><span class="caption-text">Giskard Python SDK</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluate local models</a></li>
@@ -147,8 +144,8 @@ checking each conversation in the Hub inteface.</p>
 perform checks when the code or the prompts of your agent get updated.</p>
 </div>
 <p>Let’s initialize the Hub client and the project we will be working with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="line-2"><span class="kn">from</span> <span class="nn">giskard_hub</span> <span class="kn">import</span> <span class="n">HubClient</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
 </span><span id="line-3">
 </span><span id="line-4"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
 </span><span id="line-5">
@@ -160,11 +157,11 @@ perform checks when the code or the prompts of your agent get updated.</p>
 <p>To execute a local model, you just need to define a Python function. This
 function should take a list of messages and return an output message.</p>
 <p>Here is an example of a simple model that just echoes the last user message:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-</span><span id="line-2"><span class="kn">from</span> <span class="nn">giskard_hub.data</span> <span class="kn">import</span> <span class="n">ChatMessage</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+</span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatMessage</span>
 </span><span id="line-3">
 </span><span id="line-4">
-</span><span id="line-5"><span class="k">def</span> <span class="nf">my_local_bot</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ChatMessage</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="line-5"><span class="k">def</span><span class="w"> </span><span class="nf">my_local_bot</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ChatMessage</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 </span><span id="line-6"><span class="w">    </span><span class="sd">"""A simple bot that echoes the last user message."""</span>
 </span><span id="line-7">    <span class="n">msg</span> <span class="o">=</span> <span class="n">messages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">content</span>
 </span><span id="line-8">    <span class="k">return</span> <span class="sa">f</span><span class="s2">"You said: '</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">'"</span>
@@ -257,20 +254,15 @@ evaluation runs.</p>
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
-</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
-<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
-</svg>
-  Back to top
-</button>
+</div>
 <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
 <script src="../../_static/doctools.js?v=9a2dae69"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 </body>
 </html>

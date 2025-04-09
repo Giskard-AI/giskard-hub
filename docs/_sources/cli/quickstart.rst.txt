@@ -1,5 +1,5 @@
 ===========
-Quick start
+Quickstart
 ===========
 
 Install the client library
@@ -16,7 +16,7 @@ The library is compatible with Python 3.9 to 3.12.
 Get your API key
 ================
 
-Head over to your Giskard Hub instance and click on the user icon in the top right corner. You will find your personal
+Head over to your Giskard Hub instance and click on the user icon in the bottom left corner. You will find your personal
 API key, click on the button to copy it.
 
 .. note::
@@ -35,7 +35,8 @@ You can set the following environment variables to avoid passing them as argumen
    export GSK_API_KEY=your_api_key
    export GSK_HUB_URL=https://your-giskard-hub-instance.com/_api
 
-
+.. tip::
+    Make sure you are using the correct URL for your Giskard Hub instance. The URL should end with ``/_api``.
 
 Create a project and run an evaluation
 ======================================
@@ -109,7 +110,14 @@ We can now add a conversation example to the dataset. This will be used for the 
             dict(role="assistant", content="Paris"),
             dict(role="user", content="What is the capital of Germany?"),
         ],
-        demo_output=dict(role="assistant", content="I don't know that!"),
+        demo_output=dict(
+            role="assistant",
+            content="I don't know that!",
+            metadata=dict(
+                response_time=random.random(),
+                test_metadata="No matter which kind of metadata",
+            ),
+        ),
         checks=[
             dict(identifier="correctness", params={"reference": "Berlin"}),
             dict(identifier="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
@@ -121,7 +129,7 @@ These are the attributes you can set for a conversation (the only required attri
 - ``messages``: A list of messages in the conversation. Each message is a dictionary with the following keys:
     - ``role``: The role of the message, either "user" or "assistant".
     - ``content``: The content of the message.
-- ``demo_output``: A demonstration of a (possibly wrong) output from the model. This is just for demonstration purposes.
+- ``demo_output``: A demonstration of a (possibly wrong) output from the model with an optional metadata. This is just for demonstration purposes.
 - ``checks``: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
     - ``identifier``: The identifier of the check. If it's a built-in check, you will also need to provide the ``params`` dictionary. The built-in checks are:
         - ``correctness``: The output of the model should match the reference.

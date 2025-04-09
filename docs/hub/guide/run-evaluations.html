@@ -7,20 +7,20 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Run evaluations | Giskard Hub  documentation</title>
-<meta content="Run evaluations | Giskard Hub  documentation" property="og:title"/>
-<meta content="Run evaluations | Giskard Hub  documentation" name="twitter:title"/>
-<link href="../../_static/pygments.css?v=d8449d71" rel="stylesheet" type="text/css"/>
-<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<title>Run and compare evaluations | Giskard Hub  documentation</title>
+<meta content="Run and compare evaluations | Giskard Hub  documentation" property="og:title"/>
+<meta content="Run and compare evaluations | Giskard Hub  documentation" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../_static/custom.css?v=d7beac4d" rel="stylesheet" type="text/css"/>
-<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
-<link href="compare-evaluations.html" rel="next" title="Compare evaluations"/>
-<link href="create-custom-checks.html" rel="prev" title="Create custom checks"/>
+<link href="playground.html" rel="next" title="Create tests in playground"/>
+<link href="annotate.html" rel="prev" title="Annotate test dataset"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -34,7 +34,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -79,21 +79,18 @@
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manage-datasets.html">Manage datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generate-dataset.html">Generate a dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create-custom-checks.html">Create custom checks</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Run evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compare-evaluations.html">Compare evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="playground.html">Experiment in the Playground</a></li>
-<li class="toctree-l1"><a class="reference internal" href="annotate.html">Annotate conversation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="access-rights.html">Set access rights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart &amp; Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-dataset.html">Create test dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotate.html">Annotate test dataset</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run and compare evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="playground.html">Create tests in playground</a></li>
 <li class="toctree-l1"><a class="reference internal" href="continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access-rights.html">Set access rights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub Library</span></p>
+<p class="caption" role="heading"><span class="caption-text">Giskard Python SDK</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/manage-datasets.html">Manage datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/local-evaluation.html">Evaluate local models</a></li>
@@ -125,12 +122,22 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Run evaluations</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Run and compare evaluations</span>
 </nav>
 <div id="content" role="main">
-<section id="run-evaluations">
-<h1>Run evaluations<a class="headerlink" href="#run-evaluations" title="Link to this heading">¶</a></h1>
+<section id="run-and-compare-evaluations">
+<h1>Run and compare evaluations<a class="headerlink" href="#run-and-compare-evaluations" title="Link to this heading">¶</a></h1>
 <p>This section guides you through evaluating your agent using a given dataset. For example, you might want to run evaluations systematically whenever you deploy an updated agent in a pre-production or staging environment. This approach allows you to collaborate with your team to ensure the agent performs as expected.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>💡 When to execute your tests?</strong></p>
+<p>Depending on your AI lifecycle, you may have different reasons to execute your tests:</p>
+<ul class="simple">
+<li><p><strong>Development time:</strong> Compare model versions during development and identify the right correction strategies for developers.</p></li>
+<li><p><strong>Deployment time:</strong> Perform non-regression testing in the CI/CD pipeline for DevOps.</p></li>
+<li><p><strong>Production time:</strong> Provide high-level reporting for business executives to stay informed about key vulnerabilities in a running bot.</p></li>
+</ul>
+</div>
 <section id="create-a-new-evaluation">
 <h2>Create a new evaluation<a class="headerlink" href="#create-a-new-evaluation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-new-evaluation'">¶</a></h2>
 <p>On the Evaluations page, click on “Run evaluation” button in the upper right corner of the screen.</p>
@@ -154,23 +161,42 @@
 <p>The pie chart below displays the number of evaluations that passed, failed, or were unexecuted.</p>
 <a class="reference internal image-reference" href="../../_images/evaluation-metrics.png"><img alt='"Evaluation metrics"' class="align-center" src="../../_images/evaluation-metrics.png" style="width: 800px;"/>
 </a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>💡 How to use your test results to correct your AI agent?</strong></p>
+<p>During the development phase, it is essential to diagnose issues and implement corrections to improve the bot’s performance.</p>
+<ul class="simple">
+<li><p><strong>Failure rate per check:</strong> Identifying the checks with the highest failure rate makes it easier to apply targeted corrections. For example, if you created a custom check to verify whether the bot starts with “I’m sorry,” it is useful to know how many conversations fail this requirement. If the failure rate is high, you can develop mitigation strategies such as prompt engineering, implementing guardrails, or using routers to address the issue.</p></li>
+<li><p><strong>Failure rate per tag:</strong> Measuring failure rates across different vulnerability categories (e.g., hallucination, prompt injection) helps prioritize mitigation strategies for the AI agent.</p></li>
+</ul>
+</div>
 <p>When you click on a conversation in the Evaluation Runs, you’ll see detailed information on the metrics, along with the reason for the result.</p>
 <a class="reference internal image-reference" href="../../_images/evaluation-detail.png"><img alt='"Evaluation detail"' class="align-center" src="../../_images/evaluation-detail.png" style="width: 800px;"/>
+</a>
+</section>
+<section id="compare-several-evaluations">
+<h2>Compare several evaluations<a class="headerlink" href="#compare-several-evaluations" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#compare-several-evaluations'">¶</a></h2>
+<p>Comparing evaluations enables you to make sure you don’t have any regression between your model versions. On the Evaluations page, select at least two evaluations to compare, then click the “Compare” button in the top right corner of the table. The page will display a comparison of the selected evaluations.</p>
+<a class="reference internal image-reference" href="../../_images/comparison-overview.png"><img alt='"Compare evaluation runs"' class="align-center" src="../../_images/comparison-overview.png" style="width: 800px;"/>
+</a>
+<p>First, it shows the success rate - the percentage of conversations that the checks passed in each evaluation. It also displays the percentage of each specific check. Then it presents a table listing the conversations, which can be filtered by results, such as whether the conversations in both evaluations passed or failed the checks.</p>
+<p>Clicking on a conversation will show a detailed comparison.</p>
+<a class="reference internal image-reference" href="../../_images/comparison-detail.png"><img alt='"Comparison details"' class="align-center" src="../../_images/comparison-detail.png" style="width: 800px;"/>
 </a>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="create-custom-checks.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="annotate.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Create custom checks
+        Annotate test dataset
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="compare-evaluations.html">
-        Compare evaluations
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="playground.html">
+        Create tests in playground
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
@@ -180,6 +206,7 @@
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
 <li><a :data-current="activeSection === '#create-a-new-evaluation'" class="reference internal" href="#create-a-new-evaluation">Create a new evaluation</a></li>
+<li><a :data-current="activeSection === '#compare-several-evaluations'" class="reference internal" href="#compare-several-evaluations">Compare several evaluations</a></li>
 </ul>
 </div>
 </aside>
@@ -188,20 +215,15 @@
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
-</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
-<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
-</svg>
-  Back to top
-</button>
+</div>
 <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
 <script src="../../_static/doctools.js?v=9a2dae69"></script>
 <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 </body>
 </html>
