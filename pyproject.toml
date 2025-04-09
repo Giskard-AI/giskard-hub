@@ -38,6 +38,9 @@ build-backend = "poetry.core.masonry.api"
 profile = "black"
 extend_skip_glob = [".history/*"]
 
+[tool.pylint.master]
+fail-under = "9.29"
+
 [tool.pylint.reports]
 reports = "y"
 output-format = "colorized"
