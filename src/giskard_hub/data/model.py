@@ -53,8 +53,8 @@ class Model(Entity):
         if not isinstance(headers, dict):
             try:
                 headers = {h["name"]: h["value"] for h in headers}
-            except KeyError:
-                raise ValueError("Invalid model headers.")
+            except KeyError as e:
+                raise ValueError("Invalid model headers.") from e
 
         data["headers"] = headers
 
