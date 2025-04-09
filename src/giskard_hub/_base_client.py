@@ -28,7 +28,7 @@ class SyncClient:
         )
         try:
             res.raise_for_status()
-        except httpx.HTTPStatusError:
+        except httpx.HTTPStatusError as e:
             if e.response.status_code == httpx.codes.UNPROCESSABLE_ENTITY:
                 raise ValueError("Validation error: " + e.response.text)
 
