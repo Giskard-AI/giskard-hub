@@ -14,6 +14,7 @@ concurrency:
 jobs:
   pre_checks:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -47,6 +48,7 @@ jobs:
   
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       fail-fast: false # Do not stop when any job fails
       matrix:
