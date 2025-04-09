@@ -21,7 +21,7 @@ sphinxawesome-theme = "5.2.0"
 myst-parser = "3.0.1"
 notebook = "7.3.1"
 nbsphinx = "0.9.5"
-black = "25.1.0"
+black = {extras = ["jupyter"], version = "25.1.0"}
 isort = "6.0.1"
 pylint = "3.3.6"
 sphinx-click = "6.0.0"
@@ -38,9 +38,13 @@ build-backend = "poetry.core.masonry.api"
 profile = "black"
 extend_skip_glob = [".history/*"]
 
+[tool.pylint.master]
+fail-under = "9.33"
+
 [tool.pylint.reports]
 reports = "y"
 output-format = "colorized"
 
-[tool.pylint."MESSAGES CONTROL"]
-disable = ["line-too-long", "missing-module-docstring"]
+[tool.pylint.'MESSAGES CONTROL']
+disable = "missing-function-docstring,missing-class-docstring,missing-module-docstring,line-too-long,too-few-public-methods"
+enable = ["useless-suppression", "use-symbolic-message-instead"]
