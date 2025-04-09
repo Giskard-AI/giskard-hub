@@ -34,9 +34,13 @@ class ConversationsResource(APIResource):
         dataset_id: str,
         messages: List[ChatMessage],
         demo_output: Optional[ChatMessageWithMetadata] = NOT_GIVEN,
-        tags: Optional[List[str]] = [],
-        checks: Optional[List[CheckConfig]] = [],
+        tags: Optional[List[str]] = None,
+        checks: Optional[List[CheckConfig]] = None,
     ):
+        if tags is None:
+            tags = []
+        if checks is None:
+            checks = []
         data = filter_not_given(
             {
                 "dataset_id": dataset_id,

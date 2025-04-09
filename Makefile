@@ -16,6 +16,11 @@ format: ## Format all files inside backend with black & isort
 
 check_linting: ## Verify code with lint tools, like pylint
 	poetry run pylint ./src/giskard_hub
+.PHONY: check_linting
+
+check_format: ## Verify code formatting
+	poetry run black --check .
+	poetry run isort -c .
 .PHONY: check_format
 
 setup: ## Install dependencies
@@ -34,3 +39,7 @@ quick-doc: ## Build the doc & serve it locally
 	cd ./script-docs && rm -rf _build && poetry run make html
 	poetry run python3 -m http.server --directory ./script-docs/_build/html/
 .PHONY: quick-doc
+
+test: ## Launch unit tests
+	poetry run pytest -vvv ./tests
+.PHONY: test
