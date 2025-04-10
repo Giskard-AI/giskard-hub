@@ -63,16 +63,28 @@ class Conversation(Entity):
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "Conversation":
-        obj = super().from_dict(data, **kwargs)
-        obj.messages = (
-            []
-            if obj.messages is None
-            else [ChatMessage.from_dict(msg) for msg in obj.messages]
+        # Process messages
+        messages = []
+        if data.get("messages"):
+            messages = [ChatMessage.from_dict(msg) for msg in data["messages"]]
+
+        # Process demo_output
+        demo_output = None
+        if data.get("demo_output"):
+            demo_output = ChatMessageWithMetadata.from_dict(data["demo_output"])
+
+        # Process checks
+        checks = _format_checks_to_cli(data.get("checks", []))
+
+        # Create the object with processed data
+        obj = super().from_dict(
+            {
+                **data,
+                "messages": messages,
+                "demo_output": demo_output,
+                "checks": checks,
+            },
+            **kwargs,
         )
-        obj.demo_output = (
-            None
-            if obj.demo_output is None
-            else ChatMessageWithMetadata.from_dict(obj.demo_output)
-        )
-        obj.checks = _format_checks_to_cli(obj.checks)
+
         return obj
