@@ -6,10 +6,10 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 from dateutil import parser
 
+from ._base import BaseData
+
 if TYPE_CHECKING:
     from ..client import HubClient
-
-from ._base import BaseData
 
 
 def maybe_entity_to_id(entity, EntityClass=None):
