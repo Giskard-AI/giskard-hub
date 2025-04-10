@@ -103,7 +103,7 @@ class SyncClient:
                     error_message,
                     status_code=e.response.status_code,
                     response_text=e.response.text,
-                )
+                ) from e
 
             # Parse response JSON
             try:
@@ -113,7 +113,7 @@ class SyncClient:
                     f"Failed to decode API response as JSON: {str(e)}",
                     status_code=res.status_code,
                     response_text=res.text,
-                )
+                ) from e
 
             if cast_to:
                 data = self._cast_data_to(cast_to, data)
@@ -126,7 +126,7 @@ class SyncClient:
             raise HubAPIError(
                 f"Unexpected error while making API request: {str(e)}",
                 response_text=str(e),
-            )
+            ) from e
 
     def get(self, path: str, **kwargs):
         return self._request("GET", path, **kwargs)
