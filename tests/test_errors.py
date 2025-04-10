@@ -41,7 +41,7 @@ def test_hub_connection_error():
                 "The response doesn't appear to include an OpenAPI specification"
             )
 
-    assert type(exc_info.value) == HubConnectionError
+    assert isinstance(exc_info.value, HubConnectionError)
     assert (
         exc_info.value.message
         == "The response doesn't appear to include an OpenAPI specification"
@@ -57,7 +57,7 @@ def test_hub_connection_error():
         except Exception as e:
             raise HubConnectionError("Failed to connect to Giskard Hub") from e
 
-    assert type(exc_info.value) == HubConnectionError
+    assert isinstance(exc_info.value, HubConnectionError)
     assert exc_info.value.message == "Failed to connect to Giskard Hub"
 
 
@@ -72,7 +72,7 @@ def test_authentication_error():
     with pytest.raises(HubAuthenticationError) as exc_info:
         client.get("/test")
 
-    assert type(exc_info.value) == HubAuthenticationError
+    assert isinstance(exc_info.value, HubAuthenticationError)
     assert exc_info.value.status_code == 401
     assert exc_info.value.message == "Authentication failed. Please check your API key."
     assert exc_info.value.response_text == "Unauthorized"
@@ -90,7 +90,7 @@ def test_forbidden_error():
     with pytest.raises(HubForbiddenError) as exc_info:
         client.get("/test")
 
-    assert type(exc_info.value) == HubForbiddenError
+    assert isinstance(exc_info.value, HubForbiddenError)
     assert exc_info.value.status_code == 403
     assert exc_info.value.message == "Access denied"
     assert exc_info.value.response_text == "Forbidden"
@@ -111,7 +111,7 @@ def test_validation_error():
     with pytest.raises(HubValidationError) as exc_info:
         client.get("/test")
 
-    assert type(exc_info.value) == HubValidationError
+    assert isinstance(exc_info.value, HubValidationError)
     assert exc_info.value.status_code == 422
     assert "Invalid input" in exc_info.value.message
     assert "Name is required" in exc_info.value.message
@@ -130,7 +130,7 @@ def test_json_decode_error():
     with pytest.raises(HubJSONDecodeError) as exc_info:
         client.get("/test")
 
-    assert type(exc_info.value) == HubJSONDecodeError
+    assert isinstance(exc_info.value, HubJSONDecodeError)
     assert exc_info.value.status_code == 200
     assert "Failed to decode API response as JSON" in exc_info.value.message
     assert exc_info.value.response_text == "Invalid JSON"
@@ -154,7 +154,7 @@ def test_general_api_error():
     with pytest.raises(HubAPIError) as exc_info:
         client.get("/test")
 
-    assert type(exc_info.value) == HubAPIError
+    assert isinstance(exc_info.value, HubAPIError)
     assert exc_info.value.status_code == 500
     assert exc_info.value.message == "Internal server error"
     assert exc_info.value.response_text == "Server error"
@@ -168,7 +168,7 @@ def test_unexpected_error():
     with pytest.raises(HubAPIError) as exc_info:
         client.get("/test")
 
-    assert type(exc_info.value) == HubAPIError
+    assert isinstance(exc_info.value, HubAPIError)
     assert "Connection failed" in exc_info.value.message
 
 
