@@ -40,10 +40,9 @@ if __name__ == "__main__":
         raise ValueError(f"No datasets found in project {project.id}")
     dataset = datasets[0]
 
-    # Now it's safe to evaluate
     to_complete = client.evaluate(
-        model_id=model.id,
-        dataset_id=dataset.id,
+        model=model.id,
+        dataset=dataset.id,
     )
     execution_id = to_complete[0].execution_id
     for elt in to_complete:
