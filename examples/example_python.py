@@ -27,9 +27,21 @@ if __name__ == "__main__":
     )
     # api_key and hub url can also be provided by setting env variable GSK_API_KEY and GSK_HUB_URL
     project: Project = client.get_projects()[0]
-    model: Model = client.get_models(project.id)[0]
-    dataset: Dataset = client.get_datasets(project.id)[0]
-    to_complete: List[Evaluation] = client.evaluate(
+
+    # Get models and check if any exist
+    models = client.get_models(project.id)
+    if not models:
+        raise ValueError(f"No models found in project {project.id}")
+    model = models[0]
+
+    # Get datasets and check if any exist
+    datasets = client.get_datasets(project.id)
+    if not datasets:
+        raise ValueError(f"No datasets found in project {project.id}")
+    dataset = datasets[0]
+
+    # Now it's safe to evaluate
+    to_complete = client.evaluate(
         model_id=model.id,
         dataset_id=dataset.id,
     )
