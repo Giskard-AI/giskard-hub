@@ -109,12 +109,12 @@ class HubClient(SyncClient):
             data = resp.json()
         except Exception as e:
             raise HubConnectionError(
-                f"Failed to connect to Giskard Hub at {self._hub_url}."
+                f"Failed to connect to Giskard Hub at {self._hub_url}"
             ) from e
 
         if "openapi" not in data:
             raise HubConnectionError(
-                f"The response doesn't appear to include an OpenAPI specification at {self._hub_url}."
+                f"The response doesn't appear to include an OpenAPI specification at {self._hub_url}"
             )
 
         # Define the resources

@@ -38,13 +38,13 @@ def test_hub_connection_error():
         data = resp.json()
         if "openapi" not in data:
             raise HubConnectionError(
-                f"The response doesn't appear to include an OpenAPI specification."
+                "The response doesn't appear to include an OpenAPI specification"
             )
 
     assert type(exc_info.value) == HubConnectionError
     assert (
         exc_info.value.message
-        == "The response doesn't appear to include an OpenAPI specification."
+        == "The response doesn't appear to include an OpenAPI specification"
     )
 
     # Test with connection error
@@ -55,10 +55,10 @@ def test_hub_connection_error():
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
-            raise HubConnectionError(f"Failed to connect to Giskard Hub.") from e
+            raise HubConnectionError("Failed to connect to Giskard Hub") from e
 
     assert type(exc_info.value) == HubConnectionError
-    assert exc_info.value.message == "Failed to connect to Giskard Hub."
+    assert exc_info.value.message == "Failed to connect to Giskard Hub"
 
 
 def test_authentication_error():
