@@ -32,11 +32,10 @@ class SyncClient:
         """Extract error message from response, falling back to default_msg if not found"""
         try:
             error_data = response.json()
-            if "message" in error_data:
-                return error_data["message"]
         except json.JSONDecodeError:
-            pass
-        return default_msg
+            return default_msg
+
+        return error_data.get("message", default_msg)
 
     def _extract_validation_errors(self, response: httpx.Response) -> Tuple[str, str]:
         """Extract validation error message and field errors from response"""
@@ -45,12 +44,11 @@ class SyncClient:
 
         try:
             error_data = response.json()
-            if "message" in error_data:
-                error_message = error_data["message"]
-            if "fields" in error_data:
-                fields_str = str(error_data["fields"])
         except json.JSONDecodeError:
-            pass
+            return error_message, fields_str
+
+        error_message = error_data.get("message", error_message)
+        fields_str = str(error_data.get("fields", fields_str))
 
         return error_message, fields_str
 
