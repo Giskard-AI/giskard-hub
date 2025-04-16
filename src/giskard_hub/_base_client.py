@@ -40,7 +40,7 @@ class SyncClient:
 
     def _extract_validation_errors(self, response: httpx.Response) -> Tuple[str, str]:
         """Extract validation error message and field errors from response"""
-        error_message = "Validation error. Please check your request."
+        error_message = "Validation error: please check your request"
         fields_str = ""
 
         try:
@@ -66,7 +66,7 @@ class SyncClient:
             # Handle authentication errors
             if res.status_code == 401:
                 raise HubAuthenticationError(
-                    "Authentication failed. Please check your API key.",
+                    "Authentication failed: please check your API key",
                     status_code=res.status_code,
                     response_text=res.text,
                 )
@@ -74,7 +74,7 @@ class SyncClient:
             # Handle forbidden errors
             if res.status_code == 403:
                 error_message = self._extract_error_message(
-                    res, "You don't have permission to access this resource."
+                    res, "You don't have permission to access this resource"
                 )
                 raise HubForbiddenError(
                     error_message,

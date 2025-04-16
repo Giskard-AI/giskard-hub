@@ -74,7 +74,7 @@ def test_authentication_error():
 
     assert isinstance(exc_info.value, HubAuthenticationError)
     assert exc_info.value.status_code == 401
-    assert exc_info.value.message == "Authentication failed. Please check your API key."
+    assert exc_info.value.message == "Authentication failed: please check your API key"
     assert exc_info.value.response_text == "Unauthorized"
 
 
@@ -213,5 +213,5 @@ def test_validation_errors_extraction():
     # Test with invalid JSON
     response.json.side_effect = json.JSONDecodeError("Invalid JSON", "", 0)
     message, fields = client._extract_validation_errors(response)
-    assert message == "Validation error. Please check your request."
+    assert message == "Validation error: please check your request"
     assert fields == ""
