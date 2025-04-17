@@ -74,7 +74,7 @@ def test_authentication_error():
 
     assert isinstance(exc_info.value, HubAuthenticationError)
     assert exc_info.value.status_code == 401
-    assert exc_info.value.message == "Authentication failed. Please check your API key."
+    assert exc_info.value.message == "Authentication failed: please check your API key"
     assert exc_info.value.response_text == "Unauthorized"
 
 
@@ -213,5 +213,29 @@ def test_validation_errors_extraction():
     # Test with invalid JSON
     response.json.side_effect = json.JSONDecodeError("Invalid JSON", "", 0)
     message, fields = client._extract_validation_errors(response)
-    assert message == "Validation error. Please check your request."
+    assert message == "Validation error: please check your request"
     assert fields == ""
+
+
+def test_cast_data_error():
+    """Test handling of errors during data casting"""
+    client = MockSyncClient()
+    response = Mock()
+    response.status_code = 200
+    response.text = '{"data": "test"}'
+    response.json.return_value = {"data": "test"}
+    client._http.request.return_value = response
+
+    # Mock _cast_data_to to raise an exception
+    cast_to_mock = Mock()
+    cast_to_mock.from_dict.side_effect = ValueError("Invalid data format")
+    client._cast_data_to = Mock(side_effect=ValueError("Invalid data format"))
+
+    with pytest.raises(HubAPIError) as exc_info:
+        client.get("/test", cast_to=cast_to_mock)
+
+    assert isinstance(exc_info.value, HubAPIError)
+    assert "Error casting API response data" in exc_info.value.message
+    assert "Invalid data format" in exc_info.value.message
+    assert exc_info.value.status_code == 200
+    assert exc_info.value.response_text == '{"data": "test"}'
