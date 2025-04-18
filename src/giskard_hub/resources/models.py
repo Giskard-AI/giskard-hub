@@ -18,6 +18,7 @@ class ModelsResource(APIResource):
     def retrieve(self, model_id: str) -> Model:
         return self._client.get(f"/models/{model_id}", cast_to=Model)
 
+    # pylint: disable=too-many-arguments
     def create(
         self,
         *,
@@ -44,6 +45,7 @@ class ModelsResource(APIResource):
             cast_to=Model,
         )
 
+    # pylint: disable=too-many-arguments
     def update(
         self,
         model_id: str,
