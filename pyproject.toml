@@ -39,7 +39,7 @@ profile = "black"
 extend_skip_glob = [".history/*"]
 
 [tool.pylint.master]
-fail-under = "9.75"
+fail-under = "9.90"
 
 [tool.pylint.reports]
 reports = "y"
