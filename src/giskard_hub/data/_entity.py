@@ -12,25 +12,25 @@ if TYPE_CHECKING:
     from ..client import HubClient
 
 
-def maybe_entity_to_id(entity, EntityClass=None):
+def maybe_entity_to_id(entity, entity_class=None):
     if entity is None:
         return None
 
-    return entity_to_id(entity, EntityClass)
+    return entity_to_id(entity, entity_class)
 
 
-def entity_to_id(entity, EntityClass=None):
+def entity_to_id(entity, entity_class=None):
     if isinstance(entity, str):
         return entity
 
-    if EntityClass is None:
+    if entity_class is None:
         return entity.id
 
-    if isinstance(entity, EntityClass):
+    if isinstance(entity, entity_class):
         return entity.id
 
     raise ValueError(
-        f"Invalid {EntityClass.__name__} provided, got object of type {type(entity)}"
+        f"Invalid {entity_class.__name__} provided, got object of type {type(entity)}"
     )
 
 
