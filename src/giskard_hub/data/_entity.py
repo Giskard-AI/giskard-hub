@@ -67,7 +67,7 @@ class Entity(BaseData):
             data["updated_at"] = parser.parse(raw_updated_at)
 
         entity = super().from_dict(data)
-        entity._client = _client
+        setattr(entity, "_client", _client)
         return entity
 
     def _hydrate(self, data: "Entity"):
