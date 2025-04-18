@@ -128,13 +128,7 @@ class SyncClient:
                     response_text=res.text,
                 ) from e
 
-        except HubAPIError:
-            raise
-        except Exception as e:
-            raise HubAPIError(
-                f"Unexpected error while making API request: {str(e)}",
-                response_text=str(e),
-            )
+        return data
 
     def get(self, path: str, **kwargs):
         return self._request("GET", path, **kwargs)
