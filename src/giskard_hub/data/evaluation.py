@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import time
 from dataclasses import dataclass, field
 from time import sleep
@@ -154,7 +155,7 @@ class EvaluationRun(Entity):
             title=f"Evaluation Run [bold cyan]{self.name}[/bold cyan]",
         )
         for metric in self.metrics:
-            if metric.percentage != metric.percentage:
+            if math.isnan(metric.percentage):
                 continue
 
             if metric.percentage > 80:

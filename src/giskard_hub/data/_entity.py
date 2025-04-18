@@ -6,31 +6,31 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 from dateutil import parser
 
+from ._base import BaseData
+
 if TYPE_CHECKING:
     from ..client import HubClient
 
-from ._base import BaseData
 
-
-def maybe_entity_to_id(entity, EntityClass=None):
+def maybe_entity_to_id(entity, entity_class=None):
     if entity is None:
         return None
 
-    return entity_to_id(entity, EntityClass)
+    return entity_to_id(entity, entity_class)
 
 
-def entity_to_id(entity, EntityClass=None):
+def entity_to_id(entity, entity_class=None):
     if isinstance(entity, str):
         return entity
 
-    if EntityClass is None:
+    if entity_class is None:
         return entity.id
 
-    if isinstance(entity, EntityClass):
+    if isinstance(entity, entity_class):
         return entity.id
 
     raise ValueError(
-        f"Invalid {EntityClass.__name__} provided, got object of type {type(entity)}"
+        f"Invalid {entity_class.__name__} provided, got object of type {type(entity)}"
     )
 
 
@@ -67,7 +67,7 @@ class Entity(BaseData):
             data["updated_at"] = parser.parse(raw_updated_at)
 
         entity = super().from_dict(data)
-        entity._client = _client
+        setattr(entity, "_client", _client)
         return entity
 
     def _hydrate(self, data: "Entity"):
