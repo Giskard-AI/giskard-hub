@@ -20,6 +20,8 @@ Glossary
 
 - **String Matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
 
+- **Metadata**: Checks if the agent's metadata response matches a list of JSON path rules.
+
 - **Reference**: A reference answer that the agent must match when generating a response.
 
 - **Rules**: A list of requirements the agent must meet when generating an answer. For example, "The agent must be polite".

@@ -57,13 +57,13 @@ Here's an example of the structure and content in a dataset:
             "demo_output": {
                 "role": "assistant",
                 "content": "How can I help you ?",
-                "metadata": {"test_metadata": "No matter which kind of metadata"},
+                "metadata": {"category": "unknown", "subcategory": "unknown", "resolved": False},
             },
             "tags": ["greetings"],
             "checks": [
                 {"identifier": "correctness", "params": {"reference": "How can I help you?"}},
                 {"identifier": "conformity", "params": {"rules": ["The agent should not do X"]}},
-            ]
+                {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.resolved", "expected_value": False, "expected_value_type": "boolean"}]}},
         }
     ]
 

@@ -69,6 +69,7 @@ You can also pass two types of evaluation annotations:
     - **conformity**  A list of rules that the agent must follow when generating the answer.
     - **groundedness**  A context in which the agent must ground its response.
     - **string_match**  A keyword that the agent's response must contain.
+    - **metadata**  A list of JSON path rules that the agent's response must match.
 
 For better organization, you can also assign tags to the conversation.
 
@@ -88,7 +89,7 @@ For better organization, you can also assign tags to the conversation.
         demo_output={
             "role": "assistant",
             "content": "I see. Have you tried to restart the laptop?",
-            "metadata": {"test_metadata": "No matter which kind of metadata"},
+            "metadata": {"category": "laptop", "subcategory": "battery", "resolved": False},
         },
 
         # Tags (optional)
@@ -98,6 +99,7 @@ For better organization, you can also assign tags to the conversation.
         checks=[
             {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
             {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
+            {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.category", "expected_value": "laptop", "expected_value_type": "string"}, {"json_path": "$.subcategory", "expected_value": "battery", "expected_value_type": "string"}, {"json_path": "$.resolved", "expected_value": False, "expected_value_type": "boolean"}]}},
         ]
     )
 

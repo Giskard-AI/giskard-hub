@@ -124,11 +124,16 @@ required attribute is `messages`):
     - `conformity`: The conversation should follow a set of rules.
     - `groundedness`: The output of the model should be grounded in the conversation.
     - `string_match`: The output of the model should contain a specific string (keyword or sentence).
+    - `metadata`: The metadata output of the model should match a list of JSON path rules.
   - `params`: A dictionary of parameters for built-in checks. The parameters depend on the check type:
     - For the `correctness` check, the parameter is `reference` (type: `str`), which is the expected output.
     - For the `conformity` check, the parameter is `rules` (type: `list[str]`), which is a list of rules that the conversation should follow.
     - For the `groundedness` check, the parameter is `context` (type: `str`), which is the context in which the model should ground its output.
     - For the `string_match` check, the parameter is `keyword` (type: `str`), which is the string that the model's output should contain.
+    - For the `metadata` check, the parameter is `json_path_rules` (type: `list[dict]`), which is a list of dictionaries with the following keys:
+      - `json_path`: The JSON path to the value that the model's output should contain.
+      - `expected_value`: The expected value at the JSON path.
+      - `expected_value_type`: The expected type of the value at the JSON path, one of `string`, `number`, `boolean`.
 
 You can add as many conversations as you want to the dataset.
 

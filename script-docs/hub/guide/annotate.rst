@@ -72,7 +72,7 @@ Assigning checks to a conversation enables you to set the right requirements for
 Correctness Check
 ------------------
 
-Check whether all information from the reference answer is present in the model answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent’s answer.
+Check whether all information from the reference answer is present in the model answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent's answer.
 
 .. admonition:: Example
 
@@ -140,7 +140,7 @@ Given a rule or criterion, check whether the model answer complies with this rul
 Groundedness Check
 --------------------
 
-Check whether all information from the bot’s answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent’s answer. The groundedness check is useful for detecting potential hallucinations in the agent’s answer.
+Check whether all information from the bot's answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent's answer. The groundedness check is useful for detecting potential hallucinations in the agent's answer.
 
 .. admonition:: Example
 
@@ -161,7 +161,7 @@ Check whether all information from the bot’s answer is present in the given co
    - Edmund Hillary, a renowned New Zealander, gained fame as one of the first climbers to summit Mount Everest alongside Tenzing Norgay on May 29, 1953.
 
 
-String Matching
+String Matching Check
 ---------------
 
 Check whether the given keyword or sentence is present in the model answer.
@@ -180,10 +180,48 @@ Check whether the given keyword or sentence is present in the model answer.
    
    - Hello, how may I help you today?
 
+Metadata Check
+---------------
+
+Check whether the agent answer contains the expected value at the specified JSON path. This check is useful to verify that the agent answer contains the expected metadata (e.g. whether a tool is called). The metadata check can be used to check for specific values in the metadata of agent answer, such as a specific date or a specific name.
+
+.. admonition:: Example - string value
+
+   **JSON Path rule**: Expecting ``John`` (string) at ``$.user.name``
+
+   **Failure examples**:
+   
+   - Metadata: ``{"user": {"name": "Doe"}}``
+
+     - *Reason: Expected* ``John`` *at* ``$.user.name`` *but got* ``Doe``
+   
+   **Success examples**:
+   
+   - Metadata: ``{"user": {"name": "John"}}``
+   - Metadata: ``{"user": {"name": "John Doe"}}``
+
+.. admonition:: Example - boolean value
+
+   **JSON Path rule**: Expecting ``true`` (boolean) at ``$.output.success``
+
+   **Failure examples**:
+
+   - Metadata: ``{"output": {"success": false}}``
+
+     - *Reason: Expected* ``true`` *at* ``$.output.success`` *but got* ``false``
+
+   - Metadata: ``{"output": {}}``
+
+     - *Reason: JSON path* ``$.output.success`` *does not exist in metadata*
+   
+   **Success example**:
+   
+   - Metadata: ``{"output": {"success": true}}``
+
 Custom Check
 ---------------
 
-Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness and String matching) and can be used to evaluate the quality of your agent's responses. 
+Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness, String Matching and Metadata) and can be used to evaluate the quality of your agent's responses. 
 
 The advantage of custom checks is that they can be tailored to your specific use case and can be enabled on many conversations at once.
 
@@ -204,6 +242,7 @@ Next, set the parameters for the check:
     - ``Conformity``: The conversation should follow a set of rules.
     - ``Groundedness``: The output of the model should be grounded in the conversation.
     - ``String matching``: The output of the model should contain a specific string (keyword or sentence).
+    - ``Metadata``: The metadata output of the model should match a list of JSON path rules.
 - And a set of parameters specific to the check type. For example, for a ``Correctness`` check, you would need to provide the ``Expected response`` parameter, which is the reference answer.
 
 .. image:: /_static/images/hub/create-checks-detail.png
