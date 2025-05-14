@@ -19,11 +19,13 @@ class EvaluationsResource(APIResource):
         dataset_id: str,
         tags: List[str] = NOT_GIVEN,
         name: str = NOT_GIVEN,
+        run_count: int = 1,
     ):
         data = filter_not_given(
             {
                 "name": name,
                 "model_id": model_id,
+                "run_count": run_count,
             }
         )
         data["criteria"] = [
