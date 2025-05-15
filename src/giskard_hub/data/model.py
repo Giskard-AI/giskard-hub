@@ -25,7 +25,9 @@ class ModelOutput(BaseData):
     error: ExecutionError | None = None
 
     @classmethod
-    def from_dict(cls, data: Dict[str, any], **kwargs) -> "BaseData":
+    def from_dict(
+        cls, data: Dict[str, any], **kwargs  # pylint: disable=unused-argument
+    ) -> "BaseData":
         msg = data.get("response") or data.get("message")
         error = data.get("error")
         return cls(
@@ -53,8 +55,8 @@ class Model(Entity):
         if not isinstance(headers, dict):
             try:
                 headers = {h["name"]: h["value"] for h in headers}
-            except KeyError:
-                raise ValueError("Invalid model headers.")
+            except KeyError as e:
+                raise ValueError("Invalid model headers.") from e
 
         data["headers"] = headers
 

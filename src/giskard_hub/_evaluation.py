@@ -21,7 +21,7 @@ class LocalModel:
         return CallableLocalModel(
             name=callable_fn.__name__,
             description=callable_fn.__doc__ or "",
-            callable=_validate_callable(callable_fn),
+            callable_fn=_validate_callable(callable_fn),
         )
 
 
@@ -31,10 +31,10 @@ class CallableLocalModel(LocalModel):
         *,
         name,
         description,
-        callable: Callable,
+        callable_fn: Callable,
     ):
         super().__init__(name=name, description=description)
-        self._callable = callable
+        self._callable = callable_fn
 
     def __call__(self, messages: List[ChatMessage], **kwargs) -> ModelOutput:
         output = self._callable(messages, **kwargs)
@@ -45,8 +45,8 @@ class CallableLocalModel(LocalModel):
         return ModelOutput(message=ChatMessage(role="assistant", content=str(output)))
 
 
-def _validate_callable(callable: Callable) -> Callable:
-    if not callable.__name__:
+def _validate_callable(callable_fn: Callable) -> Callable:
+    if not callable_fn.__name__:
         raise ValueError("The callable needs to have a name.")
 
-    return callable
+    return callable_fn

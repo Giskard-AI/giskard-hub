@@ -28,6 +28,7 @@ class ConversationsResource(APIResource):
             f"/conversations/{conversation_id}", cast_to=Conversation
         )
 
+    # pylint: disable=too-many-arguments
     def create(
         self,
         *,
@@ -57,6 +58,7 @@ class ConversationsResource(APIResource):
             cast_to=Conversation,
         )
 
+    # pylint: disable=too-many-arguments
     def update(
         self,
         conversation_id: str,
