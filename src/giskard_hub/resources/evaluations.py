@@ -12,6 +12,7 @@ class EvaluationsResource(APIResource):
     def retrieve(self, run_id: str):
         return self._client.get(f"/executions/{run_id}", cast_to=EvaluationRun)
 
+    # pylint: disable=too-many-arguments
     def create(
         self,
         *,
