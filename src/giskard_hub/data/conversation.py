@@ -3,41 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-from ._base import BaseData
 from ._entity import Entity
 from .chat import ChatMessage, ChatMessageWithMetadata
-
-
-def _format_checks_to_cli(checks: List[TestCaseCheckConfig]) -> List[CheckConfig]:
-    return [
-        {
-            "identifier": check["identifier"],
-            "enabled": check["enabled"],
-            **(
-                {"params": params}
-                if check.get("assertions")
-                and (
-                    params := {
-                        k: v for k, v in check["assertions"][0].items() if k != "type"
-                    }
-                )
-                else {}
-            ),
-        }
-        for check in checks
-    ]
-
-
-@dataclass
-class CheckConfig(BaseData):
-    identifier: str
-    params: Optional[dict[str, Any]] = None
-
-
-@dataclass
-class TestCaseCheckConfig(BaseData):
-    identifier: str
-    assertions: List[dict[str, Any]]
+from .check import CheckConfig, _format_checks_to_cli
 
 
 @dataclass
@@ -52,14 +20,14 @@ class Conversation(Entity):
         Output of the agent for demonstration purposes.
     tags : List[str], optional
         List of tags for the conversation.
-    checks : List[TestCaseCheckConfig], optional
+    checks : List[CheckConfig], optional
         List of checks to be performed on the conversation.
     """
 
     messages: List[ChatMessage] = field(default_factory=list)
     demo_output: Optional[ChatMessageWithMetadata] = field(default=None)
     tags: List[str] = field(default_factory=list)
-    checks: List[TestCaseCheckConfig] = field(default_factory=list)
+    checks: List[CheckConfig] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "Conversation":
