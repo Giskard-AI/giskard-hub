@@ -37,6 +37,8 @@ class ConversationsResource(APIResource):
             _CONVERSATION_DEPRECATION_WARNING,
             category=DeprecationWarning,
         )
+        # pylint: disable=similarities
+        # The `conversations` resource is deprecated and will be removed in the future.
         data = prepare_conversation_data(
             dataset_id=dataset_id,
             messages=messages,
@@ -66,6 +68,8 @@ class ConversationsResource(APIResource):
             _CONVERSATION_DEPRECATION_WARNING,
             category=DeprecationWarning,
         )
+        # pylint: disable=similarities
+        # The `conversations` resource is deprecated and will be removed in the future.
         data = prepare_conversation_data(
             dataset_id=dataset_id,
             messages=messages,

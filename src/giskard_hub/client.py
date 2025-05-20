@@ -19,6 +19,8 @@ from .resources.models import ModelsResource
 from .resources.projects import ProjectsResource
 
 
+# pylint: disable=too-many-instance-attributes
+# The `conversations` resource is deprecated and will be removed in the future.
 class HubClient(SyncClient):
     """Client class to handle interaction with the hub.
 
