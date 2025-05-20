@@ -3,27 +3,14 @@ from __future__ import annotations
 import warnings
 from typing import List, Optional
 
-from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
+from ..data._base import NOT_GIVEN
 from ..data.chat import ChatMessage, ChatMessageWithMetadata
-from ..data.chat_test_case import CheckConfig, TestCaseCheckConfig
+from ..data.chat_test_case import CheckConfig
 from ..data.conversation import Conversation
 from ._resource import APIResource
+from ._utils import prepare_chat_test_case_data as prepare_conversation_data
 
 _CONVERSATION_DEPRECATION_WARNING = "Conversation API is deprecated and will be removed. Please use ChatTestCase API instead."
-
-
-def _format_checks_to_backend(checks: list[CheckConfig]) -> list[TestCaseCheckConfig]:
-    return [
-        {
-            **check,
-            **(
-                {"assertions": [{"type": check["identifier"], **check["params"]}]}
-                if check.get("params")
-                else {}
-            ),
-        }
-        for check in checks
-    ]
 
 
 class ConversationsResource(APIResource):
@@ -50,18 +37,12 @@ class ConversationsResource(APIResource):
             _CONVERSATION_DEPRECATION_WARNING,
             category=DeprecationWarning,
         )
-        if tags is None:
-            tags = []
-        if checks is None:
-            checks = []
-        data = filter_not_given(
-            {
-                "dataset_id": dataset_id,
-                "messages": [maybe_to_dict(msg) for msg in messages],
-                "demo_output": maybe_to_dict(demo_output),
-                "tags": tags,
-                "checks": _format_checks_to_backend(checks),
-            }
+        data = prepare_conversation_data(
+            dataset_id=dataset_id,
+            messages=messages,
+            demo_output=demo_output,
+            tags=tags,
+            checks=checks,
         )
 
         return self._client.post(
@@ -85,16 +66,12 @@ class ConversationsResource(APIResource):
             _CONVERSATION_DEPRECATION_WARNING,
             category=DeprecationWarning,
         )
-        data = filter_not_given(
-            {
-                "dataset_id": dataset_id,
-                "messages": (
-                    [maybe_to_dict(msg) for msg in messages] if messages else messages
-                ),
-                "demo_output": maybe_to_dict(demo_output),
-                "tags": tags,
-                "checks": _format_checks_to_backend(checks) if checks else checks,
-            }
+        data = prepare_conversation_data(
+            dataset_id=dataset_id,
+            messages=messages,
+            demo_output=demo_output,
+            tags=tags,
+            checks=checks,
         )
 
         return self._client.patch(

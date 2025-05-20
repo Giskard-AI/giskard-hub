@@ -1,26 +1,12 @@
 from __future__ import annotations
 
-import warnings
 from typing import List, Optional
 
-from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
+from ..data._base import NOT_GIVEN
 from ..data.chat import ChatMessage, ChatMessageWithMetadata
-from ..data.chat_test_case import ChatTestCase, CheckConfig, TestCaseCheckConfig
+from ..data.chat_test_case import ChatTestCase, CheckConfig
 from ._resource import APIResource
-
-
-def _format_checks_to_backend(checks: list[CheckConfig]) -> list[TestCaseCheckConfig]:
-    return [
-        {
-            **check,
-            **(
-                {"assertions": [{"type": check["identifier"], **check["params"]}]}
-                if check.get("params")
-                else {}
-            ),
-        }
-        for check in checks
-    ]
+from ._utils import prepare_chat_test_case_data
 
 
 class ChatTestCasesResource(APIResource):
@@ -39,18 +25,12 @@ class ChatTestCasesResource(APIResource):
         tags: Optional[List[str]] = None,
         checks: Optional[List[CheckConfig]] = None,
     ):
-        if tags is None:
-            tags = []
-        if checks is None:
-            checks = []
-        data = filter_not_given(
-            {
-                "dataset_id": dataset_id,
-                "messages": [maybe_to_dict(msg) for msg in messages],
-                "demo_output": maybe_to_dict(demo_output),
-                "tags": tags,
-                "checks": _format_checks_to_backend(checks),
-            }
+        data = prepare_chat_test_case_data(
+            dataset_id=dataset_id,
+            messages=messages,
+            demo_output=demo_output,
+            tags=tags,
+            checks=checks,
         )
 
         return self._client.post(
@@ -70,16 +50,12 @@ class ChatTestCasesResource(APIResource):
         tags: Optional[List[str]] = NOT_GIVEN,
         checks: Optional[List[CheckConfig]] = NOT_GIVEN,
     ) -> ChatTestCase:
-        data = filter_not_given(
-            {
-                "dataset_id": dataset_id,
-                "messages": (
-                    [maybe_to_dict(msg) for msg in messages] if messages else messages
-                ),
-                "demo_output": maybe_to_dict(demo_output),
-                "tags": tags,
-                "checks": _format_checks_to_backend(checks) if checks else checks,
-            }
+        data = prepare_chat_test_case_data(
+            dataset_id=dataset_id,
+            messages=messages,
+            demo_output=demo_output,
+            tags=tags,
+            checks=checks,
         )
 
         return self._client.patch(
