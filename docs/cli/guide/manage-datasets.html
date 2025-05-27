@@ -181,6 +181,7 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 <li><p><strong>conformity</strong>  A list of rules that the agent must follow when generating the answer.</p></li>
 <li><p><strong>groundedness</strong>  A context in which the agent must ground its response.</p></li>
 <li><p><strong>string_match</strong>  A keyword that the agent’s response must contain.</p></li>
+<li><p><strong>metadata</strong>  A list of JSON path rules that the agent’s response must match.</p></li>
 </ul>
 </dd>
 </dl>
@@ -201,7 +202,7 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 </span><span id="line-12">    <span class="n">demo_output</span><span class="o">=</span><span class="p">{</span>
 </span><span id="line-13">        <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"assistant"</span><span class="p">,</span>
 </span><span id="line-14">        <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"I see. Have you tried to restart the laptop?"</span><span class="p">,</span>
-</span><span id="line-15">        <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"test_metadata"</span><span class="p">:</span> <span class="s2">"No matter which kind of metadata"</span><span class="p">},</span>
+</span><span id="line-15">        <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"category"</span><span class="p">:</span> <span class="s2">"laptop"</span><span class="p">,</span> <span class="s2">"subcategory"</span><span class="p">:</span> <span class="s2">"battery"</span><span class="p">,</span> <span class="s2">"resolved"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
 </span><span id="line-16">    <span class="p">},</span>
 </span><span id="line-17">
 </span><span id="line-18">    <span class="c1"># Tags (optional)</span>
@@ -211,8 +212,9 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 </span><span id="line-22">    <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-23">        <span class="p">{</span><span class="s2">"identifier"</span><span class="p">:</span> <span class="s2">"correctness"</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"reference"</span><span class="p">:</span> <span class="s2">"I see, could you please give me the model number of the laptop?"</span><span class="p">}},</span>
 </span><span id="line-24">        <span class="p">{</span><span class="s2">"identifier"</span><span class="p">:</span> <span class="s2">"conformity"</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"rules"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"The assistant should employ a polite and friendly tone."</span><span class="p">]}},</span>
-</span><span id="line-25">    <span class="p">]</span>
-</span><span id="line-26"><span class="p">)</span>
+</span><span id="line-25">        <span class="p">{</span><span class="s2">"identifier"</span><span class="p">:</span> <span class="s2">"metadata"</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"json_path_rules"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"json_path"</span><span class="p">:</span> <span class="s2">"$.category"</span><span class="p">,</span> <span class="s2">"expected_value"</span><span class="p">:</span> <span class="s2">"laptop"</span><span class="p">,</span> <span class="s2">"expected_value_type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"json_path"</span><span class="p">:</span> <span class="s2">"$.subcategory"</span><span class="p">,</span> <span class="s2">"expected_value"</span><span class="p">:</span> <span class="s2">"battery"</span><span class="p">,</span> <span class="s2">"expected_value_type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"json_path"</span><span class="p">:</span> <span class="s2">"$.resolved"</span><span class="p">,</span> <span class="s2">"expected_value"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"expected_value_type"</span><span class="p">:</span> <span class="s2">"boolean"</span><span class="p">}]}},</span>
+</span><span id="line-26">    <span class="p">]</span>
+</span><span id="line-27"><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <p>You can add as many conversations as you want to the dataset.</p>

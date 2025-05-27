@@ -274,8 +274,8 @@
 </ul>
 </div>
 </section>
-<section id="string-matching">
-<h3>String Matching<a class="headerlink" href="#string-matching" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#string-matching'">¶</a></h3>
+<section id="string-matching-check">
+<h3>String Matching Check<a class="headerlink" href="#string-matching-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#string-matching-check'">¶</a></h3>
 <p>Check whether the given keyword or sentence is present in the model answer.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
@@ -294,9 +294,51 @@
 </ul>
 </div>
 </section>
+<section id="metadata-check">
+<h3>Metadata Check<a class="headerlink" href="#metadata-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#metadata-check'">¶</a></h3>
+<p>Check whether the agent answer contains the expected value at the specified JSON path. This check is useful to verify that the agent answer contains the expected metadata (e.g. whether a tool is called). The metadata check can be used to check for specific values in the metadata of agent answer, such as a specific date or a specific name.</p>
+<div class="admonition-example-string-value admonition">
+<p class="admonition-title">Example - string value</p>
+<p><strong>JSON Path rule</strong>: Expecting <code class="docutils literal notranslate"><span class="pre">John</span></code> (string) at <code class="docutils literal notranslate"><span class="pre">$.user.name</span></code></p>
+<p><strong>Failure examples</strong>:</p>
+<ul class="simple">
+<li><p>Metadata: <code class="docutils literal notranslate"><span class="pre">{"user":</span> <span class="pre">{"name":</span> <span class="pre">"Doe"}}</span></code></p>
+<ul>
+<li><p><em>Reason: Expected</em> <code class="docutils literal notranslate"><span class="pre">John</span></code> <em>at</em> <code class="docutils literal notranslate"><span class="pre">$.user.name</span></code> <em>but got</em> <code class="docutils literal notranslate"><span class="pre">Doe</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Success examples</strong>:</p>
+<ul class="simple">
+<li><p>Metadata: <code class="docutils literal notranslate"><span class="pre">{"user":</span> <span class="pre">{"name":</span> <span class="pre">"John"}}</span></code></p></li>
+<li><p>Metadata: <code class="docutils literal notranslate"><span class="pre">{"user":</span> <span class="pre">{"name":</span> <span class="pre">"John</span> <span class="pre">Doe"}}</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-example-boolean-value admonition">
+<p class="admonition-title">Example - boolean value</p>
+<p><strong>JSON Path rule</strong>: Expecting <code class="docutils literal notranslate"><span class="pre">true</span></code> (boolean) at <code class="docutils literal notranslate"><span class="pre">$.output.success</span></code></p>
+<p><strong>Failure examples</strong>:</p>
+<ul class="simple">
+<li><p>Metadata: <code class="docutils literal notranslate"><span class="pre">{"output":</span> <span class="pre">{"success":</span> <span class="pre">false}}</span></code></p>
+<ul>
+<li><p><em>Reason: Expected</em> <code class="docutils literal notranslate"><span class="pre">true</span></code> <em>at</em> <code class="docutils literal notranslate"><span class="pre">$.output.success</span></code> <em>but got</em> <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ul>
+</li>
+<li><p>Metadata: <code class="docutils literal notranslate"><span class="pre">{"output":</span> <span class="pre">{}}</span></code></p>
+<ul>
+<li><p><em>Reason: JSON path</em> <code class="docutils literal notranslate"><span class="pre">$.output.success</span></code> <em>does not exist in metadata</em></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Success example</strong>:</p>
+<ul class="simple">
+<li><p>Metadata: <code class="docutils literal notranslate"><span class="pre">{"output":</span> <span class="pre">{"success":</span> <span class="pre">true}}</span></code></p></li>
+</ul>
+</div>
+</section>
 <section id="custom-check">
 <h3>Custom Check<a class="headerlink" href="#custom-check" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#custom-check'">¶</a></h3>
-<p>Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness and String matching) and can be used to evaluate the quality of your agent’s responses.</p>
+<p>Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness, String Matching and Metadata) and can be used to evaluate the quality of your agent’s responses.</p>
 <p>The advantage of custom checks is that they can be tailored to your specific use case and can be enabled on many conversations at once.</p>
 <p>On the Checks page, you can create custom checks by clicking on the “New check” button in the upper right corner of the screen.</p>
 <a class="reference internal image-reference" href="../../_images/create-checks-list.png"><img alt='"List of checks"' class="align-center" src="../../_images/create-checks-list.png" style="width: 800px;"/>
@@ -312,6 +354,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Conformity</span></code>: The conversation should follow a set of rules.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Groundedness</span></code>: The output of the model should be grounded in the conversation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">matching</span></code>: The output of the model should contain a specific string (keyword or sentence).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Metadata</span></code>: The metadata output of the model should match a list of JSON path rules.</p></li>
 </ul>
 </dd>
 </dl>
@@ -399,7 +442,8 @@
 <li><a :data-current="activeSection === '#correctness-check'" class="reference internal" href="#correctness-check">Correctness Check</a></li>
 <li><a :data-current="activeSection === '#conformity-check'" class="reference internal" href="#conformity-check">Conformity Check</a></li>
 <li><a :data-current="activeSection === '#groundedness-check'" class="reference internal" href="#groundedness-check">Groundedness Check</a></li>
-<li><a :data-current="activeSection === '#string-matching'" class="reference internal" href="#string-matching">String Matching</a></li>
+<li><a :data-current="activeSection === '#string-matching-check'" class="reference internal" href="#string-matching-check">String Matching Check</a></li>
+<li><a :data-current="activeSection === '#metadata-check'" class="reference internal" href="#metadata-check">Metadata Check</a></li>
 <li><a :data-current="activeSection === '#custom-check'" class="reference internal" href="#custom-check">Custom Check</a></li>
 </ul>
 </li>
