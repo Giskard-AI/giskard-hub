@@ -248,6 +248,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 <li><p><code class="docutils literal notranslate"><span class="pre">conformity</span></code>: The conversation should follow a set of rules.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">groundedness</span></code>: The output of the model should be grounded in the conversation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">string_match</span></code>: The output of the model should contain a specific string (keyword or sentence).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>: The metadata output of the model should match a list of JSON path rules.</p></li>
 </ul>
 </dd>
 </dl>
@@ -258,6 +259,15 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">conformity</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">rules</span></code> (type: <code class="docutils literal notranslate"><span class="pre">list[str]</span></code>), which is a list of rules that the conversation should follow.</p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">groundedness</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">context</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the context in which the model should ground its output.</p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">string_match</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">keyword</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the string that the model’s output should contain.</p></li>
+<li><dl class="simple">
+<dt>For the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">json_path_rules</span></code> (type: <code class="docutils literal notranslate"><span class="pre">list[dict]</span></code>), which is a list of dictionaries with the following keys:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">json_path</span></code>: The JSON path to the value that the model’s output should contain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_value</span></code>: The expected value at the JSON path.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_value_type</span></code>: The expected type of the value at the JSON path, one of <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">number</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
