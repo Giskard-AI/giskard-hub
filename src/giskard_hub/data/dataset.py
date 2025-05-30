@@ -44,6 +44,7 @@ class Dataset(Entity):
             dataset_id=self.id, **conversation.to_dict()
         )
 
+    @property
     def chat_test_cases(self):
         """Return the chat test cases of the dataset."""
         if self._client and self.id:
