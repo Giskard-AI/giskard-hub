@@ -74,7 +74,6 @@ class ChatTestCase(Entity):
             demo_output = ChatMessageWithMetadata.from_dict(data["demo_output"])
 
         # Process checks
-        # FIXME: This should be done with TestCaseCheckConfig
         checks = _format_checks_to_cli(data.get("checks", []))
 
         # Create the object with processed data
