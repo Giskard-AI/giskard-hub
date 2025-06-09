@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from ._base import BaseData
 
@@ -21,7 +21,7 @@ class CheckConfig(BaseData):
 
 
 def _format_checks_to_cli(
-    checks: List[TestCaseCheckConfig | Dict[str, Any]],
+    checks: List[Union[TestCaseCheckConfig, Dict[str, Any]]],
 ) -> List[CheckConfig]:
     if not checks:
         return []
