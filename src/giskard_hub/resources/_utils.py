@@ -23,7 +23,9 @@ def prepare_chat_test_case_data(
             "messages": [maybe_to_dict(msg) for msg in messages],
             "demo_output": maybe_to_dict(demo_output),
             "tags": tags,
-            "checks": _format_checks_to_backend(checks),
+            "checks": [
+                maybe_to_dict(check) for check in _format_checks_to_backend(checks)
+            ],
         }
     )
 

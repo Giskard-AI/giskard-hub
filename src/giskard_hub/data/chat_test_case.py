@@ -59,7 +59,7 @@ class ChatTestCase(Entity):
     messages: List[ChatMessage] = field(default_factory=list)
     demo_output: Optional[ChatMessageWithMetadata] = field(default=None)
     tags: List[str] = field(default_factory=list)
-    checks: List[TestCaseCheckConfig] = field(default_factory=list)
+    checks: List[CheckConfig] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "ChatTestCase":

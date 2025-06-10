@@ -19,7 +19,7 @@ class Conversation(ChatTestCase):
         Output of the agent for demonstration purposes.
     tags : List[str], optional
         List of tags for the conversation.
-    checks : List[TestCaseCheckConfig], optional
+    checks : List[CheckConfig], optional
         List of checks to be performed on the conversation.
     """
 
