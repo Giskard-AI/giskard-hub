@@ -4,9 +4,22 @@ from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage, ChatMessageWithMetadata
-from ..data.check import CheckConfig, _format_checks_to_backend
-from ..data.conversation import Conversation
+from ..data.conversation import CheckConfig, Conversation, TestCaseCheckConfig
 from ._resource import APIResource
+
+
+def _format_checks_to_backend(checks: list[CheckConfig]) -> list[TestCaseCheckConfig]:
+    return [
+        {
+            **check,
+            **(
+                {"assertions": [{"type": check["identifier"], **check["params"]}]}
+                if check.get("params")
+                else {}
+            ),
+        }
+        for check in checks
+    ]
 
 
 class ConversationsResource(APIResource):
@@ -35,9 +48,7 @@ class ConversationsResource(APIResource):
                 "messages": [maybe_to_dict(msg) for msg in messages],
                 "demo_output": maybe_to_dict(demo_output),
                 "tags": tags,
-                "checks": [
-                    maybe_to_dict(check) for check in _format_checks_to_backend(checks)
-                ],
+                "checks": _format_checks_to_backend(checks),
             }
         )
 
@@ -66,14 +77,7 @@ class ConversationsResource(APIResource):
                 ),
                 "demo_output": maybe_to_dict(demo_output),
                 "tags": tags,
-                "checks": (
-                    [
-                        maybe_to_dict(check)
-                        for check in _format_checks_to_backend(checks)
-                    ]
-                    if checks
-                    else checks
-                ),
+                "checks": _format_checks_to_backend(checks) if checks else checks,
             }
         )
 

@@ -68,8 +68,5 @@ class BaseData:
 def maybe_to_dict(data):
     if isinstance(data, BaseData):
         return data.to_dict()
-    if isinstance(data, (list, tuple)):
-        return [maybe_to_dict(item) for item in data]
-    if isinstance(data, dict):
-        return {k: maybe_to_dict(v) for k, v in data.items()}
+
     return data
