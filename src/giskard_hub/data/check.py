@@ -52,7 +52,7 @@ def _format_checks_to_cli(
 
 
 def _format_checks_to_backend(
-    checks: List[CheckConfig | Dict[str, Any]],
+    checks: List[Union[CheckConfig, Dict[str, Any]]],
 ) -> List[TestCaseCheckConfig]:
     if not checks:
         return []
