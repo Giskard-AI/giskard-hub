@@ -19,6 +19,10 @@ class CheckConfig(BaseData):
     params: Optional[Dict[str, Any]] = None
     enabled: Optional[bool] = True
 
+    def __post_init__(self):
+        if self.enabled is None:
+            self.enabled = True
+
 
 def _format_checks_to_cli(
     checks: List[Union[TestCaseCheckConfig, Dict[str, Any]]],
