@@ -17,7 +17,7 @@ class TestCaseCheckConfig(BaseData):
 class CheckConfig(BaseData):
     identifier: str
     params: Optional[Dict[str, Any]] = None
-    enabled: Optional[bool] = True
+    enabled: bool = True
 
 
 def _format_checks_to_cli(
@@ -62,6 +62,7 @@ def _format_checks_to_backend(
     return [
         TestCaseCheckConfig.from_dict(
             {
+                "enabled": True,  # Default value for enabled
                 **check,
                 **(
                     {"assertions": [{"type": check["identifier"], **check["params"]}]}
