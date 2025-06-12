@@ -5,7 +5,7 @@ from typing import List, Optional
 
 from ..data._base import NOT_GIVEN
 from ..data.chat import ChatMessage, ChatMessageWithMetadata
-from ..data.check import CheckConfig, _format_checks_to_backend
+from ..data.check import CheckConfig
 from ..data.conversation import Conversation
 from ._resource import APIResource
 from ._utils import prepare_chat_test_case_data as prepare_conversation_data
