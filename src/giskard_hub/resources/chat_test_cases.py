@@ -59,7 +59,7 @@ class ChatTestCasesResource(APIResource):
         )
 
         return self._client.patch(
-            f"/chat_test_cases/{chat_test_case_id}",
+            f"/chat-test-cases/{chat_test_case_id}",
             json=data,
             cast_to=ChatTestCase,
         )
