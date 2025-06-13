@@ -12,7 +12,7 @@ from ._utils import prepare_chat_test_case_data
 class ChatTestCasesResource(APIResource):
     def retrieve(self, chat_test_case_id: str):
         return self._client.get(
-            f"/chat_test_cases/{chat_test_case_id}", cast_to=ChatTestCase
+            f"/chat-test-cases/{chat_test_case_id}", cast_to=ChatTestCase
         )
 
     # pylint: disable=too-many-arguments
