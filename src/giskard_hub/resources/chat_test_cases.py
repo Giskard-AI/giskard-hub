@@ -70,7 +70,7 @@ class ChatTestCasesResource(APIResource):
         )
 
     def list(self, dataset_id: str) -> List[ChatTestCase]:
-        data = self._client.get(f"/datasets/{dataset_id}/chat_test_cases?limit=100000")
+        data = self._client.get(f"/datasets/{dataset_id}/chat-test-cases?limit=100000")
         return [
             ChatTestCase.from_dict(d, _client=self._client)
             for d in data.get("items", [])
