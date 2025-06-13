@@ -34,7 +34,7 @@ class ChatTestCasesResource(APIResource):
         )
 
         return self._client.post(
-            "/chat_test_cases",
+            "/chat-test-cases",
             json=data,
             cast_to=ChatTestCase,
         )
