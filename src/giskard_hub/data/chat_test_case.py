@@ -1,43 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional
 
-from giskard_hub.data.check import CheckConfig, TestCaseCheckConfig
+from giskard_hub.data.check import CheckConfig, _format_checks_to_cli
 
 from ._entity import Entity
 from .chat import ChatMessage, ChatMessageWithMetadata
-
-
-def _format_checks_to_cli(
-    checks: List[Union[TestCaseCheckConfig, Dict[str, Any]]],
-) -> List[CheckConfig]:
-    if not checks:
-        return []
-
-    checks = [check if isinstance(check, dict) else check.to_dict() for check in checks]
-
-    return [
-        CheckConfig.from_dict(
-            {
-                "identifier": check["identifier"],
-                "enabled": check["enabled"],
-                **(
-                    {"params": params}
-                    if check.get("assertions")
-                    and (
-                        params := {
-                            k: v
-                            for k, v in check["assertions"][0].items()
-                            if k != "type"
-                        }
-                    )
-                    else {}
-                ),
-            }
-        )
-        for check in checks
-    ]
 
 
 @dataclass
@@ -52,7 +21,7 @@ class ChatTestCase(Entity):
         Output of the agent for demonstration purposes.
     tags : List[str], optional
         List of tags for the chat test case.
-    checks : List[TestCaseCheckConfig], optional
+    checks : List[CheckConfig], optional
         List of checks to be performed on the chat test case.
     """
 

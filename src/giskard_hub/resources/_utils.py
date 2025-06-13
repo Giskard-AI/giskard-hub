@@ -1,8 +1,10 @@
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, List, Optional
+
+from giskard_hub.data.check import _format_checks_to_backend
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage, ChatMessageWithMetadata
-from ..data.chat_test_case import CheckConfig, TestCaseCheckConfig
+from ..data.chat_test_case import CheckConfig
 
 
 def prepare_chat_test_case_data(
@@ -28,27 +30,3 @@ def prepare_chat_test_case_data(
             ],
         }
     )
-
-
-def _format_checks_to_backend(
-    checks: List[Union[CheckConfig, Dict[str, Any]]],
-) -> List[TestCaseCheckConfig]:
-    if not checks:
-        return []
-
-    checks = [check if isinstance(check, dict) else check.to_dict() for check in checks]
-
-    return [
-        TestCaseCheckConfig.from_dict(
-            {
-                "enabled": True,  # Default value for enabled
-                **check,
-                **(
-                    {"assertions": [{"type": check["identifier"], **check["params"]}]}
-                    if check.get("params")
-                    else {}
-                ),
-            }
-        )
-        for check in checks
-    ]
