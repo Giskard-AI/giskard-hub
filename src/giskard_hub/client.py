@@ -11,6 +11,7 @@ from .data.chat import ChatMessage
 from .data.dataset import Dataset
 from .data.model import Model, ModelOutput
 from .errors import HubConnectionError
+from .resources.chat_test_cases import ChatTestCasesResource
 from .resources.conversations import ConversationsResource
 from .resources.datasets import DatasetsResource
 from .resources.evaluations import EvaluationsResource
@@ -18,6 +19,8 @@ from .resources.models import ModelsResource
 from .resources.projects import ProjectsResource
 
 
+# pylint: disable=too-many-instance-attributes
+# The `conversations` resource is deprecated and will be removed in the future.
 class HubClient(SyncClient):
     """Client class to handle interaction with the hub.
 
@@ -28,6 +31,9 @@ class HubClient(SyncClient):
 
     datasets : DatasetsResource
         Resource to interact with datasets.
+
+    chat_test_cases : ChatTestCasesResource
+        Resource to interact with chat test cases.
 
     conversations : ConversationsResource
         Resource to interact with conversations.
@@ -44,6 +50,7 @@ class HubClient(SyncClient):
 
     projects: ProjectsResource
     datasets: DatasetsResource
+    chat_test_cases: ChatTestCasesResource
     conversations: ConversationsResource
     models: ModelsResource
     evaluations: EvaluationsResource
@@ -120,6 +127,7 @@ class HubClient(SyncClient):
         # Define the resources
         self.projects = ProjectsResource(self)
         self.datasets = DatasetsResource(self)
+        self.chat_test_cases = ChatTestCasesResource(self)
         self.conversations = ConversationsResource(self)
         self.models = ModelsResource(self)
         self.evaluations = EvaluationsResource(self)
@@ -149,7 +157,7 @@ class HubClient(SyncClient):
         dataset : str | Dataset
             ID of the dataset that will be used for the evaluation, or the dataset entity.
         tags: List[str], optional
-            List of tags to filter the conversations that will be evaluated.
+            List of tags to filter the conversations (chat test cases) that will be evaluated.
         model : str | Model | Callable[[List[ChatMessage]], ModelOutput | str]
             ID of the model to evaluate, or a model entity, or a local model function.
             A local model function is a function that takes a list of messages and returns a `ModelOutput` or a string.
