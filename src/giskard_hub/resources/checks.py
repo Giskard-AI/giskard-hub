@@ -6,7 +6,7 @@ class ChecksResource(APIResource):
     def list(self, project_id: str):
         data = self._client.get(f"/checks?project_id={project_id}&filter_builtin=true")
 
-        checks = [
+        return [
             Check.from_dict(
                 {
                     **check,
@@ -16,4 +16,11 @@ class ChecksResource(APIResource):
             for check in data
         ]
 
-        return checks
+    def retrieve(self, check_id: str):
+        data = self._client.get(f"/checks/{check_id}")
+        return Check.from_dict(
+            {
+                **data,
+                "params": extract_check_params(data),
+            }
+        )
