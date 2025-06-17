@@ -34,6 +34,7 @@ class ChecksResource(APIResource):
     def delete(self, check_id: str | List[str]) -> None:
         return self._client.delete("/checks", params={"check_ids": check_id})
 
+    # pylint: disable=too-many-arguments
     def create(
         self,
         *,
@@ -55,6 +56,7 @@ class ChecksResource(APIResource):
         )
         return Check.from_dict({**data, "params": extract_check_params(data)})
 
+    # pylint: disable=too-many-arguments
     def update(
         self,
         check_id: str,
