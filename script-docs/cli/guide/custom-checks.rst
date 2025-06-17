@@ -60,7 +60,7 @@ The parameters for creating a custom check are:
 - **name** (required): A human-readable name for your check
 - **params** (required): A dictionary containing the parameters for your check logic. The parameters should include the ``type`` of the check and the specific parameters for that check type.
     - For the ``correctness`` check, the parameter is ``reference`` (type: ``str``), which is the expected output.
-    - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the conversation should follow.
+    - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the model should follow in its response.
     - For the ``groundedness`` check, the parameter is ``context`` (type: ``str``), which is the context in which the model should ground its output.
     - For the ``string_match`` check, the parameter is ``keyword`` (type: ``str``), which is the string that the model's output should contain.
     - For the ``metadata`` check, the parameter is ``json_path_rules`` (type: ``list[dict]``), which is a list of dictionaries with the following keys:
