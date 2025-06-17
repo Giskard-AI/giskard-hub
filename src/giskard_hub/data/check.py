@@ -57,14 +57,13 @@ def extract_check_params(
     check: Dict[str, Any], without_type: bool = False
 ) -> Dict[str, Any]:
     check_params = (
-        {"params": params}
+        {k: v for k, v in check["assertions"][0].items()}
         if check.get("assertions")
-        and (params := {k: v for k, v in check["assertions"][0].items()})
         else {}
     )
 
-    if without_type and ("type" in check_params.get("params", {})):
-        check_params["params"].pop("type")
+    if without_type and ("type" in check_params):
+        check_params.pop("type")
 
     return check_params
 
@@ -82,7 +81,7 @@ def _format_checks_to_cli(
             {
                 "identifier": check["identifier"],
                 "enabled": check["enabled"],
-                **extract_check_params(check, without_type=True),
+                "params": extract_check_params(check, without_type=True),
             }
         )
         for check in checks

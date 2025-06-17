@@ -10,7 +10,7 @@ class ChecksResource(APIResource):
             Check.from_dict(
                 {
                     **check,
-                    **extract_check_params(check),
+                    "params": extract_check_params(check),
                 }
             )
             for check in data
