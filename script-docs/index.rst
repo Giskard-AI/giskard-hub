@@ -36,6 +36,7 @@ synchronize them to the Giskard Hub platform.
 
    cli/quickstart
    cli/guide/manage-datasets
+   cli/guide/custom-checks
    cli/guide/run-evaluations
    cli/guide/local-evaluation
 
