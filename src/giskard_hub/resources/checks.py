@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from ..data._base import NOT_GIVEN, filter_not_given
 from ..data.check import Check, extract_check_params
@@ -6,9 +6,11 @@ from ._resource import APIResource
 
 
 class ChecksResource(APIResource):
+    _base_url = "/checks"
+
     def list(self, project_id: str):
         data = self._client.get(
-            "/checks",
+            self._base_url,
             params={"project_id": project_id, "filter_builtin": True},
         )
 
@@ -23,7 +25,7 @@ class ChecksResource(APIResource):
         ]
 
     def retrieve(self, check_id: str):
-        data = self._client.get(f"/checks/{check_id}")
+        data = self._client.get(f"{self._base_url}/{check_id}")
         return Check.from_dict(
             {
                 **data,
@@ -31,8 +33,8 @@ class ChecksResource(APIResource):
             }
         )
 
-    def delete(self, check_id: str | List[str]) -> None:
-        return self._client.delete("/checks", params={"check_ids": check_id})
+    def delete(self, check_id: Union[str, List[str]]) -> None:
+        return self._client.delete(self._base_url, params={"check_ids": check_id})
 
     # pylint: disable=too-many-arguments
     def create(
@@ -45,7 +47,7 @@ class ChecksResource(APIResource):
         description: Optional[str] = None,
     ) -> Check:
         data = self._client.post(
-            "/checks",
+            self._base_url,
             json={
                 "project_id": project_id,
                 "description": description,
@@ -76,5 +78,5 @@ class ChecksResource(APIResource):
             }
         )
 
-        data = self._client.patch(f"/checks/{check_id}", json=data)
+        data = self._client.patch(f"{self._base_url}/{check_id}", json=data)
         return Check.from_dict({**data, "params": extract_check_params(data)})
