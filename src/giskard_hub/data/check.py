@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Union
 
 from ._base import BaseData
+from ._entity import Entity
 
 
 # Backend DTO
@@ -13,6 +14,14 @@ class TestCaseCheckConfig(BaseData):
 
 
 # SDK DTO
+@dataclass
+class Check(Entity):
+    identifier: str
+    description: str
+    name: str
+    params: Dict[str, Any]
+
+
 @dataclass
 class CheckConfig(BaseData):
     identifier: str
@@ -44,6 +53,17 @@ def _format_checks_to_backend(
     ]
 
 
+def extract_check_params(
+    check: Dict[str, Any], without_type: bool = False
+) -> Dict[str, Any]:
+    check_params = check["assertions"][0] if check.get("assertions") else {}
+
+    if without_type and ("type" in check_params):
+        check_params.pop("type")
+
+    return check_params
+
+
 def _format_checks_to_cli(
     checks: List[Union[TestCaseCheckConfig, Dict[str, Any]]],
 ) -> List[CheckConfig]:
@@ -57,18 +77,7 @@ def _format_checks_to_cli(
             {
                 "identifier": check["identifier"],
                 "enabled": check["enabled"],
-                **(
-                    {"params": params}
-                    if check.get("assertions")
-                    and (
-                        params := {
-                            k: v
-                            for k, v in check["assertions"][0].items()
-                            if k != "type"
-                        }
-                    )
-                    else {}
-                ),
+                "params": extract_check_params(check, without_type=True),
             }
         )
         for check in checks

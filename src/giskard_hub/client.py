@@ -12,6 +12,7 @@ from .data.dataset import Dataset
 from .data.model import Model, ModelOutput
 from .errors import HubConnectionError
 from .resources.chat_test_cases import ChatTestCasesResource
+from .resources.checks import ChecksResource
 from .resources.conversations import ConversationsResource
 from .resources.datasets import DatasetsResource
 from .resources.evaluations import EvaluationsResource
@@ -54,6 +55,7 @@ class HubClient(SyncClient):
     conversations: ConversationsResource
     models: ModelsResource
     evaluations: EvaluationsResource
+    checks: ChecksResource
 
     def __init__(
         self,
@@ -131,6 +133,7 @@ class HubClient(SyncClient):
         self.conversations = ConversationsResource(self)
         self.models = ModelsResource(self)
         self.evaluations = EvaluationsResource(self)
+        self.checks = ChecksResource(self)
 
     @property
     def evals(self):
