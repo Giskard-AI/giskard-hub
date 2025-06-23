@@ -53,15 +53,8 @@ def _format_checks_to_backend(
     ]
 
 
-def extract_check_params(
-    check: Dict[str, Any], without_type: bool = False
-) -> Dict[str, Any]:
-    check_params = check["assertions"][0] if check.get("assertions") else {}
-
-    if without_type and ("type" in check_params):
-        check_params.pop("type")
-
-    return check_params
+def extract_check_params(check: Dict[str, Any]) -> Dict[str, Any]:
+    return check["assertions"][0] if check.get("assertions") else {}
 
 
 def _format_checks_to_cli(
@@ -77,7 +70,7 @@ def _format_checks_to_cli(
             {
                 "identifier": check["identifier"],
                 "enabled": check["enabled"],
-                "params": extract_check_params(check, without_type=True),
+                "params": extract_check_params(check),
             }
         )
         for check in checks

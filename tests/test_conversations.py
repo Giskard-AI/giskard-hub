@@ -161,11 +161,15 @@ def test_conversation_create(mock_client):
     assert len(result.checks) == 2
     assert result.checks[0].identifier == "correctness"
     assert result.checks[0].enabled
-    assert result.checks[0].params == {"reference": "I'll help you track your order."}
+    assert result.checks[0].params == {
+        "reference": "I'll help you track your order.",
+        "type": "correctness",
+    }
     assert result.checks[1].identifier == "conformity"
     assert result.checks[1].enabled
     assert result.checks[1].params == {
-        "rules": ["The assistant should be helpful and polite."]
+        "rules": ["The assistant should be helpful and polite."],
+        "type": "conformity",
     }
     assert "comments" not in result.to_dict()
 
@@ -322,7 +326,10 @@ def test_conversation_update(mock_client):
     assert result.messages[0].content == "Updated content!"
     assert "updated-tag" in result.tags
     assert result.checks[0].identifier == "correctness"
-    assert result.checks[0].params == {"reference": "Updated reference"}
+    assert result.checks[0].params == {
+        "reference": "Updated reference",
+        "type": "correctness",
+    }
     assert result.checks[0].enabled
     assert "comments" not in result.to_dict()
 
@@ -393,7 +400,10 @@ def test_conversation_from_dict():
     assert conversation.demo_output.metadata == {"intent": "greeting"}
     assert "test-tag" in conversation.tags
     assert conversation.checks[0].identifier == "correctness"
-    assert conversation.checks[0].params == {"reference": "Hello world"}
+    assert conversation.checks[0].params == {
+        "reference": "Hello world",
+        "type": "correctness",
+    }
     assert "dataset_id" not in conversation.to_dict()
 
 
@@ -435,7 +445,10 @@ def test_conversation_to_dict():
     assert result["demo_output"]["metadata"] == {"intent": "greeting"}
     assert "test-tag" in result["tags"]
     assert result["checks"][0]["identifier"] == "correctness"
-    assert result["checks"][0]["params"] == {"reference": "Hello world"}
+    assert result["checks"][0]["params"] == {
+        "reference": "Hello world",
+        "type": "correctness",
+    }
     assert "dataset_id" not in result
     assert "comments" not in result
 
