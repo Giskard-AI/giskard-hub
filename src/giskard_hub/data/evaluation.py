@@ -196,7 +196,7 @@ class EvaluationEntry(Entity):
         output = data.get("output")
         data["model_output"] = ModelOutput.from_dict(output) if output else None
 
-        run_id = data.get("evaluation_run_id") or data.get("execution_id")
+        run_id = data.get("evaluation_id")
         if run_id:
             data["run_id"] = run_id
 
