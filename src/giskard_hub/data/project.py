@@ -1,8 +1,28 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import List
 
 from ._entity import Entity
+
+
+@dataclass
+class FailureCategory:
+    """Failure Category
+
+    Attributes
+    ----------
+    identifier : str
+        The identifier of the failure category.
+    title : str
+        The title of the failure category.
+    description : str
+        The description of the failure category.
+    """
+
+    identifier: str
+    title: str
+    description: str
 
 
 @dataclass
@@ -15,7 +35,9 @@ class Project(Entity):
         The name of the project.
     description : str, optional
         The description of the project.
+    failure_categories : List[FailureCategory]
     """
 
     name: str
     description: str = ""
+    failure_categories: List[FailureCategory] = field(default_factory=list)
