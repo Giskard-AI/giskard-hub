@@ -1,4 +1,4 @@
-from typing import Any, List, Optional, Union
+from typing import Any, List, Optional
 
 from giskard_hub.data.check import _format_checks_to_backend
 
