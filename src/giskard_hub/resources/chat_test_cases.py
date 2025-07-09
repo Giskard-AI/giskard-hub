@@ -21,7 +21,7 @@ class ChatTestCasesResource(APIResource):
         *,
         dataset_id: str,
         messages: List[ChatMessage],
-        demo_output: Optional[ChatMessageWithMetadata] = NOT_GIVEN,
+        demo_output: Optional[ChatMessageWithMetadata] = None,
         tags: Optional[List[str]] = None,
         checks: Optional[List[CheckConfig]] = None,
     ):
