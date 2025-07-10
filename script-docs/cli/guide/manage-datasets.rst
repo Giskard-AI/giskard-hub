@@ -23,7 +23,7 @@ Let's start by initializing the Hub client.
         hub = HubClient(api_key=..., hub_url=...)
 
 
-You can now use the ``hub`` client to control the LLM Hub! Let's start by creating a fresh project.
+You can now use the ``hub`` client to control the Giskard Hub! Let's start by creating a fresh project.
 
 
 Prepare the dataset

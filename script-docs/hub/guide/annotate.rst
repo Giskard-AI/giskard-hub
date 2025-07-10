@@ -10,7 +10,7 @@ A conversation is a list of messages. In the simplest case, a conversation is co
 
 In more advanced cases, the conversation is a multi-turn dialogue between the user and the agent, terminating with a final user message. When testing, we will pass the conversation history to your agent to generate the response that will be evaluated.
 
-The Datasets section of the LLM Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations. 
+The Datasets section of the Giskard Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations. 
 
 .. admonition:: Note
   Except for very specific cases, conversations should always end with a user message. The next agent response will be generated and evaluated at runtime.
