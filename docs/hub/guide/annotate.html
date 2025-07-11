@@ -92,6 +92,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/manage-datasets.html">Manage datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/guide/custom-checks.html">Custom checks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/run-evaluations.html">Run evaluations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/guide/local-evaluation.html">Evaluate local models</a></li>
 </ul>
@@ -131,7 +132,7 @@
 <p>Each test case is composed of a conversation and its associated evaluation parameters (e.g. an expected answer, rules that the agent must respect, etc.).</p>
 <p>A conversation is a list of messages. In the simplest case, a conversation is composed by a single message by the user. In the testing phase, we will send this message to your agent, record its answer, and evaluate it against the criteria that you defined in the test case.</p>
 <p>In more advanced cases, the conversation is a multi-turn dialogue between the user and the agent, terminating with a final user message. When testing, we will pass the conversation history to your agent to generate the response that will be evaluated.</p>
-<p>The Datasets section of the LLM Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations.</p>
+<p>The Datasets section of the Giskard Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations.</p>
 <section id="create-a-conversation">
 <h2>Create a conversation<a class="headerlink" href="#create-a-conversation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-conversation'">¶</a></h2>
 <a class="reference internal image-reference" href="../../_images/annotation-studio.png"><img alt='"Iteratively design your test cases using a business-centric &amp; interactive interface."' class="align-center" src="../../_images/annotation-studio.png" style="width: 800px;"/>
