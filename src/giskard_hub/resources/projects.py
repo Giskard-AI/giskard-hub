@@ -16,14 +16,12 @@ class ProjectsResource(APIResource):
         *,
         name: str,
         description: str = "",
-        failure_categories: Optional[List[FailureCategory]] = NOT_GIVEN,
     ):
 
         data = filter_not_given(
             {
                 "name": name,
                 "description": description,
-                "failure_categories": failure_categories,
             }
         )
         return self._client.post(
