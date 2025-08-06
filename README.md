@@ -213,3 +213,112 @@ eval_run.print_metrics()
 You can directly pass IDs to the evaluate function, e.g.
 `model=model_id` and `dataset=dataset_id`, without having to retrieve
 the objects first.
+
+### Manage scheduled evaluations
+
+The Giskard Hub supports scheduled evaluations that run automatically at specified intervals. You can manage these through the SDK:
+
+#### List scheduled evaluations
+
+```python
+# List all scheduled evaluations for a project
+scheduled_evals = hub.scheduled_evaluations.list(project_id=project.id)
+for eval in scheduled_evals:
+    print(f"{eval.name}: {eval.frequency} at {eval.time}")
+```
+
+#### Create a scheduled evaluation
+
+```python
+from giskard_hub.data.scheduled_evaluation import FrequencyOption
+
+# Create a daily evaluation
+daily_eval = hub.scheduled_evaluations.create(
+    project_id=project.id,
+    name="Daily Model Check",
+    model_id=model.id,
+    dataset_id=dataset.id,
+    frequency=FrequencyOption.DAILY,
+    time="09:00",
+    tags=["daily", "automated"],
+    run_count=3
+)
+
+# Create a weekly evaluation (runs on Monday)
+weekly_eval = hub.scheduled_evaluations.create(
+    project_id=project.id,
+    name="Weekly Model Check",
+    model_id=model.id,
+    dataset_id=dataset.id,
+    frequency=FrequencyOption.WEEKLY,
+    time="10:00",
+    day_of_week=1,  # Monday (1-7, where 1 is Monday)
+    tags=["weekly", "automated"]
+)
+
+# Create a monthly evaluation (runs on the 15th)
+monthly_eval = hub.scheduled_evaluations.create(
+    project_id=project.id,
+    name="Monthly Model Check",
+    model_id=model.id,
+    dataset_id=dataset.id,
+    frequency=FrequencyOption.MONTHLY,
+    time="11:00",
+    day_of_month=15,  # 15th of the month
+    tags=["monthly", "automated"]
+)
+```
+
+#### Retrieve and update scheduled evaluations
+
+```python
+# Retrieve a specific scheduled evaluation
+eval = hub.scheduled_evaluations.retrieve(scheduled_eval_id)
+
+# Update a scheduled evaluation
+updated_eval = hub.scheduled_evaluations.update(
+    scheduled_eval_id,
+    name="Updated Daily Check",
+    time="08:00",
+    run_count=5
+)
+```
+
+#### Control scheduled evaluations
+
+```python
+# Pause a scheduled evaluation
+paused_eval = hub.scheduled_evaluations.pause(scheduled_eval_id)
+
+# Unpause a scheduled evaluation
+unpaused_eval = hub.scheduled_evaluations.unpause(scheduled_eval_id)
+
+# Run a scheduled evaluation immediately
+result = hub.scheduled_evaluations.run_now(scheduled_eval_id)
+```
+
+#### Delete scheduled evaluations
+
+```python
+# Delete one or more scheduled evaluations
+hub.scheduled_evaluations.delete([scheduled_eval_id1, scheduled_eval_id2])
+```
+
+**Frequency Options:**
+
+- `FrequencyOption.DAILY`: Runs every day at the specified time
+- `FrequencyOption.WEEKLY`: Runs weekly on the specified day of the week (1-7, where 1 is Monday)
+- `FrequencyOption.MONTHLY`: Runs monthly on the specified day of the month (1-28)
+
+**Parameters:**
+
+- `project_id`: The ID of the project
+- `name`: A descriptive name for the scheduled evaluation
+- `model_id`: The ID of the model to evaluate
+- `dataset_id`: The ID of the dataset to evaluate against
+- `frequency`: The frequency (daily, weekly, monthly)
+- `time`: The time to run (HH:MM format, e.g., "09:00")
+- `tags`: Optional list of tags to filter conversations
+- `run_count`: Number of times to run each test case (1-5, default: 1)
+- `day_of_week`: Required for weekly frequency (1-7, where 1 is Monday)
+- `day_of_month`: Required for monthly frequency (1-28)

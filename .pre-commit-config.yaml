@@ -1,0 +1,65 @@
+# Pre-commit configuration for giskard-hub
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+repos:
+  # Ruff - Python linter and formatter (replaces black, isort, flake8, etc.)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      # Run the linter
+      - id: ruff
+        name: ruff lint
+        description: Run ruff linter with auto-fix
+        args: [--fix]
+        types: [python]
+
+      # Run the formatter
+      - id: ruff-format
+        name: ruff format
+        description: Run ruff formatter
+        types: [python]
+
+  # Additional quality checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # General file checks
+      - id: trailing-whitespace
+        name: trim trailing whitespace
+        description: Remove trailing whitespace
+
+      - id: end-of-file-fixer
+        name: fix end of files
+        description: Ensure files end with a newline
+
+      - id: check-yaml
+        name: check yaml
+        description: Check YAML syntax
+
+      - id: check-toml
+        name: check toml
+        description: Check TOML syntax
+
+      - id: check-json
+        name: check json
+        description: Check JSON syntax
+
+      - id: check-merge-conflict
+        name: check for merge conflicts
+        description: Check for merge conflict markers
+
+      - id: check-added-large-files
+        name: check for large files
+        description: Prevent large files from being committed
+        args: ['--maxkb=1000']
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.13.0
+    hooks:
+      - id: mypy
+        name: mypy type checking
+        description: Run mypy for static type checking
+        additional_dependencies: [types-requests, types-python-dateutil]
+        args: [--ignore-missing-imports, --no-strict-optional]
+        exclude: ^(tests/|script-docs/)

@@ -46,3 +46,83 @@ class DatasetsResource(APIResource):
         return self._client.get(
             "/datasets", params={"project_id": project_id}, cast_to=Dataset
         )
+
+    def generate(
+        self,
+        *,
+        model_id: str,
+        dataset_name: str = "Generated Dataset",
+        description: str = "",
+        categories: list = NOT_GIVEN,
+        nb_examples: int = 10,
+    ) -> Dataset:
+        """
+        Generate a dataset using the specified model and parameters.
+
+        Args:
+            model_id (str): The ID of the model to use for generation.
+            dataset_name (str, optional): Name of the generated dataset.
+            description (str, optional): Description of the dataset.
+            categories (list, optional): List of issue categories, each as a dict with 'id', 'name', 'desc'.
+            nb_examples (int, optional): Number of examples to generate.
+
+        Returns:
+            Dataset: The generated dataset object.
+        """
+        payload = filter_not_given(
+            {
+                "model_id": model_id,
+                "dataset_name": dataset_name,
+                "description": description,
+                "categories": categories,
+                "nb_examples": nb_examples,
+            }
+        )
+        return self._client.post(
+            "/datasets/generate",
+            json=payload,
+            cast_to=Dataset,
+        )
+
+    def generate_knowledge(
+        self,
+        *,
+        model_id: str,
+        knowledge_base_id: str,
+        dataset_name: str = "Generated Dataset",
+        description: str = "",
+        nb_questions: int = 10,
+        topic_ids: List[str] = None,
+    ) -> Dataset:
+        """
+        Generate a dataset from a knowledge base.
+
+        Args:
+            model_id (UUID): The ID of the model to use for generation.
+            knowledge_base_id (UUID): The ID of the knowledge base.
+            dataset_name (str, optional): Name of the generated dataset.
+            description (str, optional): Description of the dataset.
+            nb_questions (int, optional): Number of questions to generate.
+            topic_ids (list[UUID], optional): List of topic IDs to filter.
+
+        Returns:
+            Dataset: The generated dataset object.
+        """
+        if topic_ids is None:
+            topic_ids = []
+        payload = filter_not_given(
+            {
+                "model_id": model_id,
+                "knowledge_base_id": knowledge_base_id,
+                "dataset_name": dataset_name,
+                "description": description,
+                "nb_questions": nb_questions,
+                "topic_ids": topic_ids,
+            }
+        )
+
+        return self._client.post(
+            "/datasets/generate/knowledge",
+            json=payload,
+            cast_to=Dataset,
+        )
