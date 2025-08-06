@@ -11,7 +11,6 @@ if TYPE_CHECKING:
 
 @dataclass
 class Document(Entity):
-    id: str
     content: str
     topic_id: "UUID" | None = None
     embedding: list[float] | None = None
@@ -19,14 +18,12 @@ class Document(Entity):
 
 @dataclass
 class Topic(Entity):
-    id: str
     name: str
     description: str | None = None
 
 
 @dataclass
 class KnowledgeBase(Entity):
-    id: str
     name: str
     project_id: str
     description: str | None = None

@@ -5,7 +5,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Literal, Union
 
-from ._base import BaseData
+from ._entity import Entity
 
 
 class FrequencyOption(str, Enum):
@@ -17,26 +17,34 @@ class FrequencyOption(str, Enum):
 
 
 @dataclass
-class SuccessExecutionStatus(BaseData):
+class SuccessExecutionStatus:
     """Success execution status for scheduled evaluations."""
 
     evaluation_id: str
     status: Literal["success"] = "success"
 
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "SuccessExecutionStatus":
+        return cls(**data)
+
 
 @dataclass
-class ErrorExecutionStatus(BaseData):
+class ErrorExecutionStatus:
     """Error execution status for scheduled evaluations."""
 
     error_message: str
     status: Literal["error"] = "error"
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "ErrorExecutionStatus":
+        return cls(**data)
 
 
 ExecutionStatus = Union[SuccessExecutionStatus, ErrorExecutionStatus]
 
 
 @dataclass
-class ScheduledEvaluation(BaseData):
+class ScheduledEvaluation(Entity):
     """Scheduled evaluation entity.
 
     Attributes
@@ -69,7 +77,6 @@ class ScheduledEvaluation(BaseData):
         Whether the scheduled evaluation is paused.
     """
 
-    id: str | None = None
     project_id: str
     name: str
     model_id: str
@@ -83,9 +90,13 @@ class ScheduledEvaluation(BaseData):
     paused: bool = False
     last_run: datetime | None = None
     next_run: datetime | None = None
+    last_execution_at: datetime | None = None
+    last_execution_status: ExecutionStatus | None = None
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any], **kwargs: Any) -> "ScheduledEvaluation":
+    def from_dict(
+        cls, data: dict[str, Any], *, _client=None, **kwargs: Any
+    ) -> "Entity":
         data = dict(data)
         if data.get("frequency"):
             data["frequency"] = FrequencyOption(data["frequency"])
@@ -93,7 +104,24 @@ class ScheduledEvaluation(BaseData):
             data["last_run"] = datetime.fromisoformat(data["last_run"])
         if data.get("next_run"):
             data["next_run"] = datetime.fromisoformat(data["next_run"])
-        return super().from_dict(data, **kwargs)
+        if data.get("last_execution_at"):
+            data["last_execution_at"] = datetime.fromisoformat(
+                data["last_execution_at"]
+            )
+
+        # Handle execution status
+        if data.get("last_execution_status"):
+            status_data = data["last_execution_status"]
+            if status_data.get("status") == "success":
+                data["last_execution_status"] = SuccessExecutionStatus.from_dict(
+                    status_data
+                )
+            elif status_data.get("status") == "error":
+                data["last_execution_status"] = ErrorExecutionStatus.from_dict(
+                    status_data
+                )
+
+        return super().from_dict(data, _client=_client, **kwargs)
 
     def refresh(self) -> "ScheduledEvaluation":
         """Refresh the scheduled evaluation from the Hub."""
