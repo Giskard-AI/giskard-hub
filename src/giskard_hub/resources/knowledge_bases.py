@@ -3,9 +3,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Union
 
-from giskard_hub.data._base import NOT_GIVEN, NotGiven, filter_not_given
-from giskard_hub.data.knowledge_base import Document, KnowledgeBase, Topic
-from giskard_hub.resources._resource import APIResource
+from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
+from ..data.knowledge_base import Document, KnowledgeBase, Topic
+from ._resource import APIResource
 
 
 class KnowledgeBasesResource(APIResource):
