@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from typing import List, Union
+from pathlib import Path
+from typing import Union
 
-from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
-from ..data.knowledge_base import Document, KnowledgeBase, Topic
-from ._resource import APIResource
+from giskard_hub.data._base import NOT_GIVEN, NotGiven, filter_not_given
+from giskard_hub.data.knowledge_base import Document, KnowledgeBase, Topic
+from giskard_hub.resources._resource import APIResource
 
 
 class KnowledgeBasesResource(APIResource):
@@ -34,19 +35,19 @@ class KnowledgeBasesResource(APIResource):
                 "project_id": project_id,
                 "name": name,
                 "description": description,
-                "document_column": document_column,
+                "column": document_column or "text",
                 "topic_column": topic_column,
             }
         )
 
         # Open file and pass the file handle directly
-        with open(filename, "rb") as fp:
+        with Path(filename).open("rb") as fp:
             print(params)
 
             return self._client.post(
                 "/knowledge-bases",
                 params=params,
-                files={"kb_file": (str(filename), fp, "application/jsonl")},
+                files={"kb_file": (str(filename), fp, "text/jsonl")},
                 cast_to=KnowledgeBase,
             )
 
@@ -72,7 +73,7 @@ class KnowledgeBasesResource(APIResource):
             cast_to=KnowledgeBase,
         )
 
-    def delete(self, knowledge_base_id: str | List[str]) -> None:
+    def delete(self, knowledge_base_id: str | list[str]) -> None:
         """Delete one or more knowledge bases."""
         if isinstance(knowledge_base_id, str):
             knowledge_base_id = [knowledge_base_id]
@@ -80,7 +81,7 @@ class KnowledgeBasesResource(APIResource):
             "/knowledge-bases", params={"knowledge_base_ids": knowledge_base_id}
         )
 
-    def list(self, project_id: str) -> List[KnowledgeBase]:
+    def list(self, project_id: str) -> list[KnowledgeBase]:
         """List knowledge bases, filtered by project."""
         params = {"project_id": project_id}
         return self._client.get(
@@ -89,7 +90,7 @@ class KnowledgeBasesResource(APIResource):
             cast_to=KnowledgeBase,
         )
 
-    def list_topics(self, knowledge_base_id: str) -> List[Topic]:
+    def list_topics(self, knowledge_base_id: str) -> list[Topic]:
         """List topics for a knowledge base."""
         return self._client.get(
             f"/knowledge-bases/{knowledge_base_id}/topics",
@@ -98,7 +99,7 @@ class KnowledgeBasesResource(APIResource):
 
     def list_documents(
         self, knowledge_base_id: str, topic_id: Union[str, NotGiven] = NOT_GIVEN
-    ) -> List[Document]:
+    ) -> list[Document]:
         """List documents for a knowledge base, optionally filtered by topic."""
         params = filter_not_given({"topic_id": topic_id})
         return self._client.get(

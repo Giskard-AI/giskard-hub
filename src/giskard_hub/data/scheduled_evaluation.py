@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Literal, Optional, Union
+from typing import Any, Literal, Optional, Union
 
 from ._base import BaseData
 from ._entity import Entity
@@ -37,7 +37,7 @@ ExecutionStatus = Union[SuccessExecutionStatus, ErrorExecutionStatus]
 
 
 @dataclass
-class ScheduledEvaluation(Entity):
+class ScheduledEvaluation(BaseData):
     """Scheduled evaluation entity.
 
     Attributes
@@ -70,47 +70,33 @@ class ScheduledEvaluation(Entity):
         Whether the scheduled evaluation is paused.
     """
 
+    id: str | None = None
     project_id: str
     name: str
     model_id: str
     dataset_id: str
-    tags: List[str] = field(default_factory=list)
+    tags: list[str] = field(default_factory=list)
     run_count: int = 1
     frequency: FrequencyOption = FrequencyOption.DAILY
     time: str = "00:00"
-    day_of_week: Optional[int] = None
-    day_of_month: Optional[int] = None
-    last_execution_at: Optional[datetime] = None
-    last_execution_status: Optional[ExecutionStatus] = None
+    day_of_week: int | None = None
+    day_of_month: int | None = None
     paused: bool = False
+    last_run: datetime | None = None
+    next_run: datetime | None = None
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any], **kwargs) -> ScheduledEvaluation:
+    def from_dict(cls, data: dict[str, Any], **kwargs: Any) -> "ScheduledEvaluation":
         data = dict(data)
+        if data.get("frequency"):
+            data["frequency"] = FrequencyOption(data["frequency"])
+        if data.get("last_run"):
+            data["last_run"] = datetime.fromisoformat(data["last_run"])
+        if data.get("next_run"):
+            data["next_run"] = datetime.fromisoformat(data["next_run"])
+        return super().from_dict(data, **kwargs)
 
-        # Handle execution status
-        last_execution_status = data.get("last_execution_status")
-        if last_execution_status:
-            if last_execution_status.get("status") == "success":
-                data["last_execution_status"] = SuccessExecutionStatus.from_dict(
-                    last_execution_status
-                )
-            elif last_execution_status.get("status") == "error":
-                data["last_execution_status"] = ErrorExecutionStatus.from_dict(
-                    last_execution_status
-                )
-
-        # Handle datetime
-        last_execution_at = data.get("last_execution_at")
-        if last_execution_at:
-            data["last_execution_at"] = datetime.fromisoformat(
-                last_execution_at.replace("Z", "+00:00")
-            )
-
-        result = super().from_dict(data, **kwargs)
-        return result
-
-    def refresh(self) -> ScheduledEvaluation:
+    def refresh(self) -> "ScheduledEvaluation":
         """Refresh the scheduled evaluation from the Hub."""
         if not self._client or not self.id:
             raise ValueError(

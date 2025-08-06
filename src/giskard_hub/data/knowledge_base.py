@@ -1,38 +1,35 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List
-from uuid import UUID
+from typing import TYPE_CHECKING
 
 from ._entity import Entity
 
-
-@dataclass
-class Topic(Entity):
-    """A topic within a knowledge base."""
-
-    name: str
-    knowledge_base_id: UUID
+if TYPE_CHECKING:
+    from uuid import UUID
 
 
 @dataclass
 class Document(Entity):
-    """A document within a knowledge base."""
-
-    knowledge_base_id: UUID
+    id: str
     content: str
-    topic_id: UUID | None = None
-    embedding: List[float] | None = None
+    topic_id: "UUID" | None = None
+    embedding: list[float] | None = None
+
+
+@dataclass
+class Topic(Entity):
+    id: str
+    name: str
+    description: str | None = None
 
 
 @dataclass
 class KnowledgeBase(Entity):
-    """A knowledge base entity."""
-
-    status: dict
-    project_id: UUID
+    id: str
     name: str
+    project_id: str
     description: str | None = None
     n_documents: int = 0
     filename: str | None = None
-    topics: List[Topic] = field(default_factory=list)
+    topics: list[Topic] = field(default_factory=list)
