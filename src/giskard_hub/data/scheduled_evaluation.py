@@ -5,6 +5,8 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Literal, Union
 
+from dateutil import parser
+
 from ._entity import Entity
 
 
@@ -44,7 +46,7 @@ ExecutionStatus = Union[SuccessExecutionStatus, ErrorExecutionStatus]
 
 
 @dataclass
-class ScheduledEvaluation(Entity):
+class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attributes
     """Scheduled evaluation entity.
 
     Attributes
@@ -101,13 +103,11 @@ class ScheduledEvaluation(Entity):
         if data.get("frequency"):
             data["frequency"] = FrequencyOption(data["frequency"])
         if data.get("last_run"):
-            data["last_run"] = datetime.fromisoformat(data["last_run"])
+            data["last_run"] = parser.parse(data["last_run"])
         if data.get("next_run"):
-            data["next_run"] = datetime.fromisoformat(data["next_run"])
+            data["next_run"] = parser.parse(data["next_run"])
         if data.get("last_execution_at"):
-            data["last_execution_at"] = datetime.fromisoformat(
-                data["last_execution_at"]
-            )
+            data["last_execution_at"] = parser.parse(data["last_execution_at"])
 
         # Handle execution status
         if data.get("last_execution_status"):

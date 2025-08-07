@@ -47,7 +47,7 @@ class DatasetsResource(APIResource):
             "/datasets", params={"project_id": project_id}, cast_to=Dataset
         )
 
-    def generate(
+    def generate(  # pylint: disable=too-many-arguments
         self,
         *,
         model_id: str,
@@ -84,7 +84,7 @@ class DatasetsResource(APIResource):
             cast_to=Dataset,
         )
 
-    def generate_knowledge(
+    def generate_knowledge(  # pylint: disable=too-many-arguments
         self,
         *,
         model_id: str,

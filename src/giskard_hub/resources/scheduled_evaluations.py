@@ -51,7 +51,7 @@ class ScheduledEvaluationsResource(APIResource):
             cast_to=ScheduledEvaluation,
         )
 
-    def create(
+    def create(  # pylint: disable=too-many-arguments
         self,
         *,
         project_id: str,
@@ -117,7 +117,7 @@ class ScheduledEvaluationsResource(APIResource):
             cast_to=ScheduledEvaluation,
         )
 
-    def update(
+    def update(  # pylint: disable=too-many-arguments
         self,
         scheduled_evaluation_id: str,
         *,

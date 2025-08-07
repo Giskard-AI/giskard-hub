@@ -18,7 +18,7 @@ class KnowledgeBasesResource(APIResource):
             cast_to=KnowledgeBase,
         )
 
-    def create(
+    def create(  # pylint: disable=too-many-arguments
         self,
         *,
         project_id: str,
