@@ -61,6 +61,7 @@ class Metric(BaseData):
 
 
 @dataclass
+# pylint: disable=too-many-instance-attributes
 class EvaluationRun(Entity):
     """Evaluation run."""
 
