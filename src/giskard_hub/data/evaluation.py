@@ -70,8 +70,8 @@ class EvaluationRun(Entity):
     model: Model | None = None
     criteria: List = field(default_factory=list)
     metrics: List[Metric] = field(default_factory=list)
-    tags: List[str] = field(default_factory=list)
-    failure_categories: List[str] = field(default_factory=list)
+    tags: List[Metric] = field(default_factory=list)
+    failure_categories: Dict[str, int] = field(default_factory=dict)
     progress: TaskProgress | None = None
 
     @classmethod
