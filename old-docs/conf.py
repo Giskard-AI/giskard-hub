@@ -21,7 +21,7 @@ sys.path.append(os.path.abspath("./sphinx_ext"))
 
 extensions = [
     "myst_parser",
-    # "nbsphinx",
+    "nbsphinx",
     "sphinx_design",
     "sphinx.ext.todo",
     "sphinx.ext.napoleon",
@@ -30,7 +30,7 @@ extensions = [
     "sphinx.ext.githubpages",
     "sphinx_click",
     "fix_dataclass",
-    # "sphinx_autodoc_typehints",
+    # "3sphinx_autodoc_typehints",
 ]
 
 templates_path = ["_templates"]
@@ -45,7 +45,7 @@ pygments_style = "lovelace"
 html_theme = "sphinxawesome_theme"
 # html_theme = 'alabaster'
 html_static_path = ["_static"]
-source_suffix = [".rst", ".md", ".ipynb"]
+source_suffix = [".rst", ".md"]
 html_theme_options = {
     "logo_light": "_static/logo_black.png",
     "logo_dark": "_static/logo_white.png",

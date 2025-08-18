@@ -15,7 +15,6 @@ httpx = ">=0.27.0,<1" # See https://python-poetry.org/docs/dependency-specificat
 rich = "^13.7.1"
 python-dateutil = "^2.9.0.post0"
 
-
 [tool.poetry.group.dev.dependencies]
 sphinxawesome-theme = "5.2.0"
 myst-parser = "3.0.1"
@@ -28,6 +27,7 @@ sphinx-click = "6.0.0"
 sphinx-autobuild = "2024.10.3"
 sphinx-autodoc-typehints = "2.3.0"
 sphinx-design = "0.6.1"
+sphinx-tabs = "^3.4.7"
 pytest = "8.4.1"
 
 [build-system]

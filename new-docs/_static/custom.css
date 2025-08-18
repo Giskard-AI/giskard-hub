@@ -1,0 +1,37 @@
+#content img {
+  border: 1px solid hsl(var(--border));
+}
+
+#content ul:not(.search) p,
+#content ul:not(.search) > li {
+  margin-top: 0.5rem !important;
+}
+
+.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  /* padding-left: 2rem; */
+  padding-right: 2rem !important;
+  width: 100% !important;
+}
+
+/* Target potential theme-specific container classes */
+.sphinxawesome-theme .container,
+.sphinxawesome-theme div.container,
+main .container,
+#main-content .container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 2rem !important;
+  width: 100% !important;
+}
+
+.sphinx-tabs {
+  margin-top: 1rem;
+}
+
+.sd-container-fluid {
+  margin-top: 0 !important;
+  padding-left: 0 !important;
+}
