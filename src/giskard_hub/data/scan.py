@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import IntEnum, StrEnum
+from enum import Enum, IntEnum
 from typing import Any, Dict, List
 
 from ._base import BaseData
@@ -11,7 +11,7 @@ from .chat_test_case import ChatMessage
 from .task import TaskProgress
 
 
-class ScanGrade(StrEnum):
+class ScanGrade(str, Enum):
     A = "A"
     B = "B"
     C = "C"
@@ -26,7 +26,7 @@ class Severity(IntEnum):
     CRITICAL = 3
 
 
-class ReviewStatus(StrEnum):
+class ReviewStatus(str, Enum):
     PENDING = "pending"
     IGNORED = "ignored"
     ACKNOWLEDGED = "acknowledged"
