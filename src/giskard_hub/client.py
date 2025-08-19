@@ -18,6 +18,7 @@ from .resources.datasets import DatasetsResource
 from .resources.evaluations import EvaluationsResource
 from .resources.models import ModelsResource
 from .resources.projects import ProjectsResource
+from .resources.scans import ScansResource
 
 
 # pylint: disable=too-many-instance-attributes
@@ -47,6 +48,9 @@ class HubClient(SyncClient):
 
     evals : EvaluationsResource
         Alias for `evaluations`.
+
+    scans : ScansResource
+        Resource to interact with scans.
     """
 
     projects: ProjectsResource
@@ -56,6 +60,7 @@ class HubClient(SyncClient):
     models: ModelsResource
     evaluations: EvaluationsResource
     checks: ChecksResource
+    scans: ScansResource
 
     def __init__(
         self,
@@ -134,6 +139,7 @@ class HubClient(SyncClient):
         self.models = ModelsResource(self)
         self.evaluations = EvaluationsResource(self)
         self.checks = ChecksResource(self)
+        self.scans = ScansResource(self)
 
     @property
     def evals(self):
