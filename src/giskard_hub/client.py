@@ -18,6 +18,7 @@ from .resources.evaluations import EvaluationsResource
 from .resources.knowledge_bases import KnowledgeBasesResource
 from .resources.models import ModelsResource
 from .resources.projects import ProjectsResource
+from .resources.scans import ScansResource
 from .resources.scheduled_evaluations import ScheduledEvaluationsResource
 
 
@@ -50,6 +51,9 @@ class HubClient(SyncClient):
 
     scheduled_evaluations : ScheduledEvaluationsResource
         Resource to interact with scheduled evaluations.
+
+    scans : ScansResource
+        Resource to interact with scans.
     """
 
     chat_test_cases: ChatTestCasesResource
@@ -60,6 +64,7 @@ class HubClient(SyncClient):
     models: ModelsResource
     projects: ProjectsResource
     scheduled_evaluations: ScheduledEvaluationsResource
+    scans: ScansResource
 
     def __init__(
         self,
@@ -139,6 +144,7 @@ class HubClient(SyncClient):
         self.models = ModelsResource(self)
         self.projects = ProjectsResource(self)
         self.scheduled_evaluations = ScheduledEvaluationsResource(self)
+        self.scans = ScansResource(self)
 
     def _headers(self):
         return {

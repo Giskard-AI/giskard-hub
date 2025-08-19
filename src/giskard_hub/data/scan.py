@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import Enum
+from enum import Enum, IntEnum
 from typing import Any, Dict, List, Optional
 
 from dateutil import parser
@@ -14,11 +14,19 @@ from giskard_hub.data.task import TaskProgress
 from ..data._base import BaseData
 
 
-class Severity(int, Enum):
+class ScanGrade(StrEnum):
+    A = "A"
+    B = "B"
+    C = "C"
+    D = "D"
+    N_A = "N/A"
+
+
+class Severity(IntEnum):
     SAFE = 0
-    MINOR = 10
-    MAJOR = 20
-    CRITICAL = 30
+    MINOR = 1
+    MAJOR = 2
+    CRITICAL = 3
 
 
 class ScanType(str, Enum):
@@ -44,10 +52,10 @@ class ProbeAttempt(BaseData):
     id: str
     probe_result_id: str
 
-    messages: list[ChatMessageWithMetadata]
-    metadata: dict[str, Any]
+    messages: List[ChatMessageWithMetadata]
+    metadata: Dict[str, Any]
 
-    severity: Severity
+    severity: Severity = Severity.SAFE
     review_status: ReviewStatus
     reason: str
     error: AttemptError | None = field(default=None)
@@ -64,12 +72,16 @@ class ProbeAttempt(BaseData):
         if data.get("error"):
             data["error"] = AttemptError.from_dict(data.get("error"))
 
-        if data.get("review_status"):
-            data["review_status"] = ReviewStatus(data.get("review_status"))
-        if data.get("severity") is not None:
-            data["severity"] = Severity(data.get("severity"))
+        data["review_status"] = ReviewStatus(
+            data.get("review_status"), ReviewStatus.PENDING
+        )
+        data["severity"] = Severity(data.get("severity"), Severity.SAFE)
 
         return super().from_dict(data, **kwargs)
+
+    @property
+    def reviewed(self) -> bool:
+        return self.review_status != ReviewStatus.PENDING
 
 
 @dataclass
@@ -119,6 +131,8 @@ class ProbeResult(EntityWithTaskProgress):
 
 @dataclass
 class ProbeErrorSummary(BaseData):
+    """Probe error summary."""
+
     probe_lidar_id: str
     original_error: str
     trace: str
@@ -132,7 +146,7 @@ class ScanResult(EntityWithTaskProgress):
     start_datetime: Optional[datetime] = field(default=None)
     end_datetime: Optional[datetime] = field(default=None)
     grade: Optional[str] = field(default=None)
-    lidar_version: str = field(default="unknown")
+    lidar_version: str = field(default="dev")
     tags: List[str] = field(default_factory=list)
     scan_type: ScanType = field(default=ScanType.DEFAULT)
     errors: List[ProbeErrorSummary] = field(default_factory=list)
@@ -145,6 +159,7 @@ class ScanResult(EntityWithTaskProgress):
         data = dict(data)
 
         # Convert nested objects
+        data["grade"] = ScanGrade(data.get("grade", ScanGrade.N_A))
         data["model"] = Model.from_dict(data["model"], **kwargs)
         if data.get("knowledge_base"):
             data["knowledge_base"] = KnowledgeBase.from_dict(
@@ -167,7 +182,7 @@ class ScanResult(EntityWithTaskProgress):
         return super().from_dict(data, **kwargs)
 
     @property
-    def probes(self) -> List[ProbeResult]:
+    def results(self) -> List[ProbeResult]:
         if not self.id:
             raise ValueError("ScanResult must have an ID to fetch probes.")
         return [
@@ -178,3 +193,24 @@ class ScanResult(EntityWithTaskProgress):
     @property
     def resource(self) -> str:
         return "scan_results"
+
+    def refresh(self) -> "ScanResult":
+        """Refresh the scan result from the Hub."""
+        if not self._client or not self.id:
+            raise ValueError(
+                "This scan result instance is detached or unsaved and cannot be refreshed."
+            )
+
+        data = self._client.scans.retrieve(self.id)
+        self._hydrate(data)
+
+        return self
+
+
+@dataclass
+class CreateScanRequest(BaseData):
+    """Request to create a scan."""
+
+    model_id: str
+    knowledge_base_id: str | None = None
+    tags: List[str] | None = None
