@@ -55,6 +55,11 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 
       As a developer, you can use the Open Source SDK to get familiar with basic testset generation for business and security failures.
 
+   .. grid-item-card:: Deeplearning.AI ↗
+      :link: https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/
+
+      Our course on red teaming LLM applications on Deeplearning.AI helps you understand how to test, red team and evaluate LLM applications.
+
 Open Research
 -------------
 
@@ -63,21 +68,18 @@ Open Research
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Phare
-      :link: https://phare.giskard.ai/
 
       Phare is a multilingual benchmark to evaluate LLMs across key safety & security dimensions, including hallucination, factual accuracy, bias, and potential harm.
 
-   .. grid-item-card:: Deeplearning.AI
-      :link: https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/
-
-      Our course on red teaming LLM applications on Deeplearning.AI helps you understand how to test, red team and evaluate LLM applications.
+      `Phare website ↗ <https://phare.giskard.ai/>`_ and `arXiv paper ↗ <https://arxiv.org/abs/2505.11365>`_.
 
    .. grid-item-card:: RealHarm
-      :link: https://realharm.giskard.ai/
 
       RealHarm is a dataset of problematic interactions with textual AI agents built from a systematic review of publicly reported incidents.
 
-   .. grid-item-card:: RealPerformance
+      `RealHarm website ↗ <https://realharm.giskard.ai/>`_ and `arXiv paper ↗ <https://arxiv.org/abs/2504.10277>`_.
+
+   .. grid-item-card:: RealPerformance ↗
       :link: https://realperformance.giskard.ai/
 
       RealPerformance is a dataset of functional issues of language models, that mirrors failure patterns identified through rigorous testing in real LLM agents.
@@ -89,8 +91,9 @@ Open Research
 
    self
    start/comparison
-   start/free-enterprise-trial
+   start/enterprise-trial
    start/glossary
+   Blogs ↗ <https://www.giskard.ai/knowledge-categories/blog>
 
 .. toctree::
    :caption: Enterprise UI
@@ -124,6 +127,6 @@ Open Research
    oss/sdk/index
    oss/sdk/security
    oss/sdk/business
-   oss/sdk/outdated
+   oss/sdk/legacy
    oss/notebooks/index
    oss/sdk/reference/index

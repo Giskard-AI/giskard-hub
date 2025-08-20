@@ -36,7 +36,7 @@ For development installations, including LLM support:
 
    pip install "giskard[dev,llm]"
 
-Configure your AI Models
+Configure Your AI Models
 ------------------------
 
 Giskard Open Source supports a wide range of LLMs by using `LiteLLM providers <https://docs.litellm.ai/docs/providers/>`_.
@@ -109,6 +109,8 @@ The LLM scan combines both heuristics-based and LLM-assisted detectors.
 The heuristics-based detectors use known techniques and patterns to test for vulnerabilities which are not specific to the model.
 The LLM-assisted detectors are designed to detect vulnerabilities that are specific to your business case. They use another LLM model to probe your LLM system.
 
+Create a Giskard Model
+______________________
 
 We define a simple function that wraps takes a Pandas DataFrame with features as input and returns a list of strings as responses.
 In the following example, we create a simple function `model_predict` that takes a Pandas DataFrame with a single feature ``question``, which is forwarded to ``llm_api`` and returns a list of strings as responses.
@@ -143,10 +145,10 @@ This function should hold the logic of the LLM API you would like to call.
    :width: 800
 
 
-Generate a test suite
+Generate a Test Suite
 _____________________
 
-We can then turn the issues you found into actionable tests that you can save and reuse in further iterations
+We can then turn the issues you found into actionable tests that you can save and reuse in further iterations.
 
 .. code-block:: python
 
@@ -156,8 +158,8 @@ We can then turn the issues you found into actionable tests that you can save an
     # Save the test suite to a folder
     test_suite.save("my_test_suite")
 
-Evaluate the test suites
-_______________________________
+Evaluate the Test Suite
+_______________________
 
 We can now evaluate the results of the test suite with the results of another model.
 
@@ -183,7 +185,7 @@ RAGET can generate automatically a list of ``question``, ``reference_answer`` an
 It relies on a chain of LLM operations to generate realistic questions across different types.
 You can then use this generated test set to evaluate your RAG agent.
 
-Create a knowledge base
+Create a Knowledge Base
 _______________________
 
 Before we can use RAGET, we need to create a knowledge base.
@@ -204,7 +206,7 @@ Before we can use RAGET, we need to create a knowledge base.
 
     knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
 
-Generate a test set
+Generate a Test Set
 ___________________
 
 We can now use the knowledge base to generate a test set of ``question``, ``reference_answer`` and ``reference_context``.
@@ -225,23 +227,17 @@ We can now use the knowledge base to generate a test set of ``question``, ``refe
     # Save the test set to a file
     testset.save("my_testset.jsonl")
 
-Evaluate the test set
-_____________________
+Create a Predict Function
+_________________________
 
-We can now evaluate the test set with the results of another model. We can use the ``evaluate`` function to evaluate the test set with the results of another model.
+Before we can evaluate the test set, we need to create a predict function. This will evaluate with the results of your Agent.
 
 .. code-block:: python
 
-    from giskard.rag import evaluate, QATestset
-
-    # Load the test set
-    testset = QATestset.load("my_testset.jsonl")
-
-    # Load the original knowledge base
-    knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
+    from giskard.rag import RAGModel
 
     # Wrap your RAG model
-    def get_answer_fn(question: str, history=None) -> str:
+    def predict_fn(question: str, history=None) -> str:
         """A function representing your RAG agent."""
         # Format appropriately the history for your RAG agent
         messages = history if history else []
@@ -253,8 +249,23 @@ We can now evaluate the test set with the results of another model. We can use t
 
         return answer
 
+Evaluate the Test Set
+_____________________
+
+We will use the ``evaluate`` function to evaluate the test set with the results of the ``predict_fn`` function we defined above.
+
+.. code-block:: python
+
+    from giskard.rag import evaluate, QATestset
+
+    # Load the test set
+    testset = QATestset.load("my_testset.jsonl")
+
+    # Load the original knowledge base
+    knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
+
     # Run the evaluation and get a report
-    report = evaluate(get_answer_fn, testset=testset, knowledge_base=knowledge_base)
+    report = evaluate(predict_fn, testset=testset, knowledge_base=knowledge_base)
     display(report)
 
 .. image:: /_static/images/oss/raget.webp

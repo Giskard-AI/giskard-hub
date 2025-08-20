@@ -1,7 +1,7 @@
-Free Enterprise Trial
-=====================
+Request Enterprise Trial
+========================
 
-Ready to experience the full power of Giskard Enterprise Hub? Start your free trial today and discover how team collaboration and continuous monitoring can transform your AI testing workflow.
+Ready to experience the full power of Giskard Enterprise Hub? Request your trial today and discover how team collaboration and continuous monitoring can transform your AI testing workflow.
 
 What's Included in Your Trial
 -----------------------------
@@ -21,7 +21,6 @@ What's Included in Your Trial
 * Full API access
 * Limited API calls
 * All security features enabled
-* Priority support
 
 Getting Started
 ---------------
@@ -79,10 +78,8 @@ What Happens After Your Trial
 Support During Your Trial
 --------------------------
 
-* **Dedicated trial support** - Get help when you need it
 * **Onboarding assistance** - We'll help you get up and running
 * **Best practices guidance** - Learn from our experts
-* **Integration support** - Connect with your existing tools
 
 Getting the Most from Your Trial
 --------------------------------

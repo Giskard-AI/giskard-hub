@@ -2,10 +2,13 @@
 Detect Business Failures in LLMs using RAGET
 =============================================================
 
+What are AI business failures?
+------------------------------
+
 Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual responses, inappropriate content generation, and failures to follow business rules. Giskard Open Source provides powerful tools to automatically detect these issues.
 
-What does RAGET do exactly?
----------------------------
+How RAGET Works
+---------------
 
 The RAG Evaluation Toolkit (RAGET) is a comprehensive testing framework designed specifically for Retrieval-Augmented Generation (RAG) systems. It helps you:
 
@@ -24,15 +27,9 @@ Before starting
 
 To use RAGET, you'll need:
 
-* A knowledge base with your documents
+* A `pandas.DataFrame` that can function as a knowledge base with your documents
 * A RAG system to evaluate
 * Access to an LLM provider (OpenAI, Azure OpenAI, Ollama, etc.)
-
-Install the required dependencies:
-
-.. code-block:: bash
-
-   pip install giskard[rag]
 
 Prepare your Knowledge Base
 ---------------------------

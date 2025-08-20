@@ -15,8 +15,8 @@ Tutorials
    security/LLM_Newspaper_Comment_Generation.ipynb
    security/LLM_QA_Documentation.ipynb
 
-Tutorials for security vulnerabilities
---------------------------------------
+Detecting Security Vulnerabilities with Scan
+--------------------------------------------
 
 .. grid:: 1 1 2 2
 
@@ -57,8 +57,8 @@ Tutorials for security vulnerabilities
         Question Answering (LangChain, FAISS, OpenAI)
 
 
-Tutorials for business failures
---------------------------------------
+Detecting Business Failures with RAGET
+----------------------------------------------------
 
 .. grid:: 1 1 2 2
 
