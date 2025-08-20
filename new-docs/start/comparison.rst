@@ -109,7 +109,7 @@ When to Use Giskard Open Source
 * Community support and open-source contributions
 
 When to Upgrade to Giskard Enterprise Hub
-----------------------------------------
+-----------------------------------------
 
 **Consider upgrading when you need:**
 
@@ -139,10 +139,10 @@ The transition from Open Source to Enterprise Hub is designed to be seamless. Yo
 **No code changes required** - Your existing tests and evaluations can be migrated between both environments.
 
 Getting Started
---------------
+---------------
 
 * **Want to get started with Open Source?** Start with :doc:`/oss/sdk/index` (Open Source)
-* **Interested in the Enterprise Hub?** Try :doc:`/start/free-enterprise-trial` (Enterprise Hub)
+* **Interested in the Enterprise Hub?** Try :doc:`/start/enterprise-trial` (Enterprise Hub)
 * **Need help choosing?** `Contact our team for a consultation <https://www.giskard.ai/contact>`__
 
 Next Steps

@@ -193,7 +193,7 @@ You can add as many conversations as you want to the dataset.
 
 
 Configure a model/agent
-______________________
+_______________________
 
 .. note:: In this section we will run evaluation against models configured in
     the Hub. If you want to evaluate a local model that is not yet exposed with
@@ -277,10 +277,7 @@ Once ready, you can print the evaluation metrics:
    :alt: "Metrics"
    :width: 800
 
-
 .. tip::
 
     You can directly pass IDs to the evaluate function, e.g. ``model=model_id``
     and ``dataset=dataset_id``, without having to retrieve the objects first.
-
-

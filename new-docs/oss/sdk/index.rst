@@ -45,7 +45,7 @@ If you don't want to configure anything, we will simply use the default model, w
 
    .. tab:: Existing Provider
 
-        For existing providers, you can set the model and embedding model by passing the provider name and model name, like ``openai/gpt-4o`` or ``anthropic/claude-3-5-sonnet``, as shown in the `LiteLLM documentation <https://docs.litellm.ai/docs/providers/>`_.
+        For existing providers, you can set the model and embedding model by passing the provider name and model name, like ``openai/gpt-4o`` or ``anthropic/claude-3-5-sonnet``, as shown in the `LiteLLM docs <https://docs.litellm.ai/docs/providers/>`_.
         Simply replace the provider name and model name with the ones you want to use.
 
         .. code-block:: python
@@ -276,4 +276,4 @@ Need Help?
 * **Documentation**: Explore our :doc:`/oss/sdk/reference/index` for detailed API information
 * **Examples**: Check our GitHub repository for more examples
 * **Community**: Join our Discord for support and discussions
-* **Upgrade**: Ready for team collaboration? Try :doc:`/start/free-enterprise-trial`
+* **Upgrade**: Ready for team collaboration? Try :doc:`/start/enterprise-trial`

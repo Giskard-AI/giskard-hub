@@ -9,8 +9,12 @@
 import inspect
 import os
 import sys
+from dataclasses import asdict
 
 from sphinxawesome_theme import ThemeOptions
+from sphinxawesome_theme.postprocess import Icons
+
+html_permalinks_icon = Icons.permalinks_icon
 
 project = "Giskard"
 copyright = "2024, Giskard"
@@ -36,6 +40,10 @@ extensions = [
     # "sphinx_autodoc_typehints",
 ]
 
+# Resolve Dataset cross-reference ambiguity
+autodoc_type_aliases = {
+    "Dataset": "giskard.Dataset",
+}
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md"]
@@ -84,9 +92,9 @@ theme_options = ThemeOptions(
         "Enterprise UI": "/hub/ui/index",
         "Enterprise SDK": "/hub/sdk/index",
         "Open Source Library": "/oss/sdk/index",
-        "Open Research": "/open-research/index",
     },
 )
+html_theme_options = asdict(theme_options)
 
 
 # make github links resolve
