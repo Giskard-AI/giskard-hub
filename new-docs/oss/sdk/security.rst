@@ -189,6 +189,12 @@ Now scan your model to detect security vulnerabilities:
 
 The scan will automatically detect security vulnerabilities and provide detailed reports on each issue found.
 
+.. image:: /_static/images/oss/scan.png
+   :align: center
+   :alt: "LLM Scan Example"
+   :width: 800
+
+
 Evaluate the Test Suite
 ________________________
 
@@ -300,20 +306,23 @@ Troubleshooting Security Scans
 Common issues and solutions:
 
 **Scan Performance Issues:**
+
 - Use smaller datasets for initial testing
 - Focus on specific vulnerability categories with `only` parameter
 
 **False Positives:**
+
 - Review scan results carefully to distinguish real vulnerabilities from false alarms
 - Customize test parameters based on your specific use case
 - Use domain-specific datasets to reduce irrelevant findings
 
 **Language Support:**
+
 - Most detectors work with any language
 - LLM-assisted detectors depend on the language capabilities of the provider model
 
-Getting Help
-------------
+Next Steps
+----------
 
 If you encounter issues with security scanning:
 

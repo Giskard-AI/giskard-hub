@@ -20,7 +20,6 @@ We support two main use cases:
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *deanial to answer questions*, using document-based queries and knowledge bases.
 
-
 Installation
 ------------
 
@@ -227,16 +226,23 @@ We can now use the knowledge base to generate a test set of ``question``, ``refe
     # Save the test set to a file
     testset.save("my_testset.jsonl")
 
-Create a Predict Function
-_________________________
+Evaluate the Test Set
+_____________________
 
-Before we can evaluate the test set, we need to create a predict function. This will evaluate with the results of your Agent.
+We will use the ``evaluate`` function to evaluate the test set with the results a provided by the ``predict_fn`` function.
+This will return a report object that contains the evaluation results.
 
 .. code-block:: python
 
-    from giskard.rag import RAGModel
+    from giskard.rag import evaluate, QATestset
 
-    # Wrap your RAG model
+    # Load the test set
+    testset = QATestset.load("my_testset.jsonl")
+
+    # Load the original knowledge base
+    knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
+
+    # Define a predict function
     def predict_fn(question: str, history=None) -> str:
         """A function representing your RAG agent."""
         # Format appropriately the history for your RAG agent
@@ -248,21 +254,6 @@ Before we can evaluate the test set, we need to create a predict function. This 
         answer = get_answer_from_agent(messages)
 
         return answer
-
-Evaluate the Test Set
-_____________________
-
-We will use the ``evaluate`` function to evaluate the test set with the results of the ``predict_fn`` function we defined above.
-
-.. code-block:: python
-
-    from giskard.rag import evaluate, QATestset
-
-    # Load the test set
-    testset = QATestset.load("my_testset.jsonl")
-
-    # Load the original knowledge base
-    knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
 
     # Run the evaluation and get a report
     report = evaluate(predict_fn, testset=testset, knowledge_base=knowledge_base)

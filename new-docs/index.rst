@@ -130,3 +130,4 @@ Open Research
    oss/sdk/legacy
    oss/notebooks/index
    oss/sdk/reference/index
+   GitHub ↗ <https://github.com/Giskard-AI/giskard>
