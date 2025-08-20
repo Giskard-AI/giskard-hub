@@ -29,7 +29,7 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
 You can now use the ``hub.datasets`` client to control the Giskard Hub!
 
-To generate a dataset, navigate we can use the ``hub.datasets.Generate()`` method.
+To generate a dataset, we can use the ``hub.datasets.generate()`` method.
 
 Define Adversarial Issue Categories
 ___________________________________

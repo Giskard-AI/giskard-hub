@@ -102,7 +102,7 @@ We can then format the testset to the correct format and create the dataset usin
                 (
                     m
                     if m["role"] == "user"
-                    else {"role": "assistant", "content": default_message}
+                    else {"role": "assistant", "content": "I'm here to help you."}
                 )
                 for m in sample.conversation_history[:2]
             ]

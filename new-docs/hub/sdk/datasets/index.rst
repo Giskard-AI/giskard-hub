@@ -62,7 +62,7 @@ Alternatively, you can generate a dataset automatically using the following meth
         :link: business
         :link-type: doc
 
-        Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *deanial to answer questions*, using document-based queries and knowledge bases.
+        Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
     .. grid-item-card:: Import Existing Datasets
         :link: import

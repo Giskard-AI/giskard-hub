@@ -4,7 +4,7 @@ Detect Business Failures by Generating Synthetic Tests
 
 Since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import. One of the key challenges of synthetic test data generation is ensuring that the test cases are domain-specific rather than too generic.
 
-In this section, we will walk you through how to generate synthetic test cases to detect business failures, like *hallucinations* or *deanial to answer questions*, using document-based queries and knowledge bases.
+In this section, we will walk you through how to generate synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
 What are AI business failures?
 ------------------------------

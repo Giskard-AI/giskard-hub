@@ -57,7 +57,7 @@ You can also provide an "answer example" for each test. The answer example will 
 There are multiple ways to provide an answer example:
   1. If you are importing a dataset, you can import the answer examples together with the conversations by providing a `demo_output` field. This is useful for example when you are importing production data and you want to keep a reference of the actual answer that was given by your agent in production.
   2. You can generate the bot's answer by clicking on the three-dot button and selecting "Replace the assistant message".
-  3. You can also write your own ansewr example from scratch. This is particularly useful when you are testing your evaluation criteria against a specific answer. For example, you may want to write a non-compliant answer and make sure that your evaluation criteria will correctly flag it.
+  3. You can also write your own answer example from scratch. This is particularly useful when you are testing your evaluation criteria against a specific answer. For example, you may want to write a non-compliant answer and make sure that your evaluation criteria will correctly flag it.
 
 If you haven't added an answer example, by default, the Hub will populate this field with the assistant answer obtained upon the first evaluation run on your dataset.
 

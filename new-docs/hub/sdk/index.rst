@@ -143,6 +143,7 @@ We can now add a conversation example to the dataset. This will be used for the 
 .. code-block:: python
 
    from giskard_hub import HubClient
+   import random
 
    # Add a conversation example
    hub.conversations.create(

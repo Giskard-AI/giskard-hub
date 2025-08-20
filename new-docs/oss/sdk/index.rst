@@ -18,7 +18,7 @@ We support two main use cases:
       :link: business
       :link-type: doc
 
-      Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *deanial to answer questions*, using document-based queries and knowledge bases.
+      Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
 Installation
 ------------
@@ -87,7 +87,7 @@ If you don't want to configure anything, we will simply use the default model, w
 
                     return litellm.ModelResponse(**response.json())
 
-            os.eviron["MY_SECRET_KEY"] = "" # "my-secret-key"
+            os.environ["MY_SECRET_KEY"] = "" # "my-secret-key"
 
             my_custom_llm = MyCustomLLM()
 
@@ -102,7 +102,7 @@ If you don't want to configure anything, we will simply use the default model, w
 Detect Security Vulnerabilities
 --------------------------------
 
-We can now use the configured model to create to evaluate security vulnerabilities in your LLM API calls using LLM Scan.
+We can now use the configured model to evaluate security vulnerabilities in your LLM API calls using LLM Scan.
 
 The LLM scan combines both heuristics-based and LLM-assisted detectors.
 The heuristics-based detectors use known techniques and patterns to test for vulnerabilities which are not specific to the model.
@@ -111,7 +111,7 @@ The LLM-assisted detectors are designed to detect vulnerabilities that are speci
 Create a Giskard Model
 ______________________
 
-We define a simple function that wraps takes a Pandas DataFrame with features as input and returns a list of strings as responses.
+We define a simple function that takes a Pandas DataFrame with features as input and returns a list of strings as responses.
 In the following example, we create a simple function `model_predict` that takes a Pandas DataFrame with a single feature ``question``, which is forwarded to ``llm_api`` and returns a list of strings as responses.
 This function should hold the logic of the LLM API you would like to call.
 
@@ -159,7 +159,7 @@ We can then turn the issues you found into actionable tests that you can save an
 Evaluate the Test Suite
 _______________________
 
-We can now evaluate the results of the test suite with the results of another model.
+We can now evaluate the test suite against another model.
 
 .. code-block:: python
 
@@ -168,18 +168,18 @@ We can now evaluate the results of the test suite with the results of another mo
     # Load the test suite
     test_suite = Suite.load("my_test_suite")
 
-    # wrap a different model
+    # Create a different model
     giskard_model_2 = Model(...)
 
-    # run the test suite with the new model
+    # Run the test suite with the new model
     test_suite.run(model=giskard_model_2)
 
 Detect Business Failures
 ------------------------
 
-We can also use the configured model to create to evaluate business failures using RAG Evaluation Toolkit (RAGET).
+We can also use the configured model to evaluate business failures using RAG Evaluation Toolkit (RAGET).
 
-RAGET can generate automatically a list of ``question``, ``reference_answer`` and ``reference_context`` from the a knowledge base.
+RAGET can automatically generate a list of ``question``, ``reference_answer`` and ``reference_context`` from a knowledge base.
 It relies on a chain of LLM operations to generate realistic questions across different types.
 You can then use this generated test set to evaluate your RAG agent.
 

@@ -31,7 +31,7 @@ This section will guide you through creating your own test datasets. In general,
       :link: business
       :link-type: doc
 
-      Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *deanial to answer questions*, using document-based queries and knowledge bases.
+      Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
    .. grid-item-card:: Import Existing Datasets
       :link: import
