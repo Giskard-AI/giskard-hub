@@ -243,14 +243,29 @@ During testset generation, you can then import and select the question types you
         .. code-block:: python
 
             from giskard.rag import generate_testset
-            from giskard.rag.question_generators import complex_questions, double_questions
-
-            testset = generate_testset(
-                knowledge_base=knowledge_base,
-                question_generators=[complex_questions, double_questions],
+            from giskard.rag.question_generators import (
+                simple_questions,
+                complex_questions,
+                conversational_questions,
+                distracting_questions,
+                situational_questions,
+                double_questions,
+                oos_questions,
             )
 
-    .. tab:: Creating a Generator
+            testset = generate_testset(
+                knowledge_base=knowledge_base, question_generators=[
+                    simple_questions,
+                    complex_questions,
+                    conversational_questions,
+                    distracting_questions,
+                    situational_questions,
+                    double_questions,
+                    oos_questions,
+                ],
+            )
+
+    .. tab:: Create a Generator
 
         Alternatively, you can subclass the ``QuestionGenerator`` class and implement your own question generation logic.
         You can `find an example on GitHub <https://github.com/Giskard-AI/giskard/blob/main/giskard/rag/question_generators/simple_questions.py>`_.

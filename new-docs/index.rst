@@ -122,7 +122,7 @@ Open Research
 .. toctree::
    :caption: Open Source SDK
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 4
 
    oss/sdk/index
    oss/sdk/security
