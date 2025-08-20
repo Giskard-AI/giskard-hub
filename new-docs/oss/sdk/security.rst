@@ -83,6 +83,7 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
         .. code-block:: python
 
             from langchain import OpenAI, LLMChain, PromptTemplate
+            from giskard import Model
 
             # Create the chain
             llm = OpenAI(model="gpt-3.5-turbo-instruct", temperature=0)
@@ -113,7 +114,11 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
 
         .. code-block:: python
 
-            from langchain import OpenAI, PromptTemplate, RetrievalQA
+            import pandas as pd
+            from langchain import OpenAI, PromptTemplate, RetrievalQA, Path, FAISS
+            from langchain.embeddings import OpenAIEmbeddings
+            from langchain.chains import load_chain
+            from giskard import Model
 
             # Create the chain.
             llm = OpenAI(model="gpt-3.5-turbo-instruct", temperature=0)
@@ -124,7 +129,7 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
             climate_qa_chain = RetrievalQA.from_llm(llm=llm, retriever=get_context_storage().as_retriever(), prompt=prompt)
 
             # Define a custom Giskard model wrapper for the serialization.
-            class FAISSRAGModel(giskard.Model):
+            class FAISSRAGModel(Model):
                 def model_predict(self, df: pd.DataFrame):
                     return df["question"].apply(lambda x: self.model.run({"query": x}))
 
@@ -152,7 +157,6 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
                     chain = load_chain(src.joinpath("model.json"), retriever=db.as_retriever())
                     return chain
 
-
             # Now we can wrap our RAG
             giskard_model = FAISSRAGModel(
                 model=climate_qa_chain,
@@ -171,8 +175,8 @@ After wrapping your model, you can save and load it later.
     giskard_model.save_model("my_model")
     giskard_model = Model.load_model("my_model")
 
-Generate a Test Suite
-_____________________
+Scan your Model
+_______________
 
 Now scan your model to detect security vulnerabilities:
 
@@ -182,10 +186,8 @@ Now scan your model to detect security vulnerabilities:
 
    # Run comprehensive security scan
    scan_results = scan(giskard_model)
-   display(scan_results)  # In notebook
-
-   # Save results for later analysis
    scan_results.to_html("security_scan_results.html")
+   display(scan_results)  # In notebook
 
 The scan will automatically detect security vulnerabilities and provide detailed reports on each issue found.
 
@@ -194,6 +196,17 @@ The scan will automatically detect security vulnerabilities and provide detailed
    :alt: "LLM Scan Example"
    :width: 800
 
+Generate a Test Suite
+_____________________
+
+We can use the scan results to generate a test suite and save it to a folder.
+
+.. code-block:: python
+
+   test_suite = scan_results.generate_test_suite("My first test suite")
+
+   # Save the test suite to a folder
+   test_suite.save("my_test_suite")
 
 Evaluate the Test Suite
 ________________________
@@ -202,7 +215,7 @@ We can now evaluate the results of the test suite with the results of another mo
 
 .. code-block:: python
 
-    from giskard import Model, Suite
+    from giskardSuite import Model,
 
     # Load the test suite
     test_suite = Suite.load("my_test_suite")

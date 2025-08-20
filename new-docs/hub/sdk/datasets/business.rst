@@ -19,29 +19,78 @@ These clusters and topics are then used to generate dedicated test that challeng
    Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the model's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
    If you want to detect security failures, check out the :doc:`/hub/sdk/datasets/security`.
 
-Document-based tests generation
+Document-based Tests Generation
 -------------------------------
 
-To begin, navigate to the Datasets page and click **Automatic Generation** in the upper-right corner of the screen. This will open a modal with two options: Adversarial or Document-Based. Select the Document-Based option.
+Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
-The Document Based tab allows you to generate a dataset with examples based on your knowledge base.
+.. code-block:: python
 
-.. image:: /_static/images/hub/generate-dataset-document-based.png
-   :align: center
-   :alt: "Generate document based dataset"
-   :width: 800
+    from giskard_hub import HubClient
 
-In this case, dataset generation requires two additional pieces of information:
+    hub = HubClient()
 
-- ``Knowledge Base``: Choose the knowledge base you want to use as a reference.
-- ``Topics``: Select the topics within the chosen knowledge base from which you want to generate examples.
+You can now use the ``hub.datasets`` client to control the Giskard Hub!
 
-Once you click on "Generate," you receive a dataset where:
+Create a Knowledge Base
+_______________________
 
-- The groundedness check is enabled: the context consists of the knowledge documents relevant to answering the query.
-- The correctness check is disabled, but its reference (expected output) is prefilled by the Hub. If you want to execute the dataset with the correctness check, you can either enable it manually or enable it for multiple conversations at once by selecting multiple conversations in the Dataset tab and enabling the correctness check.
+Before we can generate a dataset that is based on a knowledge base, we need to create a knowledge base.
+You can do this by creating a JSONL file with a required ``text`` key and an optional ``topic`` key. If you don't provide a ``topic``, the Hub will automatically generate one for you.
 
+.. code-block:: python
 
+   import json
+
+   knowledge_base = [
+      {
+         "text": "The text of the document",
+         "topic": "The topic of the document",
+      },
+      {
+         "text": "The text of the document",
+         "topic": "The topic of the document",
+      },
+   ]
+   with open("knowledge_base.jsonl", "w") as f:
+      for item in knowledge_base:
+         f.write(json.dumps(item) + "\n")
+
+At this point, you manually upload the file to the Hub using the Hub UI as shown in the :doc:`/hub/ui/index` section.
+Alternatively, we can upload it to the Hub using the ``hub.knowledge_bases.create()`` method.
+
+.. code-block:: python
+
+   kb = hub.knowledge_bases.create(
+      project_id="<PROJECT_ID>",
+      name="Knowledge Base",
+      filename="knowledge_base.jsonl",
+   )
+
+This will return a :class:`~giskard_hub.data.KnowledgeBase` object, but this object might not be fully populated yet, as the knowledge base is processed asynchronously.
+To get an up-to-date version of the knowledge base, we recommend visiting the Hub UI and checking the knowledge base page.
+
+Generate a Synthetic Test Dataset
+_________________________________
+
+After creating the knowledge base, we can generate a dataset that is based on the knowledge base we just created.
+We can do this by using the ``hub.datasets.generate_knowledge()`` method. Once again, we need to provide a model ID.
+We can get the model ID and the knowledge base ID by listing all models using the ``hub.models.list("<PROJECT_ID>")`` and ``hub.knowledge_bases.list("<PROJECT_ID>")`` methods or retrieve the IDs from the Hub UI.
+
+.. code-block:: python
+
+   dataset = hub.datasets.generate_knowledge(
+      model_id="<MODEL_ID>",
+      knowledge_base_id=kb.id,
+      dataset_name="Knowledge Base Dataset",
+      description="<MODEL_DESCRIPTION>",
+      nb_questions=10,
+      # filter the topics to use for the dataset
+      topic_ids=[topic["id"] for topic in kb.topics],
+   )
+
+This will return a :class:`~giskard_hub.data.Dataset` object, but this object might not be fully populated yet, as the dataset is generated asynchronously.
+To get an up-to-date version of the dataset and the generation, we recommend visiting the Hub UI and checking the dataset page.
 
 
 

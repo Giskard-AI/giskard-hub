@@ -143,7 +143,6 @@ This function should hold the logic of the LLM API you would like to call.
    :alt: "LLM Scan Example"
    :width: 800
 
-
 Generate a Test Suite
 _____________________
 

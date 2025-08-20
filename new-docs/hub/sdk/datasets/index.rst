@@ -17,7 +17,7 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
     hub = HubClient()
 
-You can now use the ``hub`` client to control the Giskard Hub! Let's start by creating a fresh project.
+You can now use the ``hub.datasets`` client to control the Giskard Hub!
 
 Datasets
 --------

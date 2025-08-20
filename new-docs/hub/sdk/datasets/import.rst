@@ -6,82 +6,134 @@ You can import existing test datasets from a file. This is particularly useful w
 
 In this section, we will walk you through how to import existing datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
-Create a new dataset
---------------------
+Importing Datasets
+------------------
 
-On the Datasets page, click on "New dataset" button in the upper right corner of the screen. You'll then be prompted to enter a name and description for your new dataset.
-
-.. image:: /_static/images/hub/create-dataset.png
-   :align: center
-   :alt: "Create a dataset"
-   :width: 800
-
-After creating the dataset, you can either import multiple conversations or add individual conversations to it.
-
-Import a dataset of conversations
----------------------------------
-
-To import conversations, click the "Import" button in the upper right corner of the screen.
-
-.. image:: /_static/images/hub/import-conversations.png
-   :align: center
-   :alt: "List of conversations"
-   :width: 800
-
-You can import data in **JSON or JSONL format**, containing an array of conversations (or a conversation object per line, if JSONL).
-
-Each conversation must be defined as a JSON object with a ``messages`` field containing the chat messages in OpenAI format. You can also specify these optional attributes:
-
-- ``demo_output``: an object presenting the output of the agent at some point
-- ``tags``: a list of tags to categorize the conversation
-- ``checks``: a list of checks to evaluate the conversation, they can be built-in or custom ones
-
-.. image:: /_static/images/hub/import-conversations-detail.png
-   :align: center
-   :alt: "Import a conversation"
-   :width: 800
-
-Here's an example of the structure and content in a dataset:
+Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
 .. code-block:: python
 
-    [
-        {
-            "messages": [
-                {"role": "assistant", "content": "Hello!"},
-                {"role": "user", "content": "Hi Bot!"},
-            ],
-            "demo_output": {"role": "assistant", "content": "How can I help you ?"},
-            "tags": ["greetings"],
-            "checks": [
-                {"identifier": "correctness", "params": {"reference": "How can I help you?"}},
-                {"identifier": "conformity", "params": {"rules": ["The agent should not do X"]}},
+    from giskard_hub import HubClient
+
+    hub = HubClient()
+
+You can now use the ``hub.datasets`` and ``hub.conversations`` clients to import datasets and conversations!
+
+Create a dataset
+________________
+
+As we have seen in the :doc:`/hub/sdk/datasets/index` section, we can create a dataset using the ``hub.datasets.create()`` method.
+
+.. code-block:: python
+
+   dataset = hub.datasets.create(
+      project_id="<PROJECT_ID>",
+      name="Production Data",
+      description="This dataset contains conversations that " \
+      "are automatically sampled from the production environment.",
+   )
+
+After having created the dataset, we can import conversations into it.
+
+Import conversations
+____________________
+
+We can import conversations into the dataset using the ``hub.conversations.create()`` method.
+
+.. code-block:: python
+
+    hub.conversations.create(
+        dataset_id=dataset.id,
+
+        # A list of messages, without the last assistant answer
+        messages=[
+            {"role": "user", "content": "Hi, I have problems the laptop I bought from you."},
+            {"role": "assistant", "content": "I'm sorry to hear that. What seems to be the problem?"},
+            {"role": "user", "content": "The battery is not charging."},
+        ],
+
+        # We can place a recorded answer as `demo_output` (optional)
+        demo_output={
+            "role": "assistant",
+            "content": "I see. Have you tried to restart the laptop?",
+            "metadata": {"category": "laptop", "subcategory": "battery", "resolved": False},
+        },
+
+        # Tags (optional)
+        tags=["customer-support"],
+
+        # Evaluation checks (optional)
+        checks=[
+            {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
+            {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
+        ]
+    )
+
+Import Datasets from Other Tools
+--------------------------------
+
+We can also import datasets from other tools, like Giskard Open Source.
+
+Import a dataset from RAGET
+___________________________
+
+We can import a dataset from RAGET but we need to do some post-processing to get the dataset in the correct format.
+We still start by loading the testset we got from :doc:`/oss/sdk/business`.
+
+.. code-block:: python
+
+    from giskard.rag.testset import QATestset
+
+    testset = QATestset.load("my_testset.jsonl")
+
+We can then format the testset to the correct format and create the dataset using the ``hub.datasets.create()`` method.
+
+.. code-block:: python
+
+    dataset = hub.datasets.create(
+        project_id="<PROJECT_ID>",
+        name="RAGET Dataset",
+        description="This dataset contains conversations that are used to evaluate the RAGET model.",
+    )
+
+    for sample in testset.samples:
+        if sample.metadata["question_type"] == "conversational":
+            messages = [
+                (
+                    m
+                    if m["role"] == "user"
+                    else {"role": "assistant", "content": default_message}
+                )
+                for m in sample.conversation_history[:2]
             ]
-        }
-    ]
+            messages.append({"role": "user", "content": sample.question})
 
-Alternatively, you can import data in **CSV format**, containing one message per line.
+        tags = [sample.metadata["topic"]]
+        checks = []
 
-Each CSV must contain a ``user_message`` column representing the message from the user. Additionally, the file can contain optional attributes:
+        # Add correctness check
+        checks.append(
+            {
+                "identifier": "correctness",
+                "enabled": True,
+                "params": {"reference": sample.reference_answer},
+            }
+        )
 
-- ``bot_message``: the answer from the agent
-- ``tag*``: the list of tags (i.e. tag_1,tag_2,...)
-- ``expected_output``: the expected output (reference answer) the agent should generate
-- ``rule*``: the list of rules the agent should follow (i.e. rule_1,rule_2,...)
-- ``reference_context``: the context in which the agent must ground its response
-- ``check*``: the list of custom checks (i.e. check_1,check_2,...)
+        # Add groundedness check
+        checks.append(
+            {
+                "identifier": "groundedness",
+                "enabled": True,
+                "params": {
+                    "context": sample.reference_context,
+                },
+            }
+        )
 
-Here's an example of the structure and content in a dataset:
-
-.. code-block:: text
-
-    user_message,bot_message,tag_1,tag_2,expected_output,rule_1,rule_2,check_1,check_2
-    Hi bot!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
-
-
-
-
-
-
-
-
+        hub.conversations.create(
+            dataset_id=dataset.id,
+            messages=messages,
+            checks=checks,
+            tags=tags,
+        )
