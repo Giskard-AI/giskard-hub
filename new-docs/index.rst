@@ -49,7 +49,7 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Open Source SDK
+   .. grid-item-card:: Open Source Library
       :link: oss/sdk/index
       :link-type: doc
 
@@ -120,7 +120,7 @@ Open Research
    hub/sdk/reference/index
 
 .. toctree::
-   :caption: Open Source SDK
+   :caption: Open Source Library
    :hidden:
    :maxdepth: 4
 

@@ -26,8 +26,8 @@ AI security vulnerabilities are weaknesses in LLM systems that can be exploited 
    Here are the key properties of an effective synthetic data generation process for adversarial queries:
 
    - **Exhaustive:** Use established security vulnerability categories for LLMs (e.g., `OWASP Top 10 <https://owasp.org/www-project-top-10-for-large-language-model-applications/>`_) to cover the most well-known issues.
-   - **Designed to trigger failures:** Since foundational model providers frequently patch security flaws, testing must include novel variations that can bypass these patches. For example, for most prompt injection techniques (e.g., DAN), generating variants increases the likelihood of failures.
-   - **Automatable:** A good synthetic test case generator should not only generate adversarial queries but also the ``rules`` (or output requirements) so that the evaluation judge can automatically verify the compliance of the bot's responses with these rules. This is essential for the LLM-as-a-judge setup.
+   - **Designed to trigger failures:** Since foundational model providers frequently patch security flaws, testing must include novel variations that can bypass these patches. For example, for most prompt injection techniques (e.g., `DAN <https://arxiv.org/abs/2308.03825>`_), generating variants increases the likelihood of failures.
+   - **Automatable:** A good synthetic test case generator should not only generate adversarial queries but also the ``rules`` (or output requirements) so that the evaluation judge can automatically verify the compliance of the bot's responses with these rules. This is essential for the `LLM-as-a-judge setup <https://arxiv.org/abs/2411.15594>`_.
    - **Domain-specific:** As with legitimate queries, adding metadata to the synthetic data generator makes it more precise. The Giskard hub includes the bot's description in the generation process ensures that adversarial queries are realistic. This also helps make the rules more specific, thereby increasing the failure rate of test cases.
 
 .. tip::

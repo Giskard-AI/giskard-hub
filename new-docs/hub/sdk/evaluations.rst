@@ -3,10 +3,11 @@ Run Evaluations
 ===============
 
 In this section, we will show how to start programmatically evaluation runs in
-the Hub. For example, you may want to systematically launch evaluation runs
-every time you deploy an updated model in a pre-production or staging
-environment. In this way, you can collaborate with your team to ensure that the
-model is performing as expected.
+the Hub.
+
+- A **evaluation** is a run of a model on each conversation of a dataset using a set of checks.
+
+We recommend to systematically launch evaluation runs every time you deploy an updated model in a pre-production or staging environment. In this way, you can collaborate with your team to ensure that the model is performing as expected.
 
 There are two types of evaluations:
 

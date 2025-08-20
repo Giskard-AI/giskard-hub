@@ -13,15 +13,6 @@ Security vulnerabilities in LLMs are critical issues that can lead to malicious 
 
 To get a full overview of the types of security vulnerabilities that can be detected, check out the :doc:`/hub/ui/datasets/security` guide.
 
-.. note::
-
-   Here are the key properties of an effective synthetic data generation process for adversarial queries:
-
-   - **Exhaustive:** Use established security vulnerability categories for LLMs (e.g., OWASP Top 10) to cover the most well-known issues.
-   - **Designed to trigger failures:** Since foundational model providers frequently patch security flaws, testing must include novel variations that can bypass these patches. For example, for most prompt injection techniques (e.g., DAN), generating variants increases the likelihood of failures.
-   - **Automatable:** A good synthetic test case generator should not only generate adversarial queries but also the ``rules`` (or output requirements) so that the evaluation judge can automatically verify the compliance of the bot's responses with these rules. This is essential for the LLM-as-a-judge setup.
-   - **Domain-specific:** As with legitimate queries, adding metadata to the synthetic data generator makes it more precise. The Giskard hub includes the bot's description in the generation process ensures that adversarial queries are realistic. This also helps make the rules more specific, thereby increasing the failure rate of test cases.
-
 .. tip::
 
    Security vulnerabilities are different from business failures. While business issues focus on accuracy and reliability, security vulnerabilities focus on malicious exploitation and system integrity.

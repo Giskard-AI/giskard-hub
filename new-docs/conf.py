@@ -10,6 +10,8 @@ import inspect
 import os
 import sys
 
+from sphinxawesome_theme import ThemeOptions
+
 project = "Giskard"
 copyright = "2024, Giskard"
 author = "Giskard"
@@ -48,12 +50,7 @@ html_theme = "sphinxawesome_theme"
 # html_theme = 'alabaster'
 html_static_path = ["_static"]
 source_suffix = [".rst", ".md"]
-html_theme_options = {
-    "logo_light": "_static/logo_black.png",
-    "logo_dark": "_static/logo_white.png",
-    "show_prev_next": True,
-    "show_scrolltop": True,
-}
+
 html_css_files = ["pygments-dark.css", "custom.css"]
 html_favicon = "_static/favicon.ico"
 
@@ -75,6 +72,22 @@ nbsphinx_prolog = """
     </div>
 """
 # fmt: on
+
+theme_options = ThemeOptions(
+    show_prev_next=True,
+    show_scrolltop=True,
+    awesome_external_links=True,
+    logo_light="_static/logo_black.png",
+    logo_dark="_static/logo_white.png",
+    main_nav_links={
+        "Getting Started": "/index",
+        "Enterprise UI": "/hub/ui/index",
+        "Enterprise SDK": "/hub/sdk/index",
+        "Open Source Library": "/oss/sdk/index",
+        "Open Research": "/open-research/index",
+    },
+)
+
 
 # make github links resolve
 def linkcode_resolve(domain, info):
