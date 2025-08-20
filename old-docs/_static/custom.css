@@ -1,8 +1,0 @@
-#content img {
-  border: 1px solid hsl(var(--border));
-}
-
-#content ul:not(.search) p,
-#content ul:not(.search) > li {
-  margin-top: 0.5rem !important;
-}
