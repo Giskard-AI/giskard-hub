@@ -20,11 +20,11 @@ Feature Comparison
 
    * - Security vulnerability detection
      - Basic coverage
-     - Advanced, state-of-the-art detection
+     - state-of-the-art detection
 
    * - Business failure detection
      - Basic coverage
-     - Advanced, state-of-the-art detection
+     - state-of-the-art detection
 
    * - :doc:`/hub/ui/continuous-red-teaming`
      - ❌ Not available
@@ -35,7 +35,7 @@ Feature Comparison
      - ✅ Full support
 
    * - Custom tests
-     - Limited support
+     - ✅ Full supports
      - ✅ Full support
 
    * - Local evaluations
