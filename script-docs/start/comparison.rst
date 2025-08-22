@@ -18,27 +18,27 @@ Feature Comparison
      -
      -
 
-   * - :doc:`/hub/ui/continuous-red-teaming`
-     - ❌ Not available
-     - ✅ Automated
-
    * - Detect security vulnerabilities
      - Basic
-     - Advanced
+     - State of the art
 
    * - Detect business failures
      - Basic
-     - Advanced
+     - State of the art
+
+   * - :doc:`/hub/ui/continuous-red-teaming`
+     - ❌ Not available
+     - ✅ Automated
 
    * - Tool/function calling tests
      - ❌ Not available
      - ✅ Full support
 
    * - Custom tests
-     - ✅ Full support
+     - Limited support
      - ✅ Full support
 
-   * - Local evaluation
+   * - Local evaluations
      - ✅ Full support
      - ✅ Full support
 
