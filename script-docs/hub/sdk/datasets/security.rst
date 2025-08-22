@@ -7,7 +7,7 @@ Generative AI agents are vulnerable to a wide range of security threats, many of
 In this section, we will walk you through how to generate synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
 
 What are AI Security Vulnerabilities?
-------------------------------------
+-------------------------------------
 
 Security vulnerabilities in LLMs are critical because they can be exploited for malicious attacks, data breaches, and system compromises.
 For example, prompt injection attacks can cause models to leak confidential information or perform unintended actions,

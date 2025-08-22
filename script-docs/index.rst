@@ -40,7 +40,7 @@ Giskard Hub
 Open Source
 -----------
 
-**Giskard Open Source** is a Python library for LLM testing and evaluation. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for `our course on Red Teaming LLM Applications on Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
+**Giskard Open Source** is a Python library for LLM testing and evaluation. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
 
 The library provides a set of tools for testing and evaluating LLMs, including:
 
@@ -76,13 +76,13 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
       Phare is a multilingual benchmark to evaluate LLMs across key safety & security dimensions, including hallucination, factual accuracy, bias, and potential harm.
 
-      `Phare website ↗ <https://phare.giskard.ai/>`_ and `arXiv paper ↗ <https://arxiv.org/abs/2505.11365>`_.
+      `Phare website <https://phare.giskard.ai/>`_ and `arXiv paper <https://arxiv.org/abs/2505.11365>`_.
 
    .. grid-item-card:: RealHarm
 
       RealHarm is a dataset of problematic interactions with textual AI agents built from a systematic review of publicly reported incidents.
 
-      `RealHarm website ↗ <https://realharm.giskard.ai/>`_ and `arXiv paper ↗ <https://arxiv.org/abs/2504.10277>`_.
+      `RealHarm website <https://realharm.giskard.ai/>`_ and `arXiv paper <https://arxiv.org/abs/2504.10277>`_.
 
    .. grid-item-card:: RealPerformance ↗
       :link: https://realperformance.giskard.ai/
@@ -98,7 +98,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    start/comparison
    start/enterprise-trial
    start/glossary
-   Blogs ↗ <https://www.giskard.ai/knowledge-categories/blog>
+   Blogs <https://www.giskard.ai/knowledge-categories/blog>
 
 .. toctree::
    :caption: Giskard Hub UI
@@ -136,4 +136,4 @@ Some work has been funded by the `the European Commission <https://commission.eu
    oss/sdk/legacy
    oss/notebooks/index
    oss/sdk/reference/index
-   GitHub ↗ <https://github.com/Giskard-AI/giskard>
+   GitHub <https://github.com/Giskard-AI/giskard>

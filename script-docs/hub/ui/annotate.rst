@@ -12,7 +12,8 @@ In more advanced cases, the conversation is a multi-turn dialogue between the us
 
 The Datasets section of the Giskard Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations.
 
-.. admonition:: Note
+.. note::
+
   Except for very specific cases, conversations should always end with a user message. The next agent response will be generated and evaluated at runtime.
 
 Create a conversation
@@ -160,7 +161,7 @@ Check whether all information from the bot's answer is present in the given cont
 
 
 String Matching Check
----------------
+---------------------
 
 Check whether the given keyword or sentence is present in the model answer.
 

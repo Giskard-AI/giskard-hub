@@ -6,7 +6,7 @@ Ready to experience the full power of Giskard Hub? Request your enterprise trial
 What's Included in Your Trial
 -----------------------------
 
-* Trial access to the Giskard Hub :doc:`Giskard Hub /start/comparison`
+* Trial access to the Giskard Hub :doc:`Giskard Hub </start/comparison>`
 * A single project
 * A quota for API calls
 
@@ -53,7 +53,7 @@ What Happens After Your Trial
 * No interruption to your workflow
 * Access to additional enterprise features
 
-**If you need more time and assitance: **
+**If you need more time and assitance:**
 
 * Contact our team for extension options
 * Discuss custom trial arrangements
