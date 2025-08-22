@@ -2,17 +2,11 @@
 Run and Schedule Evaluations
 =============================
 
-In this section, we will show how to start programmatically evaluation runs in
-the Hub.
+In this section, we will show how to start programmatically evaluation runs in the Hub.
 
 - An **evaluation** is a run of an agent on each conversation of a dataset using a set of checks.
 
 We recommend to systematically launch evaluation runs every time you deploy an updated agent in a pre-production or staging environment. In this way, you can collaborate with your team to ensure that the agent is performing as expected.
-
-There are two types of evaluations:
-
-- **Remote evaluations** - In production, you will want to run evaluations against agents that are configured in the Hub and exposed with an API.
-- **Local evaluations** - During the development phase, you may want to evaluate a local agent that is not yet exposed with an API before deploying it.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -22,7 +16,16 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
     hub = HubClient()
 
-You can now use the ``hub`` client to define the agent and dataset you want to evaluate, and run the evaluation.
+You can now use the ``hub`` client to define the agent and dataset you want to evaluate, and run or schedule evaluations.
+
+Run Evaluations
+~~~~~~~~~~~~~~~
+
+There are two types of evaluations:
+
+- **Remote evaluations** - In production, you will want to run evaluations against agents that are configured in the Hub and exposed with an API.
+- **Local evaluations** - During the development phase, you may want to evaluate a local agent that is not yet exposed with an API before deploying it.
+
 
 Run remote evaluations
 ----------------------
@@ -273,3 +276,8 @@ evaluation runs.
 
 .. hint::  You may also want to use this method in your CI/CD pipeline, to
     perform checks when the code or the prompts of your agent get updated.
+
+Schedule Evaluations
+~~~~~~~~~~~~~~~~~~~~
+
+WIP
