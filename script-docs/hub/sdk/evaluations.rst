@@ -280,4 +280,4 @@ evaluation runs.
 Schedule Evaluations
 ~~~~~~~~~~~~~~~~~~~~
 
-WIP
+At the moment, scheduling evaluations is not supported with the SDK, we recommend using the Giskard Hub UI for doing this.
