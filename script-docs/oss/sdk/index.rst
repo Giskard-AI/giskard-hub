@@ -1,7 +1,7 @@
 Quickstart & Setup
 ==================
 
-**Giskard Open Source is a Python library for LLM testing and evaluation.** It provides a foundation for developers to generate AI security and business test. You can check our :doc:`/start/comparison` to learn how it differs from our enterprise offering. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
+**Giskard Open Source is a Python library for LLM testing and evaluation.** It provides a solid foundation for developers to generate AI security and business test. You can check our :doc:`/start/comparison` to learn how it differs from our enterprise offering. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
 
 We support two main use cases:
 
