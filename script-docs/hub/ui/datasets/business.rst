@@ -2,19 +2,23 @@
 Detect Business Failures by Generating Synthetic Tests
 ======================================================
 
-Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible test cases. Automated, synthetic test case generation is therefore essential—especially when you lack real user conversations to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
+AI systems in business environments must provide accurate, reliable responses that align with your organization's knowledge and policies. However, manually creating comprehensive test cases for every possible business scenario is impractical and often leaves critical failure modes undetected.
 
-By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
-
-In this section, we will walk you through how to generate synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
+Giskard Hub solves this challenge by enabling **business users to directly generate synthetic business tests from knowledge bases without requiring coding skills**—a significant advantage over competitors who typically require technical expertise for test generation.
 
 What are AI business failures?
 ------------------------------
 
-AI business failures are failures that are related to the business of the AI system. To detect them, we need to generate tests that are designed to trigger failures.
+AI business failures occur when AI systems fail to provide **correct** and **grounded** responses with respect to a knowledge base taken as ground truth.
+These failures manifest in several key categories:
 
-The Giskard Hub provides an interface for the synthetic generation of legitimate queries **with expected outputs**. It automatically clusters the documents from the internal knowledge base into key topics and generates test cases for each topic by applying a set of perturbations.
-These clusters and topics are then used to generate dedicated test that challenge the bot to answer questions about the specific topic in a way that might not align with the business rules of your organization.
+- **Hallucinations**: The AI generates information not present in your knowledge base
+- **Denial of answers**: The AI refuses to answer legitimate business questions
+- **Moderation issues**: The AI applies overly restrictive content filters to valid business queries
+- **Context misinterpretation**: The AI fails to understand the business context of user queries
+- **Inconsistent responses**: The AI provides contradictory information across similar queries
+
+To detect these failures effectively, we need to synthesize representative sets of both legitimate user queries and expected answers, focusing on **context-groundedness** and **correctness**.
 
 .. note::
 
@@ -23,16 +27,19 @@ These clusters and topics are then used to generate dedicated test that challeng
    - **Exhaustive**: Create diverse test cases by ensuring coverage of all documents and/or topics used by the bot. We recommend you create 20 conversations per topic.
    - **Designed to trigger failures**: Synthetic test cases should not be trivial queries, otherwise the chance that your tests fail becomes very low. The Giskard hub applies perturbation techniques (e.g., paraphrasing, adding out-of-scope contexts) to increase the likelihood of incorrect responses from the bot.
    - **Automatable**: A good synthetic test case generator should not only generate queries but also generate the expected outputs so that the evaluation judge can automatically compare them with the bot's responses. This is essential for the LLM-as-a-judge setup.
-   - **Domain-specific**: Synthetic test cases should not be generic queries; otherwise, they won’t be truly representative of real user queries. While these test cases should be reviewed by humans, it’s important to add metadata to the synthetic data generator to make it more specific. The Giskard Hub includes the bot's description in the generation process to ensure that the queries are realistic.
+   - **Domain-specific**: Synthetic test cases should not be generic queries; otherwise, they won't truly represent real user queries. While these test cases should be reviewed by humans, it's important to add metadata to the synthetic data generator to make it more specific. The Giskard Hub includes the bot's description in the generation process to ensure that the queries are realistic.
 
 .. tip::
 
    Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the model's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
    If you want to detect security failures, check out the :doc:`/hub/ui/datasets/security`.
 
-
 Document-based tests generation
 -------------------------------
+
+The Giskard Hub provides an intuitive interface for synthetic generation of legitimate queries **with expected outputs**.
+It automatically clusters the documents from your internal knowledge base into key topics and generates test cases for each topic by applying a set of perturbations.
+These clusters and topics are then used to generate dedicated tests that challenge the bot to answer questions about specific topics in ways that might not align with your business rules.
 
 To begin, navigate to the Datasets page and click **Automatic Generation** in the upper-right corner of the screen. This will open a modal with two options: Adversarial or Document-Based. Select the Document-Based option.
 
@@ -67,9 +74,3 @@ Next steps
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate`
 * **Detect security vulnerabilities** - Try :doc:`/hub/ui/datasets/security`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`
-
-
-
-
-
-

@@ -1,8 +1,6 @@
 Quickstart & Setup
 ==================
 
-Get started with Giskard Open Source in minutes. This guide will walk you through installing the library, configuring your models and finding security and business failures in your LLM.
-
 The Giskard Open Source SDK is a Python library for LLM testing and evaluation. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
 We support two main use cases:
 
@@ -19,6 +17,8 @@ We support two main use cases:
       :link-type: doc
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
+
+This guide will walk you through installing the library, configuring your models and finding security and business failures in your LLM.
 
 Installation
 ------------

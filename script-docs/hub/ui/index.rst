@@ -2,6 +2,8 @@
 Quickstart & Setup
 ====================
 
+**Giskard Hub is our enterprise platform for LLM agent testing with team collaboration and continuous red teaming.** The Hub provides a comprehensive user interface for performing LLM evaluations in production environments with enterprise-grade security and collaboration features.
+
 The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-step workflow:
 
 .. grid:: 1 1 2 2

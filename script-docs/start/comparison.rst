@@ -1,7 +1,7 @@
 Open Source vs Giskard Hub
 ==========================
 
-This guide helps you understand the differences between Giskard Open Source and Giskard Hub, and when to consider upgrading to an enterprise subscription.
+**The Giskard Hub is an enterprise platform for LLM agent testing with team collaboration and continuous red teaming.** This guide helps you understand the differences between the Giskard Hub and the Giskard Open Source, and when to consider upgrading to an enterprise subscription.
 
 Feature Comparison
 ------------------
@@ -18,6 +18,10 @@ Feature Comparison
      -
      -
 
+   * - :doc:`/hub/ui/continuous-red-teaming`
+     - ❌ Not available
+     - ✅ Automated
+
    * - Detect security vulnerabilities
      - Basic
      - Advanced
@@ -25,6 +29,10 @@ Feature Comparison
    * - Detect business failures
      - Basic
      - Advanced
+
+   * - Tool/function calling tests
+     - ❌ Not available
+     - ✅ Full support
 
    * - Custom tests
      - ✅ Full support
@@ -58,9 +66,13 @@ Feature Comparison
      -
      -
 
-   * - Continuous red teaming
-     - ❌ Manual runs only
-     - ✅ Automated
+   * - Scheduled evaluation runs
+     - ❌ Not available
+     - ✅ Fully supported
+
+   * - Evaluation comparison dashboard
+     - ❌ Not available
+     - ✅ Fully supported
 
    * - Alerting
      - ❌ Not available
@@ -70,9 +82,29 @@ Feature Comparison
      - ❌ Local only
      - ✅ Historical data
 
+   * - **Enterprise Security**
+     -
+     -
+
+   * - SSO (Single Sign-On)
+     - ❌ Not available
+     - ✅ SSO support
+
+   * - 2FA (Two-Factor Authentication)
+     - ❌ Not available
+     - ✅ 2FA support
+
    * - Audit trails
      - ❌ Not available
      - ✅ Full compliance
+
+   * - SOC 2 compliance
+     - ❌ Not available
+     - ✅ SOC 2 certified
+
+   * - Dedicated support & SLAs
+     - ❌ Community only
+     - ✅ Enterprise-grade, with SLAs
 
 
 When to Use Giskard Open Source
@@ -99,27 +131,21 @@ When to Upgrade to Giskard Hub
 **Consider upgrading to an enterprise subscription when you need:**
 
 * **Continuous red teaming** - Automated testing and alerting
-* **Custom checks and result categorization** – Create your own tests and automatically categorize test results for deeper, customizable analysis
 * **Team collaboration and business user enablement** – Collaborate across technical and business teams: enable business users to contribute through annotations, prioritize actions based on test results, and access intuitive testing dashboards
-* **Scale** - Managing multiple projects and models with specific permissions by users and roles
+* **Custom checks and result categorization** – Create your own tests and automatically categorize test results for deeper, customizable analysis
+* **Enterprise security features** - SSO (Single Sign-On), SOC 2 compliance, and 2FA (Two-Factor Authentication) for robust access control and regulatory requirements
 * **Compliance** - Audit trails and access control requirements
 * **Scale** - Managing multiple projects and models with specific permissions by users and roles
 
-**Key benefits:**
-
-* **Stronger coverage with less effort** - Advanced adversarial dataset generation and comparison
-* **Team access control and automated security testing** - Manage user permissions and enable continuous red teaming to proactively identify risks
-* **Greater customization for developers** - Create custom datasets and comprehensive tests with the Hub SDK
-
-Upgrade Path
-------------
+Upgrade Path (optional)
+-----------------------
 
 The transition from Open Source to Giskard Hub is designed to be seamless. You can start with Open Source and gradually migrate to Hub as your team grows.
 
 1. **Start with Open Source** - Build your testing foundation locally
 2. **Add Hub SDK** - :doc:`/hub/sdk/datasets/import` from Open Source to Hub
-3. **Gradual migration** - Move more workflows to Hub as your team grows
-4. **Full GiskardHub adoption** - Leverage all Giskard Hub features for maximum efficiency
+3. **Gradual migration** - Move more workflows to Hub as your project complexity grows
+4. **Full Giskard Hub adoption** - Leverage all Giskard Hub features for maximum efficiency
 
 Getting Started
 ---------------

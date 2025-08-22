@@ -1,14 +1,23 @@
 Request Your Enterprise Trial
 =============================
 
-Ready to experience the full power of Giskard Hub? Request your enterprise trial today and discover how team collaboration and continuous red teaming can transform your AI testing workflow.
+**Giskard Hub is an enterprise platform for LLM agent testing with team collaboration and continuous red teaming.** Ready to experience the full power of Giskard Hub? Request your enterprise trial today and discover how team collaboration and continuous red teaming can transform your AI testing workflow.
 
 What's Included in Your Trial
 -----------------------------
 
-* Trial access to the Giskard Hub :doc:`Giskard Hub </start/comparison>`
-* A single project
-* A quota for API calls
+* **Full Giskard Hub access** - Trial access to the Giskard Hub on a secure SaaS instance during a specific period
+* **Unlimited users** - Invite your entire team to collaborate
+* **Dedicated trial support** - Get help when you need it
+* **All features activated** - Experience our complete platform capabilities with a few trial limitations:
+
+  - A single project to host all your agent versions and runs
+  - No SSO or enterprise security features
+  - A quota for API calls needed to run synthetic generation of LLM agent tests and LLM judges
+
+.. note::
+
+   🔒 **Unsure if our trial infrastructure meets your company's security standards?** Visit our `trust center <https://trust.giskard.ai>`_ to learn more about our security practices and compliance.
 
 Getting Started
 ---------------
@@ -31,7 +40,7 @@ Getting Started
    * Invite team members
    * Configure your first model
 
-3. **Secure your models**
+3. **Secure your Agents**
 
    * Generate synthetic tests to evaluate your models
    * Manage datasets and track their versions
@@ -41,7 +50,7 @@ Getting Started
 Trial Duration and Conversion
 -----------------------------
 
-As of now, we don't have a fixed trial duration but we will determine it based on the needs of the customer.
+Our trial duration typically ranges from two weeks to two months, depending on your specific needs and use case complexity. We'll work with you to determine the optimal trial period that allows you to fully evaluate the platform while meeting your evaluation timeline.
 
 What Happens After Your Trial
 ------------------------------
@@ -77,4 +86,4 @@ Need more help deciding?
 
 * **Request a demo** - Get in touch `here <https://www.giskard.ai/contact>`_
 * **Compare our offerings** - Explore our :doc:`/start/comparison` guide
-* **Explore our documentation** - Explore our :doc:`/hub/ui/index` and :doc:`/hub/sdk/index` guides
+* **Explore our documentation** – See the :doc:`UI Quickstart </hub/ui/index>` and :doc:`SDK Quickstart </hub/sdk/index>` guides

@@ -3,25 +3,27 @@ Welcome to Giskard
 
 Welcome to Giskard! This section will help you understand what Giskard is, choose the right offering for your needs, and get started quickly.
 
-* **Giskard Hub** - Our enterprise platform for team collaboration and continuous red teaming
-* **Open Source** - Our open-source Python library for LLM testing and evaluation
+* **Giskard Hub** – Our enterprise platform for LLM agent testing with team collaboration and continuous red teaming, offering both a user-friendly UI for business users and a powerful SDK for technical users
+* **Open Source** - Our open-source Python library for LLM testing and evaluation, offering only an programmatic interface
 * **Open Research** - Our open-source research on AI safety and security
 
 .. tip::
 
-   If you're not sure which Giskard offering is right for you, check out the :doc:`start/comparison` guide.
+   If you're not sure which Giskard offering is right for you, check out the :doc:`/start/comparison` guide.
 
 Giskard Hub
 -----------
 
-**Giskard Hub** is a platform for team collaboration and continuous red teaming. It provides a set of tools for testing and evaluating LLMs, including:
+**Giskard Hub** is our enterprise platform for LLM agent testing with advanced team collaboration and continuous red teaming. It provides a set of tools for business users and developers to testi and evaluate Agents in production environments, including:
 
-* Team collaboration - Multiple users working together on testing and evaluation
-* Continuous red teaming - Automated threat detection and response
-* Access control - Manage who can see what data and run which tests
-* Dataset management - Centralized storage and versioning of test cases
-* Security - Track security vulnerabilities and business logic failures
-* Alerting - Get notified when issues are detected
+* **Team collaboration** - Real-time collaboration with shared workspaces, collaborative annotation workflows, and role-based access control for seamless team coordination
+* **Continuous red teaming** - Continuous threat detection for new vulnerabilities with automated scanning and monitoring capabilities
+* **Access control** - Manage who can see what data and run which tests across your organization
+* **Dataset management** - Centralized storage and versioning of test cases for consistent testing
+* **Custom failure categories** - Define and categorize your own failure types beyond standard security and business logic issues
+* **Enterprise compliance features** - 2FA, audit logs, SSO, and enterprise-grade security controls
+* **Custom business checks** - Create and deploy your own specialized testing logic and validation rules
+* **Alerting** - Get notified when issues are detected with configurable notification systems
 
 .. grid:: 1 1 2 2
 

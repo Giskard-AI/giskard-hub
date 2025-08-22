@@ -2,12 +2,18 @@
 Manual Test Creation for Fine-Grained Control
 ====================================================
 
-You can create test datasets manually for fine-grained control. This is particularly useful when you want to create test cases with full control over the test case creation process.
+You can create test datasets manually for fine-grained control. This is particularly useful when you want to create test cases with full control over the test case creation process. There are two ways to manually create test cases:
 
-In this section, we will walk you through how to create a dataset manually.
+* **Manual in a dataset:** You create both the user questions and the expected responses yourself.
+* **Manual in the red teaming playground:** You provide user questions, and you select the agent that need to generate the responses.
+
+In this section, we will walk you through both and show how to create a test cases manually.
+
+Create manual tests from a dataset
+----------------------------------
 
 Create a new dataset
---------------------
+____________________
 
 On the Datasets page, click on "New dataset" button in the upper right corner of the screen. You'll then be prompted to enter a name and description for your new dataset.
 
@@ -19,7 +25,7 @@ On the Datasets page, click on "New dataset" button in the upper right corner of
 After creating the dataset, you can add individual conversations to it.
 
 Create a manual test
---------------------
+____________________
 
 A conversation is a list of messages, alternating between **user** messages and **assistant** roles.
 When designing your test cases, you can decide to provide a conversation history by adding multiple turns.
@@ -56,14 +62,17 @@ After the conversation is created, you can add the required information to it. F
 
     To understand more about how to write an expected response and rules, check out the :doc:`/hub/ui/annotate` section.
 
-Create a manual test in the red teaming playground
---------------------------------------------------
+Create manual tests from the red teaming playground
+---------------------------------------------------
+
+The red teaming playground
+__________________________
 
 You can create manual tests in the red teaming playground. Here you can try to come up with a conversation that is representative of the bot's behavior or test it against a specific vulnerability.
 
 .. image:: /_static/images/hub/playground.png
    :align: center
-   :alt: "The red teamingplayground"
+   :alt: "The red teaming playground"
    :width: 800
 
 The Chat section is where you can query and talk to the agent. You write your message on the bottom part of the screen.
@@ -77,6 +86,34 @@ We recommend you to try different approaches to create conversations, for exampl
 - Out of scope questions that the chatbot is not supposed to answer
 
 We will give some examples below. If you're interested in learning new ways to test your chatbots and LLM applications, we also recommend you to check out our free course on `Red Teaming LLM Applications <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_ on DeepLearningAI.
+
+Create a manual test
+____________________
+
+Once you've captured a conversation that adequately tests your desired functionality, you can save it to a dataset. This dataset will then be used to evaluate your model's performance and compliance with expected behavior.
+
+.. image:: /_static/images/hub/playground-save.png
+   :align: center
+   :alt: "Save conversation to a dataset from the Playground"
+   :width: 800
+
+The screen above shows three sections:
+
+- ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
+- ``Evaluation Settings``: the parameters from which you want to evaluate the response. It includes:
+    - ``Expected response`` (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.
+    - ``Rules`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.
+    - ``Context`` (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.
+    - ``Keyword`` (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
+    - And any custom checks you may have defined.
+- ``Dataset``: where the conversations are saved
+- ``Tags`` (optional): allows for better organization and filtering conversations
+
+Approaches for Red Teaming AI Agents
+____________________________________
+
+
+
 
 Adversarial conversations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,28 +212,6 @@ The important thing is to remember that once you have tested what you wanted, yo
     - Use conversation history to test the bot’s ability to maintain context over multiple exchanges.
     - Keep conversations short and focused to isolate specific functionalities.
     - Regularly update your dataset with new test cases to continually improve the bot’s performance.
-
-Send to dataset
-----------------
-
-Once you've captured a conversation that adequately tests your desired functionality, you can save it to a dataset. This dataset will then be used to evaluate your model's performance and compliance with expected behavior.
-
-.. image:: /_static/images/hub/playground-save.png
-   :align: center
-   :alt: "Save conversation to a dataset from the Playground"
-   :width: 800
-
-The screen above shows three sections:
-
-- ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
-- ``Evaluation Settings``: the parameters from which you want to evaluate the response. It includes:
-    - ``Expected response`` (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.
-    - ``Rules`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.
-    - ``Context`` (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.
-    - ``Keyword`` (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
-    - And any custom checks you may have defined.
-- ``Dataset``: where the conversations are saved
-- ``Tags`` (optional): allows for better organization and filtering conversations
 
 Next steps
 ----------
