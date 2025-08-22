@@ -18,17 +18,17 @@ Feature Comparison
      -
      -
 
-   * - Detect security vulnerabilities
-     - Basic
-     - State of the art
+   * - Security vulnerability detection
+     - Basic coverage
+     - Advanced, state-of-the-art detection
 
-   * - Detect business failures
-     - Basic
-     - State of the art
+   * - Business failure detection
+     - Basic coverage
+     - Advanced, state-of-the-art detection
 
    * - :doc:`/hub/ui/continuous-red-teaming`
      - ❌ Not available
-     - ✅ Automated
+     - ✅ Full support
 
    * - Tool/function calling tests
      - ❌ Not available
