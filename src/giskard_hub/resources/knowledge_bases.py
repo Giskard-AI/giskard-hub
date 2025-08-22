@@ -24,7 +24,7 @@ class KnowledgeBasesResource(APIResource):
         project_id: str,
         name: str,
         filename: str,
-        description: Union[str, NotGiven] = NOT_GIVEN,
+        description: Union[str, None] = None,
         document_column: Union[str, NotGiven] = NOT_GIVEN,
         topic_column: Union[str, NotGiven] = NOT_GIVEN,
     ) -> KnowledgeBase:
@@ -35,7 +35,7 @@ class KnowledgeBasesResource(APIResource):
                 "project_id": project_id,
                 "name": name,
                 "description": description,
-                "column": document_column or "text",
+                "column": document_column,
                 "topic_column": topic_column,
             }
         )

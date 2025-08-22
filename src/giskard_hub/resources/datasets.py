@@ -47,13 +47,13 @@ class DatasetsResource(APIResource):
             "/datasets", params={"project_id": project_id}, cast_to=Dataset
         )
 
-    def generate(  # pylint: disable=too-many-arguments
+    def generate_adversarial(  # pylint: disable=too-many-arguments
         self,
         *,
         model_id: str,
         dataset_name: str = "Generated Dataset",
         description: str = "",
-        categories: list = NOT_GIVEN,
+        categories: Union[list[str], NotGiven]  = NOT_GIVEN,
         nb_examples: int = 10,
     ) -> Dataset:
         """
@@ -84,7 +84,7 @@ class DatasetsResource(APIResource):
             cast_to=Dataset,
         )
 
-    def generate_knowledge(  # pylint: disable=too-many-arguments
+    def generate_document_based(  # pylint: disable=too-many-arguments
         self,
         *,
         model_id: str,

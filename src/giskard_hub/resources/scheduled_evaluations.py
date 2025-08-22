@@ -58,7 +58,7 @@ class ScheduledEvaluationsResource(APIResource):
         name: str,
         model_id: str,
         dataset_id: str,
-        frequency: str,
+        frequency: Union[Literal["daily", "weekly", "monthly"], FrequencyOption],
         time: str,
         tags: Optional[List[str]] = None,
         run_count: int = 1,
