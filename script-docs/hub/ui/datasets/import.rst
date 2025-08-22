@@ -62,6 +62,10 @@ Here's an example of the structure and content in a dataset:
 
 Alternatively, you can import data in **CSV format**, containing one message per line.
 
+.. tip::
+
+   If you need help creating a CSV file, see this `example guide <https://www.wikihow.com/Create-a-CSV-File>`_.
+
 Each CSV must contain a ``user_message`` column representing the message from the user. Additionally, the file can contain optional attributes:
 
 - ``bot_message``: the answer from the agent
@@ -78,10 +82,8 @@ Here's an example of the structure and content in a dataset:
     user_message,bot_message,tag_1,tag_2,expected_output,rule_1,rule_2,check_1,check_2
     Hi bot!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
 
+Next steps
+----------
 
-
-
-
-
-
-
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Generate test cases** - Try :doc:`/hub/ui/datasets/business` or :doc:`/hub/ui/datasets/security`

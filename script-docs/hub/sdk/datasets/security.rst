@@ -79,3 +79,10 @@ We can get the agent ID by listing all agents using the ``hub.agents.list("<PROJ
 
 This will return a :class:`~giskard_hub.data.Dataset` object, but this object might not be fully populated yet, as the dataset is generated asynchronously.
 To get an up-to-date version of the dataset and the generation, we recommend visiting the Hub UI and checking the dataset page.
+
+Next steps
+----------
+
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Generate business failures** - Try :doc:`/hub/sdk/datasets/business`
+* **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

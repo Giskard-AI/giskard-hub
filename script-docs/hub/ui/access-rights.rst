@@ -4,14 +4,49 @@ Set Access Rights
 
 This section provides guidance on managing users in the Hub.
 
-The Hub allows you to set access rights at two levels: global and scoped. To begin, click on the "Settings" icon on the left panel, then select "Users".
+The Hub allows you to set access rights at two levels: global and scoped for both users and groups. To begin, click on the "Settings" icon on the left panel, then select "Users".
 
-click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "User Management."
+Configure Users and Groups
+--------------------------
 
-.. image:: /_static/images/hub/access-settings.png
-   :align: center
-   :alt: "Access rights"
-   :width: 800
+.. tabs::
+
+   .. tab:: User-level permissions
+
+      To manage user-level permissions, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "Users" and then press "Users" in the dropdown.
+
+      .. image:: /_static/images/hub/access-settings.png
+         :align: center
+         :alt: "Access rights"
+         :width: 800
+
+   .. tab:: Group-level permissions
+
+      To manage group-level permissions, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "Users" and then press "Groups" in the dropdown.
+
+      .. image:: /_static/images/hub/access-settings-group.png
+         :align: center
+         :alt: "Access rights"
+         :width: 800
+
+      After creating a group and users, you can then navigate back to the "Users" tab from the left panel. You can then select an user you want to add to a group, select the three vertical dots on the right side of the user box, and click on "Edit Group".
+
+      .. image:: /_static/images/hub/access-settings-group-user.png
+         :align: center
+         :alt: "Access rights"
+         :width: 800
+
+      This will open a pop up where you can select the group you want to add the user to.
+
+      .. image:: /_static/images/hub/access-settings-group-assign.png
+         :align: center
+         :alt: "Access rights"
+         :width: 800
+
+
+
+Configure Global Permissions
+____________________________
 
 Global permissions apply access rights across all projects. You can configure Create, Read, Edit, and Delete permissions for each page or entity. This is available in the following pages: Project, Dataset, Agent, Knowledge Base, and Evaluation. Additionally, for features like the Playground, API Key Authentication, and Permission, you can enable or disable the users’ right to use it.
 
@@ -31,6 +66,9 @@ The rights are as follows:
    :align: center
    :alt: "Set permissions"
    :width: 800
+
+Configure Scoped Permissions
+____________________________
 
 Scoped permissions allow for granular control. For each project, you can specify which pages or entities users are allowed to access. An example of where this may be useful is if you want your users to read everything in a project but only allow a few people to edit the dataset.
 

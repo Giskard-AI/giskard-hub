@@ -35,7 +35,7 @@ Giskard Hub
       :link: hub/sdk/index
       :link-type: doc
 
-      As a developer, you can use the Hub SDK to interact with the Giskard Hub programmatically.
+      As a developer, you can use an SDK to interact with the Giskard Hub programmatically.
 
 Open Source
 -----------
@@ -109,6 +109,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    hub/ui/datasets/index
    hub/ui/annotate
    hub/ui/evaluations
+   hub/ui/evaluations-compare
    hub/ui/continuous-red-teaming
    hub/ui/access-rights
 

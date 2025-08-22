@@ -12,17 +12,23 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
       Automate test case generation with a focus on legitimate and adversarial queries.
 
-   .. grid-item-card:: Annotate Test Datasets
+   .. grid-item-card:: Review Tests with Human Feedback
       :link: annotate
       :link-type: doc
 
-      Use domain knowledge to review and refine test cases through annotation tools.
+      Use domain knowledge to review and refine test cases through humans in the loop.
 
-   .. grid-item-card:: Run Evaluations
+   .. grid-item-card:: Run and Schedule Evaluations
       :link: evaluations
       :link-type: doc
 
-      Run evaluations and set up alerts for detected vulnerabilities.
+      Run evaluations and schedule them to run automatically.
+
+   .. grid-item-card:: Compare Evaluations
+      :link: evaluations-compare
+      :link-type: doc
+
+      Compare evaluations to detect regressions and identify patterns.
 
    .. grid-item-card:: Continuous Red Teaming
       :link: continuous-red-teaming
@@ -153,7 +159,6 @@ On the Knowledge Bases, click on "Add Knowledge Base" button.
    :align: center
    :alt: "List of knowledge bases"
    :width: 800
-
 
 The interface below displays the knowledge base details that need to be filled out.
 

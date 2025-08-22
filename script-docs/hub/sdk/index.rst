@@ -23,7 +23,7 @@ The Giskard Hub Python SDK (`giskard-hub`) allows developers to integrate Hub fu
 
       Build and deploy validation rules and metrics for your tests
 
-   .. grid-item-card:: Run Evaluations
+   .. grid-item-card:: Run and Schedule Evaluations
       :link: evaluations
       :link-type: doc
 

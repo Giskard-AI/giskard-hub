@@ -74,21 +74,6 @@ Feature Comparison
      - ❌ Not available
      - ✅ Full compliance
 
-   * - **Advanced Security**
-     -
-     -
-
-   * - Continuous red teaming
-     - ❌ Manual only
-     - ✅ Automated
-
-   * - Threat detection
-     - ❌ Basic scanning
-     - ✅ Advanced detection
-
-   * - Vulnerability management
-     - ❌ Local tracking
-     - ✅ Centralized
 
 When to Use Giskard Open Source
 -------------------------------

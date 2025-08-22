@@ -137,3 +137,9 @@ We can then format the testset to the correct format and create the dataset usin
             checks=checks,
             tags=tags,
         )
+
+Next steps
+----------
+
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`

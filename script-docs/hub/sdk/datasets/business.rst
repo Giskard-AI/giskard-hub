@@ -96,7 +96,12 @@ We can get the agent ID and the knowledge base ID by listing all agents using th
 This will return a :class:`~giskard_hub.data.Dataset` object, but this object might not be fully populated yet, as the dataset is generated asynchronously.
 To get an up-to-date version of the dataset and the generation, we recommend visiting the Hub UI and checking the dataset page.
 
+Next steps
+----------
 
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Generate security vulnerabilities** - Try :doc:`/hub/sdk/datasets/security`
+* **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`
 
 
 

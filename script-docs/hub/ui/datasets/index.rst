@@ -13,13 +13,13 @@ This section will guide you through creating your own test datasets. In general,
       :link: manual
       :link-type: doc
 
-      Design your own test cases using a full control over the test case creation process.
+      Design your own test cases using a full control over the test case creation process and explore them in the playground.
 
-   .. grid-item-card:: Manual Tests for Consistency Across Models
-      :link: consistency
+   .. grid-item-card:: Import Existing Datasets
+      :link: import
       :link-type: doc
 
-      Create tests in the playground to compare responses of different models and ensure consistency across models.
+      Import existing test datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
    .. grid-item-card:: Detect Security Vulnerabilities by Generating Synthetic Tests
       :link: security
@@ -33,18 +33,13 @@ This section will guide you through creating your own test datasets. In general,
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
-   .. grid-item-card:: Import Existing Datasets
-      :link: import
-      :link-type: doc
 
-      Import existing test datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
 .. toctree::
    :maxdepth: 2
    :hidden:
 
    manual
-   consistency
+   import
    security
    business
-   import

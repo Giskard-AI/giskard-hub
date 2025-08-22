@@ -61,3 +61,10 @@ In the Adversarial tab, you can generate an adversarial test dataset within the 
 - ``Categories``: Select the category for which you want to generate examples (e.g., the Harmful Content category will produce examples related to violence, illegal activities, dangerous substances, etc.).
 
 - ``Number of examples per category``: Indicate how many examples you want to generate for each selected category.
+
+Next steps
+----------
+
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Detect business failures** - Try :doc:`/hub/ui/datasets/business`
+* **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

@@ -1,6 +1,6 @@
-===============
-Run Evaluations
-===============
+=============================
+Run and Schedule Evaluations
+=============================
 
 In this section, we will show how to start programmatically evaluation runs in
 the Hub.

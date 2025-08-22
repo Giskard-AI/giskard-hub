@@ -61,7 +61,12 @@ Once you click on "Generate," you receive a dataset where:
 - The groundedness check is enabled: the context consists of the knowledge documents relevant to answering the query.
 - The correctness check is disabled, but its reference (expected output) is prefilled by the Hub. If you want to execute the dataset with the correctness check, you can either enable it manually or enable it for multiple conversations at once by selecting multiple conversations in the Dataset tab and enabling the correctness check.
 
+Next steps
+----------
 
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Detect security vulnerabilities** - Try :doc:`/hub/ui/datasets/security`
+* **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`
 
 
 
