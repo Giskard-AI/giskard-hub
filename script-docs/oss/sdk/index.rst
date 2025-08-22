@@ -1,7 +1,8 @@
 Quickstart & Setup
 ==================
 
-The Giskard Open Source SDK is a Python library for LLM testing and evaluation. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
+**The Giskard Open Source SDK is a Python library for LLM testing and evaluation.** It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
+
 We support two main use cases:
 
 .. grid:: 1 1 2 2
