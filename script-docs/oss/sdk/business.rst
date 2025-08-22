@@ -9,7 +9,7 @@ Business failures in LLMs are failures that impact the business logic, accuracy,
 
 .. tip::
 
-   To get a more powerful set of tests and a collaborative UI, check out :doc:`Enterprise Business Failure Testing </hub/sdk/datasets/business>` guide.
+   To get a more powerful set of tests and a collaborative UI, check out :doc:`Giskard Hub Business Failure Testing </hub/sdk/datasets/business>` guide.
 
 .. note::
 
@@ -61,7 +61,7 @@ Before we can use RAGET, we need to create a knowledge base.
     df = pd.DataFrame({
         "samples": [
             "Giskard is a great tool for testing and evaluating LLMs.",
-            "Giskard Enterprise offers a comprehensive suite of tools for testing and evaluating LLMs.",
+            "Giskard Hub offers a comprehensive suite of tools for testing and evaluating LLMs.",
             "Giskard was founded in France by ex-Dataiku employees."
         ]
     })
@@ -460,7 +460,7 @@ Next Steps
 If you encounter issues with business failure testing:
 
 * Join our `Discord community <https://discord.gg/giskard>`_ and ask questions in the ``#support`` channel
-* Check the Enterprise documentation for :doc:`Advanced LLM Security Test Generation </hub/sdk/datasets/business>`
+* Check the Giskard Hub documentation for :doc:`Advanced LLM Security Test Generation </hub/sdk/datasets/business>`
 * Review our :doc:`glossary on AI terminology </start/glossary>` to better understand the terminology used in the documentation.
 
 Remember: Business failure testing is an ongoing process. Regularly test your models and update your business failure test suites to stay ahead of emerging failures.

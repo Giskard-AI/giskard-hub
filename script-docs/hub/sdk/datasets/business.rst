@@ -2,14 +2,18 @@
 Detect Business Failures by Generating Synthetic Tests
 ======================================================
 
-Since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import. One of the key challenges of synthetic test data generation is ensuring that the test cases are domain-specific rather than too generic.
+Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible test cases. Automated, synthetic test case generation is therefore essential—especially when you lack real user conversations to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
 
-In this section, we will walk you through how to generate synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
+By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
+
+In this section, we will walk you through how to generate synthetic test cases to detect business failures, such as *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
 What are AI business failures?
 ------------------------------
 
 AI business failures are failures that are related to the business of the AI system. To detect them, we need to generate tests that are designed to trigger failures.
+
+For more context and practical examples of business failures, you can explore our :doc:`/hub/ui/datasets/business` or `realperformance.giskard.ai <https://realperformance.giskard.ai>`_.
 
 The Giskard Hub provides an interface for the synthetic generation of legitimate queries **with expected outputs**. It automatically clusters the documents from the internal knowledge base into key topics and generates test cases for each topic by applying a set of perturbations.
 These clusters and topics are then used to generate dedicated test that challenge the bot to answer questions about the specific topic in a way that might not align with the business rules of your organization.
@@ -74,13 +78,13 @@ Generate a Synthetic Test Dataset
 _________________________________
 
 After creating the knowledge base, we can generate a dataset that is based on the knowledge base we just created.
-We can do this by using the ``hub.datasets.generate_knowledge()`` method. Once again, we need to provide a model ID.
-We can get the model ID and the knowledge base ID by listing all models using the ``hub.models.list("<PROJECT_ID>")`` and ``hub.knowledge_bases.list("<PROJECT_ID>")`` methods or retrieve the IDs from the Hub UI.
+We can do this by using the ``hub.datasets.generate_knowledge()`` method. Once again, we need to provide an agent ID.
+We can get the agent ID and the knowledge base ID by listing all agents using the ``hub.agents.list("<PROJECT_ID>")`` and ``hub.knowledge_bases.list("<PROJECT_ID>")`` methods or retrieve the IDs from the Hub UI.
 
 .. code-block:: python
 
    dataset = hub.datasets.generate_knowledge(
-      model_id="<MODEL_ID>",
+      model_id="<AGENT_ID>",  # Note: parameter is still named 'model_id' for backward compatibility
       knowledge_base_id=kb.id,
       dataset_name="Knowledge Base Dataset",
       description="<MODEL_DESCRIPTION>",

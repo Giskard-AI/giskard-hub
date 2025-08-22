@@ -5,14 +5,14 @@ Run Evaluations
 In this section, we will show how to start programmatically evaluation runs in
 the Hub.
 
-- A **evaluation** is a run of a model on each conversation of a dataset using a set of checks.
+- An **evaluation** is a run of an agent on each conversation of a dataset using a set of checks.
 
-We recommend to systematically launch evaluation runs every time you deploy an updated model in a pre-production or staging environment. In this way, you can collaborate with your team to ensure that the model is performing as expected.
+We recommend to systematically launch evaluation runs every time you deploy an updated agent in a pre-production or staging environment. In this way, you can collaborate with your team to ensure that the agent is performing as expected.
 
 There are two types of evaluations:
 
-- **Remote evaluations** - In production, you will want to run evaluations against models that are configured in the Hub and exposed with an API.
-- **Local evaluations** - During the development phase, you may want to evaluate a local model that is not yet exposed with an API before deploying it.
+- **Remote evaluations** - In production, you will want to run evaluations against agents that are configured in the Hub and exposed with an API.
+- **Local evaluations** - During the development phase, you may want to evaluate a local agent that is not yet exposed with an API before deploying it.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -22,40 +22,40 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
     hub = HubClient()
 
-You can now use the ``hub`` client to define the model and dataset you want to evaluate, and run the evaluation.
+You can now use the ``hub`` client to define the agent and dataset you want to evaluate, and run the evaluation.
 
 Run remote evaluations
 ----------------------
 
-In production, you will want to run evaluations against models that are configured in the Hub and exposed with an API.
+In production, you will want to run evaluations against agents that are configured in the Hub and exposed with an API.
 
-Configure a model
-_________________
+Configure an Agent
+__________________
 
-First, we need to configure the model that we want to evaluate. The model will
+First, we need to configure the agent that we want to evaluate. The agent will
 need to be accessible from a remote API endpoint.
 
-We can configure the model endpoint in the Hub:
+We can configure the agent endpoint in the Hub:
 
 .. code-block:: python
 
-    model = hub.models.create(
+    agent = hub.agents.create(
         project_id=project_id,
         name="MyBot (staging)",
         description="A chatbot that answers questions about the weather",
         url="https://my-bot.staging.example.com/chat",
         supported_languages=["en"],
 
-        # if your model endpoint needs special headers:
+        # if your agent endpoint needs special headers:
         headers={"X-API-Key": "SECRET_TOKEN"},
     )
 
 
-You can test that everything is working by sending a test request to the model
+You can test that everything is working by sending a test request to the agent
 
 .. code-block:: python
 
-    response = model.chat(messages=[{
+    response = agent.chat(messages=[{
         "role": "user",
         "content": "What's the weather like in Rome?"
     }])
@@ -81,7 +81,7 @@ We can now launch the evaluation run:
 .. code-block:: python
 
     eval_run = hub.evaluate(
-        model=model.id,
+        model=agent.id,  # Note: parameter is still named 'model' for backward compatibility
         dataset=dataset_id
         # optionally, specify a name
         name="staging-build-a4f321",

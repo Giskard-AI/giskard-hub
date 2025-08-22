@@ -28,7 +28,7 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
       :link: continuous-red-teaming
       :link-type: doc
 
-      Detect emerging vulnerabilities through proactive monitoring.
+      Detect emerging vulnerabilities through proactive red teaming.
 
 .. image:: /_static/images/hub/hub-workflow.png
    :align: center

@@ -159,5 +159,5 @@ Business and Compliance
 Getting Help
 ------------
 
-* **Enterprise Hub?** Check our :doc:`/hub/ui/index` for practical examples
+* **Giskard Hub?** Check our :doc:`/hub/ui/index` for practical examples
 * **Open Source?** Explore our :doc:`/oss/sdk/index` for technical details

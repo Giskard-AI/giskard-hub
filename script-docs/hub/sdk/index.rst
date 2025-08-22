@@ -193,34 +193,34 @@ These are the attributes you can set for a conversation (the only required attri
 You can add as many conversations as you want to the dataset.
 
 
-Configure a model/agent
-_______________________
+Configure an Agent
+___________________
 
-.. note:: In this section we will run evaluation against models configured in
-    the Hub. If you want to evaluate a local model that is not yet exposed with
+.. note:: In this section we will run evaluation against agents configured in
+    the Hub. If you want to evaluate a local agent that is not yet exposed with
     an API, check the :doc:`/hub/sdk/evaluations`.
 
-Before running our first evaluation, we'll need to set up a model. You'll need an API endpoint ready to serve the model.
-Then, you can configure the model API in the Hub:
+Before running our first evaluation, we'll need to set up an agent. You'll need an API endpoint ready to serve the agent.
+Then, you can configure the agent API in the Hub:
 
 .. code-block:: python
 
-    model = hub.models.create(
+    agent = hub.agents.create(
         project_id=project.id,
         name="My Bot",
         description="A chatbot for demo purposes",
-        url="https://my-model-endpoint.example.com/bot_v1",
+        url="https://my-agent-endpoint.example.com/bot_v1",
         supported_languages=["en", "fr"],
-        # if your model endpoint needs special headers:
+        # if your agent endpoint needs special headers:
         headers={"X-API-Key": "MY_TOKEN"},
     )
 
 
-We can test that everything is working well by running a chat with the model:
+We can test that everything is working well by running a chat with the agent:
 
 .. code-block:: python
 
-    response = model.chat(
+    response = agent.chat(
         messages=[
             dict(role="user", content="What is the capital of France?"),
             dict(role="assistant", content="Paris"),
@@ -245,12 +245,12 @@ If all is working well, this will return something like
 Run a remote evaluation
 _______________________
 
-We can now launch a remote evaluation of our model!
+We can now launch a remote evaluation of our agent!
 
 .. code-block:: python
 
     eval_run = hub.evaluate(
-        model=model,
+        model=agent,  # Note: parameter is still named 'model' for backward compatibility
         dataset=dataset,
         name="test-run",  # optional
     )

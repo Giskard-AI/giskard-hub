@@ -1,34 +1,29 @@
-Request Enterprise Trial
-========================
+Request Your Enterprise Trial
+=============================
 
-Ready to experience the full power of Giskard Enterprise Hub? Request your trial today and discover how team collaboration and continuous monitoring can transform your AI testing workflow.
+Ready to experience the full power of Giskard Hub? Request your enterprise trial today and discover how team collaboration and continuous red teaming can transform your AI testing workflow.
 
 What's Included in Your Trial
 -----------------------------
 
-**Full access to all Enterprise Hub features:**
-
-* **Team collaboration** - Invite team members and manage access rights
-* **Continuous red teaming** - Automated threat detection and response
-* **Advanced dataset management** - Centralized storage and versioning
-* **Performance monitoring** - Track model performance over time
-* **Alerting and notifications** - Stay informed about critical issues
-* **Audit trails** - Complete compliance and governance support
-
-**What is included in the trial:**
-
-* Unlimited projects and models
-* Full API access
-* Limited API calls
-* All security features enabled
+* Trial access to the Giskard Hub :doc:`Giskard Hub /start/comparison`
+* A single project
+* A quota for API calls
 
 Getting Started
 ---------------
 
-1. **Sign up for your trial**
+1. **Request your trial**
 
    * Visit our `contact page <https://www.giskard.ai/contact>`_
-   * Provide basic information about your organization
+   * We suggest adding some information about your organization and LLM use case.
+
+.. note::
+
+   🚦 **A quick heads-up from the Giskard team!** To make sure every trial gets the treatment they deserve, we run trials in small, focused batches.
+   This means we can't provide access to everyone at once. Priority goes to teams with the most mission-critical agent use cases.
+   If you’re not in the first wave, don’t worry: we will reach out as soon as a spot opens up.
+   Thanks for helping us keep things personal and impactful!
 
 2. **Set up your workspace**
 
@@ -36,17 +31,12 @@ Getting Started
    * Invite team members
    * Configure your first model
 
-3. **Import existing work**
+3. **Secure your models**
 
-   * Use the Hub SDK to sync local evaluations
-   * Upload existing datasets
-   * Generate synthetic tests
-
-4. **Explore advanced features**
-
-   * Generate synthetic tests
-   * Configure access rights and permissions
-   * Test alerting and monitoring
+   * Generate synthetic tests to evaluate your models
+   * Manage datasets and track their versions
+   * Set up continuous red teaming
+   * Automate alerting and notifications
 
 Trial Duration and Conversion
 -----------------------------
@@ -58,12 +48,12 @@ What Happens After Your Trial
 
 **If you decide to continue:**
 
-* Seamless transition to paid plan
+* Seamless transition to enterprise subscription
 * All data and configurations preserved
 * No interruption to your workflow
 * Access to additional enterprise features
 
-**If you need more time:**
+**If you need more time and assitance: **
 
 * Contact our team for extension options
 * Discuss custom trial arrangements
@@ -76,44 +66,15 @@ What Happens After Your Trial
 * Maintain access to community support
 
 Support During Your Trial
---------------------------
+-------------------------
 
-* **Onboarding assistance** - We'll help you get up and running
-* **Best practices guidance** - Learn from our experts
+At the beginning of your trial, we will set up a straightforward, balanced agreement to ensure that intellectual property is handled appropriately for both parties.
+This agreement guarantees that all data you upload to the platform, as well as any agents you create, remain your intellectual property.
+Additionally, all results and outputs generated from tests on the platform will also be your property, with responsibilities clearly defined.
 
-Getting the Most from Your Trial
---------------------------------
+Need more help deciding?
+------------------------
 
-**Week 1: Foundation**
-
-* Set up your workspace and projects
-* Import or create your first datasets
-* Run initial evaluations
-
-**Week 2: Advanced Features**
-
-* Configure team collaboration
-* Set up continuous monitoring
-* Test alerting and notifications
-
-**Throughout: Best Practices**
-
-* Follow our trial success guide
-* Attend trial user webinars
-* Connect with our customer success team
-
-Ready to Start?
----------------
-
-* **Begin your trial** - Sign up now
-* **Schedule a demo** - See Hub in action
-* **Contact sales** - Discuss enterprise needs
-* **Learn more** - Explore our :doc:`comparison` guide
-
-Next Steps
-----------
-
-* Start your :doc:`/hub/ui/index` once you have access
-* Learn about :doc:`/hub/ui/datasets/index` for collaborative testing
-* Understand :doc:`/hub/ui/continuous-red-teaming` for ongoing security
-* Explore :doc:`/hub/ui/access-rights` for team management
+* **Request a demo** - Get in touch `here <https://www.giskard.ai/contact>`_
+* **Compare our offerings** - Explore our :doc:`/start/comparison` guide
+* **Explore our documentation** - Explore our :doc:`/hub/ui/index` and :doc:`/hub/sdk/index` guides

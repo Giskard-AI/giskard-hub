@@ -1,7 +1,7 @@
-Open Source vs Enterprise
-=========================
+Open Source vs Giskard Hub
+==========================
 
-This guide helps you understand the differences between Giskard Open Source and Giskard Enterprise Hub, and when to consider upgrading.
+This guide helps you understand the differences between Giskard Open Source and Giskard Hub, and when to consider upgrading to an enterprise subscription.
 
 Feature Comparison
 ------------------
@@ -12,7 +12,7 @@ Feature Comparison
 
    * - **Feature**
      - **Giskard Open Source**
-     - **Giskard Enterprise Hub**
+     - **Giskard Hub**
 
    * - **Core Testing**
      -
@@ -54,11 +54,11 @@ Feature Comparison
      - ❌ Local only
      - ✅ Team-wide
 
-   * - **Operational Features**
+   * - **Automation & Monitoring**
      -
      -
 
-   * - Continuous monitoring
+   * - Continuous red teaming
      - ❌ Manual runs only
      - ✅ Automated
 
@@ -86,7 +86,7 @@ Feature Comparison
      - ❌ Basic scanning
      - ✅ Advanced detection
 
-   * - Vulnerability mgmt
+   * - Vulnerability management
      - ❌ Local tracking
      - ✅ Centralized
 
@@ -108,45 +108,37 @@ When to Use Giskard Open Source
 * No external dependencies or data sharing
 * Community support and open-source contributions
 
-When to Upgrade to Giskard Enterprise Hub
+When to Upgrade to Giskard Hub
 -----------------------------------------
 
-**Consider upgrading when you need:**
+**Consider upgrading to an enterprise subscription when you need:**
 
-* **Advanced testing** - Advanced testing capabilities
-* **Team collaboration** - Multiple people working on testing
+* **Continuous red teaming** - Automated testing and alerting
+* **Custom checks and result categorization** – Create your own tests and automatically categorize test results for deeper, customizable analysis
+* **Team collaboration and business user enablement** – Collaborate across technical and business teams: enable business users to contribute through annotations, prioritize actions based on test results, and access intuitive testing dashboards
+* **Scale** - Managing multiple projects and models with specific permissions by users and roles
 * **Compliance** - Audit trails and access control requirements
-* **Scale** - Managing multiple projects and models
-* **Continuous monitoring** - Automated testing and alerting
-* **Enterprise security** - Advanced threat detection and response
+* **Scale** - Managing multiple projects and models with specific permissions by users and roles
 
 **Key benefits:**
 
-* **Stronger coverage with less effort** - Automated adversarial dataset generation and comparison
-* **Operational guardrails** - Access rights for teams and continuous red teaming
-* **Keep developers happy** - Continue using local testing while syncing to Hub via SDK
+* **Stronger coverage with less effort** - Advanced adversarial dataset generation and comparison
+* **Team access control and automated security testing** - Manage user permissions and enable continuous red teaming to proactively identify risks
+* **Greater customization for developers** - Create custom datasets and advanced tests with the Hub SDK
 
 Upgrade Path
 ------------
 
-The transition from Open Source to Enterprise Hub is designed to be seamless. You can start with Open Source and gradually migrate to Hub as your team grows.
+The transition from Open Source to Giskard Hub is designed to be seamless. You can start with Open Source and gradually migrate to Hub as your team grows.
 
 1. **Start with Open Source** - Build your testing foundation locally
 2. **Add Hub SDK** - :doc:`/hub/sdk/datasets/import` from Open Source to Hub
 3. **Gradual migration** - Move more workflows to Hub as your team grows
-4. **Full Hub adoption** - Leverage all enterprise features for maximum efficiency
-
-**No code changes required** - Your existing tests and evaluations can be migrated between both environments.
+4. **Full GiskardHub adoption** - Leverage all Giskard Hub features for maximum efficiency
 
 Getting Started
 ---------------
 
 * **Want to get started with Open Source?** Start with :doc:`/oss/sdk/index` (Open Source)
-* **Interested in the Enterprise Hub?** Try :doc:`/start/enterprise-trial` (Enterprise Hub)
+* **Interested in Giskard Hub?** Try :doc:`/start/enterprise-trial` for an enterprise subscription
 * **Need help choosing?** `Contact our team for a consultation <https://www.giskard.ai/contact>`__
-
-Next Steps
-----------
-
-* Learn about :doc:`/hub/ui/continuous-red-teaming` for ongoing security
-* Check out our :doc:`/start/glossary` for key terms and concepts

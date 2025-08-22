@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import warnings
 from typing import Callable, List, Optional
 
 from ._base_client import SyncClient
@@ -40,7 +41,11 @@ class HubClient(SyncClient):
         Resource to interact with conversations.
 
     models : ModelsResource
-        Resource to interact with models.
+        Resource to interact with models. This attribute is deprecated and will be removed in a future version.
+        Use `agents` instead.
+
+    agents : ModelsResource
+        Resource to interact with agents (aliased from models).
 
     evaluations : EvaluationsResource
         Resource to interact with evaluations.
@@ -53,7 +58,6 @@ class HubClient(SyncClient):
     datasets: DatasetsResource
     chat_test_cases: ChatTestCasesResource
     conversations: ConversationsResource
-    models: ModelsResource
     evaluations: EvaluationsResource
     checks: ChecksResource
 
@@ -131,9 +135,43 @@ class HubClient(SyncClient):
         self.datasets = DatasetsResource(self)
         self.chat_test_cases = ChatTestCasesResource(self)
         self.conversations = ConversationsResource(self)
-        self.models = ModelsResource(self)
+        self._models = ModelsResource(self)
         self.evaluations = EvaluationsResource(self)
         self.checks = ChecksResource(self)
+
+    @property
+    def agents(self) -> ModelsResource:
+        """Get the agents resource (aliased from models).
+
+        This is the preferred way to interact with agents in the SDK.
+        The `models` attribute is deprecated and will be removed in a future version.
+
+        Returns
+        -------
+        ModelsResource
+            Resource to interact with agents.
+        """
+        return self._models
+
+    @property
+    def models(self) -> ModelsResource:
+        """Get the models resource (deprecated).
+
+        This attribute is deprecated and will be removed in a future version.
+        Use `agents` instead.
+
+        Returns
+        -------
+        ModelsResource
+            Resource to interact with models.
+        """
+        warnings.warn(
+            "The 'models' attribute is deprecated and will be removed in a future version. "
+            "Use 'agents' instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        return self._models
 
     @property
     def evals(self):

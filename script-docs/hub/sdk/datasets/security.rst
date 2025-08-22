@@ -2,14 +2,18 @@
 Detect Security Vulnerabilities by Generating Synthetic Tests
 =============================================================
 
-Since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import. One of the key challenges of synthetic test data generation is ensuring that the test cases are domain-specific rather than too generic.
+Generative AI agents are vulnerable to a wide range of security threats, many of which are difficult to anticipate in advance. Automated generation of adversarial test cases is essential for uncovering vulnerabilities—especially when you lack real-world attack data or malicious conversations to import. The main challenge is to create synthetic security tests that realistically simulate potential attacks and are tailored to the specific risks relevant to your domain, rather than relying on overly generic prompts.
 
 In this section, we will walk you through how to generate synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
 
 What are AI Security Vulnerabilities?
 ------------------------------------
 
-Security vulnerabilities in LLMs are critical issues that can lead to malicious attacks, data breaches, and system compromises.
+Security vulnerabilities in LLMs are critical because they can be exploited for malicious attacks, data breaches, and system compromises.
+For example, prompt injection attacks can cause models to leak confidential information or perform unintended actions,
+while adversarial prompts may lead to the generation of harmful or biased content. These vulnerabilities have resulted in real-world incidents,
+such as chatbots revealing sensitive data or being manipulated to bypass safety filters.
+For more examples and case studies, see the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Realharm <https://realharm.giskard.ai/>`_.
 
 .. tip::
 
@@ -60,13 +64,13 @@ Underneath, we have a list of categories that we can use to generate a dataset.
 Generate a Synthetic Test Dataset
 _________________________________
 
-We can get the model ID by listing all models using the ``hub.models.list("<PROJECT_ID>")`` method or retrieve the model ID from the Hub UI.
+We can get the agent ID by listing all agents using the ``hub.agents.list("<PROJECT_ID>")`` method or retrieve the agent ID from the Hub UI.
 
 .. code-block:: python
 
    dataset_name = "Adversarial Dataset"
    dataset = hub.datasets.generate(
-      model_id="<MODEL_ID>",
+      model_id="<AGENT_ID>",  # Note: parameter is still named 'model_id' for backward compatibility
       dataset_name=dataset_name,
       categories=categories,
       description="<MODEL_DESCRIPTION>",

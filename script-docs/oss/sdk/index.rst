@@ -197,7 +197,7 @@ Before we can use RAGET, we need to create a knowledge base.
     df = pd.DataFrame({
         "samples": [
             "Giskard is a great tool for testing and evaluating LLMs.",
-            "Giskard Enterprise offers a comprehensive suite of tools for testing and evaluating LLMs.",
+            "Giskard Hub offers a comprehensive suite of tools for testing and evaluating LLMs.",
             "Giskard was founded in France by ex-Dataiku employees."
         ]
     })
@@ -275,4 +275,4 @@ Need Help?
 * **Documentation**: Explore our :doc:`/oss/sdk/reference/index` for detailed API information
 * **Examples**: Check our GitHub repository for more examples
 * **Community**: Join our Discord for support and discussions
-* **Upgrade**: Ready for team collaboration? Try :doc:`/start/enterprise-trial`
+* **Upgrade**: Ready for team collaboration? Try :doc:`/start/enterprise-trial` for an enterprise subscription

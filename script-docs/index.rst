@@ -3,7 +3,7 @@ Welcome to Giskard
 
 Welcome to Giskard! This section will help you understand what Giskard is, choose the right offering for your needs, and get started quickly.
 
-* **Enterprise Hub** - Our enterprise Hub for team collaboration and continuous red teaming
+* **Giskard Hub** - Our enterprise platform for team collaboration and continuous red teaming
 * **Open Source** - Our open-source Python library for LLM testing and evaluation
 * **Open Research** - Our open-source research on AI safety and security
 
@@ -11,31 +11,31 @@ Welcome to Giskard! This section will help you understand what Giskard is, choos
 
    If you're not sure which Giskard offering is right for you, check out the :doc:`start/comparison` guide.
 
-Enterprise
-----------
+Giskard Hub
+-----------
 
-**Giskard Enterprise Hub** is a platform for team collaboration and continuous red teaming. It provides a set of tools for testing and evaluating LLMs, including:
+**Giskard Hub** is a platform for team collaboration and continuous red teaming. It provides a set of tools for testing and evaluating LLMs, including:
 
 * Team collaboration - Multiple users working together on testing and evaluation
 * Continuous red teaming - Automated threat detection and response
 * Access control - Manage who can see what data and run which tests
 * Dataset management - Centralized storage and versioning of test cases
-* Performance monitoring - Track model performance over time
+* Security - Track security vulnerabilities and business logic failures
 * Alerting - Get notified when issues are detected
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Enterprise UI
+   .. grid-item-card:: Giskard Hub UI
       :link: hub/ui/index
       :link-type: doc
 
-      As a non-technical user, you can use the Giskard Enterprise Hub to create test datasets, run evaluations, and manage your team.
+      As a business user, you can use the Giskard Hub to create test datasets, run evaluations, and manage your team.
 
-   .. grid-item-card:: Enterprise SDK
+   .. grid-item-card:: Giskard Hub SDK
       :link: hub/sdk/index
       :link-type: doc
 
-      As a developer, you can use the Hub SDK to interact with the Giskard Enterprise Hub programmatically.
+      As a developer, you can use the Hub SDK to interact with the Giskard Hub programmatically.
 
 Open Source
 -----------
@@ -63,7 +63,12 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 Open Research
 -------------
 
-**Giskard Research** contributes to open research on AI safety and security to showcase and understand the latest advancements in the field. Some work has been funded by the `European Union <https://european-union.europa.eu/>`_, and we've collaborated with leading companies like the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Google DeepMind <https://deepmind.google/>`_.
+**Giskard Research** contributes to open research on AI safety and security to showcase and understand the latest advancements in the field.
+Some work has been funded by the `the European Commission <https://commission.europa.eu/index_en>`_, `Bpirance <https://www.bpifrance.com/>`_, and we've collaborated with leading companies like the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Google DeepMind <https://deepmind.google/>`_.
+
+.. note::
+
+   Are you interested in supporting our research? Check out our `research page <https://opencollective.com/phare-llm-benchmark>`_.
 
 .. grid:: 1 1 2 2
 
@@ -96,7 +101,7 @@ Open Research
    Blogs ↗ <https://www.giskard.ai/knowledge-categories/blog>
 
 .. toctree::
-   :caption: Enterprise UI
+   :caption: Giskard Hub UI
    :hidden:
    :maxdepth: 2
 
@@ -108,7 +113,7 @@ Open Research
    hub/ui/access-rights
 
 .. toctree::
-   :caption: Enterprise SDK
+   :caption: Giskard Hub SDK
    :hidden:
    :maxdepth: 4
 

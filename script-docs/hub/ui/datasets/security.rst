@@ -2,7 +2,7 @@
 Detect Security Vulnerabilities by Generating Synthetic Tests
 =============================================================
 
-Since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import. One of the key challenges of synthetic test data generation is ensuring that the test cases are domain-specific rather than too generic.
+Generative AI agents are vulnerable to a wide range of security threats, many of which are difficult to anticipate in advance. Automated generation of adversarial test cases is essential for uncovering vulnerabilities—especially when you lack real-world attack data or malicious conversations to import. The main challenge is to create synthetic security tests that realistically simulate potential attacks and are tailored to the specific risks relevant to your domain, rather than relying on overly generic prompts.
 
 In this section, we will walk you through how to generate synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
 
@@ -20,6 +20,11 @@ AI security vulnerabilities are weaknesses in LLM systems that can be exploited 
 * **Information Disclosure** - Revealing internal system details or training data
 * **Robustness Issues** - Vulnerability to adversarial inputs or edge cases
 * **Output Formatting Vulnerabilities** - Manipulation of response structure for malicious purposes
+
+For example, prompt injection attacks can cause models to leak confidential information or perform unintended actions,
+while adversarial prompts may lead to the generation of harmful or biased content. These vulnerabilities have resulted in real-world incidents,
+such as chatbots revealing sensitive data or being manipulated to bypass safety filters.
+For more examples and case studies, see the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Realharm <https://realharm.giskard.ai/>`_.
 
 .. note::
 

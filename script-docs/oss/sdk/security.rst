@@ -11,7 +11,7 @@ Giskard provides a set of automated scanning capabilities to detect these vulner
 
 .. tip::
 
-    To get a more powerful set of scans and a collaborative UI, check out :doc:`Enterprise Security Scanning </hub/sdk/datasets/security>` guide.
+    For more up-to-date security scans and a collaborative UI, see the :doc:`Giskard Hub Security Scanning </hub/sdk/datasets/security>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM security exploits and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
 
 .. note::
 
@@ -340,7 +340,7 @@ Next Steps
 If you encounter issues with security scanning:
 
 * Join our `Discord community <https://discord.gg/giskard>`_ and ask questions in the ``#support`` channel
-* Check the Enterprise documentation for :doc:`Advanced LLM Security Test Generation </hub/sdk/datasets/security>`
+* Check the Giskard Hub documentation for :doc:`Advanced LLM Security Test Generation </hub/sdk/datasets/security>`
 * Review our :doc:`glossary on AI terminology </start/glossary>` to better understand the terminology used in the documentation.
 
 Remember: Security testing is an ongoing process. Regularly scan your models and update your security test suites to stay ahead of emerging threats.

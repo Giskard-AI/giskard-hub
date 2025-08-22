@@ -1,7 +1,5 @@
-from typing import List
-
 from giskard_hub.client import HubClient
-from giskard_hub.data import Dataset, Evaluation, Model, Project
+from giskard_hub.data import Evaluation, Project
 
 
 def dummy_model(all_data: Evaluation):
@@ -29,7 +27,9 @@ if __name__ == "__main__":
     project: Project = client.get_projects()[0]
 
     # Get models and check if any exist
-    models = client.get_models(project.id)
+    # Note: 'models' is deprecated, use 'agents' instead for new code
+    models = client.agents.list(project.id)  # Preferred: use client.agents
+    # models = client.models.list(project.id)  # Deprecated: will show warning
     if not models:
         raise ValueError(f"No models found in project {project.id}")
     model = models[0]

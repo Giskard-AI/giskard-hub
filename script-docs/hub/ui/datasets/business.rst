@@ -2,7 +2,9 @@
 Detect Business Failures by Generating Synthetic Tests
 ======================================================
 
-Since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import. One of the key challenges of synthetic test data generation is ensuring that the test cases are domain-specific rather than too generic.
+Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible test cases. Automated, synthetic test case generation is therefore essential—especially when you lack real user conversations to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
+
+By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
 
 In this section, we will walk you through how to generate synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
@@ -45,6 +47,14 @@ In this case, dataset generation requires two additional pieces of information:
 
 - ``Knowledge Base``: Choose the knowledge base you want to use as a reference.
 - ``Topics``: Select the topics within the chosen knowledge base from which you want to generate examples.
+
+  .. note::
+
+     Giskard can automatically cluster your knowledge base into topics for you, or, if your knowledge base already includes tags or categories, you can use those existing tags as topics. This flexibility ensures that topic selection aligns with your business context and data organization.
+
+  .. tip::
+
+     Synthetic test case generation in Giskard is designed to provide broad coverage across your knowledge base. While absolute statistical exhaustiveness isn't feasible, Giskard's approach—clustering documents into key topics and generating multiple test cases per topic—helps ensure that all major areas are represented. By recommending the creation of at least 20 conversations per topic and leveraging both automated clustering and your own domain-specific tags, Giskard maximizes the likelihood of uncovering gaps or failures across your business knowledge.
 
 Once you click on "Generate," you receive a dataset where:
 
