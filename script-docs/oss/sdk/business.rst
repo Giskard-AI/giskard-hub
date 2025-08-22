@@ -7,9 +7,12 @@ What are AI business failures?
 
 Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual responses, inappropriate content generation, and failures to follow business rules.
 
-.. tip::
+.. note::
 
-   To get a more powerful set of tests and a collaborative UI, check out :doc:`Giskard Hub Business Failure Testing </hub/sdk/datasets/business>` guide.
+   Remember: Business failure testing is an ongoing process. Regularly test your models and update your business failure test suites to stay ahead of emerging failures.
+
+   For more up-to-date business failure testing and a collaborative UI, see the :doc:`Giskard Hub Business Failure Testing </hub/sdk/datasets/business>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
+
 
 .. note::
 
@@ -460,7 +463,5 @@ Next Steps
 If you encounter issues with business failure testing:
 
 * Join our `Discord community <https://discord.gg/giskard>`_ and ask questions in the ``#support`` channel
-* Check the Giskard Hub documentation for :doc:`Advanced LLM Security Test Generation </hub/sdk/datasets/business>`
 * Review our :doc:`glossary on AI terminology </start/glossary>` to better understand the terminology used in the documentation.
 
-Remember: Business failure testing is an ongoing process. Regularly test your models and update your business failure test suites to stay ahead of emerging failures.

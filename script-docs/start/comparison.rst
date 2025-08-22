@@ -109,7 +109,7 @@ When to Upgrade to Giskard Hub
 
 * **Stronger coverage with less effort** - Advanced adversarial dataset generation and comparison
 * **Team access control and automated security testing** - Manage user permissions and enable continuous red teaming to proactively identify risks
-* **Greater customization for developers** - Create custom datasets and advanced tests with the Hub SDK
+* **Greater customization for developers** - Create custom datasets and comprehensive tests with the Hub SDK
 
 Upgrade Path
 ------------
@@ -127,3 +127,7 @@ Getting Started
 * **Want to get started with Open Source?** Start with :doc:`/oss/sdk/index` (Open Source)
 * **Interested in Giskard Hub?** Try :doc:`/start/enterprise-trial` for an enterprise subscription
 * **Need help choosing?** `Contact our team for a consultation <https://www.giskard.ai/contact>`__
+
+.. note::
+
+   For more up-to-date security scans and a collaborative UI, see the Giskard Hub Security Scanning guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM security exploits and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.

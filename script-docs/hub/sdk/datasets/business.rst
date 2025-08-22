@@ -103,6 +103,6 @@ Next steps
 * **Generate security vulnerabilities** - Try :doc:`/hub/sdk/datasets/security`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`
 
+.. note::
 
-
-
+   For more up-to-date security scans and a collaborative UI, see the Giskard Hub Security Scanning guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM security exploits and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
