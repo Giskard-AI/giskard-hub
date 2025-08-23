@@ -5,7 +5,13 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
 from time import sleep
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Self
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
+
+# For Python < 3.11 compatibility
+try:
+    from typing import Self
+except ImportError:
+    Self = Any  # Fallback for older Python versions
 
 from dateutil import parser
 
