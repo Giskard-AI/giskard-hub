@@ -89,7 +89,6 @@ class EntityWithTaskProgress(Entity, ABC):
     @abstractmethod
     def resource(self) -> str:
         """Abstract property for the resource name used in API calls."""
-        pass
 
     def is_running(self) -> bool:
         """Check if the evaluation is running."""

@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import warnings
 from typing import List, Literal, Optional, Union
 
 from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
 from ..data.evaluation import ScheduledEvaluationRun
 from ..data.scheduled_evaluation import FrequencyOption, ScheduledEvaluation
+from ..errors import HubValidationError
 from ._resource import APIResource
 
 
@@ -21,10 +23,6 @@ class ScheduledEvaluationsResource(APIResource):
         """
         General validation for scheduled evaluation frequency and related fields.
         """
-        import warnings
-
-        from ..errors import HubValidationError
-
         if frequency is None:
             return
 
@@ -51,6 +49,36 @@ class ScheduledEvaluationsResource(APIResource):
                     "day_of_week and day_of_month are ignored when frequency is 'daily'.",
                     UserWarning,
                 )
+
+    def _validate_schedule_update(
+        self,
+        frequency: Union[
+            Literal["daily", "weekly", "monthly"], FrequencyOption, NotGiven
+        ],
+        day_of_week: Union[int, NotGiven],
+        day_of_month: Union[int, NotGiven],
+    ) -> None:
+        """Validate schedule fields when updating a scheduled evaluation."""
+        # Only validate if any schedule-related fields are being updated
+        freq_val: Optional[
+            Union[Literal["daily", "weekly", "monthly"], FrequencyOption]
+        ] = None
+        dow_val: Optional[int] = None
+        dom_val: Optional[int] = None
+
+        if frequency is not NOT_GIVEN:
+            freq_val = frequency  # type: ignore
+        if day_of_week is not NOT_GIVEN:
+            dow_val = day_of_week  # type: ignore
+        if day_of_month is not NOT_GIVEN:
+            dom_val = day_of_month  # type: ignore
+
+        if freq_val is not None or dow_val is not None or dom_val is not None:
+            self._validate_schedule(
+                frequency=freq_val,
+                day_of_week=dow_val,
+                day_of_month=dom_val,
+            )
 
     def list(
         self,
@@ -214,24 +242,8 @@ class ScheduledEvaluationsResource(APIResource):
         ScheduledEvaluation
             The updated scheduled evaluation.
         """
-        # Only validate if frequency, day_of_week, or day_of_month are being updated
-        freq_val: Optional[Union[str, FrequencyOption]] = None
-        dow_val: Optional[int] = None
-        dom_val: Optional[int] = None
-
-        if frequency is not NOT_GIVEN:
-            freq_val = frequency
-        if day_of_week is not NOT_GIVEN:
-            dow_val = day_of_week  # type: ignore
-        if day_of_month is not NOT_GIVEN:
-            dom_val = day_of_month  # type: ignore
-
-        if freq_val is not None or dow_val is not None or dom_val is not None:
-            self._validate_schedule(
-                frequency=freq_val,
-                day_of_week=dow_val,
-                day_of_month=dom_val,
-            )
+        # Validate schedule if any schedule-related fields are being updated
+        self._validate_schedule_update(frequency, day_of_week, day_of_month)
 
         payload = filter_not_given(
             {
