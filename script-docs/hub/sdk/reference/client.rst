@@ -5,8 +5,9 @@ Client
 ================
 
 .. autoclass:: giskard_hub.client.HubClient
-    :members: projects, datasets, conversations, models, agents, evaluations, evals
+    :members: projects, datasets, conversations, agents, models, evaluations, evals
     :show-inheritance:
+    :no-index:
 
 .. autoclass:: giskard_hub.client.SyncClient
     :members:

@@ -80,13 +80,15 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
       Phare is a multilingual benchmark to evaluate LLMs across key safety & security dimensions, including hallucination, factual accuracy, bias, and potential harm.
 
-      `Phare website <https://phare.giskard.ai/>`_ and `arXiv paper <https://arxiv.org/abs/2505.11365>`_.
+      - `Phare website <https://phare.giskard.ai/>`_
+      - `Phare arXiv paper <https://arxiv.org/abs/2505.11365>`_
 
    .. grid-item-card:: RealHarm
 
       RealHarm is a dataset of problematic interactions with textual AI agents built from a systematic review of publicly reported incidents.
 
-      `RealHarm website <https://realharm.giskard.ai/>`_ and `arXiv paper <https://arxiv.org/abs/2504.10277>`_.
+      - `RealHarm website <https://realharm.giskard.ai/>`_
+      - `RealHarm arXiv paper <https://arxiv.org/abs/2504.10277>`_
 
    .. grid-item-card:: RealPerformance ↗
       :link: https://realperformance.giskard.ai/
