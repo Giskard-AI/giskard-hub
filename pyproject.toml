@@ -35,6 +35,7 @@ pyarrow = "<20.0.0"
 ragas = "0.1.5, <=0.2.7"
 ipywidgets = "^8.1.7"
 sphinxext-opengraph = {version = "^0.12.0", extras = ["social_cards"]}
+pandoc = "^2.4"
 
 [build-system]
 requires = ["poetry-core"]
