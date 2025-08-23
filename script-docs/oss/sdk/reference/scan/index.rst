@@ -1,3 +1,5 @@
+:og:description: LLM Scan Reference - Complete documentation for the LLM security scanning tool in Giskard open source library. Learn how to detect security vulnerabilities and threats in language models.
+
 Model scanner
 =============
 

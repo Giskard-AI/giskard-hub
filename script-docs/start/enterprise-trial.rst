@@ -1,3 +1,5 @@
+:og:description: Request your free Giskard Hub enterprise trial - Experience team collaboration, continuous red teaming, and state-of-the-art enterprise-grade LLM testing features with full access to all platform capabilities.
+
 Request Your Enterprise Trial
 =============================
 
@@ -42,7 +44,7 @@ Getting Started
 
 3. **Secure your Agents**
 
-   * Generate synthetic tests to evaluate your models
+   * Generate synthetic tests to evaluate your agents
    * Manage datasets and track their versions
    * Set up continuous red teaming
    * Automate alerting and notifications

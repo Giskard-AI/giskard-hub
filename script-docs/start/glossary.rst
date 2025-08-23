@@ -1,3 +1,5 @@
+:og:description: Giskard Glossary - Comprehensive definitions of key terms and concepts in LLM testing, evaluation, red teaming, and AI safety. Essential reference for understanding Giskard documentation.
+
 Glossary
 ========
 

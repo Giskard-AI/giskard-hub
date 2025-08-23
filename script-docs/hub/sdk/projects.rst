@@ -1,3 +1,5 @@
+:og:description: Project Management (SDK) - Create, update, and organize projects programmatically using the Giskard Hub Python SDK. Manage project settings, users, and configurations through code.
+
 ===============================================
 Manage Projects and Agents
 ===============================================
@@ -90,9 +92,9 @@ You can create an agent using the ``hub.agents.create()`` method. Here's a basic
 
     agent = hub.agents.create(
         project_id=project.id,
-        name="My Bot",
-        description="A chatbot for demo purposes",
-        url="https://my-agent-endpoint.example.com/bot_v1",
+        name="My Agent",
+        description="An agent for demo purposes",
+        url="https://my-agent-endpoint.example.com/agent_v1",
         supported_languages=["en", "fr"],
         # if your agent endpoint needs special headers:
         headers={"X-API-Key": "MY_TOKEN"},

@@ -1,3 +1,5 @@
+:og:description: Giskard Hub SDK - Python SDK for enterprise LLM agent testing with programmatic access to all Hub features. Automate testing, manage projects, datasets, and run evaluations through code.
+
 Quickstart & Setup
 ==================
 
@@ -192,8 +194,11 @@ These are the attributes you can set for a conversation (the only required attri
             - ``expected_value``: The expected value at the JSON path.
             - ``expected_value_type``: The expected type of the value at the JSON path, one of ``string``, ``number``, ``boolean``.
 
-You can add as many conversations as you want to the dataset.
+.. note::
 
+   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
+
+You can add as many conversations as you want to the dataset.
 
 Configure an Agent
 ___________________
@@ -209,9 +214,9 @@ Then, you can configure the agent API in the Hub:
 
     agent = hub.agents.create(
         project_id=project.id,
-        name="My Bot",
-        description="A chatbot for demo purposes",
-        url="https://my-agent-endpoint.example.com/bot_v1",
+        name="My Agent",
+        description="An agent for demo purposes",
+        url="https://my-agent-endpoint.example.com/agent_v1",
         supported_languages=["en", "fr"],
         # if your agent endpoint needs special headers:
         headers={"X-API-Key": "MY_TOKEN"},

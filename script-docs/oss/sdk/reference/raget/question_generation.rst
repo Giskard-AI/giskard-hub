@@ -1,3 +1,5 @@
+:og:description: RAGET Question Generation Reference - Documentation for automated question generation in the RAG Evaluation Toolkit. Learn how to create comprehensive test cases for RAG evaluation.
+
 Question Generation
 ===================
 

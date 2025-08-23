@@ -1,3 +1,5 @@
+:og:description: Access Rights Management (UI) - Configure role-based access control, manage user permissions, and ensure secure collaboration across your organization's LLM testing projects.
+
 ==================
 Set Access Rights
 ==================

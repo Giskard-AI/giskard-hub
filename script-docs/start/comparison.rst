@@ -1,3 +1,5 @@
+:og:description: Giskard Comparison Guide - Compare Giskard Hub (enterprise) vs Giskard Open Source to choose the right LLM testing solution for your team size, security needs, and collaboration requirements.
+
 Open Source vs Giskard Hub
 ==========================
 
@@ -153,7 +155,3 @@ Getting Started
 * **Want to get started with Open Source?** Start with :doc:`/oss/sdk/index` (Open Source)
 * **Interested in Giskard Hub?** Try :doc:`/start/enterprise-trial` for an enterprise subscription
 * **Need help choosing?** `Contact our team for a consultation <https://www.giskard.ai/contact>`__
-
-.. note::
-
-   For more up-to-date security scans and a collaborative UI, see the Giskard Hub Security Scanning guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM security exploits and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.

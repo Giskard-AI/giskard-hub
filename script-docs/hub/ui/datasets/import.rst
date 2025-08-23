@@ -1,3 +1,5 @@
+:og:description: Import Datasets (UI) - Bring your existing test data into Giskard Hub. Import conversations, CSV files, and other data formats to build comprehensive test datasets for LLM evaluation.
+
 =============================
 Import Existing Datasets
 =============================
@@ -36,6 +38,10 @@ Each conversation must be defined as a JSON object with a ``messages`` field con
 - ``tags``: a list of tags to categorize the conversation
 - ``checks``: a list of checks to evaluate the conversation, they can be built-in or custom ones
 
+.. note::
+
+   For detailed information about built-in checks like correctness, conformity, groundedness, and string matching, including examples and how they work, see :doc:`/hub/ui/annotate`.
+
 .. image:: /_static/images/hub/import-conversations-detail.png
    :align: center
    :alt: "Import a conversation"
@@ -49,7 +55,7 @@ Here's an example of the structure and content in a dataset:
         {
             "messages": [
                 {"role": "assistant", "content": "Hello!"},
-                {"role": "user", "content": "Hi Bot!"},
+                {"role": "user", "content": "Hi Agent!"},
             ],
             "demo_output": {"role": "assistant", "content": "How can I help you ?"},
             "tags": ["greetings"],
@@ -64,7 +70,7 @@ Alternatively, you can import data in **CSV format**, containing one message per
 
 .. tip::
 
-   If you need help creating a CSV file, see this `example guide <https://www.wikihow.com/Create-a-CSV-File>`_.
+      If you need help creating a CSV file, see this `example guide <https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6>`_.
 
 Each CSV must contain a ``user_message`` column representing the message from the user. Additionally, the file can contain optional attributes:
 
@@ -80,7 +86,7 @@ Here's an example of the structure and content in a dataset:
 .. code-block:: text
 
     user_message,bot_message,tag_1,tag_2,expected_output,rule_1,rule_2,check_1,check_2
-    Hi bot!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
+    Hi agent!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
 
 Next steps
 ----------

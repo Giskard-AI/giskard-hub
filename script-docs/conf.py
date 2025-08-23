@@ -37,6 +37,7 @@ extensions = [
     "sphinx_click",
     "fix_dataclass",
     "sphinx_tabs.tabs",
+    "sphinxext.opengraph",
     # "sphinx_autodoc_typehints",
 ]
 
@@ -95,6 +96,47 @@ theme_options = ThemeOptions(
     },
 )
 html_theme_options = asdict(theme_options)
+
+# -- Open Graph configuration -------------------------------------------------
+# https://sphinxext-opengraph.readthedocs.io/en/latest/
+
+# Open Graph site name
+ogp_site_name = "Giskard Documentation"
+
+# Open Graph image (logo for social sharing)
+ogp_image = "_static/logo_black.png"
+
+# Open Graph image type
+ogp_image_type = "image/png"
+
+# Open Graph image width and height (standard social media dimensions)
+ogp_image_width = 1200
+ogp_image_height = 630
+
+# Additional Open Graph images for different contexts
+ogp_image_alt = ["_static/logo_white.png"]
+
+# Open Graph description
+ogp_description_length = 200
+
+# Open Graph locale
+ogp_locale = "en_US"
+
+# Open Graph type
+ogp_type = "website"
+
+# Enable Open Graph
+ogp_enable_meta_description = True
+ogp_enable_meta_keywords = True
+
+# Twitter Card support (complements Open Graph)
+ogp_twitter_creator = "@GiskardAI"
+ogp_twitter_site = "@GiskardAI"
+
+# Additional Open Graph properties
+ogp_image_secure_url = (
+    f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/logo_black.png"
+)
 
 
 # make github links resolve

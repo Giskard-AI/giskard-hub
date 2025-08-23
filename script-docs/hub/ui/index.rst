@@ -1,3 +1,5 @@
+:og:description: Giskard Hub UI - Enterprise platform for LLM agent testing with team collaboration, continuous red teaming, and comprehensive evaluation workflows. Perfect for business users managing AI safety in production environments.
+
 ====================
 Quickstart & Setup
 ====================
@@ -44,8 +46,8 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
    :width: 800
 
 .. note::
-    Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's chatbot provides customer service support on their website, offering knowledge about the bank's products, services, and more.
 
+    Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's agent provides customer service support on their website, offering knowledge about the bank's products, services, and more.
 
 The Dashboard
 ================
@@ -53,6 +55,10 @@ The Dashboard
 The Dashboard is the first page you'll see upon logging in. It provides an overview of your project, displaying the number of agents, datasets, evaluations, and knowledge bases.
 
 It also features a graph showing the agent's performance over time, measured by the average success rate of the evaluations. The success rate is calculated based on some evaluation metrics, such as Conformity, Correctness, and more. We'll delve into these metrics in more detail in the Evaluations section.
+
+.. note::
+
+   For detailed information about evaluation metrics and checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
 Additionally, the dashboard lists your most recent evaluations and datasets for quick access.
 

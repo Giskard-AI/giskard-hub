@@ -1,3 +1,5 @@
+:og:description: Continuous Red Teaming (UI) - Proactively detect emerging vulnerabilities in your LLM agents through automated scanning, monitoring, and threat detection systems.
+
 =======================
 Continuous Red Teaming
 =======================

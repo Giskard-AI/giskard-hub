@@ -1,3 +1,5 @@
+:og:description: Giskard Hub SDK Reference - Complete API documentation for the Hub Python SDK. Find detailed information about all classes, methods, and resources for programmatic access to Giskard Hub.
+
 ===============================================
 API Reference
 ===============================================

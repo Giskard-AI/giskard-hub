@@ -1,11 +1,13 @@
+:og:description: Welcome to Giskard - Your comprehensive guide to LLM agent testing and evaluation. Choose between Giskard Hub (enterprise platform) and Giskard Open Source (Python library) for your AI safety and security needs.
+
 Welcome to Giskard
 ==================
 
 Welcome to Giskard! This section will help you understand what Giskard is, choose the right offering for your needs, and get started quickly.
 
 * **Giskard Hub** – Our enterprise platform for LLM agent testing with team collaboration and continuous red teaming, offering both a user-friendly UI for business users and a powerful SDK for technical users
-* **Open Source** - Our open-source Python library for LLM testing and evaluation, offering only an programmatic interface
-* **Open Research** - Our open-source research on AI safety and security
+* **Giskard Open-Source** - Open-source Python library for LLM testing and evaluation, offering a programmatic interface for technical users, with basic testing capabilities to get started.
+* **Giskard Research** - Our research on AI safety & security
 
 .. tip::
 
@@ -65,7 +67,7 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 Open Research
 -------------
 
-**Giskard Research** contributes to open research on AI safety and security to showcase and understand the latest advancements in the field.
+**Giskard Research** contributes to research on AI safety and security to showcase and understand the latest advancements in the field.
 Some work has been funded by the `the European Commission <https://commission.europa.eu/index_en>`_, `Bpirance <https://www.bpifrance.com/>`_, and we've collaborated with leading companies like the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Google DeepMind <https://deepmind.google/>`_.
 
 .. note::

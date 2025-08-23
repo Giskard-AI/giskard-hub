@@ -1,3 +1,5 @@
+:og:description: Run Evaluations (UI) - Run comprehensive evaluations of your AI agents using test datasets. Schedule automated testing to analyze results, and track performance metrics over time.
+
 ===============================================
 Run and Schedule Evaluations
 ===============================================
@@ -8,9 +10,9 @@ This section guides you through evaluating your agent using a given dataset. For
 
    Depending on your AI lifecycle, you may have different reasons to execute your tests:
 
-   - **Development time:** Compare model versions during development and identify the right correction strategies for developers.
+   - **Development time:** Compare agent versions during development and identify the right correction strategies for developers.
    - **Deployment time:** Perform non-regression testing in the CI/CD pipeline for DevOps.
-   - **Production time:** Provide high-level reporting for business executives to stay informed about key vulnerabilities in a running bot.
+   - **Production time:** Provide high-level reporting for business executives to stay informed about key vulnerabilities in a running agent.
 
 Create a new evaluation
 ------------------------
@@ -45,6 +47,10 @@ The evaluation run is automatically named and assessed against the checks (built
 
 - **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
 
+.. note::
+
+   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
+
 The pie chart below displays the number of evaluations that passed, failed, or were unexecuted.
 
 .. image:: /_static/images/hub/evaluation-metrics.png
@@ -56,9 +62,9 @@ The pie chart below displays the number of evaluations that passed, failed, or w
 
    **💡 How to use your test results to correct your AI agent?**
 
-   During the development phase, it is essential to diagnose issues and implement corrections to improve the bot’s performance.
+   During the development phase, it is essential to diagnose issues and implement corrections to improve the agent’s performance.
 
-   - **Failure rate per check:** Identifying the checks with the highest failure rate makes it easier to apply targeted corrections. For example, if you created a custom check to verify whether the bot starts with "I’m sorry," it is useful to know how many conversations fail this requirement. If the failure rate is high, you can develop mitigation strategies such as prompt engineering, implementing guardrails, or using routers to address the issue.
+   - **Failure rate per check:** Identifying the checks with the highest failure rate makes it easier to apply targeted corrections. For example, if you created a custom check to verify whether the agent starts with "I’m sorry," it is useful to know how many conversations fail this requirement. If the failure rate is high, you can develop mitigation strategies such as prompt engineering, implementing guardrails, or using routers to address the issue.
    - **Failure rate per tag:** Measuring failure rates across different vulnerability categories (e.g., hallucination, prompt injection) helps prioritize mitigation strategies for the AI agent.
 
 
@@ -72,7 +78,7 @@ When you click on a conversation in the Evaluation Runs, you’ll see detailed i
 Schedule evaluations
 --------------------
 
-You can schedule evaluations to run automatically at regular intervals. This is useful to detect regressions in your model's performance over time.
+You can schedule evaluations to run automatically at regular intervals. This is useful to detect regressions in your agent's performance over time.
 
 On the Evaluations page, click on the "Schedule" tab. This will display a list of all the scheduled evaluations.
 
@@ -92,7 +98,7 @@ Next, set the parameters for the evaluation:
 
 - ``Name``: Give your evaluation a name.
 
-- ``Agent``: Select the model you want to evaluate.
+- ``Agent``: Select the agent you want to evaluate.
 
 - ``Dataset``: Choose the dataset you want to use for the evaluation.
 

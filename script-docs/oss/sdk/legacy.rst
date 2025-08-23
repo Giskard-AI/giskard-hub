@@ -1,3 +1,5 @@
+:og:description: Legacy Giskard Open Source - Documentation for older versions of the Giskard library. Find information about deprecated features and migration guides.
+
 ===============================================
 Tabular ML, Predictive NLP, and Computer Vision
 ===============================================

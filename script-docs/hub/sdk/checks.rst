@@ -1,3 +1,5 @@
+:og:description: Custom Checks (SDK) - Build and deploy validation rules, metrics, and testing logic programmatically. Create specialized testing logic for your specific use cases using the Giskard Hub Python SDK.
+
 ====================
 Manage Checks
 ====================
@@ -19,7 +21,7 @@ You can now use the ``hub`` client to create, update, and delete checks.
 Built-in checks
 ---------------
 
-Giskard provides a set of built-in checks that you can use to evaluate your models. These checks form the foundation of :ref:`custom-checks` but they can also be used independently as shown in :ref:`add-checks-to-conversations`.
+Giskard provides a set of built-in checks that you can use to evaluate your agents. These checks form the foundation of :ref:`custom-checks` but they can also be used independently as shown in :ref:`add-checks-to-conversations`.
 
 .. tip::
 
@@ -35,7 +37,7 @@ Custom checks are reusable evaluation criteria that you can define for your proj
 Custom checks can be used in the following ways:
 
 - Applied to conversations in your datasets
-- Used during model evaluations
+- Used during agent evaluations
 - Shared across your team **within the same project**
 - Modified or updated as your requirements evolve
 
@@ -51,7 +53,7 @@ You can create a check using the ``hub.checks.create()`` method. Here's a basic 
         project_id="your_project_id",
         identifier="answer_english",
         name="Answer in English",
-        description="Validates if the model output is in English",
+        description="Validates if the agent output is in English",
         params={
             "type": "conformity",
             "rules": ["The answer should be in English"]
@@ -72,7 +74,7 @@ The parameters for creating a custom check are:
 
         **Parameter**: ``reference`` (type: ``str``)
 
-        The expected output that the model's response should match. The correctness check validates whether all information from the reference answer is present in the model answer without contradiction.
+        The expected output that the agent's response should match. The correctness check validates whether all information from the reference answer is present in the agent answer without contradiction.
 
         .. code-block:: python
 
@@ -85,15 +87,15 @@ The parameters for creating a custom check are:
 
         **Parameter**: ``rules`` (type: ``list[str]``)
 
-        A list of rules that the model should follow in its response. Each rule should check a unique and unambiguous behavior.
+        A list of rules that the agent should follow in its response. Each rule should check a unique and unambiguous behavior.
 
         .. code-block:: python
 
             params={
                 "type": "conformity",
                 "rules": [
-                    "The model should only answer in English",
-                    "The model should maintain a professional tone"
+                    "The agent should only answer in English",
+                    "The agent should maintain a professional tone"
                 ]
             }
 
@@ -101,7 +103,7 @@ The parameters for creating a custom check are:
 
         **Parameter**: ``context`` (type: ``str``)
 
-        The context in which the model should ground its output. This check validates that all information in the model's response is present in the given context without contradiction.
+        The context in which the agent should ground its output. This check validates that all information in the agent's response is present in the given context without contradiction.
 
         .. code-block:: python
 
@@ -119,7 +121,7 @@ The parameters for creating a custom check are:
 
         **Parameter**: ``keyword`` (type: ``str``)
 
-        The string that the model's output should contain. This check validates that the specified keyword appears in the model's response.
+        The string that the agent's output should contain. This check validates that the specified keyword appears in the agent's response.
 
         .. code-block:: python
 
@@ -134,7 +136,7 @@ The parameters for creating a custom check are:
 
         A list of dictionaries with the following keys:
 
-        - ``json_path``: The JSON path to the value that the model's output should contain
+        - ``json_path``: The JSON path to the value that the agent's output should contain
         - ``expected_value``: The expected value at the JSON path
         - ``expected_value_type``: The expected type of the value (``string``, ``number``, or ``boolean``)
 
@@ -270,11 +272,11 @@ Here are some practical examples of custom checks you might create:
 Domain-specific correctness
 ___________________________
 
-Sometimes, you might want to ensure that the model's output is grounded in a specific context. For example, if you're building a financial chatbot, you might want to ensure that the model's output is grounded in the financial context.
+Sometimes, you might want to ensure that the agent's output is grounded in a specific context. For example, if you're building a financial agent, you might want to ensure that the agent's output is grounded in the financial context.
 
 .. code-block:: python
 
-    # For a financial chatbot
+    # For a financial agent
     financial_check = hub.checks.create(
         project_id=project.id,
         identifier="financial_accuracy",
@@ -283,7 +285,7 @@ Sometimes, you might want to ensure that the model's output is grounded in a spe
         params={
             # The type of the check
             "type": "groundedness",
-            # The context in which the model should ground its output
+            # The context in which the agent should ground its output
             "context": "The compound interest formula is A = P(1 + r/n)^(nt)"
         }
     )
@@ -291,7 +293,7 @@ Sometimes, you might want to ensure that the model's output is grounded in a spe
 Tone and style checks
 _____________________
 
-We can use a conformity check to ensure that the model maintains a professional and helpful tone.
+We can use a conformity check to ensure that the agent maintains a professional and helpful tone.
 
 .. code-block:: python
 
@@ -313,7 +315,7 @@ We can use a conformity check to ensure that the model maintains a professional 
 Content safety checks
 _____________________
 
-A major use case for checks is to ensure that the model does not answer questions that are not related to the domain.
+A major use case for checks is to ensure that the agent does not answer questions that are not related to the domain.
 
 .. code-block:: python
 
@@ -322,7 +324,7 @@ A major use case for checks is to ensure that the model does not answer question
         project_id=project.id,
         identifier="content_safety",
         name="Content Safety Check",
-        description="Ensures the bot refuses to answer questions that are not related to the domain",
+        description="Ensures the agent refuses to answer questions that are not related to the domain",
         params={
             "type": "correctness",
             "reference": "I'm sorry, I can't answer that question"
@@ -332,7 +334,7 @@ A major use case for checks is to ensure that the model does not answer question
 Verify tool calls
 _________________
 
-You can use a metadata check to verify that the model calls the correct tool or calls any tool at all. For example, to ensure your chatbot always uses the latest information, you can use a metadata check to verify that the model calls the correct tool.
+You can use a metadata check to verify that the agent calls the correct tool or calls any tool at all. For example, to ensure your agent always uses the latest information, you can use a metadata check to verify that the agent calls the correct tool.
 
 .. code-block:: python
 
@@ -341,7 +343,7 @@ You can use a metadata check to verify that the model calls the correct tool or 
         project_id=project.id,
         identifier="tool_calling",
         name="Tool Calling Check",
-        description="Ensures the model calls the correct tool",
+        description="Ensures the agent calls the correct tool",
         params={
             "type": "metadata",
             "json_path_rules": [

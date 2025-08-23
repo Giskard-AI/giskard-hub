@@ -1,3 +1,4 @@
+:og:description: RAGET Metrics Reference - Documentation for evaluation metrics in the RAG Evaluation Toolkit. Learn about context precision, context recall, and other RAG quality metrics.
 
 Available Metric functions
 ==========================

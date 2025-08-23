@@ -1,3 +1,5 @@
+:og:description: LLM Detectors Reference - Documentation for security detectors in LLM Scan. Learn about prompt injection, data leakage, and other security threat detection mechanisms.
+
 Detectors for LLM models
 ========================
 

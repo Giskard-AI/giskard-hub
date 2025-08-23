@@ -1,8 +1,12 @@
+:og:description: Detect Security Vulnerabilities by Generating Synthetic Tests (UI) - Generate adversarial test cases to detect security vulnerabilities in your LLM agents. Test for prompt injection, data leakage, and other security threats to protect your AI systems.
+
 =============================================================
 Detect Security Vulnerabilities by Generating Synthetic Tests
 =============================================================
 
 Generative AI agents are vulnerable to a wide range of security threats, many of which are difficult to anticipate in advance. Automated generation of adversarial test cases is essential for uncovering vulnerabilities—especially when you lack real-world attack data or malicious conversations to import. The main challenge is to create synthetic security tests that realistically simulate potential attacks and are tailored to the specific risks relevant to your domain, rather than relying on overly generic prompts.
+
+Giskard Hub solves this challenge by enabling **business users to directly generate synthetic security tests without requiring coding skills**.
 
 In this section, we will walk you through how to generate synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
 
@@ -23,7 +27,7 @@ AI security vulnerabilities are weaknesses in LLM systems that can be exploited 
 
 For example, prompt injection attacks can cause models to leak confidential information or perform unintended actions,
 while adversarial prompts may lead to the generation of harmful or biased content. These vulnerabilities have resulted in real-world incidents,
-such as chatbots revealing sensitive data or being manipulated to bypass safety filters.
+such as agents revealing sensitive data or being manipulated to bypass safety filters.
 For more examples and case studies, see the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Realharm <https://realharm.giskard.ai/>`_.
 
 .. note::
@@ -32,8 +36,8 @@ For more examples and case studies, see the `AI Incident Database <https://incid
 
    - **Exhaustive:** Use established security vulnerability categories for LLMs (e.g., `OWASP Top 10 <https://owasp.org/www-project-top-10-for-large-language-model-applications/>`_) to cover the most well-known issues.
    - **Designed to trigger failures:** Since foundational model providers frequently patch security flaws, testing must include novel variations that can bypass these patches. For example, for most prompt injection techniques (e.g., `DAN <https://arxiv.org/abs/2308.03825>`_), generating variants increases the likelihood of failures.
-   - **Automatable:** A good synthetic test case generator should not only generate adversarial queries but also the ``rules`` (or output requirements) so that the evaluation judge can automatically verify the compliance of the bot's responses with these rules. This is essential for the `LLM-as-a-judge setup <https://arxiv.org/abs/2411.15594>`_.
-   - **Domain-specific:** As with legitimate queries, adding metadata to the synthetic data generator makes it more precise. The Giskard hub includes the bot's description in the generation process ensures that adversarial queries are realistic. This also helps make the rules more specific, thereby increasing the failure rate of test cases.
+   - **Automatable:** A good synthetic test case generator should not only generate adversarial queries but also the ``rules`` (or output requirements) so that the evaluation judge can automatically verify the compliance of the agent's responses with these rules. This is essential for the `LLM-as-a-judge setup <https://arxiv.org/abs/2411.15594>`_.
+   - **Domain-specific:** As with legitimate queries, adding metadata to the synthetic data generator makes it more precise. The Giskard hub includes the agent's description in the generation process ensures that adversarial queries are realistic. This also helps make the rules more specific, thereby increasing the failure rate of test cases.
 
 .. tip::
 

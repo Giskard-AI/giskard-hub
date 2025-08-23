@@ -1,3 +1,5 @@
+:og:description: Import Datasets (SDK) - Programmatically import existing test data into Giskard Hub. Support for conversations, CSV files, and other formats through the Python SDK.
+
 =============================
 Import Existing Datasets
 =============================

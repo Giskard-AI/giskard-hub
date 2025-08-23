@@ -1,3 +1,5 @@
+:og:description: Human-in-the-Loop Annotation (UI) - Review and refine test cases with domain expertise. Use collaborative annotation workflows to improve test quality and ensure comprehensive coverage.
+
 ================================
 Review Tests with Human Feedback
 ================================
@@ -31,7 +33,7 @@ Simple conversation
 
 In the simplest case, a conversation is composed by a single message by the user. Here's an example:
 
-For example, if you want to test the ability of the model to handle a multi-turn conversation, you could write the following conversation:
+For example, if you want to test the ability of the agent to handle a multi-turn conversation, you could write the following conversation:
 
    **User:** Hello, which language is your open-source library written in?
 
@@ -39,7 +41,7 @@ For example, if you want to test the ability of the model to handle a multi-turn
 Multi-turn conversation
 -----------------------
 
-If you want to test the ability of the model to handle a multi-turn conversation, you can write provide a conversation history with previous **assistant** messages:
+If you want to test the ability of the agent to handle a multi-turn conversation, you can write provide a conversation history with previous **assistant** messages:
 
 
    **User:** Hello, I wanted to have more information about your open-source library.
@@ -57,7 +59,7 @@ You can also provide an "answer example" for each test. The answer example will 
 
 There are multiple ways to provide an answer example:
   1. If you are importing a dataset, you can import the answer examples together with the conversations by providing a `demo_output` field. This is useful for example when you are importing production data and you want to keep a reference of the actual answer that was given by your agent in production.
-  2. You can generate the bot's answer by clicking on the three-dot button and selecting "Replace the assistant message".
+  2. You can generate the agent's answer by clicking on the three-dot button and selecting "Replace the assistant message".
   3. You can also write your own answer example from scratch. This is particularly useful when you are testing your evaluation criteria against a specific answer. For example, you may want to write a non-compliant answer and make sure that your evaluation criteria will correctly flag it.
 
 If you haven't added an answer example, by default, the Hub will populate this field with the assistant answer obtained upon the first evaluation run on your dataset.
@@ -71,7 +73,7 @@ Assigning checks to a conversation enables you to set the right requirements for
 Correctness Check
 ------------------
 
-Check whether all information from the reference answer is present in the model answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent's answer.
+Check whether all information from the reference answer is present in the agent answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent's answer.
 
 .. admonition:: Example
 
@@ -94,21 +96,21 @@ Check whether all information from the reference answer is present in the model 
 Conformity Check
 ------------------
 
-Given a rule or criterion, check whether the model answer complies with this rule. This can be used to check business specific behavior or constraints. A conformity check may have several rules. Each rule should check a unique and unambiguous behavior. Here are a few examples of rules:
+Given a rule or criterion, check whether the agent answer complies with this rule. This can be used to check business specific behavior or constraints. A conformity check may have several rules. Each rule should check a unique and unambiguous behavior. Here are a few examples of rules:
 
-- The model should not talk about {{competitor company}}.
-- The model should only answer in English.
-- The model should always keep a professional tone.
+- The agent should not talk about {{competitor company}}.
+- The agent should only answer in English.
+- The agent should always keep a professional tone.
 
 .. admonition:: Example
 
-   **Rule**: The model should not give any financial advice or personalized recommendations.
+   **Rule**: The agent should not give any financial advice or personalized recommendations.
 
    **Failure example**:
 
    - You should definitely invest into bitcoin in addition to your saving plan, since you want to buy a flat quickly, the yield is much higher with bitcoin.
 
-     - *Reason: The model answer contradicts the rule which states that the model should not give any financial advice or personalized recommendations.*
+     - *Reason: The agent answer contradicts the rule which states that the agent should not give any financial advice or personalized recommendations.*
 
    **Success example**:
 
@@ -134,12 +136,12 @@ Given a rule or criterion, check whether the model answer complies with this rul
    - **Write Custom Checks when your rules apply to multiple conversations**
 
      - Creating and enabling a custom check for multiple conversations is useful when you want to display the evaluation results for all conversations where the custom check is enabled.
-     - *Examples of generic rules that are likely to be used more than once*: "The agent should not discriminate based on gender, sexual orientation, religion, or profession." "The bot should answer in English."
+     - *Examples of generic rules that are likely to be used more than once*: "The agent should not discriminate based on gender, sexual orientation, religion, or profession." "The agent should answer in English."
 
 Groundedness Check
 --------------------
 
-Check whether all information from the bot's answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent's answer. The groundedness check is useful for detecting potential hallucinations in the agent's answer.
+Check whether all information from the agent's answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent's answer. The groundedness check is useful for detecting potential hallucinations in the agent's answer.
 
 .. admonition:: Example
 
@@ -163,7 +165,7 @@ Check whether all information from the bot's answer is present in the given cont
 String Matching Check
 ---------------------
 
-Check whether the given keyword or sentence is present in the model answer.
+Check whether the given keyword or sentence is present in the agent answer.
 
 .. admonition:: Example
 
@@ -173,7 +175,7 @@ Check whether the given keyword or sentence is present in the model answer.
 
    - Hi, can I help you?
 
-     - *Reason: The model answer does not contain the keyword 'Hello'*
+     - *Reason: The agent answer does not contain the keyword 'Hello'*
 
    **Success example**:
 
@@ -241,11 +243,11 @@ Next, set the parameters for the check:
 - ``Identifier``: A unique identifier for the check. It should be a string without spaces.
 - ``Description``: A brief description of the check.
 - ``Type``: The type of the check, which can be one of the following:
-    - ``Correctness``: The output of the model should match the reference.
+    - ``Correctness``: The output of the agent should match the reference.
     - ``Conformity``: The conversation should follow a set of rules.
-    - ``Groundedness``: The output of the model should be grounded in the conversation.
-    - ``String matching``: The output of the model should contain a specific string (keyword or sentence).
-    - ``Metadata``: The metadata output of the model should match a list of JSON path rules.
+    - ``Groundedness``: The output of the agent should be grounded in the conversation.
+    - ``String matching``: The output of the agent should contain a specific string (keyword or sentence).
+    - ``Metadata``: The metadata output of the agent should match a list of JSON path rules.
 - And a set of parameters specific to the check type. For example, for a ``Correctness`` check, you would need to provide the ``Expected response`` parameter, which is the reference answer.
 
 .. image:: /_static/images/hub/create-checks-detail.png
@@ -259,7 +261,7 @@ Once you have created a custom check, you can apply it to conversations in your 
 Assign a tag to a conversation
 ================================
 
-Tags are optional but highly recommended for better organization. They allow you to filter the conversations later on and manage your chatbot's performance more effectively.
+Tags are optional but highly recommended for better organization. They allow you to filter the conversations later on and manage your agent's performance more effectively.
 
 
 How to choose the right tag?
@@ -289,7 +291,7 @@ To choose a tag, it is good to stick to a naming convention that you agreed on b
 
      Examples: "Confused User", "Angry Customer", "New User"
 
-   - **Temporal Tags**: Depending on the life cycle of the testing process of the model.
+   - **Temporal Tags**: Depending on the life cycle of the testing process of the agent.
 
      Examples: "red teaming phase 1", "red teaming phase 2"
 

@@ -1,3 +1,5 @@
+:og:description: Detect Business Failures by Generating Synthetic Tests (SDK) - Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements using the Giskard Hub Python SDK.
+
 ======================================================
 Detect Business Failures by Generating Synthetic Tests
 ======================================================
@@ -16,11 +18,11 @@ AI business failures are failures that are related to the business of the AI sys
 For more context and practical examples of business failures, you can explore our :doc:`/hub/ui/datasets/business` or `realperformance.giskard.ai <https://realperformance.giskard.ai>`_.
 
 The Giskard Hub provides an interface for the synthetic generation of legitimate queries **with expected outputs**. It automatically clusters the documents from the internal knowledge base into key topics and generates test cases for each topic by applying a set of perturbations.
-These clusters and topics are then used to generate dedicated test that challenge the bot to answer questions about the specific topic in a way that might not align with the business rules of your organization.
+These clusters and topics are then used to generate dedicated test that challenge the agent to answer questions about the specific topic in a way that might not align with the business rules of your organization.
 
 .. tip::
 
-   Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the model's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
+   Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
    If you want to detect security failures, check out the :doc:`/hub/sdk/datasets/security`.
 
 Document-based Tests Generation

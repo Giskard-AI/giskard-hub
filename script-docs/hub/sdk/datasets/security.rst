@@ -1,3 +1,5 @@
+:og:description: Detect Security Vulnerabilities by Generating Synthetic Tests (SDK) - Generate and manage security test cases programmatically. Test for vulnerabilities, prompt injection, and data leakage using the Giskard Hub Python SDK.
+
 =============================================================
 Detect Security Vulnerabilities by Generating Synthetic Tests
 =============================================================
@@ -12,7 +14,7 @@ What are AI Security Vulnerabilities?
 Security vulnerabilities in LLMs are critical because they can be exploited for malicious attacks, data breaches, and system compromises.
 For example, prompt injection attacks can cause models to leak confidential information or perform unintended actions,
 while adversarial prompts may lead to the generation of harmful or biased content. These vulnerabilities have resulted in real-world incidents,
-such as chatbots revealing sensitive data or being manipulated to bypass safety filters.
+such as agents revealing sensitive data or being manipulated to bypass safety filters.
 For more examples and case studies, see the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Realharm <https://realharm.giskard.ai/>`_.
 
 .. tip::

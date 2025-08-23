@@ -1,3 +1,5 @@
+:og:description: Giskard Open Source SDK - Free Python library for LLM testing and evaluation. Detect security vulnerabilities and business logic failures with LLM Scan and RAG evaluation toolkit.
+
 Quickstart & Setup
 ==================
 
@@ -19,7 +21,7 @@ We support two main use cases:
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
-This guide will walk you through installing the library, configuring your models and finding security and business failures in your LLM.
+This guide will walk you through installing the library, configuring your agents and finding security and business failures in your LLM.
 
 Installation
 ------------
@@ -106,7 +108,7 @@ Detect Security Vulnerabilities
 We can now use the configured model to evaluate security vulnerabilities in your LLM API calls using LLM Scan.
 
 The LLM scan combines both heuristics-based and LLM-assisted detectors.
-The heuristics-based detectors use known techniques and patterns to test for vulnerabilities which are not specific to the model.
+The heuristics-based detectors use known techniques and patterns to test for vulnerabilities which are not specific to the agent.
 The LLM-assisted detectors are designed to detect vulnerabilities that are specific to your business case. They use another LLM model to probe your LLM system.
 
 Create a Giskard Model
@@ -220,7 +222,7 @@ We can now use the knowledge base to generate a test set of ``question``, ``refe
         # optionally, we'll auto detect the language if not provided
         language='en',
         # optionally, provide a description of the agent to help generating better questions
-        agent_description="A customer support chatbot for company X",
+        agent_description="A customer support agent for company X",
     )
 
     # Save the test set to a file

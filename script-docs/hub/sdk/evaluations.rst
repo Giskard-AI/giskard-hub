@@ -1,3 +1,5 @@
+:og:description: Run Evaluations (SDK) - Run and schedule LLM evaluations programmatically. Execute tests in the Hub or locally, analyze results, and manage evaluation workflows through the Python SDK.
+
 =============================
 Run and Schedule Evaluations
 =============================
@@ -44,9 +46,9 @@ We can configure the agent endpoint in the Hub:
 
     agent = hub.agents.create(
         project_id=project_id,
-        name="MyBot (staging)",
-        description="A chatbot that answers questions about the weather",
-        url="https://my-bot.staging.example.com/chat",
+        name="MyAgent (staging)",
+        description="An agent that answers questions about the weather",
+        url="https://my-agent.staging.example.com/chat",
         supported_languages=["en"],
 
         # if your agent endpoint needs special headers:
@@ -70,7 +72,7 @@ You can test that everything is working by sending a test request to the agent
 Run an evaluation
 _________________
 
-Now that the model is configured, we can launch an evaluation run. We first need
+Now that the agent is configured, we can launch an evaluation run. We first need
 to know which dataset we will run the evaluation on. If you are running this in
 the CI/CD pipeline, we recommend setting the dataset ID in the environment.
 
@@ -126,7 +128,7 @@ Then, you can print the results:
     Evaluation metrics output
 
 Once the evaluation is completed, may want to compare the results with some
-thresholds to decide whether to promote the model to production or not.
+thresholds to decide whether to promote the agent to production or not.
 
 You can retrieve the metrics from ``eval_run.metrics``: this will contain a list
 of :class:`~giskard_hub.data.Metric` objects.
@@ -151,7 +153,7 @@ For example:
 
 
 That covers the basics of running evaluations in the Hub. You can now integrate
-this code in your CI/CD pipeline to automatically evaluate your models every
+this code in your CI/CD pipeline to automatically evaluate your agents every
 time you deploy a new version.
 
 .. note:: If you want to run evaluations on a local model that is not yet
@@ -200,8 +202,8 @@ Here is an example of a simple model that just echoes the last user message:
     from giskard_hub.data import ChatMessage
 
 
-    def my_local_bot(messages: List[ChatMessage]) -> str:
-        """A simple bot that echoes the last user message."""
+    def my_local_agent(messages: List[ChatMessage]) -> str:
+        """A simple agent that echoes the last user message."""
         msg = messages[-1].content
         return f"You said: '{msg}'"
 
@@ -218,7 +220,7 @@ There are a few things to note here:
   to the description of the model in the Hub and will be used to improve the
   reliability of evaluations.
 
-- The name of the function (e.g. ``my_local_bot``) will be used as the model
+- The name of the function (e.g. ``my_local_agent``) will be used as the model
   name when showing the evaluation run in the Hub.
 
 
@@ -226,7 +228,7 @@ You can check that everything works simply by running the function:
 
 .. code-block:: python
 
-    my_local_bot([ChatMessage(role="user", content="Hello")])
+    my_local_agent([ChatMessage(role="user", content="Hello")])
     # Output: "You said: 'Hello'"
 
 Run an evaluation
@@ -248,7 +250,7 @@ We can now launch the evaluation run:
 .. code-block:: python
 
     eval_run = hub.evaluate(
-        model=my_local_bot,
+        model=my_local_agent,
         dataset=dataset_id,
         # optionally, specify a name
         name="test-run",
