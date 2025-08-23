@@ -1,14 +1,56 @@
 from __future__ import annotations
 
-from typing import List, Optional, Union
+from typing import List, Literal, Optional, Union
 
 from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
-from ..data.scheduled_evaluation import ScheduledEvaluation
+from ..data.evaluation import ScheduledEvaluationRun
+from ..data.scheduled_evaluation import FrequencyOption, ScheduledEvaluation
 from ._resource import APIResource
 
 
 class ScheduledEvaluationsResource(APIResource):
     """Resource for managing scheduled evaluations."""
+
+    def _validate_schedule(
+        self,
+        *,
+        frequency: Union[str, FrequencyOption, None] = None,
+        day_of_week: Optional[int] = None,
+        day_of_month: Optional[int] = None,
+    ) -> None:
+        """
+        General validation for scheduled evaluation frequency and related fields.
+        """
+        import warnings
+
+        from ..errors import HubValidationError
+
+        if frequency is None:
+            return
+
+        # Normalize frequency to string for comparison
+        freq = (
+            str(frequency).lower()
+            if isinstance(frequency, str)
+            else getattr(frequency, "value", str(frequency)).lower()
+        )
+
+        if freq == "weekly":
+            if day_of_week is None:
+                raise HubValidationError(
+                    "day_of_week must be provided when frequency is 'weekly'."
+                )
+        if freq == "monthly":
+            if day_of_month is None:
+                raise HubValidationError(
+                    "day_of_month must be provided when frequency is 'monthly'."
+                )
+        if freq == "daily":
+            if day_of_week is not None or day_of_month is not None:
+                warnings.warn(
+                    "day_of_week and day_of_month are ignored when frequency is 'daily'.",
+                    UserWarning,
+                )
 
     def list(
         self,
@@ -95,6 +137,12 @@ class ScheduledEvaluationsResource(APIResource):
         ScheduledEvaluation
             The created scheduled evaluation.
         """
+        self._validate_schedule(
+            frequency=frequency,
+            day_of_week=day_of_week,
+            day_of_month=day_of_month,
+        )
+
         payload = {
             "project_id": project_id,
             "name": name,
@@ -124,7 +172,9 @@ class ScheduledEvaluationsResource(APIResource):
         name: Union[str, NotGiven] = NOT_GIVEN,
         model_id: Union[str, NotGiven] = NOT_GIVEN,
         dataset_id: Union[str, NotGiven] = NOT_GIVEN,
-        frequency: Union[str, NotGiven] = NOT_GIVEN,
+        frequency: Union[
+            Literal["daily", "weekly", "monthly"], FrequencyOption, NotGiven
+        ] = NOT_GIVEN,
         time: Union[str, NotGiven] = NOT_GIVEN,
         tags: Union[List[str], NotGiven] = NOT_GIVEN,
         run_count: Union[int, NotGiven] = NOT_GIVEN,
@@ -164,6 +214,25 @@ class ScheduledEvaluationsResource(APIResource):
         ScheduledEvaluation
             The updated scheduled evaluation.
         """
+        # Only validate if frequency, day_of_week, or day_of_month are being updated
+        freq_val: Optional[Union[str, FrequencyOption]] = None
+        dow_val: Optional[int] = None
+        dom_val: Optional[int] = None
+
+        if frequency is not NOT_GIVEN:
+            freq_val = frequency
+        if day_of_week is not NOT_GIVEN:
+            dow_val = day_of_week  # type: ignore
+        if day_of_month is not NOT_GIVEN:
+            dom_val = day_of_month  # type: ignore
+
+        if freq_val is not None or dow_val is not None or dom_val is not None:
+            self._validate_schedule(
+                frequency=freq_val,
+                day_of_week=dow_val,
+                day_of_month=dom_val,
+            )
+
         payload = filter_not_given(
             {
                 "name": name,
@@ -185,15 +254,35 @@ class ScheduledEvaluationsResource(APIResource):
             cast_to=ScheduledEvaluation,
         )
 
-    def delete(self, scheduled_evaluation_ids: List[str]) -> None:
+    def delete(self, scheduled_evaluation_ids: Union[str, List[str]]) -> None:
         """Delete scheduled evaluations.
 
         Parameters
         ----------
-        scheduled_evaluation_ids : List[str]
-            List of scheduled evaluation IDs to delete.
+        scheduled_evaluation_ids : Union[str, List[str]]
+            List of scheduled evaluation IDs or a single scheduled evaluation ID to delete.
         """
         self._client.delete(
             "/scheduled-evaluations",
             params={"scheduled_evaluation_ids": scheduled_evaluation_ids},
+        )
+
+    def list_evaluations(
+        self, scheduled_evaluation_id: str
+    ) -> List[ScheduledEvaluationRun]:
+        """List evaluations linked to a scheduled evaluation.
+
+        Parameters
+        ----------
+        scheduled_evaluation_id : str
+            The ID of the scheduled evaluation to get evaluations for.
+
+        Returns
+        -------
+        List[ScheduledEvaluationRun]
+            List of evaluations linked to the scheduled evaluation.
+        """
+        return self._client.get(
+            f"/scheduled-evaluations/{scheduled_evaluation_id}/evaluations",
+            cast_to=ScheduledEvaluationRun,
         )

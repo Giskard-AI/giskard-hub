@@ -90,8 +90,6 @@ class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attribut
     day_of_week: int | None = None
     day_of_month: int | None = None
     paused: bool = False
-    last_run: datetime | None = None
-    next_run: datetime | None = None
     last_execution_at: datetime | None = None
     last_execution_status: ExecutionStatus | None = None
 
@@ -122,15 +120,3 @@ class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attribut
                 )
 
         return super().from_dict(data, _client=_client, **kwargs)
-
-    def refresh(self) -> "ScheduledEvaluation":
-        """Refresh the scheduled evaluation from the Hub."""
-        if not self._client or not self.id:
-            raise ValueError(
-                "This scheduled evaluation instance is detached or unsaved and cannot be refreshed."
-            )
-
-        data = self._client.scheduled_evaluations.retrieve(self.id)
-        self._hydrate(data)
-
-        return self

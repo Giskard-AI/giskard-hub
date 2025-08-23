@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from typing import List
+from dataclasses import field
+from typing import List, Union
+from uuid import UUID
 
 from ..data._base import NOT_GIVEN, filter_not_given
 from ..data.dataset import Dataset
@@ -53,8 +55,8 @@ class DatasetsResource(APIResource):
         model_id: str,
         dataset_name: str = "Generated Dataset",
         description: str = "",
-        categories: Union[list[str], NotGiven]  = NOT_GIVEN,
-        nb_examples: int = 10,
+        categories: Union[List[str], NotGiven] = NOT_GIVEN,
+        n_examples: int = 10,
     ) -> Dataset:
         """
         Generate a dataset using the specified model and parameters.
@@ -64,7 +66,7 @@ class DatasetsResource(APIResource):
             dataset_name (str, optional): Name of the generated dataset.
             description (str, optional): Description of the dataset.
             categories (list, optional): List of issue categories, each as a dict with 'id', 'name', 'desc'.
-            nb_examples (int, optional): Number of examples to generate.
+            n_examples (int, optional): Number of examples to generate in total, regardless of the number of categories.
 
         Returns:
             Dataset: The generated dataset object.
@@ -75,7 +77,7 @@ class DatasetsResource(APIResource):
                 "dataset_name": dataset_name,
                 "description": description,
                 "categories": categories,
-                "nb_examples": nb_examples,
+                "nb_examples": n_examples,
             }
         )
         return self._client.post(
@@ -91,8 +93,8 @@ class DatasetsResource(APIResource):
         knowledge_base_id: str,
         dataset_name: str = "Generated Dataset",
         description: str = "",
-        nb_questions: int = 10,
-        topic_ids: List[str] = None,
+        n_questions: int = 10,
+        topic_ids: List[UUID] = field(default_factory=list),
     ) -> Dataset:
         """
         Generate a dataset from a knowledge base.
@@ -102,7 +104,7 @@ class DatasetsResource(APIResource):
             knowledge_base_id (UUID): The ID of the knowledge base.
             dataset_name (str, optional): Name of the generated dataset.
             description (str, optional): Description of the dataset.
-            nb_questions (int, optional): Number of questions to generate.
+            n_questions (int, optional): Number of questions to generate in total, regardless of the number of topics.
             topic_ids (list[UUID], optional): List of topic IDs to filter.
 
         Returns:
@@ -116,7 +118,7 @@ class DatasetsResource(APIResource):
                 "knowledge_base_id": knowledge_base_id,
                 "dataset_name": dataset_name,
                 "description": description,
-                "nb_questions": nb_questions,
+                "nb_questions": n_questions,
                 "topic_ids": topic_ids,
             }
         )

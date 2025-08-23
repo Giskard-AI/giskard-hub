@@ -1,12 +1,16 @@
 from __future__ import annotations
 
+import time
+from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Optional
+from time import sleep
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Self
 
 from dateutil import parser
 
 from ._base import BaseData
+from .task import TaskProgress, TaskStatus
 
 if TYPE_CHECKING:
     from ..client import HubClient
@@ -68,13 +72,94 @@ class Entity(BaseData):
 
         entity = super().from_dict(data)
         setattr(entity, "_client", _client)
-        return entity
+        return entity  # type: ignore
 
     def _hydrate(self, data: "Entity"):
         """Hydrate with the data from the API."""
         # @TODO: make this more robust
         for key, value in data.__dict__.items():
             setattr(self, key, value)
+
+
+@dataclass
+class EntityWithTaskProgress(Entity, ABC):
+    progress: TaskProgress | None = None
+
+    @property
+    @abstractmethod
+    def resource(self) -> str:
+        """Abstract property for the resource name used in API calls."""
+        pass
+
+    def is_running(self) -> bool:
+        """Check if the evaluation is running."""
+        return getattr(self.progress, "status", None) == TaskStatus.RUNNING
+
+    def is_finished(self) -> bool:
+        """Check if the evaluation is finished."""
+        return getattr(self.progress, "status", None) == TaskStatus.FINISHED
+
+    def is_errored(self) -> bool:
+        """Check if the evaluation terminated with an error."""
+        return getattr(self.progress, "status", None) == TaskStatus.ERROR
+
+    def wait_for_completion(
+        self, timeout: float = 600, poll_interval: float = 5
+    ) -> Self:
+        """Wait for the evaluation to complete successfully.
+
+        Parameters
+        ----------
+        timeout : int, optional
+            The timeout in seconds, by default 600
+        poll_interval : int, optional
+            The polling interval in seconds, by default 5.
+
+        Returns
+        -------
+        EntityWithTaskProgress
+            The updated entity instance after completion.
+        """
+        end_time = time.perf_counter() + timeout
+        if self.is_running():
+            self.refresh()
+        while time.perf_counter() < end_time:
+            if not self.is_running():
+                break
+            sleep(poll_interval)
+            self.refresh()
+
+        if self.is_finished():
+            return self
+
+        if self.is_errored():
+            raise RuntimeError(
+                f"{self.resource.capitalize()} with id '{self.id}' failed"
+            )
+
+        if self.is_running():
+            raise TimeoutError(
+                f"{self.resource.capitalize()} with id '{self.id}' did not finish in time."
+            )
+
+        raise RuntimeError(
+            f"{self.resource.capitalize()} with id '{self.id}' was aborted."
+        )
+
+    @abstractmethod
+    def refresh(self) -> Self:
+        """Refresh the entity data from the API."""
+        if not self._client or not self.id:
+            raise ValueError(
+                f"This {self.resource} instance with id '{self.id}' is detached or unsaved and cannot be refreshed."
+            )
+
+        # Use the abstract resource property for the API call
+        resource = self.resource
+        data = getattr(self._client, resource).retrieve(self.id)
+        self._hydrate(data)
+
+        return self
 
 
 @dataclass

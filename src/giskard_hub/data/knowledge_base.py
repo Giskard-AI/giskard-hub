@@ -3,7 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-from ._entity import Entity
+from ._entity import Entity, EntityWithTaskProgress
+from .task import TaskProgress
 
 if TYPE_CHECKING:
     from uuid import UUID
@@ -13,7 +14,7 @@ if TYPE_CHECKING:
 class Document(Entity):
     content: str
     topic_id: "UUID" | None = None
-    embedding: list[float] | None = None
+    embedding: list[float] = field(default_factory=list)
 
 
 @dataclass
@@ -23,10 +24,23 @@ class Topic(Entity):
 
 
 @dataclass
-class KnowledgeBase(Entity):
+class KnowledgeBase(EntityWithTaskProgress):
     name: str
     project_id: str
     description: str | None = None
     n_documents: int = 0
     filename: str | None = None
     topics: list[Topic] = field(default_factory=list)
+    status: TaskProgress | None = None
+
+    @classmethod
+    def from_dict(cls, data: dict, **kwargs) -> "KnowledgeBase":
+        """Create a KnowledgeBase instance from a dictionary."""
+        data = dict(data)
+        if "status" in data and data["status"]:
+            data["status"] = TaskProgress.from_dict(data["status"])
+        return cls(**data)
+
+    @property
+    def resource(self) -> str:
+        return "knowledge_bases"

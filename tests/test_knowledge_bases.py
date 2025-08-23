@@ -79,7 +79,7 @@ class TestKnowledgeBasesResource:
             "name": "Test KB",
             "description": "Test description",
             "n_documents": 5,
-            "status": {},
+            "status": {"state": "finished", "current": 5, "total": 5},
             "topics": [],
         }
         mock_client.get.return_value = mock_kb_data
@@ -104,7 +104,7 @@ class TestKnowledgeBasesResource:
                 "name": "KB 1",
                 "description": "First KB",
                 "n_documents": 5,
-                "status": {},
+                "status": {"state": "finished", "current": 5, "total": 5},
                 "topics": [],
             },
             {
@@ -113,7 +113,7 @@ class TestKnowledgeBasesResource:
                 "name": "KB 2",
                 "description": "Second KB",
                 "n_documents": 10,
-                "status": {},
+                "status": {"state": "finished", "current": 10, "total": 10},
                 "topics": [],
             },
         ]
