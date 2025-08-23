@@ -4,7 +4,7 @@
 Create Test Datasets
 ===============================================
 
-A **dataset** is a collection of conversations used to evaluate your agents. We allow for manual test creation for fine-grained control,
+A **dataset** is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control,
 but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import.
 
 This section will guide you through creating your own test datasets. In general, we cover five different ways to create datasets:

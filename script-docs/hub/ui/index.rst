@@ -116,7 +116,7 @@ The interface below displays the agent details that need to be filled out.
     - ``Headers``: These are useful for authentication and other custom headers
 
 
-The endpoint should expect an object shape like the following example:
+The endpoint should expect an object with the following structure:
 
 .. code-block:: python
 
@@ -137,7 +137,7 @@ The endpoint should expect an object shape like the following example:
         ]
     }
 
-The endpoint's response should be structured as follows:
+The endpoint's response should have the following structure:
 
 .. code-block:: python
 

@@ -16,7 +16,7 @@ Welcome to Giskard! This section will help you understand what Giskard is, choos
 Giskard Hub
 -----------
 
-**Giskard Hub** is our enterprise platform for LLM agent testing with advanced team collaboration and continuous red teaming. It provides a set of tools for business users and developers to testi and evaluate Agents in production environments, including:
+**Giskard Hub** is our enterprise platform for LLM agent testing with advanced team collaboration and continuous red teaming. It provides a set of tools for business users and developers to test and evaluate Agents in production environments, including:
 
 * **Team collaboration** - Real-time collaboration with shared workspaces, collaborative annotation workflows, and role-based access control for seamless team coordination
 * **Continuous red teaming** - Continuous threat detection for new vulnerabilities with automated scanning and monitoring capabilities
@@ -93,7 +93,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    .. grid-item-card:: RealPerformance ↗
       :link: https://realperformance.giskard.ai/
 
-      RealPerformance is a dataset of functional issues of language models, that mirrors failure patterns identified through rigorous testing in real LLM agents.
+      RealPerformance is a dataset of functional issues of language models that mirrors failure patterns identified through rigorous testing in real LLM agents.
 
 .. toctree::
    :caption: Getting Started

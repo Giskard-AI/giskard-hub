@@ -3,7 +3,7 @@
 Quickstart & Setup
 ==================
 
-**Giskard Open Source is a Python library for LLM testing and evaluation.** It provides a solid foundation for developers to generate AI security and business test. You can check our :doc:`/start/comparison` to learn how it differs from our enterprise offering. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
+**Giskard Open Source is a Python library for LLM testing and evaluation.** It provides a solid foundation for developers to generate AI security and business tests. You can check our :doc:`/start/comparison` to learn how it differs from our enterprise offering. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
 
 We support two main use cases:
 
@@ -115,8 +115,8 @@ Create a Giskard Model
 ______________________
 
 We define a simple function that takes a Pandas DataFrame with features as input and returns a list of strings as responses.
-In the following example, we create a simple function `model_predict` that takes a Pandas DataFrame with a single feature ``question``, which is forwarded to ``llm_api`` and returns a list of strings as responses.
-This function should hold the logic of the LLM API you would like to call.
+In the following example, we create a simple function `model_predict` that takes a Pandas DataFrame with a single feature ``question``, forwards it to ``llm_api``, and returns a list of strings as responses.
+This function should contain the logic of the LLM API you would like to call.
 
 .. code-block:: python
 

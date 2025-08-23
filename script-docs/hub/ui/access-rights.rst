@@ -31,7 +31,7 @@ Configure Users and Groups
          :alt: "Access rights"
          :width: 800
 
-      After creating a group and users, you can then navigate back to the "Users" tab from the left panel. You can then select an user you want to add to a group, select the three vertical dots on the right side of the user box, and click on "Edit Group".
+      After creating a group and users, you can then navigate back to the "Users" tab from the left panel. You can then select a user you want to add to a group, click the three vertical dots on the right side of the user box, and click on "Edit Group".
 
       .. image:: /_static/images/hub/access-settings-group-user.png
          :align: center
@@ -81,4 +81,4 @@ Scoped permissions allow for granular control. For each project, you can specify
 
 .. note::
 
-    Users need to first login before an admin can give them any permissions in the Hub.
+    Users need to log in first before an admin can give them any permissions in the Hub.

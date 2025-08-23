@@ -64,7 +64,7 @@ What Happens After Your Trial
 * No interruption to your workflow
 * Access to additional enterprise features
 
-**If you need more time and assitance:**
+**If you need more time and assistance:**
 
 * Contact our team for extension options
 * Discuss custom trial arrangements

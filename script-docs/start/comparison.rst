@@ -37,7 +37,7 @@ Feature Comparison
      - ✅ Full support
 
    * - Custom tests
-     - ✅ Full supports
+     - ✅ Full support
      - ✅ Full support
 
    * - Local evaluations

@@ -4,8 +4,8 @@ Quickstart & Setup
 ==================
 
 **Giskard Hub is our enterprise platform for LLM agent testing with team collaboration and continuous red teaming.**
-The Giskard Hub Python SDK provides technical users with programmatic access to all enterprise features—enabling automation of agent testing, project and dataset management.
 
+The Giskard Hub Python SDK provides technical users with programmatic access to all enterprise features, enabling automation of agent testing, project and dataset management.
 
 .. grid:: 1 1 2 2
 
