@@ -90,7 +90,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
       - `RealHarm website <https://realharm.giskard.ai/>`_
       - `RealHarm arXiv paper <https://arxiv.org/abs/2504.10277>`_
 
-   .. grid-item-card:: RealPerformance ↗
+   .. grid-item-card:: RealPerformance
 
       RealPerformance is a dataset of functional issues of language models that mirrors failure patterns identified through rigorous testing in real LLM agents.
 
