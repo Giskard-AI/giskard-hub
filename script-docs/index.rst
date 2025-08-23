@@ -130,6 +130,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    hub/sdk/checks
    hub/sdk/evaluations
    hub/sdk/reference/index
+   GitHub <https://github.com/Giskard-AI/giskard-hub>
 
 .. toctree::
    :caption: Open Source Library
