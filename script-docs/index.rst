@@ -72,7 +72,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
 .. note::
 
-   Are you interested in supporting our research? Check out our `research page <https://opencollective.com/phare-llm-benchmark>`_.
+   Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
 
 .. grid:: 1 1 2 2
 
@@ -91,9 +91,10 @@ Some work has been funded by the `the European Commission <https://commission.eu
       - `RealHarm arXiv paper <https://arxiv.org/abs/2504.10277>`_
 
    .. grid-item-card:: RealPerformance ↗
-      :link: https://realperformance.giskard.ai/
 
       RealPerformance is a dataset of functional issues of language models that mirrors failure patterns identified through rigorous testing in real LLM agents.
+
+      - `RealPerformance website <https://realperformance.giskard.ai/>`_
 
 .. toctree::
    :caption: Getting Started
