@@ -7,7 +7,7 @@ from typing import Any, Literal, Union
 
 from dateutil import parser
 
-from ._entity import Entity
+from ._entity import Entity, EntityWithTaskProgress
 
 
 class FrequencyOption(str, Enum):
@@ -45,8 +45,10 @@ class ErrorExecutionStatus:
 ExecutionStatus = Union[SuccessExecutionStatus, ErrorExecutionStatus]
 
 
-@dataclass
-class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attributes
+@dataclass(kw_only=True)
+class ScheduledEvaluation(
+    EntityWithTaskProgress
+):  # pylint: disable=too-many-instance-attributes
     """Scheduled evaluation entity.
 
     Attributes
@@ -120,3 +122,7 @@ class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attribut
                 )
 
         return super().from_dict(data, _client=_client, **kwargs)
+
+    @property
+    def resource(self) -> str:
+        return "scheduled_evaluations"

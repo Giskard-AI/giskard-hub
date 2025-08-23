@@ -93,15 +93,18 @@ class EntityWithTaskProgress(Entity, ABC):
 
     def is_running(self) -> bool:
         """Check if the evaluation is running."""
-        return getattr(self.progress, "status", None) == TaskStatus.RUNNING
+        status = getattr(self.progress, "status", None)
+        return isinstance(status, TaskStatus) and status == TaskStatus.RUNNING
 
     def is_finished(self) -> bool:
         """Check if the evaluation is finished."""
-        return getattr(self.progress, "status", None) == TaskStatus.FINISHED
+        status = getattr(self.progress, "status", None)
+        return isinstance(status, TaskStatus) and status == TaskStatus.FINISHED
 
     def is_errored(self) -> bool:
         """Check if the evaluation terminated with an error."""
-        return getattr(self.progress, "status", None) == TaskStatus.ERROR
+        status = getattr(self.progress, "status", None)
+        return isinstance(status, TaskStatus) and status == TaskStatus.ERROR
 
     def wait_for_completion(
         self, timeout: float = 600, poll_interval: float = 5
@@ -146,7 +149,6 @@ class EntityWithTaskProgress(Entity, ABC):
             f"{self.resource.capitalize()} with id '{self.id}' was aborted."
         )
 
-    @abstractmethod
     def refresh(self) -> Self:
         """Refresh the entity data from the API."""
         if not self._client or not self.id:

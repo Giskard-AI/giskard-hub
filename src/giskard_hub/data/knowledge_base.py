@@ -23,7 +23,7 @@ class Topic(Entity):
     description: str | None = None
 
 
-@dataclass
+@dataclass(kw_only=True)
 class KnowledgeBase(EntityWithTaskProgress):
     name: str
     project_id: str
@@ -31,15 +31,15 @@ class KnowledgeBase(EntityWithTaskProgress):
     n_documents: int = 0
     filename: str | None = None
     topics: list[Topic] = field(default_factory=list)
-    status: TaskProgress | None = None
 
     @classmethod
     def from_dict(cls, data: dict, **kwargs) -> "KnowledgeBase":
         """Create a KnowledgeBase instance from a dictionary."""
         data = dict(data)
         if "status" in data and data["status"]:
-            data["status"] = TaskProgress.from_dict(data["status"])
-        return cls(**data)
+            # Map status to progress for EntityWithTaskProgress compatibility
+            data["progress"] = TaskProgress.from_dict(data["status"])
+        return super().from_dict(data, **kwargs)
 
     @property
     def resource(self) -> str:

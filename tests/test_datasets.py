@@ -230,7 +230,7 @@ class TestDatasetsResource:
         }
         mock_client.post.return_value = mock_generated_data
 
-        result = resource.generate(model_id="model-1")
+        result = resource.generate_adversarial(model_id="model-1")
 
         mock_client.post.assert_called_once()
         call_args = mock_client.post.call_args
@@ -263,12 +263,12 @@ class TestDatasetsResource:
             {"id": "cat2", "name": "Performance", "desc": "Performance issues"},
         ]
 
-        result = resource.generate(
+        result = resource.generate_adversarial(
             model_id="model-2",
             dataset_name="Custom Generated Dataset",
             description="A custom generated dataset",
             categories=categories,
-            nb_examples=20,
+            n_examples=20,
         )
 
         call_args = mock_client.post.call_args
@@ -279,7 +279,7 @@ class TestDatasetsResource:
         assert json_data["categories"] == categories
         assert json_data["nb_examples"] == 20
 
-    def test_generate_knowledge_basic(self, mock_client):
+    def test_generate_document_based_basic(self, mock_client):
         """Test basic knowledge-based dataset generation."""
         resource = DatasetsResource(mock_client)
 
@@ -293,7 +293,7 @@ class TestDatasetsResource:
         }
         mock_client.post.return_value = mock_generated_data
 
-        result = resource.generate_knowledge(
+        result = resource.generate_document_based(
             model_id="model-1",
             knowledge_base_id="kb-1",
         )
@@ -311,7 +311,7 @@ class TestDatasetsResource:
         assert call_args[1]["cast_to"] == Dataset
         assert result.id == "dataset-knowledge"
 
-    def test_generate_knowledge_with_options(self, mock_client):
+    def test_generate_document_based_with_options(self, mock_client):
         """Test knowledge-based dataset generation with all options."""
         resource = DatasetsResource(mock_client)
 
@@ -327,12 +327,12 @@ class TestDatasetsResource:
 
         topic_ids = ["topic-1", "topic-2", "topic-3"]
 
-        result = resource.generate_knowledge(
+        result = resource.generate_document_based(
             model_id="model-3",
             knowledge_base_id="kb-2",
             dataset_name="Custom Knowledge Dataset",
             description="Generated from knowledge base",
-            nb_questions=25,
+            n_questions=25,
             topic_ids=topic_ids,
         )
 
@@ -345,7 +345,7 @@ class TestDatasetsResource:
         assert json_data["nb_questions"] == 25
         assert json_data["topic_ids"] == topic_ids
 
-    def test_generate_knowledge_none_topic_ids(self, mock_client):
+    def test_generate_document_based_none_topic_ids(self, mock_client):
         """Test knowledge generation with None topic_ids converts to empty list."""
         resource = DatasetsResource(mock_client)
 
@@ -359,7 +359,7 @@ class TestDatasetsResource:
         }
         mock_client.post.return_value = mock_generated_data
 
-        result = resource.generate_knowledge(
+        result = resource.generate_document_based(
             model_id="model-1",
             knowledge_base_id="kb-1",
             topic_ids=None,  # Should be converted to empty list

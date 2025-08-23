@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import field
-from typing import List, Union
+from typing import Any, List, Optional, Union
 from uuid import UUID
 
 from ..data._base import NOT_GIVEN, filter_not_given
@@ -55,7 +54,7 @@ class DatasetsResource(APIResource):
         model_id: str,
         dataset_name: str = "Generated Dataset",
         description: str = "",
-        categories: Union[List[str], NotGiven] = NOT_GIVEN,
+        categories: Union[List[str], Any] = NOT_GIVEN,
         n_examples: int = 10,
     ) -> Dataset:
         """
@@ -94,14 +93,14 @@ class DatasetsResource(APIResource):
         dataset_name: str = "Generated Dataset",
         description: str = "",
         n_questions: int = 10,
-        topic_ids: List[UUID] = field(default_factory=list),
+        topic_ids: Optional[List[UUID]] = None,
     ) -> Dataset:
         """
         Generate a dataset from a knowledge base.
 
         Args:
-            model_id (UUID): The ID of the model to use for generation.
-            knowledge_base_id (UUID): The ID of the knowledge base.
+            model_id (str): The ID of the model to use for generation.
+            knowledge_base_id (str): The ID of the knowledge base.
             dataset_name (str, optional): Name of the generated dataset.
             description (str, optional): Description of the dataset.
             n_questions (int, optional): Number of questions to generate in total, regardless of the number of topics.

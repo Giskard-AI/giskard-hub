@@ -58,7 +58,7 @@ class Metric(BaseData):
         return self.passed / tot * 100
 
 
-@dataclass
+@dataclass(kw_only=True)
 # pylint: disable=too-many-instance-attributes
 class EvaluationRun(EntityWithTaskProgress):
     """Evaluation run."""
