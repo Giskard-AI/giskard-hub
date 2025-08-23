@@ -26,7 +26,7 @@ def mock_http_client():
 def hub_client(mock_http_client):
     """HubClient instance with mocked HTTP client"""
     with patch("httpx.Client", return_value=mock_http_client):
-        client = HubClient(hub_url="http://test.example.com", api_key="test-api-key")
+        client = HubClient(hub_url="https://test.example.com", api_key="test-api-key")
         return client
 
 
@@ -153,8 +153,8 @@ def test_agents_models_consistency_across_instances():
         mock_client.get.return_value = mock_response
 
         # Create two different client instances
-        client1 = HubClient(hub_url="http://test1.example.com", api_key="key1")
-        client2 = HubClient(hub_url="http://test2.example.com", api_key="key2")
+        client1 = HubClient(hub_url="https://test1.example.com", api_key="key1")
+        client2 = HubClient(hub_url="https://test2.example.com", api_key="key2")
 
         # Each should have consistent behavior internally
         assert client1.agents is client1.models
