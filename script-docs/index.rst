@@ -53,7 +53,7 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Open Source Library
+   .. grid-item-card:: Giskard Open Source
       :link: oss/sdk/index
       :link-type: doc
 
@@ -133,7 +133,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    GitHub <https://github.com/Giskard-AI/giskard-hub>
 
 .. toctree::
-   :caption: Open Source Library
+   :caption: Giskard Open Source
    :hidden:
    :maxdepth: 4
 

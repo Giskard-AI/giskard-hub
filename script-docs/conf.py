@@ -90,9 +90,9 @@ theme_options = ThemeOptions(
     logo_dark="_static/logo_white.png",
     main_nav_links={
         "Getting Started": "/index",
-        "Enterprise UI": "/hub/ui/index",
-        "Enterprise SDK": "/hub/sdk/index",
-        "Open Source Library": "/oss/sdk/index",
+        "Giskard Hub UI": "/hub/ui/index",
+        "Giskard Hub SDK": "/hub/sdk/index",
+        "Giskard Open Source": "/oss/sdk/index",
     },
 )
 html_theme_options = asdict(theme_options)
