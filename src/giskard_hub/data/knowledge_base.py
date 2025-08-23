@@ -23,7 +23,7 @@ class Topic(Entity):
     description: str | None = None
 
 
-@dataclass(kw_only=True)
+@dataclass
 class KnowledgeBase(EntityWithTaskProgress):
     name: str
     project_id: str

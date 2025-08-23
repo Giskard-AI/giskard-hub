@@ -45,7 +45,7 @@ class ErrorExecutionStatus:
 ExecutionStatus = Union[SuccessExecutionStatus, ErrorExecutionStatus]
 
 
-@dataclass(kw_only=True)
+@dataclass
 class ScheduledEvaluation(
     EntityWithTaskProgress
 ):  # pylint: disable=too-many-instance-attributes

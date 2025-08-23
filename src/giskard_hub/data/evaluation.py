@@ -58,20 +58,19 @@ class Metric(BaseData):
         return self.passed / tot * 100
 
 
-@dataclass(kw_only=True)
+@dataclass
 # pylint: disable=too-many-instance-attributes
 class EvaluationRun(EntityWithTaskProgress):
     """Evaluation run."""
 
-    name: str | None = None
-    project_id: str | None = None
+    name: str | None
+    project_id: str | None
     datasets: List[Dataset] = field(default_factory=list)
     model: Model | None = None
     criteria: List = field(default_factory=list)
     metrics: List[Metric] = field(default_factory=list)
     tags: List[Metric] = field(default_factory=list)
     failure_categories: Dict[str, int] = field(default_factory=dict)
-    progress: TaskProgress | None = None
 
     @property
     def resource(self) -> str:
@@ -125,7 +124,7 @@ class ScheduledEvaluationRun(EvaluationRun):
     scheduled evaluation runs, such as scheduled_evaluation_id.
     """
 
-    scheduled_evaluation_id: str | None = None
+    scheduled_evaluation_id: str | None = field(init=False)
     target_datasets: List[Dict[str, Any]] = field(default_factory=list)
     failure_categories: Dict[str, int] = field(default_factory=dict)
     local: bool = False

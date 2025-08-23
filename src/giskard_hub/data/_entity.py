@@ -89,7 +89,7 @@ class Entity(BaseData):
 
 @dataclass
 class EntityWithTaskProgress(Entity, ABC):
-    progress: TaskProgress | None = None
+    progress: TaskProgress | None = field(init=False, default=None)
 
     @property
     @abstractmethod
