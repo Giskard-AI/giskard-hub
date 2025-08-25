@@ -1,4 +1,5 @@
-:og:description: Custom Checks (SDK) - Build and deploy validation rules, metrics, and testing logic programmatically. Create specialized testing logic for your specific use cases using the Giskard Hub Python SDK.
+:og:title: Giskard Hub - Enterprise Agent Testing - Custom Checks
+:og:description: Build and deploy validation rules, metrics, and testing logic programmatically. Create specialized testing logic for your specific LLM agent use cases.
 
 ====================
 Manage Checks

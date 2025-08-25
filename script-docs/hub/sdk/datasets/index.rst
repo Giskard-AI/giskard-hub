@@ -1,4 +1,5 @@
-:og:description: Dataset Management (SDK) - Create, update, and organize test datasets programmatically. Import conversations, generate synthetic data, and manage test cases through the Giskard Hub Python SDK.
+:og:title: Giskard Hub - Enterprise Agent Testing - Dataset Management
+:og:description: Create, update, and organize test datasets programmatically. Import conversations, generate synthetic data, and manage test cases through the Python SDK.
 
 =================================
 Manage Datasets and Conversations

@@ -1,4 +1,5 @@
-:og:description: Hub Resources Reference - Documentation for all resource classes in Giskard Hub SDK. Learn how to interact with projects, datasets, models, and other Hub resources programmatically.
+:og:title: Giskard Hub - Enterprise Agent Testing - Resources Reference
+:og:description: Learn how to interact with projects, datasets, models, and other Hub resources programmatically for LLM agent testing.
 
 Resources
 =========

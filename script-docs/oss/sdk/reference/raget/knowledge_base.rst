@@ -1,4 +1,4 @@
-:og:description: RAGET Knowledge Base Reference - Documentation for knowledge base classes and utilities in the RAG Evaluation Toolkit. Learn how to create and manage knowledge bases for RAG evaluation.
+:og:description: RAGET Knowledge Base Reference - Documentation for knowledge base classes and utilities in the RAG Evaluation Toolkit. Learn how to create and manage knowledge bases for RAG evaluation of LLM agents.
 
 Knowledge Base
 ==============

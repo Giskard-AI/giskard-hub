@@ -1,4 +1,5 @@
-:og:description: Legacy Giskard Open Source - Documentation for older versions of the Giskard library. Find information about deprecated features and migration guides.
+:og:title: Giskard Open Source - Legacy Features
+:og:description: Legacy Giskard Open Source - Documentation for older versions of the Giskard library. Find information about deprecated features and migration guides for LLM agent testing.
 
 ===============================================
 Tabular ML, Predictive NLP, and Computer Vision

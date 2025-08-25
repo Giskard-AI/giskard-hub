@@ -1,4 +1,5 @@
-:og:description: Giskard Hub SDK Reference - Complete API documentation for the Hub Python SDK. Find detailed information about all classes, methods, and resources for programmatic access to Giskard Hub.
+:og:title: Giskard Hub - Enterprise Agent Testing - SDK Reference
+:og:description: Access complete API documentation for the enterprise Hub Python SDK. Find detailed information about all classes, methods, and resources for programmatic LLM agent testing.
 
 ===============================================
 API Reference

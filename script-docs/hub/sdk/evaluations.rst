@@ -1,4 +1,5 @@
-:og:description: Run Evaluations (SDK) - Run and schedule LLM evaluations programmatically. Execute tests in the Hub or locally, analyze results, and manage evaluation workflows through the Python SDK.
+:og:title: Giskard Hub - Enterprise Agent Testing - Run Evaluations
+:og:description: Run and schedule LLM agent evaluations programmatically. Execute tests in the Hub or locally, analyze results, and manage evaluation workflows.
 
 =============================
 Run and Schedule Evaluations

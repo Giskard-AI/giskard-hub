@@ -1,4 +1,5 @@
-:og:description: Detect Security Vulnerabilities by Generating Synthetic Tests (SDK) - Generate and manage security test cases programmatically. Test for vulnerabilities, prompt injection, and data leakage using the Giskard Hub Python SDK.
+:og:title: Giskard Hub - Enterprise Agent Testing - Detect Security Vulnerabilities
+:og:description: Generate and manage security test cases programmatically. Test for vulnerabilities, prompt injection, and data leakage in your LLM agents.
 
 =============================================================
 Detect Security Vulnerabilities by Generating Synthetic Tests

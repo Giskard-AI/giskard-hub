@@ -1,4 +1,5 @@
-:og:description: Run Evaluations (UI) - Run comprehensive evaluations of your AI agents using test datasets. Schedule automated testing to analyze results, and track performance metrics over time.
+:og:title: Giskard Hub - Enterprise Agent Testing - Run Evaluations
+:og:description: Run comprehensive evaluations of your LLM agents using test datasets. Schedule automated testing and track performance metrics with enterprise-grade monitoring.
 
 ===============================================
 Run and Schedule Evaluations

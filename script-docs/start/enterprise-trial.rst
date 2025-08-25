@@ -1,4 +1,5 @@
-:og:description: Request your free Giskard Hub enterprise trial - Experience team collaboration, continuous red teaming, and state-of-the-art enterprise-grade LLM testing features with full access to all platform capabilities.
+:og:title: Giskard Hub - Enterprise Agent Testing - Request Your Enterprise Trial
+:og:description: Experience team collaboration, continuous red teaming, and state-of-the-art enterprise-grade LLM agent testing features with full access to all Hub capabilities.
 
 Request Your Enterprise Trial
 =============================

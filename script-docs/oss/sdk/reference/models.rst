@@ -1,4 +1,5 @@
-:og:description: Open Source Models Reference - Documentation for model classes and testing utilities in Giskard open source library. Learn how to wrap, test, and evaluate your LLM models.
+:og:title: Giskard Open Source - Models Reference
+:og:description: Documentation for model classes and testing utilities in Giskard open source library. Learn how to wrap, test, and evaluate your LLM agents.
 
 Models
 ===============================================

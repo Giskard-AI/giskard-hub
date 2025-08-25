@@ -1,4 +1,5 @@
-:og:description: Business Testing with Giskard Open Source - Use the RAG Evaluation Toolkit to detect business logic failures, compliance issues, and domain-specific problems in your LLM applications.
+:og:title: Giskard Open Source - Business Testing
+:og:description: Detect business logic failures, compliance issues, and domain-specific problems in your LLM agents and applications with our free RAG Evaluation Toolkit.
 
 =============================================================
 Detect Business Failures in LLMs using RAGET
@@ -9,12 +10,11 @@ What are AI business failures?
 
 Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual responses, inappropriate content generation, and failures to follow business rules.
 
-.. note::
+.. tip::
 
    Remember: Business failure testing is an ongoing process. Regularly test your agents and update your business failure test suites to stay ahead of emerging failures.
 
    For more up-to-date business failure testing and a collaborative UI, see the :doc:`Giskard Hub Business Failure Testing </hub/sdk/datasets/business>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
-
 
 .. note::
 

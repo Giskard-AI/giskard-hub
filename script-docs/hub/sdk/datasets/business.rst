@@ -1,4 +1,5 @@
-:og:description: Detect Business Failures by Generating Synthetic Tests (SDK) - Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements using the Giskard Hub Python SDK.
+:og:title: Giskard Hub - Enterprise Agent Testing - Detect Business Failures
+:og:description: Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements in your LLM agents.
 
 ======================================================
 Detect Business Failures by Generating Synthetic Tests
@@ -104,7 +105,3 @@ Next steps
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate`
 * **Generate security vulnerabilities** - Try :doc:`/hub/sdk/datasets/security`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`
-
-.. note::
-
-   For more up-to-date security scans and a collaborative UI, see the Giskard Hub Security Scanning guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM security exploits and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.

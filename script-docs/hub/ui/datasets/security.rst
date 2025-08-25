@@ -1,4 +1,5 @@
-:og:description: Detect Security Vulnerabilities by Generating Synthetic Tests (UI) - Generate adversarial test cases to detect security vulnerabilities in your LLM agents. Test for prompt injection, data leakage, and other security threats to protect your AI systems.
+:og:title: Giskard Hub - Enterprise Agent Testing - Detect Security Vulnerabilities
+:og:description: Generate adversarial test cases to detect security vulnerabilities in your LLM agents. Test for prompt injection, stereotypes, data leakage and more.
 
 =============================================================
 Detect Security Vulnerabilities by Generating Synthetic Tests

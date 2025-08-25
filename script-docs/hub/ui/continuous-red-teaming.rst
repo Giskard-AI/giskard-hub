@@ -1,4 +1,5 @@
-:og:description: Continuous Red Teaming (UI) - Proactively detect emerging vulnerabilities in your LLM agents through automated scanning, monitoring, and threat detection systems.
+:og:title: Giskard Hub - Enterprise Agent Testing - Continuous Red Teaming
+:og:description: Proactively detect emerging vulnerabilities in your LLM agents through automated scanning, monitoring, and threat detection systems.
 
 =======================
 Continuous Red Teaming

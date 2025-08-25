@@ -1,4 +1,4 @@
-:og:description: RAGET Reference - Complete documentation for the RAG Evaluation Toolkit in Giskard open source library. Learn how to evaluate RAG pipelines and detect business logic failures.
+:og:description: RAGET Reference - Complete documentation for the RAG Evaluation Toolkit in Giskard open source library. Learn how to evaluate RAG pipelines and detect business logic failures in LLM agents.
 
 RAG Evaluation Toolkit
 ======================

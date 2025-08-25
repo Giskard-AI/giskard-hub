@@ -1,4 +1,5 @@
-:og:description: Detect Business Failures by Generating Synthetic Tests (UI) - Test your LLM agents against business logic failures, compliance requirements, and domain-specific scenarios. Ensure your AI systems meet business objectives and regulatory standards.
+:og:title: Giskard Hub - Enterprise Agent Testing - Detect Business Failures
+:og:description: Test your LLM agents against business logic failures, compliance requirements, and domain-specific scenarios. Ensure your AI systems meet business requirements.
 
 ======================================================
 Detect Business Failures by Generating Synthetic Tests

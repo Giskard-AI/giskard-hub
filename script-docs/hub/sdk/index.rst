@@ -1,4 +1,5 @@
-:og:description: Giskard Hub SDK - Python SDK for enterprise LLM agent testing with programmatic access to all Hub features. Automate testing, manage projects, datasets, and run evaluations through code.
+:og:title: Giskard Hub - Enterprise Agent Testing - SDK Quickstart
+:og:description: Build enterprise LLM agent testing with our Python SDK. Automate testing, manage projects, datasets, and run evaluations.
 
 Quickstart & Setup
 ==================

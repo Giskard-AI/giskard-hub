@@ -1,4 +1,5 @@
-:og:description: Compare Evaluations (UI) - Analyze and compare multiple evaluation runs to detect regressions, identify patterns, and track improvements in your LLM agent performance over time.
+:og:title: Giskard Hub - Enterprise Agent Testing - Compare Evaluations
+:og:description: Analyze and compare multiple evaluation runs to detect regressions, identify patterns, and track improvements in your LLM agent performance over time.
 
 .. _compare-evaluations:
 

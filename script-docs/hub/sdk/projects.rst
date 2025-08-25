@@ -1,4 +1,5 @@
-:og:description: Project Management (SDK) - Create, update, and organize projects programmatically using the Giskard Hub Python SDK. Manage project settings, users, and configurations through code.
+:og:title: Giskard Hub - Enterprise Agent Testing - Project Management
+:og:description: Create, update, and organize LLM agent testing projects programmatically. Manage project settings, users, and configurations through code.
 
 ===============================================
 Manage Projects and Agents

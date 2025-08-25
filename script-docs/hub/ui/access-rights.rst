@@ -1,4 +1,5 @@
-:og:description: Access Rights Management (UI) - Configure role-based access control, manage user permissions, and ensure secure collaboration across your organization's LLM testing projects.
+:og:title: Giskard Hub - Enterprise Agent Testing - Access Rights
+:og:description: Configure role-based access control, manage user permissions, and ensure secure collaboration across your organization's LLM agent testing projects.
 
 ==================
 Set Access Rights

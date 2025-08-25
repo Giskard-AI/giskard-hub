@@ -1,4 +1,5 @@
-:og:description: Hub Client Reference - Complete documentation for the Giskard Hub client class. Learn how to initialize, configure, and use the client for all Hub operations.
+:og:title: Giskard Hub - Enterprise Agent Testing - Client Reference
+:og:description: Learn how to initialize, configure, and use the client for all Hub LLM agent testing operations.
 
 ================
 Client

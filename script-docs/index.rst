@@ -1,4 +1,5 @@
-:og:description: Welcome to Giskard - Your comprehensive guide to LLM agent testing and evaluation. Choose between Giskard Hub (enterprise platform) and Giskard Open Source (Python library) for your AI safety and security needs.
+:og:title: Giskard - LLM Agent Testing & Evaluation Platform
+:og:description: Your comprehensive guide to LLM agent testing and evaluation. Choose between Giskard Hub (enterprise platform) and Giskard Open Source (Python library) for your AI safety and security needs.
 
 Welcome to Giskard
 ==================

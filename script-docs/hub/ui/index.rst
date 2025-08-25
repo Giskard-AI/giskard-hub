@@ -1,4 +1,5 @@
-:og:description: Giskard Hub UI - Enterprise platform for LLM agent testing with team collaboration, continuous red teaming, and comprehensive evaluation workflows. Perfect for business users managing AI safety in production environments.
+:og:title: Giskard Hub - Enterprise Agent Testing - UI Quickstart
+:og:description: Launch enterprise LLM agent testing with team collaboration, continuous red teaming, and comprehensive evaluation workflows. Perfect for business users managing AI safety in production.
 
 ====================
 Quickstart & Setup

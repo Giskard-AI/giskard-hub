@@ -1,4 +1,5 @@
-:og:description: Giskard Comparison Guide - Compare Giskard Hub (enterprise) vs Giskard Open Source to choose the right LLM testing solution for your team size, security needs, and collaboration requirements.
+:og:title: Giskard - Open Source vs Giskard Hub
+:og:description: Compare Giskard Hub (enterprise) vs Giskard Open Source to choose the right LLM agent testing solution for your team size, security needs, and collaboration requirements.
 
 Open Source vs Giskard Hub
 ==========================

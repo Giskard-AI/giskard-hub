@@ -1,4 +1,5 @@
-:og:description: Giskard Open Source SDK - Free Python library for LLM testing and evaluation. Detect security vulnerabilities and business logic failures with LLM Scan and RAG evaluation toolkit.
+:og:title: Giskard Open Source - Free LLM Agent Testing Library
+:og:description: Test and evaluate your LLM agents with our free Python library. Detect security vulnerabilities and business logic failures with LLM Scan and RAGET.
 
 Quickstart & Setup
 ==================
