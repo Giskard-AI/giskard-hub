@@ -13,7 +13,7 @@ Read the quickstart guide to get up and running with the `giskard_hub` library.
 You will learn how to execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.
 
-Access the full docs at: https://docs-hub.giskard.ai/
+Access the full docs at: https://docs.giskard.ai/
 
 ## Install the client library
 

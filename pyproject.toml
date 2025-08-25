@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "giskard_hub", from = "src" }]
 repository = "https://github.com/Giskard-AI/giskard-hub"
 homepage = "https://github.com/Giskard-AI/giskard-hub"
-documentation = "https://docs-hub.giskard.ai/"
+documentation = "https://docs.giskard.ai/"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
