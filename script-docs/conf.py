@@ -17,7 +17,7 @@ from sphinxawesome_theme.postprocess import Icons
 html_permalinks_icon = Icons.permalinks_icon
 
 project = "Giskard"
-copyright = "2024, Giskard"
+copyright = "2025, Giskard"
 author = "Giskard"
 
 # -- General configuration ---------------------------------------------------
@@ -86,8 +86,8 @@ theme_options = ThemeOptions(
     show_prev_next=True,
     show_scrolltop=True,
     awesome_external_links=True,
-    logo_light="_static/logo_black.png",
-    logo_dark="_static/logo_white.png",
+    logo_light="_static/logo_light.png",
+    logo_dark="_static/logo_dark.png",
     main_nav_links={
         "Getting Started": "/index",
         "Giskard Hub UI": "/hub/ui/index",
@@ -104,7 +104,7 @@ html_theme_options = asdict(theme_options)
 ogp_site_name = "Giskard Documentation"
 
 # Open Graph image (logo for social sharing)
-ogp_image = "_static/logo_black.png"
+ogp_image = "_static/logo_dark.png"
 
 # Open Graph image type
 ogp_image_type = "image/png"
@@ -114,7 +114,7 @@ ogp_image_width = 1200
 ogp_image_height = 630
 
 # Additional Open Graph images for different contexts
-ogp_image_alt = ["_static/logo_white.png"]
+ogp_image_alt = ["_static/logo_dark.png"]
 
 # Open Graph description
 ogp_description_length = 200
@@ -135,7 +135,7 @@ ogp_twitter_site = "@GiskardAI"
 
 # Additional Open Graph properties
 ogp_image_secure_url = (
-    f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/logo_black.png"
+    f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/logo_light.png"
 )
 
 

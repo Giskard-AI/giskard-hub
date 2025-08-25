@@ -1,3 +1,37 @@
+/* Font definitions */
+@font-face {
+  font-family: 'Osmose';
+  src: url('fonts/osmose-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Osmose';
+  src: url('fonts/osmose-regular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Osmose';
+  src: url('fonts/osmose-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --accent-color: #05D939;
+}
+
+/* Global font application */
+body, html {
+  font-family: 'Osmose', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
 #content img {
   border: 1px solid hsl(var(--border));
 }
@@ -35,3 +69,88 @@ main .container,
   margin-top: 0 !important;
   padding-left: 0 !important;
 }
+
+/* Dark mode background override - maximum specificity */
+html.dark,
+html.dark body,
+.dark {
+  background: #002929 !important;
+  background-color: #002929 !important;
+}
+
+/* Dark mode border color override - only for elements that have borders */
+html.dark [class*="border"],
+html.dark .border,
+html.dark .border-border,
+html.dark .border-t,
+html.dark .border-b,
+html.dark .border-l,
+html.dark .border-r,
+html.dark input[style*="border"],
+html.dark button[style*="border"],
+html.dark .card,
+html.dark .sd-card,
+html.dark aside#left-sidebar,
+html.dark header,
+html.dark footer,
+.dark [class*="border"],
+.dark .border,
+.dark .border-border,
+.dark .border-t,
+.dark .border-b,
+.dark .border-l,
+.dark .border-r,
+.dark input[style*="border"],
+.dark button[style*="border"],
+.dark .card,
+.dark .sd-card,
+.dark aside#left-sidebar,
+.dark header,
+.dark footer {
+  border-color: #40DEDF21 !important;
+}
+
+/* Dark mode header background override */
+html.dark header.sticky,
+html.dark header[class*="bg-background"],
+.dark header.sticky,
+.dark header[class*="bg-background"] {
+  background: #002929 !important;
+  background-color: #002929 !important;
+}
+
+/* Override Tailwind backdrop-blur backgrounds in dark mode */
+html.dark [class*="bg-background/"],
+html.dark [class*="bg-background"],
+.dark [class*="bg-background/"],
+.dark [class*="bg-background"] {
+  background: #002929 !important;
+  background-color: #002929 !important;
+}
+
+/* Dark mode current sidebar item styling */
+html.dark #left-sidebar a.current,
+.dark #left-sidebar a.current {
+  background-color: transparent !important;
+  color: var(--accent-color) !important;
+  text-decoration: none;
+}
+
+/* Dark mode hover sidebar item styling */
+html.dark #left-sidebar a:hover,
+.dark #left-sidebar a:hover {
+  background-color: rgba(198, 255, 255, 0.05) !important;
+  text-decoration: none;
+}
+
+/* Dark mode focus and hover styling for inputs */
+html.dark input:focus,
+html.dark input:focus-visible,
+html.dark input:hover,
+.dark input:focus,
+.dark input:focus-visible,
+.dark input:hover {
+  background-color: rgba(198, 255, 255, 0.05) !important;
+  border-color: var(--accent-color) !important;
+}
+
