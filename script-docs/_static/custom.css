@@ -24,13 +24,15 @@
 
 :root {
   --accent-color: #0f1729;
-  --sidebar-heading-color: #0f1729; 
+  --sidebar-heading-color: #0f1729;
+  --non-selected-color: rgba(15, 23, 41, 0.6); /* Light mode - text-foreground/60 */
 }
 
 
 .dark {
   --accent-color: #05D939;
-  --sidebar-heading-color: #E3FFFF; 
+  --sidebar-heading-color: #E3FFFF;
+  --non-selected-color: rgba(198, 255, 255, 0.6); /* Dark mode - text-foreground/60 */
 }
 
 
@@ -190,12 +192,12 @@ header nav a {
 
 header nav a.text-foreground\/60,
 header nav a:not(.text-foreground):not([class*="text-foreground"]) {
-  color: rgba(15, 23, 41, 0.6) !important; /* Light mode - text-foreground/60 */
+  color: var(--non-selected-color) !important;
 }
 
 .dark header nav a.text-foreground\/60,
 .dark header nav a:not(.text-foreground):not([class*="text-foreground"]) {
-  color: rgba(198, 255, 255, 0.6) !important; /* Dark mode - text-foreground/60 */
+  color: var(--non-selected-color) !important;
 }
 
 
@@ -251,6 +253,52 @@ header nav a:not(.text-foreground):hover {
 #left-sidebar .caption,
 #left-sidebar p.caption {
   color: var(--sidebar-heading-color) !important;
+}
+
+/* Breadcrumb styling - make non-current segments use same color as non-selected header nav */
+nav[aria-label="breadcrumbs"].text-muted-foreground a,
+nav[aria-label="breadcrumbs"] a.hover\:text-foreground {
+  color: var(--non-selected-color) !important;
+}
+
+.dark nav[aria-label="breadcrumbs"].text-muted-foreground a,
+.dark nav[aria-label="breadcrumbs"] a.hover\:text-foreground {
+  color: var(--non-selected-color) !important;
+}
+
+/* Breadcrumb hover state */
+nav[aria-label="breadcrumbs"].text-muted-foreground a:hover,
+nav[aria-label="breadcrumbs"] a.hover\:text-foreground:hover {
+  color: rgba(15, 23, 41, 0.8) !important; /* Light mode - text-foreground/80 */
+}
+
+.dark nav[aria-label="breadcrumbs"].text-muted-foreground a:hover,
+.dark nav[aria-label="breadcrumbs"] a.hover\:text-foreground:hover {
+  color: rgba(198, 255, 255, 0.8) !important; /* Dark mode - text-foreground/80 */
+}
+
+/* Header responsive behavior - reduce search width to prevent navigation wrapping */
+/* Prevent logo from shrinking */
+header .container a.flex.items-center.mr-6 {
+  flex-shrink: 0 !important;
+}
+
+@media (min-width: 768px) {
+  #search-input {
+    width: 10rem !important; /* Smaller than default md:w-40 */
+  }
+}
+
+@media (min-width: 1280px) {
+  #search-input {
+    width: 16rem !important; /* lg:w-64 equivalent but smaller */
+  }
+}
+
+@media (min-width: 1280px) {
+  #search-input {
+    width: 20rem !important; /* Larger screens can accommodate more space */
+  }
 }
 
 /* Special case for homepage - force all nav items to non-selected state */
