@@ -310,7 +310,7 @@ header nav a:not(.text-foreground):hover {
   color: var(--sidebar-heading-color) !important;
 }
 
-/* Right sidebar (table of contents) styling */
+/* Right sidebar (table of contents) styling - high specificity to override theme */
 #right-sidebar .font-medium {
   color: var(--sidebar-heading-color) !important; /* "On this page" title */
 }
@@ -319,8 +319,19 @@ header nav a:not(.text-foreground):hover {
   color: var(--non-selected-color) !important; /* Non-selected TOC items */
 }
 
-/* Right sidebar current selection - let theme handle data-current, provide fallback for .current classes */
-#right-sidebar ul li a.current {
+/* Right sidebar current selection - prioritize data-current attribute over .current class */
+#right-sidebar ul li a[data-current="true"],
+#right-sidebar ul li a[data-current="true"].reference,
+#right-sidebar ul li a[data-current="true"].internal {
+  color: var(--accent-color) !important; /* Use accent color for current selection */
+  opacity: 1 !important; /* Ensure full opacity */
+  font-weight: 500 !important; /* Slightly bolder for emphasis */
+}
+
+/* Fallback for .current class when data-current is not available */
+#right-sidebar ul li a.current:not([data-current="true"]),
+#right-sidebar ul li a.current:not([data-current="true"]).reference,
+#right-sidebar ul li a.current:not([data-current="true"]).internal {
   color: var(--accent-color) !important; /* Use accent color for current selection */
   opacity: 1 !important; /* Ensure full opacity */
   font-weight: 500 !important; /* Slightly bolder for emphasis */
@@ -331,9 +342,24 @@ header nav a:not(.text-foreground):hover {
   opacity: 0.8 !important; /* Slight opacity for hover state */
 }
 
-/* Dark mode right sidebar current selection - fallback for .current classes */
-.dark #right-sidebar ul li a.current,
-html.dark #right-sidebar ul li a.current {
+/* Dark mode right sidebar current selection - prioritize data-current attribute */
+.dark #right-sidebar ul li a[data-current="true"],
+.dark #right-sidebar ul li a[data-current="true"].reference,
+.dark #right-sidebar ul li a[data-current="true"].internal,
+html.dark #right-sidebar ul li a[data-current="true"],
+html.dark #right-sidebar ul li a[data-current="true"].reference,
+html.dark #right-sidebar ul li a[data-current="true"].internal {
+  color: var(--accent-color) !important; /* Green accent in dark mode */
+  opacity: 1 !important; /* Full opacity */
+}
+
+/* Dark mode fallback for .current class */
+.dark #right-sidebar ul li a.current:not([data-current="true"]),
+.dark #right-sidebar ul li a.current:not([data-current="true"]).reference,
+.dark #right-sidebar ul li a.current:not([data-current="true"]).internal,
+html.dark #right-sidebar ul li a.current:not([data-current="true"]),
+html.dark #right-sidebar ul li a.current:not([data-current="true"]).reference,
+html.dark #right-sidebar ul li a.current:not([data-current="true"]).internal {
   color: var(--accent-color) !important; /* Green accent in dark mode */
   opacity: 1 !important; /* Full opacity */
 }
@@ -445,5 +471,4 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 .dark body[data-content_root="./"] header nav a[class*="text-foreground"] {
   color: #C6FFFF !important; 
 }
-
 
