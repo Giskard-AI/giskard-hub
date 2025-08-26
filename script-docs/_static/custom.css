@@ -45,12 +45,23 @@ body, html {
 /* Text selection styling */
 ::selection {
   background-color: var(--accent-color) !important;
-  color: white !important;
+  color: white !important; /* White text for contrast in light mode */
 }
 
 ::-moz-selection {
   background-color: var(--accent-color) !important;
-  color: white !important;
+  color: white !important; /* White text for contrast in light mode */
+}
+
+/* Dark mode text selection - use dark text on green background */
+.dark ::selection {
+  background-color: var(--accent-color) !important;
+  color: #0f1729 !important;
+}
+
+.dark ::-moz-selection {
+  background-color: var(--accent-color) !important;
+  color: #0f1729 !important;
 }
 
 #content img {
@@ -193,6 +204,19 @@ html.dark input:hover,
   border-color: var(--accent-color) !important;
 }
 
+/* Dark mode button hover styling - same background as input focus */
+.dark button:hover,
+.dark .sd-stretched-link:hover,
+.dark a.inline-flex:hover {
+  background-color: rgba(198, 255, 255, 0.05) !important;
+}
+
+/* Dark mode footer legal text - even lower opacity than non-selected */
+.dark footer .text-muted-foreground,
+.dark footer p.text-sm {
+  color: rgba(198, 255, 255, 0.5) !important; /* 50% opacity instead of 60% */
+}
+
 /* Light mode text colors */
 .text-foreground {
   color: #0f1729 !important;
@@ -284,6 +308,63 @@ header nav a:not(.text-foreground):hover {
 #left-sidebar .caption,
 #left-sidebar p.caption {
   color: var(--sidebar-heading-color) !important;
+}
+
+/* Right sidebar (table of contents) styling */
+#right-sidebar .font-medium {
+  color: var(--sidebar-heading-color) !important; /* "On this page" title */
+}
+
+#right-sidebar ul li a {
+  color: var(--non-selected-color) !important; /* Non-selected TOC items */
+}
+
+#right-sidebar ul li a.current,
+#right-sidebar ul li a:hover {
+  color: var(--sidebar-heading-color) !important; /* Current/hovered TOC items */
+}
+
+/* Tab styling */
+.sphinx-tabs {
+  display: block !important;
+  padding-bottom: 1rem !important;
+}
+
+/* Tab buttons container */
+.sphinx-tabs .closeable {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-bottom: 1px solid var(--non-selected-color) !important; /* Bottom border for tab bar */
+  display: inline-block !important;
+}
+
+/* Individual tab buttons */
+.sphinx-tabs-tab {
+  background: none !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important; /* Invisible bottom border for spacing */
+  color: var(--non-selected-color) !important; /* Non-selected tab color */
+  padding: 0.5rem 1rem !important;
+  margin-bottom: -1px !important; /* Overlap with container border */
+}
+
+/* Selected tab button */
+.sphinx-tabs-tab[aria-selected="true"] {
+  color: var(--accent-color) !important; /* Selected tab uses accent color */
+  background: none !important;
+  border: none !important;
+  border-bottom: 2px solid var(--accent-color) !important; /* Accent color bottom border */
+  margin-bottom: -1px !important; /* Overlap with container border */
+}
+
+/* Tab content panels - remove background and borders */
+.sphinx-tabs-panel {
+  background: none !important;
+  border: none !important;
+  padding: 20px 0 !important; /* Vertical padding only, no horizontal */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* Breadcrumb styling - make non-current segments use same color as non-selected header nav */
