@@ -1,4 +1,3 @@
-/* Font definitions */
 @font-face {
   font-family: 'Osmose';
   src: url('fonts/osmose-light.woff2') format('woff2');
@@ -24,10 +23,17 @@
 }
 
 :root {
-  --accent-color: #05D939;
+  --accent-color: #0f1729;
+  --sidebar-heading-color: #0f1729; 
 }
 
-/* Global font application */
+
+.dark {
+  --accent-color: #05D939;
+  --sidebar-heading-color: #E3FFFF; 
+}
+
+
 body, html {
   font-family: 'Osmose', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
 }
@@ -49,7 +55,7 @@ body, html {
   width: 100% !important;
 }
 
-/* Target potential theme-specific container classes */
+
 .sphinxawesome-theme .container,
 .sphinxawesome-theme div.container,
 main .container,
@@ -153,4 +159,111 @@ html.dark input:hover,
   background-color: rgba(198, 255, 255, 0.05) !important;
   border-color: var(--accent-color) !important;
 }
+
+/* Light mode text colors */
+.text-foreground {
+  color: #0f1729 !important;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--sidebar-heading-color) !important;
+}
+
+
+.dark .text-foreground {
+  color: #C6FFFF !important;
+}
+
+
+header nav a {
+  transition-property: color, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+
+header nav a.text-foreground\/60,
+header nav a:not(.text-foreground):not([class*="text-foreground"]) {
+  color: rgba(15, 23, 41, 0.6) !important; /* Light mode - text-foreground/60 */
+}
+
+.dark header nav a.text-foreground\/60,
+.dark header nav a:not(.text-foreground):not([class*="text-foreground"]) {
+  color: rgba(198, 255, 255, 0.6) !important; /* Dark mode - text-foreground/60 */
+}
+
+
+header nav a.text-foreground,
+header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
+  color: var(--accent-color) !important;
+}
+
+
+html[data-content_root="./"] header nav a.text-foreground,
+html[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]),
+body[data-content_root="./"] header nav a.text-foreground,
+body[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
+  color: rgba(15, 23, 41, 0.6) !important; /* Light mode - text-foreground/60 opacity */
+}
+
+html.dark[data-content_root="./"] header nav a.text-foreground,
+html.dark[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]),
+.dark body[data-content_root="./"] header nav a.text-foreground,
+.dark body[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
+  color: rgba(198, 255, 255, 0.6) !important; /* Dark mode - text-foreground/60 opacity */
+}
+
+
+html[data-content_root="./"] header nav a[href="/index.html"],
+html[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
+body[data-content_root="./"] header nav a[href="/index.html"],
+body[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
+html.dark[data-content_root="./"] header nav a[href="/index.html"],
+html.dark[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
+.dark body[data-content_root="./"] header nav a[href="/index.html"],
+.dark body[data-content_root="./"] header nav a[href="/index.html"].text-foreground {
+  color: var(--accent-color) !important; 
+}
+
+
+header nav a:hover {
+  opacity: 1 !important;
+}
+
+header nav a.text-foreground\/60:hover,
+header nav a:not(.text-foreground):hover {
+  color: rgba(15, 23, 41, 0.8) !important; 
+}
+
+.dark header nav a.text-foreground\/60:hover,
+.dark header nav a:not(.text-foreground):hover {
+  color: rgba(198, 255, 255, 0.8) !important; 
+}
+
+
+#left-sidebar p[role="heading"],
+#left-sidebar .caption,
+#left-sidebar p.caption {
+  color: var(--sidebar-heading-color) !important;
+}
+
+/* Special case for homepage - force all nav items to non-selected state */
+body[data-content_root="./"] header nav a,
+body[data-content_root="./"] header nav a.text-foreground,
+body[data-content_root="./"] header nav a[class*="text-foreground"] {
+  color: rgba(15, 23, 41, 1) !important; 
+}
+
+.dark body[data-content_root="./"] header nav a,
+.dark body[data-content_root="./"] header nav a.text-foreground,
+.dark body[data-content_root="./"] header nav a[class*="text-foreground"] {
+  color: #C6FFFF !important; 
+}
+
 
