@@ -25,35 +25,31 @@
 :root {
   --accent-color: #0f1729;
   --sidebar-heading-color: #0f1729;
-  --non-selected-color: rgba(15, 23, 41, 0.6); /* Light mode - text-foreground/60 */
-  --link-color: inherit; /* Light mode - inherit default link color */
+  --non-selected-color: rgba(15, 23, 41, 0.6);
+  --link-color: inherit;
 }
-
 
 .dark {
   --accent-color: #05D939;
   --sidebar-heading-color: #E3FFFF;
-  --non-selected-color: rgba(198, 255, 255, 0.6); /* Dark mode - text-foreground/60 */
-  --link-color: #40DEDF; /* Dark mode - cyan text links */
+  --non-selected-color: rgba(198, 255, 255, 0.6);
+  --link-color: #40DEDF;
 }
-
 
 body, html {
   font-family: 'Osmose', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
 }
 
-/* Text selection styling */
 ::selection {
   background-color: var(--accent-color) !important;
-  color: white !important; /* White text for contrast in light mode */
+  color: white !important;
 }
 
 ::-moz-selection {
   background-color: var(--accent-color) !important;
-  color: white !important; /* White text for contrast in light mode */
+  color: white !important;
 }
 
-/* Dark mode text selection - use dark text on green background */
 .dark ::selection {
   background-color: var(--accent-color) !important;
   color: #0f1729 !important;
@@ -76,11 +72,9 @@ body, html {
 .container {
   margin-left: auto !important;
   margin-right: auto !important;
-  /* padding-left: 2rem; */
   padding-right: 2rem !important;
   width: 100% !important;
 }
-
 
 .sphinxawesome-theme .container,
 .sphinxawesome-theme div.container,
@@ -102,7 +96,6 @@ main .container,
   padding-left: 0 !important;
 }
 
-/* Dark mode background override - maximum specificity */
 html.dark,
 html.dark body,
 .dark {
@@ -110,7 +103,6 @@ html.dark body,
   background-color: #002929 !important;
 }
 
-/* Dark mode card backgrounds */
 .dark .sd-card,
 .dark .sd-card-body,
 .dark div.sd-card-body.docutils {
@@ -120,7 +112,6 @@ html.dark body,
   border-radius: 10px !important;
 }
 
-/* Dark mode text links - only in main content, not sidebar */
 .dark #content a,
 .dark #content .reference,
 .dark main a,
@@ -128,21 +119,6 @@ html.dark body,
   color: var(--link-color) !important;
 }
 
-/* Dark mode border color override - only for elements that have borders */
-html.dark [class*="border"],
-html.dark .border,
-html.dark .border-border,
-html.dark .border-t,
-html.dark .border-b,
-html.dark .border-l,
-html.dark .border-r,
-html.dark input[style*="border"],
-html.dark button[style*="border"],
-html.dark .card,
-html.dark .sd-card,
-html.dark aside#left-sidebar,
-html.dark header,
-html.dark footer,
 .dark [class*="border"],
 .dark .border,
 .dark .border-border,
@@ -160,43 +136,29 @@ html.dark footer,
   border-color: #40DEDF21 !important;
 }
 
-/* Dark mode header background override */
-html.dark header.sticky,
-html.dark header[class*="bg-background"],
 .dark header.sticky,
 .dark header[class*="bg-background"] {
   background: #002929 !important;
   background-color: #002929 !important;
 }
 
-/* Override Tailwind backdrop-blur backgrounds in dark mode */
-html.dark [class*="bg-background/"],
-html.dark [class*="bg-background"],
 .dark [class*="bg-background/"],
 .dark [class*="bg-background"] {
   background: #002929 !important;
   background-color: #002929 !important;
 }
 
-/* Dark mode current sidebar item styling */
-html.dark #left-sidebar a.current,
 .dark #left-sidebar a.current {
   background-color: transparent !important;
   color: var(--accent-color) !important;
   text-decoration: none;
 }
 
-/* Dark mode hover sidebar item styling */
-html.dark #left-sidebar a:hover,
 .dark #left-sidebar a:hover {
   background-color: rgba(198, 255, 255, 0.05) !important;
   text-decoration: none;
 }
 
-/* Dark mode focus and hover styling for inputs */
-html.dark input:focus,
-html.dark input:focus-visible,
-html.dark input:hover,
 .dark input:focus,
 .dark input:focus-visible,
 .dark input:hover {
@@ -204,39 +166,28 @@ html.dark input:hover,
   border-color: var(--accent-color) !important;
 }
 
-/* Dark mode button hover styling - same background as input focus */
 .dark button:hover,
 .dark .sd-stretched-link:hover,
 .dark a.inline-flex:hover {
   background-color: rgba(198, 255, 255, 0.05) !important;
 }
 
-/* Dark mode footer legal text - even lower opacity than non-selected */
 .dark footer .text-muted-foreground,
 .dark footer p.text-sm {
-  color: rgba(198, 255, 255, 0.5) !important; /* 50% opacity instead of 60% */
+  color: rgba(198, 255, 255, 0.5) !important;
 }
 
-/* Light mode text colors */
 .text-foreground {
   color: #0f1729 !important;
 }
 
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--sidebar-heading-color) !important;
 }
-
 
 .dark .text-foreground {
   color: #C6FFFF !important;
 }
-
 
 header nav a {
   transition-property: color, opacity;
@@ -244,38 +195,29 @@ header nav a {
   transition-timing-function: ease-in-out;
 }
 
-
 header nav a.text-foreground\/60,
 header nav a:not(.text-foreground):not([class*="text-foreground"]) {
   color: var(--non-selected-color) !important;
 }
-
-.dark header nav a.text-foreground\/60,
-.dark header nav a:not(.text-foreground):not([class*="text-foreground"]) {
-  color: var(--non-selected-color) !important;
-}
-
 
 header nav a.text-foreground,
 header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
   color: var(--accent-color) !important;
 }
 
-
 html[data-content_root="./"] header nav a.text-foreground,
 html[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]),
 body[data-content_root="./"] header nav a.text-foreground,
 body[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
-  color: rgba(15, 23, 41, 0.6) !important; /* Light mode - text-foreground/60 opacity */
+  color: rgba(15, 23, 41, 0.6) !important;
 }
 
 html.dark[data-content_root="./"] header nav a.text-foreground,
 html.dark[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]),
 .dark body[data-content_root="./"] header nav a.text-foreground,
 .dark body[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
-  color: rgba(198, 255, 255, 0.6) !important; /* Dark mode - text-foreground/60 opacity */
+  color: rgba(198, 255, 255, 0.6) !important;
 }
-
 
 html[data-content_root="./"] header nav a[href="/index.html"],
 html[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
@@ -287,7 +229,6 @@ html.dark[data-content_root="./"] header nav a[href="/index.html"].text-foregrou
 .dark body[data-content_root="./"] header nav a[href="/index.html"].text-foreground {
   color: var(--accent-color) !important; 
 }
-
 
 header nav a:hover {
   opacity: 1 !important;
@@ -303,163 +244,130 @@ header nav a:not(.text-foreground):hover {
   color: rgba(198, 255, 255, 0.8) !important; 
 }
 
-
 #left-sidebar p[role="heading"],
 #left-sidebar .caption,
 #left-sidebar p.caption {
   color: var(--sidebar-heading-color) !important;
 }
 
-/* Right sidebar (table of contents) styling - high specificity to override theme */
 #right-sidebar .font-medium {
-  color: var(--sidebar-heading-color) !important; /* "On this page" title */
+  color: var(--sidebar-heading-color) !important;
 }
 
 #right-sidebar ul li a {
-  color: var(--non-selected-color) !important; /* Non-selected TOC items */
+  color: var(--non-selected-color) !important;
 }
 
-/* Right sidebar current selection - prioritize data-current attribute over .current class */
 #right-sidebar ul li a[data-current="true"],
 #right-sidebar ul li a[data-current="true"].reference,
 #right-sidebar ul li a[data-current="true"].internal {
-  color: var(--accent-color) !important; /* Use accent color for current selection */
-  opacity: 1 !important; /* Ensure full opacity */
-  font-weight: 500 !important; /* Slightly bolder for emphasis */
+  color: var(--accent-color) !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
 }
 
-/* Fallback for .current class when data-current is not available */
 #right-sidebar ul li a.current:not([data-current="true"]),
 #right-sidebar ul li a.current:not([data-current="true"]).reference,
 #right-sidebar ul li a.current:not([data-current="true"]).internal {
-  color: var(--accent-color) !important; /* Use accent color for current selection */
-  opacity: 1 !important; /* Ensure full opacity */
-  font-weight: 500 !important; /* Slightly bolder for emphasis */
+  color: var(--accent-color) !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
 }
 
 #right-sidebar ul li a:hover {
-  color: var(--sidebar-heading-color) !important; /* Hovered TOC items */
-  opacity: 0.8 !important; /* Slight opacity for hover state */
-}
-
-/* Dark mode right sidebar current selection - prioritize data-current attribute */
-.dark #right-sidebar ul li a[data-current="true"],
-.dark #right-sidebar ul li a[data-current="true"].reference,
-.dark #right-sidebar ul li a[data-current="true"].internal,
-html.dark #right-sidebar ul li a[data-current="true"],
-html.dark #right-sidebar ul li a[data-current="true"].reference,
-html.dark #right-sidebar ul li a[data-current="true"].internal {
-  color: var(--accent-color) !important; /* Green accent in dark mode */
-  opacity: 1 !important; /* Full opacity */
-}
-
-/* Dark mode fallback for .current class */
-.dark #right-sidebar ul li a.current:not([data-current="true"]),
-.dark #right-sidebar ul li a.current:not([data-current="true"]).reference,
-.dark #right-sidebar ul li a.current:not([data-current="true"]).internal,
-html.dark #right-sidebar ul li a.current:not([data-current="true"]),
-html.dark #right-sidebar ul li a.current:not([data-current="true"]).reference,
-html.dark #right-sidebar ul li a.current:not([data-current="true"]).internal {
-  color: var(--accent-color) !important; /* Green accent in dark mode */
-  opacity: 1 !important; /* Full opacity */
-}
-
-.dark #right-sidebar ul li a:hover,
-html.dark #right-sidebar ul li a:hover {
-  color: var(--sidebar-heading-color) !important; /* Light text on hover */
+  color: var(--sidebar-heading-color) !important;
   opacity: 0.8 !important;
 }
 
-/* Tab styling */
-.sphinx-tabs {
-  display: block !important;
-  padding-bottom: 1rem !important;
+.dark #right-sidebar ul li a[data-current="true"],
+.dark #right-sidebar ul li a[data-current="true"].reference,
+.dark #right-sidebar ul li a[data-current="true"].internal {
+  color: var(--accent-color) !important;
+  opacity: 1 !important;
 }
 
-/* Tab buttons container */
+.dark #right-sidebar ul li a.current:not([data-current="true"]),
+.dark #right-sidebar ul li a.current:not([data-current="true"]).reference,
+.dark #right-sidebar ul li a.current:not([data-current="true"]).internal {
+  color: var(--accent-color) !important;
+  opacity: 1 !important;
+}
+
+.dark #right-sidebar ul li a:hover {
+  color: var(--sidebar-heading-color) !important;
+  opacity: 0.8 !important;
+}
+
 .sphinx-tabs .closeable {
   background: none !important;
   border: none !important;
   padding: 0 !important;
-  border-bottom: 1px solid var(--non-selected-color) !important; /* Bottom border for tab bar */
+  border-bottom: 1px solid var(--non-selected-color) !important;
   display: inline-block !important;
 }
 
-/* Individual tab buttons */
 .sphinx-tabs-tab {
   background: none !important;
   border: none !important;
-  border-bottom: 2px solid transparent !important; /* Invisible bottom border for spacing */
-  color: var(--non-selected-color) !important; /* Non-selected tab color */
+  border-bottom: 2px solid transparent !important;
+  color: var(--non-selected-color) !important;
   padding: 0.5rem 1rem !important;
-  margin-bottom: -1px !important; /* Overlap with container border */
+  margin-bottom: -1px !important;
 }
 
-/* Selected tab button */
 .sphinx-tabs-tab[aria-selected="true"] {
-  color: var(--accent-color) !important; /* Selected tab uses accent color */
+  color: var(--accent-color) !important;
   background: none !important;
   border: none !important;
-  border-bottom: 2px solid var(--accent-color) !important; /* Accent color bottom border */
-  margin-bottom: -1px !important; /* Overlap with container border */
+  border-bottom: 2px solid var(--accent-color) !important;
+  margin-bottom: -1px !important;
 }
 
-/* Tab content panels - remove background and borders */
 .sphinx-tabs-panel {
   background: none !important;
   border: none !important;
-  padding: 20px 0 !important; /* Vertical padding only, no horizontal */
+  padding: 20px 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-/* Breadcrumb styling - make non-current segments use same color as non-selected header nav */
 nav[aria-label="breadcrumbs"].text-muted-foreground a,
 nav[aria-label="breadcrumbs"] a.hover\:text-foreground {
   color: var(--non-selected-color) !important;
 }
 
-.dark nav[aria-label="breadcrumbs"].text-muted-foreground a,
-.dark nav[aria-label="breadcrumbs"] a.hover\:text-foreground {
-  color: var(--non-selected-color) !important;
-}
-
-/* Breadcrumb hover state */
 nav[aria-label="breadcrumbs"].text-muted-foreground a:hover,
 nav[aria-label="breadcrumbs"] a.hover\:text-foreground:hover {
-  color: rgba(15, 23, 41, 0.8) !important; /* Light mode - text-foreground/80 */
+  color: rgba(15, 23, 41, 0.8) !important;
 }
 
 .dark nav[aria-label="breadcrumbs"].text-muted-foreground a:hover,
 .dark nav[aria-label="breadcrumbs"] a.hover\:text-foreground:hover {
-  color: rgba(198, 255, 255, 0.8) !important; /* Dark mode - text-foreground/80 */
+  color: rgba(198, 255, 255, 0.8) !important;
 }
 
-/* Header responsive behavior - reduce search width to prevent navigation wrapping */
-/* Prevent logo from shrinking */
 header .container a.flex.items-center.mr-6 {
   flex-shrink: 0 !important;
 }
 
 @media (min-width: 768px) {
   #search-input {
-    width: 10rem !important; /* Smaller than default md:w-40 */
+    width: 10rem !important;
   }
 }
 
 @media (min-width: 1280px) {
   #search-input {
-    width: 16rem !important; /* lg:w-64 equivalent but smaller */
+    width: 16rem !important;
   }
 }
 
 @media (min-width: 1280px) {
   #search-input {
-    width: 20rem !important; /* Larger screens can accommodate more space */
+    width: 20rem !important;
   }
 }
 
-/* Special case for homepage - force all nav items to non-selected state */
 body[data-content_root="./"] header nav a,
 body[data-content_root="./"] header nav a.text-foreground,
 body[data-content_root="./"] header nav a[class*="text-foreground"] {
