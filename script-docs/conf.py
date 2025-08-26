@@ -61,7 +61,7 @@ html_static_path = ["_static"]
 source_suffix = [".rst", ".md"]
 
 html_css_files = ["pygments-dark.css", "custom.css"]
-html_js_files = ["sidebar-scroll.js"]
+html_js_files = ["custom.js"]
 html_favicon = "_static/favicon.ico"
 
 # Do not execute the notebooks when building the docs

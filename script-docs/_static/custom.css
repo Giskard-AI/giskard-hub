@@ -319,9 +319,29 @@ header nav a:not(.text-foreground):hover {
   color: var(--non-selected-color) !important; /* Non-selected TOC items */
 }
 
-#right-sidebar ul li a.current,
+/* Right sidebar current selection - let theme handle data-current, provide fallback for .current classes */
+#right-sidebar ul li a.current {
+  color: var(--accent-color) !important; /* Use accent color for current selection */
+  opacity: 1 !important; /* Ensure full opacity */
+  font-weight: 500 !important; /* Slightly bolder for emphasis */
+}
+
 #right-sidebar ul li a:hover {
-  color: var(--sidebar-heading-color) !important; /* Current/hovered TOC items */
+  color: var(--sidebar-heading-color) !important; /* Hovered TOC items */
+  opacity: 0.8 !important; /* Slight opacity for hover state */
+}
+
+/* Dark mode right sidebar current selection - fallback for .current classes */
+.dark #right-sidebar ul li a.current,
+html.dark #right-sidebar ul li a.current {
+  color: var(--accent-color) !important; /* Green accent in dark mode */
+  opacity: 1 !important; /* Full opacity */
+}
+
+.dark #right-sidebar ul li a:hover,
+html.dark #right-sidebar ul li a:hover {
+  color: var(--sidebar-heading-color) !important; /* Light text on hover */
+  opacity: 0.8 !important;
 }
 
 /* Tab styling */

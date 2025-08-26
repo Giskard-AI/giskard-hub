@@ -1,12 +1,12 @@
 /**
- * Simple Sidebar Scroll to Current Item
- * Scrolls to the currently selected item in the sidebar on page load
+ * Custom functionality for Giskard documentation
+ * Left sidebar scroll to current item on page load
  */
 (function() {
   'use strict';
   
   function scrollToCurrentItem() {
-    // Find the sidebar
+    // Find the left sidebar
     const sidebar = document.querySelector('#left-sidebar');
     if (!sidebar) return;
     
