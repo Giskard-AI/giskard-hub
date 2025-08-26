@@ -104,7 +104,7 @@ html_theme_options = asdict(theme_options)
 ogp_site_name = "Giskard Documentation"
 
 # Open Graph image (logo for social sharing)
-ogp_image = "_static/logo_dark.png"
+ogp_image = "_static/open-graph-image.jpg"
 
 # Open Graph image type
 ogp_image_type = "image/png"
@@ -114,7 +114,7 @@ ogp_image_width = 1200
 ogp_image_height = 630
 
 # Additional Open Graph images for different contexts
-ogp_image_alt = ["_static/logo_dark.png"]
+ogp_image_alt = ["_static/open-graph-image.jpg"]
 
 # Open Graph description
 ogp_description_length = 200

@@ -26,6 +26,7 @@
   --accent-color: #0f1729;
   --sidebar-heading-color: #0f1729;
   --non-selected-color: rgba(15, 23, 41, 0.6); /* Light mode - text-foreground/60 */
+  --link-color: inherit; /* Light mode - inherit default link color */
 }
 
 
@@ -33,11 +34,23 @@
   --accent-color: #05D939;
   --sidebar-heading-color: #E3FFFF;
   --non-selected-color: rgba(198, 255, 255, 0.6); /* Dark mode - text-foreground/60 */
+  --link-color: #40DEDF; /* Dark mode - cyan text links */
 }
 
 
 body, html {
   font-family: 'Osmose', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Text selection styling */
+::selection {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+::-moz-selection {
+  background-color: var(--accent-color) !important;
+  color: white !important;
 }
 
 #content img {
@@ -84,6 +97,24 @@ html.dark body,
 .dark {
   background: #002929 !important;
   background-color: #002929 !important;
+}
+
+/* Dark mode card backgrounds */
+.dark .sd-card,
+.dark .sd-card-body,
+.dark div.sd-card-body.docutils {
+  background: #004040 !important;
+  background-color: #004040 !important;
+  border: none !important;
+  border-radius: 10px !important;
+}
+
+/* Dark mode text links - only in main content, not sidebar */
+.dark #content a,
+.dark #content .reference,
+.dark main a,
+.dark main .reference {
+  color: var(--link-color) !important;
 }
 
 /* Dark mode border color override - only for elements that have borders */
