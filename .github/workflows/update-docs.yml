@@ -27,7 +27,7 @@ jobs:
       - name: Merge latest code
         run: |
           git fetch --prune
-          git merge ${{ github.ref_name }}
+          git merge origin/${{ github.ref_name }}
 
       - name: Set up python
         id: setup-python
