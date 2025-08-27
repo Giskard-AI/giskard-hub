@@ -1,9 +1,11 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Client Reference
-:og:description: Learn how to initialize, configure, and use the client for all Hub LLM agent testing operations.
+:og:title: Giskard Hub - Client Reference
+:og:description: Learn about the HubClient class in Giskard Hub. Understand how to connect to and interact with the Hub through the Python SDK.
 
 ================
-Client
+Client reference
 ================
+
+The HubClient is the main entry point for interacting with the Giskard Hub through the Python SDK.
 
 .. autoclass:: giskard_hub.client.HubClient
     :members: projects, datasets, conversations, agents, models, evaluations, evals

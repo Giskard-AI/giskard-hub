@@ -2,7 +2,7 @@
 :og:description: Access complete API documentation for the enterprise Hub Python SDK. Find detailed information about all classes, methods, and resources for programmatic LLM agent testing.
 
 ===============================================
-API Reference
+API reference
 ===============================================
 
 These docs are automatically generated from the ``giskard_hub`` library.
@@ -33,7 +33,7 @@ These docs are automatically generated from the ``giskard_hub`` library.
 
    The resource classes providing access to the various entities from the :class:`~giskard_hub.client.HubClient` e.g. ``client.projects``.
 
-.. card:: Server Endpoints
+.. card:: Server endpoints
 
    Our API relies on FastAPI and is documented using OpenAPI. You can access the interactive API documentation directly in your browser at:
 

@@ -41,7 +41,7 @@ Each conversation must be defined as a JSON object with a ``messages`` field con
 
 .. note::
 
-   For detailed information about built-in checks like correctness, conformity, groundedness, and string matching, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about built-in checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
 .. image:: /_static/images/hub/import-conversations-detail.png
    :align: center
@@ -63,6 +63,8 @@ Here's an example of the structure and content in a dataset:
             "checks": [
                 {"identifier": "correctness", "params": {"reference": "How can I help you?"}},
                 {"identifier": "conformity", "params": {"rules": ["The agent should not do X"]}},
+                {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.tool", "expected_value": "calculator", "expected_value_type": "string"}]}},
+                {"identifier": "semantic_similarity", "params": {"reference": "How can I help you?", "threshold": 0.8}},
             ]
         }
     ]

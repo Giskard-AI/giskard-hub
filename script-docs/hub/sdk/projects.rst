@@ -1,19 +1,21 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Project Management
-:og:description: Create, update, and organize LLM agent testing projects programmatically. Manage project settings, users, and configurations through code.
+:og:title: Giskard Hub - Enterprise Agent Testing - Projects Management
+:og:description: Create, manage, and organize projects programmatically. Set up workspaces, configure access controls, and manage team collaboration through the Python SDK.
 
-===============================================
-Manage Projects and Agents
-===============================================
+==============================================
+Manage your projects and agents
+==============================================
 
-In this section, we will show how to manage projects programmatically using the SDK.
+Projects are the top-level organizational units in Giskard Hub. They provide a workspace for your team to collaborate on LLM agent testing and evaluation.
 
-- A **project** is a collection of agents, datasets, and evaluations.
-- An **agent** is a LLM, RAG workflow or AI Agent that needs to be evaluated.
+Each project can contain:
 
-.. note::
-   **Migration Note**: The SDK now uses "agents" terminology instead of "models" to align with the UI.
-   The ``hub.models`` attribute is deprecated but still works for backward compatibility.
-   Please use ``hub.agents`` for new code.
+* **Agents**: The AI systems you want to test and evaluate
+* **Datasets**: Collections of test cases and conversations
+* **Knowledge bases**: Domain-specific information sources
+* **Evaluations**: Test runs and their results
+* **Users and groups**: Team members with different access levels
+
+In this section, we will walk you through how to manage projects using the SDK.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -87,11 +89,11 @@ ________________
 
 Before running our first evaluation, we'll need to set up an agent. You'll need an API endpoint ready to serve the agent. Then, you can configure the agent API in the Hub:
 
-You can create an agent using the ``hub.agents.create()`` method. Here's a basic example:
+You can create an agent using the ``hub.models.create()`` method. Here's a basic example:
 
 .. code-block:: python
 
-    agent = hub.agents.create(
+    model = hub.models.create(
         project_id=project.id,
         name="My Agent",
         description="An agent for demo purposes",
@@ -105,7 +107,7 @@ After creating the agent, you can test that everything is working well by runnin
 
 .. code-block:: python
 
-    response = agent.chat(
+    response = model.chat(
         messages=[
             dict(role="user", content="What is the capital of France?"),
             dict(role="assistant", content="Paris"),
@@ -130,62 +132,39 @@ If all is working well, this will return something like
 Retrieve an agent
 _________________
 
-You can retrieve an agent using the ``hub.agents.retrieve()`` method. Here's a basic example:
+You can retrieve an agent using the ``hub.models.retrieve()`` method. Here's a basic example:
 
 .. code-block:: python
 
-    agent = hub.agents.retrieve("<AGENT_ID>")
+    model = hub.models.retrieve("<MODEL_ID>")
 
 Update an agent
 _______________
 
-You can update an agent using the ``hub.agents.update()`` method. Here's a basic example:
+You can update an agent using the ``hub.models.update()`` method. Here's a basic example:
 
 .. code-block:: python
 
-    agent = hub.agents.update("<AGENT_ID>", name="My updated agent")
+    model = hub.models.update("<MODEL_ID>", name="My updated agent")
 
 Delete an agent
 _______________
 
-You can delete an agent using the ``hub.agents.delete()`` method. Here's a basic example:
+You can delete an agent using the ``hub.models.delete()`` method. Here's a basic example:
 
 .. code-block:: python
 
-    hub.agents.delete("<AGENT_ID>")
+    hub.models.delete("<MODEL_ID>")
 
 List agents
 ___________
 
-You can list all agents using the ``hub.agents.list()`` method. Here's a basic example:
+You can list all agents using the ``hub.models.list()`` method. Here's a basic example:
 
 .. code-block:: python
 
-    agents = hub.agents.list("<PROJECT_ID>")
-
-    for agent in agents:
-        print(agent.name)
-
-Legacy API (Deprecated)
-_______________________
-
-.. warning::
-   The following methods are deprecated and will be removed in a future version.
-   Please use the ``hub.agents`` methods shown above instead.
-
-.. code-block:: python
-
-    # Deprecated - use hub.agents.create() instead
-    model = hub.models.create(...)
-
-    # Deprecated - use hub.agents.retrieve() instead
-    model = hub.models.retrieve("<MODEL_ID>")
-
-    # Deprecated - use hub.agents.update() instead
-    model = hub.models.update("<MODEL_ID>", name="My updated model")
-
-    # Deprecated - use hub.agents.delete() instead
-    hub.models.delete("<MODEL_ID>")
-
-    # Deprecated - use hub.agents.list() instead
     models = hub.models.list("<PROJECT_ID>")
+
+    for model in models:
+        print(model.name)
+

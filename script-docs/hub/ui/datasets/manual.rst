@@ -1,9 +1,9 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Manual Dataset Creation
 :og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases.
 
-====================================================
-Manual Test Creation for Fine-Grained Control
-====================================================
+=====================================================
+Manual test creation for fine-grained control
+=====================================================
 
 You can create test datasets manually for fine-grained control. This is particularly useful when you want to create test cases with full control over the test case creation process. There are two ways to manually create test cases:
 
@@ -49,6 +49,8 @@ A conversation consists of the following components:
     - ``Conformity``: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
     - ``Groundedness``: Ensures the agent's response is grounded in the conversation.
     - ``String matching``: Checks if the agent's response contains a specific string, keyword, or sentence.
+    - ``Metadata``: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent's response.
+    - ``Semantic Similarity``: Verifies that the agent's response is semantically similar to the expected output.
     - And any custom checks you may have defined.
 - ``Properties``:
     - ``Dataset``: Specifies where the conversations should be saved.
@@ -56,7 +58,7 @@ A conversation consists of the following components:
 
 .. note::
 
-   For detailed information about checks like correctness, conformity, groundedness, and string matching, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
 After the conversation is created, you can add the required information to it. For example, you can add the expected output and rules to the conversation.
 
@@ -84,7 +86,7 @@ You can create manual tests in the red teaming playground. Here you can try to c
 
 The Chat section is where you can query and talk to the agent. You write your message on the agent part of the screen.
 
-The right panel displays all your conversations. You can have as many conversations as you need. To add a new one, click the “New conversation” button. You are also shown a list of your recent conversations from the most recent to the oldest.
+The right panel displays all your conversations. You can have as many conversations as you need. To add a new one, click the "New conversation" button. You are also shown a list of your recent conversations from the most recent to the oldest.
 
 We recommend you to try different approaches to create conversations, for example:
 
@@ -106,12 +108,14 @@ Once you've captured a conversation that adequately tests your desired functiona
 
 The screen above shows three sections:
 
-- ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
+- ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant's recorded example. Never include the assistant's answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
 - ``Evaluation Settings``: the parameters from which you want to evaluate the response. It includes:
     - ``Expected response`` (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.
     - ``Rules`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.
     - ``Context`` (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.
-    - ``Keyword`` (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
+    - ``Keyword`` (optional): a keyword that the agent's response must contain. This is useful when you want to evaluate the agent's response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
+    - ``Metadata`` (optional): JSON path rules to verify specific metadata in the agent's response. If it is not provided, we do not check for the Metadata metric.
+    - ``Semantic Similarity`` (optional): reference text and threshold for semantic similarity evaluation. If it is not provided, we do not check for the Semantic Similarity metric.
     - And any custom checks you may have defined.
 - ``Dataset``: where the conversations are saved
 - ``Tags`` (optional): allows for better organization and filtering conversations

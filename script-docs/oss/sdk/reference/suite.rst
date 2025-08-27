@@ -1,8 +1,11 @@
 :og:title: Giskard Open Source - Test Suite Reference
-:og:description: Documentation for test suite classes and utilities in Giskard open source library. Learn how to organize and run comprehensive test suites for LLM agent evaluation.
+:og:description: Learn about the TestSuite class in Giskard Open Source. Understand how to create, run, and manage comprehensive test suites for LLM evaluation.
 
-Test suite
-==============
+=============
+Test suite reference
+=============
+
+The TestSuite class is a core component of Giskard Open Source that allows you to organize and run multiple tests together.
 
 .. autoclass:: giskard.Suite
 

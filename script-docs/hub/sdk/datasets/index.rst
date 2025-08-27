@@ -1,16 +1,14 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Dataset Management
-:og:description: Create, update, and organize test datasets programmatically. Import conversations, generate synthetic data, and manage test cases through the Python SDK.
+:og:description: Create, manage, and organize test datasets programmatically. Import conversations, generate synthetic data, and build comprehensive test cases using the Python SDK.
 
-=================================
-Manage Datasets and Conversations
-=================================
+================================
+Create test datasets
+================================
 
-In this section, we will show how to manage datasets and conversations programmatically. This allows for full control
-over the import process and is especially useful when you have to manage datasets or conversations in bulk (for example,
-if you want to import production data).
+A **dataset** is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control,
+but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any test conversations to import.
 
-- A **dataset** is a collection of conversations that are used to evaluate your agents.
-- A **conversation** is a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).
+This section will guide you through creating your own test datasets programmatically.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -158,6 +156,7 @@ The parameters for creating a conversation are:
             {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
             {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
             {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.category", "expected_value": "laptop", "expected_value_type": "string"}, {"json_path": "$.subcategory", "expected_value": "battery", "expected_value_type": "string"}, {"json_path": "$.resolved", "expected_value": False, "expected_value_type": "boolean"}]}},
+            {"identifier": "semantic_similarity", "params": {"reference": "I see, could you please give me the model number of the laptop?", "threshold": 0.8}},
         ]
     )
 

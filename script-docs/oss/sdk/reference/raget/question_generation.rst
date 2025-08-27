@@ -1,7 +1,11 @@
-:og:description: RAGET Question Generation Reference - Documentation for automated question generation in the RAG Evaluation Toolkit. Learn how to create comprehensive test cases for RAG evaluation of LLM agents.
+:og:title: Giskard Open Source - RAGET Question Generation Reference
+:og:description: Learn about question generation in RAGET. Understand how to automatically generate test questions for RAG system evaluation.
 
-Question Generation
-===================
+=============================
+Question generation reference
+=============================
+
+Question generation in RAGET automatically creates test questions to evaluate RAG system performance.
 
 .. autoclass:: giskard.rag.question_generators.SimpleQuestionsGenerator
     :members:

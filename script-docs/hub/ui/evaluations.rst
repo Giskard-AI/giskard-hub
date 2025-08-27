@@ -1,11 +1,19 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Run Evaluations
-:og:description: Run comprehensive evaluations of your LLM agents using test datasets. Schedule automated testing and track performance metrics with enterprise-grade monitoring.
+:og:title: Giskard Hub - Enterprise Agent Testing - Evaluations Management
+:og:description: Run and manage LLM agent evaluations through the user interface. Execute tests, schedule automated evaluations, and analyze results with comprehensive reporting.
 
-===============================================
-Run and Schedule Evaluations
-===============================================
+==============================================
+Run and schedule evaluations
+==============================================
 
-This section guides you through evaluating your agent using a given dataset. For example, you might want to run evaluations systematically whenever you deploy an updated agent in a pre-production or staging environment. This approach allows you to collaborate with your team to ensure the agent performs as expected.
+Evaluations are the core of the testing process in Giskard Hub. They allow you to run your test datasets against your agents and evaluate their performance using the checks that you have defined.
+
+The Giskard Hub provides a comprehensive evaluation system that supports:
+
+* **Local evaluations**: Run evaluations locally using development agents
+* **Remote evaluations**: Run evaluations in the Hub using deployed agents
+* **Scheduled evaluations**: Automatically run evaluations at specified intervals
+
+In this section, we will walk you through how to run and manage evaluations using the Hub interface.
 
 .. tip:: **💡 When to execute your tests?**
 
@@ -47,6 +55,10 @@ The evaluation run is automatically named and assessed against the checks (built
 - **Groundedness**: Ensures the agent's response is grounded in the conversation.
 
 - **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
+
+- **Metadata**: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent's response.
+
+- **Semantic Similarity**: Verifies that the agent's response is semantically similar to the expected output.
 
 .. note::
 

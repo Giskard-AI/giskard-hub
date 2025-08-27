@@ -1,8 +1,11 @@
 :og:title: Giskard Open Source - Models Reference
-:og:description: Documentation for model classes and testing utilities in Giskard open source library. Learn how to wrap, test, and evaluate your LLM agents.
+:og:description: Learn about the Model class in Giskard Open Source. Understand how to wrap and test different types of LLM models and AI systems.
 
-Models
-===============================================
+==============================================
+Models reference
+==============================================
+
+The Model class is a core component of Giskard Open Source that wraps different types of LLM models and AI systems for testing and evaluation.
 
 .. automodule:: giskard.models
 

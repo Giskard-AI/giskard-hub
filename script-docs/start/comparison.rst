@@ -4,9 +4,13 @@
 Open Source vs Giskard Hub
 ==========================
 
-**The Giskard Hub is an enterprise platform for LLM agent testing with team collaboration and continuous red teaming.** This guide helps you understand the differences between the Giskard Hub and the Giskard Open Source, and when to consider upgrading to an enterprise subscription.
+Giskard offers two solutions for LLM agent testing and evaluation, each designed for different use cases and requirements.
 
-Feature Comparison
+**Giskard Hub** is our enterprise platform with advanced collaboration features, while **Giskard Open Source** is our free Python library for individual developers and researchers.
+
+This guide will help you understand the differences and choose the right solution for your needs.
+
+Feature comparison
 ------------------
 
 .. list-table::
@@ -110,7 +114,7 @@ Feature Comparison
      - ✅ Enterprise-grade, with SLAs
 
 
-When to Use Giskard Open Source
+When to use Giskard Open Source
 -------------------------------
 
 **Perfect for:**
@@ -128,7 +132,7 @@ When to Use Giskard Open Source
 * No external dependencies or data sharing
 * Community support and open-source contributions
 
-When to Upgrade to Giskard Hub
+When to upgrade to Giskard Hub
 -----------------------------------------
 
 **Consider upgrading to an enterprise subscription when you need:**
@@ -140,7 +144,7 @@ When to Upgrade to Giskard Hub
 * **Compliance** - Audit trails and access control requirements
 * **Scale** - Managing multiple projects and models with specific permissions by users and roles
 
-Upgrade Path (optional)
+Optional upgrade path
 -----------------------
 
 The transition from Open Source to Giskard Hub is designed to be seamless. You can start with Open Source and gradually migrate to Hub as your team grows.
@@ -150,7 +154,7 @@ The transition from Open Source to Giskard Hub is designed to be seamless. You c
 3. **Gradual migration** - Move more workflows to Hub as your project complexity grows
 4. **Full Giskard Hub adoption** - Leverage all Giskard Hub features for maximum efficiency
 
-Getting Started
+Getting started
 ---------------
 
 * **Want to get started with Open Source?** Start with :doc:`/oss/sdk/index` (Open Source)

@@ -1,7 +1,11 @@
-:og:description: RAGET Knowledge Base Reference - Documentation for knowledge base classes and utilities in the RAG Evaluation Toolkit. Learn how to create and manage knowledge bases for RAG evaluation of LLM agents.
+:og:title: Giskard Open Source - RAGET Knowledge Base Reference
+:og:description: Learn about knowledge base management in RAGET. Understand how to create, load, and manage knowledge bases for RAG evaluation.
 
-Knowledge Base
-==============
+========================
+Knowledge base reference
+========================
+
+Knowledge base management in RAGET allows you to create and manage the information sources used by RAG systems.
 
 .. autoclass:: giskard.rag.knowledge_base.KnowledgeBase
     :members:

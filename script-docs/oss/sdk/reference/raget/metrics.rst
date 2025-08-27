@@ -1,7 +1,11 @@
-:og:description: RAGET Metrics Reference - Documentation for evaluation metrics in the RAG Evaluation Toolkit. Learn about context precision, context recall, and other RAG quality metrics for LLM agent testing.
+:og:title: Giskard Open Source - RAGET Metrics Reference
+:og:description: Learn about evaluation metrics in RAGET. Understand how to measure and analyze RAG system performance using various metrics.
 
-Available Metric functions
-==========================
+============================
+Evaluation metrics reference
+============================
+
+Evaluation metrics in RAGET provide quantitative measures of RAG system performance across different dimensions.
 
 Correctness
 -----------

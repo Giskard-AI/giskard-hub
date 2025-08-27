@@ -1,15 +1,15 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets 
+:og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
 :og:description: Import existing test data programmatically into Giskard Hub. Support conversations, CSV files, and other formats through our Python SDK.
 
 =============================
-Import Existing Datasets
+Import existing datasets
 =============================
 
 You can import existing test datasets from a file. This is particularly useful when you already have a dataset that you want to use for evaluation.
 
 In this section, we will walk you through how to import existing datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
-Importing Datasets
+Importing datasets
 ------------------
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
@@ -69,10 +69,12 @@ We can import conversations into the dataset using the ``hub.conversations.creat
         checks=[
             {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
             {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
+            {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.category", "expected_value": "laptop", "expected_value_type": "string"}]}},
+            {"identifier": "semantic_similarity", "params": {"reference": "I see, could you please give me the model number of the laptop?", "threshold": 0.8}},
         ]
     )
 
-Import Datasets from Other Tools
+Import datasets from other tools
 --------------------------------
 
 We can also import datasets from other tools, like Giskard Open Source.
@@ -110,29 +112,48 @@ We can then format the testset to the correct format and create the dataset usin
                 for m in sample.conversation_history[:2]
             ]
             messages.append({"role": "user", "content": sample.question})
+        else:
+            messages = [
+                {"role": "user", "content": sample.question},
+            ]
 
-        tags = [sample.metadata["topic"]]
+        tags = [sample.metadata["question_type"], sample.metadata["topic"]]
         checks = []
 
         # Add correctness check
-        checks.append(
-            {
-                "identifier": "correctness",
-                "enabled": True,
-                "params": {"reference": sample.reference_answer},
-            }
-        )
+        if getattr(sample, "reference_answer", None):
+            checks.append(
+                {
+                    "identifier": "correctness",
+                    "enabled": True,
+                    "params": {"reference": sample.reference_answer},
+                }
+            )
 
         # Add groundedness check
-        checks.append(
-            {
-                "identifier": "groundedness",
-                "enabled": True,
-                "params": {
-                    "context": sample.reference_context,
-                },
-            }
-        )
+        if getattr(sample, "reference_context", None):
+            checks.append(
+                {
+                    "identifier": "groundedness",
+                    "enabled": True,
+                    "params": {
+                        "context": sample.reference_context,
+                    },
+                }
+            )
+
+        # Add semantic similarity check example
+        if getattr(sample, "reference_answer", None):
+            checks.append(
+                {
+                    "identifier": "semantic_similarity",
+                    "enabled": True,
+                    "params": {
+                        "reference": sample.reference_answer,
+                        "threshold": 0.8,
+                    },
+                }
+            )
 
         hub.conversations.create(
             dataset_id=dataset.id,

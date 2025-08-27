@@ -1,9 +1,9 @@
 :og:title: Giskard Open Source - Security Testing
 :og:description: Detect security vulnerabilities, prompt injection attacks, and data leakage in your LLM agents and language models with our free LLM Scan tool.
 
-======================================================
-Detect Security Vulnerabilities in LLMs using LLM Scan
-======================================================
+=====================================================
+Detect security vulnerabilities in LLMs using LLM Scan
+=====================================================
 
 What are AI Security Vulnerabilities?
 -------------------------------------
@@ -22,7 +22,7 @@ Giskard provides a set of automated scanning capabilities to detect these vulner
    Security vulnerabilities are different from business failures. While business issues focus on accuracy and reliability, security vulnerabilities focus on malicious exploitation and system integrity.
    If you want to detect business failures, check out the :doc:`/oss/sdk/business` guide.
 
-How LLM Scan Works
+How LLM Scan works
 ------------------
 
 The LLM scan combines both **heuristics-based** and **LLM-assisted detectors** to comprehensively assess your agent's security posture:
@@ -42,10 +42,10 @@ This approach is particularly effective for **domain-specific agents** including
 
    This does not apply if you select a self-hosted model.
 
-Detecting Security Vulnerabilities
+Detecting security vulnerabilities
 ----------------------------------
 
-Create Your Giskard Model
+Create your Giskard model
 _________________________
 
 First, wrap your LLM in Giskard's ``Model`` class so we can use it to generate responses to evaluate the security of your model.
@@ -56,9 +56,9 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
 
    When wrapping the model, it’s very important to provide the name and description parameters describing what the model does. These will be used by our scan to generate domain-specific probes.
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Standalone LLM
+   .. tab-item:: Standalone LLM
 
         Wrap your LLM’s API prediction function in Giskard’s Model class.
 
@@ -80,7 +80,7 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
                 feature_names=["question"]
             )
 
-   .. group-tab:: LangChain Object
+   .. tab-item:: LangChain Object
 
         We support wrapping a LangChain LLMChain directly, without having to wrap it in a function.
 
@@ -106,7 +106,7 @@ You can wrap standalone LLMs with custom logic, `LangChain <https://github.com/l
                 feature_names=["question"]
             )
 
-   .. group-tab:: Custom RAG System
+   .. tab-item:: Custom RAG System
 
         Wrap your RAG-based LLM app in an extension of Giskard’s Model class. This example uses a FAISS vector store, a langchain chain and an OpenAI model.
 
@@ -179,7 +179,7 @@ After wrapping your model, you can save and load it later.
     giskard_model.save_model("my_model")
     giskard_model = Model.load_model("my_model")
 
-Scan your Model
+Scan your model
 _______________
 
 Now scan your agent to detect security vulnerabilities:
@@ -200,7 +200,7 @@ The scan will automatically detect security vulnerabilities and provide detailed
    :alt: "LLM Scan Example"
    :width: 800
 
-Generate a Test Suite
+Generate a test suite
 _____________________
 
 We can use the scan results to generate a test suite and save it to a folder.
@@ -212,7 +212,7 @@ We can use the scan results to generate a test suite and save it to a folder.
    # Save the test suite to a folder
    test_suite.save("my_test_suite")
 
-Evaluate the Test Suite
+Evaluate the test suite
 ________________________
 
 We can now evaluate the test suite against another model.
@@ -230,7 +230,7 @@ We can now evaluate the test suite against another model.
     # Run the test suite with the new model
     test_suite.run(model=giskard_model_2)
 
-Customizing Security Scans
+Customizing security scans
 --------------------------
 
 Custom Datasets
@@ -259,7 +259,7 @@ You can use a custom dataset to focus on specific security scenarios. This might
 
 .. _custom_detectors:
 
-Custom Detectors
+Custom detectors
 ________________
 
 You can also use a custom detector to focus on specific security scenarios. This might be useful if you want to test the security of your agent in a specific scenario.
@@ -317,7 +317,7 @@ You can then use the tags to run the scan with specific detectors. This can also
     # Scan with only the detectors you want to use
     scan_results = scan(giskard_model, only=["sycophancy", "control_chars_injection"])
 
-Troubleshooting Security Scans
+Troubleshooting security scans
 ------------------------------
 
 Common issues and solutions:
@@ -338,7 +338,7 @@ Common issues and solutions:
 - Most detectors work with any language
 - LLM-assisted detectors depend on the language capabilities of the provider model
 
-Next Steps
+Next steps
 ----------
 
 If you encounter issues with security scanning:

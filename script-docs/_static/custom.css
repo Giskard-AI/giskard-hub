@@ -96,6 +96,7 @@ main .container,
   padding-left: 0 !important;
 }
 
+
 html.dark,
 html.dark body,
 .dark {
@@ -403,5 +404,56 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 .dark body[data-content_root="./"] header nav a.text-foreground,
 .dark body[data-content_root="./"] header nav a[class*="text-foreground"] {
   color: #C6FFFF !important; 
+}
+
+=======
+/* Sphinx Design Tabs Styling */
+.sd-tab-set {
+  margin: 1rem 0;
+}
+
+.sd-tab-set .sd-tab-content {
+  border: 1px solid hsl(var(--border));
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  padding: 1rem;
+  background: hsl(var(--background));
+}
+
+.sd-tab-set .sd-tab-label {
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.5rem 1rem;
+  margin-right: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sd-tab-set .sd-tab-label:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.sd-tab-set .sd-tab-label.sd-tab-label-active {
+  background: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--background));
+  margin-bottom: -1px;
+  z-index: 1;
+  position: relative;
+}
+
+.sd-tab-set .sd-tab-label:first-child {
+  margin-left: 0;
+}
+
+/* Ensure tab content is properly hidden/shown */
+.sd-tab-content:not(.sd-tab-content-active) {
+  display: none;
+}
+
+.sd-tab-content.sd-tab-content-active {
+  display: block;
 }
 

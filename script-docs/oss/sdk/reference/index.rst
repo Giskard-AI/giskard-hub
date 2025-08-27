@@ -1,8 +1,11 @@
 :og:title: Giskard Open Source - API Reference
-:og:description: Access complete API documentation for the open source Python library. Find detailed information about LLM agent testing, RAG evaluation, and security scanning tools.
+:og:description: Access complete API documentation for the Giskard Open Source Python library. Find detailed information about all classes, methods, and functions.
 
-API Reference
-=============
+============
+API reference
+============
+
+These docs provide comprehensive API documentation for the Giskard Open Source library.
 
 .. grid:: 1 1 2 2
 

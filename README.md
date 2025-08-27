@@ -13,7 +13,7 @@ Read the quickstart guide to get up and running with the `giskard_hub` library.
 You will learn how to execute local evaluations from a notebook, script or CLI, and
 synchronize them to the Giskard Hub platform.
 
-Access the full docs at: https://docs-hub.giskard.ai/
+Access the full docs at: https://docs.giskard.ai/
 
 ## Install the client library
 
@@ -118,13 +118,14 @@ required attribute is `messages`):
 - `demo_output`: A demonstration of a (possibly wrong) output from the
   model with an optional metadata. This is just for demonstration purposes.
 
-- `checks`: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
+  - `checks`: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
   - `identifier`: The identifier of the check. If it's a built-in check, you will also need to provide the `params` dictionary. The built-in checks are:
     - `correctness`: The output of the model should match the reference.
     - `conformity`: The conversation should follow a set of rules.
     - `groundedness`: The output of the model should be grounded in the conversation.
     - `string_match`: The output of the model should contain a specific string (keyword or sentence).
     - `metadata`: The metadata output of the model should match a list of JSON path rules.
+    - `semantic_similarity`: The output of the model should be semantically similar to the reference.
   - `params`: A dictionary of parameters for built-in checks. The parameters depend on the check type:
     - For the `correctness` check, the parameter is `reference` (type: `str`), which is the expected output.
     - For the `conformity` check, the parameter is `rules` (type: `list[str]`), which is a list of rules that the conversation should follow.
@@ -134,6 +135,7 @@ required attribute is `messages`):
       - `json_path`: The JSON path to the value that the model's output should contain.
       - `expected_value`: The expected value at the JSON path.
       - `expected_value_type`: The expected type of the value at the JSON path, one of `string`, `number`, `boolean`.
+    - For the `semantic_similarity` check, the parameters are `reference` (type: `str`) and `threshold` (type: `float`), where `reference` is the expected output and `threshold` is the similarity score below which the check will fail.
 
 You can add as many conversations as you want to the dataset.
 
@@ -146,7 +148,7 @@ You'll need an API endpoint ready to serve the model. Then, you can
 configure the model API in the Hub:
 
 ```python
-model = hub.agents.create(
+model = hub.models.create(
     project_id=project.id,
     name="My Bot",
     description="A chatbot for demo purposes",

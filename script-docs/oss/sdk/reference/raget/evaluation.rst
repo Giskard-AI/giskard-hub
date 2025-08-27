@@ -1,7 +1,11 @@
-:og:description: RAGET Evaluation Reference - Documentation for evaluating RAG pipelines using the RAG Evaluation Toolkit. Learn how to assess retrieval quality, answer accuracy, and overall RAG performance for LLM agents.
+:og:title: Giskard Open Source - RAGET Evaluation Reference
+:og:description: Learn about evaluation methods in RAGET. Understand how to run comprehensive evaluations of RAG systems and analyze results.
 
-Evaluation
-==========
+====================
+Evaluation reference
+====================
+
+Evaluation methods in RAGET provide comprehensive testing capabilities for RAG systems.
 
 .. autofunction:: giskard.rag.evaluate
 

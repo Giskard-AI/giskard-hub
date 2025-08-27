@@ -1,8 +1,11 @@
 :og:title: Giskard Open Source - LLM Scan Reference
-:og:description: Complete documentation for the LLM security scanning tool in Giskard open source library. Learn how to detect security vulnerabilities and threats in LLM agents.
+:og:description: Learn about LLM Scan in Giskard Open Source. Understand how to detect security vulnerabilities and run automated security testing on your LLM models.
 
-Model scanner
-=============
+==================
+LLM scan reference
+==================
+
+LLM Scan is a security testing tool in Giskard Open Source that automatically detects vulnerabilities in LLM models.
 
 .. toctree::
    :hidden:
