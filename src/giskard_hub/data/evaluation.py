@@ -61,6 +61,7 @@ class Metric(BaseData):
 
 
 @dataclass
+# pylint: disable=too-many-instance-attributes
 class EvaluationRun(Entity):
     """Evaluation run."""
 
@@ -70,6 +71,8 @@ class EvaluationRun(Entity):
     model: Model | None = None
     criteria: List = field(default_factory=list)
     metrics: List[Metric] = field(default_factory=list)
+    tags: List[Metric] = field(default_factory=list)
+    failure_categories: Dict[str, int] = field(default_factory=dict)
     progress: TaskProgress | None = None
 
     @classmethod
