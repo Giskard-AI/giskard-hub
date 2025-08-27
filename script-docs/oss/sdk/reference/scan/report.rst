@@ -1,8 +1,11 @@
-:og:title: Giskard Open Source - LLM Scan Report Reference
-:og:description: LLM Scan Report Reference - Documentation for scan report generation and analysis in LLM Scan. Learn how to interpret security scan results and generate detailed reports for LLM agent testing.
+:og:title: Giskard Open Source - Scan Report Reference
+:og:description: Learn about scan reports in Giskard Open Source. Understand how to interpret security scan results and generate comprehensive reports.
 
-Scan Report
-===========
+======================
+Scan report reference
+======================
+
+Scan reports provide detailed information about security vulnerabilities detected during LLM security scans.
 
 .. autoclass:: giskard.scanner.report.ScanReport
    :members:

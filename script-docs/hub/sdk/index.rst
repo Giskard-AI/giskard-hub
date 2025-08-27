@@ -1,12 +1,10 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - SDK Quickstart
-:og:description: Build enterprise LLM agent testing with our Python SDK. Automate testing, manage projects, datasets, and run evaluations.
+:og:description: Get started with the Giskard Hub Python SDK for programmatic LLM agent testing. Install, authenticate, and begin building automated testing workflows.
 
-Quickstart & Setup
+Quickstart & setup
 ==================
 
-**Giskard Hub is our enterprise platform for LLM agent testing with team collaboration and continuous red teaming.**
-
-The Giskard Hub Python SDK provides technical users with programmatic access to all enterprise features, enabling automation of agent testing, project and dataset management.
+The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub programmatically. This allows you to automate your testing workflows, integrate with your CI/CD pipelines, and build custom tools on top of the Hub.
 
 .. grid:: 1 1 2 2
 
@@ -46,37 +44,35 @@ Install the client library
 The library is compatible with Python 3.9 to 3.12.
 
 .. code-block:: bash
-   :caption: Shell
 
-   pip install giskard-hub
+    pip install giskard-hub
 
-Configure your environment
---------------------------
+Authentication
+--------------
 
-Get your API key
-________________
-
-Head over to your Giskard Hub instance and click on the user icon in the bottom left corner. You will find your personal
-API key, click on the button to copy it.
-
-.. note::
-
-   If you don't see your API key in the UI, it means your administrator has not enabled API keys. Please contact them to get one.
-
-
-Connect to the Hub
-__________________
-
-You can set the following environment variables to avoid passing them as arguments to the client:
+To use the SDK, you need to authenticate with the Hub. You can do this by setting the following environment variables:
 
 .. code-block:: bash
-   :caption: Shell
 
-   export GSK_API_KEY=your_api_key
-   export GSK_HUB_URL=https://your-giskard-hub-instance.com/_api
+    export GISKARD_HUB_URL="https://your-hub-url"
+    export GISKARD_HUB_TOKEN="your-token"
+
+Alternatively, you can pass these values directly to the client:
+
+.. code-block:: python
+
+    from giskard_hub import HubClient
+
+    hub = HubClient(
+        url="https://your-hub-url",
+        token="your-token"
+    )
 
 .. tip::
+
    Make sure you are using the correct URL for your Giskard Hub instance. The URL should end with ``/_api``.
+
+You can now use the client to interact with the Hub. You will be able to control the Hub programmatically, independently
 
 Running your first evaluation
 -----------------------------
@@ -86,23 +82,21 @@ of the UI. Let's start by initializing a client instance:
 
 .. code-block:: python
 
-   from giskard_hub import HubClient
+    from giskard_hub import HubClient
 
-   hub = HubClient()
+    hub = HubClient()
 
-If you didn't set up the environment variables, you can provide the API key and
-Hub URL as arguments:
+    # List all projects
+    projects = hub.projects.list()
+    print(f"Found {len(projects)} projects")
 
-.. code-block:: python
+    # Get a specific project
+    project = hub.projects.get("project-id")
+    print(f"Project: {project.name}")
 
-   from giskard_hub import HubClient
-
-   hub = HubClient(
-      api_key="YOUR_GSK_API_KEY",
-      hub_url="THE_GSK_HUB_URL",
-   )
-
-You can now use the ``hub`` client to control the Giskard Hub! Let's start by creating a fresh project.
+    # List all datasets in the project
+    datasets = hub.datasets.list(project.id)
+    print(f"Found {len(datasets)} datasets")
 
 
 Create a project
@@ -126,8 +120,6 @@ That's it! You have created a project.
    If you have an already existing project, you can easily retrieve it. Either use ``hub.projects.list()`` to get a
    list of all projects, or use ``hub.projects.retrieve("YOUR_PROJECT_ID")`` to get a specific project.
 
-
-
 Import a dataset
 ________________
 
@@ -147,7 +139,6 @@ We can now add a conversation example to the dataset. This will be used for the 
 
 .. code-block:: python
 
-   from giskard_hub import HubClient
    import random
 
    # Add a conversation example
@@ -213,7 +204,7 @@ Then, you can configure the agent API in the Hub:
 
 .. code-block:: python
 
-    agent = hub.agents.create(
+    model = hub.models.create(
         project_id=project.id,
         name="My Agent",
         description="An agent for demo purposes",
@@ -228,7 +219,7 @@ We can test that everything is working well by running a chat with the agent:
 
 .. code-block:: python
 
-    response = agent.chat(
+    response = model.chat(
         messages=[
             dict(role="user", content="What is the capital of France?"),
             dict(role="assistant", content="Paris"),
@@ -258,13 +249,13 @@ We can now launch a remote evaluation of our agent!
 .. code-block:: python
 
     eval_run = hub.evaluate(
-        model=agent,  # Note: parameter is still named 'model' for backward compatibility
+        model=model,
         dataset=dataset,
         name="test-run",  # optional
     )
 
 The evaluation will run asynchronously on the Hub. For this reason, the
-:class:`giskard_hub.dat.EvaluationRun` object returned by the ``evaluate``
+:class:`giskard_hub.data.evaluation.EvaluationRun` object returned by the ``evaluate``
 method may miss some attributes (e.g. ``eval_run.metrics`` may be empty) until
 the evaluation is complete.
 

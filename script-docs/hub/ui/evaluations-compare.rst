@@ -1,13 +1,20 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Compare Evaluations
-:og:description: Analyze and compare multiple evaluation runs to detect regressions, identify patterns, and track improvements in your LLM agent performance over time.
+:og:description: Compare evaluation results across different agent versions, datasets, and time periods. Identify regressions, track improvements, and maintain quality standards.
 
-.. _compare-evaluations:
+.. compare-evaluations::
 
-===============================================
-Compare Evaluations
-===============================================
+==============================================
+Compare evaluation results
+==============================================
 
-Comparing evaluations enables you to make sure you don't have any regression between your agent versions. To do this, it is essential to diagnose issues and implement corrections to improve the agent's performance.
+Comparing evaluations is a crucial part of maintaining and improving your LLM agents over time. By comparing results across different versions, datasets, or time periods, you can:
+
+* **Detect regressions**: Identify when agent performance has degraded
+* **Track improvements**: Measure the impact of changes and optimizations
+* **Maintain quality standards**: Ensure consistent performance across deployments
+* **Make data-driven decisions**: Use metrics to guide development priorities
+
+In this section, we will walk you through how to compare evaluations in Giskard Hub.
 
 
 On the Evaluations page, select at least two evaluations to compare, then click the "Compare" button in the top right corner of the table. The page will display a comparison of the selected evaluations.

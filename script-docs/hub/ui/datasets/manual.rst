@@ -1,9 +1,9 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Manual Dataset Creation
 :og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases.
 
-====================================================
-Manual Test Creation for Fine-Grained Control
-====================================================
+=====================================================
+Manual test creation for fine-grained control
+=====================================================
 
 You can create test datasets manually for fine-grained control. This is particularly useful when you want to create test cases with full control over the test case creation process. There are two ways to manually create test cases:
 
@@ -84,7 +84,7 @@ You can create manual tests in the red teaming playground. Here you can try to c
 
 The Chat section is where you can query and talk to the agent. You write your message on the agent part of the screen.
 
-The right panel displays all your conversations. You can have as many conversations as you need. To add a new one, click the “New conversation” button. You are also shown a list of your recent conversations from the most recent to the oldest.
+The right panel displays all your conversations. You can have as many conversations as you need. To add a new one, click the "New conversation" button. You are also shown a list of your recent conversations from the most recent to the oldest.
 
 We recommend you to try different approaches to create conversations, for example:
 
@@ -106,7 +106,7 @@ Once you've captured a conversation that adequately tests your desired functiona
 
 The screen above shows three sections:
 
-- ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant’s recorded example. Never include the assistant’s answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
+- ``Messages``: the conversation you want to save to the dataset. Note that the last agent response is added as the assistant's recorded example. Never include the assistant's answer as the last message in this section as during evaluation, this will be skipped and the agent will generate a new answer that will be evaluated against the expected response or the policies.
 - ``Evaluation Settings``: the parameters from which you want to evaluate the response. It includes:
     - ``Expected response`` (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.
     - ``Rules`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.

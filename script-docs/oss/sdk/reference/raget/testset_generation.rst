@@ -1,7 +1,11 @@
-:og:description: RAGET Testset Generation Reference - Documentation for automated testset generation in the RAG Evaluation Toolkit. Learn how to create diverse and comprehensive test datasets for RAG evaluation of LLM agents.
+:og:title: Giskard Open Source - RAGET Testset Generation Reference
+:og:description: Learn about testset generation in RAGET. Understand how to create comprehensive test datasets for RAG system evaluation.
 
-Testset Generation
-==================
+============================
+Testset generation reference
+============================
+
+Testset generation in RAGET creates comprehensive test datasets for evaluating RAG system performance.
 
 .. autofunction:: giskard.rag.generate_testset
 

@@ -27,9 +27,7 @@ if __name__ == "__main__":
     project: Project = client.get_projects()[0]
 
     # Get models and check if any exist
-    # Note: 'models' is deprecated, use 'agents' instead for new code
-    models = client.agents.list(project.id)  # Preferred: use client.agents
-    # models = client.models.list(project.id)  # Deprecated: will show warning
+    models = client.models.list(project.id)
     if not models:
         raise ValueError(f"No models found in project {project.id}")
     model = models[0]

@@ -1,9 +1,13 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Detect Business Failures
-:og:description: Test your LLM agents against business logic failures, compliance requirements, and domain-specific scenarios. Ensure your AI systems meet business requirements.
+:og:title: Giskard Hub - Enterprise Agent Testing - Business Testing
+:og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through automated testing.
 
 ======================================================
-Detect Business Failures by Generating Synthetic Tests
+Detect business failures by generating synthetic tests
 ======================================================
+
+Business testing focuses on ensuring that your LLM agents meet the specific requirements and expectations of your business domain. Unlike security testing, which focuses on malicious exploitation, business testing evaluates the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
+
+In this section, we will walk you through how to generate business-focused test cases using the Hub interface.
 
 AI systems in business environments must provide accurate, reliable responses that align with your organization's knowledge and policies. However, manually creating comprehensive test cases for every possible business scenario is impractical and often leaves critical failure modes undetected.
 

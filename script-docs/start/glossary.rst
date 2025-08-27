@@ -1,12 +1,13 @@
-:og:title: Giskard - Agent Testing Terms & Concepts
-:og:description: Learn comprehensive definitions of key terms and concepts in LLM agent testing, evaluation, red teaming, and AI safety. Essential reference for understanding Giskard documentation.
+:og:title: Giskard - Glossary of Terms
+:og:description: Understand key terms and concepts used throughout the Giskard documentation. Learn about LLM testing, evaluation metrics, and AI safety terminology.
 
+=========
 Glossary
-========
+=========
 
-This glossary defines key terms and concepts used throughout the Giskard platform. Terms are organized by category to help you find what you need quickly.
+This glossary defines key terms and concepts used throughout the Giskard documentation. Understanding these terms will help you navigate the documentation and use Giskard effectively.
 
-Core Concepts
+Core concepts
 -------------
 
 **Agent**
@@ -27,7 +28,7 @@ Core Concepts
 **Scan**
    An automated process that runs multiple checks against a model to identify vulnerabilities and issues.
 
-Testing and Evaluation
+Testing and evaluation
 ----------------------
 
 **LLM Scan**
@@ -51,7 +52,7 @@ Testing and Evaluation
 **Hallucination**
    When a model generates false, misleading, or fabricated information that appears plausible but is incorrect.
 
-Security and Vulnerabilities
+Security and vulnerabilities
 -----------------------------
 
 **Prompt Injection**
@@ -72,7 +73,7 @@ Security and Vulnerabilities
 **PII (Personally Identifiable Information)**
    Data that can be used to identify specific individuals, such as names, addresses, or social security numbers.
 
-Platform Features
+Platform features
 -----------------
 
 **Project**
@@ -93,7 +94,7 @@ Platform Features
 **Alert**
    A notification triggered when specific conditions are met, such as a model failing a critical check or threshold.
 
-Access and Permissions
+Access and permissions
 ----------------------
 
 **Access Rights**
@@ -108,7 +109,7 @@ Access and Permissions
 **Permission**
    A specific action or operation that a user is allowed to perform, such as creating projects, running evaluations, or viewing results.
 
-Integration and Workflows
+Integration and workflows
 -------------------------
 
 **SDK (Software Development Kit)**
@@ -126,7 +127,7 @@ Integration and Workflows
 **Synchronization**
    The process of keeping data consistent between local development environments and the Giskard Hub platform.
 
-Performance and Monitoring
+Performance and monitoring
 --------------------------
 
 **Performance Tracking**
@@ -144,7 +145,7 @@ Performance and Monitoring
 **Dashboard**
    A visual interface that displays key metrics, results, and status information in an organized, easy-to-understand format.
 
-Business and Compliance
+Business and compliance
 -----------------------
 
 **Compliance**
@@ -159,7 +160,7 @@ Business and Compliance
 **Stakeholder**
    Individuals or groups with an interest in the performance, safety, and compliance of AI systems, such as users, customers, regulators, or business leaders.
 
-Getting Help
+Getting help
 ------------
 
 * **Giskard Hub?** Check our :doc:`/hub/ui/index` for practical examples

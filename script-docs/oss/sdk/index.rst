@@ -1,7 +1,7 @@
 :og:title: Giskard Open Source - Free LLM Agent Testing Library
 :og:description: Test and evaluate your LLM agents with our free Python library. Detect security vulnerabilities and business logic failures with LLM Scan and RAGET.
 
-Quickstart & Setup
+Quickstart & setup
 ==================
 
 **Giskard Open Source is a Python library for LLM testing and evaluation.** It provides a solid foundation for developers to generate AI security and business tests. You can check our :doc:`/start/comparison` to learn how it differs from our enterprise offering. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
@@ -39,15 +39,15 @@ For development installations, including LLM support:
 
    pip install "giskard[dev,llm]"
 
-Configure Your AI Models
+Configure your AI models
 ------------------------
 
 Giskard Open Source supports a wide range of LLMs by using `LiteLLM providers <https://docs.litellm.ai/docs/providers/>`_.
 If you don't want to configure anything, we will simply use the default model, which is ``openai/gpt-4o`` and ``openai/text-embedding-3-small``.
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: Existing Provider
+   .. tab-item:: Existing Provider
 
         For existing providers, you can set the model and embedding model by passing the provider name and model name, like ``openai/gpt-4o`` or ``anthropic/claude-3-5-sonnet``, as shown in the `LiteLLM docs <https://docs.litellm.ai/docs/providers/>`_.
         Simply replace the provider name and model name with the ones you want to use.
@@ -63,7 +63,7 @@ If you don't want to configure anything, we will simply use the default model, w
             giskard.llm.set_llm_model("openai/gpt-4o")
             giskard.llm.set_embedding_model("openai/text-embedding-3-small")
 
-   .. tab:: Custom Provider
+   .. tab-item:: Custom Provider
 
         Similarly, we can define a custom provider by subclassing the ``litellm.CustomLLM`` class and registering it with LiteLLM, as shown in the `LiteLLM documentation <https://docs.litellm.ai/docs/providers/custom_llm_server>`_.
 
@@ -103,7 +103,7 @@ If you don't want to configure anything, we will simply use the default model, w
 
             giskard.llm.set_llm_model("my-custom-llm-endpoint/my-custom-model", api_key=api_key)
 
-Detect Security Vulnerabilities
+Detect security vulnerabilities
 --------------------------------
 
 We can now use the configured model to evaluate security vulnerabilities in your LLM API calls using LLM Scan.
@@ -112,7 +112,7 @@ The LLM scan combines both heuristics-based and LLM-assisted detectors.
 The heuristics-based detectors use known techniques and patterns to test for vulnerabilities which are not specific to the agent.
 The LLM-assisted detectors are designed to detect vulnerabilities that are specific to your business case. They use another LLM model to probe your LLM system.
 
-Create a Giskard Model
+Create a Giskard model
 ______________________
 
 We define a simple function that takes a Pandas DataFrame with features as input and returns a list of strings as responses.
@@ -147,7 +147,7 @@ This function should contain the logic of the LLM API you would like to call.
    :alt: "LLM Scan Example"
    :width: 800
 
-Generate a Test Suite
+Generate a test suite
 _____________________
 
 We can then turn the issues you found into actionable tests that you can save and reuse in further iterations.
@@ -160,7 +160,7 @@ We can then turn the issues you found into actionable tests that you can save an
     # Save the test suite to a folder
     test_suite.save("my_test_suite")
 
-Evaluate the Test Suite
+Evaluate the test suite
 _______________________
 
 We can now evaluate the test suite against another model.
@@ -178,7 +178,7 @@ We can now evaluate the test suite against another model.
     # Run the test suite with the new model
     test_suite.run(model=giskard_model_2)
 
-Detect Business Failures
+Detect business failures
 ------------------------
 
 We can also use the configured model to evaluate business failures using RAG Evaluation Toolkit (RAGET).
@@ -187,7 +187,7 @@ RAGET can automatically generate a list of ``question``, ``reference_answer`` an
 It relies on a chain of LLM operations to generate realistic questions across different types.
 You can then use this generated test set to evaluate your RAG agent.
 
-Create a Knowledge Base
+Create a knowledge base
 _______________________
 
 Before we can use RAGET, we need to create a knowledge base.
@@ -208,7 +208,7 @@ Before we can use RAGET, we need to create a knowledge base.
 
     knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
 
-Generate a Test Set
+Generate a test set
 ___________________
 
 We can now use the knowledge base to generate a test set of ``question``, ``reference_answer`` and ``reference_context``.
@@ -229,7 +229,7 @@ We can now use the knowledge base to generate a test set of ``question``, ``refe
     # Save the test set to a file
     testset.save("my_testset.jsonl")
 
-Evaluate the Test Set
+Evaluate the test set
 _____________________
 
 We will use the ``evaluate`` function to evaluate the test set with the results a provided by the ``predict_fn`` function.
@@ -267,13 +267,13 @@ This will return a report object that contains the evaluation results.
    :alt: "RAGET Example"
    :width: 800
 
-Next Steps
+Next steps
 ----------
 
 * **Explore Security Vulnerabilities** - :doc:`security` for security logic validation
 * **Explore Business Failures** - :doc:`business` for business logic validation
 
-Need Help?
+Need help?
 ----------
 
 * **Documentation**: Explore our :doc:`/oss/sdk/reference/index` for detailed API information

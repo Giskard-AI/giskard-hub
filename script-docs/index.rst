@@ -42,7 +42,7 @@ Giskard Hub
 
       As a developer, you can use an SDK to interact with the Giskard Hub programmatically.
 
-Open Source
+Open source
 -----------
 
 **Giskard Open Source** is a Python library for LLM testing and evaluation. It is available on `GitHub <https://github.com/Giskard-AI/giskard>`_ and formed the basis for our course on Red Teaming LLM Applications on `Deeplearning.AI <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_.
@@ -65,7 +65,7 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 
       Our course on red teaming LLM applications on Deeplearning.AI helps you understand how to test, red team and evaluate LLM applications.
 
-Open Research
+Open research
 -------------
 
 **Giskard Research** contributes to research on AI safety and security to showcase and understand the latest advancements in the field.

@@ -1,15 +1,13 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Detect Security Vulnerabilities
-:og:description: Generate adversarial test cases to detect security vulnerabilities in your LLM agents. Test for prompt injection, stereotypes, data leakage and more.
+:og:title: Giskard Hub - Enterprise Agent Testing - Security Testing
+:og:description: Generate and manage security-focused test cases for your LLM agents. Detect vulnerabilities, prompt injection attacks, and security failures through automated testing.
 
-=============================================================
-Detect Security Vulnerabilities by Generating Synthetic Tests
-=============================================================
+==============================================================
+Detect security vulnerabilities by generating synthetic tests
+==============================================================
 
-Generative AI agents are vulnerable to a wide range of security threats, many of which are difficult to anticipate in advance. Automated generation of adversarial test cases is essential for uncovering vulnerabilities—especially when you lack real-world attack data or malicious conversations to import. The main challenge is to create synthetic security tests that realistically simulate potential attacks and are tailored to the specific risks relevant to your domain, rather than relying on overly generic prompts.
+Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
 
-Giskard Hub solves this challenge by enabling **business users to directly generate synthetic security tests without requiring coding skills**.
-
-In this section, we will walk you through how to generate synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
+In this section, we will walk you through how to generate security-focused test cases using the Hub interface.
 
 What are AI security failures?
 ------------------------------

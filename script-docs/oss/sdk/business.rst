@@ -2,7 +2,7 @@
 :og:description: Detect business logic failures, compliance issues, and domain-specific problems in your LLM agents and applications with our free RAG Evaluation Toolkit.
 
 =============================================================
-Detect Business Failures in LLMs using RAGET
+Detect business failures in LLMs using RAGET
 =============================================================
 
 What are AI business failures?
@@ -21,7 +21,7 @@ Business failures in LLMs are failures that impact the business logic, accuracy,
    Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
    If you want to detect security failures, check out the :doc:`/oss/sdk/security`.
 
-How RAGET Works
+How RAGET works
 ---------------
 
 The RAG Evaluation Toolkit (RAGET) is a comprehensive testing framework designed specifically for Retrieval-Augmented Generation (RAG) systems. It helps you:
@@ -49,10 +49,10 @@ RAGET automatically generates a list of ``question``, ``reference_answer``, and 
 
    This does not apply if you select a self-hosted model.
 
-Detecting Business Failures
+Detecting business failures
 ---------------------------
 
-Create a Knowledge Base
+Create a knowledge base
 _______________________
 
 Before we can use RAGET, we need to create a knowledge base.
@@ -73,7 +73,7 @@ Before we can use RAGET, we need to create a knowledge base.
 
     knowledge_base = KnowledgeBase.from_pandas(df, columns=["samples"])
 
-Generate a Test Set
+Generate a test set
 ___________________
 
 We can now use the knowledge base to generate a test set of ``question``, ``reference_answer`` and ``reference_context``.
@@ -101,15 +101,15 @@ The generated test set contains several columns:
 
 Now we can save the ``QATestset`` to a file.
 
-.. tabs::
-    .. tab:: Save Test Set
+.. tab-set::
+    .. tab-item:: Save Test Set
 
         .. code-block:: python
 
             # Save the test set to a file
             testset.save("my_testset.jsonl")
 
-    .. tab:: Load Test Set
+    .. tab-item:: Load Test Set
 
         .. code-block:: python
 
@@ -117,7 +117,7 @@ Now we can save the ``QATestset`` to a file.
 
             testset = QATestset.load("my_testset.jsonl")
 
-Evaluate the Test Set
+Evaluate the test set
 _____________________
 
 We will use the ``evaluate`` function to evaluate the test set with the results a provided by the ``predict_fn`` function.
@@ -159,14 +159,14 @@ This will return a report object that contains the evaluation results.
 
 At this point, you can save and load the report. This includes the HTML report, the testset, the knowledge base, the evaluation results and the metrics if you have provided them.
 
-.. tabs::
-    .. tab:: Save Report
+.. tab-set::
+    .. tab-item:: Save Report
 
         .. code-block:: python
 
             report.save("path/to/my_report")
 
-    .. tab:: Load Report
+    .. tab-item:: Load Report
 
         .. code-block:: python
 
@@ -193,10 +193,10 @@ You can access the correctness of the agent aggregated in various ways or analyz
     # get the failed questions filtered by topic and question type
     report.get_failures(topic="Topic from your knowledge base", question_type="simple")
 
-Customizing Business Failure Testing
+Customizing business failure testing
 ------------------------------------
 
-Custom Generators
+Custom generators
 _________________
 
 We can customize the question generation process to target and evaluate specific components in the RAG system. For example, we can generate only complex questions to evaluate the generator. And overview of the question types is available below.
@@ -240,8 +240,8 @@ We can customize the question generation process to target and evaluate specific
 
 During testset generation, you can then import and select the question types you want to use during the generation process by passing a list of question types to the ``question_generators`` parameter.
 
-.. tabs::
-    .. tab:: Built-in Generators
+.. tab-set::
+    .. tab-item:: Built-in Generators
 
         You can simply import the question generators you want to use and pass them to the ``question_generators`` parameter.
 
@@ -270,7 +270,7 @@ During testset generation, you can then import and select the question types you
                 ],
             )
 
-    .. tab:: Create a Generator
+    .. tab-item:: Create a Generator
 
         Alternatively, you can subclass the ``QuestionGenerator`` class and implement your own question generation logic.
         You can `find an example on GitHub <https://github.com/Giskard-AI/giskard/blob/main/giskard/rag/question_generators/simple_questions.py>`_.
@@ -334,7 +334,7 @@ During testset generation, you can then import and select the question types you
                 question_generators=[my_custom_generator],
             )
 
-Custom Metrics
+Custom metrics
 ______________
 
 You can also provide custom metrics to evaluate the performance of your RAG agent. By default, we always pass a ``correctness`` metric to the ``metrics`` parameter of the ``evaluate`` function.
@@ -347,9 +347,9 @@ You can also provide custom metrics to evaluate the performance of your RAG agen
 
 However, we can also use custom metrics in various ways.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Built-in RAGAS Metrics
+    .. tab-item:: Built-in RAGAS Metrics
 
         You can use our built-in RAGAS metrics to evaluate the performance of your RAG agent. They directly inherit from the `RAGAS library <https://docs.ragas.io/en/latest/concepts/metrics/overview/>`_.
 
@@ -375,7 +375,7 @@ However, we can also use custom metrics in various ways.
                 ],
             )
 
-    .. tab:: Create Custom Metric
+    .. tab-item:: Create Custom Metric
 
         You can create your own custom metric by subclassing the ``Metric`` class and implementing the ``__call__`` method.
         Besides that, you need to define a clear system prompt and a user prompt that can be used by the LLM to evaluate the metric.
@@ -450,7 +450,7 @@ However, we can also use custom metrics in various ways.
             # Evaluate the test set
             report = evaluate(predict_fn, testset=testset, knowledge_base=knowledge_base, metrics=[custom_metric])
 
-Troubleshooting Business Failures
+Troubleshooting business failures
 ---------------------------------
 
 Common issues and solutions:
@@ -459,7 +459,7 @@ Common issues and solutions:
 * **High hallucination rates**: Verify context retrieval and generation logic
 * **Poor answer quality**: Ensure sufficient context is provided to the generator
 
-Next Steps
+Next steps
 ----------
 
 If you encounter issues with business failure testing:

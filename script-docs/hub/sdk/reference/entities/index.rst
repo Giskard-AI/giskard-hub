@@ -1,9 +1,11 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Entities Reference
-:og:description: Understand all data entities in Giskard Hub including projects, datasets, models, evaluations, and conversations. Learn data structures and relationships for LLM agent testing.
+:og:title: Giskard Hub - Entities Reference
+:og:description: Learn about the data entities in Giskard Hub. Understand the structure of projects, datasets, models, and other core objects.
 
-========
-Entities
-========
+========================
+Entities reference
+========================
+
+Entities represent the core data objects in Giskard Hub, such as projects, datasets, models, and evaluations.
 
 .. automodule:: giskard_hub.data
    :members:

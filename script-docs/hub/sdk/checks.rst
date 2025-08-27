@@ -1,13 +1,20 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Custom Checks
-:og:description: Build and deploy validation rules, metrics, and testing logic programmatically. Create specialized testing logic for your specific LLM agent use cases.
+:og:title: Giskard Hub - Enterprise Agent Testing - Checks Management
+:og:description: Create, manage, and deploy custom validation rules and metrics for your LLM agent tests. Build specialized testing logic tailored to your business requirements.
 
-====================
-Manage Checks
-====================
+===================
+Manage your checks
+===================
 
-In this section, we will show how to define checks programmatically using the SDK.
+Checks are validation rules that are used to evaluate the responses of your agents. They can be used to ensure that your agents are behaving correctly and following the rules that you have defined.
 
-- A **check** is a reusable evaluation criteria or metric that you can define for your project.
+The Giskard Hub provides a set of built-in checks that cover common use cases, such as:
+
+* **Correctness**: Verifies if the agent's response matches the expected output (reference answer).
+* **Conformity**: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
+* **Groundedness**: Ensures the agent's response is grounded in the conversation.
+* **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
+
+You can also create custom checks to address specific business requirements or domain-specific validation needs.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -69,9 +76,9 @@ The parameters for creating a custom check are:
 - **description** (optional): A description explaining what your check does
 - **params** (required): A dictionary containing the parameters for your check logic which depends on the check type as described below.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Correctness Check
+    .. tab-item:: Correctness Check
 
         **Parameter**: ``reference`` (type: ``str``)
 
@@ -84,7 +91,7 @@ The parameters for creating a custom check are:
                 "reference": "Paris is the capital of France, founded around 200 BC."
             }
 
-    .. tab:: Conformity Check
+    .. tab-item:: Conformity Check
 
         **Parameter**: ``rules`` (type: ``list[str]``)
 
@@ -100,7 +107,7 @@ The parameters for creating a custom check are:
                 ]
             }
 
-    .. tab:: Groundedness Check
+    .. tab-item:: Groundedness Check
 
         **Parameter**: ``context`` (type: ``str``)
 
@@ -118,7 +125,7 @@ The parameters for creating a custom check are:
                 )
             }
 
-    .. tab:: String Match Check
+    .. tab-item:: String Match Check
 
         **Parameter**: ``keyword`` (type: ``str``)
 
@@ -131,7 +138,7 @@ The parameters for creating a custom check are:
                 "keyword": "Hello"
             }
 
-    .. tab:: Metadata Check
+    .. tab-item:: Metadata Check
 
         **Parameter**: ``json_path_rules`` (type: ``list[dict]``)
 

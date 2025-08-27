@@ -2,7 +2,7 @@
 :og:description: Launch enterprise LLM agent testing with team collaboration, continuous red teaming, and comprehensive evaluation workflows. Perfect for business users managing AI safety in production.
 
 ====================
-Quickstart & Setup
+Quickstart & setup
 ====================
 
 **Giskard Hub is our enterprise platform for LLM agent testing with team collaboration and continuous red teaming.** The Hub provides a comprehensive user interface for performing LLM evaluations in production environments with enterprise-grade security and collaboration features.
@@ -11,31 +11,31 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Create Test Datasets
+   .. grid-item-card:: Create test datasets
       :link: datasets/index
       :link-type: doc
 
       Automate test case generation with a focus on legitimate and adversarial queries.
 
-   .. grid-item-card:: Review Tests with Human Feedback
+   .. grid-item-card:: Review tests with human feedback
       :link: annotate
       :link-type: doc
 
       Use domain knowledge to review and refine test cases through humans in the loop.
 
-   .. grid-item-card:: Run and Schedule Evaluations
+   .. grid-item-card:: Run and schedule evaluations
       :link: evaluations
       :link-type: doc
 
       Run evaluations and schedule them to run automatically.
 
-   .. grid-item-card:: Compare Evaluations
+   .. grid-item-card:: Compare evaluations
       :link: evaluations-compare
       :link-type: doc
 
       Compare evaluations to detect regressions and identify patterns.
 
-   .. grid-item-card:: Continuous Red Teaming
+   .. grid-item-card:: Continuous red teaming
       :link: continuous-red-teaming
       :link-type: doc
 
@@ -50,7 +50,7 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
     Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's agent provides customer service support on their website, offering knowledge about the bank's products, services, and more.
 
-The Dashboard
+The dashboard
 ================
 
 The Dashboard is the first page you'll see upon logging in. It provides an overview of your project, displaying the number of agents, datasets, evaluations, and knowledge bases.
@@ -212,5 +212,5 @@ The interface below displays information about the knowledge base and its conten
 
 .. image:: /_static/images/hub/import-kb-success.png
    :align: center
-   :alt: "Imported knowledge base"
+   :alt: "Knowledge base successfully imported"
    :width: 800

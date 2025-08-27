@@ -1,6 +1,13 @@
-=================
-Tutorials
-=================
+:og:title: Giskard Open Source - Example Notebooks
+:og:description: Explore practical examples and tutorials using Giskard Open Source. Learn how to test LLM agents with real-world scenarios and use cases.
+
+===================
+Example notebooks
+===================
+
+This section contains practical examples and tutorials that demonstrate how to use Giskard Open Source for LLM testing and evaluation.
+
+The notebooks cover various use cases and scenarios, from basic security testing to advanced business logic validation.
 
 .. toctree::
    :maxdepth: 2

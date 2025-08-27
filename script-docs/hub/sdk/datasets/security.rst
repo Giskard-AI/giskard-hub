@@ -1,13 +1,17 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Detect Security Vulnerabilities
-:og:description: Generate and manage security test cases programmatically. Test for vulnerabilities, prompt injection, and data leakage in your LLM agents.
+:og:title: Giskard Hub - Enterprise Agent Testing - Security Testing
+:og:description: Generate and manage security-focused test cases programmatically. Test for vulnerabilities, prompt injection attacks, and security failures using the Python SDK.
 
-=============================================================
-Detect Security Vulnerabilities by Generating Synthetic Tests
-=============================================================
+============================================================
+Detect security vulnerabilities by generating synthetic tests
+============================================================
+
+Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
+
+The Giskard Hub provides automated tools to generate security-focused test cases that can detect:
 
 Generative AI agents are vulnerable to a wide range of security threats, many of which are difficult to anticipate in advance. Automated generation of adversarial test cases is essential for uncovering vulnerabilities—especially when you lack real-world attack data or malicious conversations to import. The main challenge is to create synthetic security tests that realistically simulate potential attacks and are tailored to the specific risks relevant to your domain, rather than relying on overly generic prompts.
 
-In this section, we will walk you through how to generate synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
+In this section, we will walk you through how to generate security-focused test cases using the SDK.
 
 What are AI Security Vulnerabilities?
 -------------------------------------
@@ -67,13 +71,13 @@ Underneath, we have a list of categories that we can use to generate a dataset.
 Generate a Synthetic Test Dataset
 _________________________________
 
-We can get the agent ID by listing all agents using the ``hub.agents.list("<PROJECT_ID>")`` method or retrieve the agent ID from the Hub UI.
+We can get the agent ID by listing all agents using the ``hub.models.list("<PROJECT_ID>")`` method or retrieve the agent ID from the Hub UI.
 
 .. code-block:: python
 
    dataset_name = "Adversarial Dataset"
    dataset = hub.datasets.generate(
-      model_id="<AGENT_ID>",  # Note: parameter is still named 'model_id' for backward compatibility
+      model_id="<MODEL_ID>",
       dataset_name=dataset_name,
       categories=categories,
       description="<MODEL_DESCRIPTION>",

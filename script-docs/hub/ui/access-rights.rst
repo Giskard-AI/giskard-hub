@@ -2,19 +2,19 @@
 :og:description: Configure role-based access control, manage user permissions, and ensure secure collaboration across your organization's LLM agent testing projects.
 
 ==================
-Set Access Rights
+Set access rights
 ==================
 
 This section provides guidance on managing users in the Hub.
 
 The Hub allows you to set access rights at two levels: global and scoped for both users and groups. To begin, click on the "Settings" icon on the left panel, then select "Users".
 
-Configure Users and Groups
+Configure users and groups
 --------------------------
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: User-level permissions
+   .. tab-item:: User-level permissions
 
       To manage user-level permissions, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "Users" and then press "Users" in the dropdown.
 
@@ -23,7 +23,7 @@ Configure Users and Groups
          :alt: "Access rights"
          :width: 800
 
-   .. tab:: Group-level permissions
+   .. tab-item:: Group-level permissions
 
       To manage group-level permissions, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "Users" and then press "Groups" in the dropdown.
 

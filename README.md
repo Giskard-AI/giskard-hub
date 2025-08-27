@@ -146,7 +146,7 @@ You'll need an API endpoint ready to serve the model. Then, you can
 configure the model API in the Hub:
 
 ```python
-model = hub.agents.create(
+model = hub.models.create(
     project_id=project.id,
     name="My Bot",
     description="A chatbot for demo purposes",

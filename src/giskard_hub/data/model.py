@@ -75,7 +75,7 @@ class Model(Entity):
         ModelOutput
             The model response.
         """
-        return self._client.agents.chat(
+        return self._client.models.chat(
             model_id=self.id,
             messages=messages,
         )

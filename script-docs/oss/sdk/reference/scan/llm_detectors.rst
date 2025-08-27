@@ -1,8 +1,11 @@
 :og:title: Giskard Open Source - LLM Detectors Reference
-:og:description: LLM Detectors Reference - Documentation for security detectors in LLM Scan. Learn about prompt injection, data leakage, and other security threat detection mechanisms for LLM agents.
+:og:description: Learn about LLM detectors in Giskard Open Source. Understand how to use and configure security detectors for vulnerability detection.
 
-Detectors for LLM models
-========================
+=======================
+LLM detectors reference
+=======================
+
+LLM detectors are specialized components that identify specific types of security vulnerabilities in LLM models.
 
 
 Injection attacks

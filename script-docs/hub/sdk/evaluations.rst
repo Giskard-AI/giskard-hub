@@ -1,11 +1,20 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Run Evaluations
-:og:description: Run and schedule LLM agent evaluations programmatically. Execute tests in the Hub or locally, analyze results, and manage evaluation workflows.
+:og:title: Giskard Hub - Enterprise Agent Testing - Evaluations Management
+:og:description: Run and manage LLM agent evaluations programmatically. Execute tests, schedule automated evaluations, and analyze results through the Python SDK.
 
-=============================
-Run and Schedule Evaluations
-=============================
+============================
+Run and schedule evaluations
+============================
 
-In this section, we will show how to start programmatically evaluation runs in the Hub.
+Evaluations are the core of the testing process in Giskard Hub. They allow you to run your test datasets against your agents and evaluate their performance using the checks that you have defined.
+
+The Giskard Hub provides a comprehensive evaluation system that supports:
+
+* **Synchronous evaluations**: Run evaluations immediately and get results in real-time
+* **Asynchronous evaluations**: Schedule evaluations to run in the background
+* **Batch evaluations**: Run multiple evaluations simultaneously
+* **Scheduled evaluations**: Automatically run evaluations at specified intervals
+
+In this section, we will walk you through how to run and manage evaluations using the SDK.
 
 - An **evaluation** is a run of an agent on each conversation of a dataset using a set of checks.
 
@@ -21,7 +30,7 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
 You can now use the ``hub`` client to define the agent and dataset you want to evaluate, and run or schedule evaluations.
 
-Run Evaluations
+Run evaluations
 ~~~~~~~~~~~~~~~
 
 There are two types of evaluations:
@@ -35,7 +44,7 @@ Run remote evaluations
 
 In production, you will want to run evaluations against agents that are configured in the Hub and exposed with an API.
 
-Configure an Agent
+Configure an agent
 __________________
 
 First, we need to configure the agent that we want to evaluate. The agent will
@@ -45,7 +54,7 @@ We can configure the agent endpoint in the Hub:
 
 .. code-block:: python
 
-    agent = hub.agents.create(
+    agent = hub.models.create(
         project_id=project_id,
         name="MyAgent (staging)",
         description="An agent that answers questions about the weather",
@@ -61,7 +70,7 @@ You can test that everything is working by sending a test request to the agent
 
 .. code-block:: python
 
-    response = agent.chat(messages=[{
+    response = model.chat(messages=[{
         "role": "user",
         "content": "What's the weather like in Rome?"
     }])
@@ -81,13 +90,12 @@ the CI/CD pipeline, we recommend setting the dataset ID in the environment.
 
     dataset_id = os.getenv("HUB_EVAL_DATASET_ID")
 
-
 We can now launch the evaluation run:
 
 .. code-block:: python
 
     eval_run = hub.evaluate(
-        model=agent.id,  # Note: parameter is still named 'model' for backward compatibility
+        model=model.id,
         dataset=dataset_id
         # optionally, specify a name
         name="staging-build-a4f321",
@@ -279,8 +287,3 @@ evaluation runs.
 
 .. hint::  You may also want to use this method in your CI/CD pipeline, to
     perform checks when the code or the prompts of your agent get updated.
-
-Schedule Evaluations
-~~~~~~~~~~~~~~~~~~~~
-
-At the moment, scheduling evaluations is not supported with the SDK, we recommend using the Giskard Hub UI for doing this.
