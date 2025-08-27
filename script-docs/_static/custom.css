@@ -189,6 +189,30 @@ h1, h2, h3, h4, h5, h6 {
   color: #C6FFFF !important;
 }
 
+.search-summary,
+.context {
+  color: #0f1729 !important;
+}
+
+.dark .search-summary,
+.dark .context {
+  color: #C6FFFF !important;
+}
+
+.highlighted {
+  background-color: yellow !important;
+  color: black !important;
+  text-decoration: none !important;
+  display: inline !important;
+  flex: none !important;
+}
+
+#left-sidebar .highlighted {
+  background-color: transparent !important;
+  color: inherit !important;
+  display: contents !important;
+}
+
 header nav a {
   transition-property: color, opacity;
   transition-duration: 0.2s;
@@ -348,6 +372,7 @@ nav[aria-label="breadcrumbs"] a.hover\:text-foreground:hover {
 
 header .container a.flex.items-center.mr-6 {
   flex-shrink: 0 !important;
+  color: var(--sidebar-heading-color) !important;
 }
 
 @media (min-width: 768px) {
