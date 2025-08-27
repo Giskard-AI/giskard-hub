@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Not Found | Giskard documentation</title>
+    <link rel="icon" type="image/x-icon" href="_static/favicon.ico" />
+    <style>
+      @font-face {
+        font-family: "Osmose";
+        src: url("_static/fonts/osmose-light.woff2") format("woff2");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Osmose";
+        src: url("_static/fonts/osmose-regular.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Osmose";
+        src: url("_static/fonts/osmose-bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --accent-color: #0f1729;
+        --sidebar-heading-color: #0f1729;
+        --non-selected-color: rgba(15, 23, 41, 0.6);
+        --link-color: inherit;
+        --background-color: #ffffff;
+        --text-color: #0f1729;
+        --card-background: #ffffff;
+        --border-color: #e5e7eb;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --accent-color: #05d939;
+          --sidebar-heading-color: #e3ffff;
+          --non-selected-color: rgba(198, 255, 255, 0.6);
+          --link-color: #40dedf;
+          --background-color: #002929;
+          --text-color: #c6ffff;
+          --card-background: #004040;
+          --border-color: #40dedf21;
+        }
+      }
+
+      .dark {
+        --accent-color: #05d939;
+        --sidebar-heading-color: #e3ffff;
+        --non-selected-color: rgba(198, 255, 255, 0.6);
+        --link-color: #40dedf;
+        --background-color: #002929;
+        --text-color: #c6ffff;
+        --card-background: #004040;
+        --border-color: #40dedf21;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        font-family: "Osmose", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      .page-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .content-card {
+        max-width: 600px;
+        width: 100%;
+        background: var(--card-background);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 3rem 2rem;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      h1 {
+        color: var(--sidebar-heading-color);
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: 300;
+        color: var(--accent-color);
+        margin: 0;
+        line-height: 1;
+        opacity: 0.7;
+      }
+
+      p {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .redirect-info {
+        background: var(--card-background);
+        border: 2px solid var(--accent-color);
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .redirect-info h3 {
+        color: var(--accent-color);
+        margin: 0 0 1rem 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+
+      .redirect-info p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+
+      .redirect-url {
+        word-break: break-all;
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .redirect-url:hover {
+        opacity: 0.8;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--accent-color);
+        color: var(--background-color);
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        border-radius: 6px;
+        margin: 0.5rem;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        border: 2px solid var(--accent-color);
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent-color);
+        border: 2px solid var(--accent-color);
+      }
+
+      .btn-secondary:hover {
+        background: var(--accent-color);
+        color: var(--background-color);
+      }
+
+      .actions {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-note {
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: var(--non-selected-color);
+        opacity: 0.8;
+      }
+
+      .countdown {
+        display: inline-block;
+        font-weight: 700;
+        color: var(--accent-color);
+        font-size: 1.2rem;
+        margin: 0 0.25rem;
+      }
+
+      @media (max-width: 640px) {
+        .page-container {
+          padding: 1rem;
+        }
+
+        .content-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .error-code {
+          font-size: 6rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .actions {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+
+      /* Dark mode detection script will add this class */
+      .dark-mode-detected {
+        --accent-color: #05d939;
+        --sidebar-heading-color: #e3ffff;
+        --non-selected-color: rgba(198, 255, 255, 0.6);
+        --link-color: #40dedf;
+        --background-color: #002929;
+        --text-color: #c6ffff;
+        --card-background: #004040;
+        --border-color: #40dedf21;
+      }
+    </style>
+    <script type="text/javascript">
+      /////////////////////////////////////////////////////////////////////////
+      // 404 Fallback to Legacy Documentation
+      // Redirects URLs containing /en/stable or /en/latest to legacy domain
+      /////////////////////////////////////////////////////////////////////////
+
+      // Global variables for redirect functionality
+      var redirectTimer;
+      var countdownTimer;
+      var redirectCancelled = false;
+
+      // Cancel redirect functionality
+      function cancelRedirect() {
+        redirectCancelled = true;
+        if (redirectTimer) clearTimeout(redirectTimer);
+        if (countdownTimer) clearInterval(countdownTimer);
+
+        var redirectInfo = document.getElementById("redirect-info");
+        var default404 = document.getElementById("default-404");
+
+        if (redirectInfo) redirectInfo.style.display = "none";
+        if (default404) default404.style.display = "block";
+      }
+
+      // Main redirect logic
+      (function () {
+        var l = window.location;
+        var currentPath = l.pathname;
+        var currentSearch = l.search;
+        var currentHash = l.hash;
+
+        // Check if the URL contains /en/stable or /en/latest
+        if (
+          currentPath.includes("/en/stable") ||
+          currentPath.includes("/en/latest")
+        ) {
+          // Replace docs-hub domain with legacy-hub domain
+          var legacyUrl =
+            l.protocol +
+            "//" +
+            l.hostname.replace(/\bdocs[\w-]*\b/gi, "legacy-docs") +
+            (l.port ? ":" + l.port : "") +
+            currentPath +
+            currentSearch +
+            currentHash;
+
+          // Show redirect info before redirecting
+          document.addEventListener("DOMContentLoaded", function () {
+            var redirectInfo = document.getElementById("redirect-info");
+            var redirectUrl = document.getElementById("redirect-url");
+            var redirectBtn = document.getElementById("redirect-btn");
+            var countdownElement = document.getElementById("countdown");
+
+            if (redirectInfo && redirectUrl && redirectBtn) {
+              redirectInfo.style.display = "block";
+              redirectUrl.textContent = legacyUrl;
+              redirectUrl.href = legacyUrl;
+              redirectBtn.href = legacyUrl;
+
+              // Countdown functionality
+              var timeLeft = 3;
+              countdownTimer = setInterval(function () {
+                if (redirectCancelled) return;
+
+                timeLeft--;
+                if (countdownElement) {
+                  countdownElement.textContent = timeLeft;
+                }
+
+                if (timeLeft <= 0) {
+                  clearInterval(countdownTimer);
+                }
+              }, 1000);
+
+              // Auto-redirect after 3 seconds
+              redirectTimer = setTimeout(function () {
+                if (!redirectCancelled) {
+                  window.location.href = legacyUrl;
+                }
+              }, 3000);
+            }
+          });
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="page-container">
+      <div class="content-card">
+        <div id="redirect-info" class="redirect-info" style="display: none">
+          <h3>🔄 Redirecting to Legacy Documentation</h3>
+          <p>
+            This page appears to be from an older version of our documentation.
+            You will be automatically redirected to the legacy documentation
+            site in
+            <span id="countdown" class="countdown">3</span> seconds.
+          </p>
+          <p>
+            <strong>Redirecting to:</strong><br />
+            <a
+              id="redirect-url"
+              href="#"
+              target="_blank"
+              class="redirect-url"
+            ></a>
+          </p>
+          <div class="actions">
+            <a id="redirect-btn" href="#" class="btn">Go to Legacy Docs Now</a>
+            <button onclick="cancelRedirect()" class="btn btn-secondary">
+              Cancel
+            </button>
+          </div>
+        </div>
+
+        <div id="default-404">
+          <div class="error-code">404</div>
+          <h1>Page Not Found</h1>
+          <p>
+            Sorry, the page you're looking for doesn't exist. The page may have
+            been moved, deleted, or you may have entered an incorrect URL.
+          </p>
+
+          <div class="actions">
+            <a href="/" class="btn">← Go to Home</a>
+          </div>
+        </div>
+
+        <div class="footer-note">
+          <p>
+            If you believe this is an error, please contact our support team.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Hide default 404 content if we're showing redirect info
+      document.addEventListener("DOMContentLoaded", function () {
+        var redirectInfo = document.getElementById("redirect-info");
+        var default404 = document.getElementById("default-404");
+
+        if (redirectInfo && redirectInfo.style.display === "block") {
+          default404.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

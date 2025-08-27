@@ -63,6 +63,7 @@ source_suffix = [".rst", ".md"]
 html_css_files = ["pygments-dark.css", "custom.css"]
 html_js_files = ["custom.js"]
 html_favicon = "_static/favicon.ico"
+html_extra_path = ["404.html"]
 
 # Do not execute the notebooks when building the docs
 docs_version = os.getenv("READTHEDOCS_VERSION", "latest")
