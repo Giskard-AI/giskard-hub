@@ -17,7 +17,7 @@ from sphinxawesome_theme.postprocess import Icons
 html_permalinks_icon = Icons.permalinks_icon
 
 project = "Giskard"
-copyright = "2024, Giskard"
+copyright = "2025, Giskard"
 author = "Giskard"
 
 # -- General configuration ---------------------------------------------------
@@ -61,6 +61,7 @@ html_static_path = ["_static"]
 source_suffix = [".rst", ".md"]
 
 html_css_files = ["pygments-dark.css", "custom.css"]
+html_js_files = ["custom.js"]
 html_favicon = "_static/favicon.ico"
 
 # Do not execute the notebooks when building the docs
@@ -86,13 +87,13 @@ theme_options = ThemeOptions(
     show_prev_next=True,
     show_scrolltop=True,
     awesome_external_links=True,
-    logo_light="_static/logo_black.png",
-    logo_dark="_static/logo_white.png",
+    logo_light="_static/logo_light.png",
+    logo_dark="_static/logo_dark.png",
     main_nav_links={
         "Getting Started": "/index",
-        "Giskard Hub UI": "/hub/ui/index",
-        "Giskard Hub SDK": "/hub/sdk/index",
-        "Giskard Open Source": "/oss/sdk/index",
+        "Hub UI": "/hub/ui/index",
+        "Hub SDK": "/hub/sdk/index",
+        "Open Source": "/oss/sdk/index",
     },
 )
 html_theme_options = asdict(theme_options)
@@ -104,7 +105,7 @@ html_theme_options = asdict(theme_options)
 ogp_site_name = "Giskard Documentation"
 
 # Open Graph image (logo for social sharing)
-ogp_image = "_static/logo_black.png"
+ogp_image = "_static/open-graph-image.jpg"
 
 # Open Graph image type
 ogp_image_type = "image/png"
@@ -114,7 +115,7 @@ ogp_image_width = 1200
 ogp_image_height = 630
 
 # Additional Open Graph images for different contexts
-ogp_image_alt = ["_static/logo_white.png"]
+ogp_image_alt = ["_static/open-graph-image.jpg"]
 
 # Open Graph description
 ogp_description_length = 200
@@ -135,7 +136,7 @@ ogp_twitter_site = "@GiskardAI"
 
 # Additional Open Graph properties
 ogp_image_secure_url = (
-    f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/logo_black.png"
+    f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/logo_light.png"
 )
 
 
