@@ -644,8 +644,13 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 .dark div.nboutput.container div.output_area,
 .dark div.nbinput.container div.input_area,
 .dark div.rendered_html,
-.dark .jp-RenderedHTMLCommon {
-  color: #c6ffff !important;
+
+
+.dark div.nboutput.container div.output_area > *,
+.dark div.nbinput.container div.input_area > *,
+.dark div.rendered_html *,
+.dark .jp-RenderedHTMLCommon * {
+  color: #C6FFFF !important;
 }
 
 /* Fix table colors in dark mode */
@@ -725,4 +730,9 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 }
 .nboutput.nblast.docutils.container div.prompt.empty {
   display: none !important;
+  color: #C6FFFF !important;
+}
+
+.nboutput.nblast.docutils.container{
+  display: block !important;
 }
