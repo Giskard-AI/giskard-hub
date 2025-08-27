@@ -49,6 +49,8 @@ A conversation consists of the following components:
     - ``Conformity``: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
     - ``Groundedness``: Ensures the agent's response is grounded in the conversation.
     - ``String matching``: Checks if the agent's response contains a specific string, keyword, or sentence.
+    - ``Metadata``: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent's response.
+    - ``Semantic Similarity``: Verifies that the agent's response is semantically similar to the expected output.
     - And any custom checks you may have defined.
 - ``Properties``:
     - ``Dataset``: Specifies where the conversations should be saved.
@@ -56,7 +58,7 @@ A conversation consists of the following components:
 
 .. note::
 
-   For detailed information about checks like correctness, conformity, groundedness, and string matching, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
 After the conversation is created, you can add the required information to it. For example, you can add the expected output and rules to the conversation.
 
@@ -111,7 +113,9 @@ The screen above shows three sections:
     - ``Expected response`` (optional): a reference answer that will be used to determine the correctness of the agent’s response. There can only be one expected response. If it is not provided, we do not check for the Correctness metric.
     - ``Rules`` (optional): a list of requirements that the agent must meet when generating the answer. There can be one or more rules. If it is not provided, we do not check for the Conformity metric.
     - ``Context`` (optional): the context of the conversation. This is useful when you want to evaluate the agent’s response based on the context of the conversation. If it is not provided, we do not check for the Groundedness metric.
-    - ``Keyword`` (optional): a keyword that the agent’s response must contain. This is useful when you want to evaluate the agent’s response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
+    - ``Keyword`` (optional): a keyword that the agent's response must contain. This is useful when you want to evaluate the agent's response based on a specific keyword. If it is not provided, we do not check for the String matching metric.
+    - ``Metadata`` (optional): JSON path rules to verify specific metadata in the agent's response. If it is not provided, we do not check for the Metadata metric.
+    - ``Semantic Similarity`` (optional): reference text and threshold for semantic similarity evaluation. If it is not provided, we do not check for the Semantic Similarity metric.
     - And any custom checks you may have defined.
 - ``Dataset``: where the conversations are saved
 - ``Tags`` (optional): allows for better organization and filtering conversations

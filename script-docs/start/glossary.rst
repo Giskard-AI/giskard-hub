@@ -23,7 +23,7 @@ Core concepts
    The process of testing a model against a dataset to assess its performance, safety, and compliance.
 
 **Check**
-   A specific test or validation rule that evaluates a particular aspect of model behavior (e.g., correctness, security, fairness).
+   A specific test or validation rule that evaluates a particular aspect of model behavior (e.g., correctness, security, fairness, metadata, semantic similarity).
 
 **Scan**
    An automated process that runs multiple checks against a model to identify vulnerabilities and issues.

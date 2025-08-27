@@ -69,6 +69,8 @@ We can import conversations into the dataset using the ``hub.conversations.creat
         checks=[
             {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
             {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
+            {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.category", "expected_value": "laptop", "expected_value_type": "string"}]}},
+            {"identifier": "semantic_similarity", "params": {"reference": "I see, could you please give me the model number of the laptop?", "threshold": 0.8}},
         ]
     )
 
@@ -136,6 +138,19 @@ We can then format the testset to the correct format and create the dataset usin
                     "enabled": True,
                     "params": {
                         "context": sample.reference_context,
+                    },
+                }
+            )
+
+        # Add semantic similarity check example
+        if getattr(sample, "reference_answer", None):
+            checks.append(
+                {
+                    "identifier": "semantic_similarity",
+                    "enabled": True,
+                    "params": {
+                        "reference": sample.reference_answer,
+                        "threshold": 0.8,
                     },
                 }
             )

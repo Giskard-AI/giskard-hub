@@ -56,6 +56,10 @@ The evaluation run is automatically named and assessed against the checks (built
 
 - **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
 
+- **Metadata**: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent's response.
+
+- **Semantic Similarity**: Verifies that the agent's response is semantically similar to the expected output.
+
 .. note::
 
    For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.

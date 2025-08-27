@@ -13,6 +13,8 @@ The Giskard Hub provides a set of built-in checks that cover common use cases, s
 * **Conformity**: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
 * **Groundedness**: Ensures the agent's response is grounded in the conversation.
 * **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
+* **Metadata**: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent's response.
+* **Semantic Similarity**: Verifies that the agent's response is semantically similar to the expected output.
 
 You can also create custom checks to address specific business requirements or domain-specific validation needs.
 
@@ -40,7 +42,7 @@ Giskard provides a set of built-in checks that you can use to evaluate your agen
 Custom checks
 -------------
 
-Custom checks are reusable evaluation criteria that you can define for your project. Built on top of built-in checks (like ``correctness``, ``conformity``, etc.), custom checks allow you to store and reuse your own evaluation logic.
+Custom checks are reusable evaluation criteria that you can define for your project. Built on top of built-in checks (like ``correctness``, ``conformity``, ``groundedness``, ``string_match``, ``metadata``, ``semantic_similarity``, etc.), custom checks allow you to store and reuse your own evaluation logic.
 
 Custom checks can be used in the following ways:
 
@@ -166,6 +168,20 @@ The parameters for creating a custom check are:
                 ]
             }
 
+    .. tab-item:: Semantic Similarity Check
+
+        **Parameter**: ``reference`` (type: ``str``), ``threshold`` (type: ``float``)
+
+        The expected output that the agent's response should match. The semantic similarity check validates whether the agent's response is semantically similar to the expected output. The threshold is the similarity score below which the check will fail.
+
+        .. code-block:: python
+
+            params={
+                "type": "semantic_similarity",
+                "reference": "Paris is the capital of France, founded around 200 BC.",
+                "threshold": 0.8
+            }
+
 .. tip::
 
     - Choose descriptive identifiers for your checks. This makes them easier to find and use later. For example, use ``"financial_accuracy_check"`` instead of ``"check1"``.
@@ -268,6 +284,16 @@ Once you've created a check, you can use it in your conversations by referencing
                 "identifier": "conformity",
                 "enabled": True,
                 "params": {"rules": ["Be clear and educational"]}
+            },
+            {
+                "identifier": "metadata",
+                "enabled": True,
+                "params": {"json_path_rules": [{"json_path": "$.tool", "expected_value": "calculator", "expected_value_type": "string"}]}
+            },
+            {
+                "identifier": "semantic_similarity",
+                "enabled": True,
+                "params": {"reference": "The compound interest formula is A = P(1 + r/n)^(nt)", "threshold": 0.8}
             }
         ]
     )
@@ -359,3 +385,22 @@ You can use a metadata check to verify that the agent calls the correct tool or 
             ]
         }
     )
+
+Verify response direction
+_________________________
+
+You can use a semantic similarity check to verify that the agent's response is semantically similar to an expected reference. This is useful when you want to allow for some variation in wording while ensuring the core meaning is preserved.
+
+.. code-block:: python
+
+    # For semantic similarity evaluation
+    similarity_check = hub.checks.create(
+        project_id=project.id,
+        identifier="response_similarity",
+        name="Response Similarity Check",
+        description="Ensures the agent's response is semantically similar to the reference",
+        params={
+            "type": "semantic_similarity",
+            "reference": "The capital of France is Paris, which is located in the northern part of the country.",
+            "threshold": 0.8
+        }

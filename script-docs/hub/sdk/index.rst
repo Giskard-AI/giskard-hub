@@ -160,6 +160,8 @@ We can now add a conversation example to the dataset. This will be used for the 
       checks=[
          dict(identifier="correctness", params={"reference": "Berlin"}),
          dict(identifier="conformity", params={"rules": ["The agent should always provide short and concise answers."]}),
+         dict(identifier="metadata", params={"json_path_rules": [{"json_path": "$.tool", "expected_value": "calculator", "expected_value_type": "string"}]}),
+         dict(identifier="semantic_similarity", params={"reference": "Berlin", "threshold": 0.8}),
       ]
    )
 
@@ -176,6 +178,7 @@ These are the attributes you can set for a conversation (the only required attri
         - ``groundedness``: The output of the model should be grounded in the conversation.
         - ``string_match``: The output of the model should contain a specific string (keyword or sentence).
         - ``metadata``: The metadata output of the model should match a list of JSON path rules.
+    - ``semantic_similarity``: The output of the model should be semantically similar to the reference.
     - ``params``: A dictionary of parameters for the check. The parameters depend on the check type:
         - For the ``correctness`` check, the parameter is ``reference`` (type: ``str``), which is the expected output.
         - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the conversation should follow.
@@ -185,6 +188,7 @@ These are the attributes you can set for a conversation (the only required attri
             - ``json_path``: The JSON path to the value that the model's output should contain.
             - ``expected_value``: The expected value at the JSON path.
             - ``expected_value_type``: The expected type of the value at the JSON path, one of ``string``, ``number``, ``boolean``.
+        - For the ``semantic_similarity`` check, the parameters are ``reference`` (type: ``str``) and ``threshold`` (type: ``float``), where ``reference`` is the expected output and ``threshold`` is the similarity score below which the check will fail.
 
 .. note::
 

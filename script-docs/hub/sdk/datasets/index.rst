@@ -156,6 +156,7 @@ The parameters for creating a conversation are:
             {"identifier": "correctness", "params": {"reference": "I see, could you please give me the model number of the laptop?"}},
             {"identifier": "conformity", "params": {"rules": ["The assistant should employ a polite and friendly tone."]}},
             {"identifier": "metadata", "params": {"json_path_rules": [{"json_path": "$.category", "expected_value": "laptop", "expected_value_type": "string"}, {"json_path": "$.subcategory", "expected_value": "battery", "expected_value_type": "string"}, {"json_path": "$.resolved", "expected_value": False, "expected_value_type": "boolean"}]}},
+            {"identifier": "semantic_similarity", "params": {"reference": "I see, could you please give me the model number of the laptop?", "threshold": 0.8}},
         ]
     )
 

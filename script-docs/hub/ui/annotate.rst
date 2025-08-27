@@ -224,10 +224,27 @@ Check whether the agent answer contains the expected value at the specified JSON
 
    - Metadata: ``{"output": {"success": true}}``
 
+
+Semantic Similarity Check
+-------------------------
+
+Check whether the agent's response is semantically similar to the reference. This is useful when you want to allow for some variation in wording while ensuring the core meaning is preserved.
+
+.. admonition:: Example
+
+   **Reference Answer**: "The capital of France is Paris, which is located in the northern part of the country."
+
+   **Threshold**: 0.8
+
+   **Failure example**:
+
+   - The capital of France is Paris, which is located in the southern part of the country.
+
+
 Custom Check
 ---------------
 
-Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness, String Matching and Metadata) and can be used to evaluate the quality of your agent's responses.
+Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness, String Matching, Metadata, and Semantic Similarity) and can be used to evaluate the quality of your agent's responses.
 
 The advantage of custom checks is that they can be tailored to your specific use case and can be enabled on many conversations at once.
 
@@ -245,10 +262,11 @@ Next, set the parameters for the check:
 - ``Description``: A brief description of the check.
 - ``Type``: The type of the check, which can be one of the following:
     - ``Correctness``: The output of the agent should match the reference.
-    - ``Conformity``: The conversation should follow a set of rules.
-    - ``Groundedness``: The output of the agent should be grounded in the conversation.
-    - ``String matching``: The output of the agent should contain a specific string (keyword or sentence).
-    - ``Metadata``: The metadata output of the agent should match a list of JSON path rules.
+- ``Conformity``: The conversation should follow a set of rules.
+- ``Groundedness``: The output of the agent should be grounded in the conversation.
+- ``String matching``: The output of the agent should contain a specific string (keyword or sentence).
+- ``Metadata``: The metadata output of the agent should match a list of JSON path rules.
+- ``Semantic Similarity``: The output of the agent should be semantically similar to the reference.
 - And a set of parameters specific to the check type. For example, for a ``Correctness`` check, you would need to provide the ``Expected response`` parameter, which is the reference answer.
 
 .. image:: /_static/images/hub/create-checks-detail.png

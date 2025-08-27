@@ -79,7 +79,7 @@ Once you click on "Generate," you receive a dataset where:
 
 .. note::
 
-   For detailed information about checks like groundedness, correctness, and conformity, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
 Next steps
 ----------
