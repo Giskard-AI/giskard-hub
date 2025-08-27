@@ -133,7 +133,8 @@ html.dark body,
 .dark .sd-card,
 .dark aside#left-sidebar,
 .dark header,
-.dark footer {
+.dark footer,
+.dark pre {
   border-color: #40DEDF21 !important;
 }
 
@@ -406,7 +407,6 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
   color: #C6FFFF !important; 
 }
 
-=======
 /* Sphinx Design Tabs Styling */
 .sd-tab-set {
   margin: 1rem 0;
@@ -457,3 +457,66 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
   display: block;
 }
 
+/* Dark mode fixes for notebook content visibility */
+.dark div.nboutput.container div.output_area,
+.dark div.nbinput.container div.input_area,
+.dark div.rendered_html,
+.dark .jp-RenderedHTMLCommon {
+  color: #C6FFFF !important;
+  background: transparent !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.dark div.nboutput.container div.output_area > *,
+.dark div.nbinput.container div.input_area > *,
+.dark div.rendered_html *,
+.dark .jp-RenderedHTMLCommon * {
+  color: #C6FFFF !important;
+  visibility: visible !important;
+}
+
+/* Ensure notebook text content is visible */
+.dark div.nboutput.container div.output_area pre,
+.dark div.nbinput.container div.input_area pre,
+.dark div.nboutput.container .highlight,
+.dark div.nbinput.container .highlight,
+.dark div.output_text,
+.dark div.output_html {
+  color: #C6FFFF !important;
+  background: transparent !important;
+}
+
+/* Dark mode colors */
+.dark div.nboutput.container,
+.dark div.nbinput.container,
+.dark div.nboutput.container div.output_area,
+.dark div.nbinput.container div.input_area,
+.dark div.rendered_html,
+.dark .jp-RenderedHTMLCommon {
+  color: #C6FFFF !important;
+}
+
+.dark div.nboutput.container div.output_area > *,
+.dark div.nbinput.container div.input_area > *,
+.dark div.rendered_html *,
+.dark .jp-RenderedHTMLCommon * {
+  color: #C6FFFF !important;
+}
+
+/* Fix table colors in dark mode */
+.dark .jp-RenderedHTMLCommon table,
+.dark div.rendered_html table {
+  color: #C6FFFF !important;
+}
+
+.dark .jp-RenderedHTMLCommon td,
+.dark .jp-RenderedHTMLCommon th,
+.dark div.rendered_html td,
+.dark div.rendered_html th {
+  color: #C6FFFF !important;
+}
+
+.nboutput.nblast.docutils.container{
+  display: block !important;
+}
