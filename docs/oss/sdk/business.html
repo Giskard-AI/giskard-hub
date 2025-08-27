@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Giskard Open Source - Business Testing" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="oss/sdk/business.html" property="og:url"/>
+<meta content="Giskard Documentation" property="og:site_name"/>
+<meta content="Detect business logic failures, compliance issues, and domain-specific problems in your LLM agents and applications with our free RAG Evaluation Toolkit." property="og:description"/>
+<meta content="_static/open-graph-image.jpg" property="og:image"/>
+<meta content="What are AI business failures?: Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual r..." name="description"/>
+<title>Detect business failures in LLMs using RAGET | Giskard  documentation</title>
+<meta content="Detect business failures in LLMs using RAGET | Giskard  documentation" property="og:title"/>
+<meta content="Detect business failures in LLMs using RAGET | Giskard  documentation" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=71d48e3d" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
+<link href="../../_static/favicon.ico" rel="icon"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="legacy.html" rel="next" title="Tabular ML, Predictive NLP, and Computer Vision"/>
+<link href="security.html" rel="prev" title="Detect security vulnerabilities in LLMs using LLM Scan"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../_static/logo_dark.png" width="24"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
+</a><nav class="flex items-center space-x-6 text-sm font-medium">
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Getting Started</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
+</nav></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="16" src="../../_static/logo_dark.png" width="16"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
+<a href="/index.html">Getting Started</a>
+<a href="/hub/ui/index.html">Hub UI</a>
+<a href="/hub/sdk/index.html">Hub SDK</a>
+<a href="/oss/sdk/index.html">Open Source</a>
+</nav><nav class="table w-full min-w-full my-6 lg:my-8">
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to Giskard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start/comparison.html">Open Source vs Giskard Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start/enterprise-trial.html">Request your enterprise trial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/manual.html">Manual test creation for fine-grained control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/import.html">Import Existing Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/annotate.html">Review tests with human feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/evaluations.html">Run and schedule evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/evaluations-compare.html">Compare evaluation results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/access-rights.html">Set access rights</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/projects.html">Manage your projects and agents</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/sdk/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/datasets/import.html">Import existing datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/checks.html">Manage your checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/evaluations.html">Run and schedule evaluations</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/reference/client.html">Client reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/reference/entities/index.html">Entities reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/reference/resources/index.html">Resources reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Open Source</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Detect security vulnerabilities in LLMs using LLM Scan</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Detect business failures in LLMs using RAGET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Tabular ML, Predictive NLP, and Computer Vision</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/security/LLM_QA_IPCC.html">LLM Question Answering over the IPCC Climate Change Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/security/LLM_QA_Google.html">LLM Question Answering with Langchain, Qdrant and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/security/LLM_QA_Winter_Olympics.html">LLM Question Answering over the 2022 Winter Olympics Wikipedia articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/security/LLM_Description_Product.html">LLM product description from keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/security/LLM_Newspaper_Comment_Generation.html">LLM Newspaper Comments Generation with LangChain and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/security/LLM_QA_Documentation.html">LLM Question Answering over the documentation with Langchain, FAISS and OpenAI</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="reference/models.html">Models reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/datasets.html">Datasets reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="reference/scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="reference/scan/report.html">Scan report reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/scan/llm_detectors.html">LLM detectors reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/tests.html">LLM tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/suite.html">Test suite reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="reference/raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="reference/raget/testset_generation.html">Testset generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/raget/knowledge_base.html">Knowledge base reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/raget/evaluation.html">Evaluation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/raget/question_generation.html">Question generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/raget/metrics.html">Evaluation metrics reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../index.html">
+<span class="hidden md:inline">Giskard  documentation</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Detect business failures in LLMs using RAGET</span>
+</nav>
+<div id="content" role="main">
+<section id="detect-business-failures-in-llms-using-raget">
+<h1>Detect business failures in LLMs using RAGET<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#detect-business-failures-in-llms-using-raget"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<section id="what-are-ai-business-failures">
+<h2>What are AI business failures?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-are-ai-business-failures" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-are-ai-business-failures'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual responses, inappropriate content generation, and failures to follow business rules.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Remember: Business failure testing is an ongoing process. Regularly test your agents and update your business failure test suites to stay ahead of emerging failures.</p>
+<p>For more up-to-date business failure testing and a collaborative UI, see the <a class="reference internal" href="../../hub/sdk/datasets/business.html"><span class="doc">Giskard Hub Business Failure Testing</span></a> guide. Giskard Hub’s enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the agent’s ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
+If you want to detect security failures, check out the <a class="reference internal" href="security.html"><span class="doc">Detect security vulnerabilities in LLMs using LLM Scan</span></a>.</p>
+</div>
+</section>
+<section id="how-raget-works">
+<h2>How RAGET works<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#how-raget-works" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-raget-works'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>The RAG Evaluation Toolkit (RAGET) is a comprehensive testing framework designed specifically for Retrieval-Augmented Generation (RAG) systems. It helps you:</p>
+<ul class="simple">
+<li><p><strong>Generate comprehensive test sets</strong> from your knowledge base</p></li>
+<li><p><strong>Evaluate RAG performance</strong> across multiple dimensions</p></li>
+<li><p><strong>Detect business failures</strong> like hallucinations and factual inaccuracies</p></li>
+<li><p><strong>Ensure source attribution</strong> and grounding in your responses</p></li>
+</ul>
+<p>RAGET automatically generates a list of <code class="docutils literal notranslate"><span class="pre">question</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_answer</span></code>, and <code class="docutils literal notranslate"><span class="pre">reference_context</span></code> items from your RAG system’s knowledge base. It uses a sequence of LLM-powered steps to create realistic and diverse questions. The resulting test set can then be used to target and evaluate the following RAG components:</p>
+<ul class="simple">
+<li><p><strong>Generator</strong>: The LLM responsible for generating answers.</p></li>
+<li><p><strong>Retriever</strong>: Retrieves relevant documents from the knowledge base based on user queries.</p></li>
+<li><p><strong>Rewriter</strong> (optional): Rewrites user queries to improve relevance or incorporate chat history.</p></li>
+<li><p><strong>Router</strong> (optional): Filters or routes user queries based on detected intent.</p></li>
+<li><p><strong>Knowledge Base</strong>: The collection of documents used by the RAG system to generate answers.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Data Privacy Notice</strong>: LLM-assisted detectors send the following information to language model providers (e.g., OpenAI, Azure OpenAI, Ollama, Mistral):</p>
+<ul class="simple">
+<li><p>Data provided in your knowledge base</p></li>
+<li><p>Text generated by your agent</p></li>
+<li><p>Model name and description</p></li>
+</ul>
+<p>This does not apply if you select a self-hosted model.</p>
+</div>
+</section>
+<section id="detecting-business-failures">
+<h2>Detecting business failures<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#detecting-business-failures" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#detecting-business-failures'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<section id="create-a-knowledge-base">
+<h3>Create a knowledge base<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-knowledge-base" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-knowledge-base'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>Before we can use RAGET, we need to create a knowledge base.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag</span><span class="w"> </span><span class="kn">import</span> <span class="n">KnowledgeBase</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="c1"># Load your data and initialize the KnowledgeBase</span>
+</span><span id="line-5"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span><span id="line-6">    <span class="s2">"samples"</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="line-7">        <span class="s2">"Giskard is a great tool for testing and evaluating LLMs."</span><span class="p">,</span>
+</span><span id="line-8">        <span class="s2">"Giskard Hub offers a comprehensive suite of tools for testing and evaluating LLMs."</span><span class="p">,</span>
+</span><span id="line-9">        <span class="s2">"Giskard was founded in France by ex-Dataiku employees."</span>
+</span><span id="line-10">    <span class="p">]</span>
+</span><span id="line-11"><span class="p">})</span>
+</span><span id="line-12">
+</span><span id="line-13"><span class="n">knowledge_base</span> <span class="o">=</span> <span class="n">KnowledgeBase</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"samples"</span><span class="p">])</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="generate-a-test-set">
+<h3>Generate a test set<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#generate-a-test-set" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#generate-a-test-set'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>We can now use the knowledge base to generate a test set of <code class="docutils literal notranslate"><span class="pre">question</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_answer</span></code> and <code class="docutils literal notranslate"><span class="pre">reference_context</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_testset</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="n">testset</span> <span class="o">=</span> <span class="n">generate_testset</span><span class="p">(</span>
+</span><span id="line-4">    <span class="n">knowledge_base</span><span class="p">,</span>
+</span><span id="line-5">    <span class="n">num_questions</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+</span><span id="line-6">    <span class="c1"># optionally, we'll auto detect the language if not provided</span>
+</span><span id="line-7">    <span class="n">language</span><span class="o">=</span><span class="s1">'en'</span><span class="p">,</span>
+</span><span id="line-8">    <span class="c1"># optionally, provide a description of the agent to help generating better questions</span>
+</span><span id="line-9">    <span class="n">agent_description</span><span class="o">=</span><span class="s2">"A customer support agent for company X"</span><span class="p">,</span>
+</span><span id="line-10"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>The generated test set contains several columns:</p>
+<ul class="simple">
+<li><p><strong>question</strong>: The generated question</p></li>
+<li><p><strong>reference_context</strong>: Context that can be used to answer the question</p></li>
+<li><p><strong>reference_answer</strong>: Expected answer (generated with LLM)</p></li>
+<li><p><strong>conversation_history</strong>: Conversation context (empty for simple questions)</p></li>
+<li><p><strong>metadata</strong>: Additional information about the question type and topic</p></li>
+</ul>
+<p>Now we can save the <code class="docutils literal notranslate"><span class="pre">QATestset</span></code> to a file.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-0">
+Save Test Set</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Save the test set to a file</span>
+</span><span id="line-2"><span class="n">testset</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"my_testset.jsonl"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-1">
+Load Test Set</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.testset</span><span class="w"> </span><span class="kn">import</span> <span class="n">QATestset</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="n">testset</span> <span class="o">=</span> <span class="n">QATestset</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"my_testset.jsonl"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-the-test-set">
+<h3>Evaluate the test set<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#evaluate-the-test-set" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#evaluate-the-test-set'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> function to evaluate the test set with the results a provided by the <code class="docutils literal notranslate"><span class="pre">predict_fn</span></code> function.
+This will return a report object that contains the evaluation results.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag</span><span class="w"> </span><span class="kn">import</span> <span class="n">evaluate</span><span class="p">,</span> <span class="n">QATestset</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="c1"># Load the test set</span>
+</span><span id="line-4"><span class="n">testset</span> <span class="o">=</span> <span class="n">QATestset</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"my_testset.jsonl"</span><span class="p">)</span>
+</span><span id="line-5">
+</span><span id="line-6"><span class="c1"># Load the original knowledge base</span>
+</span><span id="line-7"><span class="n">knowledge_base</span> <span class="o">=</span> <span class="n">KnowledgeBase</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"samples"</span><span class="p">])</span>
+</span><span id="line-8">
+</span><span id="line-9"><span class="c1"># Define a predict function</span>
+</span><span id="line-10"><span class="k">def</span><span class="w"> </span><span class="nf">predict_fn</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="line-11"><span class="w">    </span><span class="sd">"""A function representing your RAG agent."""</span>
+</span><span id="line-12">    <span class="c1"># Format appropriately the history for your RAG agent</span>
+</span><span id="line-13">    <span class="n">messages</span> <span class="o">=</span> <span class="n">history</span> <span class="k">if</span> <span class="n">history</span> <span class="k">else</span> <span class="p">[]</span>
+</span><span id="line-14">    <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+</span><span id="line-15">
+</span><span id="line-16">    <span class="c1"># Get the answer using your preferred framework</span>
+</span><span id="line-17">    <span class="c1"># could be langchain, llama_index, etc.</span>
+</span><span id="line-18">    <span class="n">answer</span> <span class="o">=</span> <span class="n">get_answer_from_agent</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+</span><span id="line-19">
+</span><span id="line-20">    <span class="k">return</span> <span class="n">answer</span>
+</span><span id="line-21">
+</span><span id="line-22"><span class="c1"># Run the evaluation and get a report</span>
+</span><span id="line-23"><span class="n">report</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">predict_fn</span><span class="p">,</span> <span class="n">testset</span><span class="o">=</span><span class="n">testset</span><span class="p">,</span> <span class="n">knowledge_base</span><span class="o">=</span><span class="n">knowledge_base</span><span class="p">)</span>
+</span><span id="line-24">
+</span><span id="line-25"><span class="c1"># We can easily visualize the results of the evaluation.</span>
+</span><span id="line-26"><span class="n">display</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/raget.webp"><img alt='"RAGET Example"' class="align-center" src="../../_images/raget.webp" style="width: 800px;"/>
+</a>
+<p>At this point, you can save and load the report. This includes the HTML report, the testset, the knowledge base, the evaluation results and the metrics if you have provided them.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-2">
+Save Report</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">report</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"path/to/my_report"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-3">
+Load Report</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">RAGReport</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="n">report</span> <span class="o">=</span> <span class="n">RAGReport</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"path/to/my_report"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyze-correctness-and-failures">
+<h3>Analyze Correctness and Failures<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#analyze-correctness-and-failures" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#analyze-correctness-and-failures'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can access the correctness of the agent aggregated in various ways or analyze only it failures.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Correctness on each topic of the Knowledge Base</span>
+</span><span id="line-2"><span class="n">report</span><span class="o">.</span><span class="n">correctness_by_topic</span><span class="p">()</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="c1"># Correctness on each type of question</span>
+</span><span id="line-5"><span class="n">report</span><span class="o">.</span><span class="n">correctness_by_question_type</span><span class="p">()</span>
+</span><span id="line-6">
+</span><span id="line-7"><span class="c1"># get all the failed questions</span>
+</span><span id="line-8"><span class="n">report</span><span class="o">.</span><span class="n">failures</span>
+</span><span id="line-9">
+</span><span id="line-10"><span class="c1"># get the failed questions filtered by topic and question type</span>
+</span><span id="line-11"><span class="n">report</span><span class="o">.</span><span class="n">get_failures</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="s2">"Topic from your knowledge base"</span><span class="p">,</span> <span class="n">question_type</span><span class="o">=</span><span class="s2">"simple"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="customizing-business-failure-testing">
+<h2>Customizing business failure testing<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#customizing-business-failure-testing" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#customizing-business-failure-testing'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<section id="custom-generators">
+<h3>Custom generators<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#custom-generators" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#custom-generators'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>We can customize the question generation process to target and evaluate specific components in the RAG system. For example, we can generate only complex questions to evaluate the generator. And overview of the question types is available below.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Question type</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Example</strong></p></th>
+<th class="head"><p><strong>Targeted Components</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple</p></td>
+<td><p>Simple questions generated from an excerpt of the knowledge base</p></td>
+<td><p>What is the capital of France?</p></td>
+<td><p>Generator, Retriever, Router</p></td>
+</tr>
+<tr class="row-odd"><td><p>Complex</p></td>
+<td><p>Questions made more complex by paraphrasing</p></td>
+<td><p>What is the capital of the country of Victor Hugo?</p></td>
+<td><p>Generator</p></td>
+</tr>
+<tr class="row-even"><td><p>Distracting</p></td>
+<td><p>Questions made to confuse the retrieval part of the RAG with a distracting element from the knowledge base but irrelevant to the question</p></td>
+<td><p>Italy is beautiful but what is the capital of France?</p></td>
+<td><p>Generator, Retriever, Rewriter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Out of scope</p></td>
+<td><p>Questions that are out of scope of the knowledge base</p></td>
+<td><p>What are hemoglobin levels?</p></td>
+<td><p>Generator, Retriever, Rewriter</p></td>
+</tr>
+<tr class="row-even"><td><p>Situational</p></td>
+<td><p>Questions including user context to evaluate the ability of the generation to produce relevant answer according to the context</p></td>
+<td><p>I am planning a trip to Europe, what is the capital of France?</p></td>
+<td><p>Generator</p></td>
+</tr>
+<tr class="row-odd"><td><p>Double</p></td>
+<td><p>Questions with two distinct parts to evaluate the capabilities of the query rewriter of the RAG</p></td>
+<td><p>What is the capital and the population of France?</p></td>
+<td><p>Generator, Rewriter</p></td>
+</tr>
+<tr class="row-even"><td><p>Conversational</p></td>
+<td><p>Questions made as part of a conversation, first message describes the context of the question that is asked in the last message, also tests the rewriter</p></td>
+<td><p>Turn 1: I would like to know some information about France, Turn 2: What is its capital city?</p></td>
+<td><p>Rewriter</p></td>
+</tr>
+</tbody>
+</table>
+<p>During testset generation, you can then import and select the question types you want to use during the generation process by passing a list of question types to the <code class="docutils literal notranslate"><span class="pre">question_generators</span></code> parameter.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-4">
+Built-in Generators</label><div class="sd-tab-content docutils">
+<p>You can simply import the question generators you want to use and pass them to the <code class="docutils literal notranslate"><span class="pre">question_generators</span></code> parameter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_testset</span>
+</span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.question_generators</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-3">    <span class="n">simple_questions</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">complex_questions</span><span class="p">,</span>
+</span><span id="line-5">    <span class="n">conversational_questions</span><span class="p">,</span>
+</span><span id="line-6">    <span class="n">distracting_questions</span><span class="p">,</span>
+</span><span id="line-7">    <span class="n">situational_questions</span><span class="p">,</span>
+</span><span id="line-8">    <span class="n">double_questions</span><span class="p">,</span>
+</span><span id="line-9">    <span class="n">oos_questions</span><span class="p">,</span>
+</span><span id="line-10"><span class="p">)</span>
+</span><span id="line-11">
+</span><span id="line-12"><span class="n">testset</span> <span class="o">=</span> <span class="n">generate_testset</span><span class="p">(</span>
+</span><span id="line-13">    <span class="n">knowledge_base</span><span class="o">=</span><span class="n">knowledge_base</span><span class="p">,</span> <span class="n">question_generators</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-14">        <span class="n">simple_questions</span><span class="p">,</span>
+</span><span id="line-15">        <span class="n">complex_questions</span><span class="p">,</span>
+</span><span id="line-16">        <span class="n">conversational_questions</span><span class="p">,</span>
+</span><span id="line-17">        <span class="n">distracting_questions</span><span class="p">,</span>
+</span><span id="line-18">        <span class="n">situational_questions</span><span class="p">,</span>
+</span><span id="line-19">        <span class="n">double_questions</span><span class="p">,</span>
+</span><span id="line-20">        <span class="n">oos_questions</span><span class="p">,</span>
+</span><span id="line-21">    <span class="p">],</span>
+</span><span id="line-22"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-5">
+Create a Generator</label><div class="sd-tab-content docutils">
+<p>Alternatively, you can subclass the <code class="docutils literal notranslate"><span class="pre">QuestionGenerator</span></code> class and implement your own question generation logic.
+You can <a class="reference external" href="https://github.com/Giskard-AI/giskard/blob/main/giskard/rag/question_generators/simple_questions.py" rel="nofollow noopener">find an example on GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.question_generators</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuestionGenerator</span>
+</span><span id="line-4"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.question_generators.prompt</span><span class="w"> </span><span class="kn">import</span> <span class="n">QAGenerationPrompt</span>
+</span><span id="line-5"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.testset</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuestionSample</span>
+</span><span id="line-6"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.knowledge_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">KnowledgeBase</span>
+</span><span id="line-7">
+</span><span id="line-8"><span class="k">class</span><span class="w"> </span><span class="nc">CustomQuestionGenerator</span><span class="p">(</span><span class="n">QuestionGenerator</span><span class="p">):</span>
+</span><span id="line-9">    <span class="n">_prompt</span> <span class="o">=</span> <span class="n">QAGenerationPrompt</span><span class="p">(</span>
+</span><span id="line-10">        <span class="n">system_prompt</span><span class="o">=</span><span class="s2">"You are a helpful assistant."</span><span class="p">,</span>
+</span><span id="line-11">        <span class="n">example_input</span><span class="o">=</span><span class="s2">"Where is paris located? (context: France is a country in Europe)"</span><span class="p">,</span>
+</span><span id="line-12">        <span class="n">example_output</span><span class="o">=</span><span class="s2">"{'question': 'Where is paris located?', 'answer': 'Paris is in Europe'}"</span><span class="p">,</span>
+</span><span id="line-13">    <span class="p">)</span>
+</span><span id="line-14">    <span class="n">_question_type</span> <span class="o">=</span> <span class="s2">"custom"</span>
+</span><span id="line-15">
+</span><span id="line-16">    <span class="k">def</span><span class="w"> </span><span class="nf">generate_questions</span><span class="p">(</span>
+</span><span id="line-17">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-18">        <span class="n">knowledge_base</span><span class="p">:</span> <span class="n">KnowledgeBase</span><span class="p">,</span>
+</span><span id="line-19">        <span class="n">num_questions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+</span><span id="line-20">        <span class="n">agent_description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="line-21">        <span class="n">language</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="line-22">        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+</span><span id="line-23">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+</span><span id="line-24">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_questions</span><span class="p">):</span>
+</span><span id="line-25">            <span class="n">seed_document</span> <span class="o">=</span> <span class="n">knowledge_base</span><span class="o">.</span><span class="n">get_random_document</span><span class="p">()</span>
+</span><span id="line-26">
+</span><span id="line-27">            <span class="n">context_documents</span> <span class="o">=</span> <span class="n">knowledge_base</span><span class="o">.</span><span class="n">get_neighbors</span><span class="p">(</span>
+</span><span id="line-28">                <span class="n">seed_document</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context_neighbors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context_similarity_threshold</span>
+</span><span id="line-29">            <span class="p">)</span>
+</span><span id="line-30">            <span class="n">context_str</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">------</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">""</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">content</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">context_documents</span><span class="p">],</span> <span class="s2">""</span><span class="p">])</span>
+</span><span id="line-31">
+</span><span id="line-32">            <span class="n">reference_context</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">"Document </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">content</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">context_documents</span><span class="p">])</span>
+</span><span id="line-33">
+</span><span id="line-34">            <span class="n">messages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt</span><span class="o">.</span><span class="n">to_messages</span><span class="p">(</span>
+</span><span id="line-35">                <span class="n">system_prompt_input</span><span class="o">=</span><span class="p">{</span><span class="s2">"agent_description"</span><span class="p">:</span> <span class="n">agent_description</span><span class="p">,</span> <span class="s2">"language"</span><span class="p">:</span> <span class="n">language</span><span class="p">},</span>
+</span><span id="line-36">                <span class="n">user_input</span><span class="o">=</span><span class="n">context_str</span><span class="p">,</span>
+</span><span id="line-37">            <span class="p">)</span>
+</span><span id="line-38">
+</span><span id="line-39">            <span class="n">generated_qa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_llm_complete</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+</span><span id="line-40">            <span class="n">question_metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"question_type"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_question_type</span><span class="p">,</span> <span class="s2">"seed_document_id"</span><span class="p">:</span> <span class="n">seed_document</span><span class="o">.</span><span class="n">id</span><span class="p">}</span>
+</span><span id="line-41">
+</span><span id="line-42">            <span class="n">question</span> <span class="o">=</span> <span class="n">QuestionSample</span><span class="p">(</span>
+</span><span id="line-43">                <span class="nb">id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+</span><span id="line-44">                <span class="n">question</span><span class="o">=</span><span class="n">generated_qa</span><span class="p">[</span><span class="s2">"question"</span><span class="p">],</span>
+</span><span id="line-45">                <span class="n">reference_answer</span><span class="o">=</span><span class="n">generated_qa</span><span class="p">[</span><span class="s2">"answer"</span><span class="p">],</span>
+</span><span id="line-46">                <span class="n">reference_context</span><span class="o">=</span><span class="n">reference_context</span><span class="p">,</span>
+</span><span id="line-47">                <span class="n">conversation_history</span><span class="o">=</span><span class="p">[],</span>
+</span><span id="line-48">                <span class="n">metadata</span><span class="o">=</span><span class="n">question_metadata</span><span class="p">,</span>
+</span><span id="line-49">            <span class="p">)</span>
+</span><span id="line-50">            <span class="k">yield</span> <span class="n">question</span>
+</span><span id="line-51">
+</span><span id="line-52"><span class="n">my_custom_generator</span> <span class="o">=</span> <span class="n">CustomQuestionGenerator</span><span class="p">()</span>
+</span><span id="line-53"><span class="n">testset</span> <span class="o">=</span> <span class="n">generate_testset</span><span class="p">(</span>
+</span><span id="line-54">    <span class="n">knowledge_base</span><span class="o">=</span><span class="n">knowledge_base</span><span class="p">,</span>
+</span><span id="line-55">    <span class="n">question_generators</span><span class="o">=</span><span class="p">[</span><span class="n">my_custom_generator</span><span class="p">],</span>
+</span><span id="line-56"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="custom-metrics">
+<h3>Custom metrics<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#custom-metrics" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#custom-metrics'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can also provide custom metrics to evaluate the performance of your RAG agent. By default, we always pass a <code class="docutils literal notranslate"><span class="pre">correctness</span></code> metric to the <code class="docutils literal notranslate"><span class="pre">metrics</span></code> parameter of the <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">correctness_metric</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="n">report</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">predict_fn</span><span class="p">,</span> <span class="n">testset</span><span class="o">=</span><span class="n">testset</span><span class="p">,</span> <span class="n">knowledge_base</span><span class="o">=</span><span class="n">knowledge_base</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">correctness_metric</span><span class="p">])</span>
+</span></code></pre></div>
+</div>
+<p>However, we can also use custom metrics in various ways.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-6">
+Built-in RAGAS Metrics</label><div class="sd-tab-content docutils">
+<p>You can use our built-in RAGAS metrics to evaluate the performance of your RAG agent. They directly inherit from the <a class="reference external" href="https://docs.ragas.io/en/latest/concepts/metrics/overview/" rel="nofollow noopener">RAGAS library<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag</span><span class="w"> </span><span class="kn">import</span> <span class="n">evaluate</span>
+</span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.metrics.ragas</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-3">    <span class="n">ragas_context_precision</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">ragas_faithfulness</span><span class="p">,</span>
+</span><span id="line-5">    <span class="n">ragas_answer_relevancy</span><span class="p">,</span>
+</span><span id="line-6">    <span class="n">ragas_context_recall</span><span class="p">,</span>
+</span><span id="line-7"><span class="p">)</span>
+</span><span id="line-8">
+</span><span id="line-9"><span class="n">report</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span>
+</span><span id="line-10">    <span class="n">predict_fn</span><span class="p">,</span>
+</span><span id="line-11">    <span class="n">testset</span><span class="o">=</span><span class="n">testset</span><span class="p">,</span>
+</span><span id="line-12">    <span class="n">knowledge_base</span><span class="o">=</span><span class="n">knowledge_base</span><span class="p">,</span>
+</span><span id="line-13">    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-14">        <span class="n">ragas_context_recall</span><span class="p">,</span>
+</span><span id="line-15">        <span class="n">ragas_context_precision</span><span class="p">,</span>
+</span><span id="line-16">        <span class="n">ragas_faithfulness</span><span class="p">,</span>
+</span><span id="line-17">        <span class="n">ragas_answer_relevancy</span><span class="p">,</span>
+</span><span id="line-18">    <span class="p">],</span>
+</span><span id="line-19"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio"/>
+<label class="sd-tab-label" for="sd-tab-item-7">
+Create Custom Metric</label><div class="sd-tab-content docutils">
+<p>You can create your own custom metric by subclassing the <code class="docutils literal notranslate"><span class="pre">Metric</span></code> class and implementing the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method.
+Besides that, you need to define a clear system prompt and a user prompt that can be used by the LLM to evaluate the metric.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.llm.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_default_client</span>
+</span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.llm.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMGenerationError</span>
+</span><span id="line-3"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgentAnswer</span>
+</span><span id="line-4"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.metrics.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Metric</span>
+</span><span id="line-5"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.testset</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuestionSample</span>
+</span><span id="line-6"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.question_generators.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_json_output</span>
+</span><span id="line-7"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard.rag.metrics.correctness</span><span class="w"> </span><span class="kn">import</span> <span class="n">format_conversation</span>
+</span><span id="line-8">
+</span><span id="line-9"><span class="kn">from</span><span class="w"> </span><span class="nn">llama_index.core.base.llms.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatMessage</span>
+</span><span id="line-10">
+</span><span id="line-11"><span class="c1"># Ensure that the metric name is unique and used consistently</span>
+</span><span id="line-12"><span class="n">METRIC_NAME</span> <span class="o">=</span> <span class="s2">"custom_metric"</span>
+</span><span id="line-13"><span class="c1"># Define and evaluation template for the LLM</span>
+</span><span id="line-14"><span class="n">INPUT_TEMPLATE</span> <span class="o">=</span> <span class="s2">"""</span>
+</span><span id="line-15"><span class="s2">Conversation: </span><span class="si">{conversation}</span>
+</span><span id="line-16"><span class="s2">Reference answer: </span><span class="si">{reference_answer}</span>
+</span><span id="line-17"><span class="s2">Agent answer: </span><span class="si">{answer}</span>
+</span><span id="line-18"><span class="s2">Output Format (JSON only):</span>
+</span><span id="line-19"><span class="s2">{{</span>
+</span><span id="line-20"><span class="s2">    "</span><span class="si">{metric_name}</span><span class="s2">": (your rating, as a number between 1 and 5)</span>
+</span><span id="line-21"><span class="s2">}}</span>
+</span><span id="line-22"><span class="s2">"""</span>
+</span><span id="line-23">
+</span><span id="line-24"><span class="k">class</span><span class="w"> </span><span class="nc">CustomMetric</span><span class="p">(</span><span class="n">Metric</span><span class="p">):</span>
+</span><span id="line-25">    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question_sample</span><span class="p">:</span> <span class="n">QuestionSample</span><span class="p">,</span> <span class="n">answer</span><span class="p">:</span> <span class="n">AgentAnswer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="line-26">        <span class="c1"># Implement your LLM call with litellm or any other LLM client</span>
+</span><span id="line-27">        <span class="n">llm_client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_llm_client</span> <span class="ow">or</span> <span class="n">get_default_client</span><span class="p">()</span>
+</span><span id="line-28">        <span class="k">try</span><span class="p">:</span>
+</span><span id="line-29">            <span class="n">out</span> <span class="o">=</span> <span class="n">llm_client</span><span class="o">.</span><span class="n">complete</span><span class="p">(</span>
+</span><span id="line-30">                <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-31">                    <span class="n">ChatMessage</span><span class="p">(</span>
+</span><span id="line-32">                        <span class="n">role</span><span class="o">=</span><span class="s2">"system"</span><span class="p">,</span>
+</span><span id="line-33">                        <span class="n">content</span><span class="o">=</span><span class="s2">"You are a helpful assistant that is great at evaluating the correctness of the answer."</span><span class="p">,</span>
+</span><span id="line-34">                    <span class="p">),</span>
+</span><span id="line-35">                    <span class="n">ChatMessage</span><span class="p">(</span>
+</span><span id="line-36">                        <span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span>
+</span><span id="line-37">                        <span class="n">content</span><span class="o">=</span><span class="n">INPUT_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+</span><span id="line-38">                            <span class="n">conversation</span><span class="o">=</span><span class="n">format_conversation</span><span class="p">(</span>
+</span><span id="line-39">                                <span class="n">question_sample</span><span class="o">.</span><span class="n">conversation_history</span>
+</span><span id="line-40">                                <span class="o">+</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">question_sample</span><span class="o">.</span><span class="n">question</span><span class="p">}]</span>
+</span><span id="line-41">                            <span class="p">),</span>
+</span><span id="line-42">                            <span class="n">answer</span><span class="o">=</span><span class="n">answer</span><span class="o">.</span><span class="n">message</span><span class="p">,</span>
+</span><span id="line-43">                            <span class="n">reference_answer</span><span class="o">=</span><span class="n">question_sample</span><span class="o">.</span><span class="n">reference_answer</span><span class="p">,</span>
+</span><span id="line-44">                            <span class="n">metric_name</span><span class="o">=</span><span class="n">METRIC_NAME</span><span class="p">,</span>
+</span><span id="line-45">                        <span class="p">),</span>
+</span><span id="line-46">                    <span class="p">),</span>
+</span><span id="line-47">                <span class="p">],</span>
+</span><span id="line-48">                <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+</span><span id="line-49">                <span class="nb">format</span><span class="o">=</span><span class="s2">"json_object"</span><span class="p">,</span>
+</span><span id="line-50">            <span class="p">)</span>
+</span><span id="line-51">
+</span><span id="line-52">            <span class="c1"># We asked the LLM to output a JSON object, so we must parse the output into a dict</span>
+</span><span id="line-53">            <span class="n">json_output</span> <span class="o">=</span> <span class="n">parse_json_output</span><span class="p">(</span>
+</span><span id="line-54">                <span class="n">out</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+</span><span id="line-55">                <span class="n">llm_client</span><span class="o">=</span><span class="n">llm_client</span><span class="p">,</span>
+</span><span id="line-56">                <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">"custom_metric"</span><span class="p">],</span>
+</span><span id="line-57">                <span class="n">caller_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+</span><span id="line-58">            <span class="p">)</span>
+</span><span id="line-59">            <span class="k">return</span> <span class="n">json_output</span>
+</span><span id="line-60">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+</span><span id="line-61">            <span class="k">raise</span> <span class="n">LLMGenerationError</span><span class="p">(</span><span class="s2">"Error while evaluating the agent"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
+</span><span id="line-62">
+</span><span id="line-63"><span class="c1"># Create the metric</span>
+</span><span id="line-64"><span class="n">custom_metric</span> <span class="o">=</span> <span class="n">CustomMetric</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">METRIC_NAME</span><span class="p">)</span>
+</span><span id="line-65">
+</span><span id="line-66"><span class="c1"># Evaluate the test set</span>
+</span><span id="line-67"><span class="n">report</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">predict_fn</span><span class="p">,</span> <span class="n">testset</span><span class="o">=</span><span class="n">testset</span><span class="p">,</span> <span class="n">knowledge_base</span><span class="o">=</span><span class="n">knowledge_base</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">custom_metric</span><span class="p">])</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="troubleshooting-business-failures">
+<h2>Troubleshooting business failures<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#troubleshooting-business-failures" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#troubleshooting-business-failures'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>Common issues and solutions:</p>
+<ul class="simple">
+<li><p><strong>Low relevance scores</strong>: Check your retrieval system and document chunking</p></li>
+<li><p><strong>High hallucination rates</strong>: Verify context retrieval and generation logic</p></li>
+<li><p><strong>Poor answer quality</strong>: Ensure sufficient context is provided to the generator</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>If you encounter issues with business failure testing:</p>
+<ul class="simple">
+<li><p>Join our <a class="reference external" href="https://discord.gg/giskard" rel="nofollow noopener">Discord community<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a> and ask questions in the <code class="docutils literal notranslate"><span class="pre">#support</span></code> channel</p></li>
+<li><p>Review our <a class="reference internal" href="../../start/glossary.html"><span class="doc">glossary on AI terminology</span></a> to better understand the terminology used in the documentation.</p></li>
+</ul>
+</section>
+</section>
+</div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
+<div class="mr-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="security.html">
+<svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+        Detect security vulnerabilities in LLMs using LLM Scan
+      </a>
+</div>
+<div class="ml-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="legacy.html">
+        Tabular ML, Predictive NLP, and Computer Vision
+        <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</a>
+</div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#what-are-ai-business-failures'" class="reference internal" href="#what-are-ai-business-failures">What are AI business failures?</a></li>
+<li><a :data-current="activeSection === '#how-raget-works'" class="reference internal" href="#how-raget-works">How RAGET works</a></li>
+<li><a :data-current="activeSection === '#detecting-business-failures'" class="reference internal" href="#detecting-business-failures">Detecting business failures</a><ul>
+<li><a :data-current="activeSection === '#create-a-knowledge-base'" class="reference internal" href="#create-a-knowledge-base">Create a knowledge base</a></li>
+<li><a :data-current="activeSection === '#generate-a-test-set'" class="reference internal" href="#generate-a-test-set">Generate a test set</a></li>
+<li><a :data-current="activeSection === '#evaluate-the-test-set'" class="reference internal" href="#evaluate-the-test-set">Evaluate the test set</a></li>
+<li><a :data-current="activeSection === '#analyze-correctness-and-failures'" class="reference internal" href="#analyze-correctness-and-failures">Analyze Correctness and Failures</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#customizing-business-failure-testing'" class="reference internal" href="#customizing-business-failure-testing">Customizing business failure testing</a><ul>
+<li><a :data-current="activeSection === '#custom-generators'" class="reference internal" href="#custom-generators">Custom generators</a></li>
+<li><a :data-current="activeSection === '#custom-metrics'" class="reference internal" href="#custom-metrics">Custom metrics</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#troubleshooting-business-failures'" class="reference internal" href="#troubleshooting-business-failures">Troubleshooting business failures</a></li>
+<li><a :data-current="activeSection === '#next-steps'" class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+<script src="../../_static/custom.js?v=be162789"></script>
+</body>
+</html>
