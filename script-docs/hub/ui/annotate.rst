@@ -70,9 +70,11 @@ Assign a check to a conversation
 
 Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard:
 
+Types of checks
+---------------
 
 Correctness Check
-------------------
+_________________
 
 Check whether all information from the reference answer is present in the agent answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent's answer.
 
@@ -95,7 +97,7 @@ Check whether all information from the reference answer is present in the agent 
 
 
 Conformity Check
-------------------
+________________
 
 Given a rule or criterion, check whether the agent answer complies with this rule. This can be used to check business specific behavior or constraints. A conformity check may have several rules. Each rule should check a unique and unambiguous behavior. Here are a few examples of rules:
 
@@ -140,7 +142,7 @@ Given a rule or criterion, check whether the agent answer complies with this rul
      - *Examples of generic rules that are likely to be used more than once*: "The agent should not discriminate based on gender, sexual orientation, religion, or profession." "The agent should answer in English."
 
 Groundedness Check
---------------------
+__________________
 
 Check whether all information from the agent's answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent's answer. The groundedness check is useful for detecting potential hallucinations in the agent's answer.
 
@@ -164,7 +166,7 @@ Check whether all information from the agent's answer is present in the given co
 
 
 String Matching Check
----------------------
+_____________________
 
 Check whether the given keyword or sentence is present in the agent answer.
 
@@ -183,7 +185,7 @@ Check whether the given keyword or sentence is present in the agent answer.
    - Hello, how may I help you today?
 
 Metadata Check
----------------
+_______________
 
 Check whether the agent answer contains the expected value at the specified JSON path. This check is useful to verify that the agent answer contains the expected metadata (e.g. whether a tool is called). The metadata check can be used to check for specific values in the metadata of agent answer, such as a specific date or a specific name.
 
@@ -224,9 +226,8 @@ Check whether the agent answer contains the expected value at the specified JSON
 
    - Metadata: ``{"output": {"success": true}}``
 
-
 Semantic Similarity Check
--------------------------
+_________________________
 
 Check whether the agent's response is semantically similar to the reference. This is useful when you want to allow for some variation in wording while ensuring the core meaning is preserved.
 
@@ -242,7 +243,7 @@ Check whether the agent's response is semantically similar to the reference. Thi
 
 
 Custom Check
----------------
+____________
 
 Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness, String Matching, Metadata, and Semantic Similarity) and can be used to evaluate the quality of your agent's responses.
 
@@ -276,6 +277,24 @@ Next, set the parameters for the check:
 
 Once you have created a custom check, you can apply it to conversations in your dataset. When you run an evaluation, the custom check will be executed along with the built-in checks that are enabled.
 
+How to choose the right check?
+-------------------------------
+
+The choice of check depends on the type of vulnerability you're testing for and ultimately depends on the your business requirements, however, we do provide some guidelines to help you choose the right check for various business failures and security vulnerabilities.
+
+.. grid:: 1 1 2 2
+
+   .. grid-item-card:: Business Failures
+      :link: /start/glossary/business/index
+      :link-type: doc
+
+      Hallucination is one of the most critical vulnerabilities affecting Large Language Models. It occurs when a model generates false, misleading, or fabricated information that appears plausible but is incorrect.
+
+   .. grid-item-card:: Security Vulnerabilities
+      :link: /start/glossary/security/index
+      :link-type: doc
+
+      Prompt injection is a critical security vulnerability where malicious users manipulate input prompts to bypass content filters, override model instructions, or extract sensitive information.
 
 Assign a tag to a conversation
 ================================
