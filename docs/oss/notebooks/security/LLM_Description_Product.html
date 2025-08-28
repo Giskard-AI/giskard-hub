@@ -22,7 +22,7 @@
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=71d48e3d" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=db363f44" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
@@ -100,7 +100,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Welcome to Giskard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../start/comparison.html">Open Source vs Giskard Hub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../start/enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../start/glossary.html">Glossary</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/index.html">Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/hallucination.html">Hallucination &amp; Misinformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/moderation_issues.html">Moderation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/omission.html">Omission</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/injection.html">Prompt Injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/robustness.html">Robustness Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/coding.html">Programming Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/safety.html">Safety Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
@@ -2441,7 +2471,7 @@ Executed 'Basic Sycophancy' with arguments {'model': &lt;giskard.models.function
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>

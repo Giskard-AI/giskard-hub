@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Giskard - Glossary of Terms" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="start/glossary/index.html" property="og:url"/>
+<meta content="Giskard Documentation" property="og:site_name"/>
+<meta content="Understand key terms and concepts used throughout the Giskard documentation. Learn about LLM testing, evaluation metrics, and AI safety terminology." property="og:description"/>
+<meta content="_static/open-graph-image.jpg" property="og:image"/>
+<meta content="This glossary defines key terms and concepts used throughout the Giskard documentation. Understanding these terms will help you navigate the documentation and use Giskard effectively. The glossary ..." name="description"/>
+<title>Glossary | Giskard  documentation</title>
+<meta content="Glossary | Giskard  documentation" property="og:title"/>
+<meta content="Glossary | Giskard  documentation" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=db363f44" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
+<link href="../../_static/favicon.ico" rel="icon"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="testing_methodologies.html" rel="next" title="Agent evaluation and testing methodologies"/>
+<link href="../enterprise-trial.html" rel="prev" title="Request your enterprise trial"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../_static/logo_dark.png" width="24"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
+</a><nav class="flex items-center space-x-6 text-sm font-medium">
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Getting Started</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
+</nav></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="16" src="../../_static/logo_dark.png" width="16"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
+<a href="/index.html">Getting Started</a>
+<a href="/hub/ui/index.html">Hub UI</a>
+<a href="/hub/sdk/index.html">Hub SDK</a>
+<a href="/oss/sdk/index.html">Open Source</a>
+</nav><nav class="table w-full min-w-full my-6 lg:my-8">
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to Giskard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison.html">Open Source vs Giskard Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../enterprise-trial.html">Request your enterprise trial</a></li>
+<li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="current reference internal expandable" href="#">Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="business/addition_of_information.html">Addition of Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="business/business_out_of_scope.html">Business Out of Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="business/denial_of_answers.html">Denial of Answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="business/hallucination.html">Hallucination &amp; Misinformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="business/moderation_issues.html">Moderation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="business/omission.html">Omission</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="security/formatting.html">Output Formatting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/harmful_content.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/information_disclosure.html">Information Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/injection.html">Prompt Injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/robustness.html">Robustness Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llm_benchmarks/coding.html">Programming Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llm_benchmarks/safety.html">Safety Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/manual.html">Manual test creation for fine-grained control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/import.html">Import Existing Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/annotate.html">Review tests with human feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/evaluations.html">Run and schedule evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/evaluations-compare.html">Compare evaluation results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/ui/access-rights.html">Set access rights</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/projects.html">Manage your projects and agents</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/sdk/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/datasets/import.html">Import existing datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/checks.html">Manage your checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/sdk/evaluations.html">Run and schedule evaluations</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/reference/client.html">Client reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/reference/entities/index.html">Entities reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/sdk/reference/resources/index.html">Resources reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Open Source</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/security.html">Detect security vulnerabilities in LLMs using LLM Scan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/business.html">Detect business failures in LLMs using RAGET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/legacy.html">Tabular ML, Predictive NLP, and Computer Vision</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_IPCC.html">LLM Question Answering over the IPCC Climate Change Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_Google.html">LLM Question Answering with Langchain, Qdrant and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_Winter_Olympics.html">LLM Question Answering over the 2022 Winter Olympics Wikipedia articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_Description_Product.html">LLM product description from keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_Newspaper_Comment_Generation.html">LLM Newspaper Comments Generation with LangChain and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_Documentation.html">LLM Question Answering over the documentation with Langchain, FAISS and OpenAI</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/models.html">Models reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/datasets.html">Datasets reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/sdk/reference/scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/scan/report.html">Scan report reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/scan/llm_detectors.html">LLM detectors reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/tests.html">LLM tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/suite.html">Test suite reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/sdk/reference/raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/testset_generation.html">Testset generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/knowledge_base.html">Knowledge base reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/evaluation.html">Evaluation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/question_generation.html">Question generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/metrics.html">Evaluation metrics reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../index.html">
+<span class="hidden md:inline">Giskard  documentation</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Glossary</span>
+</nav>
+<div id="content" role="main">
+<section id="glossary">
+<h1>Glossary<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#glossary"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<p>This glossary defines key terms and concepts used throughout the Giskard documentation. Understanding these terms will help you navigate the documentation and use Giskard effectively.</p>
+<p>The glossary is organized into several key areas: core concepts that form the foundation of AI testing, testing and evaluation methodologies, security vulnerabilities that can compromise AI systems, business failures that affect operational effectiveness, and essential concepts for access control, integration, and compliance.</p>
+<section id="core-concepts">
+<h2>Core concepts<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#core-concepts" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#core-concepts'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Project</div>
+<p class="sd-card-text">A container for organizing related models, datasets, checks, and evaluations within Giskard Hub.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/index.html"><span class="doc">Quickstart &amp; setup</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Model</div>
+<p class="sd-card-text">A trained machine learning model, particularly Large Language Models (LLMs) that process and generate text.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/index.html"><span class="doc">Quickstart &amp; setup</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Agent</div>
+<p class="sd-card-text">An AI system LLM or agent that can perform tasks autonomously, often using tools and following specific instructions.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/index.html"><span class="doc">Quickstart &amp; setup</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Tool</div>
+<p class="sd-card-text">A function or capability that an agent can use to perform tasks, often provided by external services or APIs.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/index.html"><span class="doc">Quickstart &amp; setup</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Dataset</div>
+<p class="sd-card-text">A collection of test cases, examples, or data points used to evaluate model performance and behavior.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/datasets/index.html"><span class="doc">Create test datasets</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Test Case</div>
+<p class="sd-card-text">A specific input-output pair or scenario used to evaluate model behavior and performance.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/datasets/manual.html"><span class="doc">Manual test creation for fine-grained control</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Check</div>
+<p class="sd-card-text">A specific test or validation rule that evaluates a particular aspect of model behavior (e.g., correctness, security, fairness, metadata, semantic similarity).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/evaluations.html"><span class="doc">Run and schedule evaluations</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Evaluation</div>
+<p class="sd-card-text">The process of testing a model against a dataset to assess its performance, safety, and compliance.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/evaluations.html"><span class="doc">Run and schedule evaluations</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-and-evaluation">
+<h2>Testing and evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#testing-and-evaluation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#testing-and-evaluation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Business failures</div>
+<p class="sd-card-text">AI system failures that affect the business logic of the model, including addition of information, business out of scope, contradiction, denial of answers, hallucinations, moderation issues, and omission.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="business/index.html"><span class="doc">Business Failures</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Security vulnerabilities</div>
+<p class="sd-card-text">AI system failures that affect the security of the model, including prompt injection, harmful content generation, personal information disclosure, information disclosure, output formatting issues, robustness issues, and stereotypes &amp; discrimination.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="security/index.html"><span class="doc">Security Vulnerabilities</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LLM scan</div>
+<p class="sd-card-text">Giskard’s automated vulnerability detection system that identifies security issues, business logic failures, and other problems in LLM applications.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../oss/sdk/security.html"><span class="doc">Detect security vulnerabilities in LLMs using LLM Scan</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+RAG Evaluation Toolkit</div>
+<p class="sd-card-text">A comprehensive testing framework for Retrieval-Augmented Generation systems, including relevance, accuracy, and source attribution testing.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../oss/sdk/security.html"><span class="doc">Detect security vulnerabilities in LLMs using LLM Scan</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Adversarial testing</div>
+<p class="sd-card-text">Testing methodology that intentionally tries to break or exploit models using carefully crafted inputs designed to trigger failures.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/datasets/index.html"><span class="doc">Create test datasets</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Human-in-the-Loop</div>
+<p class="sd-card-text">Combining automated testing with human expertise and judgment.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/annotate.html"><span class="doc">Review tests with human feedback</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Regression Testing</div>
+<p class="sd-card-text">Ensuring that new changes don’t break existing functionality.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/evaluations-compare.html"><span class="doc">Compare evaluation results</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Continuous Red Teaming</div>
+<p class="sd-card-text">Automated, ongoing security testing that continuously monitors for new threats and vulnerabilities.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/continuous-red-teaming.html"><span class="doc">Continuous red teaming</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="security-vulnerabilities">
+<h2>Security vulnerabilities<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#security-vulnerabilities" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#security-vulnerabilities'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Prompt Injection</div>
+<p class="sd-card-text">A security vulnerability where malicious input manipulates the model’s behavior or extracts sensitive information.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="security/injection.html"><span class="doc">Prompt Injection</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Harmful Content Generation</div>
+<p class="sd-card-text">Production of violent, illegal, or inappropriate material by AI models.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="security/harmful_content.html"><span class="doc">Harmful Content Generation</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Information Disclosure</div>
+<p class="sd-card-text">Leaking sensitive data or private information from training data or user interactions.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="security/information_disclosure.html"><span class="doc">Information Disclosure</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Output Formatting Issues</div>
+<p class="sd-card-text">Manipulation of response structure for malicious purposes or poor output formatting.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="security/formatting.html"><span class="doc">Output Formatting Issues</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Robustness Issues</div>
+<p class="sd-card-text">Vulnerability to adversarial inputs or edge cases causing inconsistent behavior.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="security/robustness.html"><span class="doc">Robustness Issues</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="access-and-permissions">
+<h2>Access and permissions<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#access-and-permissions" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#access-and-permissions'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Access Rights</div>
+<p class="sd-card-text">Permissions that control what users can see and do within the Giskard Hub platform.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/access-rights.html"><span class="doc">Set access rights</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Role-Based Access Control (RBAC)</div>
+<p class="sd-card-text">A security model that assigns permissions based on user roles rather than individual user accounts.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/access-rights.html"><span class="doc">Set access rights</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Scope</div>
+<p class="sd-card-text">The level of access a user has, which can be global (platform-wide) or limited to specific projects or resources.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/access-rights.html"><span class="doc">Set access rights</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Permission</div>
+<p class="sd-card-text">A specific action or operation that a user is allowed to perform, such as creating projects, running evaluations, or viewing results.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/ui/access-rights.html"><span class="doc">Set access rights</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integration-and-workflows">
+<h2>Integration and workflows<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#integration-and-workflows" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#integration-and-workflows'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+SDK (Software Development Kit)</div>
+<p class="sd-card-text">A collection of tools and libraries that allow developers to integrate Giskard functionality into their applications and workflows.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/sdk/index.html"><span class="doc">Quickstart &amp; setup</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+API (Application Programming Interface)</div>
+<p class="sd-card-text">A set of rules and protocols that allows different software applications to communicate and exchange data.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../../hub/sdk/reference/index.html"><span class="doc">API reference</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="business-and-compliance">
+<h2>Business and compliance<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#business-and-compliance" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#business-and-compliance'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Compliance</div>
+<p class="sd-card-text">Adherence to laws, regulations, and industry standards that govern data privacy, security, and ethical AI use.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../comparison.html"><span class="doc">Open Source vs Giskard Hub</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Audit Trail</div>
+<p class="sd-card-text">A chronological record of all actions, changes, and access attempts within a system for compliance and security purposes.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../comparison.html"><span class="doc">Open Source vs Giskard Hub</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Governance</div>
+<p class="sd-card-text">The framework of policies, procedures, and controls that ensure responsible and ethical use of AI systems.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../comparison.html"><span class="doc">Open Source vs Giskard Hub</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Stakeholder</div>
+<p class="sd-card-text">Individuals or groups with an interest in the performance, safety, and compliance of AI systems, such as users, customers, regulators, or business leaders.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="../comparison.html"><span class="doc">Open Source vs Giskard Hub</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-help">
+<h2>Getting help<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#getting-help" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#getting-help'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<ul class="simple">
+<li><p><strong>Giskard Hub?</strong> Check our <a class="reference internal" href="../../hub/ui/index.html"><span class="doc">Quickstart &amp; setup</span></a> for practical examples</p></li>
+<li><p><strong>Open Source?</strong> Explore our <a class="reference internal" href="../../oss/sdk/index.html"><span class="doc">Quickstart &amp; setup</span></a> for technical details</p></li>
+</ul>
+
+</section>
+</section>
+</div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
+<div class="mr-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../enterprise-trial.html">
+<svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+        Request your enterprise trial
+      </a>
+</div>
+<div class="ml-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="testing_methodologies.html">
+        Agent evaluation and testing methodologies
+        <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</a>
+</div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#core-concepts'" class="reference internal" href="#core-concepts">Core concepts</a></li>
+<li><a :data-current="activeSection === '#testing-and-evaluation'" class="reference internal" href="#testing-and-evaluation">Testing and evaluation</a></li>
+<li><a :data-current="activeSection === '#security-vulnerabilities'" class="reference internal" href="#security-vulnerabilities">Security vulnerabilities</a></li>
+<li><a :data-current="activeSection === '#access-and-permissions'" class="reference internal" href="#access-and-permissions">Access and permissions</a></li>
+<li><a :data-current="activeSection === '#integration-and-workflows'" class="reference internal" href="#integration-and-workflows">Integration and workflows</a></li>
+<li><a :data-current="activeSection === '#business-and-compliance'" class="reference internal" href="#business-and-compliance">Business and compliance</a></li>
+<li><a :data-current="activeSection === '#getting-help'" class="reference internal" href="#getting-help">Getting help</a></li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../../_static/theme.js?v=e82a16a3"></script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+<script src="../../_static/custom.js?v=be162789"></script>
+</body>
+</html>

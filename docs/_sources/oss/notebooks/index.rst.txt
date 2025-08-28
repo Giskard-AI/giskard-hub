@@ -10,11 +10,18 @@ This section contains practical examples and tutorials that demonstrate how to u
 The notebooks cover various use cases and scenarios, from basic security testing to advanced business logic validation.
 
 .. toctree::
+   :caption: Business Notebooks
    :maxdepth: 2
    :hidden:
 
    business/RAGET_IPCC.ipynb
    business/RAGET_Banking_Supervision.ipynb
+
+.. toctree::
+   :caption: Security Notebooks
+   :maxdepth: 2
+   :hidden:
+
    security/LLM_QA_IPCC.ipynb
    security/LLM_QA_Google.ipynb
    security/LLM_QA_Winter_Olympics.ipynb

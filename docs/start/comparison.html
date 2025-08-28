@@ -21,7 +21,7 @@
 <link href="../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../_static/custom.css?v=71d48e3d" rel="stylesheet" type="text/css"/>
+<link href="../_static/custom.css?v=db363f44" rel="stylesheet" type="text/css"/>
 <link href="../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../_static/favicon.ico" rel="icon"/>
 <link href="../search.html" rel="search" title="Search"/>
@@ -99,7 +99,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Giskard</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Open Source vs Giskard Hub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="glossary/index.html">Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="glossary/business/addition_of_information.html">Addition of Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/business/denial_of_answers.html">Denial of Answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/business/hallucination.html">Hallucination &amp; Misinformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/business/moderation_issues.html">Moderation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/business/omission.html">Omission</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="glossary/security/formatting.html">Output Formatting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/security/harmful_content.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/security/information_disclosure.html">Information Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/security/injection.html">Prompt Injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/security/robustness.html">Robustness Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="glossary/llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="glossary/llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/llm_benchmarks/coding.html">Programming Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/llm_benchmarks/safety.html">Safety Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary/llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
@@ -223,28 +253,28 @@
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Security vulnerability detection</p></td>
-<td><p>Basic coverage</p></td>
-<td><p>state-of-the-art detection</p></td>
+<td><p><a class="reference internal" href="../oss/sdk/security.html"><span class="doc">Basic coverage</span></a></p></td>
+<td><p><a class="reference internal" href="../hub/ui/datasets/security.html"><span class="doc">State-of-the-art detection</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Business failure detection</p></td>
-<td><p>Basic coverage</p></td>
-<td><p>state-of-the-art detection</p></td>
+<td><p><a class="reference internal" href="../oss/sdk/business.html"><span class="doc">Basic coverage</span></a></p></td>
+<td><p><a class="reference internal" href="../hub/ui/datasets/business.html"><span class="doc">State-of-the-art detection</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../hub/ui/continuous-red-teaming.html"><span class="doc">Continuous red teaming</span></a></p></td>
+<tr class="row-odd"><td><p>Continuous red teaming</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Full support</p></td>
+<td><p><a class="reference internal" href="../hub/ui/continuous-red-teaming.html"><span class="doc">✅ Full support</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Tool/function calling tests</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Full support</p></td>
+<td><p><a class="reference internal" href="../hub/ui/annotate.html"><span class="doc">✅ Full support</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Custom tests</p></td>
-<td><p>✅ Full support</p></td>
-<td><p>✅ Full support</p></td>
+<td><p><a class="reference internal" href="../oss/sdk/security.html"><span class="doc">✅ Full support</span></a></p></td>
+<td><p><a class="reference internal" href="../hub/ui/annotate.html"><span class="doc">✅ Full support</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Local evaluations</p></td>
-<td><p>✅ Full support</p></td>
-<td><p>✅ Full support</p></td>
+<td><p><a class="reference internal" href="../oss/sdk/index.html"><span class="doc">✅ Full support</span></a></p></td>
+<td><p><a class="reference internal" href="../hub/ui/evaluations.html"><span class="doc">✅ Full support</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Team Collaboration</strong></p></td>
 <td></td>
@@ -252,19 +282,19 @@
 </tr>
 <tr class="row-even"><td><p>Multi-user access</p></td>
 <td><p>❌ Single user only</p></td>
-<td><p>✅ Full team support</p></td>
+<td><p><a class="reference internal" href="../hub/ui/access-rights.html"><span class="doc">✅ Full team support</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Access control</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Role-based access</p></td>
+<td><p><a class="reference internal" href="../hub/ui/access-rights.html"><span class="doc">✅ Role-based access</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Project management</p></td>
 <td><p>❌ Local only</p></td>
-<td><p>✅ Centralized</p></td>
+<td><p><a class="reference internal" href="../hub/ui/access-rights.html"><span class="doc">✅ Centralized</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Dataset sharing</p></td>
 <td><p>❌ Local only</p></td>
-<td><p>✅ Team-wide</p></td>
+<td><p><a class="reference internal" href="../hub/ui/access-rights.html"><span class="doc">✅ Team-wide</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Automation &amp; Monitoring</strong></p></td>
 <td></td>
@@ -272,19 +302,19 @@
 </tr>
 <tr class="row-odd"><td><p>Scheduled evaluation runs</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Fully supported</p></td>
+<td><p><a class="reference internal" href="../hub/ui/evaluations.html"><span class="doc">✅ Fully supported</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Evaluation comparison dashboard</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Fully supported</p></td>
+<td><p><a class="reference internal" href="../hub/ui/evaluations-compare.html"><span class="doc">✅ Fully supported</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Alerting</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Configurable alerts</p></td>
+<td><p><a class="reference internal" href="../hub/ui/evaluations.html"><span class="doc">✅ Configurable alerts</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Performance tracking</p></td>
 <td><p>❌ Local only</p></td>
-<td><p>✅ Historical data</p></td>
+<td><p><a class="reference internal" href="../hub/ui/evaluations-compare.html"><span class="doc">✅ Historical data</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Enterprise Security</strong></p></td>
 <td></td>
@@ -292,23 +322,23 @@
 </tr>
 <tr class="row-even"><td><p>SSO (Single Sign-On)</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ SSO support</p></td>
+<td><p><a class="reference external" href="https://trust.giskard.ai/" rel="nofollow noopener">✅ SSO support<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2FA (Two-Factor Authentication)</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ 2FA support</p></td>
+<td><p><a class="reference external" href="https://trust.giskard.ai/" rel="nofollow noopener">✅ 2FA support<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Audit trails</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ Full compliance</p></td>
+<td><p><a class="reference external" href="https://trust.giskard.ai/" rel="nofollow noopener">✅ Full compliance<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>SOC 2 compliance</p></td>
 <td><p>❌ Not available</p></td>
-<td><p>✅ SOC 2 certified</p></td>
+<td><p><a class="reference external" href="https://trust.giskard.ai/" rel="nofollow noopener">✅ SOC 2 certified<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Dedicated support &amp; SLAs</p></td>
 <td><p>❌ Community only</p></td>
-<td><p>✅ Enterprise-grade, with SLAs</p></td>
+<td><p><a class="reference external" href="https://trust.giskard.ai/" rel="nofollow noopener">✅ Enterprise-grade, with SLAs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -360,6 +390,14 @@
 <li><p><strong>Interested in Giskard Hub?</strong> Try <a class="reference internal" href="enterprise-trial.html"><span class="doc">Request your enterprise trial</span></a> for an enterprise subscription</p></li>
 <li><p><strong>Need help choosing?</strong> <a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact our team for a consultation<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></p></li>
 </ul>
+<p><strong>Additional resources:</strong></p>
+<ul class="simple">
+<li><p><strong>Open Source SDK:</strong> <a class="reference internal" href="../oss/sdk/index.html"><span class="doc">Quickstart &amp; setup</span></a> - Complete guide to using Giskard Open Source</p></li>
+<li><p><strong>Hub SDK:</strong> <a class="reference internal" href="../hub/sdk/index.html"><span class="doc">Quickstart &amp; setup</span></a> - Enterprise SDK documentation</p></li>
+<li><p><strong>Hub UI:</strong> <a class="reference internal" href="../hub/ui/index.html"><span class="doc">Quickstart &amp; setup</span></a> - User interface documentation</p></li>
+<li><p><strong>Security Testing:</strong> <a class="reference internal" href="../oss/sdk/security.html"><span class="doc">Detect security vulnerabilities in LLMs using LLM Scan</span></a> - Security vulnerability detection</p></li>
+<li><p><strong>Business Testing:</strong> <a class="reference internal" href="../oss/sdk/business.html"><span class="doc">Detect business failures in LLMs using RAGET</span></a> - Business failure detection</p></li>
+</ul>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
@@ -395,7 +433,7 @@
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
