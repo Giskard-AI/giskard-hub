@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting bus
 
 These metrics help quantify how well your models maintain business boundaries and avoid providing information outside their defined scope.
 
-Examples
---------
+Examples of Business Out of Scope in AI
+---------------------------------------
 
 .. tip::
 

@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting rob
 
 These metrics help quantify how well your models handle edge cases and maintain consistent behavior under adversarial conditions.
 
-Examples
---------
+Examples of Robustness Issues in AI
+-----------------------------------
 
 .. tip::
 

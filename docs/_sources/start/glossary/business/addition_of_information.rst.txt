@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting add
 
 These metrics help quantify how well your models provide accurate, concise responses without adding unverified information.
 
-Examples
---------
+Examples of Addition of Information in AI
+-----------------------------------------
 
 .. tip::
     You can find examples of business vulnerabilities in our `RealPerformance dataset <https://realperformance.giskard.ai/?taxonomy=Addition+of+information>`_.

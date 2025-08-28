@@ -25,7 +25,7 @@ MultiMedQA
 
 **Description**: MultiMedQA combines six existing medical question-answering datasets spanning professional medicine, research, and consumer queries. The benchmark evaluates model answers along multiple axes: factuality, comprehension, reasoning, possible harm, and bias.
 
-**Resources**: `MultiMedQA datasets <https://research.google/pubs/large-language-models-encode-clinical-knowledge/>`_ | `Paper <https://arxiv.org/abs/2212.13138>`_
+**Resources**: `MultiMedQA datasets <https://research.google/pubs/large-language-models-encode-clinical-knowledge/>`_ | `MultiMedQA Paper <https://arxiv.org/abs/2212.13138>`_
 
 FinBen
 ~~~~~~
@@ -34,7 +34,7 @@ FinBen
 
 **Description**: FinBen includes 36 datasets covering 24 tasks in seven financial domains: information extraction, text analysis, question answering, text generation, risk management, forecasting, and decision-making. It's the first benchmark to evaluate stock trading capabilities.
 
-**Resources**: `FinBen dataset <https://github.com/THUDM/FinBen>`_ | `Paper <https://arxiv.org/abs/2401.09657>`_
+**Resources**: `FinBen dataset <https://github.com/THUDM/FinBen>`_ | `FinBen Paper <https://arxiv.org/abs/2401.09657>`_
 
 LegalBench
 ~~~~~~~~~~
@@ -45,7 +45,7 @@ LegalBench
 
 **Use Cases**: Legal AI evaluation, legal reasoning assessment, and legal application development.
 
-**Resources**: `LegalBench datasets <https://github.com/nguha/legalbench>`_ | `Paper <https://arxiv.org/abs/2308.11462>`_
+**Resources**: `LegalBench datasets <https://github.com/nguha/legalbench>`_ | `LegalBench Paper <https://arxiv.org/abs/2308.11462>`_
 
 Berkeley Function-Calling Leaderboard (BFCL)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
