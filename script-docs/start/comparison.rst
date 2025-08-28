@@ -121,7 +121,7 @@ Feature comparison
    `Request your free enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
 
 .. tip::
-   **🚀 Ready to try Giskard Hub?**
+   **🚀 Convinced by our features?**
 
    Experience the full power of enterprise-grade AI testing by requesting a **free trial**. Get access to advanced security detection, team collaboration, continuous red teaming, and more.
 
