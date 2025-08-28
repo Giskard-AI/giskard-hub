@@ -121,9 +121,10 @@ html_theme_options = asdict(theme_options)
 
 # Open Graph site name
 ogp_site_name = "Giskard Documentation"
+ogp_site_url = "https://docs-hub.giskard.ai/"
 
 # Open Graph image (logo for social sharing) - use relative path for local builds
-ogp_image = "_static/open-graph-image.png"
+ogp_image = "https://docs-hub.giskard.ai/_static/open-graph-image.png"
 
 
 # make github links resolve
