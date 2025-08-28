@@ -21,7 +21,7 @@
 <link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../_static/custom.css?v=71d48e3d" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=db363f44" rel="stylesheet" type="text/css"/>
 <link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
@@ -99,7 +99,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to Giskard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../start/comparison.html">Open Source vs Giskard Hub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../start/enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../start/glossary.html">Glossary</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/index.html">Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/hallucination.html">Hallucination &amp; Misinformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/moderation_issues.html">Moderation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/omission.html">Omission</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/injection.html">Prompt Injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/robustness.html">Robustness Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/coding.html">Programming Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/safety.html">Safety Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
@@ -258,8 +288,8 @@ need to be accessible from a remote API endpoint.</p>
 </span></code></pre></div>
 </div>
 </section>
-<section id="run-an-evaluation">
-<h4>Run an evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#run-an-evaluation"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<section id="create-a-evaluation">
+<h4>Create a evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-evaluation"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
 <p>Now that the agent is configured, we can launch an evaluation run. We first need
 to know which dataset we will run the evaluation on. If you are running this in
 the CI/CD pipeline, we recommend setting the dataset ID in the environment.</p>
@@ -267,12 +297,14 @@ the CI/CD pipeline, we recommend setting the dataset ID in the environment.</p>
 </span></code></pre></div>
 </div>
 <p>We can now launch the evaluation run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
-</span><span id="line-2">    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-</span><span id="line-3">    <span class="n">dataset</span><span class="o">=</span><span class="n">dataset_id</span>
-</span><span id="line-4">    <span class="c1"># optionally, specify a name</span>
-</span><span id="line-5">    <span class="n">name</span><span class="o">=</span><span class="s2">"staging-build-a4f321"</span><span class="p">,</span>
-</span><span id="line-6"><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-2">    <span class="n">model_id</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-3">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset_id</span><span class="p">,</span>
+</span><span id="line-4">    <span class="c1"># optionally,</span>
+</span><span id="line-5">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"staging"</span><span class="p">,</span> <span class="s2">"build"</span><span class="p">],</span>
+</span><span id="line-6">    <span class="n">run_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># number of runs per case</span>
+</span><span id="line-7">    <span class="n">name</span><span class="o">=</span><span class="s2">"staging-build-a4f321"</span><span class="p">,</span>
+</span><span id="line-8"><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <p>The evaluation run will be queued and processed by the Hub. The <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>
@@ -296,10 +328,10 @@ evaluation to complete. If the evaluation takes longer, the method will raise a
 </span><span id="line-2"><span class="n">eval_run</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
-<figure class="align-default" id="id2">
+<figure class="align-default" id="id1">
 <img alt="Evaluation metrics output" src="../../_images/metrics_output.png"/>
 <figcaption>
-<p><span class="caption-text">Evaluation metrics output</span><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id2"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></p>
+<p><span class="caption-text">Evaluation metrics output</span><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></p>
 </figcaption>
 </figure>
 <p>Once the evaluation is completed, may want to compare the results with some
@@ -307,8 +339,8 @@ thresholds to decide whether to promote the agent to production or not.</p>
 <p>You can retrieve the metrics from <code class="docutils literal notranslate"><span class="pre">eval_run.metrics</span></code>: this will contain a list
 of <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code> objects.</p>
 <p>For example:</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">CI/CD pipeline example</span><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id3"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">CI/CD pipeline example</span><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id2"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 </span><span id="line-2">
 </span><span id="line-3"><span class="c1"># make sure to wait for completion or the metrics may be empty</span>
@@ -328,8 +360,7 @@ this code in your CI/CD pipeline to automatically evaluate your agents every
 time you deploy a new version.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you want to run evaluations on a local model that is not yet
-exposed with an API, check <a class="reference internal" href="#local-evaluation"><span class="std std-ref">Run local evaluations</span></a>.</p>
+<p>If you want to run evaluations on a local model that is not yet exposed with an API, check <a class="reference internal" href="#local-evaluation"><span class="std std-ref">Run local evaluations</span></a>.</p>
 </div>
 </section>
 <section id="compare-evaluations">
@@ -388,8 +419,8 @@ name when showing the evaluation run in the Hub.</p></li>
 </span></code></pre></div>
 </div>
 </section>
-<section id="id1">
-<h4>Run an evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<section id="create-a-local-evaluation">
+<h4>Create a local evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-local-evaluation"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
 <p>Running the evaluation is similar to what we have seen for remote evaluations. Instead of passing a remote model ID to the
 <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> method of the Hub client, we will pass the function we defined
 above. The evaluation will be run locally, but the results will be stored in the
@@ -399,9 +430,9 @@ Hub.</p>
 </span></code></pre></div>
 </div>
 <p>We can now launch the evaluation run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">create_local</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">model</span><span class="o">=</span><span class="n">my_local_agent</span><span class="p">,</span>
-</span><span id="line-3">    <span class="n">dataset</span><span class="o">=</span><span class="n">dataset_id</span><span class="p">,</span>
+</span><span id="line-3">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset_id</span><span class="p">,</span>
 </span><span id="line-4">    <span class="c1"># optionally, specify a name</span>
 </span><span id="line-5">    <span class="n">name</span><span class="o">=</span><span class="s2">"test-run"</span><span class="p">,</span>
 </span><span id="line-6"><span class="p">)</span>
@@ -416,20 +447,74 @@ the evaluation run to complete and then print the results:</p>
 </span><span id="line-5"><span class="n">eval_run</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
-<figure class="align-default" id="id4">
+<figure class="align-default" id="id3">
 <img alt="Evaluation metrics output" src="../../_images/metrics_output.png"/>
 <figcaption>
-<p><span class="caption-text">Evaluation metrics output</span><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id4"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></p>
+<p><span class="caption-text">Evaluation metrics output</span><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id3"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></p>
 </figcaption>
 </figure>
 <p>You can also check the results in the Hub interface and compare it with other
 evaluation runs.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You may also want to use this method in your CI/CD pipeline, to
-perform checks when the code or the prompts of your agent get updated.</p>
+<p>You may also want to use this method in your CI/CD pipeline, to perform checks when the code or the prompts of your agent get updated.</p>
 </div>
 </section>
+</section>
+</section>
+<section id="evaluations">
+<h2>Evaluations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#evaluations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#evaluations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<section id="create-an-evaluation">
+<h3>Create an evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-an-evaluation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-an-evaluation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can create a new evaluation using the <code class="docutils literal notranslate"><span class="pre">hub.evaluations.create()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-2">    <span class="n">model_id</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-3">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"nightly"</span><span class="p">,</span> <span class="s2">"regression"</span><span class="p">],</span>
+</span><span id="line-5">    <span class="n">run_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="line-6">    <span class="n">name</span><span class="o">=</span><span class="s2">"nightly-regression-1"</span>
+</span><span id="line-7"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="retrieve-an-evaluation">
+<h3>Retrieve an evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-an-evaluation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-an-evaluation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can retrieve an evaluation using the <code class="docutils literal notranslate"><span class="pre">hub.evaluations.retrieve()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">eval_run</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="update-an-evaluation">
+<h3>Update an evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#update-an-evaluation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#update-an-evaluation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can update an evaluation using the <code class="docutils literal notranslate"><span class="pre">hub.evaluations.update()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_run</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">eval_run</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"staging"</span><span class="p">,</span> <span class="s2">"build"</span><span class="p">])</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="delete-an-evaluation">
+<h3>Delete an evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-an-evaluation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-an-evaluation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can delete an evaluation using the <code class="docutils literal notranslate"><span class="pre">hub.evaluations.delete()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">eval_run</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="list-evaluations">
+<h3>List evaluations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-evaluations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-evaluations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can list evaluations using the <code class="docutils literal notranslate"><span class="pre">hub.evaluations.list()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_runs</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="n">project_id</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="list-evaluation-results">
+<h3>List evaluation results<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-evaluation-results" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-evaluation-results'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can list evaluation results using the <code class="docutils literal notranslate"><span class="pre">hub.evaluations.list_entries()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_results</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">list_entries</span><span class="p">(</span><span class="n">eval_run</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of now, the Giskard Hub SDK does not support scheduled evaluations but you can use the <a class="reference external" href="/hub/ui/evaluations" rel="nofollow noopener">Giskard Hub UI<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a> to schedule evaluations.</p>
+</div>
 </section>
 </section>
 </section>
@@ -456,15 +541,24 @@ perform checks when the code or the prompts of your agent get updated.</p>
 <li><a :data-current="activeSection === '#run-evaluations'" class="reference internal" href="#run-evaluations">Run evaluations</a><ul>
 <li><a :data-current="activeSection === '#run-remote-evaluations'" class="reference internal" href="#run-remote-evaluations">Run remote evaluations</a><ul>
 <li><a :data-current="activeSection === '#configure-an-agent'" class="reference internal" href="#configure-an-agent">Configure an agent</a></li>
-<li><a :data-current="activeSection === '#run-an-evaluation'" class="reference internal" href="#run-an-evaluation">Run an evaluation</a></li>
+<li><a :data-current="activeSection === '#create-a-evaluation'" class="reference internal" href="#create-a-evaluation">Create a evaluation</a></li>
 <li><a :data-current="activeSection === '#compare-evaluations'" class="reference internal" href="#compare-evaluations">Compare evaluations</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#run-local-evaluations'" class="reference internal" href="#run-local-evaluations">Run local evaluations</a><ul>
 <li><a :data-current="activeSection === '#configure-a-model'" class="reference internal" href="#configure-a-model">Configure a model</a></li>
-<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1">Run an evaluation</a></li>
+<li><a :data-current="activeSection === '#create-a-local-evaluation'" class="reference internal" href="#create-a-local-evaluation">Create a local evaluation</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#evaluations'" class="reference internal" href="#evaluations">Evaluations</a><ul>
+<li><a :data-current="activeSection === '#create-an-evaluation'" class="reference internal" href="#create-an-evaluation">Create an evaluation</a></li>
+<li><a :data-current="activeSection === '#retrieve-an-evaluation'" class="reference internal" href="#retrieve-an-evaluation">Retrieve an evaluation</a></li>
+<li><a :data-current="activeSection === '#update-an-evaluation'" class="reference internal" href="#update-an-evaluation">Update an evaluation</a></li>
+<li><a :data-current="activeSection === '#delete-an-evaluation'" class="reference internal" href="#delete-an-evaluation">Delete an evaluation</a></li>
+<li><a :data-current="activeSection === '#list-evaluations'" class="reference internal" href="#list-evaluations">List evaluations</a></li>
+<li><a :data-current="activeSection === '#list-evaluation-results'" class="reference internal" href="#list-evaluation-results">List evaluation results</a></li>
 </ul>
 </li>
 </ul>
@@ -475,7 +569,7 @@ perform checks when the code or the prompts of your agent get updated.</p>
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>

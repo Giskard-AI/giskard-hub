@@ -21,7 +21,7 @@
 <link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../_static/custom.css?v=71d48e3d" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=db363f44" rel="stylesheet" type="text/css"/>
 <link href="../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
@@ -99,7 +99,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to Giskard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../start/comparison.html">Open Source vs Giskard Hub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../start/enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../start/glossary.html">Glossary</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/index.html">Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/hallucination.html">Hallucination &amp; Misinformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/moderation_issues.html">Moderation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/omission.html">Omission</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/injection.html">Prompt Injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/robustness.html">Robustness Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/coding.html">Programming Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/safety.html">Safety Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
@@ -221,7 +251,7 @@
 <h2>Projects<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#projects" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#projects'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <section id="create-a-project">
 <h3>Create a project<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-project" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-project'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can create a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.create()</span></code> method. Here’s a basic example:</p>
+<p>You can create a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.create()</span></code> method. Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">project</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">name</span><span class="o">=</span><span class="s2">"My first project"</span><span class="p">,</span>
 </span><span id="line-3">    <span class="n">description</span><span class="o">=</span><span class="s2">"This is a test project to get started with the Giskard Hub client library"</span><span class="p">,</span>
@@ -231,32 +261,31 @@
 </section>
 <section id="retrieve-a-project">
 <h3>Retrieve a project<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-a-project" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-a-project'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can retrieve a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.retrieve()</span></code> method. Here’s a basic example:</p>
+<p>You can retrieve a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.retrieve()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">project</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
 <section id="update-a-project">
 <h3>Update a project<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#update-a-project" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#update-a-project'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can update a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.update()</span></code> method. Here’s a basic example:</p>
+<p>You can update a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.update()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">project</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"My updated project"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
 <section id="delete-a-project">
 <h3>Delete a project<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-a-project" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-a-project'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can delete a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.delete()</span></code> method. Here’s a basic example:</p>
+<p>You can delete a project using the <code class="docutils literal notranslate"><span class="pre">hub.projects.delete()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
 <section id="list-projects">
 <h3>List projects<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-projects" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-projects'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can list all projects using the <code class="docutils literal notranslate"><span class="pre">hub.projects.list()</span></code> method. Here’s a basic example:</p>
+<p>You can list all projects using the <code class="docutils literal notranslate"><span class="pre">hub.projects.list()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">projects</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
-</span><span id="line-2">
-</span><span id="line-3"><span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
-</span><span id="line-4">    <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="line-2"><span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
+</span><span id="line-3">    <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
@@ -265,8 +294,7 @@
 <h2>Agents<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#agents" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#agents'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <section id="create-an-agent">
 <h3>Create an agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-an-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-an-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>Before running our first evaluation, we’ll need to set up an agent. You’ll need an API endpoint ready to serve the agent. Then, you can configure the agent API in the Hub:</p>
-<p>You can create an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.create()</span></code> method. Here’s a basic example:</p>
+<p>You can create an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.create()</span></code> method. Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">model</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">project_id</span><span class="o">=</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-3">    <span class="n">name</span><span class="o">=</span><span class="s2">"My Agent"</span><span class="p">,</span>
@@ -278,7 +306,7 @@
 </span><span id="line-9"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>After creating the agent, you can test that everything is working well by running a chat with the agent:</p>
+<p>After creating the agent, you can test it by running a chat:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-3">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What is the capital of France?"</span><span class="p">),</span>
@@ -286,11 +314,10 @@
 </span><span id="line-5">        <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What is the capital of Germany?"</span><span class="p">),</span>
 </span><span id="line-6">    <span class="p">],</span>
 </span><span id="line-7"><span class="p">)</span>
-</span><span id="line-8">
-</span><span id="line-9"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span><span id="line-8"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>If all is working well, this will return something like</p>
+<p>If all is working well, this will return something like:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">ModelOutput</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">message</span><span class="o">=</span><span class="n">ChatMessage</span><span class="p">(</span>
 </span><span id="line-3">        <span class="n">role</span><span class="o">=</span><span class="s1">'assistant'</span><span class="p">,</span>
@@ -303,32 +330,31 @@
 </section>
 <section id="retrieve-an-agent">
 <h3>Retrieve an agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-an-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-an-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can retrieve an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.retrieve()</span></code> method. Here’s a basic example:</p>
+<p>You can retrieve an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.retrieve()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">model</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s2">"&lt;MODEL_ID&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
 <section id="update-an-agent">
 <h3>Update an agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#update-an-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#update-an-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can update an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.update()</span></code> method. Here’s a basic example:</p>
+<p>You can update an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.update()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">model</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">"&lt;MODEL_ID&gt;"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"My updated agent"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
 <section id="delete-an-agent">
 <h3>Delete an agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-an-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-an-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can delete an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.delete()</span></code> method. Here’s a basic example:</p>
+<p>You can delete an agent using the <code class="docutils literal notranslate"><span class="pre">hub.models.delete()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"&lt;MODEL_ID&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
 <section id="list-agents">
 <h3>List agents<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-agents" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-agents'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can list all agents using the <code class="docutils literal notranslate"><span class="pre">hub.models.list()</span></code> method. Here’s a basic example:</p>
+<p>You can list all agents in a project using the <code class="docutils literal notranslate"><span class="pre">hub.models.list()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">models</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">)</span>
-</span><span id="line-2">
-</span><span id="line-3"><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
-</span><span id="line-4">    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="line-2"><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+</span><span id="line-3">    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
@@ -378,7 +404,7 @@
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.4.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
 </div>
 </div>
 </footer>
