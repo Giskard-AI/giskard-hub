@@ -13,7 +13,7 @@ Business vulnerabilities differ from security vulnerabilities in that they focus
     You can find examples of business vulnerabilities in our `RealPerformance dataset <https://realperformance.giskard.ai/>`_.
 
 Types of Business Vulnerabilities
---------------------------------
+---------------------------------
 
 .. grid:: 1 1 2 2
 
