@@ -9,10 +9,11 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Giskard - Omission" property="og:title"/>
 <meta content="website" property="og:type"/>
-<meta content="start/glossary/business/omission.html" property="og:url"/>
+<meta content="https://docs.giskard.ai/start/glossary/business/omission.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
 <meta content="Learn about LLM omission business failures and how to detect and prevent models from incorrectly omitting information that is present in the reference context." property="og:description"/>
-<meta content="_static/open-graph-image.jpg" property="og:image"/>
+<meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
+<meta content="Giskard Documentation" property="og:image:alt"/>
 <meta content="Omission is a business failure where Large Language Models incorrectly omit information that is present in the reference context, leading to incomplete responses and reduced information quality. Wh..." name="description"/>
 <title>Omission | Giskard  documentation</title>
 <meta content="Omission | Giskard  documentation" property="og:title"/>
@@ -26,7 +27,7 @@
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
-<link href="../security/index.html" rel="next" title="Security Vulnerabilities"/>
+<link href="../security/index.html" rel="next" title="AI Security Vulnerabilities"/>
 <link href="moderation_issues.html" rel="prev" title="Moderation Issues"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
@@ -101,7 +102,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../index.html">Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
-<li class="toctree-l2 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
+<li class="toctree-l2 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="index.html">AI Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="addition_of_information.html">Addition of Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="business_out_of_scope.html">Business Out of Scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="denial_of_answers.html">Denial of Answers</a></li>
@@ -110,7 +111,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Omission</a></li>
 </ul>
 </li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../security/index.html">AI Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="../security/formatting.html">Output Formatting Issues</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../security/harmful_content.html">Harmful Content Generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../security/information_disclosure.html">Information Disclosure</a></li>
@@ -226,7 +227,7 @@
 </svg>
 </a>
 <div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="../index.html">Glossary</a>
-<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Business Failures</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">AI Business Failures</a>
 <div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Omission</span>
 </nav>
 <div id="content" role="main">
@@ -361,7 +362,7 @@ Annotate test cases with test rules</div>
 </div>
 <div class="ml-auto">
 <a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../security/index.html">
-        Security Vulnerabilities
+        AI Security Vulnerabilities
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
