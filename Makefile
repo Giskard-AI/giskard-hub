@@ -24,6 +24,7 @@ check_format: ## Verify code formatting
 .PHONY: check_format
 
 setup: ## Install dependencies
+	poetry lock
 	poetry sync
 .PHONY: setup
 
