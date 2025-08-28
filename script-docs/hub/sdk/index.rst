@@ -8,11 +8,11 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Manage projects, agents and knowledge bases
+   .. grid-item-card:: Manage projects and agents
       :link: projects
       :link-type: doc
 
-      Create, update, and organize projects, agents and knowledge bases
+      Create, update, and organize projects and agents
 
    .. grid-item-card:: Manage datasets and conversations
       :link: datasets/index
