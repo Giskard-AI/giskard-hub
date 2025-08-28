@@ -256,9 +256,9 @@ We can now launch the evaluation run:
 
 .. code-block:: python
 
-    eval_run = hub.evaluate(
+    eval_run = hub.evaluations.create_local(
         model=my_local_agent,
-        dataset=dataset_id,
+        dataset_id=dataset_id,
         # optionally, specify a name
         name="test-run",
     )
