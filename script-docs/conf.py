@@ -127,10 +127,7 @@ ogp_site_name = "Giskard Documentation"
 ogp_site_url = os.getenv("READTHEDOCS_CANONICAL_URL")
 
 # Open Graph image (logo for social sharing)
-ogp_image = "_static/open-graph-image.jpg"
-
-# Open Graph image type
-ogp_image_type = "image/png"
+ogp_image = f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/open-graph-image.png"
 
 # Open Graph image width and height (standard social media dimensions)
 ogp_image_width = 1200
@@ -149,12 +146,7 @@ ogp_type = "website"
 ogp_enable_meta_description = True
 ogp_enable_meta_keywords = True
 
-# Twitter Card support (complements Open Graph)
-ogp_twitter_creator = "@GiskardAI"
-ogp_twitter_site = "@GiskardAI"
-
 # Additional Open Graph properties
-
 ogp_image_url = f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/open-graph-image.png"
 
 
