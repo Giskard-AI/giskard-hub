@@ -1,13 +1,13 @@
 :og:title: Giskard - Information Disclosure
 :og:description: Learn about LLM information disclosure vulnerabilities and how to detect and prevent models from revealing sensitive or confidential data.
 
-Information Disclosure
-======================
+LLM Security Vulnerability: Information Disclosure
+==================================================
 
 Information disclosure is a critical security vulnerability where Large Language Models inadvertently reveal sensitive, private, or confidential information that should not be accessible to users.
 
-What is Information Disclosure?
-------------------------------
+What is Information Disclosure in Generative AI?
+------------------------------------------------
 
 **Information disclosure** occurs when models:
 
@@ -46,8 +46,8 @@ Types of Information Disclosure
    * Disclosing vulnerability information
    * Sharing access control details
 
-Business Impact
----------------
+Business Impact of Information Disclosure
+------------------------------------------
 
 Information disclosure can have severe consequences:
 
