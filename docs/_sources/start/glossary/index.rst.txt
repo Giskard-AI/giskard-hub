@@ -67,13 +67,13 @@ Testing and evaluation
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Business failures
+   .. grid-item-card:: AI Business Failures
       :link: /start/glossary/business/index
       :link-type: doc
 
       AI system failures that affect the business logic of the model, including addition of information, business out of scope, contradiction, denial of answers, hallucinations, moderation issues, and omission.
 
-   .. grid-item-card:: Security vulnerabilities
+   .. grid-item-card:: AI Security Vulnerabilities
       :link: /start/glossary/security/index
       :link-type: doc
 
