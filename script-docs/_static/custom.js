@@ -45,6 +45,11 @@
       return;
     }
 
+    // Check if banner was closed in this tab session
+    if (sessionStorage.getItem('enterprise-trial-banner-closed') === 'true') {
+      return;
+    }
+
     // Create banner element
     const banner = document.createElement('div');
     banner.className = 'enterprise-trial-banner';
@@ -70,6 +75,8 @@
         if (banner.parentNode) {
           banner.remove();
           document.body.classList.remove('banner-visible');
+          // Remember that banner was closed in this tab session
+          sessionStorage.setItem('enterprise-trial-banner-closed', 'true');
         }
       }, 300);
     });
@@ -102,7 +109,10 @@
   function handleSphinxNavigation() {
     // Small delay to ensure DOM is ready after navigation
     setTimeout(() => {
-      createEnterpriseTrialBanner();
+      // Only create banner if it wasn't previously closed in this tab
+      if (sessionStorage.getItem('enterprise-trial-banner-closed') !== 'true') {
+        createEnterpriseTrialBanner();
+      }
     }, 100);
   }
 
