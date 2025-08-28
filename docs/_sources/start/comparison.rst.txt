@@ -1,8 +1,8 @@
 :og:title: Giskard - Open Source vs Giskard Hub
 :og:description: Compare Giskard Hub (enterprise) vs Giskard Open Source to choose the right LLM agent testing solution for your team size, security needs, and collaboration requirements.
 
-Open Source vs Giskard Hub
-==========================
+Open Source vs Hub
+==================
 
 Giskard offers two solutions for LLM agent testing and evaluation, each designed for different use cases and requirements.
 
@@ -111,7 +111,14 @@ Feature comparison
 
    * - Dedicated support & SLAs
      - ❌ Community only
-     - `✅ Enterprise-grade, with SLAs <https://trust.giskard.ai/>`_
+     - `✅ Enterprise-grade <https://trust.giskard.ai/>`_
+
+.. tip::
+   **🚀 Convinced by our features?**
+
+   Experience the full power of enterprise-grade AI testing by requesting a **free trial**. Get access to advanced security detection, team collaboration, continuous red teaming, and more.
+
+   `Request your free enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
 
 
 When to use Giskard Open Source

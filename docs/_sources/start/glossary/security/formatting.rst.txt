@@ -1,13 +1,13 @@
 :og:title: Giskard - Output Formatting Issues
 :og:description: Learn about LLM output formatting vulnerabilities and how to detect and prevent poorly structured or misformatted responses.
 
-LLM Security Vulnerability: Output Formatting Issues
-=====================================================
+Output Formatting Issues
+========================
 
 Output formatting vulnerabilities occur when Large Language Models fail to provide responses in the expected structure, format, or organization, making outputs difficult to process, parse, or integrate into downstream systems.
 
-What are Output Formatting Issues in Generative AI?
----------------------------------------------------
+What are Output Formatting Issues?
+----------------------------------
 
 **Output formatting issues** occur when models:
 
@@ -46,8 +46,8 @@ Types of Formatting Issues
    * Inconsistent punctuation or spacing
    * Unstructured text output
 
-Business Impact of Output Formatting Issues
---------------------------------------------
+Business Impact
+---------------
 
 Formatting issues can have significant consequences:
 
