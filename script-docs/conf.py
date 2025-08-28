@@ -10,6 +10,7 @@ import inspect
 import os
 import sys
 from dataclasses import asdict
+from datetime import datetime
 
 from sphinxawesome_theme import ThemeOptions
 from sphinxawesome_theme.postprocess import Icons
@@ -17,7 +18,7 @@ from sphinxawesome_theme.postprocess import Icons
 html_permalinks_icon = Icons.permalinks_icon
 
 project = "Giskard"
-copyright = "2025, Giskard"
+copyright = f"{datetime.now().year}, Giskard"
 author = "Giskard"
 
 # -- General configuration ---------------------------------------------------
@@ -39,6 +40,22 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
     # "sphinx_autodoc_typehints",
+]
+
+myst_enable_extensions = [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
 ]
 
 # Resolve Dataset cross-reference ambiguity
@@ -71,6 +88,8 @@ if docs_version == "latest" or docs_version == "stable":
 else:
     branch = docs_version.replace("-", "/")
 branch = "main"
+
+# -- Options for nbsphinx ----------------------------------------------------
 nbsphinx_execute = "never"
 # fmt: off
 nbsphinx_prolog = """
@@ -97,47 +116,15 @@ theme_options = ThemeOptions(
     },
 )
 html_theme_options = asdict(theme_options)
-
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/
 
 # Open Graph site name
 ogp_site_name = "Giskard Documentation"
+ogp_site_url = "https://docs-hub.giskard.ai/"
 
-# Open Graph image (logo for social sharing)
-ogp_image = "_static/open-graph-image.jpg"
-
-# Open Graph image type
-ogp_image_type = "image/png"
-
-# Open Graph image width and height (standard social media dimensions)
-ogp_image_width = 1200
-ogp_image_height = 630
-
-# Additional Open Graph images for different contexts
-ogp_image_alt = ["_static/open-graph-image.jpg"]
-
-# Open Graph description
-ogp_description_length = 200
-
-# Open Graph locale
-ogp_locale = "en_US"
-
-# Open Graph type
-ogp_type = "website"
-
-# Enable Open Graph
-ogp_enable_meta_description = True
-ogp_enable_meta_keywords = True
-
-# Twitter Card support (complements Open Graph)
-ogp_twitter_creator = "@GiskardAI"
-ogp_twitter_site = "@GiskardAI"
-
-# Additional Open Graph properties
-ogp_image_secure_url = (
-    f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/logo_light.png"
-)
+# Open Graph image (logo for social sharing) - use relative path for local builds
+ogp_image = "https://docs-hub.giskard.ai/_static/open-graph-image.png"
 
 
 # make github links resolve
