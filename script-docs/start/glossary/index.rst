@@ -1,9 +1,9 @@
 :og:title: Giskard - Glossary of Terms
 :og:description: Understand key terms and concepts used throughout the Giskard documentation. Learn about LLM testing, evaluation metrics, and AI safety terminology.
 
-=========
-Glossary
-=========
+===============================================
+Knowledge Glossary
+===============================================
 
 This glossary defines key terms and concepts used throughout the Giskard documentation. Understanding these terms will help you navigate the documentation and use Giskard effectively.
 

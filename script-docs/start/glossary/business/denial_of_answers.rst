@@ -1,13 +1,13 @@
 :og:title: Giskard - Denial of Answers
 :og:description: Learn about LLM denial of answers business failures and how to detect and prevent models from refusing to answer legitimate business questions.
 
-LLM Business Failure: Denial of Answers
-=======================================
+Denial of Answers
+=================
 
 Denial of answers is a business failure where Large Language Models refuse to answer legitimate business questions, often due to overly restrictive content filters, safety measures, or misinterpretation of user intent.
 
-What are Denial of Answers in Generative AI?
---------------------------------------------
+What are Denial of Answers?
+---------------------------
 
 **Denial of answers** occurs when models:
 
@@ -46,8 +46,8 @@ Types of Denial Issues
    * Incorrectly limiting response scope
    * Confusing in-scope vs out-of-scope requests
 
-Business Impact of Denial of Answers
--------------------------------------
+Business Impact
+----------------
 
 Denial of answers can have significant business consequences:
 
