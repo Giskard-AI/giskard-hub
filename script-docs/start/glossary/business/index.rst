@@ -1,9 +1,9 @@
-Business Vulnerabilities
+Business Failures
 ========================
 
 Business vulnerabilities are failures that affect the business logic, accuracy, and reliability of AI systems. These include issues that impact the model's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
 
-Understanding Business Vulnerabilities
+Understanding Business Failures
 ------------------------------------
 
 Business vulnerabilities differ from security vulnerabilities in that they focus on the model's ability to provide correct and grounded responses with respect to a knowledge base taken as ground truth. These failures can occur in Retrieval-Augmented Generation (RAG) systems and other AI applications where accuracy and reliability are critical for business operations.
@@ -12,7 +12,7 @@ Business vulnerabilities differ from security vulnerabilities in that they focus
 
     You can find examples of business vulnerabilities in our `RealPerformance dataset <https://realperformance.giskard.ai/>`_.
 
-Types of Business Vulnerabilities
+Types of Business Failures
 ---------------------------------
 
 .. grid:: 1 1 2 2
@@ -56,7 +56,7 @@ Types of Business Vulnerabilities
 Getting Started with Business Testing
 -------------------------------------
 
-To begin testing your AI systems for business vulnerabilities:
+To begin testing your AI systems for business failures:
 
 .. grid:: 1 1 2 2
 
@@ -64,13 +64,13 @@ To begin testing your AI systems for business vulnerabilities:
       :link: /hub/ui/datasets/business
       :link-type: doc
 
-      Our state-of-the-art enterprise-grade business vulnerability testing.
+      Our state-of-the-art enterprise-grade business failure testing.
 
    .. grid-item-card:: RAGET: RAG Evaluation Toolkit
       :link: /oss/sdk/business
       :link-type: doc
 
-      Our open-source toolkit for business vulnerability testing.
+      Our open-source toolkit for business failure testing.
 
 .. toctree::
    :maxdepth: 1
