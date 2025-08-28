@@ -30,7 +30,7 @@ sphinx-design = ">=0.4.1"
 sphinx-tabs = ">=3.4.1"
 pytest = "8.4.1"
 # unified documentation for giskard
-giskard = {extras = ["llm", "dev"], version = "^2.0.0", python = ">=3.9,<3.13"}
+giskard = {extras = ["llm", "dev"], version = "2.18.0", python = ">=3.9,<3.13"}
 pyarrow = "<20.0.0"
 ragas = "0.1.5, <=0.2.7"
 ipywidgets = "^8.1.7"
