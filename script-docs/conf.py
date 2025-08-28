@@ -116,7 +116,6 @@ theme_options = ThemeOptions(
     },
 )
 html_theme_options = asdict(theme_options)
-html_theme_options["top_of_page_button"] = "edit"
 
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/

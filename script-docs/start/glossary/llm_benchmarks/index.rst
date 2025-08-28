@@ -62,7 +62,7 @@ Creating your own evaluation benchmarks with Giskard
       Our state-of-the-art enterprise-grade business evaluation benchmarks.
 
    .. grid-item-card:: LLM Scan
-      :link: /oss/sdk/llm_scan
+      :link: /oss/sdk/security
       :link-type: doc
 
       Our open-source library for creating security evaluation benchmarks.

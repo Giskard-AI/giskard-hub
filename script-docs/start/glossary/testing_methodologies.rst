@@ -62,29 +62,41 @@ Key Testing Approaches in Giskard
 Testing Lifecycle
 -----------------
 
-**Planning Phase**
-   * Define testing objectives and scope
-   * Identify critical vulnerabilities and risks
-   * Design test strategies and methodologies
-   * Establish success criteria and metrics
+.. grid:: 1 1 2 2
 
-**Execution Phase**
-   * Implement automated testing frameworks
-   * Conduct manual testing and validation
-   * Perform adversarial and red team testing
-   * Monitor and record results
+   .. grid-item-card:: 1. Planning Phase
 
-**Analysis Phase**
-   * Evaluate test results and findings
-   * Prioritize vulnerabilities and issues
-   * Generate comprehensive reports
-   * Plan remediation strategies
+      - Define testing objectives and scope
+      - Identify critical vulnerabilities and risks
+      - Design test strategies and methodologies
+      - Establish success criteria and metrics
 
-**Remediation Phase**
-   * Address identified vulnerabilities
-   * Implement fixes and improvements
-   * Re-test to verify resolution
-   * Update testing procedures
+   .. grid-item-card:: 2. Execution Phase
+      :link: /hub/ui/evaluations
+      :link-type: doc
+
+      - Implement automated testing frameworks
+      - Conduct manual testing and validation
+      - Perform adversarial and red team testing
+      - Monitor and record results
+
+   .. grid-item-card:: 3. Analysis Phase
+      :link: /hub/ui/evaluations-compare
+      :link-type: doc
+
+      - Evaluate test results and findings
+      - Prioritize vulnerabilities and issues
+      - Generate comprehensive reports
+      - Plan remediation strategies
+
+   .. grid-item-card:: 4. Remediation Phase
+      :link: /hub/ui/evaluations
+      :link-type: doc
+
+      - Address identified vulnerabilities
+      - Implement fixes and improvements
+      - Re-test to verify resolution
+      - Update testing procedures
 
 Best Practices
 --------------

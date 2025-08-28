@@ -1,9 +1,9 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Projects Management
 :og:description: Create, manage, and organize projects programmatically. Set up workspaces, configure access controls, and manage team collaboration through the Python SDK.
 
-==============================================
-Manage your projects and agents
-==============================================
+================================================
+Manage your projects, agents and knowledge bases
+================================================
 
 Projects are the top-level organizational units in Giskard Hub. They provide a workspace for your team to collaborate on LLM agent testing and evaluation.
 
@@ -25,7 +25,7 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
     hub = HubClient()
 
-You can now use the ``hub`` client to create, update, and delete projects and agents.
+You can now use the ``hub`` client to create, update, and delete projects, agents, and knowledge bases.
 
 Projects
 --------
@@ -33,7 +33,7 @@ Projects
 Create a project
 ________________
 
-You can create a project using the ``hub.projects.create()`` method. Here's a basic example:
+You can create a project using the ``hub.projects.create()`` method. Example:
 
 .. code-block:: python
 
@@ -45,7 +45,7 @@ You can create a project using the ``hub.projects.create()`` method. Here's a ba
 Retrieve a project
 __________________
 
-You can retrieve a project using the ``hub.projects.retrieve()`` method. Here's a basic example:
+You can retrieve a project using the ``hub.projects.retrieve()`` method:
 
 .. code-block:: python
 
@@ -54,7 +54,7 @@ You can retrieve a project using the ``hub.projects.retrieve()`` method. Here's 
 Update a project
 ________________
 
-You can update a project using the ``hub.projects.update()`` method. Here's a basic example:
+You can update a project using the ``hub.projects.update()`` method:
 
 .. code-block:: python
 
@@ -63,7 +63,7 @@ You can update a project using the ``hub.projects.update()`` method. Here's a ba
 Delete a project
 ________________
 
-You can delete a project using the ``hub.projects.delete()`` method. Here's a basic example:
+You can delete a project using the ``hub.projects.delete()`` method:
 
 .. code-block:: python
 
@@ -72,12 +72,11 @@ You can delete a project using the ``hub.projects.delete()`` method. Here's a ba
 List projects
 _____________
 
-You can list all projects using the ``hub.projects.list()`` method. Here's a basic example:
+You can list all projects using the ``hub.projects.list()`` method:
 
 .. code-block:: python
 
     projects = hub.projects.list()
-
     for project in projects:
         print(project.name)
 
@@ -85,11 +84,9 @@ Agents
 ------
 
 Create an agent
-________________
+_______________
 
-Before running our first evaluation, we'll need to set up an agent. You'll need an API endpoint ready to serve the agent. Then, you can configure the agent API in the Hub:
-
-You can create an agent using the ``hub.models.create()`` method. Here's a basic example:
+You can create an agent using the ``hub.models.create()`` method. Example:
 
 .. code-block:: python
 
@@ -103,7 +100,7 @@ You can create an agent using the ``hub.models.create()`` method. Here's a basic
         headers={"X-API-Key": "MY_TOKEN"},
     )
 
-After creating the agent, you can test that everything is working well by running a chat with the agent:
+After creating the agent, you can test it by running a chat:
 
 .. code-block:: python
 
@@ -114,10 +111,9 @@ After creating the agent, you can test that everything is working well by runnin
             dict(role="user", content="What is the capital of Germany?"),
         ],
     )
-
     print(response)
 
-If all is working well, this will return something like
+If all is working well, this will return something like:
 
 .. code-block:: python
 
@@ -132,7 +128,7 @@ If all is working well, this will return something like
 Retrieve an agent
 _________________
 
-You can retrieve an agent using the ``hub.models.retrieve()`` method. Here's a basic example:
+You can retrieve an agent using the ``hub.models.retrieve()`` method:
 
 .. code-block:: python
 
@@ -141,7 +137,7 @@ You can retrieve an agent using the ``hub.models.retrieve()`` method. Here's a b
 Update an agent
 _______________
 
-You can update an agent using the ``hub.models.update()`` method. Here's a basic example:
+You can update an agent using the ``hub.models.update()`` method:
 
 .. code-block:: python
 
@@ -150,7 +146,7 @@ You can update an agent using the ``hub.models.update()`` method. Here's a basic
 Delete an agent
 _______________
 
-You can delete an agent using the ``hub.models.delete()`` method. Here's a basic example:
+You can delete an agent using the ``hub.models.delete()`` method:
 
 .. code-block:: python
 
@@ -159,12 +155,106 @@ You can delete an agent using the ``hub.models.delete()`` method. Here's a basic
 List agents
 ___________
 
-You can list all agents using the ``hub.models.list()`` method. Here's a basic example:
+You can list all agents in a project using the ``hub.models.list()`` method:
 
 .. code-block:: python
 
     models = hub.models.list("<PROJECT_ID>")
-
     for model in models:
         print(model.name)
 
+Knowledge bases
+---------------
+
+The `hub.knowledge_bases` resource allows you to create, retrieve, update, delete, and list knowledge bases, as well as list topics and documents within a knowledge base.
+
+Create a knowledge base
+_______________________
+
+You can create a knowledge base using the ``hub.knowledge_bases.create()`` method. The `data` parameter can be a path to a JSON/JSONL file or a list of Conversation objects.
+
+.. code-block:: python
+
+    kb = hub.knowledge_bases.create(
+        project_id=project.id,
+        name="My knowledge base",
+        data="my_kb.json",  # or a list of Conversation objects
+        description="A knowledge base for finance domain",
+        document_column="document",  # optional
+        topic_column="topic",        # optional
+    )
+
+After creating the knowledge base, we need to wait for it to be ready because we need to process documents and topics server-side:
+
+.. code-block:: python
+
+    kb.wait_for_completion()
+
+Retrieve a knowledge base
+_________________________
+
+You can retrieve a knowledge base by ID:
+
+.. code-block:: python
+
+    kb = hub.knowledge_bases.retrieve("<KNOWLEDGE_BASE_ID>")
+
+Update a knowledge base
+_______________________
+
+You can update a knowledge base:
+
+.. code-block:: python
+
+    kb = hub.knowledge_bases.update(
+        "<KNOWLEDGE_BASE_ID>",
+        name="Updated KB name",
+        description="Updated description"
+    )
+
+Delete a knowledge base
+_______________________
+
+You can delete a knowledge base by ID (or a list of IDs):
+
+.. code-block:: python
+
+    hub.knowledge_bases.delete("<KNOWLEDGE_BASE_ID>")
+
+List knowledge bases
+____________________
+
+You can list all knowledge bases in a project:
+
+.. code-block:: python
+
+    kbs = hub.knowledge_bases.list(project_id=project.id)
+    for kb in kbs:
+        print(kb.name)
+
+List topics in a knowledge base
+_______________________________
+
+You can list topics for a knowledge base:
+
+.. code-block:: python
+
+    topics = hub.knowledge_bases.list_topics("<KNOWLEDGE_BASE_ID>")
+    for topic in topics:
+        print(topic.name)
+
+List documents in a knowledge base
+__________________________________
+
+You can list documents for a knowledge base, optionally filtered by topic:
+
+.. code-block:: python
+
+    documents = hub.knowledge_bases.list_documents("<KNOWLEDGE_BASE_ID>")
+    for doc in documents:
+        print(doc.content)
+
+    # To filter by topic:
+    documents = hub.knowledge_bases.list_documents("<KNOWLEDGE_BASE_ID>", topic_id="<TOPIC_ID>")
+    for doc in documents:
+        print(doc.content)

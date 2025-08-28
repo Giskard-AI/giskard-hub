@@ -27,6 +27,8 @@ Giskard Hub
 * **Enterprise compliance features** - 2FA, audit logs, SSO, and enterprise-grade security controls
 * **Custom business checks** - Create and deploy your own specialized testing logic and validation rules
 * **Alerting** - Get notified when issues are detected with configurable notification systems
+* **Evaluations** - Agent evaluations with cron-based scheduling for continuous monitoring
+* **Knowledge bases** - Store and manage domain knowledge to enhance testing scenarios
 
 .. grid:: 1 1 2 2
 
