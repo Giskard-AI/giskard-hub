@@ -45,11 +45,6 @@
       return;
     }
 
-    // Check if banner was previously closed by user
-    if (localStorage.getItem('enterprise-trial-banner-closed') === 'true') {
-      return;
-    }
-
     // Create banner element
     const banner = document.createElement('div');
     banner.className = 'enterprise-trial-banner';
@@ -66,13 +61,16 @@
     // Handle close button
     const closeBtn = banner.querySelector('.close-btn');
     closeBtn.addEventListener('click', () => {
+      // Hide banner with smooth animation
       banner.style.transform = 'translateY(-100%)';
       banner.style.opacity = '0';
+
+      // Remove banner and update body class after animation
       setTimeout(() => {
-        banner.remove();
-        document.body.classList.remove('banner-visible');
-        // Remember that user closed the banner
-        localStorage.setItem('enterprise-trial-banner-closed', 'true');
+        if (banner.parentNode) {
+          banner.remove();
+          document.body.classList.remove('banner-visible');
+        }
       }, 300);
     });
 
@@ -106,12 +104,6 @@
     setTimeout(() => {
       createEnterpriseTrialBanner();
     }, 100);
-  }
-
-  // Reset banner state (useful for testing or if user wants to see it again)
-  function resetBannerState() {
-    localStorage.removeItem('enterprise-trial-banner-closed');
-    createEnterpriseTrialBanner();
   }
 
   // Listen for Sphinx navigation events
