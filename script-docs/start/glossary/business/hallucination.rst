@@ -1,8 +1,8 @@
 :og:title: Giskard - Hallucination & Misinformation
 :og:description: Learn about LLM hallucination vulnerabilities and how to detect and prevent models from generating false or misleading information.
 
-LLM Business Failure: Hallucination & Misinformation
-====================================================
+Hallucination & Misinformation
+==============================
 
 Hallucination is one of the most critical vulnerabilities affecting Large Language Models. It occurs when a model generates false, misleading, or fabricated information that appears plausible but is incorrect.
 

@@ -1,8 +1,8 @@
 :og:title: Giskard - Stereotypes & Discrimination
 :og:description: Learn about LLM stereotypes and discrimination vulnerabilities and how to detect and prevent biased behavior and unfair treatment.
 
-LLM Security Vulnerability: Stereotypes & Discrimination
-=========================================================
+Stereotypes & Discrimination
+============================
 
 Stereotypes and discrimination vulnerabilities occur when Large Language Models exhibit biased behavior, unfair treatment, or discriminatory responses based on protected characteristics such as race, gender, religion, age, or other personal attributes.
 
@@ -50,8 +50,8 @@ Types of Bias and Discrimination
    * Amplified harm for marginalized groups
    * Systemic bias reinforcement
 
-Business Impact of Stereotypes & Discrimination
------------------------------------------------
+Business Impact
+---------------
 
 Bias and discrimination can have severe consequences:
 
