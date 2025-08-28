@@ -11,7 +11,7 @@ By generating domain-specific synthetic tests, you can proactively identify and 
 
 .. note::
 
-    As of now, the Giskard Hub SDK does not support the generation of synthetic test cases for business failures but you can use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate them.
+   As of now, the Giskard Hub SDK does not support the generation of synthetic test cases for business failures but you can use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate them.
 
 Next steps
 ----------

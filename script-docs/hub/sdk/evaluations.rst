@@ -349,6 +349,5 @@ You can list evaluation results using the ``hub.evaluations.list_entries()`` met
 
     eval_results = hub.evaluations.list_entries(eval_run.id)
 
-
 .. note::
     As of now, the Giskard Hub SDK does not support scheduled evaluations but you can use the `Giskard Hub UI </hub/ui/evaluations>`_ to schedule evaluations.

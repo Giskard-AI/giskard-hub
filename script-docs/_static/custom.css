@@ -497,12 +497,6 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
   color: #C6FFFF !important;
 }
 
-.dark div.nboutput.container div.output_area > *,
-.dark div.nbinput.container div.input_area > *,
-.dark div.rendered_html *,
-.dark .jp-RenderedHTMLCommon * {
-  color: #C6FFFF !important;
-}
 
 /* Fix table colors in dark mode */
 .dark .jp-RenderedHTMLCommon table,

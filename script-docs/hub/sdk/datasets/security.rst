@@ -7,7 +7,6 @@ Detect security vulnerabilities by generating synthetic tests
 
 Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
 
-
 .. note::
 
    As of now, the Giskard Hub SDK does not support the generation of synthetic test cases for security vulnerabilities but you can use the `Giskard Hub UI </hub/ui/datasets/security>`_ to generate them.
