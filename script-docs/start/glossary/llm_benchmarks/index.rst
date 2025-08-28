@@ -49,29 +49,29 @@ Creating your own evaluation benchmarks with Giskard
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Giskard Hub security benchmarks
+   .. grid-item-card:: Giskard Hub AI security vulnerabilities evaluation
       :link: /hub/ui/datasets/security
       :link-type: doc
 
-      Our state-of-the-art enterprise-grade security evaluation benchmarks.
+      Our state-of-the-art enterprise-grade security evaluation datasets.
 
-   .. grid-item-card:: Giskard Hub business failures benchmark
+   .. grid-item-card:: Giskard Hub AI business failures evaluation
       :link: /hub/ui/datasets/business
       :link-type: doc
 
-      Our state-of-the-art enterprise-grade business evaluation benchmarks.
+      Our state-of-the-art enterprise-grade business failures evaluation datasets.
 
    .. grid-item-card:: LLM Scan
       :link: /oss/sdk/security
       :link-type: doc
 
-      Our open-source library for creating security evaluation benchmarks.
+      Our open-source library for creating security evaluation datasets.
 
    .. grid-item-card:: RAGET: RAG Evaluation Toolkit
       :link: /oss/sdk/business
       :link-type: doc
 
-      Our open-source library for creating business evaluation benchmarks.
+      Our open-source library for creating business evaluation datasets.
 
 .. toctree::
    :maxdepth: 2

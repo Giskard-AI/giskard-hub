@@ -1,5 +1,5 @@
-Security Vulnerabilities
-========================
+AI Security Vulnerabilities
+===========================
 
 Security vulnerabilities in AI systems represent critical weaknesses that can be exploited by malicious actors to compromise system integrity, extract sensitive information, or manipulate model behavior for harmful purposes.
 

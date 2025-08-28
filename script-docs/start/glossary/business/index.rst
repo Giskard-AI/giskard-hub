@@ -1,4 +1,4 @@
-Business Failures
+AI Business Failures
 ========================
 
 Business vulnerabilities are failures that affect the business logic, accuracy, and reliability of AI systems. These include issues that impact the model's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
