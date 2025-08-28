@@ -84,8 +84,8 @@ Giskard provides built-in evaluation checks that are essential for detecting hal
 
 These metrics help quantify how well your models provide accurate, grounded responses and avoid generating false or misleading information.
 
-Examples
---------
+Examples of Hallucination & Misinformation in AI
+------------------------------------------------
 
 .. tip::
 

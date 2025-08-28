@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting mod
 
 These metrics help quantify how well your models balance content safety with business accessibility, avoiding both under-moderation and over-moderation.
 
-Examples
---------
+Examples of Moderation Issues in AI
+------------------------------------
 
 .. tip::
 

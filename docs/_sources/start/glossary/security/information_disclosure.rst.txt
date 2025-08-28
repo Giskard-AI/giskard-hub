@@ -20,7 +20,7 @@ What is Information Disclosure in Generative AI?
 This vulnerability can lead to data breaches, privacy violations, and security compromises.
 
 Types of Information Disclosure
-------------------------------
+-------------------------------
 
 **System Information Leakage**
    * Revealing internal prompts or instructions
@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting inf
 
 These metrics help quantify how well your models protect sensitive information and maintain system security.
 
-Examples
---------
+Examples of Information Disclosure in AI
+----------------------------------------
 
 .. tip::
 
