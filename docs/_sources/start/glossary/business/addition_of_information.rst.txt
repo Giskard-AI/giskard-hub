@@ -1,13 +1,13 @@
 :og:title: Giskard - Addition of Information
 :og:description: Learn about LLM addition of information business failures and how to detect and prevent models from adding incorrect or fabricated information not present in the context.
 
-Addition of Information
-=======================
+LLM Business Failure: Addition of Information
+=============================================
 
 Addition of information is a business failure where Large Language Models incorrectly add additional information that was not present in the context of the groundedness check, leading to misinformation and reduced reliability.
 
-What is Addition of Information?
---------------------------------
+What are Additions of Information in Generative AI?
+---------------------------------------------------
 
 **Addition of information** occurs when models:
 
@@ -46,8 +46,8 @@ Types of Addition Issues
    * Adding information without verification
    * Fabricating data or statistics
 
-Business Impact
----------------
+Business Impact of Addition of Information
+-------------------------------------------
 
 Addition of information can have significant business consequences:
 
