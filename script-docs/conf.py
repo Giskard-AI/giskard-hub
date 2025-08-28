@@ -116,35 +116,14 @@ theme_options = ThemeOptions(
     },
 )
 html_theme_options = asdict(theme_options)
-
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/
 
 # Open Graph site name
 ogp_site_name = "Giskard Documentation"
 
-# Open Graph site URL - provide fallback for local development
-ogp_site_url = os.getenv("READTHEDOCS_CANONICAL_URL", "https://docs.giskard.ai")
-
 # Open Graph image (logo for social sharing) - use relative path for local builds
 ogp_image = "_static/open-graph-image.png"
-
-# Open Graph image width and height (standard social media dimensions)
-ogp_image_width = 1200
-ogp_image_height = 630
-
-# Open Graph description
-ogp_description_length = 200
-
-# Open Graph locale
-ogp_locale = "en_US"
-
-# Open Graph type
-ogp_type = "website"
-
-# Enable Open Graph
-ogp_enable_meta_description = True
-ogp_enable_meta_keywords = True
 
 
 # make github links resolve

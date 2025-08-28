@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting omi
 
 These metrics help quantify how well your models provide comprehensive responses and avoid omitting important information from their knowledge base.
 
-Examples
---------
+Examples of Omission in AI
+--------------------------
 
 .. tip::
 

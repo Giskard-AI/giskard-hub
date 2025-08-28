@@ -85,8 +85,8 @@ Giskard provides built-in evaluation checks that are essential for detecting den
 
 These metrics help quantify how well your models provide helpful responses and avoid incorrectly denying legitimate business questions.
 
-Examples
---------
+Examples of Denial of Answers in AI
+------------------------------------
 
 .. tip::
 

@@ -25,7 +25,7 @@ GSM8K (Grade School Math 8K)
 
 **Description**: GSM8K consists of 8,500 grade school math word problems that require multi-step reasoning. The benchmark tests an LLM's ability to break down complex problems into manageable steps and arrive at correct solutions.
 
-**Resources**: `GSM8K dataset <https://github.com/openai/grade-school-math>`_ | `Paper <https://arxiv.org/abs/2110.14168>`_
+**Resources**: `GSM8K dataset <https://github.com/openai/grade-school-math>`_ | `GSM8K Paper <https://arxiv.org/abs/2110.14168>`_
 
 MATH
 ~~~~~
@@ -34,7 +34,7 @@ MATH
 
 **Description**: The MATH benchmark covers mathematics from elementary school through high school, including algebra, geometry, calculus, and statistics. It presents problems in LaTeX format and evaluates both answer correctness and solution quality.
 
-**Resources**: `MATH dataset <https://github.com/hendrycks/math>`_ | `Paper <https://arxiv.org/pdf/2103.03874>`_
+**Resources**: `MATH dataset <https://github.com/hendrycks/math>`_ | `MATH Paper <https://arxiv.org/pdf/2103.03874>`_
 
 Mathematical reasoning tasks are also included in other benchmarks such as BigBench, which covers various reasoning types including mathematical problem-solving, and MMLU, which tests mathematical knowledge as part of its multi-subject evaluation.
 

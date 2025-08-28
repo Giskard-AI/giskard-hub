@@ -87,8 +87,8 @@ Giskard provides built-in evaluation checks that are essential for detecting out
 
 These metrics help quantify how well your models maintain secure output formatting and resist manipulation attempts.
 
-Examples of output formatting issues
-------------------------------------
+Examples of Output Formatting Issues in AI
+-------------------------------------------
 
 .. tip::
 

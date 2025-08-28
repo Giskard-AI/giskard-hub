@@ -91,8 +91,8 @@ Giskard provides built-in evaluation checks that are essential for detecting ste
 
 These metrics help quantify how well your models maintain fairness and avoid perpetuating harmful stereotypes or discriminatory behavior.
 
-Examples
---------
+Examples of Stereotypes & Discrimination in AI
+----------------------------------------------
 
 .. tip::
 

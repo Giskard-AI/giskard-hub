@@ -4,7 +4,7 @@ AI Security Vulnerabilities
 Security vulnerabilities in AI systems represent critical weaknesses that can be exploited by malicious actors to compromise system integrity, extract sensitive information, or manipulate model behavior for harmful purposes.
 
 Understanding Security Vulnerabilities
-------------------------------------
+---------------------------------------
 
 Security vulnerabilities differ from business failures in that they focus on malicious exploitation and system integrity rather than accuracy and reliability. These vulnerabilities can lead to data breaches, privacy violations, system manipulation, and other security incidents that pose significant risks to organizations and users.
 
@@ -13,7 +13,7 @@ Security vulnerabilities differ from business failures in that they focus on mal
     You can find examples of security vulnerabilities in our `RealHarm dataset <https://realharm.giskard.ai/>`_.
 
 Types of Security Vulnerabilities
---------------------------------
+---------------------------------
 
 .. grid:: 1 1 2 2
 

@@ -34,7 +34,7 @@ SafetyBench
 
 **Use Cases**: Safety evaluation, bias detection, content moderation assessment, and ethical AI development.
 
-**Resources**: `SafetyBench dataset <https://github.com/thu-coai/SafetyBench>`_ | `Paper <https://arxiv.org/abs/2309.07045>`_
+**Resources**: `SafetyBench dataset <https://github.com/thu-coai/SafetyBench>`_ | `SafetyBench Paper <https://arxiv.org/abs/2309.07045>`_
 
 AgentHarm
 ~~~~~~~~~
@@ -52,7 +52,7 @@ AgentHarm
 
 **Use Cases**: Agent safety testing, multi-step task evaluation, and safety mechanism validation.
 
-**Resources**: `AgentHarm dataset <https://github.com/THUDM/AgentBench>`_ | `Paper <https://arxiv.org/abs/2308.03688>`_
+**Resources**: `AgentHarm dataset <https://github.com/THUDM/AgentBench>`_ | `AgentHarm Paper <https://arxiv.org/abs/2308.03688>`_
 
 TruthfulQA
 ~~~~~~~~~~
@@ -70,7 +70,7 @@ TruthfulQA
 
 **Use Cases**: Factual accuracy evaluation, misinformation resistance testing, and truthfulness assessment.
 
-**Resources**: `TruthfulQA dataset <https://github.com/sylinrl/TruthfulQA>`_ | `Paper <https://arxiv.org/abs/2109.07958>`_
+**Resources**: `TruthfulQA dataset <https://github.com/sylinrl/TruthfulQA>`_ | `TruthfulQA Paper <https://arxiv.org/abs/2109.07958>`_
 
 Safety evaluation is also included in other benchmarks such as BigBench, which covers various reasoning types including safety and ethical considerations, and domain-specific benchmarks that evaluate safety within specific professional contexts.
 
@@ -90,7 +90,7 @@ Phare
 
 **Use Cases**: Safety evaluation, bias detection, content moderation assessment, and ethical AI development.
 
-**Resources**: `Phare dataset <https://phare.giskard.ai/>`_ | `Paper <https://arxiv.org/abs/2505.11365>`_
+**Resources**: `Phare dataset <https://phare.giskard.ai/>`_ | `Phare Paper <https://arxiv.org/abs/2505.11365>`_
 
 Related Topics
 --------------
