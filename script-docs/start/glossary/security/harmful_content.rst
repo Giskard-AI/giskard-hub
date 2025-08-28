@@ -1,8 +1,8 @@
 :og:title: Giskard - Harmful Content Generation
 :og:description: Learn about LLM harmful content generation vulnerabilities and how to detect and prevent models from producing violent, illegal, or inappropriate material.
 
-Harmful Content Generation
-==========================
+LLM Security Vulnerability: Harmful Content Generation
+======================================================
 
 Harmful content generation is a critical security vulnerability where Large Language Models produce violent, illegal, inappropriate, or otherwise harmful material that can cause real-world damage and violate safety guidelines.
 
@@ -46,8 +46,8 @@ Types of Harmful Content
    * Content designed to manipulate or deceive
    * Information that could lead to dangerous actions
 
-Business Impact
----------------
+Business Impact of Harmful Content Generation
+----------------------------------------------
 
 Harmful content generation can have severe consequences:
 

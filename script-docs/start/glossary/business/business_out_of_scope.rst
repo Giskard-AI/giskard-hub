@@ -1,13 +1,13 @@
 :og:title: Giskard - Business Out of Scope
 :og:description: Learn about LLM business out of scope business failures and how to detect and prevent models from providing information about products or services outside their defined business scope.
 
-Business Out of Scope
-=====================
+LLM Business Failure: Business Out of Scope
+===========================================
 
 Business out of scope is a business failure where Large Language Models provide answers about products, services, or information that are not within the bot's defined business scope, violating policy restrictions and potentially exposing sensitive information.
 
-What is Business Out of Scope?
-------------------------------
+What is Business Out of Scope in Generative AI?
+-----------------------------------------------
 
 **Business out of scope** occurs when models:
 
