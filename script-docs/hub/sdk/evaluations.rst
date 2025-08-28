@@ -65,7 +65,6 @@ We can configure the agent endpoint in the Hub:
         headers={"X-API-Key": "SECRET_TOKEN"},
     )
 
-
 You can test that everything is working by sending a test request to the agent
 
 .. code-block:: python
@@ -78,9 +77,9 @@ You can test that everything is working by sending a test request to the agent
     print(response)
     # ModelOutput(message=ChatMessage(role='assistant', content='It is sunny!'))
 
+Create a evaluation
+___________________
 
-Run an evaluation
-_________________
 
 Now that the agent is configured, we can launch an evaluation run. We first need
 to know which dataset we will run the evaluation on. If you are running this in
@@ -94,13 +93,14 @@ We can now launch the evaluation run:
 
 .. code-block:: python
 
-    eval_run = hub.evaluate(
-        model=model.id,
-        dataset=dataset_id
-        # optionally, specify a name
+    eval_run = hub.evaluations.create(
+        model_id=model.id,
+        dataset_id=dataset_id,
+        # optionally,
+        tags=["staging", "build"],
+        run_count=1, # number of runs per case
         name="staging-build-a4f321",
     )
-
 
 The evaluation run will be queued and processed by the Hub. The ``evaluate``
 method will immediately return an :class:`~giskard_hub.data.EvaluationRun` object
@@ -116,7 +116,6 @@ You can wait until the evaluation run has finished running with the
         # optionally, specify a timeout in seconds (10 min by default)
         timeout=600
     )
-
 
 This will block until the evaluation is completed and update the ``eval_run``
 object in-place. The method will wait for up to 10 minutes for the
@@ -159,19 +158,18 @@ For example:
             print(f"FAILED: {metric.name} is below 90%.")
             sys.exit(1)
 
-
-
 That covers the basics of running evaluations in the Hub. You can now integrate
 this code in your CI/CD pipeline to automatically evaluate your agents every
 time you deploy a new version.
 
-.. note:: If you want to run evaluations on a local model that is not yet
-    exposed with an API, check :ref:`local-evaluation`.
+.. note::
+
+    If you want to run evaluations on a local model that is not yet exposed with an API, check :ref:`local-evaluation`.
 
 Compare evaluations
 ___________________
 
-After running evaluations, you can compare them to see if there are any regressions. We do not offer a built-in comparison tool in the SDK, but you can :ref:`use the Hub UI to compare evaluations <compare-evaluations>`.
+After running evaluations, you can compare them to see if there are any regressions. We do not offer a built-in comparison tool in the SDK, but you can :ref:`use the Hub UI to compare evaluations <hub/ui/evaluations-compare>`.
 
 .. _local-evaluation:
 
@@ -240,8 +238,8 @@ You can check that everything works simply by running the function:
     my_local_agent([ChatMessage(role="user", content="Hello")])
     # Output: "You said: 'Hello'"
 
-Run an evaluation
-_________________
+Create a local evaluation
+_________________________
 
 Running the evaluation is similar to what we have seen for remote evaluations. Instead of passing a remote model ID to the
 ``evaluate`` method of the Hub client, we will pass the function we defined
@@ -258,9 +256,9 @@ We can now launch the evaluation run:
 
 .. code-block:: python
 
-    eval_run = hub.evaluate(
+    eval_run = hub.evaluations.create_local(
         model=my_local_agent,
-        dataset=dataset_id,
+        dataset_id=dataset_id,
         # optionally, specify a name
         name="test-run",
     )
@@ -276,7 +274,6 @@ the evaluation run to complete and then print the results:
     # Print the metrics
     eval_run.print_metrics()
 
-
 .. figure:: /_static/images/cli/metrics_output.png
     :alt: Evaluation metrics output
 
@@ -285,5 +282,73 @@ the evaluation run to complete and then print the results:
 You can also check the results in the Hub interface and compare it with other
 evaluation runs.
 
-.. hint::  You may also want to use this method in your CI/CD pipeline, to
-    perform checks when the code or the prompts of your agent get updated.
+.. hint::
+
+    You may also want to use this method in your CI/CD pipeline, to perform checks when the code or the prompts of your agent get updated.
+
+Evaluations
+~~~~~~~~~~~
+
+Create an evaluation
+--------------------
+
+You can create a new evaluation using the ``hub.evaluations.create()`` method.
+
+.. code-block:: python
+
+    eval_run = hub.evaluations.create(
+        model_id=model.id,
+        dataset_id=dataset.id,
+        tags=["nightly", "regression"],
+        run_count=1,
+        name="nightly-regression-1"
+    )
+
+Retrieve an evaluation
+----------------------
+
+You can retrieve an evaluation using the ``hub.evaluations.retrieve()`` method.
+
+.. code-block:: python
+
+    eval_run = hub.evaluations.retrieve(eval_run.id)
+
+Update an evaluation
+--------------------
+
+You can update an evaluation using the ``hub.evaluations.update()`` method.
+
+.. code-block:: python
+
+    eval_run = hub.evaluations.update(eval_run.id, tags=["staging", "build"])
+
+Delete an evaluation
+--------------------
+
+You can delete an evaluation using the ``hub.evaluations.delete()`` method.
+
+.. code-block:: python
+
+    hub.evaluations.delete(eval_run.id)
+
+List evaluations
+----------------
+
+You can list evaluations using the ``hub.evaluations.list()`` method.
+
+.. code-block:: python
+
+    eval_runs = hub.evaluations.list(project_id=project_id)
+
+List evaluation results
+-----------------------
+
+You can list evaluation results using the ``hub.evaluations.list_entries()`` method.
+
+.. code-block:: python
+
+    eval_results = hub.evaluations.list_entries(eval_run.id)
+
+
+.. note::
+    As of now, the Giskard Hub SDK does not support scheduled evaluations but you can use the `Giskard Hub UI </hub/ui/evaluations>`_ to schedule evaluations.

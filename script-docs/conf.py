@@ -10,6 +10,7 @@ import inspect
 import os
 import sys
 from dataclasses import asdict
+from datetime import datetime
 
 from sphinxawesome_theme import ThemeOptions
 from sphinxawesome_theme.postprocess import Icons
@@ -17,7 +18,7 @@ from sphinxawesome_theme.postprocess import Icons
 html_permalinks_icon = Icons.permalinks_icon
 
 project = "Giskard"
-copyright = "2025, Giskard"
+copyright = f"{datetime.now().year}, Giskard"
 author = "Giskard"
 
 # -- General configuration ---------------------------------------------------
@@ -39,6 +40,22 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
     # "sphinx_autodoc_typehints",
+]
+
+myst_enable_extensions = [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
 ]
 
 # Resolve Dataset cross-reference ambiguity
@@ -71,6 +88,8 @@ if docs_version == "latest" or docs_version == "stable":
 else:
     branch = docs_version.replace("-", "/")
 branch = "main"
+
+# -- Options for nbsphinx ----------------------------------------------------
 nbsphinx_execute = "never"
 # fmt: off
 nbsphinx_prolog = """
