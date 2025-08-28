@@ -1,13 +1,13 @@
 :og:title: Giskard - Moderation Issues
 :og:description: Learn about LLM moderation issues business failures and how to detect and prevent models from applying overly restrictive content filters to valid business queries.
 
-LLM Business Failure: Moderation Issues
-=======================================
+Moderation Issues
+=================
 
 Moderation issues are business failures where Large Language Models apply overly restrictive content filters to valid business queries, preventing users from accessing legitimate information and services due to excessive or inappropriate content moderation.
 
-What are Moderation Issues in Generative AI?
---------------------------------------------
+What are Moderation Issues?
+---------------------------
 
 **Moderation issues** occur when models:
 
@@ -46,8 +46,8 @@ Types of Moderation Problems
    * Incorrectly limiting content access
    * Over-restrictive moderation behavior
 
-Business Impact of Moderation Issues
--------------------------------------
+Business Impact
+---------------
 
 Moderation issues can have significant business consequences:
 

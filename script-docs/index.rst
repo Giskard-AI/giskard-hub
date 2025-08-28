@@ -10,10 +10,6 @@ Welcome to Giskard! This section will help you understand what Giskard is, choos
 * **Giskard Open-Source** - Open-source Python library for LLM testing and evaluation, offering a programmatic interface for technical users, with basic testing capabilities to get started.
 * **Giskard Research** - Our research on AI safety & security
 
-.. tip::
-
-   If you're not sure which Giskard offering is right for you, check out the :doc:`/start/comparison` guide.
-
 Giskard Hub
 -----------
 
@@ -44,6 +40,13 @@ Giskard Hub
 
       As a developer, you can use an SDK to interact with the Giskard Hub programmatically.
 
+.. tip::
+   **🚀 Experience Giskard Hub Today!**
+
+   Ready to unlock the full potential of enterprise-grade AI testing? Try **Giskard Hub** with a free trial and discover advanced team collaboration, continuous red teaming, and enterprise security features.
+
+   `Start your free enterprise trial <start/enterprise-trial.html>`_ and see how Giskard Hub can transform your AI testing workflow.
+
 Open source
 -----------
 
@@ -67,15 +70,17 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 
       Our course on red teaming LLM applications on Deeplearning.AI helps you understand how to test, red team and evaluate LLM applications.
 
+.. tip::
+   **⚖️ Unsure about the difference between Open Source and Hub?**
+
+   Check out our :doc:`/start/comparison` guide to learn more about the differnt features.
+
 Open research
 -------------
 
 **Giskard Research** contributes to research on AI safety and security to showcase and understand the latest advancements in the field.
 Some work has been funded by the `the European Commission <https://commission.europa.eu/index_en>`_, `Bpirance <https://www.bpifrance.com/>`_, and we've collaborated with leading companies like the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Google DeepMind <https://deepmind.google/>`_.
 
-.. note::
-
-   Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
 
 .. grid:: 1 1 2 2
 
@@ -99,6 +104,10 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
       - `RealPerformance website <https://realperformance.giskard.ai/>`_
 
+.. note::
+
+   Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
+
 .. toctree::
    :caption: Getting Started
    :hidden:
@@ -108,6 +117,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    start/comparison
    start/enterprise-trial
    start/glossary/index
+   Contact us <https://www.giskard.ai/contact>
    Blogs <https://www.giskard.ai/knowledge-categories/blog>
 
 .. toctree::

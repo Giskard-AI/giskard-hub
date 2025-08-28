@@ -1,13 +1,13 @@
 :og:title: Giskard - Omission
 :og:description: Learn about LLM omission business failures and how to detect and prevent models from incorrectly omitting information that is present in the reference context.
 
-LLM Business Failure: Omission
-==============================
+Omission
+========
 
 Omission is a business failure where Large Language Models incorrectly omit information that is present in the reference context, leading to incomplete responses and reduced information quality.
 
-What are Omissions in Generative AI?
-------------------------------------
+What are Omissions?
+-------------------
 
 **Omission** occurs when models:
 
@@ -46,8 +46,8 @@ Types of Omission Issues
    * Missing relevant details
    * Inadequate information coverage
 
-Business Impact of Omission
----------------------------
+Business Impact
+----------------
 
 Omission can have significant business consequences:
 
