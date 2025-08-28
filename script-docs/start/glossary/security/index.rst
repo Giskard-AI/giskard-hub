@@ -72,7 +72,6 @@ To begin securing your AI systems:
 
       Our open-source toolkit for security vulnerability testing.
 
-
 .. toctree::
    :maxdepth: 2
    :hidden:
