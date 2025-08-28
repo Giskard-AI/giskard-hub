@@ -78,8 +78,8 @@ Giskard provides built-in evaluation checks that are essential for detecting pro
 
 These metrics help quantify how well your models resist prompt injection attempts and maintain security boundaries.
 
-Examples
--------
+Examples of Prompt Injection in AI
+----------------------------------
 
 .. tip::
 

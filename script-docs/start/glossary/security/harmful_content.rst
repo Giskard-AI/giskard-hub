@@ -92,8 +92,8 @@ Giskard provides built-in evaluation checks that are essential for detecting har
 
 These metrics help quantify how well your models avoid generating harmful content and maintain ethical boundaries.
 
-Examples of harmful content generation
---------------------------------------
+Examples of Harmful Content Generation in AI
+--------------------------------------------
 
 .. tip::
 

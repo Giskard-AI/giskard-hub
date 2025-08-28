@@ -25,7 +25,7 @@ Chatbot Arena
 
 **Description**: Chatbot Arena uses crowdsourced human evaluations to compare different LLMs in conversational scenarios. Users rate responses based on helpfulness, harmlessness, and overall quality, creating a preference-based ranking system.
 
-**Resources**: `Chatbot Arena <https://chat.lmsys.org/>`_ | `Paper <https://arxiv.org/abs/2403.04132>`_
+**Resources**: `Chatbot Arena <https://chat.lmsys.org/>`_ | `Chatbot Arena Paper <https://arxiv.org/abs/2403.04132>`_
 
 MT-Bench
 ~~~~~~~~
