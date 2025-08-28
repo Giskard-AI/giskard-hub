@@ -61,7 +61,6 @@ class HubClient(SyncClient):
     datasets: DatasetsResource
     chat_test_cases: ChatTestCasesResource
     conversations: ConversationsResource
-    models: ModelsResource
     evaluations: EvaluationsResource
     checks: ChecksResource
     knowledge_bases: KnowledgeBasesResource

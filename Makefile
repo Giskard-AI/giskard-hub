@@ -24,7 +24,7 @@ check_format: ## Verify code formatting
 .PHONY: check_format
 
 setup: ## Install dependencies
-	poetry install --sync
+	poetry sync
 .PHONY: setup
 
 doc: setup ## Build the doc
