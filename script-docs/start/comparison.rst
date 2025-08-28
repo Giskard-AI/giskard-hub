@@ -111,7 +111,7 @@ Feature comparison
 
    * - Dedicated support & SLAs
      - ❌ Community only
-     - `✅ Enterprise-grade, with SLAs <https://trust.giskard.ai/>`_
+     - `✅ Enterprise-grade <https://trust.giskard.ai/>`_
 
 .. tip::
    **🚀 Convinced by our features?**
