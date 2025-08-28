@@ -1,13 +1,13 @@
 :og:title: Giskard - Prompt Injection
 :og:description: Learn about LLM prompt injection vulnerabilities and how to detect and prevent malicious input manipulation.
 
-LLM Security Vulnerability: Prompt Injection
-============================================
+Prompt Injection
+================
 
 Prompt injection is a critical security vulnerability where malicious users manipulate input prompts to bypass content filters, override model instructions, or extract sensitive information.
 
-What is Prompt Injection in Generative AI?
-------------------------------------------
+What is Prompt Injection?
+-------------------------
 
 **Prompt injection** occurs when attackers craft inputs that:
 
@@ -37,8 +37,8 @@ Types of Prompt Injection
    * Exploiting encoding vulnerabilities
    * Bypassing input sanitization
 
-Business Impact of Prompt Injection
------------------------------------
+Business Impact
+---------------
 
 Prompt injection can have severe consequences:
 

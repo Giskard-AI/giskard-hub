@@ -230,6 +230,14 @@ We can now evaluate the test suite against another model.
     # Run the test suite with the new model
     test_suite.run(model=giskard_model_2)
 
+.. tip::
+   **🚀 Looking for SOTA security testing?**
+
+   Try our enterprise-grade solution with a **free trial**. Get access to advanced security detection, team collaboration, continuous red teaming, and more.
+
+   `Request your free enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
+
+
 Customizing security scans
 --------------------------
 

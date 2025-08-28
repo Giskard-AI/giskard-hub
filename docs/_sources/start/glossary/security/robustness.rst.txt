@@ -1,13 +1,13 @@
 :og:title: Giskard - Robustness Issues
 :og:description: Learn about LLM robustness vulnerabilities and how to detect and prevent models from failing when faced with adversarial inputs or edge cases.
 
-LLM Security Vulnerability: Robustness Issues
-==============================================
+Robustness Issues
+=================
 
 Robustness issues are security vulnerabilities where Large Language Models fail to maintain consistent, reliable behavior when faced with variations in input, context, or environmental conditions, particularly when exposed to adversarial inputs or edge cases.
 
-What are Robustness Issues in Generative AI?
---------------------------------------------
+What are Robustness Issues?
+---------------------------
 
 **Robustness issues** occur when models:
 
@@ -46,8 +46,8 @@ Types of Robustness Issues
    * Failure with unexpected input combinations
    * Inability to gracefully handle errors
 
-Business Impact of Robustness Issues
--------------------------------------
+Business Impact
+---------------
 
 Robustness issues can have significant consequences:
 

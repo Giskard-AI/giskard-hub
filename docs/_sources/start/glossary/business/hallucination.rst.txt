@@ -1,13 +1,13 @@
 :og:title: Giskard - Hallucination & Misinformation
 :og:description: Learn about LLM hallucination vulnerabilities and how to detect and prevent models from generating false or misleading information.
 
-LLM Business Failure: Hallucination & Misinformation
-====================================================
+Hallucination & Misinformation
+==============================
 
 Hallucination is one of the most critical vulnerabilities affecting Large Language Models. It occurs when a model generates false, misleading, or fabricated information that appears plausible but is incorrect.
 
-What are Hallucinations in Generative AI?
------------------------------------------
+What are Hallucinations?
+------------------------
 
 **Hallucination** refers to the phenomenon where an LLM generates content that:
 
@@ -33,8 +33,8 @@ Types of Hallucination
 **Logical Hallucination**
    Models making logical errors or drawing incorrect conclusions from given information.
 
-Business Impact of Hallucination
---------------------------------
+Business Impact
+----------------
 
 Hallucination can have severe business consequences:
 
