@@ -123,11 +123,11 @@ html_theme_options = asdict(theme_options)
 # Open Graph site name
 ogp_site_name = "Giskard Documentation"
 
-# Open Graph site URL
-ogp_site_url = os.getenv("READTHEDOCS_CANONICAL_URL")
+# Open Graph site URL - provide fallback for local development
+ogp_site_url = os.getenv("READTHEDOCS_CANONICAL_URL", "https://docs.giskard.ai")
 
-# Open Graph image (logo for social sharing)
-ogp_image = f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/open-graph-image.png"
+# Open Graph image (logo for social sharing) - use relative path for local builds
+ogp_image = "_static/open-graph-image.png"
 
 # Open Graph image width and height (standard social media dimensions)
 ogp_image_width = 1200
@@ -145,9 +145,6 @@ ogp_type = "website"
 # Enable Open Graph
 ogp_enable_meta_description = True
 ogp_enable_meta_keywords = True
-
-# Additional Open Graph properties
-ogp_image_url = f"{os.getenv('READTHEDOCS_CANONICAL_URL')}/_static/open-graph-image.png"
 
 
 # make github links resolve
