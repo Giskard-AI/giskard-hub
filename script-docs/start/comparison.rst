@@ -27,11 +27,11 @@ Feature comparison
 
    * - Security vulnerability detection
      - Basic coverage
-     - state-of-the-art detection
+     - State-of-the-art detection
 
    * - Business failure detection
      - Basic coverage
-     - state-of-the-art detection
+     - State-of-the-art detection
 
    * - :doc:`/hub/ui/continuous-red-teaming`
      - ❌ Not available
