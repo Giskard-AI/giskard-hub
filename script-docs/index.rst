@@ -100,12 +100,12 @@ Some work has been funded by the `the European Commission <https://commission.eu
 .. toctree::
    :caption: Getting Started
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 3
 
    self
    start/comparison
    start/enterprise-trial
-   start/glossary
+   start/glossary/index
    Blogs <https://www.giskard.ai/knowledge-categories/blog>
 
 .. toctree::
