@@ -134,7 +134,9 @@ html.dark body,
 .dark aside#left-sidebar,
 .dark header,
 .dark footer,
-.dark pre {
+.dark pre,
+.dark table thead,
+.dark table tr {
   border-color: #40DEDF21 !important;
 }
 
