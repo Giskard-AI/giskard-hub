@@ -7,9 +7,41 @@ Detect security vulnerabilities by generating synthetic tests
 
 Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
 
+Adversarial Security Testing
+----------------------------
+
+The ``generate_adversarial`` method creates test cases designed to expose security vulnerabilities and robustness issues in your AI agents. This is particularly useful for:
+
+.. code-block:: python
+
+    # Generate adversarial test cases for security testing
+    security_dataset = hub.datasets.generate_adversarial(
+        model_id=model.id,
+        dataset_name="Security Test Cases",
+        description="Adversarial test cases for security vulnerability detection",
+        categories=[
+            {
+                "id": "prompt_injection",
+                "name": "Prompt Injection",
+                "desc": "Tests for prompt injection vulnerabilities"
+            },
+            {
+                "id": "harmful_content",
+                "name": "Harmful Content",
+                "desc": "Tests for harmful content generation"
+            },
+            {
+                "id": "information_disclosure",
+                "name": "Information Disclosure",
+                "desc": "Tests for unintended information leakage"
+            }
+        ],
+        n_examples=20
+    )
+
 .. note::
 
-   As of now, the Giskard Hub SDK does not support the generation of synthetic test cases for security vulnerabilities but you can use the `Giskard Hub UI </hub/ui/datasets/security>`_ to generate them.
+   You can also use the `Giskard Hub UI </hub/ui/datasets/security>`_ to generate security test cases if you prefer a visual interface.
 
 Next steps
 ----------

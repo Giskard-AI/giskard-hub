@@ -9,9 +9,28 @@ Generative AI agents can face an endless variety of real-world scenarios, making
 
 By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
 
+Document-Based Testing
+----------------------
+
+The ``generate_document_based`` method creates test cases from your knowledge base, making it ideal for testing business logic and accuracy.
+
+Before generating test cases, you need to `create a knowledge base </hub/sdk/projects>`_.
+
+.. code-block:: python
+
+    # Generate document-based test cases for business testing
+    business_dataset = hub.datasets.generate_document_based(
+        model_id=model.id,
+        knowledge_base_id=knowledge_base.id,
+        dataset_name="Business Logic Tests",
+        description="Test cases based on company knowledge base",
+        n_questions=15, # total number of questions to generate
+        topic_ids=["topic-uuid-1", "topic-uuid-2"]  # Optional: filter by specific topics
+    )
+
 .. note::
 
-   As of now, the Giskard Hub SDK does not support the generation of synthetic test cases for business failures but you can use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate them.
+   You can also use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate business test cases if you prefer a visual interface.
 
 Next steps
 ----------

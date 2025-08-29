@@ -1,16 +1,14 @@
 from __future__ import annotations
 
 import math
-import time
 from dataclasses import dataclass, field
-from time import sleep
 from typing import Any, Dict, List
 
 from rich.console import Console
 from rich.table import Table
 
 from ._base import BaseData
-from ._entity import Entity
+from ._entity import Entity, EntityWithTaskProgress
 from .chat_test_case import ChatTestCase
 from .conversation import Conversation
 from .dataset import Dataset
@@ -62,18 +60,22 @@ class Metric(BaseData):
 
 @dataclass
 # pylint: disable=too-many-instance-attributes
-class EvaluationRun(Entity):
+class EvaluationRun(EntityWithTaskProgress):
     """Evaluation run."""
 
-    name: str | None = None
-    project_id: str | None = None
+    name: str | None
+    project_id: str | None
     datasets: List[Dataset] = field(default_factory=list)
     model: Model | None = None
     criteria: List = field(default_factory=list)
     metrics: List[Metric] = field(default_factory=list)
     tags: List[Metric] = field(default_factory=list)
     failure_categories: Dict[str, int] = field(default_factory=dict)
-    progress: TaskProgress | None = None
+    scheduled_evaluation_id: str | None = None
+
+    @property
+    def resource(self) -> str:
+        return "evaluations"
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "EvaluationRun":
@@ -86,68 +88,6 @@ class EvaluationRun(Entity):
         data["metrics"] = [Metric.from_dict(m) for m in data.get("metrics", [])]
 
         return super().from_dict(data, **kwargs)
-
-    def refresh(self) -> EvaluationRun:
-        """Refresh the evaluation run from the Hub."""
-        if not self._client or not self.id:
-            raise ValueError(
-                "This evaluation run instance is detached or unsaved and cannot be refreshed."
-            )
-
-        data = self._client.evaluations.retrieve(self.id)
-        self._hydrate(data)
-
-        return self
-
-    def is_running(self) -> bool:
-        """Check if the evaluation is running."""
-        return self.progress.status == TaskStatus.RUNNING
-
-    def is_finished(self) -> bool:
-        """Check if the evaluation is finished."""
-        return self.progress.status == TaskStatus.FINISHED
-
-    def is_errored(self) -> bool:
-        """Check if the evaluation terminated with an error."""
-        return self.progress.status == TaskStatus.ERROR
-
-    def wait_for_completion(
-        self, timeout: float = 600, poll_interval: float = 5
-    ) -> EvaluationRun:
-        """Wait for the evaluation to complete successfully.
-
-        Parameters
-        ----------
-        timeout : int, optional
-            The timeout in seconds, by default 600
-        poll_interval : int, optional
-            The polling interval in seconds, by default 5.
-
-        Returns
-        -------
-        EvaluationRun
-            The updated evaluation run instance. The object will have a valid
-            ``metrics`` attribute containing the evaluation results.
-        """
-        end_time = time.perf_counter() + timeout
-        if self.is_running():
-            self.refresh()
-        while time.perf_counter() < end_time:
-            if not self.is_running():
-                break
-            sleep(poll_interval)
-            self.refresh()
-
-        if self.is_finished():
-            return self
-
-        if self.is_errored():
-            raise RuntimeError("Evaluation failed")
-
-        if self.is_running():
-            raise TimeoutError("Evaluation did not finish in time.")
-
-        raise RuntimeError("Evaluation was aborted.")
 
     def print_metrics(self):
         """Print the evaluation metrics."""
