@@ -7,7 +7,7 @@ from typing import Any, Literal, Union
 
 from dateutil import parser
 
-from ._entity import Entity, EntityWithTaskProgress
+from ._entity import Entity
 
 
 class FrequencyOption(str, Enum):
@@ -27,7 +27,7 @@ class SuccessExecutionStatus:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "SuccessExecutionStatus":
-        return cls(**data)
+        return cls(evaluation_id=data["evaluation_id"], status=data["status"])
 
 
 @dataclass
@@ -39,16 +39,14 @@ class ErrorExecutionStatus:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "ErrorExecutionStatus":
-        return cls(**data)
+        return cls(error_message=data["error_message"], status=data["status"])
 
 
 ExecutionStatus = Union[SuccessExecutionStatus, ErrorExecutionStatus]
 
 
 @dataclass
-class ScheduledEvaluation(
-    EntityWithTaskProgress
-):  # pylint: disable=too-many-instance-attributes
+class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attributes
     """Scheduled evaluation entity.
 
     Attributes
@@ -73,12 +71,12 @@ class ScheduledEvaluation(
         The day of the week to run (1-7, 1 is Monday). Required for weekly frequency.
     day_of_month : int, optional
         The day of the month to run (1-28). Required for monthly frequency.
+    paused : bool
+        Whether the scheduled evaluation is paused.
     last_execution_at : datetime, optional
         The timestamp of the last execution.
     last_execution_status : ExecutionStatus, optional
         The status of the last execution.
-    paused : bool
-        Whether the scheduled evaluation is paused.
     """
 
     project_id: str
@@ -98,14 +96,10 @@ class ScheduledEvaluation(
     @classmethod
     def from_dict(
         cls, data: dict[str, Any], *, _client=None, **kwargs: Any
-    ) -> "Entity":
+    ) -> "ScheduledEvaluation":
         data = dict(data)
         if data.get("frequency"):
             data["frequency"] = FrequencyOption(data["frequency"])
-        if data.get("last_run"):
-            data["last_run"] = parser.parse(data["last_run"])
-        if data.get("next_run"):
-            data["next_run"] = parser.parse(data["next_run"])
         if data.get("last_execution_at"):
             data["last_execution_at"] = parser.parse(data["last_execution_at"])
 
@@ -121,7 +115,7 @@ class ScheduledEvaluation(
                     status_data
                 )
 
-        return super().from_dict(data, _client=_client, **kwargs)
+        return super().from_dict(data, **kwargs)
 
     @property
     def resource(self) -> str:

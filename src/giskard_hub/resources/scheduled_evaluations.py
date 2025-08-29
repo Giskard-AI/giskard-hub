@@ -4,7 +4,7 @@ import warnings
 from typing import List, Literal, Optional, Union
 
 from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
-from ..data.evaluation import ScheduledEvaluationRun
+from ..data.evaluation import EvaluationRun
 from ..data.scheduled_evaluation import FrequencyOption, ScheduledEvaluation
 from ..errors import HubValidationError
 from ._resource import APIResource
@@ -34,21 +34,32 @@ class ScheduledEvaluationsResource(APIResource):
         )
 
         if freq == "weekly":
-            if day_of_week is None:
+            if not day_of_week:
                 raise HubValidationError(
                     "day_of_week must be provided when frequency is 'weekly'."
                 )
+            if day_of_month:
+                warnings.warn(
+                    "day_of_month is ignored when frequency is 'weekly'.",
+                    UserWarning,
+                )
+
         if freq == "monthly":
-            if day_of_month is None:
+            if not day_of_month:
                 raise HubValidationError(
                     "day_of_month must be provided when frequency is 'monthly'."
                 )
-        if freq == "daily":
-            if day_of_week is not None or day_of_month is not None:
+            if day_of_week:
                 warnings.warn(
-                    "day_of_week and day_of_month are ignored when frequency is 'daily'.",
+                    "day_of_week is ignored when frequency is 'monthly'.",
                     UserWarning,
                 )
+
+        if freq == "daily" and (day_of_week or day_of_month):
+            warnings.warn(
+                "day_of_week and day_of_month are ignored when frequency is 'daily'.",
+                UserWarning,
+            )
 
     def _validate_schedule_update(
         self,
@@ -73,7 +84,7 @@ class ScheduledEvaluationsResource(APIResource):
         if day_of_month is not NOT_GIVEN:
             dom_val = day_of_month  # type: ignore
 
-        if freq_val is not None or dow_val is not None or dom_val is not None:
+        if any([freq_val, dow_val, dom_val]):
             self._validate_schedule(
                 frequency=freq_val,
                 day_of_week=dow_val,
@@ -97,11 +108,12 @@ class ScheduledEvaluationsResource(APIResource):
         List[ScheduledEvaluation]
             List of scheduled evaluations.
         """
-        return self._client.get(
+        data = self._client.get(
             "/scheduled-evaluations",
             params={"project_id": project_id},
-            cast_to=ScheduledEvaluation,
         )
+
+        return [ScheduledEvaluation.from_dict(d, _client=self._client) for d in data]
 
     def retrieve(self, scheduled_evaluation_id: str) -> ScheduledEvaluation:
         """Retrieve a scheduled evaluation by ID.
@@ -198,14 +210,11 @@ class ScheduledEvaluationsResource(APIResource):
         scheduled_evaluation_id: str,
         *,
         name: Union[str, NotGiven] = NOT_GIVEN,
-        model_id: Union[str, NotGiven] = NOT_GIVEN,
-        dataset_id: Union[str, NotGiven] = NOT_GIVEN,
+        run_count: Union[int, NotGiven] = NOT_GIVEN,
         frequency: Union[
             Literal["daily", "weekly", "monthly"], FrequencyOption, NotGiven
         ] = NOT_GIVEN,
         time: Union[str, NotGiven] = NOT_GIVEN,
-        tags: Union[List[str], NotGiven] = NOT_GIVEN,
-        run_count: Union[int, NotGiven] = NOT_GIVEN,
         day_of_week: Union[int, NotGiven] = NOT_GIVEN,
         day_of_month: Union[int, NotGiven] = NOT_GIVEN,
         paused: Union[bool, NotGiven] = NOT_GIVEN,
@@ -218,16 +227,10 @@ class ScheduledEvaluationsResource(APIResource):
             The ID of the scheduled evaluation to update.
         name : str, optional
             The name of the scheduled evaluation.
-        model_id : str, optional
-            The ID of the model to evaluate.
-        dataset_id : str, optional
-            The ID of the dataset to evaluate against.
         frequency : str, optional
             The frequency of the scheduled evaluation (daily, weekly, monthly).
         time : str, optional
             The time to run the evaluation (HH:MM format).
-        tags : List[str], optional
-            List of tags to filter the conversations that will be evaluated.
         run_count : int, optional
             The number of times to run each test case (1-5).
         day_of_week : int, optional
@@ -248,11 +251,8 @@ class ScheduledEvaluationsResource(APIResource):
         payload = filter_not_given(
             {
                 "name": name,
-                "model_id": model_id,
-                "dataset_id": dataset_id,
                 "frequency": frequency,
                 "time": time,
-                "tags": tags,
                 "run_count": run_count,
                 "day_of_week": day_of_week,
                 "day_of_month": day_of_month,
@@ -279,9 +279,7 @@ class ScheduledEvaluationsResource(APIResource):
             params={"scheduled_evaluation_ids": scheduled_evaluation_ids},
         )
 
-    def list_evaluations(
-        self, scheduled_evaluation_id: str
-    ) -> List[ScheduledEvaluationRun]:
+    def list_evaluations(self, scheduled_evaluation_id: str) -> List[EvaluationRun]:
         """List evaluations linked to a scheduled evaluation.
 
         Parameters
@@ -291,10 +289,11 @@ class ScheduledEvaluationsResource(APIResource):
 
         Returns
         -------
-        List[ScheduledEvaluationRun]
+        List[EvaluationRun]
             List of evaluations linked to the scheduled evaluation.
         """
-        return self._client.get(
+        data = self._client.get(
             f"/scheduled-evaluations/{scheduled_evaluation_id}/evaluations",
-            cast_to=ScheduledEvaluationRun,
         )
+
+        return [EvaluationRun.from_dict(evaluation) for evaluation in data]

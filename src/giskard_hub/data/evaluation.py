@@ -71,6 +71,7 @@ class EvaluationRun(EntityWithTaskProgress):
     metrics: List[Metric] = field(default_factory=list)
     tags: List[Metric] = field(default_factory=list)
     failure_categories: Dict[str, int] = field(default_factory=dict)
+    scheduled_evaluation_id: str | None = None
 
     @property
     def resource(self) -> str:
@@ -114,69 +115,6 @@ class EvaluationRun(EntityWithTaskProgress):
                 f"[bright_black]{metric.passed} passed, {metric.failed} failed, {metric.errored} errored, {metric.skipped} not executed[/bright_black]",
             )
         console.print(table)
-
-
-@dataclass
-class ScheduledEvaluationRun(EvaluationRun):
-    """Evaluation run linked to a scheduled evaluation.
-
-    This extends EvaluationRun to include additional fields specific to
-    scheduled evaluation runs, such as scheduled_evaluation_id.
-    """
-
-    scheduled_evaluation_id: str | None = field(init=False)
-    target_datasets: List[Dict[str, Any]] = field(default_factory=list)
-    failure_categories: Dict[str, int] = field(default_factory=dict)
-    local: bool = False
-
-    # Tags field for scheduled evaluation runs (different structure than parent class)
-    scheduled_tags: List[Dict[str, Any]] = field(default_factory=list)
-
-    # Datasets field for scheduled evaluation runs (different structure than parent class)
-    scheduled_datasets: List[Dict[str, Any]] = field(default_factory=list)
-
-    # Metrics field for scheduled evaluation runs (different structure than parent class)
-    scheduled_metrics: List[Dict[str, Any]] = field(default_factory=list)
-
-    @classmethod
-    def from_dict(cls, data: Dict[str, Any], **kwargs) -> "ScheduledEvaluationRun":
-        # Extract fields specific to scheduled evaluation runs
-        scheduled_evaluation_id = data.get("scheduled_evaluation_id")
-        target_datasets = data.get("target_datasets", [])
-        failure_categories = data.get("failure_categories", {})
-        local = data.get("local", False)
-        scheduled_tags_data = data.get("tags", [])
-        scheduled_datasets_data = data.get("datasets", [])
-        scheduled_metrics_data = data.get("metrics", [])
-
-        # Handle the status field mapping to progress for parent class
-        if "status" in data and "progress" not in data:
-            data["progress"] = data["status"]
-
-        # Remove fields from data to prevent parent class from processing them
-        data_for_parent = data.copy()
-        if "tags" in data_for_parent:
-            del data_for_parent["tags"]
-        if "datasets" in data_for_parent:
-            del data_for_parent["datasets"]
-        if "metrics" in data_for_parent:
-            del data_for_parent["metrics"]
-
-        # Call parent class method and cast to correct type
-        instance = super().from_dict(data_for_parent, **kwargs)
-        if isinstance(instance, EvaluationRun):
-            # Create new instance with additional fields
-            new_data = instance.__dict__.copy()
-            new_data["scheduled_evaluation_id"] = scheduled_evaluation_id
-            new_data["target_datasets"] = target_datasets
-            new_data["failure_categories"] = failure_categories
-            new_data["local"] = local
-            new_data["scheduled_tags"] = scheduled_tags_data
-            new_data["scheduled_datasets"] = scheduled_datasets_data
-            new_data["scheduled_metrics"] = scheduled_metrics_data
-            return cls(**new_data)
-
-        return instance
 
 
 @dataclass

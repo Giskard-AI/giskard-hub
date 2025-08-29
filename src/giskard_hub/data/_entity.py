@@ -5,13 +5,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
 from time import sleep
-from typing import TYPE_CHECKING, Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, TypeVar
 
-# For Python < 3.11 compatibility
-try:
-    from typing import Self
-except ImportError:
-    Self = Any  # Fallback for older Python versions
+T = TypeVar("T", bound="EntityWithTaskProgress")
 
 from dateutil import parser
 
@@ -112,8 +108,8 @@ class EntityWithTaskProgress(Entity, ABC):
         return isinstance(status, TaskStatus) and status == TaskStatus.ERROR
 
     def wait_for_completion(
-        self, timeout: float = 600, poll_interval: float = 5
-    ) -> Self:
+        self: T, timeout: float = 600, poll_interval: float = 5
+    ) -> T:
         """Wait for the evaluation to complete successfully.
 
         Parameters
@@ -154,7 +150,7 @@ class EntityWithTaskProgress(Entity, ABC):
             f"{self.resource.capitalize()} with id '{self.id}' was aborted."
         )
 
-    def refresh(self) -> Self:
+    def refresh(self: T) -> T:
         """Refresh the entity data from the API."""
         if not self._client or not self.id:
             raise ValueError(
