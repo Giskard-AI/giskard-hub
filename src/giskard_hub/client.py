@@ -112,7 +112,7 @@ class HubClient(SyncClient):
 
         # Check if the connection is valid
         try:
-            resp = self._http.get("/openapi.json")
+            resp = self.get("/openapi.json")
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
