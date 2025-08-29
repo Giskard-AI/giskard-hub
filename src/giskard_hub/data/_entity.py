@@ -7,12 +7,12 @@ from datetime import datetime
 from time import sleep
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, TypeVar
 
-T = TypeVar("T", bound="EntityWithTaskProgress")
-
 from dateutil import parser
 
 from ._base import BaseData
 from .task import TaskProgress, TaskStatus
+
+T = TypeVar("T", bound="EntityWithTaskProgress")
 
 if TYPE_CHECKING:
     from ..client import HubClient
