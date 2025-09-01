@@ -15,7 +15,7 @@ format: ## Format all files inside backend with black & isort
 .PHONY: format
 
 check_linting: ## Verify code with lint tools, like pylint
-	uv tool run pylint ./src/giskard_hub
+	uv run pylint ./src/giskard_hub
 .PHONY: check_linting
 
 check_format: ## Verify code formatting
