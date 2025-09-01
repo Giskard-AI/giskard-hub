@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List, Union
 
 from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
-from ..data.knowledge_base import Document, KnowledgeBase, Topic
+from ..data.knowledge_base import Document, KnowledgeBase
 from ._resource import APIResource
 
 
@@ -126,26 +126,19 @@ class KnowledgeBasesResource(APIResource):
     def list(self, project_id: str) -> list[KnowledgeBase]:
         """List knowledge bases, filtered by project."""
         params = {"project_id": project_id}
-        return self._client.get(
+        data = self._client.get(
             "/knowledge-bases",
             params=params,
-            cast_to=KnowledgeBase,
         )
-
-    def list_topics(self, knowledge_base_id: str) -> list[Topic]:
-        """List topics for a knowledge base."""
-        return self._client.get(
-            f"/knowledge-bases/{knowledge_base_id}/topics",
-            cast_to=Topic,
-        )
+        return [KnowledgeBase.from_dict(kb) for kb in data]
 
     def list_documents(
         self, knowledge_base_id: str, topic_id: Union[str, NotGiven] = NOT_GIVEN
     ) -> list[Document]:
         """List documents for a knowledge base, optionally filtered by topic."""
         params = filter_not_given({"topic_id": topic_id})
-        return self._client.get(
+        data = self._client.get(
             f"/knowledge-bases/{knowledge_base_id}/documents",
             params=params,
-            cast_to=Document,
         )
+        return [Document.from_dict(doc) for doc in data]
