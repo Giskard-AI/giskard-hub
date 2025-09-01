@@ -397,7 +397,7 @@ To update a scheduled evaluation, you need to specify the model, dataset, and a 
 
     # Update a scheduled evaluation to pause it
     scheduled_eval = hub.scheduled_evaluations.update(
-        scheduled_evaluation_id=scheduled_eval.id,
+        scheduled_eval.id,
         paused=True
     )
 

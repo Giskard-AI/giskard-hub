@@ -171,17 +171,26 @@ The `hub.knowledge_bases` resource allows you to create, retrieve, update, delet
 Create a knowledge base
 _______________________
 
-You can create a knowledge base using the ``hub.knowledge_bases.create()`` method. The `data` parameter can be a path to a JSON/JSONL file or a list of Conversation objects.
+You can create a knowledge base using the ``hub.knowledge_bases.create()`` method. The `data` parameter can be a path (relative or absolute) to a JSON/JSONL file or a list of dicts containing a `text` key and an optional `topic` key.
 
 .. code-block:: python
 
-    kb = hub.knowledge_bases.create(
-        project_id=project.id,
+    # Create a kb from a file
+    kb_from_file = hub.knowledge_bases.create(
+        project_id="<PROJECT_ID>",
         name="My knowledge base",
-        data="my_kb.json",  # or a list of Conversation objects
+        data="my_kb.json",  # could also be a JSONL file 
         description="A knowledge base for finance domain",
-        document_column="document",  # optional
-        topic_column="topic",        # optional
+    )
+
+    kb_from_list = hub.knowledge_bases.create(
+        project_id="<PROJECT_ID>",
+        name="My knowledge base",
+        data=[
+            {"text": "The capital of France is Paris", topic="europe"}, 
+            {"text": "The capital of Germany is Berlin", topic="europe"}
+        ],
+        description="A knowledge base for geography domain",
     )
 
 After creating the knowledge base, we need to wait for it to be ready because we need to process documents and topics server-side:
@@ -206,7 +215,7 @@ You can update a knowledge base:
 
 .. code-block:: python
 
-    kb = hub.knowledge_bases.update(
+    kb_updated = hub.knowledge_bases.update(
         "<KNOWLEDGE_BASE_ID>",
         name="Updated KB name",
         description="Updated description"
@@ -230,18 +239,8 @@ You can list all knowledge bases in a project:
 
     kbs = hub.knowledge_bases.list(project_id=project.id)
     for kb in kbs:
-        print(kb.name)
+        print(f"{kb.name} - Topics: {[topic['name'] for topic in kb.topics]}")
 
-List topics in a knowledge base
-_______________________________
-
-You can list topics for a knowledge base:
-
-.. code-block:: python
-
-    topics = hub.knowledge_bases.list_topics("<KNOWLEDGE_BASE_ID>")
-    for topic in topics:
-        print(topic.name)
 
 List documents in a knowledge base
 __________________________________
