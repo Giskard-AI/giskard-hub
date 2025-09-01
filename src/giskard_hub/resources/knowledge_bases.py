@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import List, Union
 
 from ..data._base import NOT_GIVEN, NotGiven, filter_not_given
-from ..data.dataset import Conversation
 from ..data.knowledge_base import Document, KnowledgeBase, Topic
 from ._resource import APIResource
 
@@ -26,7 +25,7 @@ class KnowledgeBasesResource(APIResource):
         *,
         project_id: str,
         name: str,
-        data: Union[str, List[Conversation]],
+        data: Union[str, List[dict[str, str]]],
         description: Union[str, None] = None,
         document_column: Union[str, NotGiven] = NOT_GIVEN,
         topic_column: Union[str, NotGiven] = NOT_GIVEN,
@@ -40,8 +39,8 @@ class KnowledgeBasesResource(APIResource):
             The project ID.
         name : str
             The name of the knowledge base.
-        data : str or list[Conversation]
-            Either a filepath (str) to a JSON or JSONL file, or a list of Conversation objects.
+        data : str or list[dict[str, str]]
+            Either a filepath (str) to a JSON or JSONL file, or a list of dicts containing "text" and "topic" (optional) keys.
         description : str, optional
             Description of the knowledge base.
         document_column : str, optional
@@ -63,31 +62,36 @@ class KnowledgeBasesResource(APIResource):
                 "topic_column": topic_column,
             }
         )
-        ext = ".json"
-        with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as temp_file:
-            if isinstance(data, str):
-                # Treat as filepath, only JSON and JSONL supported
-                file_path = Path(data)
-                ext = file_path.suffix.lower()
-                if ext not in {".json", ".jsonl"}:
-                    raise ValueError(
-                        "Only JSON and JSONL files are supported for file input."
-                    )
-            elif isinstance(data, dict):
-                with temp_file.open("w") as fp:
-                    json.dump(data, fp)
-                file_path = Path(temp_file)
-            else:
-                raise ValueError("data must be a filepath (str) or a Python dict.")
 
-            mime_type = "application/json" if ext == ".json" else "text/jsonl"
-            with file_path.open("rb") as fp:
-                return self._client.post(
-                    "/knowledge-bases",
-                    params=params,
-                    files={"kb_file": (str(file_path.name), fp, mime_type)},
-                    cast_to=KnowledgeBase,
+        ext = ".json"
+
+        if isinstance(data, str):
+            filepath = Path(data)
+            if not filepath.exists():
+                raise FileNotFoundError(f"File {filepath} not found.")
+            ext = filepath.suffix.lower()
+            if ext not in {".json", ".jsonl"}:
+                raise ValueError(
+                    "Only JSON and JSONL files are supported for file input."
                 )
+        elif isinstance(data, list):
+            with tempfile.NamedTemporaryFile(
+                delete=False, suffix=ext, mode="w"
+            ) as temp_file:
+                json.dump(data, temp_file)
+                filepath = Path(temp_file.name)
+        else:
+            raise ValueError("data must be a filepath (str) or a list of Python dicts.")
+
+        mime_type = "application/json" if ext == ".json" else "text/jsonl"
+
+        with filepath.open("rb") as fp:
+            return self._client.post(
+                "/knowledge-bases",
+                params=params,
+                files={"kb_file": (str(filepath.name), fp, mime_type)},
+                cast_to=KnowledgeBase,
+            )
 
     def update(
         self,
