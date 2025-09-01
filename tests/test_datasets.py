@@ -151,7 +151,7 @@ class TestDatasetsResource:
         }
         mock_client.patch.return_value = mock_updated_data
 
-        result = resource.update("dataset-1", description="Updated description only")
+        resource.update("dataset-1", description="Updated description only")
 
         call_args = mock_client.patch.call_args
         json_data = call_args[1]["json"]
@@ -263,7 +263,7 @@ class TestDatasetsResource:
             {"id": "cat2", "name": "Performance", "desc": "Performance issues"},
         ]
 
-        result = resource.generate_adversarial(
+        resource.generate_adversarial(
             model_id="model-2",
             dataset_name="Custom Generated Dataset",
             description="A custom generated dataset",
@@ -327,7 +327,7 @@ class TestDatasetsResource:
 
         topic_ids = ["topic-1", "topic-2", "topic-3"]
 
-        result = resource.generate_document_based(
+        resource.generate_document_based(
             model_id="model-3",
             knowledge_base_id="kb-2",
             dataset_name="Custom Knowledge Dataset",
@@ -359,7 +359,7 @@ class TestDatasetsResource:
         }
         mock_client.post.return_value = mock_generated_data
 
-        result = resource.generate_document_based(
+        resource.generate_document_based(
             model_id="model-1",
             knowledge_base_id="kb-1",
             topic_ids=None,  # Should be converted to empty list
