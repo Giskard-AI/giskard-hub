@@ -10,17 +10,17 @@ notebook: ## Start a jupyter notebook server
 .PHONY: notebook
 
 format: ## Format all files inside backend with black & isort
-	uv run black .
-	uv run isort .
+	uv tool run black .
+	uv tool run isort .
 .PHONY: format
 
 check_linting: ## Verify code with lint tools, like pylint
-	uv run pylint ./src/giskard_hub
+	uv tool run pylint ./src/giskard_hub
 .PHONY: check_linting
 
 check_format: ## Verify code formatting
-	uv run black --check .
-	uv run isort -c .
+	uv tool run black --check .
+	uv tool run isort -c .
 .PHONY: check_format
 
 setup: ## Install dependencies
@@ -37,7 +37,7 @@ doc: setup ## Build the doc
 quick-doc: ## Build the doc & serve it locally
 	cp ./README.md ./script-docs/README.md
 	cd ./script-docs && rm -rf _build && uv run sphinx-build -b html . _build/html -v
-	uv run python3 -m http.server --directory ./script-docs/_build/html/
+	uv run python -m http.server --directory ./script-docs/_build/html/
 .PHONY: quick-doc
 
 test: ## Launch unit tests
