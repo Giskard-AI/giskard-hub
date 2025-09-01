@@ -28,6 +28,13 @@ Before generating test cases, you need to `create a knowledge base </hub/sdk/pro
         topic_ids=["topic-uuid-1", "topic-uuid-2"]  # Optional: filter by specific topics
     )
 
+    # Wait for the dataset to be created
+    business_dataset.wait_for_completion()
+
+    # List the conversations in the dataset
+    for conversation in business_dataset.conversations:
+        print(conversation.messages[0].content)
+
 .. note::
 
    You can also use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate business test cases if you prefer a visual interface.
