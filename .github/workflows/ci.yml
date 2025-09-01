@@ -21,18 +21,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up python
-        id: setup-python
-        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      - name: Install uv and set the python version
+        uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6.6.0
         with:
-            python-version: "3.13"
-
-      - name: Install Poetry
-        uses: snok/install-poetry@76e04a911780d5b312d89783f7b1cd627778900a # v1
-        with:
-            virtualenvs-create: true
-            virtualenvs-in-project: true
-            installer-parallel: true
+          python-version: "3.13"
 
       - name: Install deps & build base images
         run: make setup
@@ -53,11 +45,12 @@ jobs:
         run: make doc
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
       fail-fast: false # Do not stop when any job fails
       matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
     - name: Checkout code
@@ -65,18 +58,10 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Set up python
-      id: setup-python
-      uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+    - name: Install uv and set the python version
+      uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6.6.0
       with:
-          python-version: "${{ matrix.python-version }}"
-
-    - name: Install Poetry
-      uses: snok/install-poetry@76e04a911780d5b312d89783f7b1cd627778900a # v1
-      with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
+        python-version: "${{ matrix.python-version }}"
 
     - name: Install deps & build base images
       run: make setup
