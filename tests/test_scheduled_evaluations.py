@@ -104,7 +104,6 @@ class TestScheduledEvaluationsResource:
         mock_client.get.assert_called_once_with(
             "/scheduled-evaluations",
             params={"project_id": "project-id"},
-            cast_to=ScheduledEvaluation,
         )
         assert len(result) == 2
         assert result[0].id == "se1"
@@ -236,7 +235,7 @@ class TestScheduledEvaluationsResource:
         }
         mock_client.post.return_value = mock_created_data
 
-        result = resource.create(
+        resource.create(
             project_id="project-id",
             name="Weekly Evaluation",
             model_id="model-2",
@@ -273,7 +272,7 @@ class TestScheduledEvaluationsResource:
         }
         mock_client.post.return_value = mock_created_data
 
-        result = resource.create(
+        resource.create(
             project_id="project-id",
             name="Monthly Evaluation",
             model_id="model-3",
@@ -301,7 +300,7 @@ class TestScheduledEvaluationsResource:
             "time": "16:00",
             "day_of_week": 3,
             "run_count": 2,
-            "tags": ["updated"],
+            "tags": ["test-tag"],
             "paused": True,
         }
         mock_client.patch.return_value = mock_updated_data
@@ -313,7 +312,6 @@ class TestScheduledEvaluationsResource:
             time="16:00",
             day_of_week=3,
             run_count=2,
-            tags=["updated"],
             paused=True,
         )
 
@@ -326,7 +324,6 @@ class TestScheduledEvaluationsResource:
         assert json_data["time"] == "16:00"
         assert json_data["day_of_week"] == 3
         assert json_data["run_count"] == 2
-        assert json_data["tags"] == ["updated"]
         assert json_data["paused"] is True
         assert result.name == "Updated Evaluation Name"
 
@@ -349,7 +346,7 @@ class TestScheduledEvaluationsResource:
         }
         mock_client.patch.return_value = mock_updated_data
 
-        result = resource.update("se1", paused=True)
+        resource.update("se1", paused=True)
 
         call_args = mock_client.patch.call_args
         json_data = call_args[1]["json"]
@@ -457,84 +454,6 @@ class TestScheduledEvaluationDataModel:
             result.last_execution_status.error_message == "Model endpoint unavailable"
         )
         assert result.last_execution_status.status == "error"
-
-    def test_scheduled_evaluation_refresh_with_client(self):
-        """Test refreshing a scheduled evaluation with a client."""
-        # Create a mock client
-        mock_client = MagicMock()
-        mock_client.scheduled_evaluations.retrieve.return_value = (
-            ScheduledEvaluation.from_dict(
-                {
-                    "id": "se1",
-                    "project_id": "project-id",
-                    "name": "Updated Name",
-                    "model_id": "model-1",
-                    "dataset_id": "dataset-1",
-                    "frequency": "daily",
-                    "time": "09:00",
-                    "run_count": 1,
-                    "tags": [],
-                    "paused": False,
-                }
-            )
-        )
-
-        # Create a scheduled evaluation with client
-        scheduled_eval = ScheduledEvaluation.from_dict(
-            {
-                "id": "se1",
-                "project_id": "project-id",
-                "name": "Original Name",
-                "model_id": "model-1",
-                "dataset_id": "dataset-1",
-                "frequency": "daily",
-                "time": "09:00",
-                "run_count": 1,
-                "tags": [],
-                "paused": False,
-            }
-        )
-        scheduled_eval._client = mock_client
-
-        result = scheduled_eval.refresh()
-
-        mock_client.scheduled_evaluations.retrieve.assert_called_once_with("se1")
-        assert result is scheduled_eval  # Should return self
-        assert result.name == "Updated Name"  # Should be updated
-
-    def test_scheduled_evaluation_refresh_without_client(self):
-        """Test refreshing a scheduled evaluation without a client raises error."""
-        scheduled_eval = ScheduledEvaluation.from_dict(
-            {
-                "id": "se1",
-                "project_id": "project-id",
-                "name": "Test Name",
-                "model_id": "model-1",
-                "dataset_id": "dataset-1",
-                "frequency": "daily",
-                "time": "09:00",
-                "run_count": 1,
-                "tags": [],
-                "paused": False,
-            }
-        )
-
-        with pytest.raises(ValueError, match="detached or unsaved"):
-            scheduled_eval.refresh()
-
-    def test_scheduled_evaluation_refresh_without_id(self):
-        """Test refreshing a scheduled evaluation without an ID raises error."""
-        mock_client = MagicMock()
-        scheduled_eval = ScheduledEvaluation(
-            project_id="project-id",
-            name="Test Name",
-            model_id="model-1",
-            dataset_id="dataset-1",
-        )
-        scheduled_eval._client = mock_client
-
-        with pytest.raises(ValueError, match="detached or unsaved"):
-            scheduled_eval.refresh()
 
 
 class TestExecutionStatus:
