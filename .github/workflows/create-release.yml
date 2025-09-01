@@ -40,20 +40,18 @@ jobs:
         with:
           python-version: "3.13"
       #----------------------------------------------
-      #  -----  install & configure poetry  -----
+      #  -----  install & configure uv  -----
       #----------------------------------------------
-      - name: Install Poetry
-        uses: snok/install-poetry@76e04a911780d5b312d89783f7b1cd627778900a # v1
+      - name: Install UV
+        uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6.6.0
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
+          version: "latest"
 
       - name: Change version
-        run: poetry version ${{ inputs.version }}
+        run: uv version ${{ inputs.version }}
 
       - name: Build release candidate wheel
-        run: poetry build
+        run: uv build
 
       - name: Configure git
         run: |
@@ -84,4 +82,4 @@ jobs:
               dist/giskard_hub-*.whl
 
       - name: Push to Pipy
-        run: poetry publish --username "${{ secrets.PIPY_USERNAME }}" --password "${{ secrets.PIPY_PASSWORD }}"
+        run: uv publish --username "${{ secrets.PIPY_USERNAME }}" --password "${{ secrets.PIPY_PASSWORD }}"

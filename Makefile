@@ -10,36 +10,36 @@ notebook: ## Start a jupyter notebook server
 .PHONY: notebook
 
 format: ## Format all files inside backend with black & isort
-	poetry run black .
-	poetry run isort .
+	uv run black .
+	uv run isort .
 .PHONY: format
 
 check_linting: ## Verify code with lint tools, like pylint
-	poetry run pylint ./src/giskard_hub
+	uv run pylint ./src/giskard_hub
 .PHONY: check_linting
 
 check_format: ## Verify code formatting
-	poetry run black --check .
-	poetry run isort -c .
+	uv run black --check .
+	uv run isort -c .
 .PHONY: check_format
 
 setup: ## Install dependencies
-	poetry sync
+	uv sync --dev --all-extras
 .PHONY: setup
 
 doc: setup ## Build the doc
 	cp ./README.md ./script-docs/README.md
-	cd ./script-docs && rm -rf _build && poetry run sphinx-build -b html . _build/html -v
+	cd ./script-docs && rm -rf _build && uv run sphinx-build -b html . _build/html -v
 	rm -rf ./docs && mkdir -p ./docs && touch ./docs/.nojekyll && mv ./script-docs/_build/html/* ./docs
 	echo docs-hub.giskard.ai > ./docs/CNAME
 .PHONY: setup
 
 quick-doc: ## Build the doc & serve it locally
 	cp ./README.md ./script-docs/README.md
-	cd ./script-docs && rm -rf _build && poetry run sphinx-build -b html . _build/html -v
-	poetry run python3 -m http.server --directory ./script-docs/_build/html/
+	cd ./script-docs && rm -rf _build && uv run sphinx-build -b html . _build/html -v
+	uv run python3 -m http.server --directory ./script-docs/_build/html/
 .PHONY: quick-doc
 
 test: ## Launch unit tests
-	poetry run pytest -vvv ./tests
+	uv run pytest -vvv ./tests
 .PHONY: test
