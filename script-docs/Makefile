@@ -14,7 +14,7 @@ help:
 
 # Live documentation with auto-reload
 live:
-	poetry run sphinx-autobuild $(SOURCEDIR) $(BUILDDIR)/html --port 8000 --open-browser
+	uv run sphinx-autobuild $(SOURCEDIR) $(BUILDDIR)/html --port 8000 --open-browser
 
 .PHONY: help Makefile live
 
