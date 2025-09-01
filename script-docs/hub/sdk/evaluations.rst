@@ -361,24 +361,20 @@ You can create a scheduled evaluation using the ``hub.scheduled_evaluations.crea
 
 .. code-block:: python
 
+    # Create a scheduled evaluation that runs every Monday at 9 AM (UTC)
     scheduled_eval = hub.scheduled_evaluations.create(
         name="Weekly Performance Check",
-        project_id=project.id,
+        project_id=project_id,
         model_id=model.id,
         dataset_id=dataset_id,
-        frequency="weekly",
-        tags=["weekly", "performance"],
-        run_count=1, # number of runs per case
+        frequency="weekly", # 'daily', 'weekly' or 'monthly'
+        time="09:00", # HH:MM (24h format)
         day_of_week=1, # 1-7 (1 is Monday)
-        day_of_month=None, # 1-31
-        frequency="weekly", # daily, weekly, monthly, yearly, cron
-        time="09:00",
-        paused=False
     )
 
 .. note::
 
-    The time of the evaluation is specified in the timezone of the deployment server.
+    The time of the evaluation is specified in the UTC timezone.
 
 List scheduled evaluations
 --------------------------
@@ -387,10 +383,10 @@ You can list all scheduled evaluations using the ``hub.scheduled_evaluations.lis
 
 .. code-block:: python
 
-    scheduled_evals = hub.scheduled_evaluations.list()
+    scheduled_evals = hub.scheduled_evaluations.list(project_id=project_id)
 
     for scheduled_eval in scheduled_evals:
-        print(f"{scheduled_eval.name}: {scheduled_eval.schedule}")
+        print(f"{scheduled_eval.name}: {scheduled_eval.to_dict()}")
 
 Update a scheduled evaluation
 -----------------------------
@@ -399,9 +395,9 @@ To update a scheduled evaluation, you need to specify the model, dataset, and a 
 
 .. code-block:: python
 
-    # Create a scheduled evaluation that runs every Monday at 9 AM
-    scheduled_eval = hub.scheduled_evaluations.create(
-        id=scheduled_eval.id,
+    # Update a scheduled evaluation to pause it
+    scheduled_eval = hub.scheduled_evaluations.update(
+        scheduled_evaluation_id=scheduled_eval.id,
         paused=True
     )
 
@@ -417,9 +413,9 @@ You can delete a scheduled evaluation using the ``hub.scheduled_evaluations.dele
 List evaluation runs linked to a scheduled evaluation
 -----------------------------------------------------
 
-Track the execution of your scheduled evaluations:
+Track the runs of your scheduled evaluations:
 
 .. code-block:: python
 
-    # Check execution history
-    executions = hub.scheduled_evaluations.list_evaluations(scheduled_eval.id)
+    # Check run history
+    evaluations = hub.scheduled_evaluations.list_evaluations(scheduled_eval.id)
