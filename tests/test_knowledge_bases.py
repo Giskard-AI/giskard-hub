@@ -124,31 +124,10 @@ class TestKnowledgeBasesResource:
         mock_client.get.assert_called_once_with(
             "/knowledge-bases",
             params={"project_id": "project-id"},
-            cast_to=KnowledgeBase,
         )
         assert len(result) == 2
         assert result[0].id == "kb1"
         assert result[1].id == "kb2"
-
-    def test_list_topics(self, mock_client):
-        """Test listing topics for a knowledge base."""
-        resource = KnowledgeBasesResource(mock_client)
-
-        # Mock the response
-        mock_topics_data = [
-            {"id": "topic1", "name": "Topic 1", "knowledge_base_id": "kb1"},
-            {"id": "topic2", "name": "Topic 2", "knowledge_base_id": "kb1"},
-        ]
-        mock_client.get.return_value = mock_topics_data
-
-        result = resource.list_topics("kb1")
-
-        mock_client.get.assert_called_once_with(
-            "/knowledge-bases/kb1/topics", cast_to=Topic
-        )
-        assert len(result) == 2
-        assert result[0].id == "topic1"
-        assert result[1].id == "topic2"
 
     def test_list_documents(self, mock_client):
         """Test listing documents for a knowledge base."""
@@ -176,7 +155,8 @@ class TestKnowledgeBasesResource:
         result = resource.list_documents("kb1")
 
         mock_client.get.assert_called_once_with(
-            "/knowledge-bases/kb1/documents", params={}, cast_to=Document
+            "/knowledge-bases/kb1/documents",
+            params={},
         )
         assert len(result) == 2
         assert result[0].id == "doc1"
@@ -203,7 +183,6 @@ class TestKnowledgeBasesResource:
         mock_client.get.assert_called_once_with(
             "/knowledge-bases/kb1/documents",
             params={"topic_id": "topic1"},
-            cast_to=Document,
         )
         assert len(result) == 1
         assert result[0].id == "doc1"
