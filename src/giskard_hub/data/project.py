@@ -3,11 +3,12 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import List
 
+from ._base import BaseData
 from ._entity import Entity
 
 
 @dataclass
-class FailureCategory:
+class FailureCategory(BaseData):
     """Failure Category
 
     Attributes
