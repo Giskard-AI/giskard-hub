@@ -4,13 +4,14 @@ import warnings
 from dataclasses import dataclass, field
 from typing import List, Optional
 
-from ._entity import Entity
+from ._entity import EntityWithTaskProgress
 from .chat_test_case import ChatTestCase
 from .conversation import Conversation
+from .task import TaskProgress
 
 
 @dataclass
-class Dataset(Entity):
+class Dataset(EntityWithTaskProgress):
     """Dataset object, containing the metadata about the dataset."""
 
     name: str
@@ -61,3 +62,16 @@ class Dataset(Entity):
         return self._client.chat_test_cases.create(
             dataset_id=self.id, **chat_test_case.to_dict()
         )
+
+    @classmethod
+    def from_dict(cls, data: dict, **kwargs) -> "Dataset":
+        """Create a Dataset instance from a dictionary."""
+        data = dict(data)
+        if "status" in data and data["status"]:
+            # Map status to progress for EntityWithTaskProgress compatibility
+            data["progress"] = TaskProgress.from_dict(data["status"])
+        return super().from_dict(data, **kwargs)
+
+    @property
+    def resource(self) -> str:
+        return "datasets"
