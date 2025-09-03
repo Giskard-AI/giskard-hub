@@ -15,9 +15,9 @@
 <meta content="https://docs-hub.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
 <meta content="Projects are the top-level organizational units in Giskard Hub. They provide a workspace for your team to collaborate on LLM agent testing and evaluation. Each project can contain: Agents: The AI s..." name="description"/>
-<title>Manage your projects and agents | Giskard  documentation</title>
-<meta content="Manage your projects and agents | Giskard  documentation" property="og:title"/>
-<meta content="Manage your projects and agents | Giskard  documentation" name="twitter:title"/>
+<title>Manage your projects, agents and knowledge bases | Giskard  documentation</title>
+<meta content="Manage your projects, agents and knowledge bases | Giskard  documentation" property="og:title"/>
+<meta content="Manage your projects, agents and knowledge bases | Giskard  documentation" name="twitter:title"/>
 <link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
 <link href="../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
@@ -153,7 +153,7 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Manage your projects and agents</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Manage your projects, agents and knowledge bases</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets/business.html">Detect business failures by generating synthetic tests</a></li>
@@ -227,11 +227,11 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Manage your projects and agents</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Manage your projects, agents and knowledge bases</span>
 </nav>
 <div id="content" role="main">
-<section id="manage-your-projects-and-agents">
-<h1>Manage your projects and agents<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#manage-your-projects-and-agents"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<section id="manage-your-projects-agents-and-knowledge-bases">
+<h1>Manage your projects, agents and knowledge bases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#manage-your-projects-agents-and-knowledge-bases"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
 <p>Projects are the top-level organizational units in Giskard Hub. They provide a workspace for your team to collaborate on LLM agent testing and evaluation.</p>
 <p>Each project can contain:</p>
 <ul class="simple">
@@ -248,7 +248,7 @@
 </span><span id="line-3"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
-<p>You can now use the <code class="docutils literal notranslate"><span class="pre">hub</span></code> client to create, update, and delete projects and agents.</p>
+<p>You can now use the <code class="docutils literal notranslate"><span class="pre">hub</span></code> client to create, update, and delete projects, agents, and knowledge bases.</p>
 <section id="projects">
 <h2>Projects<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#projects" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#projects'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <section id="create-a-project">
@@ -361,6 +361,85 @@
 </div>
 </section>
 </section>
+<section id="knowledge-bases">
+<h2>Knowledge bases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#knowledge-bases" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#knowledge-bases'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>The <cite>hub.knowledge_bases</cite> resource allows you to create, retrieve, update, delete, and list knowledge bases, as well as list topics and documents within a knowledge base.</p>
+<section id="create-a-knowledge-base">
+<h3>Create a knowledge base<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-knowledge-base" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-knowledge-base'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can create a knowledge base using the <code class="docutils literal notranslate"><span class="pre">hub.knowledge_bases.create()</span></code> method. The <cite>data</cite> parameter can be a path (relative or absolute) to a JSON/JSONL file or a list of dicts containing a <cite>text</cite> key and an optional <cite>topic</cite> key.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Create a kb from a file</span>
+</span><span id="line-2"><span class="n">kb_from_file</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-3">    <span class="n">project_id</span><span class="o">=</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">name</span><span class="o">=</span><span class="s2">"My knowledge base"</span><span class="p">,</span>
+</span><span id="line-5">    <span class="n">data</span><span class="o">=</span><span class="s2">"my_kb.json"</span><span class="p">,</span>  <span class="c1"># could also be a JSONL file</span>
+</span><span id="line-6">    <span class="n">description</span><span class="o">=</span><span class="s2">"A knowledge base for finance domain"</span><span class="p">,</span>
+</span><span id="line-7"><span class="p">)</span>
+</span><span id="line-8">
+</span><span id="line-9"><span class="n">kb_from_list</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-10">    <span class="n">project_id</span><span class="o">=</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-11">    <span class="n">name</span><span class="o">=</span><span class="s2">"My knowledge base"</span><span class="p">,</span>
+</span><span id="line-12">    <span class="n">data</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-13">        <span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s2">"The capital of France is Paris"</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="s2">"europe"</span><span class="p">},</span>
+</span><span id="line-14">        <span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s2">"The capital of Germany is Berlin"</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="s2">"europe"</span><span class="p">}</span>
+</span><span id="line-15">    <span class="p">],</span>
+</span><span id="line-16">    <span class="n">description</span><span class="o">=</span><span class="s2">"A knowledge base for geography domain"</span><span class="p">,</span>
+</span><span id="line-17"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>After creating the knowledge base, we need to wait for it to be ready because we need to process documents and topics server-side:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">kb</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="retrieve-a-knowledge-base">
+<h3>Retrieve a knowledge base<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-a-knowledge-base" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-a-knowledge-base'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can retrieve a knowledge base by ID:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">kb</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s2">"&lt;KNOWLEDGE_BASE_ID&gt;"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="update-a-knowledge-base">
+<h3>Update a knowledge base<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#update-a-knowledge-base" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#update-a-knowledge-base'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can update a knowledge base:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">kb_updated</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+</span><span id="line-2">    <span class="s2">"&lt;KNOWLEDGE_BASE_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-3">    <span class="n">name</span><span class="o">=</span><span class="s2">"Updated KB name"</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">description</span><span class="o">=</span><span class="s2">"Updated description"</span>
+</span><span id="line-5"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="delete-a-knowledge-base">
+<h3>Delete a knowledge base<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-a-knowledge-base" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-a-knowledge-base'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can delete a knowledge base by ID (or a list of IDs):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"&lt;KNOWLEDGE_BASE_ID&gt;"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="list-knowledge-bases">
+<h3>List knowledge bases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-knowledge-bases" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-knowledge-bases'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can list all knowledge bases in a project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">kbs</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span><span id="line-2"><span class="k">for</span> <span class="n">kb</span> <span class="ow">in</span> <span class="n">kbs</span><span class="p">:</span>
+</span><span id="line-3">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">kb</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> - Topics: </span><span class="si">{</span><span class="p">[</span><span class="n">topic</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kb</span><span class="o">.</span><span class="n">topics</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="list-documents-in-a-knowledge-base">
+<h3>List documents in a knowledge base<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-documents-in-a-knowledge-base" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-documents-in-a-knowledge-base'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can list documents for a knowledge base, optionally filtered by topic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">documents</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">list_documents</span><span class="p">(</span><span class="s2">"&lt;KNOWLEDGE_BASE_ID&gt;"</span><span class="p">)</span>
+</span><span id="line-2"><span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+</span><span id="line-3">    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span><span id="line-4">
+</span><span id="line-5"><span class="c1"># To filter by topic:</span>
+</span><span id="line-6"><span class="n">documents</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="o">.</span><span class="n">list_documents</span><span class="p">(</span><span class="s2">"&lt;KNOWLEDGE_BASE_ID&gt;"</span><span class="p">,</span> <span class="n">topic_id</span><span class="o">=</span><span class="s2">"&lt;TOPIC_ID&gt;"</span><span class="p">)</span>
+</span><span id="line-7"><span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+</span><span id="line-8">    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+</section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
@@ -396,6 +475,15 @@
 <li><a :data-current="activeSection === '#update-an-agent'" class="reference internal" href="#update-an-agent">Update an agent</a></li>
 <li><a :data-current="activeSection === '#delete-an-agent'" class="reference internal" href="#delete-an-agent">Delete an agent</a></li>
 <li><a :data-current="activeSection === '#list-agents'" class="reference internal" href="#list-agents">List agents</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#knowledge-bases'" class="reference internal" href="#knowledge-bases">Knowledge bases</a><ul>
+<li><a :data-current="activeSection === '#create-a-knowledge-base'" class="reference internal" href="#create-a-knowledge-base">Create a knowledge base</a></li>
+<li><a :data-current="activeSection === '#retrieve-a-knowledge-base'" class="reference internal" href="#retrieve-a-knowledge-base">Retrieve a knowledge base</a></li>
+<li><a :data-current="activeSection === '#update-a-knowledge-base'" class="reference internal" href="#update-a-knowledge-base">Update a knowledge base</a></li>
+<li><a :data-current="activeSection === '#delete-a-knowledge-base'" class="reference internal" href="#delete-a-knowledge-base">Delete a knowledge base</a></li>
+<li><a :data-current="activeSection === '#list-knowledge-bases'" class="reference internal" href="#list-knowledge-bases">List knowledge bases</a></li>
+<li><a :data-current="activeSection === '#list-documents-in-a-knowledge-base'" class="reference internal" href="#list-documents-in-a-knowledge-base">List documents in a knowledge base</a></li>
 </ul>
 </li>
 </ul>

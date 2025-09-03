@@ -176,7 +176,7 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="hub/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hub/sdk/projects.html">Manage your projects and agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hub/sdk/projects.html">Manage your projects, agents and knowledge bases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/sdk/datasets/index.html">Create test datasets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hub/sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hub/sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
@@ -322,10 +322,10 @@
 </li>
       <li><a href="oss/sdk/reference/raget/testset_generation.html#giskard.rag.QATestset.copy">copy() (giskard.rag.QATestset method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="oss/sdk/reference/raget/metrics.html#giskard.rag.metrics.correctness.correctness_metric">correctness_metric() (in module giskard.rag.metrics.correctness)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="oss/sdk/reference/raget/evaluation.html#giskard.llm.evaluators.CorrectnessEvaluator">CorrectnessEvaluator (class in giskard.llm.evaluators)</a>
 </li>
       <li><a href="oss/sdk/reference/raget/testset_generation.html#giskard.rag.QATestset.count_sample_by_metadata">count_sample_by_metadata() (giskard.rag.QATestset method)</a>
@@ -339,9 +339,13 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.create">(giskard_hub.resources.EvaluationsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.create">(giskard_hub.resources.KnowledgeBasesResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.create">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.create">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.create">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
       </ul></li>
       <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.create_local">create_local() (giskard_hub.resources.EvaluationsResource method)</a>
@@ -370,9 +374,13 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.delete">(giskard_hub.resources.EvaluationsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.delete">(giskard_hub.resources.KnowledgeBasesResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.delete">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.delete">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.delete">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -414,6 +422,10 @@
   <h2 id="G">G</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.DatasetsResource.generate_adversarial">generate_adversarial() (giskard_hub.resources.DatasetsResource method)</a>
+</li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.DatasetsResource.generate_document_based">generate_document_based() (giskard_hub.resources.DatasetsResource method)</a>
+</li>
       <li><a href="oss/sdk/reference/scan/report.html#giskard.scanner.report.ScanReport.generate_rails">generate_rails() (giskard.scanner.report.ScanReport method)</a>
 </li>
       <li><a href="oss/sdk/reference/raget/question_generation.html#giskard.rag.question_generators.OutOfScopeGenerator.generate_single_question">generate_single_question() (giskard.rag.question_generators.OutOfScopeGenerator method)</a>
@@ -428,10 +440,10 @@
 </li>
       <li><a href="oss/sdk/reference/raget/testset_generation.html#giskard.rag.generate_testset">generate_testset() (in module giskard.rag)</a>
 </li>
-      <li><a href="hub/sdk/reference/client.html#giskard_hub.client.SyncClient.get">get() (giskard_hub.client.SyncClient method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="hub/sdk/reference/client.html#giskard_hub.client.SyncClient.get">get() (giskard_hub.client.SyncClient method)</a>
+</li>
       <li><a href="oss/sdk/reference/raget/testset_generation.html#giskard.rag.QATestset.get_metadata_values">get_metadata_values() (giskard.rag.QATestset method)</a>
 </li>
       <li>
@@ -465,6 +477,10 @@
       <li><a href="oss/sdk/reference/raget/knowledge_base.html#giskard.rag.knowledge_base.KnowledgeBase">KnowledgeBase (class in giskard.rag.knowledge_base)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource">KnowledgeBasesResource (class in giskard_hub.resources)</a>
+</li>
+  </ul></td>
   </tr>
       </table>
   
@@ -482,19 +498,27 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.list">(giskard_hub.resources.EvaluationsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.list">(giskard_hub.resources.KnowledgeBasesResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.list">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.list">(giskard_hub.resources.ProjectsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.list">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
+</li>
       </ul></li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.list_documents">list_documents() (giskard_hub.resources.KnowledgeBasesResource method)</a>
+</li>
       <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.list_entries">list_entries() (giskard_hub.resources.EvaluationsResource method)</a>
 </li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.list_evaluations">list_evaluations() (giskard_hub.resources.ScheduledEvaluationsResource method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="oss/sdk/reference/scan/llm_detectors.html#giskard.scanner.llm.LLMBasicSycophancyDetector">LLMBasicSycophancyDetector (class in giskard.scanner.llm)</a>
 </li>
       <li><a href="oss/sdk/reference/scan/llm_detectors.html#giskard.scanner.llm.LLMCharsInjectionDetector">LLMCharsInjectionDetector (class in giskard.scanner.llm)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="oss/sdk/reference/scan/llm_detectors.html#giskard.scanner.llm.LLMHarmfulContentDetector">LLMHarmfulContentDetector (class in giskard.scanner.llm)</a>
 </li>
       <li><a href="oss/sdk/reference/scan/llm_detectors.html#giskard.scanner.llm.LLMImplausibleOutputDetector">LLMImplausibleOutputDetector (class in giskard.scanner.llm)</a>
@@ -629,9 +653,13 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.retrieve">(giskard_hub.resources.EvaluationsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.retrieve">(giskard_hub.resources.KnowledgeBasesResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.retrieve">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.retrieve">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.retrieve">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -661,6 +689,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource">ScheduledEvaluationsResource (class in giskard_hub.resources)</a>
+</li>
       <li><a href="oss/sdk/reference/raget/question_generation.html#giskard.rag.question_generators.SimpleQuestionsGenerator">SimpleQuestionsGenerator (class in giskard.rag.question_generators)</a>
 </li>
       <li><a href="oss/sdk/reference/raget/question_generation.html#giskard.rag.question_generators.SituationalQuestionsGenerator">SituationalQuestionsGenerator (class in giskard.rag.question_generators)</a>
@@ -744,9 +774,13 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.DatasetsResource.update">(giskard_hub.resources.DatasetsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.update">(giskard_hub.resources.KnowledgeBasesResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.update">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.update">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.update">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
       </ul></li>
   </ul></td>

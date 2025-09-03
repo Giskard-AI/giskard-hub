@@ -14,7 +14,7 @@
 <meta content="Generate and manage security-focused test cases programmatically. Test for vulnerabilities, prompt injection attacks, and security failures using the Python SDK." property="og:description"/>
 <meta content="https://docs-hub.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior. Next steps: R..." name="description"/>
+<meta content="Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior. Adversarial S..." name="description"/>
 <title>Detect security vulnerabilities by generating synthetic tests | Giskard  documentation</title>
 <meta content="Detect security vulnerabilities by generating synthetic tests | Giskard  documentation" property="og:title"/>
 <meta content="Detect security vulnerabilities by generating synthetic tests | Giskard  documentation" name="twitter:title"/>
@@ -153,7 +153,7 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../projects.html">Manage your projects and agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects.html">Manage your projects, agents and knowledge bases</a></li>
 <li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="business.html">Detect business failures by generating synthetic tests</a></li>
@@ -234,10 +234,47 @@
 <section id="detect-security-vulnerabilities-by-generating-synthetic-tests">
 <h1>Detect security vulnerabilities by generating synthetic tests<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#detect-security-vulnerabilities-by-generating-synthetic-tests"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
 <p>Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.</p>
+<section id="adversarial-security-testing">
+<h2>Adversarial Security Testing<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#adversarial-security-testing" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#adversarial-security-testing'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">generate_adversarial</span></code> method creates test cases designed to expose security vulnerabilities and robustness issues in your AI agents. This is particularly useful for:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Generate adversarial test cases for security testing</span>
+</span><span id="line-2"><span class="n">security_dataset</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">generate_adversarial</span><span class="p">(</span>
+</span><span id="line-3">    <span class="n">model_id</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">dataset_name</span><span class="o">=</span><span class="s2">"Security Test Cases"</span><span class="p">,</span>
+</span><span id="line-5">    <span class="n">description</span><span class="o">=</span><span class="s2">"Adversarial test cases for security vulnerability detection"</span><span class="p">,</span>
+</span><span id="line-6">    <span class="n">categories</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-7">        <span class="p">{</span>
+</span><span id="line-8">            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"prompt_injection"</span><span class="p">,</span>
+</span><span id="line-9">            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Prompt Injection"</span><span class="p">,</span>
+</span><span id="line-10">            <span class="s2">"desc"</span><span class="p">:</span> <span class="s2">"Tests for prompt injection vulnerabilities"</span>
+</span><span id="line-11">        <span class="p">},</span>
+</span><span id="line-12">        <span class="p">{</span>
+</span><span id="line-13">            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"harmful_content"</span><span class="p">,</span>
+</span><span id="line-14">            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Harmful Content"</span><span class="p">,</span>
+</span><span id="line-15">            <span class="s2">"desc"</span><span class="p">:</span> <span class="s2">"Tests for harmful content generation"</span>
+</span><span id="line-16">        <span class="p">},</span>
+</span><span id="line-17">        <span class="p">{</span>
+</span><span id="line-18">            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"information_disclosure"</span><span class="p">,</span>
+</span><span id="line-19">            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Information Disclosure"</span><span class="p">,</span>
+</span><span id="line-20">            <span class="s2">"desc"</span><span class="p">:</span> <span class="s2">"Tests for unintended information leakage"</span>
+</span><span id="line-21">        <span class="p">}</span>
+</span><span id="line-22">    <span class="p">],</span>
+</span><span id="line-23">    <span class="n">n_examples</span><span class="o">=</span><span class="mi">20</span> <span class="c1"># Optional: number of conversations per category to generate</span>
+</span><span id="line-24"><span class="p">)</span>
+</span><span id="line-25">
+</span><span id="line-26"><span class="c1"># Wait for the dataset to be created</span>
+</span><span id="line-27"><span class="n">security_dataset</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">()</span>
+</span><span id="line-28">
+</span><span id="line-29"><span class="c1"># List the conversations in the dataset</span>
+</span><span id="line-30"><span class="k">for</span> <span class="n">conversation</span> <span class="ow">in</span> <span class="n">security_dataset</span><span class="o">.</span><span class="n">conversations</span><span class="p">:</span>
+</span><span id="line-31">    <span class="nb">print</span><span class="p">(</span><span class="n">conversation</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As of now, the Giskard Hub SDK does not support the generation of synthetic test cases for security vulnerabilities but you can use the <a class="reference external" href="/hub/ui/datasets/security" rel="nofollow noopener">Giskard Hub UI<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a> to generate them.</p>
+<p>You can also use the <a class="reference external" href="/hub/ui/datasets/security" rel="nofollow noopener">Giskard Hub UI<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a> to generate security test cases if you prefer a visual interface.</p>
 </div>
+</section>
 <section id="next-steps">
 <h2>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <ul class="simple">
@@ -267,6 +304,7 @@
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
+<li><a :data-current="activeSection === '#adversarial-security-testing'" class="reference internal" href="#adversarial-security-testing">Adversarial Security Testing</a></li>
 <li><a :data-current="activeSection === '#next-steps'" class="reference internal" href="#next-steps">Next steps</a></li>
 </ul>
 </div>
