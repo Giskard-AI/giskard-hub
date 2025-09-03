@@ -9,6 +9,7 @@ from giskard_hub.data.scheduled_evaluation import (
     ScheduledEvaluation,
     SuccessExecutionStatus,
 )
+from giskard_hub.errors import HubValidationError
 from giskard_hub.resources.scheduled_evaluations import ScheduledEvaluationsResource
 
 
@@ -284,6 +285,91 @@ class TestScheduledEvaluationsResource:
 
         call_args = mock_client.post.call_args
         assert call_args[1]["json"]["day_of_month"] == 15
+
+    def test_create_daily_with_day_of_week_warning(self, mock_client):
+        """Test creating a daily scheduled evaluation with day_of_week parameter (should warn)."""
+        resource = ScheduledEvaluationsResource(mock_client)
+
+        # Mock the response
+        mock_created_data = {
+            "id": "se-daily-warn",
+            "project_id": "project-id",
+            "name": "Daily Evaluation with Warning",
+            "model_id": "model-1",
+            "dataset_id": "dataset-1",
+            "frequency": "daily",
+            "time": "10:00",
+            "run_count": 1,
+            "tags": [],
+            "paused": False,
+        }
+        mock_client.post.return_value = mock_created_data
+
+        # Test that it works but issues a warning
+        with pytest.warns(
+            UserWarning,
+            match="day_of_week and day_of_month are ignored when frequency is 'daily'",
+        ):
+            result = resource.create(
+                project_id="project-id",
+                name="Daily Evaluation with Warning",
+                model_id="model-1",
+                dataset_id="dataset-1",
+                frequency="daily",
+                time="10:00",
+                day_of_week=1,  # This should trigger a warning but not fail
+            )
+
+        # Verify the call was made successfully
+        mock_client.post.assert_called_once()
+        call_args = mock_client.post.call_args
+        assert call_args[1]["json"]["frequency"] == "daily"
+        assert call_args[1]["json"]["day_of_week"] == 1  # Parameter is still passed
+        assert result.id == "se-daily-warn"
+
+    def test_create_weekly_with_day_of_month_error(self, mock_client):
+        """Test creating a weekly scheduled evaluation with day_of_month parameter (should error)."""
+        resource = ScheduledEvaluationsResource(mock_client)
+
+        # Test that it raises an error because day_of_week is required for weekly frequency
+        with pytest.raises(
+            HubValidationError,
+            match="day_of_week must be provided when frequency is 'weekly'",
+        ):
+            resource.create(
+                project_id="project-id",
+                name="Weekly Evaluation Error",
+                model_id="model-2",
+                dataset_id="dataset-2",
+                frequency="weekly",
+                time="12:00",
+                day_of_month=1,  # Wrong parameter for weekly frequency
+            )
+
+        # Verify no API call was made due to validation error
+        mock_client.post.assert_not_called()
+
+    def test_create_monthly_with_day_of_week_error(self, mock_client):
+        """Test creating a monthly scheduled evaluation with day_of_week parameter (should error)."""
+        resource = ScheduledEvaluationsResource(mock_client)
+
+        # Test that it raises an error because day_of_month is required for monthly frequency
+        with pytest.raises(
+            HubValidationError,
+            match="day_of_month must be provided when frequency is 'monthly'",
+        ):
+            resource.create(
+                project_id="project-id",
+                name="Monthly Evaluation Error",
+                model_id="model-3",
+                dataset_id="dataset-3",
+                frequency="monthly",
+                time="00:00",
+                day_of_week=1,  # Wrong parameter for monthly frequency
+            )
+
+        # Verify no API call was made due to validation error
+        mock_client.post.assert_not_called()
 
     def test_update(self, mock_client):
         """Test updating a scheduled evaluation."""
