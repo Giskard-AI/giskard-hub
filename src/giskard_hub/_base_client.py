@@ -53,11 +53,17 @@ class SyncClient:
         return error_message, fields_str
 
     def _request(self, method: str, path: str, *, cast_to=None, **kwargs):
+        # For multipart uploads, don't override Content-Type header
+        headers = self._headers()
+        if "files" in kwargs:
+            # Remove Content-Type header for multipart uploads to let httpx set the boundary
+            headers = {k: v for k, v in headers.items() if k.lower() != "content-type"}
+
         try:
             res = self._http.request(
                 method=method,
                 url=path,
-                headers=self._headers(),
+                headers=headers,
                 **kwargs,
             )
         except Exception as e:

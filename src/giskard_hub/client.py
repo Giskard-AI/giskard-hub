@@ -16,8 +16,10 @@ from .resources.checks import ChecksResource
 from .resources.conversations import ConversationsResource
 from .resources.datasets import DatasetsResource
 from .resources.evaluations import EvaluationsResource
+from .resources.knowledge_bases import KnowledgeBasesResource
 from .resources.models import ModelsResource
 from .resources.projects import ProjectsResource
+from .resources.scheduled_evaluations import ScheduledEvaluationsResource
 
 
 # pylint: disable=too-many-instance-attributes
@@ -45,6 +47,12 @@ class HubClient(SyncClient):
     evaluations : EvaluationsResource
         Resource to interact with evaluations.
 
+    knowledge_bases : KnowledgeBasesResource
+        Resource to interact with knowledge bases.
+
+    scheduled_evaluations : ScheduledEvaluationsResource
+        Resource to interact with scheduled evaluations.
+
     evals : EvaluationsResource
         Alias for `evaluations`.
     """
@@ -53,9 +61,10 @@ class HubClient(SyncClient):
     datasets: DatasetsResource
     chat_test_cases: ChatTestCasesResource
     conversations: ConversationsResource
-    models: ModelsResource
     evaluations: EvaluationsResource
     checks: ChecksResource
+    knowledge_bases: KnowledgeBasesResource
+    scheduled_evaluations: ScheduledEvaluationsResource
 
     def __init__(
         self,
@@ -134,6 +143,8 @@ class HubClient(SyncClient):
         self.models = ModelsResource(self)
         self.evaluations = EvaluationsResource(self)
         self.checks = ChecksResource(self)
+        self.knowledge_bases = KnowledgeBasesResource(self)
+        self.scheduled_evaluations = ScheduledEvaluationsResource(self)
 
     @property
     def evals(self):

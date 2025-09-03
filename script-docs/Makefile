@@ -12,7 +12,11 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
+# Live documentation with auto-reload
+live:
+	uv run sphinx-autobuild $(SOURCEDIR) $(BUILDDIR)/html --port 8000 --open-browser
+
+.PHONY: help Makefile live
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

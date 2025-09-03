@@ -9,9 +9,16 @@
 import inspect
 import os
 import sys
+from dataclasses import asdict
+from datetime import datetime
 
-project = "Giskard Hub"
-copyright = "2024, Giskard"
+from sphinxawesome_theme import ThemeOptions
+from sphinxawesome_theme.postprocess import Icons
+
+html_permalinks_icon = Icons.permalinks_icon
+
+project = "Giskard"
+copyright = f"{datetime.now().year}, Giskard"
 author = "Giskard"
 
 # -- General configuration ---------------------------------------------------
@@ -21,7 +28,7 @@ sys.path.append(os.path.abspath("./sphinx_ext"))
 
 extensions = [
     "myst_parser",
-    # "nbsphinx",
+    "nbsphinx",
     "sphinx_design",
     "sphinx.ext.todo",
     "sphinx.ext.napoleon",
@@ -30,8 +37,31 @@ extensions = [
     "sphinx.ext.githubpages",
     "sphinx_click",
     "fix_dataclass",
+    "sphinx_tabs.tabs",
+    "sphinxext.opengraph",
     # "sphinx_autodoc_typehints",
 ]
+
+myst_enable_extensions = [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+]
+
+# Resolve Dataset cross-reference ambiguity
+autodoc_type_aliases = {
+    "Dataset": "giskard.Dataset",
+}
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md"]
@@ -45,15 +75,56 @@ pygments_style = "lovelace"
 html_theme = "sphinxawesome_theme"
 # html_theme = 'alabaster'
 html_static_path = ["_static"]
-source_suffix = [".rst", ".md", ".ipynb"]
-html_theme_options = {
-    "logo_light": "_static/logo_black.png",
-    "logo_dark": "_static/logo_white.png",
-    "show_prev_next": True,
-    "show_scrolltop": True,
-}
+source_suffix = [".rst", ".md"]
+
 html_css_files = ["pygments-dark.css", "custom.css"]
+html_js_files = ["custom.js"]
 html_favicon = "_static/favicon.ico"
+
+# Do not execute the notebooks when building the docs
+docs_version = os.getenv("READTHEDOCS_VERSION", "latest")
+if docs_version == "latest" or docs_version == "stable":
+    branch = "main"
+else:
+    branch = docs_version.replace("-", "/")
+branch = "main"
+
+# -- Options for nbsphinx ----------------------------------------------------
+nbsphinx_execute = "never"
+# fmt: off
+nbsphinx_prolog = """
+.. raw:: html
+
+    <div class="open-in-colab__wrapper">
+    <a href="https://colab.research.google.com/github/giskard-ai/giskard/blob/""" + branch + """/docs/{{ env.doc2path(env.docname, base=None) }}" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="display: inline; margin: 0" alt="Open In Colab"/></a>
+    <a href="https://github.com/giskard-ai/giskard/tree/""" + branch + """/docs/{{ env.doc2path(env.docname, base=None) }}" target="_blank"><img src="https://img.shields.io/badge/github-view%20source-black.svg" style="display: inline; margin: 0" alt="View Notebook on GitHub"/></a>
+    </div>
+"""
+# fmt: on
+
+theme_options = ThemeOptions(
+    show_prev_next=True,
+    show_scrolltop=True,
+    awesome_external_links=True,
+    logo_light="_static/logo_light.png",
+    logo_dark="_static/logo_dark.png",
+    main_nav_links={
+        "Getting Started": "/index",
+        "Hub UI": "/hub/ui/index",
+        "Hub SDK": "/hub/sdk/index",
+        "Open Source": "/oss/sdk/index",
+    },
+)
+html_theme_options = asdict(theme_options)
+# -- Open Graph configuration -------------------------------------------------
+# https://sphinxext-opengraph.readthedocs.io/en/latest/
+
+# Open Graph site name
+ogp_site_name = "Giskard Documentation"
+ogp_site_url = "https://docs-hub.giskard.ai/"
+
+# Open Graph image (logo for social sharing) - use relative path for local builds
+ogp_image = "https://docs-hub.giskard.ai/_static/open-graph-image.png"
 
 
 # make github links resolve
