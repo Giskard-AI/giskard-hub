@@ -56,4 +56,5 @@ class ProjectsResource(APIResource):
         return self._client.delete("/projects", params={"project_ids": project_id})
 
     def list(self):
-        return self._client.get("/projects", cast_to=Project)
+        data = self._client.get("/projects")
+        return [Project.from_dict(item, _client=self._client) for item in data]
