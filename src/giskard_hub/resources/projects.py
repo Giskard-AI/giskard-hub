@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from ..data._base import NOT_GIVEN, filter_not_given
+from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.project import FailureCategory, Project
 from ._resource import APIResource
 
@@ -38,6 +38,9 @@ class ProjectsResource(APIResource):
         description: str = NOT_GIVEN,
         failure_categories: Optional[List[FailureCategory]] = NOT_GIVEN,
     ):
+        if failure_categories is not NOT_GIVEN:
+            failure_categories = maybe_to_dict(failure_categories)
+
         data = filter_not_given(
             {
                 "name": name,

@@ -204,7 +204,8 @@ def test_update_success_failure_categories_only(projects_resource, mock_client):
 
     result = projects_resource.update("proj_123", failure_categories=failure_categories)
 
-    expected_data = {"failure_categories": failure_categories}
+    # FailureCategory objects get converted to dicts via maybe_to_dict()
+    expected_data = {"failure_categories": [TEST_FAILURE_CATEGORY_DATA]}
 
     mock_client.patch.assert_called_once_with(
         "/projects/proj_123", json=expected_data, cast_to=Project
@@ -228,10 +229,14 @@ def test_update_success_all_params(projects_resource, mock_client):
         failure_categories=failure_categories,
     )
 
+    # FailureCategory objects get converted to dicts via maybe_to_dict()
     expected_data = {
         "name": "Updated Project",
         "description": "Updated description",
-        "failure_categories": failure_categories,
+        "failure_categories": [
+            TEST_FAILURE_CATEGORY_DATA,
+            TEST_FAILURE_CATEGORY_DATA_2,
+        ],
     }
 
     mock_client.patch.assert_called_once_with(
