@@ -8,6 +8,9 @@
       "helpers:pinGitHubActionDigests",
       ":pinOnlyDevDependencies"
    ],
+   "ignoreDeps": [
+      "sphinx-autodoc-typehints"
+   ],
    "packageRules": [
       {
          "groupName": "{{manager}} dependencies",

@@ -30,7 +30,7 @@ jobs:
           git merge origin/${{ github.ref_name }}
 
       - name: Install uv and set the python version
-        uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6.6.0
+        uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
         with:
           python-version: "3.12" # giskard 2.18.0 requires python <3.13
 
