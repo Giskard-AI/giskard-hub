@@ -60,6 +60,34 @@ You can update a project using the ``hub.projects.update()`` method:
 
     project = hub.projects.update("<PROJECT_ID>", name="My updated project")
 
+You can also update the project description and failure categories:
+
+.. code-block:: python
+
+    from giskard_hub.data.project import FailureCategory
+    
+    # Define failure categories for your project
+    failure_categories = [
+        FailureCategory(
+            identifier="hallucination",
+            title="Hallucination",
+            description="Model generated false or misleading information"
+        ),
+        FailureCategory(
+            identifier="bias",
+            title="Bias", 
+            description="Model response shows unfair bias"
+        )
+    ]
+    
+    # Update project with failure categories
+    project = hub.projects.update(
+        "<PROJECT_ID>",
+        name="My updated project",
+        description="Updated project description",
+        failure_categories=failure_categories
+    )
+
 Delete a project
 ________________
 
@@ -79,6 +107,25 @@ You can list all projects using the ``hub.projects.list()`` method:
     projects = hub.projects.list()
     for project in projects:
         print(project.name)
+
+Working with Failure Categories
+_______________________________
+
+Failure categories help you organize and classify different types of AI failures that occur during evaluations. They provide structured categorization of issues like hallucinations, bias, or other business logic failures.
+
+.. code-block:: python
+
+    from giskard_hub.data.project import FailureCategory
+    
+    # Access failure categories from a project
+    project = hub.projects.retrieve("<PROJECT_ID>")
+    
+    for category in project.failure_categories:
+        print(f"Category: {category.title}")
+        print(f"Identifier: {category.identifier}")
+        print(f"Description: {category.description}")
+
+When you run evaluations, failed test cases can be automatically or manually assigned to these failure categories, helping you track and analyze patterns in your AI system's failures.
 
 Agents
 ------

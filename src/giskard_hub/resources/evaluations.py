@@ -10,7 +10,7 @@ from ._resource import APIResource
 
 class EvaluationsResource(APIResource):
     def retrieve(self, run_id: str):
-        return self._client.get(f"/executions/{run_id}", cast_to=EvaluationRun)
+        return self._client.get(f"/evaluations/{run_id}", cast_to=EvaluationRun)
 
     # pylint: disable=too-many-arguments
     def create(
@@ -39,7 +39,7 @@ class EvaluationsResource(APIResource):
         ]
 
         return self._client.post(
-            "/executions",
+            "/evaluations",
             json=data,
             cast_to=EvaluationRun,
         )
@@ -68,23 +68,23 @@ class EvaluationsResource(APIResource):
         ]
 
         return self._client.post(
-            "/executions/local",
+            "/evaluations/local",
             json=data,
             cast_to=EvaluationRun,
         )
 
     def delete(self, execution_id: str | List[str]):
         return self._client.delete(
-            "/executions", params={"execution_ids": execution_id}
+            "/evaluations", params={"execution_ids": execution_id}
         )
 
     def list(self, project_id: str):
         return self._client.get(
-            "/executions", params={"project_id": project_id}, cast_to=EvaluationRun
+            "/evaluations", params={"project_id": project_id}, cast_to=EvaluationRun
         )
 
     def list_entries(self, run_id: str):
-        entries = self._client.get(f"/executions/{run_id}/results?limit=100_000")[
+        entries = self._client.get(f"/evaluations/{run_id}/results?limit=100_000")[
             "items"
         ]
         return [EvaluationEntry.from_dict(entry) for entry in entries]
@@ -119,7 +119,7 @@ class EvaluationsResource(APIResource):
             }
         )
         return self._client.patch(
-            f"/executions/{run_id}/results/{entry_id}",
+            f"/evaluations/{run_id}/results/{entry_id}",
             json=data,
             cast_to=EvaluationEntry,
         )

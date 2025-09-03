@@ -11,6 +11,7 @@ class TaskStatus(str, Enum):
     FINISHED = "finished"
     ERROR = "error"
     RUNNING = "running"
+    CANCELED = "canceled"
 
 
 @dataclass

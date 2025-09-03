@@ -349,6 +349,34 @@ You can list evaluation results using the ``hub.evaluations.list_entries()`` met
 
     eval_results = hub.evaluations.list_entries(eval_run.id)
 
+Each evaluation entry contains detailed information about the test case execution, including the conversation, model output, evaluation results, and optionally a failure category:
+
+.. code-block:: python
+
+    for entry in eval_results:
+        print(f"Conversation ID: {entry.conversation.id}")
+
+        # Check if there's a failure category assigned
+        if entry.failure_category:
+            category = entry.failure_category.category
+            if category:
+                print(f"Failure Category: {category.title}")
+                print(f"Description: {category.description}")
+            if entry.failure_category.error:
+                print(f"Categorization Error: {entry.failure_category.error}")
+
+        # Check evaluation results
+        if not entry.results:
+            print("No checks were run for this conversation")
+        for result in entry.results:
+            print("-" * 50)
+            print(f"Check: {result['name']}")
+            print(f"Passed: {result['passed']}")
+            print(f"Reason: {result['reason']}")
+        print("*" * 50)
+
+
+
 
 
 Scheduled evaluations
