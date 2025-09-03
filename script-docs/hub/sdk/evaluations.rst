@@ -349,5 +349,73 @@ You can list evaluation results using the ``hub.evaluations.list_entries()`` met
 
     eval_results = hub.evaluations.list_entries(eval_run.id)
 
+
+
+Scheduled evaluations
+~~~~~~~~~~~~~~~~~~~~~
+
+Create a scheduled evaluation
+-----------------------------
+
+You can create a scheduled evaluation using the ``hub.scheduled_evaluations.create()`` method. Here's a basic example:
+
+.. code-block:: python
+
+    # Create a scheduled evaluation that runs every Monday at 9 AM (UTC)
+    scheduled_eval = hub.scheduled_evaluations.create(
+        name="Weekly Performance Check",
+        project_id=project_id,
+        model_id=model.id,
+        dataset_id=dataset_id,
+        frequency="weekly", # 'daily', 'weekly' or 'monthly'
+        time="09:00", # HH:MM (24h format)
+        day_of_week=1, # 1-7 (1 is Monday)
+    )
+
 .. note::
-    As of now, the Giskard Hub SDK does not support scheduled evaluations but you can use the `Giskard Hub UI </hub/ui/evaluations>`_ to schedule evaluations.
+
+    The time of the evaluation is specified in the UTC timezone.
+
+List scheduled evaluations
+--------------------------
+
+You can list all scheduled evaluations using the ``hub.scheduled_evaluations.list()`` method. Here's a basic example:
+
+.. code-block:: python
+
+    scheduled_evals = hub.scheduled_evaluations.list(project_id=project_id)
+
+    for scheduled_eval in scheduled_evals:
+        print(f"{scheduled_eval.name}: {scheduled_eval.to_dict()}")
+
+Update a scheduled evaluation
+-----------------------------
+
+To update a scheduled evaluation, you need to specify the model, dataset, and a cron expression for the schedule:
+
+.. code-block:: python
+
+    # Update a scheduled evaluation to pause it
+    scheduled_eval = hub.scheduled_evaluations.update(
+        scheduled_eval.id,
+        paused=True
+    )
+
+Delete a scheduled evaluation
+-----------------------------
+
+You can delete a scheduled evaluation using the ``hub.scheduled_evaluations.delete()`` method.
+
+.. code-block:: python
+
+    hub.scheduled_evaluations.delete(scheduled_eval.id)
+
+List evaluation runs linked to a scheduled evaluation
+-----------------------------------------------------
+
+Track the runs of your scheduled evaluations:
+
+.. code-block:: python
+
+    # Check run history
+    evaluations = hub.scheduled_evaluations.list_evaluations(scheduled_eval.id)
