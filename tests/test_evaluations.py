@@ -95,7 +95,7 @@ TEST_FAILURE_CATEGORY_DATA = {
 
 TEST_FAILURE_CATEGORY_RESULT_DATA = {
     "category": TEST_FAILURE_CATEGORY_DATA,
-    "status": "COMPLETED",
+    "status": "finished",
     "error": None,
 }
 
@@ -123,8 +123,7 @@ def mock_client():
 @pytest.fixture
 def evaluations_resource(mock_client):
     """Create an EvaluationsResource instance with mock client."""
-    resource = EvaluationsResource()
-    resource._client = mock_client
+    resource = EvaluationsResource(mock_client)
     return resource
 
 
@@ -496,7 +495,7 @@ def test_list_entries_with_failure_categories(evaluations_resource, mock_client)
         result[1].failure_category.category.description
         == "Model generated false or misleading information"
     )
-    assert result[1].failure_category.status == TaskStatus.COMPLETED
+    assert result[1].failure_category.status == TaskStatus.FINISHED
     assert result[1].failure_category.error is None
 
 
@@ -504,7 +503,7 @@ def test_list_entries_with_failure_category_error(evaluations_resource, mock_cli
     """Test listing entries with failure category that has an error."""
     failure_category_with_error = {
         "category": TEST_FAILURE_CATEGORY_DATA,
-        "status": "FAILED",
+        "status": "error",
         "error": "Failed to categorize: timeout error",
     }
 
@@ -521,7 +520,7 @@ def test_list_entries_with_failure_category_error(evaluations_resource, mock_cli
     assert entry.failure_category is not None
     assert entry.failure_category.category is not None
     assert entry.failure_category.category.identifier == "hallucination"
-    assert entry.failure_category.status == TaskStatus.FAILED
+    assert entry.failure_category.status == TaskStatus.ERROR
     assert entry.failure_category.error == "Failed to categorize: timeout error"
 
 
