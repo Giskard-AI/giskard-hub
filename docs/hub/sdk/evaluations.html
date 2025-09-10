@@ -513,6 +513,30 @@ evaluation runs.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_results</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">list_entries</span><span class="p">(</span><span class="n">eval_run</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
+<p>Each evaluation entry contains detailed information about the test case execution, including the conversation, model output, evaluation results, and optionally a failure category:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">eval_results</span><span class="p">:</span>
+</span><span id="line-2">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Conversation ID: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">conversation</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-3">
+</span><span id="line-4">    <span class="c1"># Check if there's a failure category assigned</span>
+</span><span id="line-5">    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">failure_category</span><span class="p">:</span>
+</span><span id="line-6">        <span class="n">category</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">failure_category</span><span class="o">.</span><span class="n">category</span>
+</span><span id="line-7">        <span class="k">if</span> <span class="n">category</span><span class="p">:</span>
+</span><span id="line-8">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failure Category: </span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-9">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Description: </span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">description</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-10">        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">failure_category</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span><span id="line-11">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Categorization Error: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">failure_category</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-12">
+</span><span id="line-13">    <span class="c1"># Check evaluation results</span>
+</span><span id="line-14">    <span class="k">if</span> <span class="ow">not</span> <span class="n">entry</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+</span><span id="line-15">        <span class="nb">print</span><span class="p">(</span><span class="s2">"No checks were run for this conversation"</span><span class="p">)</span>
+</span><span id="line-16">    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+</span><span id="line-17">        <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+</span><span id="line-18">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Check: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-19">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Passed: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'passed'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-20">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Reason: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'reason'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-21">    <span class="nb">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
 </section>
 </section>
 <section id="scheduled-evaluations">
