@@ -13,6 +13,7 @@ from .chat_test_case import ChatTestCase
 from .conversation import Conversation
 from .dataset import Dataset
 from .model import Model, ModelOutput
+from .project import FailureCategory
 from .task import TaskProgress, TaskStatus
 
 
@@ -118,6 +119,25 @@ class EvaluationRun(EntityWithTaskProgress):
 
 
 @dataclass
+class FailureCategoryResult(BaseData):
+    category: FailureCategory | None
+    status: TaskStatus | None
+    error: str | None
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "FailureCategoryResult":
+        data = dict(data)
+
+        category = data.get("category")
+        data["category"] = FailureCategory.from_dict(category) if category else None
+
+        status = data.get("status")
+        data["status"] = TaskStatus(status) if status else None
+
+        return super().from_dict(data)
+
+
+@dataclass
 class EvaluationEntry(Entity):
     """Evaluation entry."""
 
@@ -126,6 +146,7 @@ class EvaluationEntry(Entity):
     model_output: ModelOutput | None = None
     results: List[EvaluatorResult] = field(default_factory=list)
     status: TaskStatus = TaskStatus.RUNNING
+    failure_category: FailureCategoryResult | None = None
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "EvaluationEntry":
@@ -138,6 +159,13 @@ class EvaluationEntry(Entity):
 
         output = data.get("output")
         data["model_output"] = ModelOutput.from_dict(output) if output else None
+
+        failure_category = data.get("failure_category")
+        data["failure_category"] = (
+            FailureCategoryResult.from_dict(failure_category)
+            if failure_category
+            else None
+        )
 
         run_id = data.get("evaluation_id")
         if run_id:
