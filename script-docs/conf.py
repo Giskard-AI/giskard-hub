@@ -96,8 +96,8 @@ nbsphinx_prolog = """
 .. raw:: html
 
     <div class="open-in-colab__wrapper">
-    <a href="https://colab.research.google.com/github/giskard-ai/giskard/blob/""" + branch + """/docs/{{ env.doc2path(env.docname, base=None) }}" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="display: inline; margin: 0" alt="Open In Colab"/></a>
-    <a href="https://github.com/giskard-ai/giskard/tree/""" + branch + """/docs/{{ env.doc2path(env.docname, base=None) }}" target="_blank"><img src="https://img.shields.io/badge/github-view%20source-black.svg" style="display: inline; margin: 0" alt="View Notebook on GitHub"/></a>
+    <a href="https://colab.research.google.com/github/Giskard-AI/giskard-hub/blob/""" + branch + """/script-docs/{{ env.doc2path(env.docname, base=None) }}" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="display: inline; margin: 0" alt="Open In Colab"/></a>
+    <a href="https://github.com/Giskard-AI/giskard-hub/tree/""" + branch + """/script-docs/{{ env.doc2path(env.docname, base=None) }}" target="_blank"><img src="https://img.shields.io/badge/github-view%20source-black.svg" style="display: inline; margin: 0" alt="View Notebook on GitHub"/></a>
     </div>
 """
 # fmt: on
