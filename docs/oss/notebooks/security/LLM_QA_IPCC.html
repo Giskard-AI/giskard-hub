@@ -23,7 +23,7 @@
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=11cc7599" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=46da6947" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
@@ -258,7 +258,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[1]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="s2">"giskard[llm]"</span> <span class="o">--</span><span class="n">upgrade</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="o">%</span><span class="k">pip</span> install "giskard[llm]" --upgrade
 </span></code></pre></div>
 </div>
 </div>
@@ -267,7 +267,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[2]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="s2">"langchain"</span> <span class="s2">"pypdf&lt;=3.17.0"</span> <span class="s2">"faiss-cpu&lt;=1.7.4"</span> <span class="s2">"openai&gt;1"</span> <span class="s2">"tiktoken&lt;=0.5.1"</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="o">%</span><span class="k">pip</span> install "langchain" "pypdf&lt;=3.17.0" "faiss-cpu&lt;=1.7.4" "openai&gt;1" "tiktoken&lt;=0.5.1"
 </span></code></pre></div>
 </div>
 </div>
@@ -278,7 +278,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[5]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </span><span id="line-2">
 </span><span id="line-3"><span class="kn">import</span><span class="w"> </span><span class="nn">openai</span>
 </span><span id="line-4"><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -300,7 +300,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[2]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Set the OpenAI API Key environment variable.</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Set the OpenAI API Key environment variable.</span>
 </span><span id="line-2"><span class="n">OPENAI_API_KEY</span> <span class="o">=</span> <span class="s2">"..."</span>
 </span><span id="line-3"><span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">OPENAI_API_KEY</span>
 </span><span id="line-4"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"OPENAI_API_KEY"</span><span class="p">]</span> <span class="o">=</span> <span class="n">OPENAI_API_KEY</span>
@@ -317,7 +317,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[ ]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">IPCC_REPORT_URL</span> <span class="o">=</span> <span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">IPCC_REPORT_URL</span> <span class="o">=</span> <span class="p">(</span>
 </span><span id="line-2">    <span class="s2">"https://www.ipcc.ch/report/ar6/syr/downloads/report/IPCC_AR6_SYR_LongerReport.pdf"</span>
 </span><span id="line-3"><span class="p">)</span>
 </span><span id="line-4">
@@ -351,7 +351,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[ ]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="k">def</span><span class="w"> </span><span class="nf">get_context_storage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">FAISS</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="k">def</span><span class="w"> </span><span class="nf">get_context_storage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">FAISS</span><span class="p">:</span>
 </span><span id="line-2"><span class="w">    </span><span class="sd">"""Initialize a vector storage of embedded IPCC report chunks (context)."""</span>
 </span><span id="line-3">    <span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span>
 </span><span id="line-4">        <span class="n">chunk_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">chunk_overlap</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">add_start_index</span><span class="o">=</span><span class="kc">True</span>
@@ -391,7 +391,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[ ]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Define a custom Giskard model wrapper for the serialization.</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Define a custom Giskard model wrapper for the serialization.</span>
 </span><span id="line-2"><span class="k">class</span><span class="w"> </span><span class="nc">FAISSRAGModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
 </span><span id="line-3">    <span class="k">def</span><span class="w"> </span><span class="nf">model_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="line-4">        <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">TEXT_COLUMN_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">({</span><span class="s2">"query"</span><span class="p">:</span> <span class="n">x</span><span class="p">}))</span>
@@ -428,7 +428,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[ ]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Validate the wrapped model and dataset.</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Validate the wrapped model and dataset.</span>
 </span><span id="line-2"><span class="nb">print</span><span class="p">(</span><span class="n">giskard_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">giskard_dataset</span><span class="p">)</span><span class="o">.</span><span class="n">prediction</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
@@ -443,7 +443,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[ ]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">results</span> <span class="o">=</span> <span class="n">scan</span><span class="p">(</span><span class="n">giskard_model</span><span class="p">,</span> <span class="n">giskard_dataset</span><span class="p">,</span> <span class="n">only</span><span class="o">=</span><span class="p">[</span><span class="s2">"hallucination"</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">results</span> <span class="o">=</span> <span class="n">scan</span><span class="p">(</span><span class="n">giskard_model</span><span class="p">,</span> <span class="n">giskard_dataset</span><span class="p">,</span> <span class="n">only</span><span class="o">=</span><span class="p">[</span><span class="s2">"hallucination"</span><span class="p">])</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -451,7 +451,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[11]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">display</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">display</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -1182,7 +1182,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[ ]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">full_results</span> <span class="o">=</span> <span class="n">scan</span><span class="p">(</span><span class="n">giskard_model</span><span class="p">,</span> <span class="n">giskard_dataset</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">full_results</span> <span class="o">=</span> <span class="n">scan</span><span class="p">(</span><span class="n">giskard_model</span><span class="p">,</span> <span class="n">giskard_dataset</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -1190,7 +1190,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[9]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">display</span><span class="p">(</span><span class="n">full_results</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">display</span><span class="p">(</span><span class="n">full_results</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3036,7 +3036,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">[10]:
 </span></code></pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">test_suite</span> <span class="o">=</span> <span class="n">full_results</span><span class="o">.</span><span class="n">generate_test_suite</span><span class="p">(</span><span class="s2">"Test suite generated by scan"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">test_suite</span> <span class="o">=</span> <span class="n">full_results</span><span class="o">.</span><span class="n">generate_test_suite</span><span class="p">(</span><span class="s2">"Test suite generated by scan"</span><span class="p">)</span>
 </span><span id="line-2"><span class="n">test_suite</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
