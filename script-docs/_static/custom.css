@@ -672,12 +672,12 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 .nboutput .container {
   width: inherit !important;
   max-width: inherit !important;
-  margin:  0 !important;
-  padding:  0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.nboutput .container iframe{
-  margin-top:20px;
+.nboutput .container iframe {
+  margin-top: 20px;
 }
 
 .nboutput.nblast.docutils.container .dataframe th,
