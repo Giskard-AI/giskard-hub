@@ -671,12 +671,9 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 
 .nboutput .container {
   width: inherit !important;
-  padding: inherit !important;
-  margin: inherit !important;
   max-width: inherit !important;
   margin:  0 !important;
   padding:  0 !important;
-  margin-top:20px;
 }
 
 .nboutput .container iframe{
