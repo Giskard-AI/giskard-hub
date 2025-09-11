@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, fields
+from enum import Enum
 from typing import Any, Dict, Literal
 
 
@@ -72,4 +73,6 @@ def maybe_to_dict(data):
         return [maybe_to_dict(item) for item in data]
     if isinstance(data, dict):
         return {k: maybe_to_dict(v) for k, v in data.items()}
+    if isinstance(data, Enum):
+        return data.value
     return data
