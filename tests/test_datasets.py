@@ -440,66 +440,6 @@ class TestDatasetDataModel:
 
         assert result is None
 
-    def test_dataset_conversations_property_deprecation_warning(self):
-        """Test that conversations property shows deprecation warning."""
-        mock_client = MagicMock()
-        mock_client.conversations.list.return_value = ["conversation_1"]
-
-        dataset = Dataset.from_dict(
-            {
-                "id": "dataset-1",
-                "name": "Test Dataset",
-            },
-            _client=mock_client,
-        )
-
-        with pytest.warns(DeprecationWarning, match="Conversation is deprecated"):
-            result = dataset.conversations
-
-        mock_client.conversations.list.assert_called_once_with(dataset_id="dataset-1")
-        assert result == ["conversation_1"]
-
-    def test_dataset_create_conversation_deprecation_warning(self):
-        """Test that create_conversation shows deprecation warning."""
-        from giskard_hub.data.chat import ChatMessage
-        from giskard_hub.data.conversation import Conversation
-
-        mock_client = MagicMock()
-        mock_client.conversations.create.return_value = "created_conversation"
-
-        dataset = Dataset.from_dict(
-            {
-                "id": "dataset-1",
-                "name": "Test Dataset",
-            },
-            _client=mock_client,
-        )
-
-        conversation = Conversation(
-            messages=[ChatMessage(role="user", content="Hello")],
-            demo_output=None,
-        )
-
-        with pytest.warns(DeprecationWarning, match="Conversation is deprecated"):
-            result = dataset.create_conversation(conversation)
-
-        mock_client.conversations.create.assert_called_once()
-        assert result == "created_conversation"
-
-    def test_dataset_create_conversation_without_client(self):
-        """Test create_conversation without client raises error."""
-        from giskard_hub.data.chat import ChatMessage
-        from giskard_hub.data.conversation import Conversation
-
-        dataset = Dataset(name="Test Dataset")
-        conversation = Conversation(
-            messages=[ChatMessage(role="user", content="Hello")],
-            demo_output=None,
-        )
-
-        with pytest.raises(ValueError, match="detached or unsaved"):
-            dataset.create_conversation(conversation)
-
     def test_dataset_create_chat_test_case_with_client(self):
         """Test create_chat_test_case with a client."""
         from giskard_hub.data.chat import ChatMessage

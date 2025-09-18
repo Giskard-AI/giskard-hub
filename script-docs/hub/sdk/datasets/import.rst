@@ -1,5 +1,5 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
-:og:description: Import existing test data programmatically into Giskard Hub. Support conversations, CSV files, and other formats through our Python SDK.
+:og:description: Import your existing test data into Giskard Hub. Bring chat test cases, CSV files, and other data formats to build comprehensive test datasets.
 
 =============================
 Import existing datasets

@@ -13,7 +13,6 @@ from .data.model import Model, ModelOutput
 from .errors import HubConnectionError
 from .resources.chat_test_cases import ChatTestCasesResource
 from .resources.checks import ChecksResource
-from .resources.conversations import ConversationsResource
 from .resources.datasets import DatasetsResource
 from .resources.evaluations import EvaluationsResource
 from .resources.knowledge_bases import KnowledgeBasesResource
@@ -38,8 +37,6 @@ class HubClient(SyncClient):
     chat_test_cases : ChatTestCasesResource
         Resource to interact with chat test cases.
 
-    conversations : ConversationsResource
-        Resource to interact with conversations.
 
     models : ModelsResource
         Resource to interact with models.
@@ -60,7 +57,6 @@ class HubClient(SyncClient):
     projects: ProjectsResource
     datasets: DatasetsResource
     chat_test_cases: ChatTestCasesResource
-    conversations: ConversationsResource
     evaluations: EvaluationsResource
     checks: ChecksResource
     knowledge_bases: KnowledgeBasesResource
@@ -139,7 +135,6 @@ class HubClient(SyncClient):
         self.projects = ProjectsResource(self)
         self.datasets = DatasetsResource(self)
         self.chat_test_cases = ChatTestCasesResource(self)
-        self.conversations = ConversationsResource(self)
         self.models = ModelsResource(self)
         self.evaluations = EvaluationsResource(self)
         self.checks = ChecksResource(self)

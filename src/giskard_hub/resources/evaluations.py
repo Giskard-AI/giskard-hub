@@ -73,9 +73,9 @@ class EvaluationsResource(APIResource):
             cast_to=EvaluationRun,
         )
 
-    def delete(self, execution_id: str | List[str]):
+    def delete(self, evaluation_id: str | List[str]):
         return self._client.delete(
-            "/evaluations", params={"execution_ids": execution_id}
+            "/evaluations", params={"evaluation_ids": evaluation_id}
         )
 
     def list(self, project_id: str):

@@ -5,8 +5,8 @@
 Create test datasets
 ================================
 
-A **dataset** is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control,
-but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any test conversations to import.
+A **dataset** is a collection of chat test cases used to evaluate your agents. We allow manual test creation for fine-grained control,
+but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any chat transcripts to import.
 
 This section will guide you through creating your own test datasets programmatically.
 
@@ -20,10 +20,11 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
 You can now use the ``hub.datasets`` client to control the Giskard Hub!
 
-Datasets
---------
+Datasets SDK
+============
 
-A dataset is a collection of conversations that are used to evaluate your agents.
+A **dataset** is a collection of chat test cases used to evaluate your agents. We allow manual test creation for fine-grained control,
+but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any chat transcripts to import.
 
 Create a dataset
 ________________

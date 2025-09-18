@@ -14,11 +14,11 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
       Create, update, and organize projects, agents and knowledge bases
 
-   .. grid-item-card:: Manage datasets and conversations
+   .. grid-item-card:: Manage datasets and chat test cases
       :link: datasets/index
       :link-type: doc
 
-      Create, update, and organize test datasets and conversations manually or using synthetic data generation
+      Create, update, and organize test datasets and chat test cases manually or using synthetic data generation
 
    .. grid-item-card:: Manage checks
       :link: checks
@@ -142,7 +142,7 @@ We can now add a conversation example to the dataset. This will be used for the 
    import random
 
    # Add a conversation example
-   hub.conversations.create(
+   hub.chat_test_cases.create(
       dataset_id=dataset.id,
       messages=[
          dict(role="user", content="What is the capital of France?"),
@@ -194,7 +194,7 @@ These are the attributes you can set for a conversation (the only required attri
 
    For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
-You can add as many conversations as you want to the dataset.
+You can add as many chat test cases as you want to the dataset.
 
 Configure an Agent
 ___________________

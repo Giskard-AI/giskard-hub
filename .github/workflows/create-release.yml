@@ -52,7 +52,7 @@ jobs:
 
       - name: Adding file
         run: |
-          git add pyproject.toml
+          git add pyproject.toml uv.lock
           git fetch --quiet --tags
           git commit -m "v${{ inputs.version }}" --allow-empty
           git tag v${{ inputs.version }}

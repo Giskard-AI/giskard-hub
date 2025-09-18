@@ -339,7 +339,7 @@ def test_delete_single_execution_id(evaluations_resource, mock_client):
     result = evaluations_resource.delete("exec_123")
 
     mock_client.delete.assert_called_once_with(
-        "/evaluations", params={"execution_ids": "exec_123"}
+        "/evaluations", params={"evaluation_ids": "exec_123"}
     )
     assert result == {"success": True}
 
@@ -347,12 +347,12 @@ def test_delete_single_execution_id(evaluations_resource, mock_client):
 def test_delete_multiple_execution_ids(evaluations_resource, mock_client):
     """Test deletion with multiple execution IDs."""
     mock_client.delete.return_value = {"success": True}
-    execution_ids = ["exec_123", "exec_456", "exec_789"]
+    evaluation_ids = ["exec_123", "exec_456", "exec_789"]
 
-    result = evaluations_resource.delete(execution_ids)
+    result = evaluations_resource.delete(evaluation_ids)
 
     mock_client.delete.assert_called_once_with(
-        "/evaluations", params={"execution_ids": execution_ids}
+        "/evaluations", params={"evaluation_ids": evaluation_ids}
     )
     assert result == {"success": True}
 
