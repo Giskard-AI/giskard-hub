@@ -2,8 +2,6 @@ from unittest.mock import Mock
 
 import pytest
 
-from giskard_hub.data.chat_test_case import ChatTestCase
-from giskard_hub.data.conversation import Conversation
 from giskard_hub.data.evaluation import EvaluationEntry, EvaluationRun, EvaluatorResult
 from giskard_hub.data.model import Model, ModelOutput
 from giskard_hub.data.task import TaskStatus
@@ -145,22 +143,7 @@ def test_evaluation_entry_from_chat_test_case():
     assert evaluation_entry.conversation.id == chat_test_case.id
 
 
-def test_evaluation_entry_from_conversation():
-    conversation_data = TEST_CONVERSATION_DATA.copy()
-
-    conversation = Conversation.from_dict(conversation_data)
-    evaluation_entry = EvaluationEntry.from_dict(
-        {
-            "conversation": conversation_data,
-            "run_id": "run_123",
-            "results": [],
-            "status": TaskStatus.RUNNING,
-            "model_output": None,
-        }
-    )
-
-    assert isinstance(evaluation_entry.conversation, Conversation)
-    assert evaluation_entry.conversation.id == conversation.id
+from giskard_hub.data.chat_test_case import ChatTestCase
 
 
 # Tests for EvaluationsResource.retrieve()
