@@ -119,7 +119,7 @@ class EvaluationsResource(APIResource):
             }
         )
         return self._client.patch(
-            f"/evaluations/{run_id}/results/{entry_id}",
+            f"/evaluations/{run_id}/results/{entry_id}/submit-local",
             json=data,
             cast_to=EvaluationEntry,
         )
