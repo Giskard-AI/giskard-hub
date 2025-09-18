@@ -564,7 +564,7 @@ def test_update_entry_with_model_output_success(evaluations_resource, mock_clien
     }
 
     mock_client.patch.assert_called_once_with(
-        "/evaluations/run_123/results/entry_456",
+        "/evaluations/run_123/results/entry_456/submit-local",
         json=expected_data,
         cast_to=EvaluationEntry,
     )
@@ -583,7 +583,7 @@ def test_update_entry_with_results_success(evaluations_resource, mock_client):
     expected_data = {"results": [r.to_dict() for r in results]}
 
     mock_client.patch.assert_called_once_with(
-        "/evaluations/run_123/results/entry_456",
+        "/evaluations/run_123/results/entry_456/submit-local",
         json=expected_data,
         cast_to=EvaluationEntry,
     )
@@ -612,7 +612,7 @@ def test_update_entry_with_both_params(evaluations_resource, mock_client):
     }
 
     mock_client.patch.assert_called_once_with(
-        "/evaluations/run_123/results/entry_456",
+        "/evaluations/run_123/results/entry_456/submit-local",
         json=expected_data,
         cast_to=EvaluationEntry,
     )
@@ -639,7 +639,7 @@ def test_update_entry_with_dict_model_output(evaluations_resource, mock_client):
     }
 
     mock_client.patch.assert_called_once_with(
-        "/evaluations/run_123/results/entry_456",
+        "/evaluations/run_123/results/entry_456/submit-local",
         json=expected_data,
         cast_to=EvaluationEntry,
     )
@@ -655,7 +655,7 @@ def test_update_entry_no_params(evaluations_resource, mock_client):
     expected_data = {}
 
     mock_client.patch.assert_called_once_with(
-        "/evaluations/run_123/results/entry_456",
+        "/evaluations/run_123/results/entry_456/submit-local",
         json=expected_data,
         cast_to=EvaluationEntry,
     )
