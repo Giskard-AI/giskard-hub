@@ -1,5 +1,5 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
-:og:description: Import existing test data programmatically into Giskard Hub. Support conversations, CSV files, and other formats through our Python SDK.
+:og:description: Import your existing test data into Giskard Hub. Bring chat test cases, CSV files, and other data formats to build comprehensive test datasets.
 
 =============================
 Import existing datasets
@@ -20,7 +20,7 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
     hub = HubClient()
 
-You can now use the ``hub.datasets`` and ``hub.conversations`` clients to import datasets and conversations!
+You can now use the ``hub.datasets`` and ``hub.chat_test_cases`` clients to import datasets and chat_test_cases!
 
 Create a dataset
 ________________
@@ -32,20 +32,20 @@ As we have seen in the :doc:`/hub/sdk/datasets/index` section, we can create a d
    dataset = hub.datasets.create(
       project_id="<PROJECT_ID>",
       name="Production Data",
-      description="This dataset contains conversations that " \
+      description="This dataset contains chats that " \
       "are automatically sampled from the production environment.",
    )
 
-After having created the dataset, we can import conversations into it.
+After having created the dataset, we can import chat test cases (conversations) into it.
 
-Import conversations
+Import chat test cases
 ____________________
 
-We can import conversations into the dataset using the ``hub.conversations.create()`` method.
+We can import the chats into the dataset using the ``hub.chat_test_cases.create()`` method.
 
 .. code-block:: python
 
-    hub.conversations.create(
+    hub.chat_test_cases.create(
         dataset_id=dataset.id,
 
         # A list of messages, without the last assistant answer
@@ -98,7 +98,7 @@ We can then format the testset to the correct format and create the dataset usin
     dataset = hub.datasets.create(
         project_id="<PROJECT_ID>",
         name="RAGET Dataset",
-        description="This dataset contains conversations that are used to evaluate the RAGET model.",
+        description="This dataset contains chats that are used to evaluate the RAGET model.",
     )
 
     for sample in testset.samples:
@@ -155,7 +155,7 @@ We can then format the testset to the correct format and create the dataset usin
                 }
             )
 
-        hub.conversations.create(
+        hub.chat_test_cases.create(
             dataset_id=dataset.id,
             messages=messages,
             checks=checks,

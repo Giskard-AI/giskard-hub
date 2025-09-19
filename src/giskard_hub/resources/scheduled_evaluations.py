@@ -164,7 +164,7 @@ class ScheduledEvaluationsResource(APIResource):
         time : str
             The time to run the evaluation (HH:MM format).
         tags : List[str], optional
-            List of tags to filter the conversations that will be evaluated.
+            List of tags to filter the chat test cases that will be evaluated.
         run_count : int, optional
             The number of times to run each test case (1-5), by default 1.
         day_of_week : int, optional

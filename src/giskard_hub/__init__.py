@@ -1,21 +1,9 @@
 from __future__ import annotations
 
 from .client import HubClient
-from .data import Dataset, Model, Project
-from .data.chat import ChatMessage
-from .data.chat_test_case import ChatTestCase
-from .data.conversation import Conversation
 
-hub_url: str | None = None
-api_key: str | None = None
+# Import data module's __all__ to avoid duplication
+from .data import *
+from .data import __all__ as _data_all
 
-
-__all__ = [
-    "Dataset",
-    "ChatTestCase",
-    "Conversation",
-    "ChatMessage",
-    "Project",
-    "Model",
-    "HubClient",
-]
+__all__ = ["HubClient"] + _data_all
