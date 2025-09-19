@@ -329,7 +329,6 @@ class TestKnowledgeBasesResource:
         assert result.id == "kb-list"
         assert result.n_documents == 3
 
-
     def test_create_with_single_dict_error(self, mock_client):
         """Test creating a knowledge base with a single dict (should error - needs list)."""
         resource = KnowledgeBasesResource(mock_client)
