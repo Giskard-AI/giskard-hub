@@ -42,12 +42,12 @@ if __name__ == "__main__":
         model=model.id,
         dataset=dataset.id,
     )
-    execution_id = to_complete[0].execution_id
+    evaluation_id = to_complete[0].evaluation_id
     for elt in to_complete:
         dummy_model(elt)
 
     updates = client.update_evaluations(to_complete)
 
-    results = client.get_results(execution_id=execution_id)
+    results = client.get_results(evaluation_id=evaluation_id)
     print("Got results")
     print(results)
