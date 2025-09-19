@@ -248,8 +248,8 @@ Manage projects, agents and knowledge bases</div>
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Manage datasets and conversations</div>
-<p class="sd-card-text">Create, update, and organize test datasets and conversations manually or using synthetic data generation</p>
+Manage datasets and chat test cases</div>
+<p class="sd-card-text">Create, update, and organize test datasets and chat test cases manually or using synthetic data generation</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference internal" href="datasets/index.html"><span class="doc">Create test datasets</span></a></div>
 </div>
@@ -353,7 +353,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </section>
 <section id="import-a-dataset">
 <h3>Import a dataset<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#import-a-dataset" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#import-a-dataset'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>Let’s now create a dataset and add a conversation example.</p>
+<p>Let’s now create a dataset and add a chat test case example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Let's create a dataset</span>
 </span><span id="line-2"><span class="n">dataset</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-3">    <span class="n">project_id</span><span class="o">=</span><span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
@@ -362,11 +362,11 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </span><span id="line-6"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>We can now add a conversation example to the dataset. This will be used for the model evaluation.</p>
+<p>We can now add a chat test case example to the dataset. This will be used for the model evaluation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 </span><span id="line-2">
-</span><span id="line-3"><span class="c1"># Add a conversation example</span>
-</span><span id="line-4"><span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-3"><span class="c1"># Add a chat test case example</span>
+</span><span id="line-4"><span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-5">   <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-6">   <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-7">      <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">"What is the capital of France?"</span><span class="p">),</span>
@@ -390,10 +390,10 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </span><span id="line-25"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>These are the attributes you can set for a conversation (the only required attribute is <code class="docutils literal notranslate"><span class="pre">messages</span></code>):</p>
+<p>These are the attributes you can set for a chat test case (the only required attribute is <code class="docutils literal notranslate"><span class="pre">messages</span></code>):</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">messages</span></code>: A list of messages in the conversation. Each message is a dictionary with the following keys:</dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">messages</span></code>: A list of messages in the chat. Each message is a dictionary with the following keys:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">role</span></code>: The role of the message, either “user” or “assistant”.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">content</span></code>: The content of the message.</p></li>
 </ul>
@@ -402,12 +402,12 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">demo_output</span></code>: A demonstration of a (possibly wrong) output from the model with an optional metadata. This is just for demonstration purposes.</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">checks</span></code>: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:</dt><dd><ul>
+<dt><code class="docutils literal notranslate"><span class="pre">checks</span></code>: A list of checks that the chat should pass. This is used for evaluation. Each check is a dictionary with the following keys:</dt><dd><ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">identifier</span></code>: The identifier of the check. If it’s a built-in check, you will also need to provide the <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary. The built-in checks are:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">correctness</span></code>: The output of the model should match the reference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">conformity</span></code>: The conversation should follow a set of rules.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">groundedness</span></code>: The output of the model should be grounded in the conversation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conformity</span></code>: The chat test case should follow a set of rules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groundedness</span></code>: The output of the model should be grounded to a specific context.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">string_match</span></code>: The output of the model should contain a specific string (keyword or sentence).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>: The metadata output of the model should match a list of JSON path rules.</p></li>
 </ul>
@@ -418,7 +418,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">params</span></code>: A dictionary of parameters for the check. The parameters depend on the check type:</dt><dd><ul>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">correctness</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">reference</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the expected output.</p></li>
-<li><p>For the <code class="docutils literal notranslate"><span class="pre">conformity</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">rules</span></code> (type: <code class="docutils literal notranslate"><span class="pre">list[str]</span></code>), which is a list of rules that the conversation should follow.</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">conformity</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">rules</span></code> (type: <code class="docutils literal notranslate"><span class="pre">list[str]</span></code>), which is a list of rules that the chat should follow.</p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">groundedness</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">context</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the context in which the model should ground its output.</p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">string_match</span></code> check, the parameter is <code class="docutils literal notranslate"><span class="pre">keyword</span></code> (type: <code class="docutils literal notranslate"><span class="pre">str</span></code>), which is the string that the model’s output should contain.</p></li>
 <li><dl class="simple">
@@ -444,7 +444,7 @@ list of all projects, or use <code class="docutils literal notranslate"><span cl
 <p class="admonition-title">Note</p>
 <p>For detailed information about these checks, including examples and how they work, see <a class="reference internal" href="../ui/annotate.html"><span class="doc">Review tests with human feedback</span></a>.</p>
 </div>
-<p>You can add as many conversations as you want to the dataset.</p>
+<p>You can add as many chat test cases as you want to the dataset.</p>
 </section>
 <section id="configure-an-agent">
 <h3>Configure an Agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#configure-an-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#configure-an-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>

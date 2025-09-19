@@ -8,7 +8,7 @@ Client reference
 The HubClient is the main entry point for interacting with the Giskard Hub through the Python SDK.
 
 .. autoclass:: giskard_hub.client.HubClient
-    :members: projects, datasets, conversations, agents, models, evaluations, evals
+    :members: chat_test_cases, checks, datasets, evaluations, knowledge_bases, models, projects, scheduled_evaluations, evaluate
     :show-inheritance:
     :no-index:
 

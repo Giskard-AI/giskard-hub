@@ -237,7 +237,7 @@
 <ul class="simple">
 <li><p><strong>Correctness</strong>: Verifies if the agent’s response matches the expected output (reference answer).</p></li>
 <li><p><strong>Conformity</strong>: Ensures the agent’s response adheres to the rules, such as “The agent must be polite.”</p></li>
-<li><p><strong>Groundedness</strong>: Ensures the agent’s response is grounded in the conversation.</p></li>
+<li><p><strong>Groundedness</strong>: Ensures the agent’s response is grounded to a specific context.</p></li>
 <li><p><strong>String matching</strong>: Checks if the agent’s response contains a specific string, keyword, or sentence.</p></li>
 <li><p><strong>Metadata</strong>: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent’s response.</p></li>
 <li><p><strong>Semantic Similarity</strong>: Verifies that the agent’s response is semantically similar to the expected output.</p></li>
@@ -252,7 +252,7 @@
 <p>You can now use the <code class="docutils literal notranslate"><span class="pre">hub</span></code> client to create, update, and delete checks.</p>
 <section id="built-in-checks">
 <h2>Built-in checks<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#built-in-checks" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#built-in-checks'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>Giskard provides a set of built-in checks that you can use to evaluate your agents. These checks form the foundation of <a class="reference internal" href="#custom-checks"><span class="std std-ref">Custom checks</span></a> but they can also be used independently as shown in <a class="reference internal" href="#add-checks-to-conversations"><span class="std std-ref">Add checks to conversations</span></a>.</p>
+<p>Giskard provides a set of built-in checks that you can use to evaluate your agents. These checks form the foundation of <a class="reference internal" href="#custom-checks"><span class="std std-ref">Custom checks</span></a> but they can also be used independently as shown in <a class="reference internal" href="#add-checks-to-conversations"><span class="std std-ref">Add checks to chat test cases</span></a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For more background information on the built-in checks, see the <a class="reference internal" href="../ui/annotate.html"><span class="doc">Review tests with human feedback</span></a> section.</p>
@@ -263,7 +263,7 @@
 <p>Custom checks are reusable evaluation criteria that you can define for your project. Built on top of built-in checks (like <code class="docutils literal notranslate"><span class="pre">correctness</span></code>, <code class="docutils literal notranslate"><span class="pre">conformity</span></code>, <code class="docutils literal notranslate"><span class="pre">groundedness</span></code>, <code class="docutils literal notranslate"><span class="pre">string_match</span></code>, <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, <code class="docutils literal notranslate"><span class="pre">semantic_similarity</span></code>, etc.), custom checks allow you to store and reuse your own evaluation logic.</p>
 <p>Custom checks can be used in the following ways:</p>
 <ul class="simple">
-<li><p>Applied to conversations in your datasets</p></li>
+<li><p>Applied to chat test cases (conversations) in your datasets</p></li>
 <li><p>Used during agent evaluations</p></li>
 <li><p>Shared across your team <strong>within the same project</strong></p></li>
 <li><p>Modified or updated as your requirements evolve</p></li>
@@ -447,7 +447,7 @@ Semantic Similarity Check</label><div class="sd-tab-content docutils">
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Deleting a check is permanent and cannot be undone. Make sure you’re not using the check in any active conversations or evaluations before deleting it.</p>
+<p>Deleting a check is permanent and cannot be undone. Make sure you’re not using the check in any active chat test cases or evaluations before deleting it.</p>
 </div>
 </section>
 <section id="list-checks">
@@ -465,11 +465,11 @@ Semantic Similarity Check</label><div class="sd-tab-content docutils">
 </div>
 </section>
 </section>
-<section id="add-checks-to-conversations">
-<span id="id2"></span><h2>Add checks to conversations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#add-checks-to-conversations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#add-checks-to-conversations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>Once you’ve created a check, you can use it in your conversations by referencing its identifier:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Add a conversation that uses your check</span>
-</span><span id="line-2"><span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<section id="add-checks-to-chat-test-cases">
+<span id="add-checks-to-conversations"></span><h2>Add checks to chat test cases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#add-checks-to-chat-test-cases" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#add-checks-to-chat-test-cases'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>Once you’ve created a check, you can use it in your chat test cases by referencing its identifier:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Add a chat test case that uses your check</span>
+</span><span id="line-2"><span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-3">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-4">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
 </span><span id="line-5">        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"What's the formula for compound interest?"</span><span class="p">},</span>
@@ -624,7 +624,7 @@ Semantic Similarity Check</label><div class="sd-tab-content docutils">
 <li><a :data-current="activeSection === '#list-checks'" class="reference internal" href="#list-checks">List checks</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#add-checks-to-conversations'" class="reference internal" href="#add-checks-to-conversations">Add checks to conversations</a></li>
+<li><a :data-current="activeSection === '#add-checks-to-chat-test-cases'" class="reference internal" href="#add-checks-to-chat-test-cases">Add checks to chat test cases</a></li>
 <li><a :data-current="activeSection === '#examples-of-checks'" class="reference internal" href="#examples-of-checks">Examples of checks</a><ul>
 <li><a :data-current="activeSection === '#domain-specific-correctness'" class="reference internal" href="#domain-specific-correctness">Domain-specific correctness</a></li>
 <li><a :data-current="activeSection === '#tone-and-style-checks'" class="reference internal" href="#tone-and-style-checks">Tone and style checks</a></li>

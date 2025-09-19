@@ -36,15 +36,15 @@ The ``generate_adversarial`` method creates test cases designed to expose securi
                 "desc": "Tests for unintended information leakage"
             }
         ],
-        n_examples=20 # Optional: number of conversations per category to generate
+        n_examples=20 # Optional: number of chat test cases per category to generate
     )
 
     # Wait for the dataset to be created
     security_dataset.wait_for_completion()
 
-    # List the conversations in the dataset
-    for conversation in security_dataset.conversations:
-        print(conversation.messages[0].content)
+    # List the chat test cases in the dataset
+    for chat_test_case in security_dataset.chat_test_cases:
+        print(chat_test_case.messages[0].content)
 
 .. note::
 

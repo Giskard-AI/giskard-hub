@@ -242,7 +242,7 @@
 </ul>
 <p>In this section, we will walk you through how to run and manage evaluations using the SDK.</p>
 <ul class="simple">
-<li><p>An <strong>evaluation</strong> is a run of an agent on each conversation of a dataset using a set of checks.</p></li>
+<li><p>An <strong>evaluation</strong> is a run of an agent on each chat test case (conversation) of a dataset using a set of checks.</p></li>
 </ul>
 <p>We recommend to systematically launch evaluation runs every time you deploy an updated agent in a pre-production or staging environment. In this way, you can collaborate with your team to ensure that the agent is performing as expected.</p>
 <p>Let’s start by initializing the Hub client or take a look at the <a class="reference internal" href="index.html"><span class="doc">Quickstart &amp; setup</span></a> section to see how to install the SDK and connect to the Hub.</p>
@@ -376,7 +376,7 @@ time you deploy a new version.</p>
 <p>Running the evaluation will allow you to compare the performance of your local
 model with the one that is already in production, or with other models that you
 use as a baseline. You will also be able to debug performance issues by
-checking each conversation in the Hub inteface.</p>
+checking each chat test case (conversation) in the Hub inteface.</p>
 <p>As usual, let’s initialize the Hub client and set our current project ID:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </span><span id="line-2"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
@@ -513,9 +513,9 @@ evaluation runs.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">eval_results</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">evaluations</span><span class="o">.</span><span class="n">list_entries</span><span class="p">(</span><span class="n">eval_run</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>Each evaluation entry contains detailed information about the test case execution, including the conversation, model output, evaluation results, and optionally a failure category:</p>
+<p>Each evaluation entry contains detailed information about the test case execution, including the chat test case, model output, evaluation results, and optionally a failure category:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">eval_results</span><span class="p">:</span>
-</span><span id="line-2">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Conversation ID: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">conversation</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-2">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Chat Test Case ID: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">chat_test_case</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="line-3">
 </span><span id="line-4">    <span class="c1"># Check if there's a failure category assigned</span>
 </span><span id="line-5">    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">failure_category</span><span class="p">:</span>
@@ -528,7 +528,7 @@ evaluation runs.</p>
 </span><span id="line-12">
 </span><span id="line-13">    <span class="c1"># Check evaluation results</span>
 </span><span id="line-14">    <span class="k">if</span> <span class="ow">not</span> <span class="n">entry</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
-</span><span id="line-15">        <span class="nb">print</span><span class="p">(</span><span class="s2">"No checks were run for this conversation"</span><span class="p">)</span>
+</span><span id="line-15">        <span class="nb">print</span><span class="p">(</span><span class="s2">"No checks were run for this chat test case"</span><span class="p">)</span>
 </span><span id="line-16">    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
 </span><span id="line-17">        <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 </span><span id="line-18">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Check: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>

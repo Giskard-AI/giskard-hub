@@ -16,7 +16,7 @@ The Giskard Hub provides a comprehensive evaluation system that supports:
 
 In this section, we will walk you through how to run and manage evaluations using the SDK.
 
-- An **evaluation** is a run of an agent on each conversation of a dataset using a set of checks.
+- An **evaluation** is a run of an agent on each chat test case (conversation) of a dataset using a set of checks.
 
 We recommend to systematically launch evaluation runs every time you deploy an updated agent in a pre-production or staging environment. In this way, you can collaborate with your team to ensure that the agent is performing as expected.
 
@@ -181,7 +181,7 @@ During the development phase, you may want to **evaluate a local model** that is
 Running the evaluation will allow you to compare the performance of your local
 model with the one that is already in production, or with other models that you
 use as a baseline. You will also be able to debug performance issues by
-checking each conversation in the Hub inteface.
+checking each chat test case (conversation) in the Hub inteface.
 
 As usual, let's initialize the Hub client and set our current project ID:
 
@@ -349,12 +349,12 @@ You can list evaluation results using the ``hub.evaluations.list_entries()`` met
 
     eval_results = hub.evaluations.list_entries(eval_run.id)
 
-Each evaluation entry contains detailed information about the test case execution, including the conversation, model output, evaluation results, and optionally a failure category:
+Each evaluation entry contains detailed information about the test case execution, including the chat test case, model output, evaluation results, and optionally a failure category:
 
 .. code-block:: python
 
     for entry in eval_results:
-        print(f"Conversation ID: {entry.conversation.id}")
+        print(f"Chat Test Case ID: {entry.chat_test_case.id}")
 
         # Check if there's a failure category assigned
         if entry.failure_category:
@@ -367,7 +367,7 @@ Each evaluation entry contains detailed information about the test case executio
 
         # Check evaluation results
         if not entry.results:
-            print("No checks were run for this conversation")
+            print("No checks were run for this chat test case")
         for result in entry.results:
             print("-" * 50)
             print(f"Check: {result['name']}")
