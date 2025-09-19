@@ -354,7 +354,7 @@ Each evaluation entry contains detailed information about the test case executio
 .. code-block:: python
 
     for entry in eval_results:
-        print(f"Conversation ID: {entry.conversation.id}")
+        print(f"Chat Test Case ID: {entry.chat_test_case.id}")
 
         # Check if there's a failure category assigned
         if entry.failure_category:

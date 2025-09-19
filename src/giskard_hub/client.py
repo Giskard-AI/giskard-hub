@@ -215,7 +215,7 @@ class HubClient(SyncClient):
         # Run the local model
         entries = self.evaluations.list_entries(eval_run.id)
         for entry in entries:
-            model_output = model(entry.conversation.messages)
+            model_output = model(entry.chat_test_case.messages)
             self.evaluations.update_entry(
                 eval_run.id, entry.id, model_output=model_output
             )

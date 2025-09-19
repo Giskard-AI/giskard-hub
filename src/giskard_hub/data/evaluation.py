@@ -141,7 +141,7 @@ class EvaluationEntry(Entity):
     """Evaluation entry."""
 
     run_id: str
-    conversation: ChatTestCase
+    chat_test_case: ChatTestCase
     model_output: ModelOutput | None = None
     results: List[EvaluatorResult] = field(default_factory=list)
     status: TaskStatus = TaskStatus.RUNNING
@@ -151,9 +151,9 @@ class EvaluationEntry(Entity):
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "EvaluationEntry":
         data = dict(data)
 
-        # Expect new `chat_test_case` payload only
+        # Expect `chat_test_case` payload
         if "chat_test_case" in data:
-            data["conversation"] = ChatTestCase.from_dict(data["chat_test_case"])
+            data["chat_test_case"] = ChatTestCase.from_dict(data["chat_test_case"])
 
         output = data.get("output")
         data["model_output"] = ModelOutput.from_dict(output) if output else None

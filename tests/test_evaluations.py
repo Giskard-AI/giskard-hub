@@ -140,8 +140,8 @@ def test_evaluation_entry_from_chat_test_case():
         }
     )
 
-    assert isinstance(evaluation_entry.conversation, ChatTestCase)
-    assert evaluation_entry.conversation.id == chat_test_case.id
+    assert isinstance(evaluation_entry.chat_test_case, ChatTestCase)
+    assert evaluation_entry.chat_test_case.id == chat_test_case.id
 
 
 # Tests for EvaluationsResource.retrieve()

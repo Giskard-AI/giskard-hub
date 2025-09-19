@@ -8,7 +8,7 @@ def dummy_model(all_data: Evaluation):
     # - tags
     # - the conversation
     # and so on..
-    # Most probably, user will want to take extra care of all_data.conversation.messages
+    # Most probably, user will want to take extra care of all_data.chat_test_case.messages
 
     # Following line is simulated calling a dummy agent and updating the evaluation
     all_data.set_output("Sry, I was not paying attention")
