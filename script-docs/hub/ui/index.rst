@@ -180,7 +180,6 @@ The interface below displays the knowledge base details that need to be filled o
 - ``File``: The document to upload, containing the knowledge base content. Supported formats are:
     - **JSON**: A JSON file containing an array of objects
     - **JSONL**: A JSON Lines file with one object per line
-    - **CSV**: A CSV File (Deprecated)
 
 
 **JSON/JSONL format requirements:**
@@ -196,13 +195,6 @@ Each object in your JSON or JSONL file should have the following structure:
 
 - ``text`` (required): The document content
 - ``topic`` (optional): The topic classification for the document
-
-**CSV format requirements:**
-
-.. warning::
-    **Importing a knowledge base with CSV is deprecated** and will be removed in future versions. Please use JSON or JSONL formats for new knowledge bases.
-
-For CSV files, the format should have one column named ``text`` with the document content. If you're uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled ``text,topic``.
 
 **General rules for all formats:**
     - If the ``text`` has a value but the ``topic`` is blank, the ``topic`` will be set to 'Others'. However, if all topics are blank, the ``topic`` will be automatically generated.

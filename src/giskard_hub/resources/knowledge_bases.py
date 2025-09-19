@@ -40,13 +40,13 @@ class KnowledgeBasesResource(APIResource):
         name : str
             The name of the knowledge base.
         data : str or list[dict[str, str]]
-            Either a filepath (str) to a JSON or JSONL file, or a list of dicts containing "text" and "topic" (optional) keys.
+            Either a filepath (str) to a JSON or JSONL file, or a list of dicts containing document and topic keys.
         description : str, optional
             Description of the knowledge base.
         document_column : str, optional
-            Name of the document column.
+            Column name for document content in the data (server default is 'text').
         topic_column : str, optional
-            Name of the topic column.
+            Column name for topic classification in the data (server default is 'topic').
 
         Returns
         -------
@@ -58,7 +58,7 @@ class KnowledgeBasesResource(APIResource):
                 "project_id": project_id,
                 "name": name,
                 "description": description,
-                "column": document_column,
+                "document_column": document_column,
                 "topic_column": topic_column,
             }
         )
