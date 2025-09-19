@@ -44,9 +44,9 @@ class KnowledgeBasesResource(APIResource):
         description : str, optional
             Description of the knowledge base.
         document_column : str, optional
-            Column name for document content in the data (omit to use server defaults).
+            Column name for document content in the data (server default is 'text').
         topic_column : str, optional
-            Column name for topic classification in the data (omit to use server defaults).
+            Column name for topic classification in the data (server default is 'topic').
 
         Returns
         -------
