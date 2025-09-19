@@ -57,7 +57,7 @@ TEST_EVALUATION_RUN_DATA = {
 TEST_EVALUATION_ENTRY_DATA = {
     "id": "entry_123",
     "run_id": "run_123",
-    "conversation": TEST_CONVERSATION_DATA,
+    "chat_test_case": TEST_CONVERSATION_DATA,
     "results": [],
     "status": "COMPLETED",
     "model_output": {
@@ -101,7 +101,7 @@ TEST_FAILURE_CATEGORY_RESULT_DATA = {
 TEST_EVALUATION_ENTRY_WITH_FAILURE_CATEGORY = {
     "id": "entry_with_failure",
     "run_id": "run_123",
-    "conversation": TEST_CONVERSATION_DATA,
+    "chat_test_case": TEST_CONVERSATION_DATA,
     "results": [],
     "status": "FAILED",
     "model_output": {

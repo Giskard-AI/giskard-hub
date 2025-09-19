@@ -151,9 +151,8 @@ class EvaluationEntry(Entity):
     def from_dict(cls, data: Dict[str, Any], **kwargs) -> "EvaluationEntry":
         data = dict(data)
 
-        # Expect `chat_test_case` payload
-        if "chat_test_case" in data:
-            data["chat_test_case"] = ChatTestCase.from_dict(data["chat_test_case"])
+        # Process `chat_test_case` payload
+        data["chat_test_case"] = ChatTestCase.from_dict(data["chat_test_case"])
 
         output = data.get("output")
         data["model_output"] = ModelOutput.from_dict(output) if output else None
