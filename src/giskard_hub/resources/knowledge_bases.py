@@ -27,8 +27,6 @@ class KnowledgeBasesResource(APIResource):
         name: str,
         data: Union[str, List[dict[str, str]]],
         description: Union[str, None] = None,
-        document_column: Union[str, NotGiven] = NOT_GIVEN,
-        topic_column: Union[str, NotGiven] = NOT_GIVEN,
     ) -> KnowledgeBase:
         """
         Create a new knowledge base.
@@ -43,10 +41,6 @@ class KnowledgeBasesResource(APIResource):
             Either a filepath (str) to a JSON or JSONL file, or a list of dicts containing "text" and "topic" (optional) keys.
         description : str, optional
             Description of the knowledge base.
-        document_column : str, optional
-            Name of the document column.
-        topic_column : str, optional
-            Name of the topic column.
 
         Returns
         -------
@@ -58,8 +52,6 @@ class KnowledgeBasesResource(APIResource):
                 "project_id": project_id,
                 "name": name,
                 "description": description,
-                "column": document_column,
-                "topic_column": topic_column,
             }
         )
 

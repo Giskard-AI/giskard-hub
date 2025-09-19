@@ -1,5 +1,5 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
-:og:description: Import your existing test data into Giskard Hub. Bring chat test cases, CSV files, and other data formats to build comprehensive test datasets.
+:og:description: Import your existing test data into Giskard Hub. Bring chat test cases, JSON files, and other data formats to build comprehensive test datasets.
 
 =============================
 Import existing datasets
@@ -7,7 +7,7 @@ Import existing datasets
 
 You can import existing test datasets from a file. This is particularly useful when you already have a dataset that you want to use for evaluation.
 
-In this section, we will walk you through how to import existing datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
+In this section, we will walk you through how to import existing datasets from a JSONL file, obtained from another tool, like Giskard Open Source.
 
 Importing datasets
 ------------------
