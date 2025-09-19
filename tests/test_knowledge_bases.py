@@ -329,6 +329,41 @@ class TestKnowledgeBasesResource:
         assert result.id == "kb-list"
         assert result.n_documents == 3
 
+    def test_create_with_csv_file_error(self, mock_client):
+        """Test creating a knowledge base with a CSV file (should error - not supported)."""
+        resource = KnowledgeBasesResource(mock_client)
+
+        # Create a temporary CSV file
+        csv_content = """text,topic
+First document content,topic1
+Second document content,topic2
+Third document content,topic3"""
+
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".csv", delete=False
+        ) as temp_file:
+            temp_file.write(csv_content)
+            temp_file_path = temp_file.name
+
+        try:
+            # Test that it raises an error for unsupported file format
+            with pytest.raises(
+                ValueError,
+                match="Only JSON and JSONL files are supported for file input",
+            ):
+                resource.create(
+                    project_id="project-id",
+                    name="CSV Knowledge Base",
+                    data=temp_file_path,
+                )
+
+            # Verify no API call was made due to validation error
+            mock_client.post.assert_not_called()
+
+        finally:
+            # Clean up temp file
+            Path(temp_file_path).unlink(missing_ok=True)
+
     def test_create_with_single_dict_error(self, mock_client):
         """Test creating a knowledge base with a single dict (should error - needs list)."""
         resource = KnowledgeBasesResource(mock_client)
