@@ -236,16 +236,26 @@
 <p>The HubClient is the main entry point for interacting with the Giskard Hub through the Python SDK.</p>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">giskard_hub.client.</span></span><span class="sig-name descname"><span class="pre">HubClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hub_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_add_api_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/client.py#L27-L228" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">giskard_hub.client.</span></span><span class="sig-name descname"><span class="pre">HubClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hub_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_add_api_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/client.py#L25-L219" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#giskard_hub.client.SyncClient" title="giskard_hub._base_client.SyncClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">SyncClient</span></code></a></p>
 <p>Client class to handle interaction with the hub.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">projects</span></span></dt>
-<dd><p>Resource to interact with projects.</p>
+<span class="sig-name descname"><span class="pre">chat_test_cases</span></span></dt>
+<dd><p>Resource to interact with chat test cases (conversations).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ProjectsResource" title="giskard_hub.resources.ProjectsResource">ProjectsResource</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ChatTestCasesResource" title="giskard_hub.resources.ChatTestCasesResource">ChatTestCasesResource</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">checks</span></span></dt>
+<dd><p>Resource to interact with checks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ChecksResource" title="giskard_hub.resources.ChecksResource">ChecksResource</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -256,36 +266,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.DatasetsResource" title="giskard_hub.resources.DatasetsResource">DatasetsResource</a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">chat_test_cases</span></span></dt>
-<dd><p>Resource to interact with chat test cases.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ChatTestCasesResource" title="giskard_hub.resources.ChatTestCasesResource">ChatTestCasesResource</a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">conversations</span></span></dt>
-<dd><p>Resource to interact with conversations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ConversationsResource" title="giskard_hub.resources.ConversationsResource">ConversationsResource</a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">models</span></span></dt>
-<dd><p>Resource to interact with models.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ModelsResource" title="giskard_hub.resources.ModelsResource">ModelsResource</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -311,6 +291,26 @@
 </dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">models</span></span></dt>
+<dd><p>Resource to interact with models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ModelsResource" title="giskard_hub.resources.ModelsResource">ModelsResource</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">projects</span></span></dt>
+<dd><p>Resource to interact with projects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.ProjectsResource" title="giskard_hub.resources.ProjectsResource">ProjectsResource</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">scheduled_evaluations</span></span></dt>
 <dd><p>Resource to interact with scheduled evaluations.</p>
 <dl class="field-list simple">
@@ -319,13 +319,26 @@
 </dd>
 </dl>
 </dd></dl>
-<dl class="py attribute">
+<dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">evals</span></span></dt>
-<dd><p>Alias for <cite>evaluations</cite>.</p>
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../../../oss/sdk/reference/datasets.html#giskard.Dataset" title="giskard.Dataset"><span class="pre">Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../oss/sdk/reference/models.html#giskard.Model" title="giskard.Model"><span class="pre">Model</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ChatMessage</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ModelOutput</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">NOT_GIVEN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">NOT_GIVEN</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/client.py#L149-L198" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></dt>
+<dd><p>Method to run an evaluation, either locally or remotely.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="resources/index.html#giskard_hub.resources.EvaluationsResource" title="giskard_hub.resources.EvaluationsResource">EvaluationsResource</a></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>str</em><em> | </em><a class="reference internal" href="../../../oss/sdk/reference/datasets.html#giskard.Dataset" title="giskard.Dataset"><em>Dataset</em></a>) – ID of the dataset that will be used for the evaluation, or the dataset entity itself.
+List of tags to filter the chat test cases that will be evaluated.</p></li>
+<li><p><strong>model</strong> (<em>str</em><em> | </em><a class="reference internal" href="../../../oss/sdk/reference/models.html#giskard.Model" title="giskard.Model"><em>Model</em></a><em> | </em><em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>ChatMessage</em><em>]</em><em>]</em><em>, </em><em>ModelOutput</em><em> | </em><em>str</em><em>]</em>) – ID of the model to evaluate, or a model entity, or a local model function.
+A local model function is a function that takes a list of messages and returns a <cite>ModelOutput</cite> or a string.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the evaluation run. If not provided, a random name will be automatically generated.</p></li>
+<li><p><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of tags to filter the chat test cases that will be evaluated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The evaluation run entity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EvaluationRun</p>
 </dd>
 </dl>
 </dd></dl>

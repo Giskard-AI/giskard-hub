@@ -11,10 +11,10 @@
 <meta content="website" property="og:type"/>
 <meta content="https://docs-hub.giskard.ai/hub/sdk/datasets/index.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
-<meta content="Create, manage, and organize test datasets programmatically. Import conversations, generate synthetic data, and build comprehensive test cases using the Python SDK." property="og:description"/>
+<meta content="Create, manage, and organize test datasets into Giskard Hub. Import chat test cases, generate synthetic data, and build comprehensive test datasets." property="og:description"/>
 <meta content="https://docs-hub.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="A dataset is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control, but since generative AI agents can encounter an infinite number of t..." name="description"/>
+<meta content="This section will guide you through creating your own test datasets programmatically. Let’s start by initializing the Hub client or take a look at the Quickstart &amp; setup section to see how to i..." name="description"/>
 <title>Create test datasets | Giskard  documentation</title>
 <meta content="Create test datasets | Giskard  documentation" property="og:title"/>
 <meta content="Create test datasets | Giskard  documentation" name="twitter:title"/>
@@ -232,8 +232,6 @@
 <div id="content" role="main">
 <section id="create-test-datasets">
 <h1>Create test datasets<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-test-datasets"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
-<p>A <strong>dataset</strong> is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control,
-but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don’t have any test conversations to import.</p>
 <p>This section will guide you through creating your own test datasets programmatically.</p>
 <p>Let’s start by initializing the Hub client or take a look at the <a class="reference internal" href="../index.html"><span class="doc">Quickstart &amp; setup</span></a> section to see how to install the SDK and connect to the Hub.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
@@ -244,7 +242,8 @@ but since generative AI agents can encounter an infinite number of test cases, a
 <p>You can now use the <code class="docutils literal notranslate"><span class="pre">hub.datasets</span></code> client to control the Giskard Hub!</p>
 <section id="datasets">
 <h2>Datasets<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#datasets" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#datasets'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>A dataset is a collection of conversations that are used to evaluate your agents.</p>
+<p>A <strong>dataset</strong> is a collection of chat test cases (conversations) used to evaluate your agents. We allow manual test creation for fine-grained control,
+but since generative AI agents can encounter an infinite number of scenarios, automated test case generation is often necessary, especially when you don’t have any chat transcripts to import.</p>
 <section id="create-a-dataset">
 <h3>Create a dataset<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-dataset" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-dataset'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <section id="manual-creation">
@@ -254,7 +253,7 @@ but since generative AI agents can encounter an infinite number of test cases, a
 </span><span id="line-2">    <span class="c1"># The ID of the project where the dataset will be created</span>
 </span><span id="line-3">    <span class="n">project_id</span><span class="o">=</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">,</span>
 </span><span id="line-4">    <span class="n">name</span><span class="o">=</span><span class="s2">"Production Data"</span><span class="p">,</span>
-</span><span id="line-5">    <span class="n">description</span><span class="o">=</span><span class="s2">"This dataset contains conversations that "</span> \
+</span><span id="line-5">    <span class="n">description</span><span class="o">=</span><span class="s2">"This dataset contains chats that "</span> \
 </span><span id="line-6">    <span class="s2">"are automatically sampled from the production environment."</span><span class="p">,</span>
 </span><span id="line-7"><span class="p">)</span>
 </span><span id="line-8">
@@ -312,7 +311,7 @@ Import Existing Datasets</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">dataset</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">"&lt;DATASET_ID&gt;"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"My updated dataset"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>Alternatively, you can update a dataset by managing its <a class="reference internal" href="#conversations"><span class="std std-ref">conversations</span></a>.</p>
+<p>Alternatively, you can update a dataset by managing its <a class="reference internal" href="#chat-test-cases"><span class="std std-ref">chat test cases</span></a>.</p>
 </section>
 <section id="delete-a-dataset">
 <h3>Delete a dataset<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-a-dataset" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-a-dataset'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
@@ -322,29 +321,28 @@ Import Existing Datasets</div>
 </div>
 </section>
 </section>
-<section id="conversations">
-<span id="id1"></span><h2>Conversations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#conversations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conversations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>A conversation is a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).</p>
-<section id="create-a-conversation">
-<h3>Create a conversation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-conversation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-conversation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can now add conversations to the dataset. Conversations are a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).</p>
-<p>The parameters for creating a conversation are:</p>
+<section id="chat-test-cases">
+<span id="id1"></span><h2>Chat Test Cases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#chat-test-cases" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#chat-test-cases'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>A chat test case (conversation) is a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).</p>
+<section id="create-a-chat-test-case">
+<h3>Create a chat test case<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-chat-test-case" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-chat-test-case'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>The parameters for creating a chat test case are:</p>
 <ul class="simple">
-<li><p><strong>dataset_id</strong> (required): The ID of the dataset where the conversation will be created.</p></li>
+<li><p><strong>dataset_id</strong> (required): The ID of the dataset where the chat test case will be created.</p></li>
 <li><p><strong>messages</strong> (required): A list of messages, without the last assistant answer.  Each message is a dictionary with keys <code class="docutils literal notranslate"><span class="pre">role</span></code> and <code class="docutils literal notranslate"><span class="pre">content</span></code>.</p></li>
 <li><p><strong>demo_output</strong> (optional): A dictionary with the last assistant answer</p></li>
-<li><p><strong>tags</strong> (optional): A list of tags you can use to categorize and organize the conversations</p></li>
+<li><p><strong>tags</strong> (optional): A list of tags you can use to categorize and organize the chat test cases</p></li>
 <li><p><strong>checks</strong> (optional): A list of checks. For more information on checks, see the <a class="reference internal" href="../checks.html"><span class="doc">Manage your checks</span></a> section.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Do not include last assistant answer in the list of messages.</strong> In fact, during evaluation, we will pass
-the conversation to your agent and expect it to generate an assistant answer. The newly generated answer will
+the chat test case to your agent and expect it to generate an assistant answer. The newly generated answer will
 be evaluated against the checks.</p>
-<p>If you want to show the last assistant answer to the user, you can include it in the conversation as <code class="docutils literal notranslate"><span class="pre">demo_output</span></code>.
+<p>If you want to show the last assistant answer to the user, you can include it in the chat test case as <code class="docutils literal notranslate"><span class="pre">demo_output</span></code>.
 In this way, it will be shown in the dataset, but not used in the evaluation.</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-3">
 </span><span id="line-4">    <span class="c1"># A list of messages, without the last assistant answer</span>
@@ -375,45 +373,44 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 </span></code></pre></div>
 </div>
 </section>
-<section id="retrieve-conversations">
-<h3>Retrieve conversations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-conversations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-conversations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>You can also retrieve existing conversations for editing or deletion.</p>
-<p>For example, in certain cases you may want programmatically assign certain annotations to the conversation, or update
-the conversation with the new data.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Retrieve all conversations</span>
-</span><span id="line-2"><span class="n">conversations</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<section id="retrieve-chat-test-cases">
+<h3>Retrieve chat test cases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-chat-test-cases" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-chat-test-cases'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can also retrieve existing chat test cases for editing or deletion.</p>
+<p>For example, in certain cases you may want programmatically assign certain annotations to the chat test case, or update it with new data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Retrieve all chat test cases</span>
+</span><span id="line-2"><span class="n">chat_test_cases</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </span><span id="line-3">
 </span><span id="line-4"><span class="c1"># Or simply</span>
-</span><span id="line-5"><span class="n">conversations</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">conversations</span>
+</span><span id="line-5"><span class="n">chat_test_cases</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">chat_test_cases</span>
 </span></code></pre></div>
 </div>
 </section>
-<section id="update-a-conversation">
-<h3>Update a conversation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#update-a-conversation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#update-a-conversation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>After retrieving the conversations, we can update them.
-For example, let’s say we want to add the tag “tech” to all conversations containing the word “laptop” in the user message:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Update the conversations</span>
-</span><span id="line-2"><span class="k">for</span> <span class="n">conversation</span> <span class="ow">in</span> <span class="n">conversations</span><span class="p">:</span>
-</span><span id="line-3">    <span class="k">if</span> <span class="s2">"laptop"</span> <span class="ow">in</span> <span class="n">conversation</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<section id="update-a-chat-test-case">
+<h3>Update a chat test case<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#update-a-chat-test-case" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#update-a-chat-test-case'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>After retrieving the chat test cases, we can update them.
+For example, let’s say we want to add the tag “tech” to all chat test cases containing the word “laptop” in the user message:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Update the chat test cases</span>
+</span><span id="line-2"><span class="k">for</span> <span class="n">chat_test_case</span> <span class="ow">in</span> <span class="n">chat_test_cases</span><span class="p">:</span>
+</span><span id="line-3">    <span class="k">if</span> <span class="s2">"laptop"</span> <span class="ow">in</span> <span class="n">chat_test_case</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
 </span><span id="line-4">        <span class="c1"># This will only update the tags, without changing the other fields</span>
-</span><span id="line-5">        <span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-</span><span id="line-6">            <span class="n">conversation</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-</span><span id="line-7">            <span class="n">tags</span><span class="o">=</span><span class="n">conversation</span><span class="o">.</span><span class="n">tags</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"tech"</span><span class="p">]</span>
+</span><span id="line-5">        <span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+</span><span id="line-6">            <span class="n">chat_test_case</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="line-7">            <span class="n">tags</span><span class="o">=</span><span class="n">chat_test_case</span><span class="o">.</span><span class="n">tags</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"tech"</span><span class="p">]</span>
 </span><span id="line-8">        <span class="p">)</span>
 </span></code></pre></div>
 </div>
 </section>
-<section id="delete-a-conversation">
-<h3>Delete a conversation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-a-conversation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-a-conversation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>Finally, you can delete conversations that you no longer need. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">conversation_to_delete</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">conversations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<section id="delete-a-chat-test-case">
+<h3>Delete a chat test case<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-a-chat-test-case" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-a-chat-test-case'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>Finally, you can delete chat test cases that you no longer need. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">chat_test_case_to_delete</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span><span id="line-2">
-</span><span id="line-3"><span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">conversation_to_delete</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span><span id="line-3"><span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">chat_test_case_to_delete</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Deleting a conversation is permanent and cannot be undone. Make sure you’re not using the conversation in any active evaluations before deleting it.</p>
+<p>Deleting a chat test case is permanent and cannot be undone. Make sure you’re not using the chat test case in any active evaluations before deleting it.</p>
 </div>
 
 </section>
@@ -450,11 +447,11 @@ For example, let’s say we want to add the tag “tech” to all conversations 
 <li><a :data-current="activeSection === '#delete-a-dataset'" class="reference internal" href="#delete-a-dataset">Delete a dataset</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#conversations'" class="reference internal" href="#conversations">Conversations</a><ul>
-<li><a :data-current="activeSection === '#create-a-conversation'" class="reference internal" href="#create-a-conversation">Create a conversation</a></li>
-<li><a :data-current="activeSection === '#retrieve-conversations'" class="reference internal" href="#retrieve-conversations">Retrieve conversations</a></li>
-<li><a :data-current="activeSection === '#update-a-conversation'" class="reference internal" href="#update-a-conversation">Update a conversation</a></li>
-<li><a :data-current="activeSection === '#delete-a-conversation'" class="reference internal" href="#delete-a-conversation">Delete a conversation</a></li>
+<li><a :data-current="activeSection === '#chat-test-cases'" class="reference internal" href="#chat-test-cases">Chat Test Cases</a><ul>
+<li><a :data-current="activeSection === '#create-a-chat-test-case'" class="reference internal" href="#create-a-chat-test-case">Create a chat test case</a></li>
+<li><a :data-current="activeSection === '#retrieve-chat-test-cases'" class="reference internal" href="#retrieve-chat-test-cases">Retrieve chat test cases</a></li>
+<li><a :data-current="activeSection === '#update-a-chat-test-case'" class="reference internal" href="#update-a-chat-test-case">Update a chat test case</a></li>
+<li><a :data-current="activeSection === '#delete-a-chat-test-case'" class="reference internal" href="#delete-a-chat-test-case">Delete a chat test case</a></li>
 </ul>
 </li>
 </ul>

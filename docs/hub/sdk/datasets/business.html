@@ -14,7 +14,7 @@
 <meta content="Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements in your LLM agents." property="og:description"/>
 <meta content="https://docs-hub.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible test cases. Automated, synthetic test case generation is therefore ..." name="description"/>
+<meta content="Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible scenarios. Automated, synthetic test case generation is therefore e..." name="description"/>
 <title>Detect business failures by generating synthetic tests | Giskard  documentation</title>
 <meta content="Detect business failures by generating synthetic tests | Giskard  documentation" property="og:title"/>
 <meta content="Detect business failures by generating synthetic tests | Giskard  documentation" name="twitter:title"/>
@@ -233,7 +233,7 @@
 <div id="content" role="main">
 <section id="detect-business-failures-by-generating-synthetic-tests">
 <h1>Detect business failures by generating synthetic tests<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#detect-business-failures-by-generating-synthetic-tests"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
-<p>Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible test cases. Automated, synthetic test case generation is therefore essential—especially when you lack real user conversations to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.</p>
+<p>Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible scenarios. Automated, synthetic test case generation is therefore essential—especially when you lack real user chats to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.</p>
 <p>By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.</p>
 <section id="document-based-testing">
 <h2>Document-Based Testing<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#document-based-testing" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#document-based-testing'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
@@ -252,9 +252,9 @@
 </span><span id="line-11"><span class="c1"># Wait for the dataset to be created</span>
 </span><span id="line-12"><span class="n">business_dataset</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">()</span>
 </span><span id="line-13">
-</span><span id="line-14"><span class="c1"># List the conversations in the dataset</span>
-</span><span id="line-15"><span class="k">for</span> <span class="n">conversation</span> <span class="ow">in</span> <span class="n">business_dataset</span><span class="o">.</span><span class="n">conversations</span><span class="p">:</span>
-</span><span id="line-16">    <span class="nb">print</span><span class="p">(</span><span class="n">conversation</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span><span id="line-14"><span class="c1"># List the chat test cases in the dataset</span>
+</span><span id="line-15"><span class="k">for</span> <span class="n">chat_test_case</span> <span class="ow">in</span> <span class="n">business_dataset</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="p">:</span>
+</span><span id="line-16">    <span class="nb">print</span><span class="p">(</span><span class="n">chat_test_case</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="admonition note">

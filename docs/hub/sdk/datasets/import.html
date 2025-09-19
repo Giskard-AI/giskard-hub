@@ -11,7 +11,7 @@
 <meta content="website" property="og:type"/>
 <meta content="https://docs-hub.giskard.ai/hub/sdk/datasets/import.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
-<meta content="Import existing test data programmatically into Giskard Hub. Support conversations, CSV files, and other formats through our Python SDK." property="og:description"/>
+<meta content="Import your existing test data into Giskard Hub. Bring chat test cases, CSV files, and other data formats to build comprehensive test datasets." property="og:description"/>
 <meta content="https://docs-hub.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
 <meta content="You can import existing test datasets from a file. This is particularly useful when you already have a dataset that you want to use for evaluation. In this section, we will walk you through how to ..." name="description"/>
@@ -243,24 +243,24 @@
 </span><span id="line-3"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
-<p>You can now use the <code class="docutils literal notranslate"><span class="pre">hub.datasets</span></code> and <code class="docutils literal notranslate"><span class="pre">hub.conversations</span></code> clients to import datasets and conversations!</p>
+<p>You can now use the <code class="docutils literal notranslate"><span class="pre">hub.datasets</span></code> and <code class="docutils literal notranslate"><span class="pre">hub.chat_test_cases</span></code> clients to import datasets and chat_test_cases!</p>
 <section id="create-a-dataset">
 <h3>Create a dataset<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-dataset" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-dataset'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <p>As we have seen in the <a class="reference internal" href="index.html"><span class="doc">Create test datasets</span></a> section, we can create a dataset using the <code class="docutils literal notranslate"><span class="pre">hub.datasets.create()</span></code> method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">dataset</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">   <span class="n">project_id</span><span class="o">=</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">,</span>
 </span><span id="line-3">   <span class="n">name</span><span class="o">=</span><span class="s2">"Production Data"</span><span class="p">,</span>
-</span><span id="line-4">   <span class="n">description</span><span class="o">=</span><span class="s2">"This dataset contains conversations that "</span> \
+</span><span id="line-4">   <span class="n">description</span><span class="o">=</span><span class="s2">"This dataset contains chats that "</span> \
 </span><span id="line-5">   <span class="s2">"are automatically sampled from the production environment."</span><span class="p">,</span>
 </span><span id="line-6"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>After having created the dataset, we can import conversations into it.</p>
+<p>After having created the dataset, we can import chat test cases (conversations) into it.</p>
 </section>
-<section id="import-conversations">
-<h3>Import conversations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#import-conversations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#import-conversations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<p>We can import conversations into the dataset using the <code class="docutils literal notranslate"><span class="pre">hub.conversations.create()</span></code> method.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<section id="import-chat-test-cases">
+<h3>Import chat test cases<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#import-chat-test-cases" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#import-chat-test-cases'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>We can import the chats into the dataset using the <code class="docutils literal notranslate"><span class="pre">hub.chat_test_cases.create()</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-3">
 </span><span id="line-4">    <span class="c1"># A list of messages, without the last assistant answer</span>
@@ -308,7 +308,7 @@ We still start by loading the testset we got from <a class="reference internal" 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">dataset</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">project_id</span><span class="o">=</span><span class="s2">"&lt;PROJECT_ID&gt;"</span><span class="p">,</span>
 </span><span id="line-3">    <span class="n">name</span><span class="o">=</span><span class="s2">"RAGET Dataset"</span><span class="p">,</span>
-</span><span id="line-4">    <span class="n">description</span><span class="o">=</span><span class="s2">"This dataset contains conversations that are used to evaluate the RAGET model."</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">description</span><span class="o">=</span><span class="s2">"This dataset contains chats that are used to evaluate the RAGET model."</span><span class="p">,</span>
 </span><span id="line-5"><span class="p">)</span>
 </span><span id="line-6">
 </span><span id="line-7"><span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">testset</span><span class="o">.</span><span class="n">samples</span><span class="p">:</span>
@@ -365,7 +365,7 @@ We still start by loading the testset we got from <a class="reference internal" 
 </span><span id="line-58">            <span class="p">}</span>
 </span><span id="line-59">        <span class="p">)</span>
 </span><span id="line-60">
-</span><span id="line-61">    <span class="n">hub</span><span class="o">.</span><span class="n">conversations</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-61">    <span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-62">        <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
 </span><span id="line-63">        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
 </span><span id="line-64">        <span class="n">checks</span><span class="o">=</span><span class="n">checks</span><span class="p">,</span>
@@ -405,7 +405,7 @@ We still start by loading the testset we got from <a class="reference internal" 
 <ul>
 <li><a :data-current="activeSection === '#importing-datasets'" class="reference internal" href="#importing-datasets">Importing datasets</a><ul>
 <li><a :data-current="activeSection === '#create-a-dataset'" class="reference internal" href="#create-a-dataset">Create a dataset</a></li>
-<li><a :data-current="activeSection === '#import-conversations'" class="reference internal" href="#import-conversations">Import conversations</a></li>
+<li><a :data-current="activeSection === '#import-chat-test-cases'" class="reference internal" href="#import-chat-test-cases">Import chat test cases</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#import-datasets-from-other-tools'" class="reference internal" href="#import-datasets-from-other-tools">Import datasets from other tools</a><ul>

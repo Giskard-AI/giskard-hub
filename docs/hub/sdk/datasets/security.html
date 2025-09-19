@@ -259,15 +259,15 @@
 </span><span id="line-20">            <span class="s2">"desc"</span><span class="p">:</span> <span class="s2">"Tests for unintended information leakage"</span>
 </span><span id="line-21">        <span class="p">}</span>
 </span><span id="line-22">    <span class="p">],</span>
-</span><span id="line-23">    <span class="n">n_examples</span><span class="o">=</span><span class="mi">20</span> <span class="c1"># Optional: number of conversations per category to generate</span>
+</span><span id="line-23">    <span class="n">n_examples</span><span class="o">=</span><span class="mi">20</span> <span class="c1"># Optional: number of chat test cases per category to generate</span>
 </span><span id="line-24"><span class="p">)</span>
 </span><span id="line-25">
 </span><span id="line-26"><span class="c1"># Wait for the dataset to be created</span>
 </span><span id="line-27"><span class="n">security_dataset</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">()</span>
 </span><span id="line-28">
-</span><span id="line-29"><span class="c1"># List the conversations in the dataset</span>
-</span><span id="line-30"><span class="k">for</span> <span class="n">conversation</span> <span class="ow">in</span> <span class="n">security_dataset</span><span class="o">.</span><span class="n">conversations</span><span class="p">:</span>
-</span><span id="line-31">    <span class="nb">print</span><span class="p">(</span><span class="n">conversation</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span><span id="line-29"><span class="c1"># List the chat test cases in the dataset</span>
+</span><span id="line-30"><span class="k">for</span> <span class="n">chat_test_case</span> <span class="ow">in</span> <span class="n">security_dataset</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="p">:</span>
+</span><span id="line-31">    <span class="nb">print</span><span class="p">(</span><span class="n">chat_test_case</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="admonition note">
