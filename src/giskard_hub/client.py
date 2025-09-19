@@ -13,7 +13,6 @@ from .data.model import Model, ModelOutput
 from .errors import HubConnectionError
 from .resources.chat_test_cases import ChatTestCasesResource
 from .resources.checks import ChecksResource
-from .resources.conversations import ConversationsResource
 from .resources.datasets import DatasetsResource
 from .resources.evaluations import EvaluationsResource
 from .resources.knowledge_bases import KnowledgeBasesResource
@@ -23,26 +22,19 @@ from .resources.scheduled_evaluations import ScheduledEvaluationsResource
 
 
 # pylint: disable=too-many-instance-attributes
-# The `conversations` resource is deprecated and will be removed in the future.
 class HubClient(SyncClient):
     """Client class to handle interaction with the hub.
 
     Attributes
     ----------
-    projects : ProjectsResource
-        Resource to interact with projects.
+    chat_test_cases : ChatTestCasesResource
+        Resource to interact with chat test cases (conversations).
+
+    checks : ChecksResource
+        Resource to interact with checks.
 
     datasets : DatasetsResource
         Resource to interact with datasets.
-
-    chat_test_cases : ChatTestCasesResource
-        Resource to interact with chat test cases.
-
-    conversations : ConversationsResource
-        Resource to interact with conversations.
-
-    models : ModelsResource
-        Resource to interact with models.
 
     evaluations : EvaluationsResource
         Resource to interact with evaluations.
@@ -50,20 +42,23 @@ class HubClient(SyncClient):
     knowledge_bases : KnowledgeBasesResource
         Resource to interact with knowledge bases.
 
+    models : ModelsResource
+        Resource to interact with models.
+
+    projects : ProjectsResource
+        Resource to interact with projects.
+
     scheduled_evaluations : ScheduledEvaluationsResource
         Resource to interact with scheduled evaluations.
-
-    evals : EvaluationsResource
-        Alias for `evaluations`.
     """
 
-    projects: ProjectsResource
-    datasets: DatasetsResource
     chat_test_cases: ChatTestCasesResource
-    conversations: ConversationsResource
-    evaluations: EvaluationsResource
     checks: ChecksResource
+    datasets: DatasetsResource
+    evaluations: EvaluationsResource
     knowledge_bases: KnowledgeBasesResource
+    models: ModelsResource
+    projects: ProjectsResource
     scheduled_evaluations: ScheduledEvaluationsResource
 
     def __init__(
@@ -136,19 +131,14 @@ class HubClient(SyncClient):
             )
 
         # Define the resources
-        self.projects = ProjectsResource(self)
-        self.datasets = DatasetsResource(self)
         self.chat_test_cases = ChatTestCasesResource(self)
-        self.conversations = ConversationsResource(self)
-        self.models = ModelsResource(self)
-        self.evaluations = EvaluationsResource(self)
         self.checks = ChecksResource(self)
+        self.datasets = DatasetsResource(self)
+        self.evaluations = EvaluationsResource(self)
         self.knowledge_bases = KnowledgeBasesResource(self)
+        self.models = ModelsResource(self)
+        self.projects = ProjectsResource(self)
         self.scheduled_evaluations = ScheduledEvaluationsResource(self)
-
-    @property
-    def evals(self):
-        return self.evaluations
 
     def _headers(self):
         return {
@@ -159,24 +149,25 @@ class HubClient(SyncClient):
     def evaluate(
         self,
         *,
-        dataset: Dataset | str,
-        tags: List[str] = NOT_GIVEN,
+        dataset: str | Dataset,
         model: Model | str | Callable[[List[ChatMessage]], ModelOutput | str],
         name: str = NOT_GIVEN,
+        tags: List[str] = NOT_GIVEN,
     ):
-        """Evaluate a model on a dataset.
+        """Method to run an evaluation, either locally or remotely.
 
         Parameters
         ----------
         dataset : str | Dataset
-            ID of the dataset that will be used for the evaluation, or the dataset entity.
-        tags: List[str], optional
-            List of tags to filter the conversations (chat test cases) that will be evaluated.
+            ID of the dataset that will be used for the evaluation, or the dataset entity itself.
+            List of tags to filter the chat test cases that will be evaluated.
         model : str | Model | Callable[[List[ChatMessage]], ModelOutput | str]
             ID of the model to evaluate, or a model entity, or a local model function.
             A local model function is a function that takes a list of messages and returns a `ModelOutput` or a string.
         name : str, optional
             The name of the evaluation run. If not provided, a random name will be automatically generated.
+        tags: List[str], optional
+            List of tags to filter the chat test cases that will be evaluated.
 
         Returns
         -------
@@ -201,9 +192,9 @@ class HubClient(SyncClient):
 
         return self.evaluations.create(
             dataset_id=dataset_id,
-            tags=tags,
             model_id=entity_to_id(model, Model),
             name=name,
+            tags=tags,
         )
 
     def _run_local_eval(
@@ -220,7 +211,7 @@ class HubClient(SyncClient):
         # Run the local model
         entries = self.evaluations.list_entries(eval_run.id)
         for entry in entries:
-            model_output = model(entry.conversation.messages)
+            model_output = model(entry.chat_test_case.messages)
             self.evaluations.update_entry(
                 eval_run.id, entry.id, model_output=model_output
             )

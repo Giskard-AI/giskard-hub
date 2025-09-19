@@ -3,7 +3,6 @@ from unittest.mock import Mock
 import pytest
 
 from giskard_hub.data.chat_test_case import ChatTestCase
-from giskard_hub.data.conversation import Conversation
 from giskard_hub.data.evaluation import EvaluationEntry, EvaluationRun, EvaluatorResult
 from giskard_hub.data.model import Model, ModelOutput
 from giskard_hub.data.task import TaskStatus
@@ -58,7 +57,7 @@ TEST_EVALUATION_RUN_DATA = {
 TEST_EVALUATION_ENTRY_DATA = {
     "id": "entry_123",
     "run_id": "run_123",
-    "conversation": TEST_CONVERSATION_DATA,
+    "chat_test_case": TEST_CONVERSATION_DATA,
     "results": [],
     "status": "COMPLETED",
     "model_output": {
@@ -102,7 +101,7 @@ TEST_FAILURE_CATEGORY_RESULT_DATA = {
 TEST_EVALUATION_ENTRY_WITH_FAILURE_CATEGORY = {
     "id": "entry_with_failure",
     "run_id": "run_123",
-    "conversation": TEST_CONVERSATION_DATA,
+    "chat_test_case": TEST_CONVERSATION_DATA,
     "results": [],
     "status": "FAILED",
     "model_output": {
@@ -141,26 +140,8 @@ def test_evaluation_entry_from_chat_test_case():
         }
     )
 
-    assert isinstance(evaluation_entry.conversation, ChatTestCase)
-    assert evaluation_entry.conversation.id == chat_test_case.id
-
-
-def test_evaluation_entry_from_conversation():
-    conversation_data = TEST_CONVERSATION_DATA.copy()
-
-    conversation = Conversation.from_dict(conversation_data)
-    evaluation_entry = EvaluationEntry.from_dict(
-        {
-            "conversation": conversation_data,
-            "run_id": "run_123",
-            "results": [],
-            "status": TaskStatus.RUNNING,
-            "model_output": None,
-        }
-    )
-
-    assert isinstance(evaluation_entry.conversation, Conversation)
-    assert evaluation_entry.conversation.id == conversation.id
+    assert isinstance(evaluation_entry.chat_test_case, ChatTestCase)
+    assert evaluation_entry.chat_test_case.id == chat_test_case.id
 
 
 # Tests for EvaluationsResource.retrieve()
@@ -332,34 +313,36 @@ def test_create_local_validation_error(evaluations_resource, mock_client):
 
 
 # Tests for EvaluationsResource.delete()
-def test_delete_single_execution_id(evaluations_resource, mock_client):
-    """Test deletion with single execution ID."""
+def test_delete_single_evaluation_id(evaluations_resource, mock_client):
+    """Test deletion with single evaluation ID."""
     mock_client.delete.return_value = {"success": True}
 
     result = evaluations_resource.delete("exec_123")
 
     mock_client.delete.assert_called_once_with(
-        "/evaluations", params={"execution_ids": "exec_123"}
+        "/evaluations", params={"evaluation_ids": "exec_123"}
     )
     assert result == {"success": True}
 
 
-def test_delete_multiple_execution_ids(evaluations_resource, mock_client):
-    """Test deletion with multiple execution IDs."""
+def test_delete_multiple_evaluation_ids(evaluations_resource, mock_client):
+    """Test deletion with multiple evaluation IDs."""
     mock_client.delete.return_value = {"success": True}
-    execution_ids = ["exec_123", "exec_456", "exec_789"]
+    evaluation_ids = ["exec_123", "exec_456", "exec_789"]
 
-    result = evaluations_resource.delete(execution_ids)
+    result = evaluations_resource.delete(evaluation_ids)
 
     mock_client.delete.assert_called_once_with(
-        "/evaluations", params={"execution_ids": execution_ids}
+        "/evaluations", params={"evaluation_ids": evaluation_ids}
     )
     assert result == {"success": True}
 
 
 def test_delete_not_found(evaluations_resource, mock_client):
-    """Test delete with non-existent execution ID."""
-    mock_client.delete.side_effect = HubAPIError("Execution not found", status_code=404)
+    """Test delete with non-existent evaluation ID."""
+    mock_client.delete.side_effect = HubAPIError(
+        "Evaluation not found", status_code=404
+    )
 
     with pytest.raises(HubAPIError) as exc_info:
         evaluations_resource.delete("nonexistent_exec")

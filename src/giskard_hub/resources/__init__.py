@@ -1,5 +1,5 @@
 from .chat_test_cases import ChatTestCasesResource
-from .conversations import ConversationsResource
+from .checks import ChecksResource
 from .datasets import DatasetsResource
 from .evaluations import EvaluationsResource
 from .knowledge_bases import KnowledgeBasesResource
@@ -11,7 +11,7 @@ __all__ = [
     "ProjectsResource",
     "DatasetsResource",
     "ChatTestCasesResource",
-    "ConversationsResource",
+    "ChecksResource",
     "ModelsResource",
     "EvaluationsResource",
     "KnowledgeBasesResource",

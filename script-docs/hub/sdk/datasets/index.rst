@@ -1,12 +1,10 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Dataset Management
-:og:description: Create, manage, and organize test datasets programmatically. Import conversations, generate synthetic data, and build comprehensive test cases using the Python SDK.
+:og:description: Create, manage, and organize test datasets into Giskard Hub. Import chat test cases, generate synthetic data, and build comprehensive test datasets.
 
 ================================
 Create test datasets
 ================================
 
-A **dataset** is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control,
-but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any test conversations to import.
 
 This section will guide you through creating your own test datasets programmatically.
 
@@ -21,9 +19,10 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 You can now use the ``hub.datasets`` client to control the Giskard Hub!
 
 Datasets
---------
+============
 
-A dataset is a collection of conversations that are used to evaluate your agents.
+A **dataset** is a collection of chat test cases (conversations) used to evaluate your agents. We allow manual test creation for fine-grained control,
+but since generative AI agents can encounter an infinite number of scenarios, automated test case generation is often necessary, especially when you don't have any chat transcripts to import.
 
 Create a dataset
 ________________
@@ -39,7 +38,7 @@ If you don't have a dataset already, you can create one manually.
         # The ID of the project where the dataset will be created
         project_id="<PROJECT_ID>",
         name="Production Data",
-        description="This dataset contains conversations that " \
+        description="This dataset contains chats that " \
         "are automatically sampled from the production environment.",
     )
 
@@ -90,7 +89,7 @@ You can update a dataset using the ``hub.datasets.update()`` method. Here's a ba
 
     dataset = hub.datasets.update("<DATASET_ID>", name="My updated dataset")
 
-Alternatively, you can update a dataset by managing its :ref:`conversations <conversations>`.
+Alternatively, you can update a dataset by managing its :ref:`chat test cases <chat_test_cases>`.
 
 Delete a dataset
 ________________
@@ -102,36 +101,34 @@ You can delete a dataset using the ``hub.datasets.delete()`` method. Here's a ba
     hub.datasets.delete("<DATASET_ID>")
 
 
-.. _conversations:
+.. _chat_test_cases:
 
-Conversations
--------------
+Chat Test Cases
+===============
 
-A conversation is a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).
+A chat test case (conversation) is a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).
 
-Create a conversation
+Create a chat test case
 _____________________
 
-You can now add conversations to the dataset. Conversations are a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).
+The parameters for creating a chat test case are:
 
-The parameters for creating a conversation are:
-
-- **dataset_id** (required): The ID of the dataset where the conversation will be created.
+- **dataset_id** (required): The ID of the dataset where the chat test case will be created.
 - **messages** (required): A list of messages, without the last assistant answer.  Each message is a dictionary with keys ``role`` and ``content``.
 - **demo_output** (optional): A dictionary with the last assistant answer
-- **tags** (optional): A list of tags you can use to categorize and organize the conversations
+- **tags** (optional): A list of tags you can use to categorize and organize the chat test cases
 - **checks** (optional): A list of checks. For more information on checks, see the :doc:`/hub/sdk/checks` section.
 
 .. note:: **Do not include last assistant answer in the list of messages.** In fact, during evaluation, we will pass
-    the conversation to your agent and expect it to generate an assistant answer. The newly generated answer will
+    the chat test case to your agent and expect it to generate an assistant answer. The newly generated answer will
     be evaluated against the checks.
 
-    If you want to show the last assistant answer to the user, you can include it in the conversation as ``demo_output``.
+    If you want to show the last assistant answer to the user, you can include it in the chat test case as ``demo_output``.
     In this way, it will be shown in the dataset, but not used in the evaluation.
 
 .. code-block:: python
 
-    hub.conversations.create(
+    hub.chat_test_cases.create(
         dataset_id=dataset.id,
 
         # A list of messages, without the last assistant answer
@@ -160,54 +157,53 @@ The parameters for creating a conversation are:
         ]
     )
 
-Retrieve conversations
+Retrieve chat test cases
 ______________________
 
-You can also retrieve existing conversations for editing or deletion.
+You can also retrieve existing chat test cases for editing or deletion.
 
-For example, in certain cases you may want programmatically assign certain annotations to the conversation, or update
-the conversation with the new data.
+For example, in certain cases you may want programmatically assign certain annotations to the chat test case, or update it with new data.
 
 .. code-block:: python
 
-    # Retrieve all conversations
-    conversations = hub.conversations.list(dataset_id=dataset.id)
+    # Retrieve all chat test cases
+    chat_test_cases = hub.chat_test_cases.list(dataset_id=dataset.id)
 
     # Or simply
-    conversations = dataset.conversations
+    chat_test_cases = dataset.chat_test_cases
 
-Update a conversation
+Update a chat test case
 _____________________
 
-After retrieving the conversations, we can update them.
-For example, let's say we want to add the tag "tech" to all conversations containing the word "laptop" in the user message:
+After retrieving the chat test cases, we can update them.
+For example, let's say we want to add the tag "tech" to all chat test cases containing the word "laptop" in the user message:
 
 .. code-block:: python
 
-    # Update the conversations
-    for conversation in conversations:
-        if "laptop" in conversation.messages[0].content:
+    # Update the chat test cases
+    for chat_test_case in chat_test_cases:
+        if "laptop" in chat_test_case.messages[0].content:
             # This will only update the tags, without changing the other fields
-            hub.conversations.update(
-                conversation.id,
-                tags=conversation.tags + ["tech"]
+            hub.chat_test_cases.update(
+                chat_test_case.id,
+                tags=chat_test_case.tags + ["tech"]
             )
 
-Delete a conversation
+Delete a chat test case
 _____________________
 
-Finally, you can delete conversations that you no longer need. For example:
+Finally, you can delete chat test cases that you no longer need. For example:
 
 .. code-block:: python
 
-    conversation_to_delete = dataset.conversations[0]
+    chat_test_case_to_delete = dataset.chat_test_cases[0]
 
-    hub.conversations.delete(conversation_to_delete.id)
+    hub.chat_test_cases.delete(chat_test_case_to_delete.id)
 
 
 .. warning::
 
-    Deleting a conversation is permanent and cannot be undone. Make sure you're not using the conversation in any active evaluations before deleting it.
+    Deleting a chat test case is permanent and cannot be undone. Make sure you're not using the chat test case in any active evaluations before deleting it.
 
 .. toctree::
    :hidden:

@@ -69,7 +69,7 @@ Either use `hub.projects.list()` to get a list of all projects, or use
 
 ### Import a dataset
 
-Let's now create a dataset and add a conversation example.
+Let's now create a dataset and add a chat test case example.
 
 ```python
 # Let's create a dataset
@@ -80,12 +80,12 @@ dataset = hub.datasets.create(
 )
 ```
 
-We can now add a conversation example to the dataset. This will be used
+We can now add a chat test case example to the dataset. This will be used
 for the model evaluation.
 
 ```python
-# Add a conversation example
-hub.conversations.create(
+# Add a chat test case example
+hub.chat_test_cases.create(
     dataset_id=dataset.id,
     messages=[
         dict(role="user", content="What is the capital of France?"),
@@ -107,10 +107,10 @@ hub.conversations.create(
 )
 ```
 
-These are the attributes you can set for a conversation (the only
+These are the attributes you can set for a chat test case (the only
 required attribute is `messages`):
 
-- `messages`: A list of messages in the conversation. Each message is a dictionary with the following keys:
+- `messages`: A list of messages in the chat. Each message is a dictionary with the following keys:
 
   - `role`: The role of the message, either "user" or "assistant".
   - `content`: The content of the message.
@@ -118,10 +118,10 @@ required attribute is `messages`):
 - `demo_output`: A demonstration of a (possibly wrong) output from the
   model with an optional metadata. This is just for demonstration purposes.
 
-  - `checks`: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
+  - `checks`: A list of checks that the chat test case should pass. This is used for evaluation. Each check is a dictionary with the following keys:
   - `identifier`: The identifier of the check. If it's a built-in check, you will also need to provide the `params` dictionary. The built-in checks are:
     - `correctness`: The output of the model should match the reference.
-    - `conformity`: The conversation should follow a set of rules.
+    - `conformity`: The chat should follow a set of rules.
     - `groundedness`: The output of the model should be grounded in the conversation.
     - `string_match`: The output of the model should contain a specific string (keyword or sentence).
     - `metadata`: The metadata output of the model should match a list of JSON path rules.
@@ -137,15 +137,13 @@ required attribute is `messages`):
       - `expected_value_type`: The expected type of the value at the JSON path, one of `string`, `number`, `boolean`.
     - For the `semantic_similarity` check, the parameters are `reference` (type: `str`) and `threshold` (type: `float`), where `reference` is the expected output and `threshold` is the similarity score below which the check will fail.
 
-You can add as many conversations as you want to the dataset.
+You can add as many chat test cases as you want to the dataset.
 
 Again, you'll find your newly created dataset in the Hub UI.
 
 ### Configure a model/agent
 
-Before running our first evaluation, we'll need to set up a model.
-You'll need an API endpoint ready to serve the model. Then, you can
-configure the model API in the Hub:
+Before running our first evaluation, we'll need to set up a model. You'll need an API endpoint ready to serve the model. Then, you can configure the model API in the Hub:
 
 ```python
 model = hub.models.create(
@@ -159,8 +157,7 @@ model = hub.models.create(
 )
 ```
 
-We can test that everything is working well by running a chat with the
-model:
+We can test that everything is working well by running a chat with the model:
 
 ```python
 response = model.chat(
@@ -198,8 +195,7 @@ eval_run = client.evaluate(
 )
 ```
 
-The evaluation will run asynchronously on the Hub. To retrieve the
-results once the run is complete, you can use the following:
+The evaluation will run asynchronously on the Hub. To retrieve the results once the run is complete, you can use the following:
 
 ```python
 
@@ -213,5 +209,4 @@ eval_run.print_metrics()
 **Tip**
 
 You can directly pass IDs to the evaluate function, e.g.
-`model=model_id` and `dataset=dataset_id`, without having to retrieve
-the objects first.
+`model=model_id` and `dataset=dataset_id`, without having to retrieve the objects first.

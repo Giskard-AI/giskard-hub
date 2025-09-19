@@ -14,11 +14,11 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
       Create, update, and organize projects, agents and knowledge bases
 
-   .. grid-item-card:: Manage datasets and conversations
+   .. grid-item-card:: Manage datasets and chat test cases
       :link: datasets/index
       :link-type: doc
 
-      Create, update, and organize test datasets and conversations manually or using synthetic data generation
+      Create, update, and organize test datasets and chat test cases manually or using synthetic data generation
 
    .. grid-item-card:: Manage checks
       :link: checks
@@ -123,7 +123,7 @@ That's it! You have created a project.
 Import a dataset
 ________________
 
-Let's now create a dataset and add a conversation example.
+Let's now create a dataset and add a chat test case example.
 
 .. code-block:: python
 
@@ -135,14 +135,14 @@ Let's now create a dataset and add a conversation example.
     )
 
 
-We can now add a conversation example to the dataset. This will be used for the model evaluation.
+We can now add a chat test case example to the dataset. This will be used for the model evaluation.
 
 .. code-block:: python
 
    import random
 
-   # Add a conversation example
-   hub.conversations.create(
+   # Add a chat test case example
+   hub.chat_test_cases.create(
       dataset_id=dataset.id,
       messages=[
          dict(role="user", content="What is the capital of France?"),
@@ -165,23 +165,23 @@ We can now add a conversation example to the dataset. This will be used for the 
       ]
    )
 
-These are the attributes you can set for a conversation (the only required attribute is ``messages``):
+These are the attributes you can set for a chat test case (the only required attribute is ``messages``):
 
-- ``messages``: A list of messages in the conversation. Each message is a dictionary with the following keys:
+- ``messages``: A list of messages in the chat. Each message is a dictionary with the following keys:
     - ``role``: The role of the message, either "user" or "assistant".
     - ``content``: The content of the message.
 - ``demo_output``: A demonstration of a (possibly wrong) output from the model with an optional metadata. This is just for demonstration purposes.
-- ``checks``: A list of checks that the conversation should pass. This is used for evaluation. Each check is a dictionary with the following keys:
+- ``checks``: A list of checks that the chat should pass. This is used for evaluation. Each check is a dictionary with the following keys:
     - ``identifier``: The identifier of the check. If it's a built-in check, you will also need to provide the ``params`` dictionary. The built-in checks are:
         - ``correctness``: The output of the model should match the reference.
-        - ``conformity``: The conversation should follow a set of rules.
-        - ``groundedness``: The output of the model should be grounded in the conversation.
+        - ``conformity``: The chat test case should follow a set of rules.
+        - ``groundedness``: The output of the model should be grounded to a specific context.
         - ``string_match``: The output of the model should contain a specific string (keyword or sentence).
         - ``metadata``: The metadata output of the model should match a list of JSON path rules.
     - ``semantic_similarity``: The output of the model should be semantically similar to the reference.
     - ``params``: A dictionary of parameters for the check. The parameters depend on the check type:
         - For the ``correctness`` check, the parameter is ``reference`` (type: ``str``), which is the expected output.
-        - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the conversation should follow.
+        - For the ``conformity`` check, the parameter is ``rules`` (type: ``list[str]``), which is a list of rules that the chat should follow.
         - For the ``groundedness`` check, the parameter is ``context`` (type: ``str``), which is the context in which the model should ground its output.
         - For the ``string_match`` check, the parameter is ``keyword`` (type: ``str``), which is the string that the model's output should contain.
         - For the ``metadata`` check, the parameter is ``json_path_rules`` (type: ``list[dict]``), which is a list of dictionaries with the following keys:
@@ -194,7 +194,7 @@ These are the attributes you can set for a conversation (the only required attri
 
    For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
 
-You can add as many conversations as you want to the dataset.
+You can add as many chat test cases as you want to the dataset.
 
 Configure an Agent
 ___________________
