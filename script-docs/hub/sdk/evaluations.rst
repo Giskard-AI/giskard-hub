@@ -349,7 +349,7 @@ You can list evaluation results using the ``hub.evaluations.list_entries()`` met
 
     eval_results = hub.evaluations.list_entries(eval_run.id)
 
-Each evaluation entry contains detailed information about the test case execution, including the conversation, model output, evaluation results, and optionally a failure category:
+Each evaluation entry contains detailed information about the test case execution, including the chat test case, model output, evaluation results, and optionally a failure category:
 
 .. code-block:: python
 

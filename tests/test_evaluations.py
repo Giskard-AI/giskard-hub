@@ -313,8 +313,8 @@ def test_create_local_validation_error(evaluations_resource, mock_client):
 
 
 # Tests for EvaluationsResource.delete()
-def test_delete_single_execution_id(evaluations_resource, mock_client):
-    """Test deletion with single execution ID."""
+def test_delete_single_evaluation_id(evaluations_resource, mock_client):
+    """Test deletion with single evaluation ID."""
     mock_client.delete.return_value = {"success": True}
 
     result = evaluations_resource.delete("exec_123")
@@ -325,8 +325,8 @@ def test_delete_single_execution_id(evaluations_resource, mock_client):
     assert result == {"success": True}
 
 
-def test_delete_multiple_execution_ids(evaluations_resource, mock_client):
-    """Test deletion with multiple execution IDs."""
+def test_delete_multiple_evaluation_ids(evaluations_resource, mock_client):
+    """Test deletion with multiple evaluation IDs."""
     mock_client.delete.return_value = {"success": True}
     evaluation_ids = ["exec_123", "exec_456", "exec_789"]
 
@@ -339,8 +339,8 @@ def test_delete_multiple_execution_ids(evaluations_resource, mock_client):
 
 
 def test_delete_not_found(evaluations_resource, mock_client):
-    """Test delete with non-existent execution ID."""
-    mock_client.delete.side_effect = HubAPIError("Execution not found", status_code=404)
+    """Test delete with non-existent evaluation ID."""
+    mock_client.delete.side_effect = HubAPIError("Evaluation not found", status_code=404)
 
     with pytest.raises(HubAPIError) as exc_info:
         evaluations_resource.delete("nonexistent_exec")
