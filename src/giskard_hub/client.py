@@ -131,13 +131,13 @@ class HubClient(SyncClient):
             )
 
         # Define the resources
-        self.projects = ProjectsResource(self)
-        self.datasets = DatasetsResource(self)
         self.chat_test_cases = ChatTestCasesResource(self)
-        self.models = ModelsResource(self)
-        self.evaluations = EvaluationsResource(self)
         self.checks = ChecksResource(self)
+        self.datasets = DatasetsResource(self)
+        self.evaluations = EvaluationsResource(self)
         self.knowledge_bases = KnowledgeBasesResource(self)
+        self.models = ModelsResource(self)
+        self.projects = ProjectsResource(self)
         self.scheduled_evaluations = ScheduledEvaluationsResource(self)
 
     def _headers(self):
