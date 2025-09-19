@@ -387,7 +387,6 @@ Continuous red teaming</div>
 <dt><code class="docutils literal notranslate"><span class="pre">File</span></code>: The document to upload, containing the knowledge base content. Supported formats are:</dt><dd><ul>
 <li><p><strong>JSON</strong>: A JSON file containing an array of objects</p></li>
 <li><p><strong>JSONL</strong>: A JSON Lines file with one object per line</p></li>
-<li><p><strong>CSV</strong>: A CSV File (Deprecated)</p></li>
 </ul>
 </dd>
 </dl>
@@ -405,12 +404,6 @@ Continuous red teaming</div>
 <li><p><code class="docutils literal notranslate"><span class="pre">text</span></code> (required): The document content</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">topic</span></code> (optional): The topic classification for the document</p></li>
 </ul>
-<p><strong>CSV format requirements:</strong></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>Importing a knowledge base with CSV is deprecated</strong> and will be removed in future versions. Please use JSON or JSONL formats for new knowledge bases.</p>
-</div>
-<p>For CSV files, the format should have one column named <code class="docutils literal notranslate"><span class="pre">text</span></code> with the document content. If you’re uploading a knowledge base with pre-defined topics, the file should have two columns with the first row labeled <code class="docutils literal notranslate"><span class="pre">text,topic</span></code>.</p>
 <dl class="simple">
 <dt><strong>General rules for all formats:</strong></dt><dd><ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">text</span></code> has a value but the <code class="docutils literal notranslate"><span class="pre">topic</span></code> is blank, the <code class="docutils literal notranslate"><span class="pre">topic</span></code> will be set to ‘Others’. However, if all topics are blank, the <code class="docutils literal notranslate"><span class="pre">topic</span></code> will be automatically generated.</p></li>

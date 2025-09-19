@@ -401,10 +401,10 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>project_id</strong> (<em>str</em>) – The project ID.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name of the knowledge base.</p></li>
-<li><p><strong>data</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Either a filepath (str) to a JSON or JSONL file, or a list of dicts containing “text” and “topic” (optional) keys.</p></li>
+<li><p><strong>data</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Either a filepath (str) to a JSON or JSONL file, or a list of dicts containing document and topic keys.</p></li>
 <li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – Description of the knowledge base.</p></li>
-<li><p><strong>document_column</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the document column.</p></li>
-<li><p><strong>topic_column</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the topic column.</p></li>
+<li><p><strong>document_column</strong> (<em>str</em><em>, </em><em>optional</em>) – Column name for document content in the data (server default is ‘text’).</p></li>
+<li><p><strong>topic_column</strong> (<em>str</em><em>, </em><em>optional</em>) – Column name for topic classification in the data (server default is ‘topic’).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
