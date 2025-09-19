@@ -22,7 +22,7 @@ Datasets
 ============
 
 A **dataset** is a collection of chat test cases (conversations) used to evaluate your agents. We allow manual test creation for fine-grained control,
-but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any chat transcripts to import.
+but since generative AI agents can encounter an infinite number of scenarios, automated test case generation is often necessary, especially when you don't have any chat transcripts to import.
 
 Create a dataset
 ________________
