@@ -10,7 +10,7 @@ Projects are the top-level organizational units in Giskard Hub. They provide a w
 Each project can contain:
 
 * **Agents**: The AI systems you want to test and evaluate
-* **Datasets**: Collections of test cases and conversations
+* **Datasets**: Collections of chat test cases (conversations)
 * **Knowledge bases**: Domain-specific information sources
 * **Evaluations**: Test runs and their results
 * **Users and groups**: Team members with different access levels

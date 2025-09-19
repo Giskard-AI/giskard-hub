@@ -11,7 +11,7 @@ The Giskard Hub provides a set of built-in checks that cover common use cases, s
 
 * **Correctness**: Verifies if the agent's response matches the expected output (reference answer).
 * **Conformity**: Ensures the agent's response adheres to the rules, such as "The agent must be polite."
-* **Groundedness**: Ensures the agent's response is grounded in the conversation.
+* **Groundedness**: Ensures the agent's response is grounded to a specific context.
 * **String matching**: Checks if the agent's response contains a specific string, keyword, or sentence.
 * **Metadata**: Verifies the presence of specific (tool calls, user information, etc.) metadata in the agent's response.
 * **Semantic Similarity**: Verifies that the agent's response is semantically similar to the expected output.
@@ -46,7 +46,7 @@ Custom checks are reusable evaluation criteria that you can define for your proj
 
 Custom checks can be used in the following ways:
 
-- Applied to conversations in your datasets
+- Applied to chat test cases (conversations) in your datasets
 - Used during agent evaluations
 - Shared across your team **within the same project**
 - Modified or updated as your requirements evolve
@@ -243,7 +243,7 @@ You can delete a check using the ``hub.checks.delete()`` method. Here's a basic 
 
 .. warning::
 
-    Deleting a check is permanent and cannot be undone. Make sure you're not using the check in any active conversations or evaluations before deleting it.
+    Deleting a check is permanent and cannot be undone. Make sure you're not using the check in any active chat test cases or evaluations before deleting it.
 
 List checks
 ___________
@@ -263,15 +263,15 @@ You can list all checks for a project using the ``hub.checks.list()`` method. He
 
 .. _add-checks-to-conversations:
 
-Add checks to conversations
+Add checks to chat test cases
 ---------------------------
 
-Once you've created a check, you can use it in your conversations by referencing its identifier:
+Once you've created a check, you can use it in your chat test cases by referencing its identifier:
 
 .. code-block:: python
 
-    # Add a conversation that uses your check
-    hub.conversations.create(
+    # Add a chat test case that uses your check
+    hub.chat_test_cases.create(
         dataset_id=dataset.id,
         messages=[
             {"role": "user", "content": "What's the formula for compound interest?"},

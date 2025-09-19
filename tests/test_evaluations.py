@@ -340,7 +340,9 @@ def test_delete_multiple_evaluation_ids(evaluations_resource, mock_client):
 
 def test_delete_not_found(evaluations_resource, mock_client):
     """Test delete with non-existent evaluation ID."""
-    mock_client.delete.side_effect = HubAPIError("Evaluation not found", status_code=404)
+    mock_client.delete.side_effect = HubAPIError(
+        "Evaluation not found", status_code=404
+    )
 
     with pytest.raises(HubAPIError) as exc_info:
         evaluations_resource.delete("nonexistent_exec")

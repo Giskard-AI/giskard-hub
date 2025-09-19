@@ -60,7 +60,7 @@ class ScheduledEvaluation(Entity):  # pylint: disable=too-many-instance-attribut
     dataset_id : str
         The ID of the dataset to evaluate against.
     tags : List[str], optional
-        List of tags to filter the conversations that will be evaluated.
+        List of tags to filter the chat test cases that will be evaluated.
     run_count : int
         The number of times to run each test case (1-5).
     frequency : FrequencyOption

@@ -5,7 +5,7 @@
 Detect business failures by generating synthetic tests
 ======================================================
 
-Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible test cases. Automated, synthetic test case generation is therefore essential—especially when you lack real user conversations to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
+Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible scenarios. Automated, synthetic test case generation is therefore essential—especially when you lack real user chats to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
 
 By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
 
@@ -31,9 +31,9 @@ Before generating test cases, you need to `create a knowledge base </hub/sdk/pro
     # Wait for the dataset to be created
     business_dataset.wait_for_completion()
 
-    # List the conversations in the dataset
-    for conversation in business_dataset.conversations:
-        print(conversation.messages[0].content)
+    # List the chat test cases in the dataset
+    for chat_test_case in business_dataset.chat_test_cases:
+        print(chat_test_case.messages[0].content)
 
 .. note::
 
