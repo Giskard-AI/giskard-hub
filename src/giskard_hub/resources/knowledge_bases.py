@@ -58,7 +58,7 @@ class KnowledgeBasesResource(APIResource):
                 "project_id": project_id,
                 "name": name,
                 "description": description,
-                "column": document_column,
+                "document_column": document_column,
                 "topic_column": topic_column,
             }
         )
