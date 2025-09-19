@@ -1,5 +1,5 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
-:og:description: Import your existing test data into Giskard Hub. Bring conversations, JSON files, and other data formats to build comprehensive test datasets.
+:og:description: Import your existing test data into Giskard Hub. Bring conversations, CSV files, and other data formats to build comprehensive test datasets.
 
 =============================
 Import Existing Datasets
@@ -7,7 +7,7 @@ Import Existing Datasets
 
 You can import existing test datasets from a file. This is particularly useful when you already have a dataset that you want to use for evaluation.
 
-In this section, we will walk you through how to import existing datasets from a JSONL file, obtained from another tool, like Giskard Open Source.
+In this section, we will walk you through how to import existing datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
 Create a new dataset
 ----------------------
@@ -69,6 +69,27 @@ Here's an example of the structure and content in a dataset:
         }
     ]
 
+Alternatively, you can import data in **CSV format**, containing one message per line.
+
+.. tip::
+
+      If you need help creating a CSV file, see this `example guide <https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6>`_.
+
+Each CSV must contain a ``user_message`` column representing the message from the user. Additionally, the file can contain optional attributes:
+
+- ``bot_message``: the answer from the agent
+- ``tag*``: the list of tags (i.e. tag_1,tag_2,...)
+- ``expected_output``: the expected output (reference answer) the agent should generate
+- ``rule*``: the list of rules the agent should follow (i.e. rule_1,rule_2,...)
+- ``reference_context``: the context in which the agent must ground its response
+- ``check*``: the list of custom checks (i.e. check_1,check_2,...)
+
+Here's an example of the structure and content in a dataset:
+
+.. code-block:: text
+
+    user_message,bot_message,tag_1,tag_2,expected_output,rule_1,rule_2,check_1,check_2
+    Hi agent!,How can I help you?,greetings,assistance,How can I help you?,The agent should not do X,The agent should be polite,u_greet,u_polite
 
 Next steps
 ----------
