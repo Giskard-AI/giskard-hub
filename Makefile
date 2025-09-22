@@ -23,9 +23,17 @@ check_format: ## Verify code formatting
 	uv tool run isort -c .
 .PHONY: check_format
 
-setup: ## Install dependencies
-	uv sync --dev --all-extras
+setup: ## Install all dependencies (dev + docs)
+	uv sync --group dev --group docs
 .PHONY: setup
+
+setup-dev: ## Install only development dependencies
+	uv sync --group dev
+.PHONY: setup-dev
+
+setup-docs: ## Install only documentation dependencies
+	uv sync --group docs
+.PHONY: setup-docs
 
 doc: setup ## Build the doc
 	cp ./README.md ./script-docs/README.md

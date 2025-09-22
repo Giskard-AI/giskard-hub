@@ -64,7 +64,7 @@ jobs:
         python-version: "${{ matrix.python-version }}"
 
     - name: Install deps & build base images
-      run: make setup
+      run: make setup-dev
 
     - name: Run the tests
       run: make test
