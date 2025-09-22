@@ -39,7 +39,7 @@ As we have seen in the :doc:`/hub/sdk/datasets/index` section, we can create a d
 After having created the dataset, we can import chat test cases (conversations) into it.
 
 Import chat test cases
-____________________
+______________________
 
 We can import the chats into the dataset using the ``hub.chat_test_cases.create()`` method.
 

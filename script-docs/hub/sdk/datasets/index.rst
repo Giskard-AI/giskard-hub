@@ -109,7 +109,7 @@ Chat Test Cases
 A chat test case (conversation) is a collection of messages together with evaluation checks (e.g., the expected answer, or rules that the agent must follow when responding).
 
 Create a chat test case
-_____________________
+_______________________
 
 The parameters for creating a chat test case are:
 
@@ -158,7 +158,7 @@ The parameters for creating a chat test case are:
     )
 
 Retrieve chat test cases
-______________________
+________________________
 
 You can also retrieve existing chat test cases for editing or deletion.
 
@@ -173,7 +173,7 @@ For example, in certain cases you may want programmatically assign certain annot
     chat_test_cases = dataset.chat_test_cases
 
 Update a chat test case
-_____________________
+_______________________
 
 After retrieving the chat test cases, we can update them.
 For example, let's say we want to add the tag "tech" to all chat test cases containing the word "laptop" in the user message:
@@ -190,7 +190,7 @@ For example, let's say we want to add the tag "tech" to all chat test cases cont
             )
 
 Delete a chat test case
-_____________________
+_______________________
 
 Finally, you can delete chat test cases that you no longer need. For example:
 
