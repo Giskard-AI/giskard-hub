@@ -39,6 +39,7 @@ extensions = [
     "fix_dataclass",
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
+    "notfound.extension",
     # "sphinx_autodoc_typehints",
 ]
 
@@ -183,3 +184,7 @@ def linkcode_resolve(domain, info):
     print("##############")
 
     return f"https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub{filename}{linespec}"
+
+
+# Make 404 page work
+notfound_urls_prefix = None
