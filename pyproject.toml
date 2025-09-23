@@ -1,6 +1,6 @@
 [project]
 name = "giskard-hub"
-version = "1.2.7"
+version = "2.0.0"
 description = "The giskard_hub library allows you to interact with the Giskard Hub, a platform that centralizes the validation process of LLM applications, empowering product teams to ensure all functional, business & legal requirements are met, and keeping them in close contact with the development team to avoid delayed deployment timelines."
 authors = [
     {name = "Giskard Team", email = "hello@giskard.ai"}
