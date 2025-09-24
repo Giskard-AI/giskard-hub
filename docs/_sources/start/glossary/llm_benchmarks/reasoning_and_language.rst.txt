@@ -1,5 +1,5 @@
 Reasoning and Language Understanding Benchmarks
-==============================================
+===============================================
 
 Reasoning and language understanding benchmarks evaluate LLMs' ability to comprehend text, make logical inferences, and solve problems that require multi-step reasoning. These benchmarks test fundamental cognitive abilities that are essential for effective language model performance.
 

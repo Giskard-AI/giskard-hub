@@ -1,9 +1,9 @@
 :og:title: Giskard Open Source - API Reference
 :og:description: Access complete API documentation for the Giskard Open Source Python library. Find detailed information about all classes, methods, and functions.
 
-============
+=============
 API reference
-============
+=============
 
 These docs provide comprehensive API documentation for the Giskard Open Source library.
 

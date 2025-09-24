@@ -1,7 +1,7 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Compare Evaluations
 :og:description: Compare evaluation results across different agent versions, datasets, and time periods. Identify regressions, track improvements, and maintain quality standards.
 
-.. compare-evaluations::
+.. _hub/ui/evaluations-compare:
 
 ==============================================
 Compare evaluation results
