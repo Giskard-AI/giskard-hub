@@ -1,9 +1,9 @@
 :og:title: Giskard Hub - Enterprise Agent Testing - Security Testing
 :og:description: Generate and manage security-focused test cases programmatically. Test for vulnerabilities, prompt injection attacks, and security failures using the Python SDK.
 
-============================================================
+=============================================================
 Detect security vulnerabilities by generating synthetic tests
-============================================================
+=============================================================
 
 Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
 

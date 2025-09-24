@@ -9,21 +9,22 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Giskard - Information Disclosure" property="og:title"/>
 <meta content="website" property="og:type"/>
-<meta content="https://docs-hub.giskard.ai/start/glossary/security/information_disclosure.html" property="og:url"/>
+<meta content="https://docs.giskard.ai/start/glossary/security/information_disclosure.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
 <meta content="Learn about LLM information disclosure vulnerabilities and how to detect and prevent models from revealing sensitive or confidential data." property="og:description"/>
-<meta content="https://docs-hub.giskard.ai/_static/open-graph-image.png" property="og:image"/>
+<meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
 <meta content="Information disclosure is a critical security vulnerability where Large Language Models inadvertently reveal sensitive, private, or confidential information that should not be accessible to users. ..." name="description"/>
 <title>Information Disclosure | Giskard  documentation</title>
 <meta content="Information Disclosure | Giskard  documentation" property="og:title"/>
 <meta content="Information Disclosure | Giskard  documentation" name="twitter:title"/>
 <link href="../../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/theme.css?v=ecdfb4fc" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/custom.css?v=46da6947" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/awesome-sphinx-design.css?v=a54cf077" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="/start/glossary/security/information_disclosure.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
@@ -42,7 +43,7 @@
       if (!userPreference) {localStorage.setItem('darkMode', mode)}
     </script>
 </head>
-<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
+<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
 <div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
@@ -382,15 +383,20 @@ Annotate test cases with test rules</div>
 </div><footer class="py-6 border-t border-border md:py-0">
 <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
 <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 7.3.7</a></p>
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 8.1.3</a></p>
 </div>
 </div>
 </footer>
-</div>
+</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
+<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
+<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
+</svg>
+  Back to top
+</button>
 <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/doctools.js?v=9bcbadda"></script>
 <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../../_static/theme.js?v=e82a16a3"></script>
+<script defer="defer" src="../../../_static/theme.js?v=073f68d9"></script>
 <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
