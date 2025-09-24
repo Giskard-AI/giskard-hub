@@ -137,6 +137,11 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../hub/ui/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/ui/scan/index.html">AI Vulnerability Scan<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/scan/launch-scan.html">Launch a red teaming scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hub/ui/scan/review-scan-results.html">Review scan results</a></li>
+</ul>
+</li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../hub/ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/manual.html">Manual test creation for fine-grained control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../hub/ui/datasets/import.html">Import Existing Datasets</a></li>
