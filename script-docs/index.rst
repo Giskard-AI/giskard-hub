@@ -126,6 +126,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    :maxdepth: 2
 
    hub/ui/index
+   hub/ui/scan/index
    hub/ui/datasets/index
    hub/ui/annotate
    hub/ui/evaluations
