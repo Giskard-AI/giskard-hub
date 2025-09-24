@@ -76,6 +76,7 @@ pygments_style = "lovelace"
 html_theme = "sphinxawesome_theme"
 # html_theme = 'alabaster'
 html_static_path = ["_static"]
+html_baseurl = "/"
 source_suffix = [".rst", ".md"]
 
 html_css_files = ["pygments-dark.css", "custom.css"]
@@ -122,10 +123,10 @@ html_theme_options = asdict(theme_options)
 
 # Open Graph site name
 ogp_site_name = "Giskard Documentation"
-ogp_site_url = "https://docs-hub.giskard.ai/"
+ogp_site_url = "https://docs.giskard.ai/"
 
 # Open Graph image (logo for social sharing) - use relative path for local builds
-ogp_image = "https://docs-hub.giskard.ai/_static/open-graph-image.png"
+ogp_image = "https://docs.giskard.ai/_static/open-graph-image.png"
 
 
 # make github links resolve

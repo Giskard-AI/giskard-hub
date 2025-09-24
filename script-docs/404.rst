@@ -1,12 +1,14 @@
+:orphan:
+
 404 - Page Not Found
-==================
+====================
 
 Sorry, the page you're looking for doesn't exist.
 
 The page may have been moved, deleted, or you may have entered an incorrect URL.
 
 What you can do:
----------------
+----------------
 
 * Check the URL for typos
 * Use the search function to find what you're looking for

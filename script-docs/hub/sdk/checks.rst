@@ -264,7 +264,7 @@ You can list all checks for a project using the ``hub.checks.list()`` method. He
 .. _add-checks-to-conversations:
 
 Add checks to chat test cases
----------------------------
+-----------------------------
 
 Once you've created a check, you can use it in your chat test cases by referencing its identifier:
 

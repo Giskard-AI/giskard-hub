@@ -13,28 +13,30 @@ dependencies = [
     "python-dateutil>=2.9.0.post0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "sphinxawesome-theme==5.2.0",
-    "myst-parser==3.0.1",
-    "notebook==7.4.4",
-    "nbsphinx==0.9.7",
-    "black[jupyter]==25.1.0",
+    "black[jupyter]==25.9.0",
     "isort==6.0.1",
-    "pylint==3.3.7",
-    "sphinx-click==6.0.0",
-    "sphinx-autobuild==2024.10.3",
-    "sphinx-autodoc-typehints==2.3.0",
-    "sphinx-design==0.6.1",
-    "sphinx-tabs>=3.4.7",
-    "pytest==8.4.1",
-    "giskard[llm]==2.18.0; python_version>='3.10' and python_version<'3.13'",
-    "pyarrow<20.0.0",
-    "ragas>=0.1.5,<=0.2.7",
-    "ipywidgets>=8.1.7",
-    "sphinx-notfound-page>=1.1.0",
-    "sphinxext-opengraph[social_cards]>=0.12.0",
+    "pylint==3.3.8",
+    "pytest==8.4.2",
+]
+docs = [
+    "sphinxawesome-theme==5.3.2; python_version>='3.12'",
+    "myst-parser==4.0.1; python_version>='3.12'",
+    "notebook==7.4.5",
+    "nbsphinx==0.9.7; python_version>='3.12'",
+    "sphinx-click==6.1.0; python_version>='3.12'",
+    "sphinx-autobuild==2025.8.25; python_version>='3.12'",
+    "sphinx-autodoc-typehints==2.3.0; python_version>='3.12'",
+    "sphinx-design==0.6.1; python_version>='3.12'",
+    "sphinx-tabs>=3.4.7; python_version>='3.12'",
+    "sphinxext-opengraph[social_cards]>=0.12.0; python_version>='3.12'",
+    "sphinx-notfound-page>=1.1.0; python_version>='3.12'",
     "pandoc>=2.4",
+    "giskard[llm]==2.18.0; python_version>='3.10' and python_version<'3.13'",
+    "pyarrow<21.0.1; python_version>='3.12'",
+    "ragas>=0.3.5,<=0.3.5",
+    "ipywidgets>=8.1.7",
     "torch>=2.8.0",
 ]
 
