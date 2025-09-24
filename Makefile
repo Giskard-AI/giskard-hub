@@ -48,6 +48,11 @@ quick-doc: ## Build the doc & serve it locally
 	uv run python -m http.server --directory ./script-docs/_build/html/
 .PHONY: quick-doc
 
+live-docs: ## Serve the doc locally with auto-reload
+	cd ./script-docs && uv run sphinx-autobuild . _build/html --port 8000 --host 127.0.0.1
+.PHONY: live-docs
+
+
 test: ## Launch unit tests
 	uv run pytest -vvv ./tests
 .PHONY: test

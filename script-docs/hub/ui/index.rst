@@ -9,7 +9,20 @@ Quickstart & setup
 
 The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-step workflow:
 
+
+.. image:: /_static/images/hub/hub-workflow.png
+   :align: center
+   :alt: "The hub workflow"
+   :width: 800
+
+
 .. grid:: 1 1 2 2
+
+   .. grid-item-card:: Scan your agent for vulnerabilities
+      :link: scan/index
+      :link-type: doc
+
+      Automatically scan your agent for safety and security failures.
 
    .. grid-item-card:: Create test datasets
       :link: datasets/index
@@ -40,11 +53,6 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
       :link-type: doc
 
       Detect emerging vulnerabilities through proactive red teaming.
-
-.. image:: /_static/images/hub/hub-workflow.png
-   :align: center
-   :alt: "The hub workflow"
-   :width: 800
 
 .. note::
 
