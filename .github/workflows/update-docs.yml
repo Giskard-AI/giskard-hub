@@ -26,8 +26,15 @@ jobs:
 
       - name: Merge latest code
         run: |
+          set -euo pipefail
+          REF_NAME="${{ github.ref_name }}"
+          # allow only safe ref name characters (alnum, /, ., -, _)
+          if [[ ! "$REF_NAME" =~ ^[A-Za-z0-9_./-]{1,200}$ ]]; then
+            echo "Invalid ref name: '$REF_NAME'" >&2
+            exit 1
+          fi
           git fetch --prune
-          git merge origin/${{ github.ref_name }}
+          git merge "origin/${REF_NAME}"
 
       - name: Install uv and set the python version
         uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4 # v6.7.0
