@@ -3,6 +3,8 @@ from unittest.mock import MagicMock
 import pytest
 
 from giskard_hub.data.dataset import Dataset
+from giskard_hub.data.chat import ChatMessage
+from giskard_hub.data.chat_test_case import ChatTestCase
 from giskard_hub.resources.datasets import DatasetsResource
 
 
@@ -479,3 +481,95 @@ class TestDatasetDataModel:
 
         with pytest.raises(ValueError, match="detached or unsaved"):
             dataset.create_chat_test_case(chat_test_case)
+
+    @pytest.mark.parametrize(
+        "chat_test_case",
+        [
+            ChatTestCase(
+                messages=[ChatMessage(role="user", content="Hello")],
+                checks=[],
+                demo_output=None,
+                tags=["tag-a"],
+            ),
+            ChatTestCase.from_dict(
+                {
+                    "id": "tc-123",
+                    "created_at": "2025-06-17T12:46:52.424Z",
+                    "updated_at": "2025-06-17T12:46:52.424Z",
+                    "messages": [
+                        {"role": "user", "content": "Hello"},
+                    ],
+                    "demo_output": None,
+                    "tags": ["tag-a"],
+                    "checks": [],
+                }
+            ),
+        ],
+        ids=["plain", "imported"],
+    )  # plain: constructed object; imported: from another env with id/timestamps
+    def test_dataset_create_chat_test_case_filters_extra_fields(self, chat_test_case):
+        """Dataset.create_chat_test_case should ignore id/timestamps from an imported test case.
+
+        Note: SimpleNamespace is used here as a lightweight container to simulate a client with a
+        `chat_test_cases` attribute, so we can wire our `ChatTestCasesResource` without defining a full class.
+        """
+        from types import SimpleNamespace
+
+        from giskard_hub.resources.chat_test_cases import ChatTestCasesResource
+
+        # HTTP-level client mock used by the resource
+        http_client = MagicMock()
+        # Mimic casting behavior of the lower-level client
+        def mock_post(path, json=None, cast_to=None, **kwargs):
+            data = http_client.post.return_value
+            if cast_to and data:
+                return cast_to.from_dict(data)
+            return data
+        http_client.post.side_effect = mock_post
+
+        # Resource that enforces the create signature (will raise if unexpected kwargs are passed)
+        resource = ChatTestCasesResource(http_client)
+
+        # Dataset client exposing the resource
+        client = SimpleNamespace(chat_test_cases=resource)
+
+        dataset = Dataset.from_dict(
+            {
+                "id": "dataset-1",
+                "name": "Test Dataset",
+            },
+            _client=client,
+        )
+
+        # chat_test_case comes from parametrize above (either plain or imported)
+
+        # Mock server returns the created object
+        http_client.post.return_value = {
+            "id": "tc-new",
+            "created_at": "2025-06-17T12:46:52.424Z",
+            "updated_at": "2025-06-17T12:46:52.424Z",
+            "messages": [
+                {"role": "user", "content": "Hello"},
+            ],
+            "demo_output": None,
+            "tags": ["tag-a"],
+            "checks": [],
+        }
+
+        result = dataset.create_chat_test_case(chat_test_case)
+
+        # Ensure we called the backend with only allowed fields
+        assert http_client.post.called
+        call = http_client.post.call_args
+        assert call[0][0] == "/chat-test-cases"
+        payload = call[1]["json"]
+        assert payload == {
+            "dataset_id": "dataset-1",
+            "messages": [{"role": "user", "content": "Hello"}],
+            "demo_output": None,
+            "tags": ["tag-a"],
+            "checks": [],
+        }
+
+        # And we get a proper ChatTestCase back
+        assert result.id == "tc-new"
