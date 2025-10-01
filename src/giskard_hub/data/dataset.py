@@ -31,8 +31,13 @@ class Dataset(EntityWithTaskProgress):
                 "This dataset instance is detached or unsaved, cannot add chat test case."
             )
 
+        # Only pass allowed fields to the API; do not forward id/timestamps
         return self._client.chat_test_cases.create(
-            dataset_id=self.id, **chat_test_case.to_dict()
+            dataset_id=self.id,
+            messages=chat_test_case.messages,
+            demo_output=chat_test_case.demo_output,
+            tags=chat_test_case.tags,
+            checks=chat_test_case.checks,
         )
 
     @classmethod
