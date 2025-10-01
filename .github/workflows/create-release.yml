@@ -87,4 +87,7 @@ jobs:
               dist/giskard_hub-*.whl
 
       - name: Push to Pipy
-        run: uv publish --username "${{ secrets.PIPY_USERNAME }}" --password "${{ secrets.PIPY_PASSWORD }}"
+        env:
+          PIPY_USERNAME: ${{ secrets.PIPY_USERNAME }}
+          PIPY_PASSWORD: ${{ secrets.PIPY_PASSWORD }}
+        run: uv publish --username "$PIPY_USERNAME" --password "$PIPY_PASSWORD"
