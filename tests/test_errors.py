@@ -251,17 +251,17 @@ def test_health_check_success():
     response.json.return_value = {
         "status": "ok",
         "version": "dev",
-        "services": {"backend": "ok", "db": "ok", "auth": "ok"}
+        "services": {"backend": "ok", "db": "ok", "auth": "ok"},
     }
     mock_http.get.return_value = response
-    
+
     # This should not raise an exception
     # We're testing the health check logic by calling the method directly
     try:
         resp = mock_http.get("/_health")
         resp.raise_for_status()
         data = resp.json()
-        
+
         # Check if the health endpoint returns the expected format
         if "status" not in data or data.get("status") != "ok":
             raise HubConnectionError(
@@ -279,15 +279,15 @@ def test_health_check_failed_status():
     response.json.return_value = {
         "status": "error",
         "version": "dev",
-        "services": {"backend": "ok", "db": "ok", "auth": "ok"}
+        "services": {"backend": "ok", "db": "ok", "auth": "ok"},
     }
     mock_http.get.return_value = response
-    
+
     with pytest.raises(HubConnectionError) as exc_info:
         resp = mock_http.get("/_health")
         resp.raise_for_status()
         data = resp.json()
-        
+
         # Check if the health endpoint returns the expected format
         if "status" not in data or data.get("status") != "ok":
             raise HubConnectionError(
