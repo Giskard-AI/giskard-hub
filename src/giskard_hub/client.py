@@ -117,7 +117,7 @@ class HubClient(SyncClient):
 
         # Check if the connection is valid
         try:
-            resp = self._http.get("/openapi.json")
+            resp = self._http.get("/_health")
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
@@ -125,9 +125,10 @@ class HubClient(SyncClient):
                 f"Failed to connect to Giskard Hub at {self._hub_url}"
             ) from e
 
-        if "openapi" not in data:
+        # Check if the health endpoint returns the expected format
+        if "status" not in data or data.get("status") != "ok":
             raise HubConnectionError(
-                f"The response doesn't appear to include an OpenAPI specification at {self._hub_url}"
+                f"The health check failed at {self._hub_url}. Expected status 'ok', got: {data.get('status', 'unknown')}"
             )
 
         # Define the resources
