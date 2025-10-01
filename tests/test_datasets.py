@@ -2,9 +2,9 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from giskard_hub.data.dataset import Dataset
 from giskard_hub.data.chat import ChatMessage
 from giskard_hub.data.chat_test_case import ChatTestCase
+from giskard_hub.data.dataset import Dataset
 from giskard_hub.resources.datasets import DatasetsResource
 
 
@@ -519,12 +519,14 @@ class TestDatasetDataModel:
 
         # HTTP-level client mock used by the resource
         http_client = MagicMock()
+
         # Mimic casting behavior of the lower-level client
         def mock_post(path, json=None, cast_to=None, **kwargs):
             data = http_client.post.return_value
             if cast_to and data:
                 return cast_to.from_dict(data)
             return data
+
         http_client.post.side_effect = mock_post
 
         # Resource that enforces the create signature (will raise if unexpected kwargs are passed)
