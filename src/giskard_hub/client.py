@@ -130,7 +130,7 @@ class HubClient(SyncClient):
             raise HubConnectionError(
                 f"The health check failed at {self._hub_url}. Expected status 'ok', got: {data.get('status', 'unknown')}"
             )
-        
+
         # Validate that services exists and does not contain any frontend service
         if not auto_add_api_suffix:
             services = data.get("services")
@@ -139,13 +139,12 @@ class HubClient(SyncClient):
                     f"Invalid response format at {self._hub_url}. "
                     f"Expected 'services' to be an object, got: {type(services).__name__}"
                 )
-            
+
             # Check for frontend services that should not exist in backend API
             found_frontend_services = [
-                service for service in services.keys() 
-                if service.lower() == "frontend"
+                service for service in services.keys() if service.lower() == "frontend"
             ]
-            
+
             if found_frontend_services:
                 raise HubConnectionError(
                     "Invalid URL: You provided a frontend URL while setting auto_add_api_suffix=False."
