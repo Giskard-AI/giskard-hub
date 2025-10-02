@@ -1,5 +1,5 @@
 import json
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 import httpx
 import pytest
@@ -271,27 +271,100 @@ def test_health_check_success():
         pytest.fail(f"Health check should have passed but failed with: {e}")
 
 
-def test_health_check_failed_status():
-    """Test health check failure when status is not 'ok'"""
+@pytest.mark.parametrize("test_case", [
+    {
+        "name": "health_check_failed_status",
+        "health_response": {"status": "error", "version": "dev", "services": {"backend": "ok"}},
+        "expected_error": "Expected status 'ok', got: error",
+        "auto_add_api_suffix": True
+    },
+    {
+        "name": "frontend_services_detected",
+        "health_response": {"status": "ok", "services": {"frontend": "ok", "backend": "ok"}},
+        "expected_error": "Invalid URL: You provided a frontend URL while setting auto_add_api_suffix=False",
+        "auto_add_api_suffix": False
+    },
+    {
+        "name": "services_not_dict",
+        "health_response": {"status": "ok", "services": "invalid_services_format"},
+        "expected_error": "Expected 'services' to be an object, got: str",
+        "auto_add_api_suffix": False
+    },
+    {
+        "name": "services_missing",
+        "health_response": {"status": "ok"},
+        "expected_error": "Expected 'services' to be an object, got: NoneType",
+        "auto_add_api_suffix": False
+    },
+    {
+        "name": "services_is_list",
+        "health_response": {"status": "ok", "services": ["backend", "db"]},
+        "expected_error": "Expected 'services' to be an object, got: list",
+        "auto_add_api_suffix": False
+    }
+])
+def test_hub_client_initialization_failures(test_case):
+    """Test HubClient initialization failures with various invalid health responses"""
+    
+    # Create a mock HTTP client
     mock_http = Mock()
     response = Mock()
     response.raise_for_status.return_value = None
-    response.json.return_value = {
-        "status": "error",
-        "version": "dev",
-        "services": {"backend": "ok", "db": "ok", "auth": "ok"},
-    }
+    response.json.return_value = test_case["health_response"]
     mock_http.get.return_value = response
-
-    with pytest.raises(HubConnectionError) as exc_info:
-        resp = mock_http.get("/_health")
-        resp.raise_for_status()
-        data = resp.json()
-
-        # Check if the health endpoint returns the expected format
-        if "status" not in data or data.get("status") != "ok":
-            raise HubConnectionError(
-                f"The health check failed. Expected status 'ok', got: {data.get('status', 'unknown')}"
+    
+    # Mock the SyncClient.__init__ to set up the _http attribute
+    def mock_init(self, *args, **kwargs):
+        self._http = mock_http
+    
+    with patch('giskard_hub.client.SyncClient.__init__', mock_init):
+        # This should raise HubConnectionError during initialization
+        with pytest.raises(HubConnectionError) as exc_info:
+            HubClient(
+                hub_url="https://my-hub.com",
+                api_key="test-key",
+                auto_add_api_suffix=test_case["auto_add_api_suffix"]
             )
+        
+        assert test_case["expected_error"] in str(exc_info.value)
 
-    assert "Expected status 'ok', got: error" in exc_info.value.message
+
+@pytest.mark.parametrize("test_case", [
+    {
+        "name": "backend_services_only",
+        "health_response": {"status": "ok", "services": {"backend": "ok", "db": "ok", "auth": "ok"}},
+        "auto_add_api_suffix": False,
+        "expected_url": "https://my-hub.com"
+    },
+    {
+        "name": "with_api_suffix_enabled",
+        "health_response": {"status": "ok", "services": {"frontend": "ok", "backend": "ok"}},
+        "auto_add_api_suffix": True,
+        "expected_url": "https://my-hub.com/_api"
+    }
+])
+def test_hub_client_initialization_success(test_case):
+    """Test HubClient initialization success with valid health responses"""
+    
+    # Create a mock HTTP client
+    mock_http = Mock()
+    response = Mock()
+    response.raise_for_status.return_value = None
+    response.json.return_value = test_case["health_response"]
+    mock_http.get.return_value = response
+    
+    # Mock the SyncClient.__init__ to set up the _http attribute
+    def mock_init(self, *args, **kwargs):
+        self._http = mock_http
+    
+    with patch('giskard_hub.client.SyncClient.__init__', mock_init):
+        # This should not raise an error
+        client = HubClient(
+            hub_url="https://my-hub.com",
+            api_key="test-key",
+            auto_add_api_suffix=test_case["auto_add_api_suffix"]
+        )
+        
+        # Verify the client was created successfully
+        assert client._hub_url == test_case["expected_url"]
+        assert client._api_key == "test-key"
