@@ -23,28 +23,32 @@ Types of Out of Scope Issues
 -----------------------------
 
 **Internal Metrics**
-   * Revealing internal performance data
-   * Sharing confidential business metrics
-   * Exposing operational statistics
-   * Disclosing financial information
+
+* Revealing internal performance data
+* Sharing confidential business metrics
+* Exposing operational statistics
+* Disclosing financial information
 
 **Confidential Information**
-   * Sharing proprietary business information
-   * Revealing internal processes or procedures
-   * Exposing confidential customer data
-   * Disclosing trade secrets or IP
+
+* Sharing proprietary business information
+* Revealing internal processes or procedures
+* Exposing confidential customer data
+* Disclosing trade secrets or IP
 
 **Competitive Intelligence**
-   * Providing information about competitors
-   * Sharing market analysis not meant for public consumption
-   * Revealing strategic positioning details
-   * Exposing competitive advantages
+
+* Providing information about competitors
+* Sharing market analysis not meant for public consumption
+* Revealing strategic positioning details
+* Exposing competitive advantages
 
 **Strategic Details**
-   * Sharing future business plans
-   * Revealing strategic initiatives
-   * Exposing business roadmap information
-   * Disclosing partnership or acquisition details
+
+* Sharing future business plans
+* Revealing strategic initiatives
+* Exposing business roadmap information
+* Disclosing partnership or acquisition details
 
 Business Impact
 ----------------
