@@ -21,11 +21,15 @@ class TestScanResultDataModel:
                 "current": 100,
             },
             "start_datetime": "2023-10-01T12:00:00Z",
+            "end_datetime": "2023-10-01T13:00:00Z",
             "grade": "A",
             "lidar_version": "1.0.0",
             "tags": ["tag1", "tag2"],
-            "scan_type": ScanType.DEFAULT.value,
+            "scan_type": ScanType.IN_DEPTH.value,
             "errors": [],
+            "generator_metadata": {},
+            "target_info": {},
+            "scan_metadata": {},
         }
 
         scan = ScanResult.from_dict(scan_dict)
@@ -41,8 +45,11 @@ class TestScanResultDataModel:
         assert scan.grade == "A"
         assert scan.lidar_version == "1.0.0"
         assert scan.tags == ["tag1", "tag2"]
-        assert scan.scan_type == ScanType.DEFAULT
+        assert scan.scan_type == ScanType.IN_DEPTH
         assert scan.errors == []
+        assert scan.generator_metadata == {}
+        assert scan.target_info == {}
+        assert scan.scan_metadata == {}
 
     def test_scan_result_from_dict_minimal(self):
         scan_id = str(uuid.uuid4())
@@ -52,8 +59,6 @@ class TestScanResultDataModel:
             "id": scan_id,
             "project_id": project_id,
             "model": {"id": model_id, "name": "Minimal Model"},
-            "errors": [],
-            "scan_type": ScanType.DEFAULT.value,
         }
 
         scan = ScanResult.from_dict(scan_dict)
@@ -64,6 +69,13 @@ class TestScanResultDataModel:
         assert scan.project_id == project_id
         assert scan.progress is None
         assert scan.grade is None
+        assert scan.lidar_version == None  # from_dict doesn't populate defaults
+        assert scan.tags == None  # from_dict doesn't populate defaults
+        assert scan.scan_type == None  # from_dict doesn't populate defaults
+        assert scan.errors == None  # from_dict doesn't populate defaults
+        assert scan.generator_metadata == None  # from_dict doesn't populate defaults
+        assert scan.target_info == None  # from_dict doesn't populate defaults
+        assert scan.scan_metadata == None  # from_dict doesn't populate defaults
 
     def test_scan_result_from_dict_with_errors(self):
         scan_id = str(uuid.uuid4())
@@ -86,7 +98,10 @@ class TestScanResultDataModel:
                     "trace": "Trace details here",
                 }
             ],
-            "scan_type": ScanType.DEFAULT.value,
+            "scan_type": ScanType.IN_DEPTH.value,
+            "generator_metadata": {},
+            "target_info": {},
+            "scan_metadata": {},
         }
 
         scan = ScanResult.from_dict(scan_dict)
@@ -103,3 +118,7 @@ class TestScanResultDataModel:
         assert scan.errors[0].probe_lidar_id == "probe_1"
         assert scan.errors[0].original_error == "Original error message"
         assert scan.errors[0].trace == "Trace details here"
+        assert scan.scan_type == ScanType.IN_DEPTH
+        assert scan.generator_metadata == {}
+        assert scan.target_info == {}
+        assert scan.scan_metadata == {}

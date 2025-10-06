@@ -63,34 +63,39 @@ class ScanResult(EntityWithTaskProgress):
     project_id: str
     knowledge_base: Optional[KnowledgeBase] = field(default=None)
     start_datetime: Optional[datetime] = field(default=None)
+    end_datetime: Optional[datetime] = field(default=None)
     grade: Optional[str] = field(default=None)
     lidar_version: str = field(default="unknown")
     tags: List[str] = field(default_factory=list)
     scan_type: ScanType = field(default=ScanType.DEFAULT)
     errors: List[ProbeErrorSummary] = field(default_factory=list)
+    generator_metadata: Dict[str, any] = field(default_factory=dict)
+    target_info: Dict[str, any] = field(default_factory=dict)
+    scan_metadata: Dict[str, any] = field(default_factory=dict)
 
     @classmethod
     def from_dict(cls, data: Dict[str, str], **kwargs) -> "ScanResult":
         data = dict(data)
 
+        # Convert nested objects
         data["model"] = Model.from_dict(data["model"], **kwargs)
-        data["knowledge_base"] = (
-            KnowledgeBase.from_dict(data["knowledge_base"], **kwargs)
-            if data.get("knowledge_base")
-            else None
-        )
-        data["start_datetime"] = (
-            datetime.fromisoformat(data["start_datetime"])
-            if data.get("start_datetime")
-            else None
-        )
-        data["scan_type"] = ScanType(data["scan_type"])
-        data["errors"] = [ProbeErrorSummary.from_dict(err) for err in data["errors"]]
-
+        if data.get("knowledge_base"):
+            data["knowledge_base"] = KnowledgeBase.from_dict(
+                data["knowledge_base"], **kwargs
+            )
+        if data.get("start_datetime"):
+            data["start_datetime"] = datetime.fromisoformat(data["start_datetime"])
+        if data.get("end_datetime"):
+            data["end_datetime"] = datetime.fromisoformat(data["end_datetime"])
+        if data.get("scan_type"):
+            data["scan_type"] = ScanType(data.get("scan_type"))
+        if data.get("errors"):
+            data["errors"] = [
+                ProbeErrorSummary.from_dict(err) for err in data.get("errors")
+            ]
         # Convert status to progress for EntityWithTaskProgress compatibility
-        data["progress"] = (
-            TaskProgress.from_dict(data.get("status")) if data.get("status") else None
-        )
+        if data.get("status"):
+            data["progress"] = TaskProgress.from_dict(data.get("status"))
 
         return super().from_dict(data, **kwargs)
 
