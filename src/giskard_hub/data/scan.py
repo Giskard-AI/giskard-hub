@@ -3,6 +3,8 @@ from datetime import datetime
 from enum import Enum
 from typing import Dict, List, Optional
 
+from dateutil import parser
+
 from giskard_hub.data._entity import EntityWithTaskProgress
 from giskard_hub.data.knowledge_base import KnowledgeBase
 from giskard_hub.data.model import Model
@@ -84,9 +86,9 @@ class ScanResult(EntityWithTaskProgress):
                 data["knowledge_base"], **kwargs
             )
         if data.get("start_datetime"):
-            data["start_datetime"] = datetime.fromisoformat(data["start_datetime"])
+            data["start_datetime"] = parser.parse(data["start_datetime"])
         if data.get("end_datetime"):
-            data["end_datetime"] = datetime.fromisoformat(data["end_datetime"])
+            data["end_datetime"] = parser.parse(data["end_datetime"])
         if data.get("scan_type"):
             data["scan_type"] = ScanType(data.get("scan_type"))
         if data.get("errors"):
