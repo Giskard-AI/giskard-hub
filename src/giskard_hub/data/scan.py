@@ -23,6 +23,19 @@ class ScanMetric(BaseData):
     count: int
 
 
+class ScanType(str, Enum):
+    DEFAULT = "default"
+    QUICK = "quick"
+    IN_DEPTH = "in_depth"
+
+
+@dataclass
+class ProbeErrorSummary(BaseData):
+    probe_lidar_id: str
+    original_error: str
+    trace: str
+
+
 @dataclass
 class ProbeResult(EntityWithTaskProgress):
     scan_result_id: str
@@ -51,6 +64,10 @@ class ScanResult(EntityWithTaskProgress):
     knowledge_base: Optional[KnowledgeBase] = field(default=None)
     start_datetime: Optional[datetime] = field(default=None)
     grade: Optional[str] = field(default=None)
+    lidar_version: str = field(default="unknown")
+    tags: List[str] = field(default_factory=list)
+    scan_type: ScanType = field(default=ScanType.DEFAULT)
+    errors: List[ProbeErrorSummary] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: Dict[str, str], **kwargs) -> "ScanResult":
@@ -62,6 +79,14 @@ class ScanResult(EntityWithTaskProgress):
             if data.get("knowledge_base")
             else None
         )
+        data["start_datetime"] = (
+            datetime.fromisoformat(data["start_datetime"])
+            if data.get("start_datetime")
+            else None
+        )
+        data["scan_type"] = ScanType(data["scan_type"])
+        data["errors"] = [ProbeErrorSummary.from_dict(err) for err in data["errors"]]
+
         # Convert status to progress for EntityWithTaskProgress compatibility
         data["progress"] = (
             TaskProgress.from_dict(data.get("status")) if data.get("status") else None
