@@ -1,11 +1,12 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from giskard_hub.data._entity import EntityWithTaskProgress
 from giskard_hub.data.knowledge_base import KnowledgeBase
 from giskard_hub.data.model import Model
+from giskard_hub.data.task import TaskProgress
 
 from ..data._base import BaseData
 
@@ -45,17 +46,29 @@ class ProbeResult(EntityWithTaskProgress):
 
 @dataclass
 class ScanResult(EntityWithTaskProgress):
-    project_id: str | None
     model: Model
-    knowledge_base: KnowledgeBase | None = None
-    start_datetime: datetime | None = None
-    grade: str | None
+    project_id: str
+    knowledge_base: Optional[KnowledgeBase] = field(default=None)
+    start_datetime: Optional[datetime] = field(default=None)
+    grade: Optional[str] = field(default=None)
 
     @classmethod
     def from_dict(cls, data: Dict[str, str], **kwargs) -> "ScanResult":
         data = dict(data)
 
+        data["model"] = Model.from_dict(data["model"], **kwargs)
+        data["knowledge_base"] = (
+            KnowledgeBase.from_dict(data["knowledge_base"], **kwargs)
+            if data.get("knowledge_base")
+            else None
+        )
         # Convert status to progress for EntityWithTaskProgress compatibility
-        data["progress"] = data.get("status", None)
+        data["progress"] = (
+            TaskProgress.from_dict(data.get("status")) if data.get("status") else None
+        )
 
         return super().from_dict(data, **kwargs)
+
+    @property
+    def resource(self) -> str:
+        return "scan_results"
