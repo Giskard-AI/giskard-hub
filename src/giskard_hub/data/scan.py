@@ -57,6 +57,25 @@ class ProbeAttempt(BaseData):
     reason: str
     error: AttemptError | None = field(default=None)
 
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any], **kwargs) -> "ProbeAttempt":
+        data = dict(data)
+
+        # Convert nested objects
+        if data.get("messages"):
+            data["messages"] = [
+                ChatMessageWithMetadata.from_dict(msg) for msg in data.get("messages")
+            ]
+        if data.get("error"):
+            data["error"] = AttemptError.from_dict(data.get("error"))
+
+        if data.get("review_status"):
+            data["review_status"] = ReviewStatus(data.get("review_status"))
+        if data.get("severity") is not None:
+            data["severity"] = Severity(data.get("severity"))
+
+        return super().from_dict(data, **kwargs)
+
 
 @dataclass
 class ProbeErrorSummary(BaseData):
@@ -94,7 +113,9 @@ class ProbeResult(EntityWithTaskProgress):
     def attempts(self) -> List[ProbeAttempt]:
         if not self.id:
             raise ValueError("ProbeResult must have an ID to fetch attempts.")
-        return self._client.get(f"/probes/{self.id}/attempts", cast_to=List[ProbeAttempt])
+        return self._client.get(
+            f"/probes/{self.id}/attempts", cast_to=List[ProbeAttempt]
+        )
 
     @property
     def resource(self) -> str:
