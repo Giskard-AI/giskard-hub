@@ -1,7 +1,42 @@
 import uuid
 
+import pytest
+
 from giskard_hub.data.scan import ScanResult, ScanType
 from giskard_hub.data.task import TaskStatus
+
+_TEST_SCAN_ID = str(uuid.uuid4())
+
+
+@pytest.fixture
+def mock_client():
+    """Mock client for testing."""
+
+    class MockClient:
+        def get(self, url):
+            if url.endswith("/probes"):
+                return {
+                    "items": [
+                        {
+                            "id": str(uuid.uuid4()),
+                            "scan_result_id": _TEST_SCAN_ID,
+                            "probe_lidar_id": "probe_1",
+                            "probe_name": "Test Probe",
+                            "probe_description": "A test probe",
+                            "probe_tags": ["tag1", "tag2"],
+                            "probe_category": "Category A",
+                            "metrics": [],
+                            "status": {
+                                "state": "finished",
+                                "current": 100,
+                                "total": 100,
+                                "error": None,
+                            },
+                        },
+                    ],
+                }
+
+    return MockClient()
 
 
 class TestScanResultDataModel:
@@ -52,18 +87,17 @@ class TestScanResultDataModel:
         assert scan.scan_metadata == {}
 
     def test_scan_result_from_dict_minimal(self):
-        scan_id = str(uuid.uuid4())
         project_id = str(uuid.uuid4())
         model_id = str(uuid.uuid4())
         scan_dict = {
-            "id": scan_id,
+            "id": _TEST_SCAN_ID,
             "project_id": project_id,
             "model": {"id": model_id, "name": "Minimal Model"},
         }
 
         scan = ScanResult.from_dict(scan_dict)
 
-        assert scan.id == scan_id
+        assert scan.id == _TEST_SCAN_ID
         assert scan.model.id == model_id
         assert scan.model.name == "Minimal Model"
         assert scan.project_id == project_id
@@ -78,11 +112,10 @@ class TestScanResultDataModel:
         assert scan.scan_metadata == None  # from_dict doesn't populate defaults
 
     def test_scan_result_from_dict_with_errors(self):
-        scan_id = str(uuid.uuid4())
         project_id = str(uuid.uuid4())
         model_id = str(uuid.uuid4())
         scan_dict = {
-            "id": scan_id,
+            "id": _TEST_SCAN_ID,
             "project_id": project_id,
             "model": {"id": model_id, "name": "Error Model"},
             "status": {
@@ -106,7 +139,7 @@ class TestScanResultDataModel:
 
         scan = ScanResult.from_dict(scan_dict)
 
-        assert scan.id == scan_id
+        assert scan.id == _TEST_SCAN_ID
         assert scan.model.id == model_id
         assert scan.model.name == "Error Model"
         assert scan.project_id == project_id
@@ -122,3 +155,30 @@ class TestScanResultDataModel:
         assert scan.generator_metadata == {}
         assert scan.target_info == {}
         assert scan.scan_metadata == {}
+
+    def test_scan_result_probes_property(self, mock_client):
+        project_id = str(uuid.uuid4())
+        model_id = str(uuid.uuid4())
+        scan_dict = {
+            "id": _TEST_SCAN_ID,
+            "project_id": project_id,
+            "model": {"id": model_id, "name": "Probe Model"},
+        }
+
+        scan = ScanResult.from_dict(scan_dict)
+        scan._client = mock_client
+
+        probes = scan.probes
+        assert len(probes) == 1
+        probe = probes[0]
+        assert probe.scan_result_id == _TEST_SCAN_ID
+        assert probe.probe_lidar_id == "probe_1"
+        assert probe.probe_name == "Test Probe"
+        assert probe.probe_description == "A test probe"
+        assert probe.probe_tags == ["tag1", "tag2"]
+        assert probe.probe_category == "Category A"
+        assert probe.metrics == []
+        assert probe.progress.status == TaskStatus.FINISHED
+        assert probe.progress.total == 100
+        assert probe.progress.current == 100
+        assert probe.progress.error is None

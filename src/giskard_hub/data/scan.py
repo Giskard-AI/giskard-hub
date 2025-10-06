@@ -107,9 +107,10 @@ class ProbeResult(EntityWithTaskProgress):
     def attempts(self) -> List[ProbeAttempt]:
         if not self.id:
             raise ValueError("ProbeResult must have an ID to fetch attempts.")
-        return self._client.get(
-            f"/probes/{self.id}/attempts", cast_to=List[ProbeAttempt]
-        )
+        return [
+            ProbeAttempt.from_dict(r)
+            for r in self._client.get(f"/probes/{self.id}/attempts")["items"]
+        ]
 
     @property
     def resource(self) -> str:
@@ -169,7 +170,10 @@ class ScanResult(EntityWithTaskProgress):
     def probes(self) -> List[ProbeResult]:
         if not self.id:
             raise ValueError("ScanResult must have an ID to fetch probes.")
-        return self._client.get(f"/scans/{self.id}/probes", cast_to=List[ProbeResult])
+        return [
+            ProbeResult.from_dict(r)
+            for r in self._client.get(f"/scans/{self.id}/probes")["items"]
+        ]
 
     @property
     def resource(self) -> str:

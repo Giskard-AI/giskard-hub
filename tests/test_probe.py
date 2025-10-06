@@ -1,5 +1,7 @@
 import uuid
 
+import pytest
+
 from giskard_hub.data.scan import ProbeAttempt, ProbeResult, ReviewStatus, Severity
 from giskard_hub.data.task import TaskStatus
 
@@ -71,6 +73,31 @@ class TestProbeAttempt:
         assert attempt.review_status == ReviewStatus.PENDING
         assert attempt.reason == "Initial attempt"
         assert attempt.error is None
+
+
+@pytest.fixture
+def mock_client():
+    """Mock client for testing."""
+
+    class MockClient:
+        def get(self, url, cast_to=None):
+            if url.endswith("/attempts"):
+                return {
+                    "items": [
+                        {
+                            "id": str(uuid.uuid4()),
+                            "probe_result_id": str(uuid.uuid4()),
+                            "messages": [],
+                            "metadata": {},
+                            "severity": 10,
+                            "review_status": ReviewStatus.PENDING.value,
+                            "reason": "Mock attempt",
+                        },
+                    ],
+                }
+            return None
+
+    return MockClient()
 
 
 class TestProbeResult:
@@ -145,3 +172,26 @@ class TestProbeResult:
         assert probe_result.probe_category == "General"
         assert probe_result.metrics is None
         assert probe_result.progress is None
+
+    def test_probe_result_attempts(self, mock_client):
+        probe_result_id = str(uuid.uuid4())
+        probe_result = ProbeResult.from_dict(
+            {
+                "id": probe_result_id,
+                "scan_result_id": str(uuid.uuid4()),
+                "probe_lidar_id": "lidar-123",
+                "probe_name": "Test Probe",
+                "probe_description": "Testing attempts",
+                "probe_tags": [],
+                "probe_category": "Test",
+            }
+        )
+        probe_result._client = mock_client  # Inject mock client
+        attempts = probe_result.attempts
+        assert isinstance(attempts, list)
+        assert len(attempts) == 1
+        attempt = attempts[0]
+        assert isinstance(attempt, ProbeAttempt)
+        assert attempt.reason == "Mock attempt"
+        assert attempt.severity == 10
+        assert attempt.review_status == ReviewStatus.PENDING
