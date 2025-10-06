@@ -21,11 +21,6 @@ class Severity(int, Enum):
     CRITICAL = 30
 
 
-class ScanMetric(BaseData):
-    severity: Severity
-    count: int
-
-
 class ScanType(str, Enum):
     DEFAULT = "default"
     QUICK = "quick"
@@ -78,10 +73,9 @@ class ProbeAttempt(BaseData):
 
 
 @dataclass
-class ProbeErrorSummary(BaseData):
-    probe_lidar_id: str
-    original_error: str
-    trace: str
+class ScanMetric(BaseData):
+    severity: Severity
+    count: int
 
 
 @dataclass
@@ -120,6 +114,13 @@ class ProbeResult(EntityWithTaskProgress):
     @property
     def resource(self) -> str:
         return "probes"
+
+
+@dataclass
+class ProbeErrorSummary(BaseData):
+    probe_lidar_id: str
+    original_error: str
+    trace: str
 
 
 @dataclass

@@ -1,6 +1,7 @@
 import uuid
 
-from giskard_hub.data.scan import ProbeAttempt, ReviewStatus
+from giskard_hub.data.scan import ProbeAttempt, ProbeResult, ReviewStatus, Severity
+from giskard_hub.data.task import TaskStatus
 
 
 class TestProbeAttempt:
@@ -70,3 +71,77 @@ class TestProbeAttempt:
         assert attempt.review_status == ReviewStatus.PENDING
         assert attempt.reason == "Initial attempt"
         assert attempt.error is None
+
+
+class TestProbeResult:
+    """Test the ProbeResult data model."""
+
+    def test_probe_result_from_dict_full(self):
+        probe_result_id = str(uuid.uuid4())
+        scan_result_id = str(uuid.uuid4())
+        data = {
+            "id": probe_result_id,
+            "scan_result_id": scan_result_id,
+            "probe_lidar_id": "lidar-123",
+            "probe_name": "Bias Detection Probe",
+            "probe_description": "Detects bias in model predictions",
+            "probe_tags": ["bias", "fairness"],
+            "probe_category": "Fairness",
+            "metrics": [
+                {
+                    "severity": Severity.SAFE.value,
+                    "count": 1,
+                },
+                {
+                    "severity": Severity.MINOR.value,
+                    "count": 2,
+                },
+            ],
+            "status": {
+                "state": TaskStatus.FINISHED.value,
+                "current": 100,
+                "total": 100,
+                "error": None,
+            },
+        }
+        probe_result = ProbeResult.from_dict(data)
+        assert probe_result.id == probe_result_id
+        assert probe_result.scan_result_id == scan_result_id
+        assert probe_result.probe_lidar_id == "lidar-123"
+        assert probe_result.probe_name == "Bias Detection Probe"
+        assert probe_result.probe_description == "Detects bias in model predictions"
+        assert probe_result.probe_tags == ["bias", "fairness"]
+        assert probe_result.probe_category == "Fairness"
+        assert len(probe_result.metrics) == 2
+        assert probe_result.metrics[0].severity == Severity.SAFE
+        assert probe_result.metrics[0].count == 1
+        assert probe_result.metrics[1].severity == Severity.MINOR
+        assert probe_result.metrics[1].count == 2
+        assert probe_result.progress is not None
+        assert probe_result.progress.status == TaskStatus.FINISHED
+        assert probe_result.progress.current == 100
+        assert probe_result.progress.total == 100
+        assert probe_result.progress.error is None
+
+    def test_probe_result_from_dict_minimal(self):
+        probe_result_id = str(uuid.uuid4())
+        scan_result_id = str(uuid.uuid4())
+        data = {
+            "id": probe_result_id,
+            "scan_result_id": scan_result_id,
+            "probe_lidar_id": "lidar-123",
+            "probe_name": "Minimal Probe",
+            "probe_description": "A minimal probe description",
+            "probe_tags": [],
+            "probe_category": "General",
+        }
+        probe_result = ProbeResult.from_dict(data)
+        assert probe_result.id == probe_result_id
+        assert probe_result.scan_result_id == scan_result_id
+        assert probe_result.probe_lidar_id == "lidar-123"
+        assert probe_result.probe_name == "Minimal Probe"
+        assert probe_result.probe_description == "A minimal probe description"
+        assert probe_result.probe_tags == []
+        assert probe_result.probe_category == "General"
+        assert probe_result.metrics is None
+        assert probe_result.progress is None
