@@ -1,11 +1,12 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from dateutil import parser
 
 from giskard_hub.data._entity import EntityWithTaskProgress
+from giskard_hub.data.chat import ChatMessageWithMetadata
 from giskard_hub.data.knowledge_base import KnowledgeBase
 from giskard_hub.data.model import Model
 from giskard_hub.data.task import TaskProgress
@@ -31,6 +32,32 @@ class ScanType(str, Enum):
     IN_DEPTH = "in_depth"
 
 
+class ReviewStatus(str, Enum):
+    PENDING = "pending"
+    IGNORED = "ignored"
+    ACKNOWLEDGED = "acknowledged"
+    CORRECTED = "corrected"
+
+
+@dataclass
+class AttemptError(BaseData):
+    message: str
+
+
+@dataclass
+class ProbeAttempt(BaseData):
+    id: str
+    probe_result_id: str
+
+    messages: list[ChatMessageWithMetadata]
+    metadata: dict[str, Any]
+
+    severity: Severity
+    review_status: ReviewStatus
+    reason: str
+    error: AttemptError | None = field(default=None)
+
+
 @dataclass
 class ProbeErrorSummary(BaseData):
     probe_lidar_id: str
@@ -47,16 +74,31 @@ class ProbeResult(EntityWithTaskProgress):
     probe_tags: List[str]
     probe_category: str
 
-    metrics: List[ScanMetric] | None
+    metrics: List[ScanMetric] | None = field(default=None)
 
     @classmethod
-    def from_dict(cls, data: Dict[str, str], **kwargs) -> "ProbeResult":
+    def from_dict(cls, data: Dict[str, Any], **kwargs) -> "ProbeResult":
         data = dict(data)
 
         # Convert status to progress for EntityWithTaskProgress compatibility
-        data["progress"] = data.get("status", None)
+        if data.get("status"):
+            data["progress"] = TaskProgress.from_dict(data.get("status"))
+        if data.get("metrics"):
+            data["metrics"] = [
+                ScanMetric.from_dict(metric) for metric in data.get("metrics")
+            ]
 
         return super().from_dict(data, **kwargs)
+
+    @property
+    def attempts(self) -> List[ProbeAttempt]:
+        if not self.id:
+            raise ValueError("ProbeResult must have an ID to fetch attempts.")
+        return self._client.get(f"/probes/{self.id}/attempts", cast_to=List[ProbeAttempt])
+
+    @property
+    def resource(self) -> str:
+        return "probes"
 
 
 @dataclass
@@ -71,12 +113,12 @@ class ScanResult(EntityWithTaskProgress):
     tags: List[str] = field(default_factory=list)
     scan_type: ScanType = field(default=ScanType.DEFAULT)
     errors: List[ProbeErrorSummary] = field(default_factory=list)
-    generator_metadata: Dict[str, any] = field(default_factory=dict)
-    target_info: Dict[str, any] = field(default_factory=dict)
-    scan_metadata: Dict[str, any] = field(default_factory=dict)
+    generator_metadata: Dict[str, Any] = field(default_factory=dict)
+    target_info: Dict[str, Any] = field(default_factory=dict)
+    scan_metadata: Dict[str, Any] = field(default_factory=dict)
 
     @classmethod
-    def from_dict(cls, data: Dict[str, str], **kwargs) -> "ScanResult":
+    def from_dict(cls, data: Dict[str, Any], **kwargs) -> "ScanResult":
         data = dict(data)
 
         # Convert nested objects
@@ -100,6 +142,12 @@ class ScanResult(EntityWithTaskProgress):
             data["progress"] = TaskProgress.from_dict(data.get("status"))
 
         return super().from_dict(data, **kwargs)
+
+    @property
+    def probes(self) -> List[ProbeResult]:
+        if not self.id:
+            raise ValueError("ScanResult must have an ID to fetch probes.")
+        return self._client.get(f"/scans/{self.id}/probes", cast_to=List[ProbeResult])
 
     @property
     def resource(self) -> str:
