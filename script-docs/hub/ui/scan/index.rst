@@ -34,10 +34,9 @@ Quick start
 -----------
 
 1. Go to **Scan** in the left sidebar
-2. Click **Launch Scan**
-3. Select your agent and vulnerability categories to test
-4. Click **Launch Scan** to start the red teaming process
-5. Review results and take action on detected vulnerabilities
+2. Select your agent and vulnerability categories to test
+3. Click **Launch Scan** to start the red teaming process
+4. Review results and take action on detected vulnerabilities
 
 Vulnerability categories
 ------------------------
