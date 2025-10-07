@@ -46,21 +46,68 @@ class ScansResource(APIResource):
         )
 
     def retrieve(self, scan_id: str) -> ScanResult:
+        """Retrieve a scan by its ID.
+        Parameters
+        ----------
+        scan_id : str
+            ID of the scan to retrieve.
+        Returns
+        -------
+        ScanResult
+            The retrieved scan result.
+        """
         return self._client.get(f"{_SCAN_BASE_URL}/{scan_id}", cast_to=ScanResult)
 
     def list(self, project_id: str) -> List[ScanResult]:
-        return self._client.get(
-            _SCAN_BASE_URL,
-            cast_to=ScanResult,
-            json={"project_id": project_id},
-        )
+        """List all scans for a given project.
+        Parameters
+        ----------
+        project_id : str
+            ID of the project to list scans for.
+        Returns
+        -------
+        List[ScanResult]
+            List of scan results for the given project.
+        """
+        return [
+            ScanResult.from_dict(r)
+            for r in self._client.get(
+                _SCAN_BASE_URL,
+                cast_to=ScanResult,
+                json={"project_id": project_id},
+            )["items"]
+        ]
 
     def delete(self, scan_id: str) -> None:
+        """Delete a scan by its ID.
+
+        Parameters
+        ----------
+        scan_id : str
+            ID of the scan to delete.
+        Returns
+        -------
+        None
+            None
+        """
         # Delete a scan by its ID in a list
         self._client.delete(_SCAN_BASE_URL, json=[scan_id])
 
     def get_probes(self, scan_id: str) -> List[ProbeResult]:
-        return self._client.get(
-            f"{_SCAN_BASE_URL}/{scan_id}/probes",
-            cast_to=List[ProbeResult],
-        )
+        """Get all probe results for a given scan.
+
+        Parameters
+        ----------
+        scan_id : str
+            ID of the scan to get probes for.
+        Returns
+        -------
+        List[ProbeResult]
+            List of probe results for the given scan.
+        """
+        return [
+            ProbeResult.from_dict(r)
+            for r in self._client.get(
+                f"{_SCAN_BASE_URL}/{scan_id}/probes",
+            )["items"]
+        ]
