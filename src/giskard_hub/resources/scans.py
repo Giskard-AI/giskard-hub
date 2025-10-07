@@ -77,7 +77,6 @@ class ScansResource(APIResource):
             ScanResult.from_dict(r)
             for r in self._client.get(
                 _SCAN_BASE_URL,
-                cast_to=ScanResult,
                 json={"project_id": project_id},
             )["items"]
         ]

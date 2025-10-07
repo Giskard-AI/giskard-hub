@@ -239,3 +239,29 @@ class TestScanResultDataModel:
         mock_client.scans.retrieve.assert_called_once()
         assert scan.id == _TEST_SCAN_ID
         assert scan.progress.status == TaskStatus.FINISHED
+
+    def test_scan_result_block_waiting(self, mock_client):
+        scan = ScanResult.from_dict(
+            {
+                "id": _TEST_SCAN_ID,
+                "project_id": _TEST_PROJECT_ID,
+                "model": {"id": _TEST_MODEL_ID, "name": "Probe Model"},
+                "start_datetime": "2023-10-01T12:00:00Z",
+                "status": {
+                    "state": "running",
+                    "current": 0,
+                    "total": 100,
+                },
+            },
+            _client=mock_client,
+        )
+
+        assert scan.id == _TEST_SCAN_ID
+        assert scan.progress.status == TaskStatus.RUNNING
+
+        scan.wait_for_completion()
+
+        # Equal to scan.refresh() so that this method is called
+        mock_client.scans.retrieve.assert_called_once()
+        assert scan.id == _TEST_SCAN_ID
+        assert scan.progress.status == TaskStatus.FINISHED
