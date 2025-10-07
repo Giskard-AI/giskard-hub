@@ -1,4 +1,5 @@
 import uuid
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -77,27 +78,24 @@ class TestProbeAttempt:
 
 @pytest.fixture
 def mock_client():
-    """Mock client for testing."""
+    """Mock client for testing data model."""
 
-    class MockClient:
-        def get(self, url, cast_to=None):
-            if url.endswith("/attempts"):
-                return {
-                    "items": [
-                        {
-                            "id": str(uuid.uuid4()),
-                            "probe_result_id": str(uuid.uuid4()),
-                            "messages": [],
-                            "metadata": {},
-                            "severity": Severity.MINOR.value,
-                            "review_status": ReviewStatus.PENDING.value,
-                            "reason": "Mock attempt",
-                        },
-                    ],
-                }
-            return None
-
-    return MockClient()
+    mock_client = MagicMock()
+    mock_client.probes.get_attempts.return_value = [
+        ProbeAttempt.from_dict(a)
+        for a in [
+            {
+                "id": str(uuid.uuid4()),
+                "probe_result_id": str(uuid.uuid4()),
+                "messages": [],
+                "metadata": {},
+                "severity": Severity.MINOR.value,
+                "review_status": ReviewStatus.PENDING.value,
+                "reason": "Mock attempt",
+            },
+        ]
+    ]
+    return mock_client
 
 
 class TestProbeResult:
@@ -184,10 +182,13 @@ class TestProbeResult:
                 "probe_description": "Testing attempts",
                 "probe_tags": [],
                 "probe_category": "Test",
-            }
+            },
+            _client=mock_client,
         )
-        probe_result._client = mock_client  # Inject mock client
         attempts = probe_result.attempts
+
+        mock_client.probes.get_attempts.assert_called_once()
+
         assert isinstance(attempts, list)
         assert len(attempts) == 1
         attempt = attempts[0]
