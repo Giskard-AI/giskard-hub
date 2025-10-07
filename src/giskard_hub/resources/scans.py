@@ -1,7 +1,7 @@
 from typing import List
 
 from ..data._base import NOT_GIVEN, filter_not_given
-from ..data.scan import ProbeResult, ScanResult
+from ..data.scan import ProbeResult, ScanResult, ScanType
 from ._resource import APIResource
 
 _SCAN_BASE_URL = "/scans"
@@ -14,6 +14,7 @@ class ScansResource(APIResource):
         model_id: str,
         knowledge_base_id: str = NOT_GIVEN,
         tags: List[str] = NOT_GIVEN,
+        scan_type: ScanType = NOT_GIVEN,
     ) -> ScanResult:
         """Create and run a new scan.
 
@@ -25,6 +26,8 @@ class ScansResource(APIResource):
             ID of the knowledge base to use for the scan.
         tags : List[str], optional
             List of tags to filter the scan.
+        scan_type : ScanType, optional
+            Type of the scan to run.
 
         Returns
         -------
@@ -36,6 +39,7 @@ class ScansResource(APIResource):
                 "model_id": model_id,
                 "knowledge_base_id": knowledge_base_id,
                 "tags": tags,
+                "scan_type": scan_type,
             }
         )
 
