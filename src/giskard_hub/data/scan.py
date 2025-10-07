@@ -118,10 +118,7 @@ class ProbeResult(EntityWithTaskProgress):
     def attempts(self) -> List[ProbeAttempt]:
         if not self.id:
             raise ValueError("ProbeResult must have an ID to fetch attempts.")
-        return [
-            ProbeAttempt.from_dict(r)
-            for r in self._client.get(f"/probes/{self.id}/attempts")["items"]
-        ]
+        return self._client.probes.get_attempts(self.id)
 
     @property
     def resource(self) -> str:
@@ -185,14 +182,11 @@ class ScanResult(EntityWithTaskProgress):
     def results(self) -> List[ProbeResult]:
         if not self.id:
             raise ValueError("ScanResult must have an ID to fetch probes.")
-        return [
-            ProbeResult.from_dict(r)
-            for r in self._client.get(f"/scans/{self.id}/probes")["items"]
-        ]
+        return self._client.scans.get_probes(scan_id=self.id)
 
     @property
     def resource(self) -> str:
-        return "scan_results"
+        return "scans"
 
     def refresh(self) -> "ScanResult":
         """Refresh the scan result from the Hub."""

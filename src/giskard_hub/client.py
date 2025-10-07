@@ -3,6 +3,8 @@ from __future__ import annotations
 import os
 from typing import Callable, List, Optional
 
+from giskard_hub.resources.probes import ProbesResource
+
 from ._base_client import SyncClient
 from ._evaluation import LocalModel
 from .data._base import NOT_GIVEN
@@ -65,6 +67,7 @@ class HubClient(SyncClient):
     projects: ProjectsResource
     scheduled_evaluations: ScheduledEvaluationsResource
     scans: ScansResource
+    probes: ProbesResource
 
     def __init__(
         self,
