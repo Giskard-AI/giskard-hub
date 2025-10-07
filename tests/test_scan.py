@@ -265,3 +265,62 @@ class TestScanResultDataModel:
         mock_client.scans.retrieve.assert_called_once()
         assert scan.id == _TEST_SCAN_ID
         assert scan.progress.status == TaskStatus.FINISHED
+
+
+@pytest.fixture
+def mock_http_client():
+    """Mock HTTP client for testing API resources."""
+    mock_client = MagicMock()
+
+    def handle_get_response(path, cast_to=None, **kwargs):
+        response_data = mock_client.get.return_value
+        if cast_to is None:
+            return response_data
+
+        if cast_to == ScanResult:
+            return ScanResult.from_dict(response_data)
+        elif cast_to == ProbeResult:
+            return ProbeResult.from_dict(response_data)
+
+        return response_data
+
+    # GET
+    mock_client.get.side_effect = handle_get_response
+
+    # POST
+    mock_client.post.side_effect = lambda path, cast_to=None, **kwargs: (
+        ScanResult.from_dict(mock_client.post.return_value)
+        if cast_to == ScanResult
+        else mock_client.post.return_value
+    )
+
+    # PATCH
+    mock_client.patch.side_effect = lambda path, cast_to=None, **kwargs: (
+        ScanResult.from_dict(mock_client.patch.return_value)
+        if cast_to == ScanResult
+        else mock_client.patch.return_value
+    )
+
+    # DELETE
+    mock_client.delete.side_effect = lambda path, **kwargs: None
+
+    return mock_client
+
+
+class TestScanResultResource:
+    """Test the Scan API resources."""
+
+    def test_scan_resource_list(self, mock_http_client):
+        pass
+
+    def test_scan_resource_retrieve(self, mock_http_client):
+        pass
+
+    def test_scan_resource_create(self, mock_http_client):
+        pass
+
+    def test_scan_resource_delete(self, mock_http_client):
+        pass
+
+    def test_scan_resource_get_probes(self, mock_http_client):
+        pass

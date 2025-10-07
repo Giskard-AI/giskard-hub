@@ -196,3 +196,37 @@ class TestProbeResult:
         assert attempt.reason == "Mock attempt"
         assert attempt.severity == Severity.MINOR
         assert attempt.review_status == ReviewStatus.PENDING
+
+
+@pytest.fixture
+def mock_http_client():
+    """Mock HTTP client for testing API resources."""
+    mock_client = MagicMock()
+
+    def handle_get_response(path, cast_to=None, **kwargs):
+        response_data = mock_client.get.return_value
+        if cast_to is None:
+            return response_data
+
+        if cast_to == ProbeAttempt:
+            return ProbeAttempt.from_dict(response_data)
+        elif cast_to == ProbeResult:
+            return ProbeResult.from_dict(response_data)
+
+        return response_data
+
+    # Only GET is used in probe routes
+    mock_client.get.side_effect = handle_get_response
+
+    return mock_client
+
+
+class TestProbeResultResource:
+    """Test the Probe API resources."""
+
+    def test_probe_resource_retrieve(self, mock_http_client):
+        pass
+
+    def test_probe_resource_get_attempts(self, mock_http_client):
+        pass
+
