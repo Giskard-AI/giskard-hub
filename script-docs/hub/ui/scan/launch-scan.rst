@@ -8,7 +8,7 @@ How to launch a scan
 --------------------
 
 1. **Navigate to the scan page**
-   Click **Scan** in the left sidebar, then **Launch Scan**
+   Click **Scan** in the left sidebar
 
 2. **Select your agent**
    Choose which AI agent you want to test from the dropdown
