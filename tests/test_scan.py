@@ -2,7 +2,7 @@ import uuid
 
 import pytest
 
-from giskard_hub.data.scan import ScanResult, ScanType
+from giskard_hub.data.scan import ScanGrade, ScanResult, ScanType
 from giskard_hub.data.task import TaskStatus
 
 _TEST_SCAN_ID = str(uuid.uuid4())
@@ -57,7 +57,7 @@ class TestScanResultDataModel:
             },
             "start_datetime": "2023-10-01T12:00:00Z",
             "end_datetime": "2023-10-01T13:00:00Z",
-            "grade": "A",
+            "grade": ScanGrade.A.value,
             "lidar_version": "1.0.0",
             "tags": ["tag1", "tag2"],
             "scan_type": ScanType.IN_DEPTH.value,
@@ -77,7 +77,7 @@ class TestScanResultDataModel:
         assert scan.progress.total == 100
         assert scan.progress.current == 100
         assert scan.start_datetime.isoformat() == "2023-10-01T12:00:00+00:00"
-        assert scan.grade == "A"
+        assert scan.grade == ScanGrade.A
         assert scan.lidar_version == "1.0.0"
         assert scan.tags == ["tag1", "tag2"]
         assert scan.scan_type == ScanType.IN_DEPTH
@@ -168,17 +168,17 @@ class TestScanResultDataModel:
         scan = ScanResult.from_dict(scan_dict)
         scan._client = mock_client
 
-        probes = scan.probes
-        assert len(probes) == 1
-        probe = probes[0]
-        assert probe.scan_result_id == _TEST_SCAN_ID
-        assert probe.probe_lidar_id == "probe_1"
-        assert probe.probe_name == "Test Probe"
-        assert probe.probe_description == "A test probe"
-        assert probe.probe_tags == ["tag1", "tag2"]
-        assert probe.probe_category == "Category A"
-        assert probe.metrics == []
-        assert probe.progress.status == TaskStatus.FINISHED
-        assert probe.progress.total == 100
-        assert probe.progress.current == 100
-        assert probe.progress.error is None
+        results = scan.results
+        assert len(results) == 1
+        result = results[0]
+        assert result.scan_result_id == _TEST_SCAN_ID
+        assert result.probe_lidar_id == "probe_1"
+        assert result.probe_name == "Test Probe"
+        assert result.probe_description == "A test probe"
+        assert result.probe_tags == ["tag1", "tag2"]
+        assert result.probe_category == "Category A"
+        assert result.metrics == []
+        assert result.progress.status == TaskStatus.FINISHED
+        assert result.progress.total == 100
+        assert result.progress.current == 100
+        assert result.progress.error is None

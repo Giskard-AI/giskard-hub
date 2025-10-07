@@ -60,8 +60,8 @@ class TestProbeAttempt:
             "probe_result_id": probe_result_id,
             "messages": [],
             "metadata": {},
-            "severity": 0,
-            "review_status": ReviewStatus.PENDING.value,
+            "severity": Severity.SAFE.value,
+            "review_status": ReviewStatus.ACKNOWLEDGED.value,
             "reason": "Initial attempt",
         }
         attempt = ProbeAttempt.from_dict(data)
@@ -69,8 +69,8 @@ class TestProbeAttempt:
         assert attempt.probe_result_id == probe_result_id
         assert attempt.messages == []
         assert attempt.metadata == {}
-        assert attempt.severity == 0
-        assert attempt.review_status == ReviewStatus.PENDING
+        assert attempt.severity == Severity.SAFE
+        assert attempt.review_status == ReviewStatus.ACKNOWLEDGED
         assert attempt.reason == "Initial attempt"
         assert attempt.error is None
 
@@ -89,7 +89,7 @@ def mock_client():
                             "probe_result_id": str(uuid.uuid4()),
                             "messages": [],
                             "metadata": {},
-                            "severity": 10,
+                            "severity": Severity.MINOR.value,
                             "review_status": ReviewStatus.PENDING.value,
                             "reason": "Mock attempt",
                         },
@@ -193,5 +193,5 @@ class TestProbeResult:
         attempt = attempts[0]
         assert isinstance(attempt, ProbeAttempt)
         assert attempt.reason == "Mock attempt"
-        assert attempt.severity == 10
+        assert attempt.severity == Severity.MINOR
         assert attempt.review_status == ReviewStatus.PENDING

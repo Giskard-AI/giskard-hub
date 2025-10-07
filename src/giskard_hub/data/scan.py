@@ -5,16 +5,16 @@ from typing import Any, Dict, List, Optional
 
 from dateutil import parser
 
-from giskard_hub.data._entity import EntityWithTaskProgress
 from giskard_hub.data.chat import ChatMessageWithMetadata
 from giskard_hub.data.knowledge_base import KnowledgeBase
 from giskard_hub.data.model import Model
 from giskard_hub.data.task import TaskProgress
 
 from ..data._base import BaseData
+from ..data._entity import Entity, EntityWithTaskProgress
 
 
-class ScanGrade(StrEnum):
+class ScanGrade(str, Enum):
     A = "A"
     B = "B"
     C = "C"
@@ -24,9 +24,9 @@ class ScanGrade(StrEnum):
 
 class Severity(IntEnum):
     SAFE = 0
-    MINOR = 1
-    MAJOR = 2
-    CRITICAL = 3
+    MINOR = 10
+    MAJOR = 20
+    CRITICAL = 30
 
 
 class ScanType(str, Enum):
@@ -48,14 +48,13 @@ class AttemptError(BaseData):
 
 
 @dataclass
-class ProbeAttempt(BaseData):
-    id: str
+class ProbeAttempt(Entity):
     probe_result_id: str
 
     messages: List[ChatMessageWithMetadata]
     metadata: Dict[str, Any]
 
-    severity: Severity = Severity.SAFE
+    severity: Severity
     review_status: ReviewStatus
     reason: str
     error: AttemptError | None = field(default=None)
@@ -73,9 +72,9 @@ class ProbeAttempt(BaseData):
             data["error"] = AttemptError.from_dict(data.get("error"))
 
         data["review_status"] = ReviewStatus(
-            data.get("review_status"), ReviewStatus.PENDING
+            data.get("review_status", ReviewStatus.PENDING.value),
         )
-        data["severity"] = Severity(data.get("severity"), Severity.SAFE)
+        data["severity"] = Severity(data.get("severity", Severity.SAFE.value))
 
         return super().from_dict(data, **kwargs)
 
@@ -159,7 +158,8 @@ class ScanResult(EntityWithTaskProgress):
         data = dict(data)
 
         # Convert nested objects
-        data["grade"] = ScanGrade(data.get("grade", ScanGrade.N_A))
+        if data.get("grade"):
+            data["grade"] = ScanGrade(data.get("grade"))
         data["model"] = Model.from_dict(data["model"], **kwargs)
         if data.get("knowledge_base"):
             data["knowledge_base"] = KnowledgeBase.from_dict(
