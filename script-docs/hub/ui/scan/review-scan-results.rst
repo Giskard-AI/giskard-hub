@@ -54,6 +54,7 @@ For each detected issue, you can:
 .. tab-set::
 
    .. tab-item:: Mark as false positive
+      
       If the identified issue doesn't represent a real risk in your context, mark it as a false positive. This updates your security grade automatically.
 
    .. tab-item:: Convert to test case
