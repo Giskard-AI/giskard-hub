@@ -89,7 +89,7 @@ class ScansResource(APIResource):
             List of scan results for the given project.
         """
         return [
-            ScanResult.from_dict(r)
+            ScanResult.from_dict(r, _client=self._client)
             for r in self._client.get(
                 _SCAN_BASE_URL,
                 json={"project_id": project_id},
@@ -124,7 +124,7 @@ class ScansResource(APIResource):
             List of probe results for the given scan.
         """
         return [
-            ProbeResult.from_dict(r)
+            ProbeResult.from_dict(r, _client=self._client)
             for r in self._client.get(
                 f"{_SCAN_BASE_URL}/{scan_id}/probes",
             )["items"]
@@ -161,7 +161,7 @@ class ScansResource(APIResource):
             List of probe attempts for the given probe result.
         """
         return [
-            ProbeAttempt.from_dict(r)
+            ProbeAttempt.from_dict(r, _client=self._client)
             for r in self._client.get(f"{_PROBE_BASE_URL}/{probe_result_id}/attempts")[
                 "items"
             ]
