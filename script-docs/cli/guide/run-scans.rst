@@ -85,31 +85,6 @@ Use tags to focus your scan on specific types of vulnerabilities:
         tags=["owasp:llm-top-10-2025='LLM10'"]
     )
 
-Category
---------
-
-Specify a scan category to get your results as quick as possible, or as deep as possible:
-
-.. code-block:: python
-
-    # Quick scan
-    scan_result = hub.scans.create(
-        model_id="your-model-id",
-        scan_type=ScanType.QUICK,
-    )
-
-    # Deep scan
-    scan_result = hub.scans.create(
-        model_id="your-model-id",
-        scan_type=ScanType.IN_DEPTH,
-    )
-
-    # Default scan type
-    scan_result = hub.scans.create(
-        model_id="your-model-id",
-        scan_type=ScanType.DEFAULT,
-    )
-
 Complete Example
 ================
 
@@ -118,7 +93,6 @@ Here's a complete example with all available options:
 .. code-block:: python
 
     from giskard_hub import HubClient
-    from giskard_hub.data.scan import ScanType
 
     # Initialize the client
     hub = HubClient()
@@ -133,9 +107,14 @@ Here's a complete example with all available options:
             "gsk:threat-type='denial-of-service'",
             "owasp:llm-top-10-2025='LLM10'"
         ],
-        scan_type=ScanType.DEFAULT,
     )
 
     print(f"Scan started with ID: {scan_result.id}")
     print(f"Model ID: {scan_result.model_id}")
     print(f"Project ID: {scan_result.project_id}")
+
+    # Optional: wait for the completion of the running scan
+    scan.wait_for_completion()
+
+    print(f"Scan finished with grade: {scan_result.grade}")
+

@@ -144,7 +144,7 @@ class ScanResult(EntityWithTaskProgress):
     knowledge_base: Optional[KnowledgeBase] = field(default=None)
     start_datetime: Optional[datetime] = field(default=None)
     end_datetime: Optional[datetime] = field(default=None)
-    grade: Optional[str] = field(default=None)
+    grade: Optional[ScanGrade] = field(default=None)
     lidar_version: str = field(default="dev")
     tags: List[str] = field(default_factory=list)
     scan_type: ScanType = field(default=ScanType.DEFAULT)
@@ -202,12 +202,3 @@ class ScanResult(EntityWithTaskProgress):
         self._hydrate(data)
 
         return self
-
-
-@dataclass
-class CreateScanRequest(BaseData):
-    """Request to create a scan."""
-
-    model_id: str
-    knowledge_base_id: str | None = None
-    tags: List[str] | None = None
