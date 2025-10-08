@@ -47,6 +47,7 @@ class AttemptError(BaseData):
     message: str
 
 
+# pylint: disable=too-many-instance-attributes
 @dataclass
 class ProbeAttempt(Entity):
     probe_result_id: str
@@ -89,6 +90,7 @@ class ScanMetric(BaseData):
     count: int
 
 
+# pylint: disable=too-many-instance-attributes
 @dataclass
 class ProbeResult(EntityWithTaskProgress):
     scan_result_id: str
@@ -134,6 +136,7 @@ class ProbeErrorSummary(BaseData):
     trace: str
 
 
+# pylint: disable=too-many-instance-attributes
 @dataclass
 class ScanResult(EntityWithTaskProgress):
     model: Model

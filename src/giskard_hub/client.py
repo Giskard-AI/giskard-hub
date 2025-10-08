@@ -56,6 +56,9 @@ class HubClient(SyncClient):
 
     scans : ScansResource
         Resource to interact with scans.
+
+    probes : ProbesResource
+        Resource to interact with attempts (attacks) in scan results.
     """
 
     chat_test_cases: ChatTestCasesResource
