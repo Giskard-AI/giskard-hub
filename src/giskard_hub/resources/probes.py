@@ -1,4 +1,6 @@
-from giskard_hub.data.scan import ProbeResult
+from typing import List
+
+from giskard_hub.data.scan import ProbeAttempt, ProbeResult
 from giskard_hub.resources._resource import APIResource
 
 _PROBE_BASE_URL = "/probes"
@@ -18,11 +20,11 @@ class ProbesResource(APIResource):
         ProbeResult
             The retrieved probe result.
         """
-        return self.client.get(
+        return self._client.get(
             f"{_PROBE_BASE_URL}/{probe_result_id}", cast_to=ProbeResult
         )
 
-    def get_attempts(self, probe_result_id: str):
+    def get_attempts(self, probe_result_id: str) -> List[ProbeAttempt]:
         """Get all probe attempts for a given probe result.
 
         Parameters
@@ -36,8 +38,8 @@ class ProbesResource(APIResource):
             List of probe attempts for the given probe result.
         """
         return [
-            ProbeResult.from_dict(r)
-            for r in self.client.get(f"{_PROBE_BASE_URL}/{probe_result_id}/attempts")[
+            ProbeAttempt.from_dict(r)
+            for r in self._client.get(f"{_PROBE_BASE_URL}/{probe_result_id}/attempts")[
                 "items"
             ]
         ]
