@@ -31,6 +31,12 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
       :link-type: doc
 
       Execute tests programmatically in the Hub or locally
+    
+   .. grid-item-card:: Run Vulnerability Scan
+      :link: run-scans
+      :link-type: doc
+
+      Launch scans programmatically
 
    .. grid-item-card:: API Reference
       :link: reference/index
