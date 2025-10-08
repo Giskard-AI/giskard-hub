@@ -85,6 +85,31 @@ Use tags to focus your scan on specific types of vulnerabilities:
         tags=["owasp:llm-top-10-2025='LLM10'"]
     )
 
+Category
+--------
+
+Specify a scan category to get your results as quick as possible, or as deep as possible:
+
+.. code-block:: python
+
+    # Quick scan
+    scan_result = hub.scans.create(
+        model_id="your-model-id",
+        scan_type=ScanType.QUICK,
+    )
+
+    # Deep scan
+    scan_result = hub.scans.create(
+        model_id="your-model-id",
+        scan_type=ScanType.IN_DEPTH,
+    )
+
+    # Default scan type
+    scan_result = hub.scans.create(
+        model_id="your-model-id",
+        scan_type=ScanType.DEFAULT,
+    )
+
 Complete Example
 ================
 
