@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given
 from ..data.scan import (
@@ -75,24 +75,27 @@ class ScansResource(APIResource):
         """
         return self._client.get(f"{_SCAN_BASE_URL}/{scan_id}", cast_to=ScanResult)
 
-    def list(self, project_id: str) -> List[ScanResult]:
-        """List all scans for a given project.
+    def list(self, project_id: Optional[str] = None) -> List[ScanResult]:
+        """List all scans or optionally for a given project.
 
         Parameters
         ----------
-        project_id : str
+        project_id : str, optional
             ID of the project to list scans for.
 
         Returns
         -------
         List[ScanResult]
-            List of scan results for the given project.
+            List of scan results.
         """
         return [
             ScanResult.from_dict(r, _client=self._client)
             for r in self._client.get(
-                _SCAN_BASE_URL,
-                json={"project_id": project_id},
+                (
+                    _SCAN_BASE_URL
+                    if project_id == None
+                    else f"{_SCAN_BASE_URL}?project_id={project_id}"
+                ),
             )["items"]
         ]
 
