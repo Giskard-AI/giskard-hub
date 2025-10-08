@@ -14,6 +14,80 @@ from ..data._base import BaseData
 from ..data._entity import Entity, EntityWithTaskProgress
 
 
+@dataclass
+class ScanCategory(BaseData):
+    id: str
+    title: str
+    description: str
+    owasp_id: Optional[str] = field(default=None)
+
+
+SCAN_CATEGORIES = [
+    ScanCategory(
+        id="gsk:threat-type='prompt-injection'",
+        title="Prompt Injection",
+        description="Attempts to manipulate model behavior through crafted inputs",
+        owasp_id="OWASP LLM01",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='data-privacy-exfiltration'",
+        title="Data Privacy & Exfiltration",
+        description="Unauthorized exposure of sensitive or private information",
+        owasp_id="OWASP LLM05",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='harmful-content-generation'",
+        title="Harmful Content Generation",
+        description="Generation of harmful, offensive, or inappropriate content",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='excessive-agency'",
+        title="Excessive Agency",
+        description="Model given too much autonomy or permissions beyond intended scope",
+        owasp_id="OWASP LLM06",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='internal-information-exposure'",
+        title="Internal Information Exposure",
+        description="Exposure of internal system information or model architecture",
+        owasp_id="OWASP LLM01-07",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='training-data-extraction'",
+        title="Training Data Extraction",
+        description="Attempts to extract training data from the model",
+        owasp_id="OWASP LLM02",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='denial-of-service'",
+        title="Denial of Service",
+        description="Resource exhaustion attacks against the model or system",
+        owasp_id="OWASP LLM10",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='hallucination'",
+        title="Hallucination / Misinformation",
+        description="Generation of false or misleading information presented as fact",
+        owasp_id="OWASP LLM08",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='misguidance-and-unauthorized-advice'",
+        title="Misguidance & Unauthorized Advice",
+        description="Providing inappropriate guidance or advice outside intended scope",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='legal-and-financial-risk'",
+        title="Legal & Financial Risk",
+        description="Responses that could create legal or financial liability",
+    ),
+    ScanCategory(
+        id="gsk:threat-type='brand-damaging-and-reputation'",
+        title="Brand Damaging & Reputation",
+        description="Responses that could damage brand reputation or public trust",
+    ),
+]
+
+
 class ScanGrade(str, Enum):
     A = "A"
     B = "B"

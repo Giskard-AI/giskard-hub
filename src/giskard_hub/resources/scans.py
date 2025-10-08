@@ -1,7 +1,13 @@
 from typing import List
 
 from ..data._base import NOT_GIVEN, filter_not_given
-from ..data.scan import ProbeAttempt, ProbeResult, ScanResult
+from ..data.scan import (
+    SCAN_CATEGORIES,
+    ProbeAttempt,
+    ProbeResult,
+    ScanCategory,
+    ScanResult,
+)
 from ._resource import APIResource
 
 _SCAN_BASE_URL = "/scans"
@@ -9,6 +15,14 @@ _PROBE_BASE_URL = "/probes"
 
 
 class ScansResource(APIResource):
+    def list_tags(self) -> List[ScanCategory]:
+        """List scan categories that can be use as tags.
+
+        Returns:
+            List[ScanCategory]: A list of `ScanCategory` objects representing all available scan categories.
+        """
+        return SCAN_CATEGORIES
+
     def create(
         self,
         *,
@@ -48,10 +62,12 @@ class ScansResource(APIResource):
 
     def retrieve(self, scan_id: str) -> ScanResult:
         """Retrieve a scan by its ID.
+
         Parameters
         ----------
         scan_id : str
             ID of the scan to retrieve.
+
         Returns
         -------
         ScanResult
@@ -61,10 +77,12 @@ class ScansResource(APIResource):
 
     def list(self, project_id: str) -> List[ScanResult]:
         """List all scans for a given project.
+
         Parameters
         ----------
         project_id : str
             ID of the project to list scans for.
+
         Returns
         -------
         List[ScanResult]
