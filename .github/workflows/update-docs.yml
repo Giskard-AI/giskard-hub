@@ -11,6 +11,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REF_NAME: ${{ github.ref_name }}
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -26,11 +28,22 @@ jobs:
 
       - name: Merge latest code
         run: |
+          set -euo pipefail
+          # Validate ref name strictly using git's own rules
+          if ! git check-ref-format --branch "$REF_NAME"; then
+            echo "Invalid ref name: '$REF_NAME'" >&2
+            exit 1
+          fi
           git fetch --prune
-          git merge origin/${{ github.ref_name }}
+          # Ensure the remote branch exists under origin
+          if ! git show-ref --verify --quiet "refs/remotes/origin/$REF_NAME"; then
+            echo "Remote branch 'origin/$REF_NAME' not found" >&2
+            exit 1
+          fi
+          git merge "origin/$REF_NAME"
 
       - name: Install uv and set the python version
-        uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4 # v6.7.0
+        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           python-version: "3.12" # giskard 2.18.0 requires python <3.13
 

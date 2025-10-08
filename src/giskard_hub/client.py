@@ -128,7 +128,7 @@ class HubClient(SyncClient):
 
         # Check if the connection is valid
         try:
-            resp = self._http.get("/openapi.json")
+            resp = self._http.get("/_health")
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
@@ -136,10 +136,31 @@ class HubClient(SyncClient):
                 f"Failed to connect to Giskard Hub at {self._hub_url}"
             ) from e
 
-        if "openapi" not in data:
+        # Check if the health endpoint returns the expected format
+        if "status" not in data or data.get("status") != "ok":
             raise HubConnectionError(
-                f"The response doesn't appear to include an OpenAPI specification at {self._hub_url}"
+                f"The health check failed at {self._hub_url}. Expected status 'ok', got: {data.get('status', 'unknown')}"
             )
+
+        # Validate that services exists and does not contain any frontend service
+        if not auto_add_api_suffix:
+            services = data.get("services")
+            if not isinstance(services, dict):
+                raise HubConnectionError(
+                    f"Invalid response format at {self._hub_url}. "
+                    f"Expected 'services' to be an object, got: {type(services).__name__}"
+                )
+
+            # Check for frontend services that should not exist in backend API
+            found_frontend_services = [
+                service for service in services.keys() if service.lower() == "frontend"
+            ]
+
+            if found_frontend_services:
+                raise HubConnectionError(
+                    "Invalid URL: You provided a frontend URL while setting auto_add_api_suffix=False."
+                    "Please either enable auto_add_api_suffix=True or provide a proper backend API URL."
+                )
 
         # Define the resources
         self.chat_test_cases = ChatTestCasesResource(self)
