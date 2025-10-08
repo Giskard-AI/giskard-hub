@@ -15,8 +15,8 @@ _PROBE_BASE_URL = "/probes"
 
 
 class ScansResource(APIResource):
-    def list_tags(self) -> List[ScanCategory]:
-        """List scan categories that can be use as tags.
+    def list_categories(self) -> List[ScanCategory]:
+        """List scan categories that can be use as tags to create/launch a scan.
 
         Returns:
             List[ScanCategory]: A list of `ScanCategory` objects representing all available scan categories.

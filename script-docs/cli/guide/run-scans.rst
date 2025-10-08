@@ -85,6 +85,12 @@ Use tags to focus your scan on specific types of vulnerabilities:
         tags=["owasp:llm-top-10-2025='LLM10'"]
     )
 
+The threat type tags can be found by listing the catogories and use their identifiers:
+
+.. code-block:: python
+
+    hub.scans.list_categories()
+
 Complete Example
 ================
 
