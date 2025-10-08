@@ -120,11 +120,25 @@ class ProbeResult(EntityWithTaskProgress):
     def attempts(self) -> List[ProbeAttempt]:
         if not self.id:
             raise ValueError("ProbeResult must have an ID to fetch attempts.")
-        return self._client.probes.get_attempts(self.id)
+        return self._client.scans.get_attempts(self.id)
 
     @property
     def resource(self) -> str:
-        return "probes"
+        return "scans"
+
+    def refresh(self) -> "ProbeResult":
+        """Overwrite refresh method to get the entity data from the API."""
+        if not self._client or not self.id:
+            raise ValueError(
+                f"This {self.resource} instance with id '{self.id}' is detached or unsaved and cannot be refreshed."
+            )
+
+        # Use the abstract resource property for the API call
+        resource = self.resource
+        data = getattr(self._client, resource).retrieve_probe(self.id)
+        self._hydrate(data)
+
+        return self
 
 
 @dataclass

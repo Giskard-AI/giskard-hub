@@ -5,7 +5,7 @@ import pytest
 
 from giskard_hub.data.scan import ProbeAttempt, ProbeResult, ReviewStatus, Severity
 from giskard_hub.data.task import TaskStatus
-from giskard_hub.resources.probes import ProbesResource
+from giskard_hub.resources.scans import ScansResource
 
 _TEST_PROBE_ID = str(uuid.uuid4())
 _TEST_SCAN_ID = str(uuid.uuid4())
@@ -23,6 +23,22 @@ _test_probe = {
     "status": {
         "state": "finished",
         "total": 100,
+        "current": 100,
+    },
+}
+
+_test_running_probe = {
+    "id": _TEST_PROBE_ID,
+    "scan_result_id": _TEST_SCAN_ID,
+    "probe_lidar_id": "probe_1",
+    "probe_name": "Test Probe",
+    "probe_description": "A test probe",
+    "probe_tags": ["tag1", "tag2"],
+    "probe_category": "Category A",
+    "metrics": [],
+    "status": {
+        "state": "running",
+        "total": 50,
         "current": 100,
     },
 }
@@ -112,12 +128,14 @@ def mock_client():
     """Mock client for testing data model."""
 
     mock_client = MagicMock()
-    mock_client.probes.get_attempts.return_value = [
+    mock_client.scans.get_attempts.return_value = [
         ProbeAttempt.from_dict(a)
         for a in [
             _test_probe_attempt,
         ]
     ]
+    mock_client.scans.retrieve_probe.return_value = ProbeResult.from_dict(_test_probe)
+
     return mock_client
 
 
@@ -194,6 +212,23 @@ class TestProbeResult:
         assert probe_result.metrics is None
         assert probe_result.progress is None
 
+    def test_probe_result_refresh(self, mock_client):
+        """Test probe result refresh"""
+        probe = ProbeResult.from_dict(
+            _test_running_probe,
+            _client=mock_client,
+        )
+
+        assert probe.id == _TEST_PROBE_ID
+        assert probe.progress.status == TaskStatus.RUNNING
+
+        # Refresh
+        probe.refresh()
+
+        mock_client.scans.retrieve_probe.assert_called_once()
+        assert probe.id == _TEST_PROBE_ID
+        assert probe.progress.status == TaskStatus.FINISHED
+
     def test_probe_result_attempts(self, mock_client):
         """Test"""
         probe_result = ProbeResult.from_dict(
@@ -202,7 +237,7 @@ class TestProbeResult:
         )
         attempts = probe_result.attempts
 
-        mock_client.probes.get_attempts.assert_called_once()
+        mock_client.scans.get_attempts.assert_called_once()
 
         assert isinstance(attempts, list)
         assert len(attempts) == 1
@@ -238,14 +273,14 @@ def mock_http_client():
 
 
 class TestProbeResultResource:
-    """Test the Probe API resources."""
+    """Test the Srobe API resources for the probes."""
 
     def test_probe_resource_retrieve(self, mock_http_client):
         """Test retrieving a probe result with a given probe id"""
         mock_http_client.get.return_value = _test_probe
 
-        resource = ProbesResource(mock_http_client)
-        probe = resource.retrieve(_TEST_PROBE_ID)
+        resource = ScansResource(mock_http_client)
+        probe = resource.retrieve_probe(_TEST_PROBE_ID)
 
         assert probe is not None
         assert probe.id == _TEST_PROBE_ID
@@ -261,7 +296,7 @@ class TestProbeResultResource:
             ],
         }
 
-        resource = ProbesResource(mock_http_client)
+        resource = ScansResource(mock_http_client)
         probe_attempts = resource.get_attempts(_TEST_PROBE_ID)
         assert len(probe_attempts) == 1
 
