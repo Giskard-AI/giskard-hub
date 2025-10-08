@@ -93,7 +93,7 @@ class ScansResource(APIResource):
             for r in self._client.get(
                 (
                     _SCAN_BASE_URL
-                    if project_id == None
+                    if project_id is None
                     else f"{_SCAN_BASE_URL}?project_id={project_id}"
                 ),
             )["items"]
