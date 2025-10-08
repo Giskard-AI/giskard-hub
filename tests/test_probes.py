@@ -229,4 +229,3 @@ class TestProbeResultResource:
 
     def test_probe_resource_get_attempts(self, mock_http_client):
         pass
-

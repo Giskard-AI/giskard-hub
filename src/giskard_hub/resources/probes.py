@@ -18,7 +18,9 @@ class ProbesResource(APIResource):
         ProbeResult
             The retrieved probe result.
         """
-        return self.client.get(f"{_PROBE_BASE_URL}/{probe_result_id}", cast_to=ProbeResult)
+        return self.client.get(
+            f"{_PROBE_BASE_URL}/{probe_result_id}", cast_to=ProbeResult
+        )
 
     def get_attempts(self, probe_result_id: str):
         """Get all probe attempts for a given probe result.
