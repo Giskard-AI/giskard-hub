@@ -5,11 +5,62 @@ import pytest
 
 from giskard_hub.data.scan import ProbeResult, ScanGrade, ScanResult, ScanType
 from giskard_hub.data.task import TaskStatus
+from giskard_hub.resources.scans import ScansResource
 
 _TEST_PROBE_ID = str(uuid.uuid4())
 _TEST_SCAN_ID = str(uuid.uuid4())
 _TEST_PROJECT_ID = str(uuid.uuid4())
 _TEST_MODEL_ID = str(uuid.uuid4())
+
+
+_test_scan = {
+    "id": _TEST_SCAN_ID,
+    "project_id": _TEST_PROJECT_ID,
+    "model": {"id": _TEST_MODEL_ID, "name": "Test Model"},
+    "status": {
+        "state": "finished",
+        "total": 100,
+        "current": 100,
+    },
+    "start_datetime": "2023-10-01T12:00:00Z",
+    "end_datetime": "2023-10-01T13:00:00Z",
+    "grade": ScanGrade.A.value,
+    "lidar_version": "1.0.0",
+    "tags": ["tag1", "tag2"],
+    "scan_type": ScanType.IN_DEPTH.value,
+    "errors": [],
+    "generator_metadata": {},
+    "target_info": {},
+    "scan_metadata": {},
+}
+
+_test_running_scan = {
+    "id": _TEST_SCAN_ID,
+    "project_id": _TEST_PROJECT_ID,
+    "model": {"id": _TEST_MODEL_ID, "name": "Probe Model"},
+    "start_datetime": "2023-10-01T12:00:00Z",
+    "status": {
+        "state": "running",
+        "current": 0,
+        "total": 100,
+    },
+}
+
+_test_probe = {
+    "id": _TEST_PROBE_ID,
+    "scan_result_id": _TEST_SCAN_ID,
+    "probe_lidar_id": "probe_1",
+    "probe_name": "Test Probe",
+    "probe_description": "A test probe",
+    "probe_tags": ["tag1", "tag2"],
+    "probe_category": "Category A",
+    "metrics": [],
+    "status": {
+        "state": "finished",
+        "total": 100,
+        "current": 100,
+    },
+}
 
 
 @pytest.fixture
@@ -18,51 +69,16 @@ def mock_client():
     mock_client = MagicMock()
 
     # GET /scans/{scan_id}/probes to get probe results for a scan
-    test_probe = {
-        "id": _TEST_PROBE_ID,
-        "scan_result_id": _TEST_SCAN_ID,
-        "probe_lidar_id": "probe_1",
-        "probe_name": "Test Probe",
-        "probe_description": "A test probe",
-        "probe_tags": ["tag1", "tag2"],
-        "probe_category": "Category A",
-        "metrics": [],
-        "status": {
-            "state": "finished",
-            "total": 100,
-            "current": 100,
-        },
-    }
     mock_client.scans.get_probes.return_value = [
         ProbeResult.from_dict(r, _client=mock_client)
         for r in [
-            test_probe,
+            _test_probe,
         ]
     ]
 
-    test_scan = {
-        "id": _TEST_SCAN_ID,
-        "project_id": _TEST_PROJECT_ID,
-        "model": {"id": _TEST_MODEL_ID, "name": "Test Model"},
-        "status": {
-            "state": "finished",
-            "total": 100,
-            "current": 100,
-        },
-        "start_datetime": "2023-10-01T12:00:00Z",
-        "end_datetime": "2023-10-01T13:00:00Z",
-        "grade": ScanGrade.A.value,
-        "lidar_version": "1.0.0",
-        "tags": ["tag1", "tag2"],
-        "scan_type": ScanType.IN_DEPTH.value,
-        "errors": [],
-        "generator_metadata": {},
-        "target_info": {},
-        "scan_metadata": {},
-    }
     # GET /scans/{scan_id} to retrieve a specific scan
     mock_client.scans.retrieve.return_value = ScanResult.from_dict(
-        test_scan, _client=mock_client
+        _test_scan, _client=mock_client
     )
 
     return mock_client
@@ -116,6 +132,7 @@ class TestScanResultDataModel:
         assert scan.scan_metadata == {}
 
     def test_scan_result_from_dict_minimal(self):
+        """Test initilizing with minimum fields"""
         scan_id = str(uuid.uuid4())
         project_id = str(uuid.uuid4())
         model_id = str(uuid.uuid4())
@@ -142,6 +159,7 @@ class TestScanResultDataModel:
         assert scan.scan_metadata == None  # from_dict doesn't populate defaults
 
     def test_scan_result_from_dict_with_errors(self):
+        """Test initilizing with probe errors"""
         scan_id = str(uuid.uuid4())
         project_id = str(uuid.uuid4())
         model_id = str(uuid.uuid4())
@@ -188,6 +206,7 @@ class TestScanResultDataModel:
         assert scan.scan_metadata == {}
 
     def test_scan_result_get_probe_results(self, mock_client):
+        """Test getting probe results of a scan"""
         scan = ScanResult.from_dict(
             {
                 "id": _TEST_SCAN_ID,
@@ -215,18 +234,9 @@ class TestScanResultDataModel:
         assert result.progress.error is None
 
     def test_scan_result_refresh(self, mock_client):
+        """Test scan result refresh"""
         scan = ScanResult.from_dict(
-            {
-                "id": _TEST_SCAN_ID,
-                "project_id": _TEST_PROJECT_ID,
-                "model": {"id": _TEST_MODEL_ID, "name": "Probe Model"},
-                "start_datetime": "2023-10-01T12:00:00Z",
-                "status": {
-                    "state": "running",
-                    "current": 0,
-                    "total": 100,
-                },
-            },
+            _test_running_scan,
             _client=mock_client,
         )
 
@@ -241,18 +251,9 @@ class TestScanResultDataModel:
         assert scan.progress.status == TaskStatus.FINISHED
 
     def test_scan_result_block_waiting(self, mock_client):
+        """Test waiting for task completion"""
         scan = ScanResult.from_dict(
-            {
-                "id": _TEST_SCAN_ID,
-                "project_id": _TEST_PROJECT_ID,
-                "model": {"id": _TEST_MODEL_ID, "name": "Probe Model"},
-                "start_datetime": "2023-10-01T12:00:00Z",
-                "status": {
-                    "state": "running",
-                    "current": 0,
-                    "total": 100,
-                },
-            },
+            _test_running_scan,
             _client=mock_client,
         )
 
@@ -311,16 +312,73 @@ class TestScanResultResource:
     """Test the Scan API resources."""
 
     def test_scan_resource_list(self, mock_http_client):
-        pass
+        """Test listing all scan results for a project"""
+        mock_http_client.get.return_value = {
+            "items": [
+                _test_scan,
+            ],
+        }
+
+        resource = ScansResource(mock_http_client)
+
+        scans = resource.list(_TEST_PROJECT_ID)
+        assert len(scans) == 1
+
+        scan = scans[0]
+        assert scan.id == _TEST_SCAN_ID
+        assert scan.project_id == _TEST_PROJECT_ID
+        assert scan.progress.status == TaskStatus.FINISHED
+
+        mock_http_client.get.assert_called_once()
 
     def test_scan_resource_retrieve(self, mock_http_client):
-        pass
+        """Test retrieving a scan result with a given scan id"""
+        mock_http_client.get.return_value = _test_scan
+
+        resource = ScansResource(mock_http_client)
+        scan = resource.retrieve(_TEST_SCAN_ID)
+
+        assert scan is not None
+        assert scan.id == _TEST_SCAN_ID
+        assert scan.project_id == _TEST_PROJECT_ID
+        assert scan.progress.status == TaskStatus.FINISHED
+
+        mock_http_client.get.assert_called_once()
 
     def test_scan_resource_create(self, mock_http_client):
-        pass
+        """Test creating a scan"""
+        mock_http_client.post.return_value = _test_running_scan
+
+        resource = ScansResource(mock_http_client)
+        scan = resource.create(model_id=_TEST_MODEL_ID)
+
+        assert scan is not None
+        assert scan.id == _TEST_SCAN_ID
+        assert scan.project_id == _TEST_PROJECT_ID
+        assert scan.progress.status == TaskStatus.RUNNING
+
+        mock_http_client.post.assert_called_once()
 
     def test_scan_resource_delete(self, mock_http_client):
-        pass
+        """Test deleting a scan result"""
+        resource = ScansResource(mock_http_client)
+        resource.delete(_TEST_SCAN_ID)
+
+        mock_http_client.delete.assert_called_once()
 
     def test_scan_resource_get_probes(self, mock_http_client):
-        pass
+        """Test getting probe results from a scan result"""
+        mock_http_client.get.return_value = {
+            "items": [
+                _test_probe,
+            ],
+        }
+
+        resource = ScansResource(mock_http_client)
+        probes = resource.get_probes(_TEST_SCAN_ID)
+
+        assert len(probes) == 1
+
+        probe = probes[0]
+        assert probe.id == _TEST_PROBE_ID
+        assert probe.scan_result_id == _TEST_SCAN_ID
