@@ -118,6 +118,7 @@ Here's a complete example with all available options:
 .. code-block:: python
 
     from giskard_hub import HubClient
+    from giskard_hub.data.scan import ScanType
 
     # Initialize the client
     hub = HubClient()
@@ -131,7 +132,8 @@ Here's a complete example with all available options:
             "gsk:threat-type='prompt-injection'",
             "gsk:threat-type='denial-of-service'",
             "owasp:llm-top-10-2025='LLM10'"
-        ]
+        ],
+        scan_type=ScanType.DEFAULT,
     )
 
     print(f"Scan started with ID: {scan_result.id}")
