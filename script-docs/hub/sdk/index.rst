@@ -283,9 +283,9 @@ Once ready, you can print the evaluation metrics:
 
     eval_run.print_metrics()
 
-.. image:: /_static/images/cli/metrics_output.png
+.. image:: /_static/images/sdk/evaluation-metrics-output.png
    :align: center
-   :alt: "Metrics"
+   :alt: "Evaluation metrics output"
    :width: 800
 
 .. tip::

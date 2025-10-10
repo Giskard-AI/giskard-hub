@@ -84,26 +84,26 @@ Then, you can check the results:
     print(f"Model ID: {scan_result.model.id}")
     print(f"Scan grade: {scan_result.grade.value}")
 
-Once the scan is completed, you may want to compare the results with some security thresholds to decide whether to promote the agent to production or not.
+View scan metrics
+_________________
 
-For example:
+You can view a detailed breakdown of the scan results using the ``print_metrics()`` method:
 
 .. code-block:: python
-    :caption: CI/CD pipeline security check example
 
-    import sys
+    scan_result.print_metrics()
 
-    # Make sure to wait for completion or the results may be incomplete
-    scan_result.wait_for_completion()
+This will display a formatted table showing:
 
-    if scan_result.grade > "B":
-        print(f"FAILED: Security scan grade {scan_result.grade} is below acceptable threshold.")
-        print("Please review the security vulnerabilities before deploying.")
-        sys.exit(1)
-    
-    print(f"PASSED: Security scan grade {scan_result.grade} meets security requirements.")
+* **Category**: The security vulnerability category (e.g., "Prompt Injection", "Hallucination / Misinformation")
+* **Probe Name**: The specific probe that was run
+* **Severity**: The highest severity level found (CRITICAL, MAJOR, MINOR, SAFE)
+* **Results**: Number of issues found and total number of attacks performed
 
-That covers the basics of running security scans in the Hub. You can now integrate this code in your CI/CD pipeline to automatically scan your agents for security vulnerabilities every time you deploy a new version.
+.. image:: /_static/images/sdk/scan-metrics-output.png
+   :alt: Scan metrics output
+   :align: center
+
 
 Advanced scan configuration
 ---------------------------
@@ -177,38 +177,37 @@ Here's a complete CI/CD security scanning workflow:
         ],
     )
 
-    # Wait for completion and check results
+    # Wait for completion and check result metrics
     scan_result.wait_for_completion(timeout=1200)
+    scan_result.print_metrics()
 
-    # Check if the grade is worse than B (C, D or N/A)
-    if scan_result.grade and scan_result.grade > "B":
+    # Check if the grade is worse than A or B (C, D or N/A)
+    if scan_result.grade and scan_result.grade not in ["A", "B"]:
         print(f"❌ Security check failed: Scan with Grade {scan_result.grade.value}")
         sys.exit(1)
     
     print(f"✅ Security check passed: Scan with Grade {scan_result.grade.value}")
 
-Scan management methods
+Scan management
 ~~~~~~~~~~~~~~~
 
-Create a scan
+Launch a scan
 -------------
 
-You can create a security scan using the ``hub.scans.create()`` method:
+You can launch a security scan using the ``hub.scans.create()`` method:
 
 .. code-block:: python
 
     scan_result = hub.scans.create(
         model_id=model_id,
-        knowledge_base_id=knowledge_base_id,
-        tags=[]
+        knowledge_base_id=knowledge_base_id, # optional
+        tags=[], # optional, if not provided, all available categories will be used
     )
 
-If you don't provide any tags or provide an empty list, all available categories will be used (`hub.scans.list_categories()`).
+Retrieve a scan result
+----------------------
 
-Retrieve a scan
----------------
-
-You can retrieve a security scan using the ``hub.scans.retrieve()`` method:
+You can retrieve a previously launched scan result using the ``hub.scans.retrieve()`` method:
 
 .. code-block:: python
 
@@ -217,7 +216,7 @@ You can retrieve a security scan using the ``hub.scans.retrieve()`` method:
 List scans
 ----------
 
-You can list security scans using the ``hub.scans.list()`` method:
+You can list scans using the ``hub.scans.list()`` method:
 
 .. code-block:: python
 
@@ -226,20 +225,11 @@ You can list security scans using the ``hub.scans.list()`` method:
     for scan in scans:
         print(f"Scan ID: {scan.id} - Grade: {scan.grade.value} - Status: {scan.progress.status.value}")
 
-Delete a scan
--------------
+Delete a scan result
+---------------------
 
 You can delete a security scan using the ``hub.scans.delete()`` method:
 
 .. code-block:: python
 
     hub.scans.delete(scan_id)
-
-Best practices
-~~~~~~~~~~~~~~
-
-1. **Regular scanning**: Run security scans before every deployment, not just major releases
-2. **Comprehensive coverage**: Test multiple vulnerability types and OWASP categories
-3. **Knowledge base integration**: Use domain-specific knowledge bases when available
-4. **Threshold management**: Set clear security grade thresholds in your CI/CD pipeline
-5. **Result analysis**: Review scan results in the Hub UI for detailed vulnerability insights

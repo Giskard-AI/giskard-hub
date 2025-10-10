@@ -2,12 +2,15 @@ from dataclasses import dataclass, field
 from enum import Enum, IntEnum
 from typing import Any, Dict, List, Optional
 
+from rich.console import Console
+from rich.table import Table
+
 from ._base import BaseData
 from ._entity import Entity, EntityWithTaskProgress
 from .chat import ChatMessageWithMetadata
 from .knowledge_base import KnowledgeBase
 from .model import Model
-from .task import TaskProgress
+from .task import TaskProgress, TaskStatus
 
 
 @dataclass
@@ -269,3 +272,120 @@ class ScanResult(EntityWithTaskProgress):
         self._hydrate(data)
 
         return self
+
+    def print_metrics(self):
+        """Print the scan metrics."""
+        # pylint: disable=too-many-locals,too-many-branches
+        console = Console()
+        table = Table(
+            "Category",
+            "Probe Name",
+            "Severity",
+            "Results",
+            title=f"Scan Result [bold cyan]{self.id}[/bold cyan]",
+        )
+
+        category_map = {cat.id: cat.title for cat in SCAN_CATEGORIES}
+        probe_results = self.results
+        probe_data = []
+
+        for probe in probe_results:
+            # Get category name from mapping, fallback to ID if not found
+            category_name = category_map.get(probe.probe_category, probe.probe_category)
+
+            # Clean probe name
+            probe_name = probe.probe_name
+            if probe_name.endswith(" Probe"):
+                probe_name = probe_name[:-6]
+
+            # Check if the probe is finished
+            if probe.progress.status != TaskStatus.FINISHED:
+                # For non-finished probes, store the status
+                probe_data.append(
+                    {
+                        "category": category_name,
+                        "probe_name": probe_name,
+                        "status": probe.progress.status,
+                        "severity": None,
+                        "num_issues": None,
+                        "num_attacks": None,
+                    }
+                )
+            else:
+                attempts = probe.attempts
+                num_attacks = len(attempts)
+                num_issues = sum(
+                    1 for attempt in attempts if attempt.severity > Severity.SAFE
+                )
+
+                max_severity = max(
+                    (attempt.severity for attempt in attempts), default=Severity.SAFE
+                )
+
+                probe_data.append(
+                    {
+                        "category": category_name,
+                        "probe_name": probe_name,
+                        "status": None,
+                        "severity": max_severity,
+                        "num_issues": num_issues,
+                        "num_attacks": num_attacks,
+                    }
+                )
+
+        probe_data.sort(
+            key=lambda x: (
+                x["category"],
+                -(x["severity"] if x["severity"] is not None else -1),
+                x["probe_name"],
+            )
+        )
+
+        # Add rows to table
+        for data in probe_data:
+            if data["status"] is not None:
+                status_color = "bright_black"
+                severity_text = (
+                    f"[{status_color}]{data['status'].value.upper()}[/{status_color}]"
+                )
+                results_text = data["status"].value.capitalize()
+
+                table.add_row(
+                    data["category"],
+                    data["probe_name"],
+                    severity_text,
+                    results_text,
+                )
+            else:
+                if data["severity"] == Severity.CRITICAL:
+                    color = "red"
+                elif data["severity"] == Severity.MAJOR:
+                    color = "yellow"
+                elif data["severity"] == Severity.MINOR:
+                    color = "orange"
+                else:
+                    color = "green"
+
+                num_issues = data["num_issues"]
+                num_attacks = data["num_attacks"]
+
+                if num_issues == 0:
+                    issues_text = "[bold]No issues found[/bold]"
+                elif num_issues == 1:
+                    issues_text = "[bold]1 issue[/bold]"
+                else:
+                    issues_text = f"[bold]{num_issues} issues[/bold]"
+
+                attacks_text = (
+                    "1 attack" if num_attacks == 1 else f"{num_attacks} attacks"
+                )
+                results_text = f"{issues_text} / {attacks_text}"
+
+                table.add_row(
+                    data["category"],
+                    data["probe_name"],
+                    f"[{color}]{data['severity'].name}[/{color}]",
+                    results_text,
+                )
+
+        console.print(table)
