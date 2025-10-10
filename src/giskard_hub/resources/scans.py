@@ -18,13 +18,18 @@ class ScansResource(APIResource):
     def list_categories(self) -> List[ScanCategory]:
         """List scan categories that can be use as tags to create/launch a scan.
 
-        Returns:
+        Returns
+        -------
             List[ScanCategory]: A list of `ScanCategory` objects representing all available scan categories.
         """
         return SCAN_CATEGORIES
 
     def create(
-        self, *, model_id: str, knowledge_base_id: str = NOT_GIVEN, tags: List[str]
+        self,
+        *,
+        model_id: str,
+        knowledge_base_id: str = NOT_GIVEN,
+        tags: List[str] = NOT_GIVEN,
     ) -> ScanResult:
         """Create and run a new scan.
 
@@ -34,8 +39,8 @@ class ScansResource(APIResource):
             ID of the model to scan.
         knowledge_base_id : str, optional
             ID of the knowledge base to use for the scan.
-        tags : List[str]
-            List of tags to filter the scan.
+        tags : List[str], optional
+            List of tags to limit the scan to specific categories. If not provided, all categories will be used.
 
         Returns
         -------
@@ -43,7 +48,7 @@ class ScansResource(APIResource):
             The created scan result.
         """
         if not tags or len(tags) == 0:
-            raise ValueError("tags is required and must be a non-empty list")
+            tags = [category.id for category in self.list_categories()]
 
         data = filter_not_given(
             {
@@ -80,7 +85,7 @@ class ScansResource(APIResource):
         Parameters
         ----------
         project_id : str, optional
-            ID of the project to list scans for.
+            ID of the project to list scans for. If not provided, scans for all projects will be listed.
 
         Returns
         -------
@@ -105,6 +110,7 @@ class ScansResource(APIResource):
         ----------
         scan_id : str | List[str]
             ID or list of IDs of the scan to delete.
+
         Returns
         -------
         None
@@ -112,27 +118,8 @@ class ScansResource(APIResource):
         """
         self._client.delete(_SCAN_BASE_URL, params={"scan_result_ids": scan_id})
 
-    def get_probes(self, scan_id: str) -> List[ProbeResult]:
-        """Get all probe results for a given scan.
-
-        Parameters
-        ----------
-        scan_id : str
-            ID of the scan to get probes for.
-        Returns
-        -------
-        List[ProbeResult]
-            List of probe results for the given scan.
-        """
-        return [
-            ProbeResult.from_dict(r, _client=self._client)
-            for r in self._client.get(
-                f"{_SCAN_BASE_URL}/{scan_id}/probes",
-            )["items"]
-        ]
-
     def retrieve_probe(self, probe_result_id: str) -> ProbeResult:
-        """Get a probe result by its ID.
+        """Retrieve a probe result by its ID.
 
         Parameters
         ----------
@@ -148,18 +135,38 @@ class ScansResource(APIResource):
             f"{_PROBE_BASE_URL}/{probe_result_id}", cast_to=ProbeResult
         )
 
-    def get_attempts(self, probe_result_id: str) -> List[ProbeAttempt]:
-        """Get all probe attempts for a given probe result.
+    def list_probes(self, scan_id: str) -> List[ProbeResult]:
+        """List all probe results for a given scan.
+
+        Parameters
+        ----------
+        scan_id : str
+            ID of the scan to list probes for.
+
+        Returns
+        -------
+        List[ProbeResult]
+            List of probe results for the given scan.
+        """
+        return [
+            ProbeResult.from_dict(r, _client=self._client)
+            for r in self._client.get(
+                f"{_SCAN_BASE_URL}/{scan_id}/probes",
+            )["items"]
+        ]
+
+    def list_attempts(self, probe_result_id: str) -> List[ProbeAttempt]:
+        """List all attempts (attacks) for a given probe result.
 
         Parameters
         ----------
         probe_result_id : str
-            The ID of the probe result to get attempts for.
+            The ID of the probe result to list attempts for.
 
         Returns
         -------
         List[ProbeAttempt]
-            List of probe attempts for the given probe result.
+            List of attempts for the given probe result.
         """
         return [
             ProbeAttempt.from_dict(r, _client=self._client)

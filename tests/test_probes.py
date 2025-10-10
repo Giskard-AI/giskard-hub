@@ -128,7 +128,7 @@ def mock_client():
     """Mock client for testing data model."""
 
     mock_client = MagicMock()
-    mock_client.scans.get_attempts.return_value = [
+    mock_client.scans.list_attempts.return_value = [
         ProbeAttempt.from_dict(a)
         for a in [
             _test_probe_attempt,
@@ -237,7 +237,7 @@ class TestProbeResult:
         )
         attempts = probe_result.attempts
 
-        mock_client.scans.get_attempts.assert_called_once()
+        mock_client.scans.list_attempts.assert_called_once()
 
         assert isinstance(attempts, list)
         assert len(attempts) == 1
@@ -288,7 +288,7 @@ class TestProbeResultResource:
 
         mock_http_client.get.assert_called_once()
 
-    def test_probe_resource_get_attempts(self, mock_http_client):
+    def test_probe_resource_list_attempts(self, mock_http_client):
         """Test getting attempts with a given probe id"""
         mock_http_client.get.return_value = {
             "items": [
@@ -297,7 +297,7 @@ class TestProbeResultResource:
         }
 
         resource = ScansResource(mock_http_client)
-        probe_attempts = resource.get_attempts(_TEST_PROBE_ID)
+        probe_attempts = resource.list_attempts(_TEST_PROBE_ID)
         assert len(probe_attempts) == 1
 
         probe_attempt = probe_attempts[0]

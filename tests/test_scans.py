@@ -25,13 +25,6 @@ _test_scan = {
     "start_datetime": "2023-10-01T12:00:00Z",
     "end_datetime": "2023-10-01T13:00:00Z",
     "grade": ScanGrade.A.value,
-    "lidar_version": "1.0.0",
-    "tags": ["tag1", "tag2"],
-    "scan_type": ScanType.IN_DEPTH.value,
-    "errors": [],
-    "generator_metadata": {},
-    "target_info": {},
-    "scan_metadata": {},
 }
 
 _test_running_scan = {
@@ -69,7 +62,7 @@ def mock_client():
     mock_client = MagicMock()
 
     # GET /scans/{scan_id}/probes to get probe results for a scan
-    mock_client.scans.get_probes.return_value = [
+    mock_client.scans.list_probes.return_value = [
         ProbeResult.from_dict(r, _client=mock_client)
         for r in [
             _test_probe,
@@ -103,13 +96,6 @@ class TestScanResultDataModel:
             "start_datetime": "2023-10-01T12:00:00Z",
             "end_datetime": "2023-10-01T13:00:00Z",
             "grade": ScanGrade.A.value,
-            "lidar_version": "1.0.0",
-            "tags": ["tag1", "tag2"],
-            "scan_type": ScanType.IN_DEPTH.value,
-            "errors": [],
-            "generator_metadata": {},
-            "target_info": {},
-            "scan_metadata": {},
         }
 
         scan = ScanResult.from_dict(scan_dict)
@@ -121,15 +107,9 @@ class TestScanResultDataModel:
         assert scan.progress.status == TaskStatus.FINISHED
         assert scan.progress.total == 100
         assert scan.progress.current == 100
-        assert scan.start_datetime.isoformat() == "2023-10-01T12:00:00+00:00"
+        assert scan.created_at.isoformat() == "2023-10-01T12:00:00+00:00"
+        assert scan.updated_at.isoformat() == "2023-10-01T13:00:00+00:00"
         assert scan.grade == ScanGrade.A
-        assert scan.lidar_version == "1.0.0"
-        assert scan.tags == ["tag1", "tag2"]
-        assert scan.scan_type == ScanType.IN_DEPTH
-        assert scan.errors == []
-        assert scan.generator_metadata == {}
-        assert scan.target_info == {}
-        assert scan.scan_metadata == {}
 
     def test_scan_result_from_dict_minimal(self):
         """Test initilizing with minimum fields"""
@@ -150,16 +130,9 @@ class TestScanResultDataModel:
         assert scan.project_id == project_id
         assert scan.progress is None
         assert scan.grade is None
-        assert scan.lidar_version == None  # from_dict doesn't populate defaults
-        assert scan.tags == None  # from_dict doesn't populate defaults
-        assert scan.scan_type == None  # from_dict doesn't populate defaults
-        assert scan.errors == None  # from_dict doesn't populate defaults
-        assert scan.generator_metadata == None  # from_dict doesn't populate defaults
-        assert scan.target_info == None  # from_dict doesn't populate defaults
-        assert scan.scan_metadata == None  # from_dict doesn't populate defaults
 
-    def test_scan_result_from_dict_with_errors(self):
-        """Test initilizing with probe errors"""
+    def test_scan_result_from_dict_with_error(self):
+        """Test initilizing with error"""
         scan_id = str(uuid.uuid4())
         project_id = str(uuid.uuid4())
         model_id = str(uuid.uuid4())
@@ -173,17 +146,6 @@ class TestScanResultDataModel:
                 "current": 50,
                 "error": "An error occurred",
             },
-            "errors": [
-                {
-                    "probe_lidar_id": "probe_1",
-                    "original_error": "Original error message",
-                    "trace": "Trace details here",
-                }
-            ],
-            "scan_type": ScanType.IN_DEPTH.value,
-            "generator_metadata": {},
-            "target_info": {},
-            "scan_metadata": {},
         }
 
         scan = ScanResult.from_dict(scan_dict)
@@ -196,16 +158,8 @@ class TestScanResultDataModel:
         assert scan.progress.total == 100
         assert scan.progress.current == 50
         assert scan.progress.error == "An error occurred"
-        assert len(scan.errors) == 1
-        assert scan.errors[0].probe_lidar_id == "probe_1"
-        assert scan.errors[0].original_error == "Original error message"
-        assert scan.errors[0].trace == "Trace details here"
-        assert scan.scan_type == ScanType.IN_DEPTH
-        assert scan.generator_metadata == {}
-        assert scan.target_info == {}
-        assert scan.scan_metadata == {}
 
-    def test_scan_result_get_probe_results(self, mock_client):
+    def test_scan_result_list_probe_results(self, mock_client):
         """Test getting probe results of a scan"""
         scan = ScanResult.from_dict(
             {
@@ -217,7 +171,7 @@ class TestScanResultDataModel:
         )
 
         results = scan.results
-        mock_client.scans.get_probes.assert_called_once()
+        mock_client.scans.list_probes.assert_called_once()
         assert len(results) == 1
 
         result = results[0]
@@ -366,7 +320,7 @@ class TestScanResultResource:
 
         mock_http_client.delete.assert_called_once()
 
-    def test_scan_resource_get_probes(self, mock_http_client):
+    def test_scan_resource_list_probes(self, mock_http_client):
         """Test getting probe results from a scan result"""
         mock_http_client.get.return_value = {
             "items": [
@@ -375,7 +329,7 @@ class TestScanResultResource:
         }
 
         resource = ScansResource(mock_http_client)
-        probes = resource.get_probes(_TEST_SCAN_ID)
+        probes = resource.list_probes(_TEST_SCAN_ID)
 
         assert len(probes) == 1
 
