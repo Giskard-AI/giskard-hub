@@ -350,7 +350,7 @@ class TestScanResultResource:
         mock_http_client.post.return_value = _test_running_scan
 
         resource = ScansResource(mock_http_client)
-        scan = resource.create(model_id=_TEST_MODEL_ID)
+        scan = resource.create(model_id=_TEST_MODEL_ID, tags=["test"])
 
         assert scan is not None
         assert scan.id == _TEST_SCAN_ID
