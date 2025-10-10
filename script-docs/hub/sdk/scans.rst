@@ -213,6 +213,18 @@ You can retrieve a previously launched scan result using the ``hub.scans.retriev
 
     scan_result = hub.scans.retrieve(scan_id)
 
+You can also retrieve its results calling the ``results`` property:
+
+.. code-block:: python
+
+    results = scan_result.results
+
+    # or using the scans resource
+    results = hub.scans.list_probes(scan_result.id)
+
+    for result in results:
+        print(f"Probe Result ID: {result.id} - Status: {result.progress.status.value}")
+
 List scans
 ----------
 
