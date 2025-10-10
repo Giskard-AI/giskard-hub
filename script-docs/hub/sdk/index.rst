@@ -11,8 +11,14 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
    .. grid-item-card:: Manage projects, agents and knowledge bases
       :link: projects
       :link-type: doc
-
+    
       Create, update, and organize projects, agents and knowledge bases
+
+   .. grid-item-card:: Scan vulnerabilities in your agents
+      :link: scans
+      :link-type: doc
+
+      Launch several red teaming attacks to find vulnerabilities in your agents
 
    .. grid-item-card:: Manage datasets and chat test cases
       :link: datasets/index
@@ -31,6 +37,7 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
       :link-type: doc
 
       Execute tests programmatically in the Hub or locally
+
 
    .. grid-item-card:: API Reference
       :link: reference/index
@@ -276,9 +283,9 @@ Once ready, you can print the evaluation metrics:
 
     eval_run.print_metrics()
 
-.. image:: /_static/images/cli/metrics_output.png
+.. image:: /_static/images/sdk/evaluation-metrics-output.png
    :align: center
-   :alt: "Metrics"
+   :alt: "Evaluation metrics output"
    :width: 800
 
 .. tip::
