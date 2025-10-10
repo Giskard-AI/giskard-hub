@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from giskard_hub.data.scan import ProbeResult, ScanGrade, ScanResult, ScanType
+from giskard_hub.data.scan import ProbeResult, ScanGrade, ScanResult
 from giskard_hub.data.task import TaskStatus
 from giskard_hub.resources.scans import ScansResource
 
@@ -75,6 +75,18 @@ def mock_client():
     )
 
     return mock_client
+
+
+def test_scan_grade_comparison():
+    assert ScanGrade.A == "A"
+    assert ScanGrade.A < ScanGrade.B
+    assert ScanGrade.B == "B"
+    assert ScanGrade.B < ScanGrade.C
+    assert ScanGrade.C == "C"
+    assert ScanGrade.C < ScanGrade.D
+    assert ScanGrade.D == "D"
+    assert ScanGrade.D < ScanGrade.N_A
+    assert ScanGrade.N_A == "N/A"
 
 
 class TestScanResultDataModel:

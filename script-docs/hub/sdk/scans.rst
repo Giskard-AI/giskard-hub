@@ -187,10 +187,23 @@ Here's a complete CI/CD security scanning workflow:
     
     print(f"✅ Security check passed: Scan with Grade {scan_result.grade.value}")
 
-Scan management
+Scan management methods
 ~~~~~~~~~~~~~~~
 
-The SDK also provides other methods to manage your scans beyond the ``create`` method.
+Create a scan
+-------------
+
+You can create a security scan using the ``hub.scans.create()`` method:
+
+.. code-block:: python
+
+    scan_result = hub.scans.create(
+        model_id=model_id,
+        knowledge_base_id=knowledge_base_id,
+        tags=[]
+    )
+
+If you don't provide any tags or provide an empty list, all available categories will be used (`hub.scans.list_categories()`).
 
 Retrieve a scan
 ---------------
