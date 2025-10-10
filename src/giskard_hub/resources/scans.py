@@ -24,11 +24,7 @@ class ScansResource(APIResource):
         return SCAN_CATEGORIES
 
     def create(
-        self,
-        *,
-        model_id: str,
-        knowledge_base_id: str = NOT_GIVEN,
-        tags: List[str] = NOT_GIVEN,
+        self, *, model_id: str, knowledge_base_id: str = NOT_GIVEN, tags: List[str]
     ) -> ScanResult:
         """Create and run a new scan.
 
@@ -38,7 +34,7 @@ class ScansResource(APIResource):
             ID of the model to scan.
         knowledge_base_id : str, optional
             ID of the knowledge base to use for the scan.
-        tags : List[str], optional
+        tags : List[str]
             List of tags to filter the scan.
 
         Returns
@@ -46,6 +42,9 @@ class ScansResource(APIResource):
         ScanResult
             The created scan result.
         """
+        if not tags or len(tags) == 0:
+            raise ValueError("tags is required and must be a non-empty list")
+
         data = filter_not_given(
             {
                 "model_id": model_id,
@@ -99,20 +98,19 @@ class ScansResource(APIResource):
             )["items"]
         ]
 
-    def delete(self, scan_id: str) -> None:
+    def delete(self, scan_id: str | List[str]) -> None:
         """Delete a scan by its ID.
 
         Parameters
         ----------
-        scan_id : str
-            ID of the scan to delete.
+        scan_id : str | List[str]
+            ID or list of IDs of the scan to delete.
         Returns
         -------
         None
             None
         """
-        # Delete a scan by its ID in a list
-        self._client.delete(_SCAN_BASE_URL, json=[scan_id])
+        self._client.delete(_SCAN_BASE_URL, params={"scan_result_ids": scan_id})
 
     def get_probes(self, scan_id: str) -> List[ProbeResult]:
         """Get all probe results for a given scan.

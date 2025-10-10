@@ -141,6 +141,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
    hub/sdk/index
    hub/sdk/projects
+   hub/sdk/scans
    hub/sdk/datasets/index
    hub/sdk/checks
    hub/sdk/evaluations
