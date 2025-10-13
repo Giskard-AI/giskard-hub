@@ -11,7 +11,7 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
    .. grid-item-card:: Manage projects, agents and knowledge bases
       :link: projects
       :link-type: doc
-    
+
       Create, update, and organize projects, agents and knowledge bases
 
    .. grid-item-card:: Scan vulnerabilities in your agents
@@ -37,7 +37,6 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
       :link-type: doc
 
       Execute tests programmatically in the Hub or locally
-
 
    .. grid-item-card:: API Reference
       :link: reference/index
