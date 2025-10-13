@@ -102,12 +102,6 @@ class Severity(IntEnum):
     CRITICAL = 30
 
 
-class ScanType(str, Enum):
-    DEFAULT = "default"
-    QUICK = "quick"
-    IN_DEPTH = "in_depth"
-
-
 class ReviewStatus(str, Enum):
     PENDING = "pending"
     IGNORED = "ignored"
