@@ -7,6 +7,7 @@ from .knowledge_base import Document, KnowledgeBase, Topic
 from .model import Model
 from .project import Project
 from .scheduled_evaluation import FrequencyOption, ScheduledEvaluation
+from .scan import ScanResult, ProbeResult, ProbeAttempt
 
 __all__ = [
     "Project",
@@ -23,4 +24,7 @@ __all__ = [
     "Document",
     "ScheduledEvaluation",
     "FrequencyOption",
+    "ScanResult",
+    "ProbeResult",
+    "ProbeAttempt",
 ]
