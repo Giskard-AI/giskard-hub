@@ -182,7 +182,7 @@ Here's a complete CI/CD security scanning workflow:
     scan_result.print_metrics()
 
     # Check if the grade is worse than A or B (C, D or N/A)
-    if scan_result.grade and scan_result.grade not in ["A", "B"]:
+    if scan_result.grade not in ["A", "B"]:
         print(f"❌ Security check failed: Scan with Grade {scan_result.grade.value}")
         sys.exit(1)
     
