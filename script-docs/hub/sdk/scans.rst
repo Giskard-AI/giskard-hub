@@ -7,23 +7,23 @@ Launch vulnerability scans
 
 Security scanning is a critical component of AI agent testing that allows you to automatically probe your models for vulnerabilities and security issues using Giskard Hub's integrated red teaming capabilities.
 
-The Giskard Hub provides a comprehensive security scanning system that enables you to:
+The Giskard Hub provides a comprehensive scanning system that enables you to:
 
-* **Automated vulnerability detection**: Run security scans that automatically test for common AI vulnerabilities
+* **Automated vulnerability detection**: Run scans that automatically test for common AI vulnerabilities
 * **Targeted threat assessment**: Focus on specific vulnerability types using tags and filtering
 * **Knowledge base integration**: Use domain-specific knowledge to generate more relevant security tests
 * **OWASP LLM Top 10 compliance**: Test against industry-standard security classifications
-* **CI/CD integration**: Integrate security scans into your deployment pipeline
+* **CI/CD integration**: Integrate scans into your deployment pipeline
 
-In this section, we will walk you through how to run and manage security scans using the SDK.
+In this section, we will walk you through how to run and manage scans using the SDK.
 
 - A **scan** is a security assessment that runs various red teaming attacks against your agent to identify potential vulnerabilities and security weaknesses.
 
-We recommend systematically launching security scans every time you deploy an updated agent in a pre-production or staging environment. This allows you to collaborate with your team to ensure that your agent is secure and resilient against potential attacks.
+We recommend systematically launching scans every time before deploying an updated agent in a pre-production or staging environment. This allows you to collaborate with your team to ensure that your agent is secure and resilient against potential attacks.
 
 .. important::
    
-   Security scans can only be launched with agents that are configured in the Hub and exposed via an API endpoint. Local agents are not currently supported for security scanning.
+   Scans can only be launched with agents that are configured in the Hub and exposed via an API endpoint. Local agents are not currently supported for scanning.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -47,7 +47,7 @@ Once you have an agent configured in the Hub, you can launch a security scan. If
 
     model_id = os.getenv("GISKARD_HUB_MODEL_ID")  # or use agent.id
 
-We can now launch the security scan:
+We can now launch the scan:
 
 .. code-block:: python
 
@@ -157,7 +157,7 @@ Similarly to the OWASP LLM Top 10 tags, you can use the ``gsk:threat-type`` tags
 Complete workflow example
 -------------------------
 
-Here's a complete CI/CD security scanning workflow:
+Here's a complete CI/CD scanning workflow:
 
 .. code-block:: python
 
@@ -194,7 +194,7 @@ Scan management
 Launch a scan
 -------------
 
-You can launch a security scan using the ``hub.scans.create()`` method:
+You can launch a  scan using the ``hub.scans.create()`` method:
 
 .. code-block:: python
 
@@ -240,7 +240,7 @@ You can list scans using the ``hub.scans.list()`` method:
 Delete a scan result
 ---------------------
 
-You can delete a security scan using the ``hub.scans.delete()`` method:
+You can delete a scan using the ``hub.scans.delete()`` method:
 
 .. code-block:: python
 
