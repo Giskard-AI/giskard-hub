@@ -109,7 +109,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
    Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
 
 .. toctree::
-   :caption: Getting Started
+   :caption: Giskard Offering
    :hidden:
    :maxdepth: 3
 

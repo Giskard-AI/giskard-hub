@@ -21,6 +21,9 @@ project = "Giskard"
 copyright = f"{datetime.now().year}, Giskard"
 author = "Giskard"
 
+# Set the master document to 'start/index'
+# master_doc = "start/index"
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -40,6 +43,7 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
     "notfound.extension",
+    "sphinx_reredirects",
     # "sphinx_autodoc_typehints",
 ]
 
@@ -74,7 +78,6 @@ pygments_style = "lovelace"
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 html_theme = "sphinxawesome_theme"
-# html_theme = 'alabaster'
 html_static_path = ["_static"]
 html_baseurl = "/"
 source_suffix = [".rst", ".md"]
@@ -111,13 +114,14 @@ theme_options = ThemeOptions(
     logo_light="_static/logo_light.png",
     logo_dark="_static/logo_dark.png",
     main_nav_links={
-        "Getting Started": "/index",
+        "Giskard Offering": "/index",
         "Hub UI": "/hub/ui/index",
         "Hub SDK": "/hub/sdk/index",
         "Open Source": "/oss/sdk/index",
     },
 )
 html_theme_options = asdict(theme_options)
+
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/
 
