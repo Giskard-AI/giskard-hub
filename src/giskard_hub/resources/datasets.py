@@ -44,6 +44,9 @@ class DatasetsResource(APIResource):
         return Dataset.from_dict(response["data"], _client=self._client)
 
     def delete(self, dataset_id: str | List[str]) -> None:
+        if isinstance(dataset_id, str):
+            self._client.delete(f"{self._base_url}/{dataset_id}")
+            return
         self._client.delete(self._base_url, params={"datasets_ids": dataset_id})
 
     def list(self, project_id: str) -> List[Dataset]:
