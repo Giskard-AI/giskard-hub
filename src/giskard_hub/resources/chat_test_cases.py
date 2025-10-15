@@ -10,10 +10,11 @@ from ._utils import prepare_chat_test_case_data
 
 
 class ChatTestCasesResource(APIResource):
+    _base_url = "/v2/test-cases"
+
     def retrieve(self, chat_test_case_id: str):
-        return self._client.get(
-            f"/chat-test-cases/{chat_test_case_id}", cast_to=ChatTestCase
-        )
+        response = self._client.get(f"{self._base_url}/{chat_test_case_id}")
+        return ChatTestCase.from_dict(response["data"], _client=self._client)
 
     # pylint: disable=too-many-arguments
     def create(
@@ -33,11 +34,12 @@ class ChatTestCasesResource(APIResource):
             checks=checks,
         )
 
-        return self._client.post(
-            "/chat-test-cases",
+        response = self._client.post(
+            self._base_url,
             json=data,
-            cast_to=ChatTestCase,
         )
+
+        return ChatTestCase.from_dict(response["data"], _client=self._client)
 
     # pylint: disable=too-many-arguments
     def update(
@@ -58,20 +60,23 @@ class ChatTestCasesResource(APIResource):
             checks=checks,
         )
 
-        return self._client.patch(
-            f"/chat-test-cases/{chat_test_case_id}",
+        response = self._client.patch(
+            f"{self._base_url}/{chat_test_case_id}",
             json=data,
-            cast_to=ChatTestCase,
         )
+
+        return ChatTestCase.from_dict(response["data"], _client=self._client)
 
     def delete(self, chat_test_case_id: str | List[str]) -> None:
-        return self._client.delete(
-            "/chat-test-cases", params={"chat_test_case_ids": chat_test_case_id}
-        )
+        if isinstance(chat_test_case_id, str):
+            self._client.delete(f"{self._base_url}/{chat_test_case_id}")
+            return
+        self._client.delete(self._base_url, params={"test_case_ids": chat_test_case_id})
 
     def list(self, dataset_id: str) -> List[ChatTestCase]:
-        data = self._client.get(f"/datasets/{dataset_id}/chat-test-cases?limit=100000")
+        response = self._client.get(f"/v2/datasets/{dataset_id}/test-cases")
+
         return [
-            ChatTestCase.from_dict(d, _client=self._client)
-            for d in data.get("items", [])
+            ChatTestCase.from_dict(item, _client=self._client)
+            for item in response["data"]
         ]
