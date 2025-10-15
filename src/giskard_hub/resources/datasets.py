@@ -9,19 +9,22 @@ from ._resource import APIResource
 
 
 class DatasetsResource(APIResource):
+    _base_url = "/v2/datasets"
+
     def retrieve(self, dataset_id: str):
-        return self._client.get(f"/datasets/{dataset_id}", cast_to=Dataset)
+        response = self._client.get(f"{self._base_url}/{dataset_id}")
+        return Dataset.from_dict(response["data"], _client=self._client)
 
     def create(self, *, name: str, description: str, project_id: str) -> Dataset:
-        return self._client.post(
-            "/datasets",
+        response = self._client.post(
+            self._base_url,
             json={
                 "name": name,
                 "description": description,
                 "project_id": project_id,
             },
-            cast_to=Dataset,
         )
+        return Dataset.from_dict(response["data"], _client=self._client)
 
     def update(
         self,
@@ -34,19 +37,20 @@ class DatasetsResource(APIResource):
         data = filter_not_given(
             {"name": name, "description": description, "project_id": project_id}
         )
-        return self._client.patch(
-            f"/datasets/{dataset_id}",
+        response = self._client.patch(
+            f"{self._base_url}/{dataset_id}",
             json=data,
-            cast_to=Dataset,
         )
+        return Dataset.from_dict(response["data"], _client=self._client)
 
     def delete(self, dataset_id: str | List[str]) -> None:
-        self._client.delete("/datasets", params={"datasets_ids": dataset_id})
+        self._client.delete(self._base_url, params={"datasets_ids": dataset_id})
 
     def list(self, project_id: str) -> List[Dataset]:
-        return self._client.get(
-            "/datasets", params={"project_id": project_id}, cast_to=Dataset
-        )
+        response = self._client.get(self._base_url, params={"project_id": project_id})
+        return [
+            Dataset.from_dict(item, _client=self._client) for item in response["data"]
+        ]
 
     def generate_adversarial(  # pylint: disable=too-many-arguments
         self,
@@ -65,25 +69,29 @@ class DatasetsResource(APIResource):
             dataset_name (str, optional): Name of the generated dataset.
             description (str, optional): Description of the dataset.
             categories (list, optional): List of issue categories, each as a dict with 'id', 'name', 'desc'.
-            n_examples (int, optional): Number of examples to generate in total, regardless of the number of categories.
+            n_examples (int, optional): Number of examples to generate per category.
 
         Returns:
             Dataset: The generated dataset object.
         """
+        model = self._client.get(f"/v2/models/{model_id}")
+        project_id = model["data"]["project_id"]
+
         payload = filter_not_given(
             {
+                "project_id": project_id,
                 "model_id": model_id,
                 "dataset_name": dataset_name,
                 "description": description,
                 "categories": categories,
-                "nb_examples": n_examples,
+                "n_examples_per_category": n_examples,
             }
         )
-        return self._client.post(
-            "/datasets/generate",
+        response = self._client.post(
+            f"{self._base_url}/adversarial-generations",
             json=payload,
-            cast_to=Dataset,
         )
+        return Dataset.from_dict(response["data"], _client=self._client)
 
     def generate_document_based(  # pylint: disable=too-many-arguments
         self,
@@ -111,19 +119,24 @@ class DatasetsResource(APIResource):
         """
         if topic_ids is None:
             topic_ids = []
+
+        model = self._client.get(f"/v2/models/{model_id}")
+        project_id = model["data"]["project_id"]
+
         payload = filter_not_given(
             {
+                "project_id": project_id,
                 "model_id": model_id,
                 "knowledge_base_id": knowledge_base_id,
                 "dataset_name": dataset_name,
                 "description": description,
-                "nb_questions": n_questions,
+                "n_examples": n_questions,
                 "topic_ids": topic_ids,
             }
         )
 
-        return self._client.post(
-            "/datasets/generate/knowledge",
+        response = self._client.post(
+            f"{self._base_url}/document-based-generations",
             json=payload,
-            cast_to=Dataset,
         )
+        return Dataset.from_dict(response["data"], _client=self._client)
