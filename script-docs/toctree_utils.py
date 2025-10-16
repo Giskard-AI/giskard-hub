@@ -1,6 +1,94 @@
 import glob
+import json
 import re
 from pathlib import Path
+
+
+def extract_rst_title(file_path: str) -> str | None:
+    """
+    Extract the text from the first line that starts with a letter in an RST file.
+
+    Args:
+        file_path: Path to the RST file
+
+    Returns:
+        The first line starting with a letter, with whitespace stripped, or None if not found.
+    """
+    try:
+        if not file_path.endswith(".rst"):
+            file_path = f"{file_path}.rst"
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                stripped_line = line.lstrip()
+                if stripped_line and stripped_line[0].isalpha():
+                    return stripped_line.strip()
+        return None
+    except (FileNotFoundError, Exception) as e:
+        print(f"Warning: Could not extract title from {file_path}: {e}")
+        return None
+
+
+def extract_ipynb_title(file_path: str) -> str | None:
+    """
+    Extract the first header from a Jupyter notebook file to use as the title.
+
+    Args:
+        file_path: Path to the .ipynb file
+
+    Returns:
+        The first header found in the notebook, or None if no header is found
+    """
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            notebook_data = json.load(f)
+
+        # Look through cells for the first markdown cell with a header
+        for cell in notebook_data.get("cells", []):
+            if cell.get("cell_type") == "markdown":
+                source = cell.get("source", [])
+                if isinstance(source, list):
+                    # Join all source lines
+                    content = "".join(source)
+                else:
+                    content = str(source)
+
+                # Look for markdown headers (# ## ### etc.)
+                lines = content.split("\n")
+                for line in lines:
+                    line = line.strip()
+                    # Check if line starts with # (markdown header)
+                    if line.startswith("#"):
+                        # Remove the # symbols and return the title
+                        title = line.lstrip("#").strip()
+                        if title:  # Make sure it's not just # symbols
+                            return title
+
+        return None
+
+    except (FileNotFoundError, json.JSONDecodeError, Exception) as e:
+        print(f"Warning: Could not extract title from {file_path}: {e}")
+        return None
+
+
+def extract_file_title(file_path: str) -> str | None:
+    """
+    Extract the first header from a file (RST or Jupyter notebook) to use as the title.
+
+    Args:
+        file_path: Path to the file
+
+    Returns:
+        The first header found in the file, or None if no header is found
+    """
+    file_path_obj = Path(file_path)
+
+    if file_path_obj.suffix == ".rst" or file_path_obj.suffix == "":
+        return extract_rst_title(file_path)
+    elif file_path_obj.suffix == ".ipynb":
+        return extract_ipynb_title(file_path)
+    else:
+        return None
 
 
 def parse_file_toctree(file_path: str) -> list:
@@ -307,10 +395,24 @@ def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str)
             else:
                 # The line is relative to the current toctree file's directory
                 entry_path = Path(base_dir) / line
+            # Ensure the path starts with script-docs/ for _get_nested_children
+            # Check if we're in script-docs directory or project root
+            if Path("script-docs").exists():
+                # We're in project root, ensure path starts with script-docs/
+                if not str(entry_path).startswith("script-docs/"):
+                    entry_path = Path("script-docs") / entry_path
+            else:
+                # We're in script-docs directory, use path as-is
+                pass
             children = _get_nested_children(str(entry_path))
 
-            # Generate title from filename
-            title = line.replace("_", " ").replace("-", " ").title()
+            # Try to extract title from file first, fallback to filename
+            file_title = extract_file_title(str(entry_path))
+            if file_title:
+                title = file_title
+            else:
+                # Generate title from filename as fallback
+                title = line.replace("_", " ").replace("-", " ").title()
 
             entries.append(
                 {
@@ -351,10 +453,29 @@ def _get_nested_children(file_path: str) -> list:
         script_docs_path = Path("script-docs")
         try:
             relative_path = Path(file_path).relative_to(script_docs_path)
-            parent_url_prefix = f"/{relative_path.parent}" if relative_path.parent != Path(".") else ""
+            # Remove the filename to get the parent directory path
+            parent_path = relative_path.parent
+            parent_url_prefix = f"/{parent_path}" if parent_path != Path(".") else ""
         except ValueError:
-            # If file_path is not relative to script-docs, use the filename
-            parent_url_prefix = ""
+            # If file_path is not relative to script-docs, construct from file path
+            file_path_obj = Path(file_path)
+            if file_path_obj.parts:
+                # Get the path relative to script-docs by removing script-docs prefix
+                parts = file_path_obj.parts
+                if len(parts) > 1 and parts[0] == "script-docs":
+                    parent_parts = parts[1:-1]  # Remove script-docs and filename
+                    parent_url_prefix = (
+                        f"/{'/'.join(parent_parts)}" if parent_parts else ""
+                    )
+                else:
+                    # Handle case where file_path is like 'oss/sdk/reference/index'
+                    # This means we're already in script-docs directory
+                    parent_parts = parts[:-1]  # Remove filename
+                    parent_url_prefix = (
+                        f"/{'/'.join(parent_parts)}" if parent_parts else ""
+                    )
+            else:
+                parent_url_prefix = ""
         
         # Parse the file for toctree directives
         file_toctree_data = parse_toctree_file(file_path)
@@ -367,13 +488,16 @@ def _get_nested_children(file_path: str) -> list:
                     # Extract the path from the current URL (remove leading / and .html)
                     current_url = entry["url"]
                     path_part = current_url.lstrip("/").replace(".html", "")
-                    
-                    # Construct absolute path
+
+                    # Construct absolute path using the parent URL prefix
                     if parent_url_prefix:
                         entry["url"] = f"{parent_url_prefix}/{path_part}.html"
                     else:
                         entry["url"] = f"/{path_part}.html"
-                
+
+                # Children URLs are already processed by their own _get_nested_children calls
+                # No need to modify them here as they will have their own absolute paths
+
                 children.append(entry)
 
         # Only use glob patterns to discover additional files if wildcards are present
@@ -390,7 +514,10 @@ def _get_nested_children(file_path: str) -> list:
 
             # Filter out duplicates
             for discovered_entry in glob_discovered:
-                if discovered_entry["url"] not in existing_urls:
+                if (
+                    discovered_entry["url"] not in existing_urls
+                    and "*" not in discovered_entry["url"]
+                ):
                     children.append(discovered_entry)
                     existing_urls.add(discovered_entry["url"])
 
@@ -400,7 +527,9 @@ def _get_nested_children(file_path: str) -> list:
     return children
 
 
-def _discover_files_with_glob(file_path: str, existing_entries: list = None) -> list:
+def _discover_files_with_glob(
+    file_path: str, existing_entries: list | None = None
+) -> list:
     """
     Use glob patterns to discover additional nested files that might not be in toctrees.
     Only discovers files when wildcards are present in the original toctree content.
@@ -431,6 +560,7 @@ def _discover_files_with_glob(file_path: str, existing_entries: list = None) -> 
         file_dir = file_path_obj.parent
 
         # Use glob to find .rst and .ipynb files in the same directory and subdirectories
+        # Only search in the same directory as the current file, not the entire script-docs tree
         patterns = [
             str(file_dir / "*.rst"),
             str(file_dir / "*.ipynb"),
@@ -447,46 +577,69 @@ def _discover_files_with_glob(file_path: str, existing_entries: list = None) -> 
         # Get existing URLs to avoid duplicates
         existing_urls = set()
         if existing_entries:
-            existing_urls = {entry["url"] for entry in existing_entries}
+            existing_urls = {
+                entry["url"] for entry in existing_entries if "*" not in entry["url"]
+            }
 
         # Filter out the current file, index files, and entries with wildcards
         current_file_stem = file_path_obj.stem
         for discovered_path in discovered_paths:
             discovered_file = Path(discovered_path)
 
-            # Skip the current file, index files, and files with * in their name
+            # Skip the current file, index files, files with * in their name, and the glob pattern itself
             if (
                 discovered_file.stem == current_file_stem
                 or discovered_file.stem == "index"
                 or "*" in discovered_file.stem
+                or discovered_file.stem == "*"  # Skip the glob pattern itself
             ):
                 continue
 
-            # Always construct absolute path from script-docs root
+            # Construct absolute path using the same logic as _get_nested_children
+            # Get the parent URL prefix from the current file's location
             try:
                 script_docs_path = Path("script-docs")
-                relative_path = discovered_file.relative_to(script_docs_path)
-                url_path = f"/{relative_path.with_suffix('.html')}"
-            except ValueError:
-                # If not relative to script-docs, construct absolute path from main parent
-                # Get the main parent directory (e.g., oss, hub, start)
-                main_parent = (
-                    file_path_obj.parts[-3] if len(file_path_obj.parts) >= 3 else ""
+                current_file_relative = file_path_obj.relative_to(script_docs_path)
+                parent_path = current_file_relative.parent
+                parent_url_prefix = (
+                    f"/{parent_path}" if parent_path != Path(".") else ""
                 )
-                if main_parent:
-                    url_path = f"/{main_parent}/{discovered_file.stem}.html"
+            except ValueError:
+                # If not relative to script-docs, construct from file path
+                parts = file_path_obj.parts
+                if len(parts) > 1 and parts[0] == "script-docs":
+                    parent_parts = parts[1:-1]  # Remove script-docs and filename
+                    parent_url_prefix = (
+                        f"/{'/'.join(parent_parts)}" if parent_parts else ""
+                    )
                 else:
-                    url_path = f"/{discovered_file.stem}.html"
+                    # Handle case where file_path is like 'oss/sdk/reference/index'
+                    parent_parts = parts[:-1]  # Remove filename
+                    parent_url_prefix = (
+                        f"/{'/'.join(parent_parts)}" if parent_parts else ""
+                    )
+
+            # Construct absolute URL using the parent prefix
+            if parent_url_prefix:
+                url_path = f"{parent_url_prefix}/{discovered_file.stem}.html"
+            else:
+                url_path = f"/{discovered_file.stem}.html"
 
             # Skip if already exists
             if url_path in existing_urls:
                 continue
 
+            # Try to extract title from file first, fallback to filename
+            file_title = extract_file_title(str(discovered_file))
+            if file_title:
+                title = file_title
+            else:
+                # Generate title from filename as fallback
+                title = discovered_file.stem.replace("_", " ").replace("-", " ").title()
+
             # Create entry for discovered file
             entry = {
-                "title": discovered_file.stem.replace("_", " ")
-                .replace("-", " ")
-                .title(),
+                "title": title,
                 "url": url_path,
                 "is_external": False,
                 "children": [],  # Don't recursively discover children to avoid infinite loops
@@ -565,6 +718,7 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
             f'{indent}<li class="{css_class}"><a class="{link_class}" href="{entry["url"]}">{entry["title"]}</a></li>'
         )
 
+    html_lines = [line for line in html_lines if "*" not in line]
+    html_lines = [line.replace("self.html", "index.html") for line in html_lines]
+
     return html_lines
-
-
