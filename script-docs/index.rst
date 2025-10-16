@@ -109,9 +109,9 @@ Some work has been funded by the `the European Commission <https://commission.eu
    Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
 
 
-.. include:: start/toctree.rst
-.. include:: hub/ui/toctree.rst
-.. include:: hub/sdk/toctree.rst
-.. include:: oss/toctree.rst
+.. include:: toctree.rst
+.. include:: toctree_hub_ui.rst
+.. include:: toctree_hub_sdk.rst
+.. include:: toctree_oss.rst
 
 

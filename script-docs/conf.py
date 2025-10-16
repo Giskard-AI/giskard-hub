@@ -26,10 +26,10 @@ def update_sidebar_templates():
     base_dir = Path(__file__).parent.resolve()
 
     toctree_files = {
-        base_dir / "hub/ui/toctree.rst": "sidebar_hub_ui.html",
-        base_dir / "hub/sdk/toctree.rst": "sidebar_hub_sdk.html",
-        base_dir / "oss/toctree.rst": "sidebar_oss_sdk.html",
-        base_dir / "start/toctree.rst": "sidebar_start.html",
+        base_dir / "toctree_hub_ui.rst": "sidebar_hub_ui.html",
+        base_dir / "toctree_hub_sdk.rst": "sidebar_hub_sdk.html",
+        base_dir / "toctree_oss.rst": "sidebar_oss_sdk.html",
+        base_dir / "toctree.rst": "sidebar_start.html",
     }
 
     templates_dir = base_dir / "_templates"
