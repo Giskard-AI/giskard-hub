@@ -327,10 +327,11 @@ def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str)
 def _get_nested_children(file_path: str) -> list:
     """
     Recursively get children from a file by parsing its toctree directives.
-    
+    Also uses glob patterns to discover additional nested files.
+
     Args:
         file_path: Path to the file to parse for nested toctrees
-        
+
     Returns:
         List of child entry dictionaries with absolute paths
     """
@@ -374,11 +375,129 @@ def _get_nested_children(file_path: str) -> list:
                         entry["url"] = f"/{path_part}.html"
                 
                 children.append(entry)
-        
+
+        # Only use glob patterns to discover additional files if wildcards are present
+        # Check if any toctree entries contain wildcards
+        has_wildcards = any(
+            "*" in entry.get("title", "") or "*" in entry.get("url", "")
+            for entry in children
+        )
+
+        if has_wildcards:
+            # Get URLs of already discovered files to avoid duplicates
+            existing_urls = {child["url"] for child in children}
+            glob_discovered = _discover_files_with_glob(file_path, children)
+
+            # Filter out duplicates
+            for discovered_entry in glob_discovered:
+                if discovered_entry["url"] not in existing_urls:
+                    children.append(discovered_entry)
+                    existing_urls.add(discovered_entry["url"])
+
     except Exception as e:
         print(f"Error parsing nested file {file_path}: {e}")
     
     return children
+
+
+def _discover_files_with_glob(file_path: str, existing_entries: list = None) -> list:
+    """
+    Use glob patterns to discover additional nested files that might not be in toctrees.
+    Only discovers files when wildcards are present in the original toctree content.
+
+    Args:
+        file_path: Path to the file to discover nested files for
+        existing_entries: List of already discovered entries to avoid duplicates
+
+    Returns:
+        List of discovered file entries
+    """
+    discovered_files: list = []
+
+    try:
+        file_path_obj = Path(file_path)
+        if not file_path_obj.exists():
+            return discovered_files
+
+        # Check if the original file content contains wildcards
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        # Only proceed if wildcards are present in the content
+        if "*" not in content:
+            return discovered_files
+
+        # Get the directory containing the file
+        file_dir = file_path_obj.parent
+
+        # Use glob to find .rst and .ipynb files in the same directory and subdirectories
+        patterns = [
+            str(file_dir / "*.rst"),
+            str(file_dir / "*.ipynb"),
+            str(file_dir / "*/*.rst"),
+            str(file_dir / "*/*.ipynb"),
+            str(file_dir / "*/*/*.rst"),
+            str(file_dir / "*/*/*.ipynb"),
+        ]
+
+        discovered_paths = set()
+        for pattern in patterns:
+            discovered_paths.update(glob.glob(pattern))
+
+        # Get existing URLs to avoid duplicates
+        existing_urls = set()
+        if existing_entries:
+            existing_urls = {entry["url"] for entry in existing_entries}
+
+        # Filter out the current file, index files, and entries with wildcards
+        current_file_stem = file_path_obj.stem
+        for discovered_path in discovered_paths:
+            discovered_file = Path(discovered_path)
+
+            # Skip the current file, index files, and files with * in their name
+            if (
+                discovered_file.stem == current_file_stem
+                or discovered_file.stem == "index"
+                or "*" in discovered_file.stem
+            ):
+                continue
+
+            # Always construct absolute path from script-docs root
+            try:
+                script_docs_path = Path("script-docs")
+                relative_path = discovered_file.relative_to(script_docs_path)
+                url_path = f"/{relative_path.with_suffix('.html')}"
+            except ValueError:
+                # If not relative to script-docs, construct absolute path from main parent
+                # Get the main parent directory (e.g., oss, hub, start)
+                main_parent = (
+                    file_path_obj.parts[-3] if len(file_path_obj.parts) >= 3 else ""
+                )
+                if main_parent:
+                    url_path = f"/{main_parent}/{discovered_file.stem}.html"
+                else:
+                    url_path = f"/{discovered_file.stem}.html"
+
+            # Skip if already exists
+            if url_path in existing_urls:
+                continue
+
+            # Create entry for discovered file
+            entry = {
+                "title": discovered_file.stem.replace("_", " ")
+                .replace("-", " ")
+                .title(),
+                "url": url_path,
+                "is_external": False,
+                "children": [],  # Don't recursively discover children to avoid infinite loops
+            }
+
+            discovered_files.append(entry)
+
+    except Exception as e:
+        print(f"Error discovering files with glob for {file_path}: {e}")
+
+    return discovered_files
 
 
 def generate_sidebar_html(toctree_data: dict, sidebar_name: str) -> str:
