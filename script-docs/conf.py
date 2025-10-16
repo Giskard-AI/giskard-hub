@@ -152,7 +152,7 @@ theme_options = ThemeOptions(
     logo_light="_static/logo_light.png",
     logo_dark="_static/logo_dark.png",
     main_nav_links={
-        "Giskard Offerings": "/index",
+        "Products": "/index",
         "Hub UI": "/hub/ui/index",
         "Hub SDK": "/hub/sdk/index",
         "Open Source": "/oss/sdk/index",
@@ -160,11 +160,12 @@ theme_options = ThemeOptions(
 )
 html_theme_options = asdict(theme_options)
 
+# Use wildcard patterns to support any nested path within the specified routes
 html_sidebars: dict[str, list[str]] = {
-    "hub/ui/*": ["sidebar_hub_ui.html"],
-    "hub/sdk/*": ["sidebar_hub_sdk.html"],
-    "oss/sdk/*": ["sidebar_oss_sdk.html"],
-    "start/*": ["sidebar_start.html"],
+    "hub/ui/**": ["sidebar_hub_ui.html"],
+    "hub/sdk/**": ["sidebar_hub_sdk.html"],
+    "oss/**": ["sidebar_oss_sdk.html"],
+    "start/**": ["sidebar_start.html"],
     "index": ["sidebar_start.html"],
 }
 # -- Open Graph configuration -------------------------------------------------

@@ -844,7 +844,7 @@ def generate_sidebar_html(toctree_data: dict, sidebar_name: str) -> str:
     html_parts = [
         '<nav class="table w-full min-w-full my-6 lg:my-8">',
         f'  <p class="caption" role="heading"><span class="caption-text">{toctree_data["caption"]}</span></p>',
-        "  <ul>",
+        '  <ul class="current">',
     ]
 
     for entry in toctree_data["entries"]:
@@ -872,16 +872,27 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
 
     if entry["is_external"]:
         link_class = "reference external"
+        # Add external link icon for external links
+        external_icon = '<svg fill="currentColor" height="1em" stroke="none" viewBox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg>'
+        title_with_icon = f'{entry["title"]}{external_icon}'
     else:
         link_class = "reference internal"
+        title_with_icon = entry["title"]
 
     # Generate the main entry
     if entry.get("children"):
-        # Entry with children - create expandable structure
+        # Entry with children - create expandable structure with Alpine.js
+        expandable_class = "expandable"
+        alpine_data = "x-data=\"{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }\""
+        alpine_click = '@click="expanded = !expanded"'
+        alpine_class = ":class=\"{ 'expanded' : expanded }\""
+        alpine_show = 'x-show="expanded"'
+
+        html_lines.append(f'{indent}<li class="{css_class}" {alpine_data}>')
         html_lines.append(
-            f'{indent}<li class="{css_class}"><a class="{link_class}" href="{entry["url"]}">{entry["title"]}</a>'
+            f'{indent}  <a {alpine_class} {alpine_click} class="{link_class} {expandable_class}" href="{entry["url"]}">{title_with_icon}<button {alpine_click.replace("@click", "@click.prevent.stop")} type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewBox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>'
         )
-        html_lines.append(f"{indent}  <ul>")
+        html_lines.append(f"{indent}  <ul {alpine_show}>")
 
         # Generate children
         for child in entry["children"]:
@@ -892,7 +903,7 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
     else:
         # Simple entry without children
         html_lines.append(
-            f'{indent}<li class="{css_class}"><a class="{link_class}" href="{entry["url"]}">{entry["title"]}</a></li>'
+            f'{indent}<li class="{css_class}"><a class="{link_class}" href="{entry["url"]}">{title_with_icon}</a></li>'
         )
 
     html_lines = [line for line in html_lines if "*" not in line]
