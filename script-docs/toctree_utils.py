@@ -74,13 +74,18 @@ def extract_ipynb_title(file_path: str) -> str | None:
 def extract_file_title(file_path: str) -> str | None:
     """
     Extract the first header from a file (RST or Jupyter notebook) to use as the title.
+    Also handles wildcard patterns by returning None (they should be processed by glob patterns).
 
     Args:
         file_path: Path to the file
 
     Returns:
-        The first header found in the file, or None if no header is found
+        The first header found in the file, or None if no header is found or if it's a wildcard pattern
     """
+    # Handle wildcard patterns - these should not be processed for title extraction
+    if "*" in file_path:
+        return None
+
     file_path_obj = Path(file_path)
 
     if file_path_obj.suffix == ".rst" or file_path_obj.suffix == "":
@@ -193,72 +198,23 @@ def parse_file_toctree(file_path: str) -> list:
     return entries
 
 
-def discover_nested_files(base_path: str, max_depth: int = 3) -> dict:
-    """
-    Discover nested files in a directory structure using glob patterns.
-
-    Args:
-        base_path: Base directory path to search
-        max_depth: Maximum depth to search for nested files
-
-    Returns:
-        Dictionary mapping directory paths to their nested files
-    """
-    nested_files: dict[str, list] = {}
-    base_path_obj = Path(base_path)
-
-    if not base_path_obj.exists():
-        return nested_files
-
-    # Find all .rst and .ipynb files in subdirectories
-    for depth in range(1, max_depth + 1):
-        pattern = str(base_path_obj) + "/" + "*/" * depth + "*.rst"
-        rst_files = glob.glob(pattern)
-
-        pattern = str(base_path_obj) + "/" + "*/" * depth + "*.ipynb"
-        ipynb_files = glob.glob(pattern)
-
-        all_files = rst_files + ipynb_files
-
-        for file_path in all_files:
-            file_obj = Path(file_path)
-            parent_dir = str(file_obj.parent)
-
-            if parent_dir not in nested_files:
-                nested_files[parent_dir] = []
-
-            # Convert to relative path from base_path
-            rel_path = file_obj.relative_to(base_path_obj)
-
-            # Parse toctree directives from this file
-            toctree_entries = []
-            if file_obj.suffix == ".rst":
-                toctree_entries = parse_file_toctree(file_path)
-
-            nested_files[parent_dir].append(
-                {
-                    "name": file_obj.stem,
-                    "path": str(rel_path),
-                    "full_path": file_path,
-                    "is_notebook": file_obj.suffix == ".ipynb",
-                    "toctree_entries": toctree_entries,
-                }
-            )
-
-    return nested_files
-
-
-def parse_toctree_file(toctree_path: str) -> dict:
+def parse_toctree_file(
+    toctree_path: str, processed_files: set[str] | None = None
+) -> dict:
     """
     Parse a toctree file and extract navigation structure with nested items.
     Handles multiple toctree directives in a single file and recursively parses nested files.
 
     Args:
         toctree_path: Path to the toctree file
+        processed_files: Set of files already processed to prevent infinite loops
 
     Returns:
         Dictionary containing caption and entries from all toctrees in the file
     """
+    if processed_files is None:
+        processed_files = set()
+
     toctree_data: dict = {"caption": "", "entries": []}
     base_dir = Path(toctree_path).parent
 
@@ -280,7 +236,9 @@ def parse_toctree_file(toctree_path: str) -> dict:
                     toctree_data["caption"] = caption_match.group(1).strip()
 
             # Parse entries from this toctree block
-            entries = _parse_toctree_entries(content_block, str(base_dir), toctree_path)
+            entries = _parse_toctree_entries(
+                content_block, str(base_dir), toctree_path, processed_files
+            )
             toctree_data["entries"].extend(entries)
 
     except FileNotFoundError:
@@ -348,18 +306,27 @@ def _extract_toctree_blocks(content: str) -> list:
     return toctree_blocks
 
 
-def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str) -> list:
+def _parse_toctree_entries(
+    content_block: str,
+    base_dir: str,
+    toctree_path: str,
+    processed_files: set[str] | None = None,
+) -> list:
     """
     Parse entries from a toctree content block and recursively find nested toctrees.
-    
+
     Args:
         content_block: The content section of a toctree directive
         base_dir: Base directory path for resolving relative paths
         toctree_path: Path to the current toctree file for context
-        
+        processed_files: Set of files already processed to prevent infinite loops
+
     Returns:
         List of entry dictionaries with nested children
     """
+    if processed_files is None:
+        processed_files = set()
+
     entries: list = []
     lines = content_block.split('\n')
     
@@ -367,7 +334,11 @@ def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str)
         line = line.strip()
         if not line:
             continue
-            
+
+        # Skip wildcard patterns - these are handled by glob patterns in the toctree
+        if "*" in line:
+            continue
+
         # Handle external links (format: "Title <URL>")
         if "<" in line and ">" in line:
             title_match = re.match(r"^(.+?)\s*<(.+)>$", line)
@@ -382,29 +353,58 @@ def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str)
                 })
         else:
             # Internal page reference - recursively parse nested toctrees
-            # Handle both relative and absolute paths
-            if line.startswith(str(Path(base_dir).name)):
-                # The line is already a full path relative to script-docs
-                # Check if we're in script-docs directory or project root
-                if Path("script-docs").exists():
-                    # We're in project root
-                    entry_path = Path("script-docs") / line
+            # Handle special case: 'self' refers to the current file
+            if line == "self":
+                # For 'self', we don't want to create nested children, just reference the current file
+                entry_path = Path(toctree_path)
+
+                # If this is a toctree file, 'self' should refer to the main index
+                if entry_path.stem == "toctree":
+                    # Point to the main index.rst file in script-docs directory
+                    if Path("script-docs").exists():
+                        main_index_path = Path("script-docs") / "index.rst"
+                    else:
+                        main_index_path = Path("index.rst")
+                    file_title = extract_file_title(str(main_index_path))
+                    url = "/index.html"
                 else:
-                    # We're in script-docs directory
-                    entry_path = Path(line)
+                    # Extract title from the current file
+                    file_title = extract_file_title(str(entry_path))
+                    url = f"/{entry_path.stem}.html"
+
+                if file_title:
+                    title = file_title
+                else:
+                    # Fallback to filename
+                    title = entry_path.stem.replace("_", " ").replace("-", " ").title()
+
+                entries.append(
+                    {
+                        "title": title,
+                        "url": url,
+                        "is_external": False,
+                        "children": [],  # No nested children for self
+                    }
+                )
+                continue
+            elif line.startswith("script-docs/"):
+                # Absolute path from script-docs root
+                entry_path = Path(line)
+            elif "/" in line:
+                # Path with directory separators - first try relative to current file's directory
+                relative_path = Path(base_dir) / line
+                if relative_path.exists() or (relative_path.with_suffix('.rst')).exists():
+                    entry_path = relative_path
+                else:
+                    # Fallback: resolve relative to script-docs root
+                    if Path("script-docs").exists():
+                        entry_path = Path("script-docs") / line
+                    else:
+                        entry_path = Path(line)
             else:
-                # The line is relative to the current toctree file's directory
+                # Simple filename - resolve relative to the current toctree file's directory
                 entry_path = Path(base_dir) / line
-            # Ensure the path starts with script-docs/ for _get_nested_children
-            # Check if we're in script-docs directory or project root
-            if Path("script-docs").exists():
-                # We're in project root, ensure path starts with script-docs/
-                if not str(entry_path).startswith("script-docs/"):
-                    entry_path = Path("script-docs") / entry_path
-            else:
-                # We're in script-docs directory, use path as-is
-                pass
-            children = _get_nested_children(str(entry_path))
+            children = _get_nested_children(str(entry_path), processed_files)
 
             # Try to extract title from file first, fallback to filename
             file_title = extract_file_title(str(entry_path))
@@ -426,17 +426,29 @@ def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str)
     return entries
 
 
-def _get_nested_children(file_path: str) -> list:
+def _get_nested_children(
+    file_path: str, processed_files: set[str] | None = None
+) -> list:
     """
     Recursively get children from a file by parsing its toctree directives.
     Also uses glob patterns to discover additional nested files.
 
     Args:
         file_path: Path to the file to parse for nested toctrees
+        processed_files: Set of files already processed to prevent infinite loops
 
     Returns:
         List of child entry dictionaries with absolute paths
     """
+    if processed_files is None:
+        processed_files = set()
+
+    # Prevent infinite loops by tracking processed files
+    if file_path in processed_files:
+        return []
+
+    processed_files.add(file_path)
+
     children: list = []
     
     try:
@@ -478,7 +490,7 @@ def _get_nested_children(file_path: str) -> list:
                 parent_url_prefix = ""
         
         # Parse the file for toctree directives
-        file_toctree_data = parse_toctree_file(file_path)
+        file_toctree_data = parse_toctree_file(file_path, processed_files)
         
         # Add children from the parsed toctree with absolute paths
         if file_toctree_data["entries"]:
@@ -577,9 +589,7 @@ def _discover_files_with_glob(
         # Get existing URLs to avoid duplicates
         existing_urls = set()
         if existing_entries:
-            existing_urls = {
-                entry["url"] for entry in existing_entries if "*" not in entry["url"]
-            }
+            existing_urls = {entry["url"] for entry in existing_entries}
 
         # Filter out the current file, index files, and entries with wildcards
         current_file_stem = file_path_obj.stem
@@ -720,5 +730,6 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
 
     html_lines = [line for line in html_lines if "*" not in line]
     html_lines = [line.replace("self.html", "index.html") for line in html_lines]
+    html_lines = [line.replace("ipynb.html", "html") for line in html_lines]
 
     return html_lines

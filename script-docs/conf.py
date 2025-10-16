@@ -165,7 +165,7 @@ html_sidebars: dict[str, list[str]] = {
     "hub/sdk/*": ["sidebar_hub_sdk.html"],
     "oss/sdk/*": ["sidebar_oss_sdk.html"],
     "start/*": ["sidebar_start.html"],
-    "index.rst": ["sidebar_start.html"],
+    "index": ["sidebar_start.html"],
 }
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/
