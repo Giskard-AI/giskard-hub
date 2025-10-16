@@ -26,10 +26,10 @@ def update_sidebar_templates():
     base_dir = Path(__file__).parent.resolve()
 
     toctree_files = {
-        base_dir / "toctree_hub_ui.rst": "sidebar_hub_ui.html",
-        base_dir / "toctree_hub_sdk.rst": "sidebar_hub_sdk.html",
-        base_dir / "toctree_oss.rst": "sidebar_oss_sdk.html",
-        base_dir / "toctree.rst": "sidebar_start.html",
+        base_dir / "toctree_hub_ui.rst": "sidebars/sidebar_hub_ui.html",
+        base_dir / "toctree_hub_sdk.rst": "sidebars/sidebar_hub_sdk.html",
+        base_dir / "toctree_oss.rst": "sidebars/sidebar_oss_sdk.html",
+        base_dir / "toctree.rst": "sidebars/sidebar_start.html",
     }
 
     templates_dir = base_dir / "_templates"
@@ -162,11 +162,11 @@ html_theme_options = asdict(theme_options)
 
 # Use wildcard patterns to support any nested path within the specified routes
 html_sidebars: dict[str, list[str]] = {
-    "hub/ui/**": ["sidebar_hub_ui.html"],
-    "hub/sdk/**": ["sidebar_hub_sdk.html"],
-    "oss/**": ["sidebar_oss_sdk.html"],
-    "start/**": ["sidebar_start.html"],
-    "index": ["sidebar_start.html"],
+    "hub/ui/**": ["sidebars/sidebar_hub_ui.html"],
+    "hub/sdk/**": ["sidebars/sidebar_hub_sdk.html"],
+    "oss/**": ["sidebars/sidebar_oss_sdk.html"],
+    "start/**": ["sidebars/sidebar_start.html"],
+    "index": ["sidebars/sidebar_start.html"],
 }
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/
