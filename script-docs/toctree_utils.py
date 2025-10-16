@@ -1,5 +1,4 @@
 import glob
-import json
 import re
 from pathlib import Path
 
@@ -24,26 +23,26 @@ def parse_file_toctree(file_path: str) -> list:
         # First, find the entire toctree blocks
         toctree_pattern = r"\.\. toctree::\s*\n(.*?)(?=\n\.\.|\n\w|\Z)"
         toctree_blocks = re.findall(toctree_pattern, content, re.DOTALL | re.MULTILINE)
-        
+
         # Process each block to separate options and content
         toctree_matches = []
         for block in toctree_blocks:
             # Split options and content manually
-            lines = block.split('\n')
+            lines = block.split("\n")
             options_lines = []
             content_lines = []
-            
+
             for line in lines:
                 line = line.strip()
                 if not line:
                     continue
-                if line.startswith(':'):
+                if line.startswith(":"):
                     options_lines.append(line)
                 else:
                     content_lines.append(line)
-            
-            options_block = '\n'.join(options_lines) + '\n' if options_lines else ''
-            content_block = '\n'.join(content_lines) + '\n' if content_lines else ''
+
+            options_block = "\n".join(options_lines) + "\n" if options_lines else ""
+            content_block = "\n".join(content_lines) + "\n" if content_lines else ""
             toctree_matches.append((options_block, content_block))
 
         for options_block, content_block in toctree_matches:
@@ -104,117 +103,6 @@ def parse_file_toctree(file_path: str) -> list:
         print(f"Error parsing file {file_path}: {e}")
 
     return entries
-
-
-def _extract_rst_header(file_path: str) -> str | None:
-    """
-    Extract the first header from an RST file.
-    
-    Args:
-        file_path: Path to the RST file
-        
-    Returns:
-        The first header text or None if not found
-    """
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-        
-        # Look for the first header (title with underline)
-        for i, line in enumerate(lines):
-            line = line.strip()
-            if not line:
-                continue
-            
-            # Skip metadata lines (starting with :)
-            if line.startswith(":"):
-                continue
-            
-            # Check if this line is followed by a header underline
-            if i + 1 < len(lines):
-                next_line = lines[i + 1].strip()
-                # Check for header underlines (=, -, ~, etc.)
-                if next_line and all(c in "=-~^\"'`" for c in next_line) and len(next_line) >= len(line):
-                    return line
-        
-        # If no header with underline found, look for single-line headers
-        for line in lines:
-            line = line.strip()
-            if not line:
-                continue
-            
-            # Skip metadata lines
-            if line.startswith(":"):
-                continue
-            
-            # Check for single-line headers (lines that are all caps or title case)
-            if line.isupper() or (line.istitle() and len(line) > 3):
-                return line
-                
-    except Exception as e:
-        print(f"Error extracting header from RST file {file_path}: {e}")
-    
-    return None
-
-
-def _extract_ipynb_header(file_path: str) -> str | None:
-    """
-    Extract the first header from a Jupyter notebook file.
-    
-    Args:
-        file_path: Path to the .ipynb file
-        
-    Returns:
-        The first header text or None if not found
-    """
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            notebook = json.load(f)
-        
-        # Look through cells for the first markdown header
-        for cell in notebook.get("cells", []):
-            if cell.get("cell_type") == "markdown":
-                source = cell.get("source", [])
-                if isinstance(source, list):
-                    # Join source lines
-                    content = "".join(source)
-                else:
-                    content = source
-                
-                # Look for markdown headers (# ## ### etc.)
-                lines = content.split('\n')
-                for line in lines:
-                    line = line.strip()
-                    if line.startswith('#'):
-                        # Extract header text (remove # symbols)
-                        header = re.sub(r'^#+\s*', '', line).strip()
-                        if header:
-                            return header
-                
-    except Exception as e:
-        print(f"Error extracting header from notebook file {file_path}: {e}")
-    
-    return None
-
-
-def _extract_file_header(file_path: str) -> str | None:
-    """
-    Extract the first header from a file based on its extension.
-    
-    Args:
-        file_path: Path to the file
-        
-    Returns:
-        The first header text or None if not found
-    """
-    file_path_obj = Path(file_path)
-    
-    if file_path_obj.suffix == ".rst":
-        return _extract_rst_header(file_path)
-    elif file_path_obj.suffix == ".ipynb":
-        return _extract_ipynb_header(file_path)
-    
-    return None
 
 
 def discover_nested_files(base_path: str, max_depth: int = 3) -> dict:
@@ -405,105 +293,35 @@ def _parse_toctree_entries(content_block: str, base_dir: str, toctree_path: str)
                     "children": [],
                 })
         else:
-            # Check if this is a glob pattern (contains *)
-            if "*" in line:
-                # Expand glob pattern to actual file paths
-                expanded_paths = _expand_glob_pattern(line, base_dir)
-                for expanded_path in expanded_paths:
-                    # Process each expanded path as a regular entry
-                    entry = _create_entry_from_path(expanded_path, base_dir)
-                    if entry:
-                        entries.append(entry)
+            # Internal page reference - recursively parse nested toctrees
+            # Handle both relative and absolute paths
+            if line.startswith(str(Path(base_dir).name)):
+                # The line is already a full path relative to script-docs
+                # Check if we're in script-docs directory or project root
+                if Path("script-docs").exists():
+                    # We're in project root
+                    entry_path = Path("script-docs") / line
+                else:
+                    # We're in script-docs directory
+                    entry_path = Path(line)
             else:
-                # Regular internal page reference
-                entry = _create_entry_from_path(line, base_dir)
-                if entry:
-                    entries.append(entry)
-    
+                # The line is relative to the current toctree file's directory
+                entry_path = Path(base_dir) / line
+            children = _get_nested_children(str(entry_path))
+
+            # Generate title from filename
+            title = line.replace("_", " ").replace("-", " ").title()
+
+            entries.append(
+                {
+                    "title": title,
+                    "url": f"/{line}.html",
+                    "is_external": False,
+                    "children": children,
+                }
+            )
+
     return entries
-
-
-def _expand_glob_pattern(pattern: str, base_dir: str) -> list:
-    """
-    Expand a glob pattern to actual file paths.
-    
-    Args:
-        pattern: Glob pattern (e.g., "/start/glossary/security/*")
-        base_dir: Base directory for resolving relative paths
-        
-    Returns:
-        List of expanded file paths
-    """
-    expanded_paths = []
-    
-    try:
-        # Handle both absolute and relative patterns
-        if pattern.startswith("/"):
-            # Absolute pattern from script-docs root
-            search_pattern = f"script-docs{pattern}.rst"
-        else:
-            # Relative pattern from base_dir
-            search_pattern = str(Path(base_dir) / f"{pattern}.rst")
-        
-        # Use glob to find matching files
-        matching_files = glob.glob(search_pattern)
-        
-        # Convert to relative paths for processing
-        script_docs_path = Path("script-docs")
-        for file_path in matching_files:
-            try:
-                relative_path = Path(file_path).relative_to(script_docs_path)
-                # Remove .rst extension and convert to path format
-                path_without_ext = str(relative_path).replace(".rst", "")
-                expanded_paths.append(path_without_ext)
-            except ValueError:
-                # If not relative to script-docs, use the filename
-                path_without_ext = Path(file_path).stem
-                expanded_paths.append(path_without_ext)
-        
-        # Sort for consistent ordering
-        expanded_paths.sort()
-        
-    except Exception as e:
-        print(f"Error expanding glob pattern {pattern}: {e}")
-    
-    return expanded_paths
-
-
-def _create_entry_from_path(line: str, base_dir: str) -> dict | None:
-    """
-    Create an entry dictionary from a file path.
-    
-    Args:
-        line: File path line from toctree
-        base_dir: Base directory for resolving relative paths
-        
-    Returns:
-        Entry dictionary or None if invalid
-    """
-    try:
-        # Handle both relative and absolute paths
-        if line.startswith(str(Path(base_dir).name)):
-            # The line is already a full path relative to script-docs
-            entry_path = Path("script-docs") / line
-        else:
-            # The line is relative to the current toctree file's directory
-            entry_path = Path(base_dir) / line
-        
-        children = _get_nested_children(str(entry_path))
-        
-        # Generate title from filename
-        title = line.replace("_", " ").replace("-", " ").title()
-        
-        return {
-            "title": title,
-            "url": f"/{line}.html",
-            "is_external": False,
-            "children": children,
-        }
-    except Exception as e:
-        print(f"Error creating entry from path {line}: {e}")
-        return None
 
 
 def _get_nested_children(file_path: str) -> list:
