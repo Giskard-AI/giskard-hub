@@ -108,54 +108,10 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
    Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
 
-.. toctree::
-   :caption: Giskard Offering
-   :hidden:
-   :maxdepth: 3
 
-   self
-   start/comparison
-   start/enterprise-trial
-   start/glossary/index
-   Contact us <https://www.giskard.ai/contact>
-   Blogs <https://www.giskard.ai/knowledge-categories/blog>
+.. include:: start/toctree.rst
+.. include:: hub/ui/toctree.rst
+.. include:: hub/sdk/toctree.rst
+.. include:: oss/toctree.rst
 
-.. toctree::
-   :caption: Giskard Hub UI
-   :hidden:
-   :maxdepth: 2
 
-   hub/ui/index
-   hub/ui/scan/index
-   hub/ui/datasets/index
-   hub/ui/annotate
-   hub/ui/evaluations
-   hub/ui/evaluations-compare
-   hub/ui/continuous-red-teaming
-   hub/ui/access-rights
-
-.. toctree::
-   :caption: Giskard Hub SDK
-   :hidden:
-   :maxdepth: 4
-
-   hub/sdk/index
-   hub/sdk/projects
-   hub/sdk/datasets/index
-   hub/sdk/checks
-   hub/sdk/evaluations
-   hub/sdk/reference/index
-   GitHub <https://github.com/Giskard-AI/giskard-hub>
-
-.. toctree::
-   :caption: Giskard Open Source
-   :hidden:
-   :maxdepth: 4
-
-   oss/sdk/index
-   oss/sdk/security
-   oss/sdk/business
-   oss/sdk/legacy
-   oss/notebooks/index
-   oss/sdk/reference/index
-   GitHub <https://github.com/Giskard-AI/giskard>
