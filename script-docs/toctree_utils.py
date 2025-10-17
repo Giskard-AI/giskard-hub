@@ -245,11 +245,11 @@ def parse_toctree_file(
 
         # Find all toctree blocks in the file
         toctree_blocks = _extract_toctree_blocks(content)
-        
+
         # Process each toctree block
         for toctree_block in toctree_blocks:
             options_block, content_block = toctree_block
-            
+
             # Extract caption from options (use first caption found)
             if not toctree_data["caption"]:
                 caption_match = re.search(r":caption:\s*(.+)", options_block)
@@ -273,57 +273,57 @@ def parse_toctree_file(
 def _extract_toctree_blocks(content: str) -> list:
     """
     Extract all toctree blocks from RST content.
-    
+
     Args:
         content: RST file content
-        
+
     Returns:
         List of tuples (options_block, content_block) for each toctree found
     """
     toctree_blocks = []
-    
+
     # Find all toctree directives
     toctree_starts = []
-    lines = content.split('\n')
-    
+    lines = content.split("\n")
+
     for i, line in enumerate(lines):
-        if line.strip().startswith('.. toctree::'):
+        if line.strip().startswith(".. toctree::"):
             toctree_starts.append(i)
-    
+
     # Process each toctree block
     for start_line in toctree_starts:
         options_lines = []
         content_lines = []
-        
+
         # Process lines after the toctree directive
         for i in range(start_line + 1, len(lines)):
             line = lines[i]
             stripped = line.strip()
-            
+
             # Stop if we hit another directive or section
-            if stripped.startswith('..') and not stripped.startswith('.. toctree::'):
+            if stripped.startswith("..") and not stripped.startswith(".. toctree::"):
                 break
-            if stripped and not line.startswith(' ') and not line.startswith('\t'):
+            if stripped and not line.startswith(" ") and not line.startswith("\t"):
                 # This is a new section, stop processing
                 break
-            
+
             # Skip empty lines
             if not stripped:
                 continue
-                
+
             # Check if this is an option line (starts with :)
-            if stripped.startswith(':'):
+            if stripped.startswith(":"):
                 options_lines.append(stripped)
             else:
                 # This is content (page references)
                 content_lines.append(stripped)
-        
+
         # Only add if we have content
         if content_lines:
-            options_block = '\n'.join(options_lines)
-            content_block = '\n'.join(content_lines)
+            options_block = "\n".join(options_lines)
+            content_block = "\n".join(content_lines)
             toctree_blocks.append((options_block, content_block))
-    
+
     return toctree_blocks
 
 
@@ -349,8 +349,8 @@ def _parse_toctree_entries(
         processed_files = set()
 
     entries: list = []
-    lines = content_block.split('\n')
-    
+    lines = content_block.split("\n")
+
     for line in lines:
         line = line.strip()
         if not line:
@@ -382,12 +382,14 @@ def _parse_toctree_entries(
             if title_match:
                 title = title_match.group(1).strip()
                 url = title_match.group(2).strip()
-                entries.append({
-                    "title": title,
-                    "url": url,
-                    "is_external": True,
-                    "children": [],
-                })
+                entries.append(
+                    {
+                        "title": title,
+                        "url": url,
+                        "is_external": True,
+                        "children": [],
+                    }
+                )
         else:
             # Internal page reference - recursively parse nested toctrees
             # Handle special case: 'self' refers to the current file
@@ -431,7 +433,10 @@ def _parse_toctree_entries(
             elif "/" in line:
                 # Path with directory separators - first try relative to current file's directory
                 relative_path = Path(base_dir) / line
-                if relative_path.exists() or (relative_path.with_suffix('.rst')).exists():
+                if (
+                    relative_path.exists()
+                    or (relative_path.with_suffix(".rst")).exists()
+                ):
                     entry_path = relative_path
                 else:
                     # Fallback: resolve relative to script-docs root
@@ -537,7 +542,7 @@ def _get_nested_children(
     processed_files.add(file_path)
 
     children: list = []
-    
+
     try:
         # Check if the file exists
         if not Path(file_path).exists():
@@ -547,7 +552,7 @@ def _get_nested_children(
                 file_path = rst_path
             else:
                 return children
-        
+
         # Get the relative path from script-docs directory for URL construction
         script_docs_path = Path(
             __file__
@@ -587,10 +592,10 @@ def _get_nested_children(
                     )
             else:
                 parent_url_prefix = ""
-        
+
         # Parse the file for toctree directives
         file_toctree_data = parse_toctree_file(file_path, processed_files)
-        
+
         # Add children from the parsed toctree with absolute paths
         if file_toctree_data["entries"]:
             for entry in file_toctree_data["entries"]:
@@ -664,7 +669,7 @@ def _get_nested_children(
 
     except Exception as e:
         print(f"Error parsing nested file {file_path}: {e}")
-    
+
     return children
 
 
