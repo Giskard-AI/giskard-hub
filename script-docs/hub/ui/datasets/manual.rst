@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Manual Dataset Creation
-:og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases.
+:og:title: Giskard Hub UI - Manual Test Case Creation
+:og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases with intuitive visual tools.
 
 ====================================================
 Create manual tests

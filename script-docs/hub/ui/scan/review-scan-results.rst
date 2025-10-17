@@ -1,6 +1,8 @@
-===============================================
+:og:title: Giskard Hub UI - Review Scan Results and Security Analysis
+:og:description: Review comprehensive vulnerability scan results with detailed security analysis. Understand security grades, explore attack details, and take actionable steps to improve AI agent security.
+
 Review scan results
-===============================================
+===================
 
 Understand your AI agent's security vulnerabilities and take action to fix them.
 

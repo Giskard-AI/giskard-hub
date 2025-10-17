@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Security Testing
-:og:description: Generate and manage security-focused test cases programmatically. Test for vulnerabilities, prompt injection attacks, and security failures using the Python SDK.
+:og:title: Giskard Hub SDK - Security Test Generation
+:og:description: Generate and manage security-focused test cases programmatically. Test for vulnerabilities, prompt injection attacks, and security failures using the comprehensive Python SDK.
 
 =============================================================
 Generate security tests

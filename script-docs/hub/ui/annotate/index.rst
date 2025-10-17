@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Human-in-the-Loop Annotation
-:og:description: Review and refine test cases with domain expertise. Use collaborative annotation workflows to improve test quality and ensure comprehensive coverage.
+:og:title: Giskard Hub UI - Human-in-the-Loop Annotation and Review
+:og:description: Review and refine test cases with domain expertise. Use collaborative annotation workflows to improve test quality and ensure comprehensive coverage with intuitive visual tools.
 
 ================================
 Review tests with human feedback

@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Scan Vulnerabilities in your agents
-:og:description: Launch several red teaming attacks to find vulnerabilities in your agents.
+:og:title: Giskard Hub SDK - Vulnerability Scanning and Red Teaming
+:og:description: Launch comprehensive red teaming attacks to find vulnerabilities in your agents. Automated security scanning with OWASP LLM Top 10 compliance using the Python SDK.
 
 ==========================
 Launch vulnerability scans

@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Detect Business Failures
-:og:description: Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements in your LLM agents.
+:og:title: Giskard Hub SDK - Business Logic Test Generation
+:og:description: Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements in your LLM agents using the Python SDK.
 
 ======================================================
 Generate business tests

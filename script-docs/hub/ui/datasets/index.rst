@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Dataset Management
-:og:description: Create, manage, and organize test datasets for LLM agent evaluations. Import conversations, generate synthetic data, and build comprehensive test cases.
+:og:title: Giskard Hub UI - Dataset Management and Test Creation
+:og:description: Create, manage, and organize test datasets for LLM agent evaluations. Import conversations, generate synthetic data, and build comprehensive test cases with intuitive visual tools.
 
 ===============================================
 Create test datasets

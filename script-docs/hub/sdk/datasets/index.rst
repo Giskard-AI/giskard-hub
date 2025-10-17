@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Dataset Management
-:og:description: Create, manage, and organize test datasets into Giskard Hub. Import chat test cases, generate synthetic data, and build comprehensive test datasets.
+:og:title: Giskard Hub SDK - Dataset and Test Case Management
+:og:description: Create, manage, and organize test datasets programmatically. Import chat test cases, generate synthetic data, and build comprehensive test datasets using the Python SDK.
 
 ===================================
 Manage datasets and chat test cases

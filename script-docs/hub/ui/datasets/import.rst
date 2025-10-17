@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
-:og:description: Import your existing test data into Giskard Hub. Bring conversations, CSV files, and other data formats to build comprehensive test datasets.
+:og:title: Giskard Hub UI - Dataset Import and Migration
+:og:description: Import your existing test data into Giskard Hub. Bring conversations, CSV files, and other data formats to build comprehensive test datasets with intuitive visual tools.
 
 =============================
 Import tests

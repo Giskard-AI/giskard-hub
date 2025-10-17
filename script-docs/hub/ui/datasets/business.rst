@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Business Testing
-:og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through automated testing.
+:og:title: Giskard Hub UI - Business Logic Test Generation
+:og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through comprehensive automated testing.
 
 ======================================================
 Generate business tests

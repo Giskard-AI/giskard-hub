@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Checks Management
-:og:description: Create, manage, and deploy custom validation rules and metrics for your LLM agent tests. Build specialized testing logic tailored to your business requirements.
+:og:title: Giskard Hub SDK - Checks and Metrics Management
+:og:description: Create, manage, and deploy custom validation rules and metrics for your LLM agent tests. Build specialized testing logic tailored to your business requirements using the Python SDK.
 
 =========================
 Manage checks and metrics
@@ -50,9 +50,6 @@ Custom checks can be used in the following ways:
 - Used during agent evaluations
 - Shared across your team **within the same project**
 - Modified or updated as your requirements evolve
-
-Create a check
-______________
 
 You can create a check using the ``hub.checks.create()`` method. Here's a basic example:
 
@@ -187,9 +184,6 @@ The parameters for creating a custom check are:
     - Choose descriptive identifiers for your checks. This makes them easier to find and use later. For example, use ``"financial_accuracy_check"`` instead of ``"check1"``.
     - Custom checks are project-specific. If you need the same check logic across multiple projects, you'll need to create it separately in each project.
 
-
-API Reference
-==============
 
 For detailed information about check management methods and parameters, see the :doc:`/hub/sdk/reference/index` section.
 

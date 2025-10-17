@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Security Testing
-:og:description: Generate and manage security-focused test cases for your LLM agents. Detect vulnerabilities, prompt injection attacks, and security failures through automated testing.
+:og:title: Giskard Hub UI - Security Test Generation
+:og:description: Generate and manage security-focused test cases for your LLM agents. Detect vulnerabilities, prompt injection attacks, and security failures through comprehensive automated testing.
 
 ==============================================================
 Generate security tests

@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Projects Management
-:og:description: Create, manage, and organize projects programmatically. Set up workspaces, configure access controls, and manage team collaboration through the Python SDK.
+:og:title: Giskard Hub SDK - Projects, Agents & Knowledge Bases Management
+:og:description: Create, manage, and organize projects programmatically. Set up workspaces, configure access controls, and manage team collaboration through the comprehensive Python SDK.
 
 ================================================
 Manage projects, agents and knowledge bases

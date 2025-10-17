@@ -1,5 +1,8 @@
-Assign checks to tests
-========================
+:og:title: Giskard Hub UI - Check Assignment and Custom Validation Rules
+:og:description: Assign checks to test cases and create custom validation rules. Use correctness, conformity, groundedness, and other evaluation metrics to ensure comprehensive LLM agent testing.
+
+Assigning checks to tests
+=========================
 
 Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard.
 

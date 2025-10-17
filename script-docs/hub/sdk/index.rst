@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - SDK Quickstart
-:og:description: Get started with the Giskard Hub Python SDK for programmatic LLM agent testing. Install, authenticate, and begin building automated testing workflows.
+:og:title: Giskard Hub SDK - Python Client for Enterprise Agent Testing
+:og:description: Get started with the Giskard Hub Python SDK for programmatic LLM agent testing. Install, authenticate, and begin building automated testing workflows with comprehensive API access.
 
 Quickstart & setup
 ==================

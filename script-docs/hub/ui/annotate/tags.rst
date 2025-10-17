@@ -1,5 +1,8 @@
-Assign tags to tests
-====================
+:og:title: Giskard Hub UI - Tag Management and Test Organization
+:og:description: Organize and categorize test cases with comprehensive tagging system. Filter conversations, manage performance metrics, and maintain structured test datasets with intuitive visual tools.
+
+Assigning tags to tests
+=======================
 
 Tags are optional but highly recommended for better organization. They allow you to filter the conversations later on and manage your agent's performance more effectively.
 

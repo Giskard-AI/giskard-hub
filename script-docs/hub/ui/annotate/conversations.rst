@@ -1,5 +1,8 @@
-Manage tests
-=====================
+:og:title: Giskard Hub UI - Conversation Management and Test Cases
+:og:description: Manage and create conversation test cases with intuitive visual tools. Design multi-turn dialogues, add answer examples, and build comprehensive test scenarios for LLM agent evaluation.
+
+Manage test cases
+=================
 
 .. image:: /_static/images/hub/annotation-studio.png
    :align: center

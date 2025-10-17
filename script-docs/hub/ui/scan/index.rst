@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise AI Agent Testing - AI Vulnerability Scan
-:og:description: Scan your AI agent for safety and security failures, including prompt injection, harmful content, excessive agency and other OWASP top 10 vulnerabilities.
+:og:title: Giskard Hub UI - AI Vulnerability Scanning and Red Teaming
+:og:description: Scan your AI agent for safety and security failures, including prompt injection, harmful content, excessive agency and other OWASP top 10 vulnerabilities with automated red teaming.
 
 
 ==========================

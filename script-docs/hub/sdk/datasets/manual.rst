@@ -1,6 +1,8 @@
-======================================================
+:og:title: Giskard Hub SDK - Manual Test Case Creation
+:og:description: Create manual test cases programmatically using the Python SDK. Build custom datasets with precise control over test scenarios and evaluation criteria.
+
 Create manual tests
-======================================================
+===================
 
 This section will guide you through creating your own test datasets programmatically.
 
