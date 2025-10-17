@@ -45,7 +45,7 @@ You can create a project using the ``hub.projects.create()`` method. Example:
 API Reference
 ==============
 
-For detailed information about project, agent, and knowledge base management methods, see the :doc:`/hub/sdk/reference` section.
+For detailed information about project, agent, and knowledge base management methods, see the :doc:`/hub/sdk/reference/index` section.
 
 Agents
 ------

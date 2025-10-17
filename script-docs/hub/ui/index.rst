@@ -31,19 +31,19 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
       Automate test case generation with a focus on legitimate and adversarial queries.
 
    .. grid-item-card:: Review tests with human feedback
-      :link: annotate
+      :link: annotate/index
       :link-type: doc
 
       Use domain knowledge to review and refine test cases through humans in the loop.
 
    .. grid-item-card:: Run and schedule evaluations
-      :link: evaluations
+      :link: evaluations/index
       :link-type: doc
 
       Run evaluations and schedule them to run automatically.
 
    .. grid-item-card:: Compare evaluations
-      :link: evaluations-compare
+      :link: evaluations/compare
       :link-type: doc
 
       Compare evaluations to detect regressions and identify patterns.
@@ -67,7 +67,7 @@ It also features a graph showing the agent's performance over time, measured by 
 
 .. note::
 
-   For detailed information about evaluation metrics and checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about evaluation metrics and checks, including examples and how they work, see :doc:`/hub/ui/annotate/index`.
 
 Additionally, the dashboard lists your most recent evaluations and datasets for quick access.
 

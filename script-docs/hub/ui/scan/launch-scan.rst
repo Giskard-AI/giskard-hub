@@ -1,5 +1,5 @@
 ===============================================
-Launch a red teaming scan
+Launch a scan
 ===============================================
 
 Start testing your AI agent for security vulnerabilities.

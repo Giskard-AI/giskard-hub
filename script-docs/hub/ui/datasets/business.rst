@@ -79,11 +79,11 @@ Once you click on "Generate," you receive a dataset where:
 
 .. note::
 
-   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
 
 Next steps
 ----------
 
-* **Review test cases** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test cases** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Detect security vulnerabilities** - Try :doc:`/hub/ui/datasets/security`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

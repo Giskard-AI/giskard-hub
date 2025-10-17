@@ -20,7 +20,8 @@
   let currentPageState = {
     currentPath: null,
     currentLink: null,
-    expandedSections: new Set()
+    expandedSections: new Set(),
+    lastSelectedNavbarItem: null
   };
 
   // Apply current classes immediately on page load, before Alpine.js initializes
@@ -31,8 +32,16 @@
     const currentPath = window.location.pathname;
     currentPageState.currentPath = currentPath;
     
+    // First, remove all existing current classes
+    sidebar.querySelectorAll('.current').forEach(el => {
+      el.classList.remove('current');
+      el.removeAttribute('data-current');
+    });
+    
     // Find all navigation links
     const navLinks = sidebar.querySelectorAll('a[href]');
+    let bestMatch = null;
+    let bestMatchDepth = -1;
     
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
@@ -81,22 +90,57 @@
       const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/index.html';
       
       // Check if this link matches the current page
-      if (normalizedCurrentPath === normalizedLinkPath || 
-          normalizedCurrentPath.endsWith(normalizedLinkPath) ||
-          normalizedLinkPath.endsWith(normalizedCurrentPath)) {
-        
-        // Add current class to the link and its parent li IMMEDIATELY
-        link.classList.add('current');
-        link.setAttribute('data-current', 'true');
-        
-        // Also add current class to parent li elements
-        let parentLi = link.closest('li');
-        while (parentLi) {
-          parentLi.classList.add('current');
-          parentLi = parentLi.parentElement?.closest('li');
+      const isExactMatch = normalizedCurrentPath === normalizedLinkPath;
+      const isMainIndex = normalizedCurrentPath === '/index.html';
+      
+      // For main index page, only allow exact matches
+      if (isMainIndex) {
+        if (isExactMatch) {
+          bestMatch = link;
+          bestMatchDepth = 0; // Main index has highest priority
+        }
+      } else {
+        // For other pages, use the original matching logic
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            normalizedCurrentPath.endsWith(normalizedLinkPath) ||
+            normalizedLinkPath.endsWith(normalizedCurrentPath)) {
+          
+          // Calculate the depth of this link (how many levels deep it is)
+          const depth = linkPath.split('/').length;
+          
+          // Priority rules for non-index pages:
+          // 1. Exact matches get highest priority
+          // 2. Otherwise, deeper matches get priority
+          let shouldUpdate = false;
+          
+          if (isExactMatch) {
+            // Exact match always wins
+            shouldUpdate = true;
+          } else if (depth > bestMatchDepth) {
+            // Deeper match gets priority
+            shouldUpdate = true;
+          }
+          
+          if (shouldUpdate) {
+            bestMatch = link;
+            bestMatchDepth = depth;
+          }
         }
       }
     });
+    
+    // Apply current class only to the best match and its parents
+    if (bestMatch) {
+      bestMatch.classList.add('current');
+      bestMatch.setAttribute('data-current', 'true');
+      
+      // Add current class to parent li elements
+      let parentLi = bestMatch.closest('li');
+      while (parentLi) {
+        parentLi.classList.add('current');
+        parentLi = parentLi.parentElement?.closest('li');
+      }
+    }
   }
 
   // Force expand Alpine.js sections that contain current page
@@ -145,11 +189,13 @@
     // Remove any existing current classes
     sidebar.querySelectorAll('.current').forEach(el => {
       el.classList.remove('current');
+      el.removeAttribute('data-current');
     });
     
     // Find all navigation links
     const navLinks = sidebar.querySelectorAll('a[href]');
-    let currentLink = null;
+    let bestMatch = null;
+    let bestMatchDepth = -1;
     
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
@@ -198,31 +244,65 @@
       const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/index.html';
       
       // Check if this link matches the current page
-      if (normalizedCurrentPath === normalizedLinkPath || 
-          normalizedCurrentPath.endsWith(normalizedLinkPath) ||
-          normalizedLinkPath.endsWith(normalizedCurrentPath)) {
-        
-        currentLink = link;
-        currentPageState.currentLink = link;
-        
-        // Add current class to the link and its parent li
-        link.classList.add('current');
-        link.setAttribute('data-current', 'true');
-        
-        // Also add current class to parent li elements
-        let parentLi = link.closest('li');
-        while (parentLi) {
-          parentLi.classList.add('current');
-          parentLi = parentLi.parentElement?.closest('li');
+      const isExactMatch = normalizedCurrentPath === normalizedLinkPath;
+      const isMainIndex = normalizedCurrentPath === '/index.html';
+      
+      // For main index page, only allow exact matches
+      if (isMainIndex) {
+        if (isExactMatch) {
+          bestMatch = link;
+          bestMatchDepth = 0; // Main index has highest priority
+        }
+      } else {
+        // For other pages, use the original matching logic
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            normalizedCurrentPath.endsWith(normalizedLinkPath) ||
+            normalizedLinkPath.endsWith(normalizedCurrentPath)) {
+          
+          // Calculate the depth of this link (how many levels deep it is)
+          const depth = linkPath.split('/').length;
+          
+          // Priority rules for non-index pages:
+          // 1. Exact matches get highest priority
+          // 2. Otherwise, deeper matches get priority
+          let shouldUpdate = false;
+          
+          if (isExactMatch) {
+            // Exact match always wins
+            shouldUpdate = true;
+          } else if (depth > bestMatchDepth) {
+            // Deeper match gets priority
+            shouldUpdate = true;
+          }
+          
+          if (shouldUpdate) {
+            bestMatch = link;
+            bestMatchDepth = depth;
+          }
         }
       }
     });
     
+    // Apply current class only to the best match and its parents
+    if (bestMatch) {
+      currentPageState.currentLink = bestMatch;
+      
+      bestMatch.classList.add('current');
+      bestMatch.setAttribute('data-current', 'true');
+      
+      // Add current class to parent li elements
+      let parentLi = bestMatch.closest('li');
+      while (parentLi) {
+        parentLi.classList.add('current');
+        parentLi = parentLi.parentElement?.closest('li');
+      }
+    }
+    
     // Expand parent sections using Alpine.js
-    if (currentLink) {
+    if (bestMatch) {
       // Find all parent li elements with x-data that contain this link
       const allParentLis = [];
-      let currentLi = currentLink.closest('li');
+      let currentLi = bestMatch.closest('li');
       while (currentLi) {
         allParentLis.push(currentLi);
         currentLi = currentLi.parentElement?.closest('li');
@@ -265,6 +345,97 @@
     }
   }
 
+  // Function to manage multiple toctree sections visibility
+  function manageToctreeSections() {
+    const sidebar = document.querySelector('#left-sidebar');
+    if (!sidebar) return;
+
+    const currentPath = window.location.pathname;
+    
+    // Find all navigation sections (each nav element with caption)
+    const navSections = sidebar.querySelectorAll('nav');
+    
+    // If there's only one nav section, don't hide anything
+    if (navSections.length <= 1) return;
+    
+    // Find the nav section that contains a link matching the current path
+    let activeNavSection = null;
+    
+    navSections.forEach(nav => {
+      const links = nav.querySelectorAll('a[href]');
+      let hasMatchingLink = false;
+      
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Handle different href formats
+        let linkPath = href;
+        
+        // Remove hash from href for comparison
+        if (linkPath.includes('#')) {
+          linkPath = linkPath.split('#')[0];
+        }
+        
+        // Handle relative paths
+        if (linkPath.startsWith('../')) {
+          // Convert relative path to absolute for comparison
+          const pathSegments = currentPath.split('/').filter(seg => seg);
+          const linkSegments = linkPath.split('/').filter(seg => seg);
+          
+          // Count how many levels up we need to go
+          let upLevels = 0;
+          for (const seg of linkSegments) {
+            if (seg === '..') {
+              upLevels++;
+            } else {
+              break;
+            }
+          }
+          
+          // Build the absolute path
+          const remainingSegments = pathSegments.slice(0, -upLevels);
+          const linkFileName = linkSegments[linkSegments.length - 1];
+          linkPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
+        } else if (linkPath.startsWith('./')) {
+          // Handle same-directory links
+          const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+          linkPath = currentDir + linkPath.substring(2);
+        } else if (!linkPath.startsWith('/') && !linkPath.startsWith('http')) {
+          // Handle relative links without ./
+          const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+          linkPath = currentDir + linkPath;
+        }
+        
+        // Normalize paths for comparison
+        const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/index.html';
+        const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/index.html';
+        
+        // Check if this link matches the current page
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            normalizedCurrentPath.endsWith(normalizedLinkPath) ||
+            normalizedLinkPath.endsWith(normalizedCurrentPath)) {
+          hasMatchingLink = true;
+        }
+      });
+      
+      if (hasMatchingLink) {
+        activeNavSection = nav;
+      }
+    });
+    
+    // Show/hide navigation sections
+    navSections.forEach(nav => {
+      if (nav === activeNavSection) {
+        nav.style.display = 'block';
+        nav.classList.remove('hidden-toctree');
+      } else {
+        nav.style.display = 'none';
+        nav.classList.add('hidden-toctree');
+      }
+    });
+  }
+
   // Function to restore state after Alpine.js updates
   function restoreSidebarState() {
     if (!currentPageState.currentPath) return;
@@ -276,11 +447,14 @@
     // Remove any existing current classes
     sidebar.querySelectorAll('.current').forEach(el => {
       el.classList.remove('current');
+      el.removeAttribute('data-current');
     });
     
     // Re-highlight current page without expanding sections
     const navLinks = sidebar.querySelectorAll('a[href]');
     const currentPath = currentPageState.currentPath;
+    let bestMatch = null;
+    let bestMatchDepth = -1;
     
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
@@ -324,18 +498,49 @@
           normalizedCurrentPath.endsWith(normalizedLinkPath) ||
           normalizedLinkPath.endsWith(normalizedCurrentPath)) {
         
-        // Add current class to the link and its parent li
-        link.classList.add('current');
-        link.setAttribute('data-current', 'true');
+        // Calculate the depth of this link (how many levels deep it is)
+        const depth = linkPath.split('/').length;
         
-        // Also add current class to parent li elements
-        let parentLi = link.closest('li');
-        while (parentLi) {
-          parentLi.classList.add('current');
-          parentLi = parentLi.parentElement?.closest('li');
+        // Special handling for index pages - prioritize exact matches
+        const isExactMatch = normalizedCurrentPath === normalizedLinkPath;
+        const isMainIndex = normalizedCurrentPath === '/index.html' && normalizedLinkPath === '/index.html';
+        
+        // Priority rules:
+        // 1. Exact matches get highest priority
+        // 2. Main index page gets priority over nested index pages
+        // 3. Otherwise, deeper matches get priority
+        let shouldUpdate = false;
+        
+        if (isExactMatch) {
+          // Exact match always wins
+          shouldUpdate = true;
+        } else if (isMainIndex) {
+          // Main index page gets priority
+          shouldUpdate = true;
+        } else if (depth > bestMatchDepth) {
+          // Deeper match gets priority
+          shouldUpdate = true;
+        }
+        
+        if (shouldUpdate) {
+          bestMatch = link;
+          bestMatchDepth = depth;
         }
       }
     });
+    
+    // Apply current class only to the best match and its parents
+    if (bestMatch) {
+      bestMatch.classList.add('current');
+      bestMatch.setAttribute('data-current', 'true');
+      
+      // Add current class to parent li elements
+      let parentLi = bestMatch.closest('li');
+      while (parentLi) {
+        parentLi.classList.add('current');
+        parentLi = parentLi.parentElement?.closest('li');
+      }
+    }
   }
 
   function scrollToCurrentItem() {
@@ -368,6 +573,194 @@
           behavior: 'smooth'
         });
       }, 100);
+    }
+  }
+
+  // Function to highlight the most recently selected navbar item
+  function highlightNavbarItem() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const currentPath = window.location.pathname;
+    
+    // Find navbar links
+    const navbarLinks = header.querySelectorAll('nav a[href]');
+    let bestMatch = null;
+    let currentSection = null;
+    
+    // First, determine which navbar section the current page belongs to
+    navbarLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      
+      // Handle different href formats
+      let linkPath = href;
+      
+      // Remove hash from href for comparison
+      if (linkPath.includes('#')) {
+        linkPath = linkPath.split('#')[0];
+      }
+      
+      // Handle relative paths
+      if (linkPath.startsWith('../')) {
+        const pathSegments = currentPath.split('/').filter(seg => seg);
+        const linkSegments = linkPath.split('/').filter(seg => seg);
+        
+        let upLevels = 0;
+        for (const seg of linkSegments) {
+          if (seg === '..') {
+            upLevels++;
+          } else {
+            break;
+          }
+        }
+        
+        const remainingSegments = pathSegments.slice(0, -upLevels);
+        const linkFileName = linkSegments[linkSegments.length - 1];
+        linkPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
+      } else if (linkPath.startsWith('./')) {
+        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+        linkPath = currentDir + linkPath.substring(2);
+      } else if (!linkPath.startsWith('/') && !linkPath.startsWith('http')) {
+        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+        linkPath = currentDir + linkPath;
+      }
+      
+      // Normalize paths for comparison
+      const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/index.html';
+      const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/index.html';
+      
+      // Check if this navbar link matches the current page or is a parent section
+      if (normalizedCurrentPath === normalizedLinkPath || 
+          normalizedCurrentPath.startsWith(normalizedLinkPath + '/')) {
+        bestMatch = link;
+        currentSection = normalizedLinkPath;
+      }
+    });
+    
+    // Check if we're still in the same section as the previously selected navbar item
+    const lastSelectedHref = sessionStorage.getItem('lastSelectedNavbarItem');
+    let shouldUpdateHighlighting = true;
+    
+    if (lastSelectedHref && currentSection) {
+      // Find the previously selected navbar link
+      const lastSelectedLink = Array.from(navbarLinks).find(link => link.getAttribute('href') === lastSelectedHref);
+      
+      if (lastSelectedLink) {
+        // Check if the previously selected section still contains the current page
+        let lastSelectedPath = lastSelectedHref;
+        
+        // Handle relative paths for the last selected link
+        if (lastSelectedPath.startsWith('../')) {
+          const pathSegments = currentPath.split('/').filter(seg => seg);
+          const linkSegments = lastSelectedPath.split('/').filter(seg => seg);
+          
+          let upLevels = 0;
+          for (const seg of linkSegments) {
+            if (seg === '..') {
+              upLevels++;
+            } else {
+              break;
+            }
+          }
+          
+          const remainingSegments = pathSegments.slice(0, -upLevels);
+          const linkFileName = linkSegments[linkSegments.length - 1];
+          lastSelectedPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
+        } else if (lastSelectedPath.startsWith('./')) {
+          const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+          lastSelectedPath = currentDir + lastSelectedPath.substring(2);
+        } else if (!lastSelectedPath.startsWith('/') && !lastSelectedPath.startsWith('http')) {
+          const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+          lastSelectedPath = currentDir + lastSelectedPath;
+        }
+        
+        const normalizedLastSelectedPath = lastSelectedPath.replace(/\/$/, '') || '/index.html';
+        
+        // If current page is still within the last selected section, keep it highlighted
+        if (normalizedCurrentPath === normalizedLastSelectedPath || 
+            normalizedCurrentPath.startsWith(normalizedLastSelectedPath + '/')) {
+          shouldUpdateHighlighting = false;
+          // Keep the existing highlighting
+          lastSelectedLink.classList.add('recently-selected');
+          currentPageState.lastSelectedNavbarItem = lastSelectedLink;
+        }
+      }
+    }
+    
+    // Only update highlighting if we're switching to a different section
+    if (shouldUpdateHighlighting) {
+      // Remove any existing recently-selected classes from navbar
+      header.querySelectorAll('a.recently-selected').forEach(el => {
+        el.classList.remove('recently-selected');
+      });
+      
+      // Apply recently-selected class to the best match
+      if (bestMatch) {
+        bestMatch.classList.add('recently-selected');
+        currentPageState.lastSelectedNavbarItem = bestMatch;
+        
+        // Store in sessionStorage for persistence across page loads
+        sessionStorage.setItem('lastSelectedNavbarItem', bestMatch.getAttribute('href'));
+      }
+    }
+  }
+
+  // Function to restore navbar highlighting from sessionStorage
+  function restoreNavbarHighlighting() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    const lastSelectedHref = sessionStorage.getItem('lastSelectedNavbarItem');
+    if (!lastSelectedHref) return;
+    
+    const currentPath = window.location.pathname;
+    
+    // Find the navbar link that matches the stored href
+    const navbarLinks = header.querySelectorAll('nav a[href]');
+    const lastSelectedLink = Array.from(navbarLinks).find(link => link.getAttribute('href') === lastSelectedHref);
+    
+    if (lastSelectedLink) {
+      // Check if the current page is still within the last selected section
+      let lastSelectedPath = lastSelectedHref;
+      
+      // Handle relative paths for the last selected link
+      if (lastSelectedPath.startsWith('../')) {
+        const pathSegments = currentPath.split('/').filter(seg => seg);
+        const linkSegments = lastSelectedPath.split('/').filter(seg => seg);
+        
+        let upLevels = 0;
+        for (const seg of linkSegments) {
+          if (seg === '..') {
+            upLevels++;
+          } else {
+            break;
+          }
+        }
+        
+        const remainingSegments = pathSegments.slice(0, -upLevels);
+        const linkFileName = linkSegments[linkSegments.length - 1];
+        lastSelectedPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
+      } else if (lastSelectedPath.startsWith('./')) {
+        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+        lastSelectedPath = currentDir + lastSelectedPath.substring(2);
+      } else if (!lastSelectedPath.startsWith('/') && !lastSelectedPath.startsWith('http')) {
+        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+        lastSelectedPath = currentDir + lastSelectedPath;
+      }
+      
+      const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/index.html';
+      const normalizedLastSelectedPath = lastSelectedPath.replace(/\/$/, '') || '/index.html';
+      
+      // Only restore highlighting if current page is still within the last selected section
+      if (normalizedCurrentPath === normalizedLastSelectedPath || 
+          normalizedCurrentPath.startsWith(normalizedLastSelectedPath + '/')) {
+        lastSelectedLink.classList.add('recently-selected');
+        currentPageState.lastSelectedNavbarItem = lastSelectedLink;
+      } else {
+        // Clear the stored selection if we're no longer in that section
+        sessionStorage.removeItem('lastSelectedNavbarItem');
+      }
     }
   }
 
@@ -441,8 +834,14 @@
   function handleSphinxNavigation() {
     // Small delay to ensure DOM is ready after navigation
     setTimeout(() => {
+      // Manage toctree sections visibility first
+      manageToctreeSections();
+      
       // Apply current classes immediately
       applyCurrentClassesImmediately();
+      
+      // Highlight navbar item
+      highlightNavbarItem();
       
       // Wait for Alpine.js and then expand sections
       waitForAlpine(() => {
@@ -460,8 +859,17 @@
 
   // Listen for Sphinx navigation events
   document.addEventListener('DOMContentLoaded', () => {
+    // Manage toctree sections visibility first
+    manageToctreeSections();
+    
     // Apply current classes IMMEDIATELY, before Alpine.js initializes
     applyCurrentClassesImmediately();
+    
+    // Restore navbar highlighting from sessionStorage
+    restoreNavbarHighlighting();
+    
+    // Highlight navbar item for current page
+    highlightNavbarItem();
     
     // Initial banner creation
     createEnterpriseTrialBanner();
@@ -555,8 +963,17 @@
 
   // Also handle cases where DOM is already loaded
   if (document.readyState !== 'loading') {
+    // Manage toctree sections visibility first
+    manageToctreeSections();
+    
     // Apply current classes IMMEDIATELY, before Alpine.js initializes
     applyCurrentClassesImmediately();
+    
+    // Restore navbar highlighting from sessionStorage
+    restoreNavbarHighlighting();
+    
+    // Highlight navbar item for current page
+    highlightNavbarItem();
     
     createEnterpriseTrialBanner();
     waitForAlpine(() => {

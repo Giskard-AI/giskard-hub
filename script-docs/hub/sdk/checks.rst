@@ -35,7 +35,7 @@ Giskard provides a set of built-in checks that you can use to evaluate your agen
 
 .. tip::
 
-    For more background information on the built-in checks, see the :doc:`/hub/ui/annotate` section.
+    For more background information on the built-in checks, see the :doc:`/hub/ui/annotate/checks` section.
 
 .. _custom-checks:
 
@@ -191,7 +191,7 @@ The parameters for creating a custom check are:
 API Reference
 ==============
 
-For detailed information about check management methods and parameters, see the :doc:`/hub/sdk/reference` section.
+For detailed information about check management methods and parameters, see the :doc:`/hub/sdk/reference/index` section.
 
 .. _add-checks-to-conversations:
 

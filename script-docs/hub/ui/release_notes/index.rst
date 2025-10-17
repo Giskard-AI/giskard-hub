@@ -1,4 +1,4 @@
-Release Notes
+Release notes
 =============
 
 Welcome to the Giskard Hub Release Notes! Stay informed about the newest features, improvements, and important changes in Giskard Hub.

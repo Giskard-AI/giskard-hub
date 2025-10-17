@@ -1,5 +1,5 @@
 .. toctree::
-   :caption: Giskard Products
+   :caption: Giskard Offerings
    :hidden:
    :maxdepth: 4
 

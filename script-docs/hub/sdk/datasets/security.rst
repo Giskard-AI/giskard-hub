@@ -53,6 +53,6 @@ The ``generate_adversarial`` method creates test cases designed to expose securi
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Generate business failures** - Try :doc:`/hub/sdk/datasets/business`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

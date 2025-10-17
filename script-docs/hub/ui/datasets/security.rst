@@ -68,6 +68,6 @@ In the Adversarial tab, you can generate an adversarial test dataset within the 
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Detect business failures** - Try :doc:`/hub/ui/datasets/business`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

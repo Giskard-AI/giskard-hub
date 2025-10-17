@@ -71,7 +71,7 @@ Giskard provides comprehensive tools to test and detect omission vulnerabilities
       Use the Hub interface to generate document-based test cases for omission detection. The UI automatically generates queries based on your knowledge base and evaluates responses for missing information.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate
+      :link: /hub/ui/annotate/checks
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the business boundaries.

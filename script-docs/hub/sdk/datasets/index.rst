@@ -74,7 +74,7 @@ Alternatively, you can generate a dataset automatically using the following meth
 API Reference
 ==============
 
-For detailed information about dataset and chat test case management methods, see the :doc:`/hub/sdk/reference` section.
+For detailed information about dataset and chat test case management methods, see the :doc:`/hub/sdk/reference/index` section.
 
 .. toctree::
    :hidden:

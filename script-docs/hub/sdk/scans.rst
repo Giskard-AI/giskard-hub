@@ -191,4 +191,4 @@ Here's a complete CI/CD scanning workflow:
 API Reference
 ==============
 
-For detailed information about scan management methods and parameters, see the :doc:`/hub/sdk/reference` section.
+For detailed information about scan management methods and parameters, see the :doc:`/hub/sdk/reference/index` section.

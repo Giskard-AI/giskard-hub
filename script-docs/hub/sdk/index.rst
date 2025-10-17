@@ -198,7 +198,7 @@ These are the attributes you can set for a chat test case (the only required att
 
 .. note::
 
-   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
 
 You can add as many chat test cases as you want to the dataset.
 
@@ -207,7 +207,7 @@ ___________________
 
 .. note:: In this section we will run evaluation against agents configured in
     the Hub. If you want to evaluate a local agent that is not yet exposed with
-    an API, check the :doc:`/hub/sdk/evaluations`.
+    an API, check the :doc:`/hub/sdk/evaluations/index`.
 
 Before running our first evaluation, we'll need to set up an agent. You'll need an API endpoint ready to serve the agent.
 Then, you can configure the agent API in the Hub:

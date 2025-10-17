@@ -1036,5 +1036,6 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
         line.replace("toctree_start.html", "index.html") for line in html_lines
     ]
     html_lines = [line.replace(".ipynb..html", ".html") for line in html_lines]
+    html_lines = [line.replace(".ipynb.html", ".html") for line in html_lines]
 
     return html_lines

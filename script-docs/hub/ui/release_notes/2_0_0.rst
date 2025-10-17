@@ -7,7 +7,7 @@
 
 We're releasing an upgraded LLM vulnerability scanner in Giskard Hub, specifically designed to secure conversational AI agents in production environments. This enterprise version deploys autonomous red teaming agents that conduct dynamic, multi-turn attacks across dozens of vulnerability categories covering more than 40 probes.
 
-Key Features
+What's new?
 ~~~~~~~~~~~~
 
 **Comprehensive LLM Vulnerabilities Coverage**
@@ -43,8 +43,18 @@ Key Features
 **Continuous Red Teaming**
    Detected vulnerabilities automatically convert into reusable tests for continuous validation and integration into golden datasets.
 
-Getting Started
+What's changed?
 ~~~~~~~~~~~~~~~
+
+We did not make any changes to the core functionalities of the platform during this release.
+
+What's fixed?
+~~~~~~~~~~~~~
+
+We did not fix any issues during this release.
+
+How to get started?
+~~~~~~~~~~~~~~~~~~~
 
 1. **Configure vulnerability scope** - Select specific vulnerability categories relevant to your use case
 2. **Execute the scan** - The system runs hundreds of probes across security and business logic areas
