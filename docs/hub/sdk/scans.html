@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Giskard Hub - Enterprise Agent Testing - Scan Vulnerabilities in your agents" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://docs.giskard.ai/hub/sdk/scans.html" property="og:url"/>
+<meta content="Giskard Documentation" property="og:site_name"/>
+<meta content="Launch several red teaming attacks to find vulnerabilities in your agents." property="og:description"/>
+<meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
+<meta content="Giskard Documentation" property="og:image:alt"/>
+<meta content="Security scanning is a critical component of AI agent testing that allows you to automatically probe your models for vulnerabilities and security issues using Giskard Hub’s integrated red teaming c..." name="description"/>
+<title>Launch vulnerability scans | Giskard  documentation</title>
+<meta content="Launch vulnerability scans | Giskard  documentation" property="og:title"/>
+<meta content="Launch vulnerability scans | Giskard  documentation" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=46da6947" rel="stylesheet" type="text/css"/>
+<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="/hub/sdk/scans.html" rel="canonical"/>
+<link href="../../_static/favicon.ico" rel="icon"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="datasets/index.html" rel="next" title="Create test datasets"/>
+<link href="projects.html" rel="prev" title="Manage your projects, agents and knowledge bases"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../_static/logo_dark.png" width="24"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
+</a><nav class="flex items-center space-x-6 text-sm font-medium">
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Getting Started</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
+</nav></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="16" src="../../_static/logo_dark.png" width="16"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
+<a href="/index.html">Getting Started</a>
+<a href="/hub/ui/index.html">Hub UI</a>
+<a href="/hub/sdk/index.html">Hub SDK</a>
+<a href="/oss/sdk/index.html">Open Source</a>
+</nav><nav class="table w-full min-w-full my-6 lg:my-8">
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to Giskard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start/comparison.html">Open Source vs Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start/enterprise-trial.html">Request your enterprise trial</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/index.html">Knowledge Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/hallucination.html">Hallucination &amp; Misinformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/moderation_issues.html">Moderation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/business/omission.html">Omission</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/injection.html">Prompt Injection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/robustness.html">Robustness Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../start/glossary/llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/coding.html">Programming Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/safety.html">Safety Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/glossary/llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../ui/scan/index.html">AI Vulnerability Scan<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../ui/scan/launch-scan.html">Launch a red teaming scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/scan/review-scan-results.html">Review scan results</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../ui/scan/vulnerability-categories/index.html">Vulnerability Categories<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 08)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/data-privacy-exfiltration.html">Data Privacy Exfiltration (OWASP LLM 05)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/scan/vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../ui/datasets/manual.html">Manual test creation for fine-grained control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/datasets/import.html">Import Existing Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/annotate.html">Review tests with human feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/evaluations.html">Run and schedule evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/evaluations-compare.html">Compare evaluation results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ui/access-rights.html">Set access rights</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">Manage your projects, agents and knowledge bases</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Launch vulnerability scans</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets/business.html">Detect business failures by generating synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets/import.html">Import existing datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checks.html">Manage your checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluations.html">Run and schedule evaluations</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="reference/client.html">Client reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/entities/index.html">Entities reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/resources/index.html">Resources reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Giskard Open Source</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/security.html">Detect security vulnerabilities in LLMs using LLM Scan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/business.html">Detect business failures in LLMs using RAGET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oss/sdk/legacy.html">Tabular ML, Predictive NLP, and Computer Vision</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_IPCC.html">LLM Question Answering over the IPCC Climate Change Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_Google.html">LLM Question Answering with Langchain, Qdrant and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_Winter_Olympics.html">LLM Question Answering over the 2022 Winter Olympics Wikipedia articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_Description_Product.html">LLM product description from keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_Newspaper_Comment_Generation.html">LLM Newspaper Comments Generation with LangChain and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/notebooks/security/LLM_QA_Documentation.html">LLM Question Answering over the documentation with Langchain, FAISS and OpenAI</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/models.html">Models reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/datasets.html">Datasets reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/sdk/reference/scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/scan/report.html">Scan report reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/scan/llm_detectors.html">LLM detectors reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/tests.html">LLM tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../oss/sdk/reference/suite.html">Test suite reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../oss/sdk/reference/raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/testset_generation.html">Testset generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/knowledge_base.html">Knowledge base reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/evaluation.html">Evaluation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/question_generation.html">Question generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../oss/sdk/reference/raget/metrics.html">Evaluation metrics reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../index.html">
+<span class="hidden md:inline">Giskard  documentation</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Launch vulnerability scans</span>
+</nav>
+<div id="content" role="main">
+<section id="launch-vulnerability-scans">
+<h1>Launch vulnerability scans<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#launch-vulnerability-scans"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<p>Security scanning is a critical component of AI agent testing that allows you to automatically probe your models for vulnerabilities and security issues using Giskard Hub’s integrated red teaming capabilities.</p>
+<p>The Giskard Hub provides a comprehensive scanning system that enables you to:</p>
+<ul class="simple">
+<li><p><strong>Automated vulnerability detection</strong>: Run scans that automatically test for common AI vulnerabilities</p></li>
+<li><p><strong>Targeted threat assessment</strong>: Focus on specific vulnerability types using tags and filtering</p></li>
+<li><p><strong>Knowledge base integration</strong>: Use domain-specific knowledge to generate more relevant security tests</p></li>
+<li><p><strong>OWASP LLM Top 10 compliance</strong>: Test against industry-standard security classifications</p></li>
+<li><p><strong>CI/CD integration</strong>: Integrate scans into your deployment pipeline</p></li>
+</ul>
+<p>In this section, we will walk you through how to run and manage scans using the SDK.</p>
+<ul class="simple">
+<li><p>A <strong>scan</strong> is a security assessment that runs various red teaming attacks against your agent to identify potential vulnerabilities and security weaknesses.</p></li>
+</ul>
+<p>We recommend systematically launching scans every time before deploying an updated agent in a pre-production or staging environment. This allows you to collaborate with your team to ensure that your agent is secure and resilient against potential attacks.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Scans can only be launched with agents that are configured in the Hub and exposed via an API endpoint. Local agents are not currently supported for scanning.</p>
+</div>
+<p>Let’s start by initializing the Hub client or take a look at the <a class="reference internal" href="index.html"><span class="doc">Quickstart &amp; setup</span></a> section to see how to install the SDK and connect to the Hub.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+<section id="run-security-scans">
+<h2>Run security scans<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#run-security-scans" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#run-security-scans'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>First, you need to have an agent configured in the Hub. If you haven’t created an agent yet, check the <span class="xref std std-ref">Create an agent</span> section in the <a class="reference internal" href="projects.html"><span class="doc">Manage your projects, agents and knowledge bases</span></a> guide.</p>
+<section id="launch-a-basic-scan">
+<h3>Launch a basic scan<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#launch-a-basic-scan" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#launch-a-basic-scan'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>Once you have an agent configured in the Hub, you can launch a security scan. If you are running this in a CI/CD pipeline, we recommend setting the model ID in the environment.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">model_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_MODEL_ID"</span><span class="p">)</span>  <span class="c1"># or use agent.id</span>
+</span></code></pre></div>
+</div>
+<p>We can now launch the scan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># All the OWASP LLM Top 10 vulnerabilities</span>
+</span><span id="line-2"><span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"owasp:llm-top-10-2025='LLM</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">'"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-5">    <span class="n">model_id</span><span class="o">=</span><span class="n">model_id</span><span class="p">,</span>
+</span><span id="line-6">    <span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span>
+</span><span id="line-7"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running scans with all OWASP LLM Top 10 categories can be token-intensive and may take significant time to complete. Consider running targeted scans for specific vulnerability types during development.</p>
+</div>
+<p>The security scan will be queued and processed by the Hub. The <code class="docutils literal notranslate"><span class="pre">create</span></code> method will immediately return a scan object while the scan is running. Note that this object will not contain the scan results until the scan is completed.</p>
+<p>You can wait until the scan has finished running with the <code class="docutils literal notranslate"><span class="pre">wait_for_completion</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">(</span>
+</span><span id="line-2">    <span class="c1"># optionally, specify a timeout in seconds (10 min by default)</span>
+</span><span id="line-3">    <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span>
+</span><span id="line-4"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>This will block until the scan is completed and update the <code class="docutils literal notranslate"><span class="pre">scan_result</span></code> object in-place. The method will wait for up to 10 minutes for the scan to complete.</p>
+<p>Then, you can check the results:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Scan completed with ID: </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-2"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Model ID: </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-3"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Scan grade: </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<section id="view-scan-metrics">
+<h4>View scan metrics<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#view-scan-metrics"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>You can view a detailed breakdown of the scan results using the <code class="docutils literal notranslate"><span class="pre">print_metrics()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+<p>This will display a formatted table showing:</p>
+<ul class="simple">
+<li><p><strong>Category</strong>: The security vulnerability category (e.g., “Prompt Injection”, “Hallucination / Misinformation”)</p></li>
+<li><p><strong>Probe Name</strong>: The specific probe that was run</p></li>
+<li><p><strong>Severity</strong>: The highest severity level found (CRITICAL, MAJOR, MINOR, SAFE)</p></li>
+<li><p><strong>Results</strong>: Number of issues found and total number of attacks performed</p></li>
+</ul>
+<img alt="Scan metrics output" class="align-center" src="../../_images/scan-metrics-output.png"/>
+</section>
+</section>
+<section id="advanced-scan-configuration">
+<h3>Advanced scan configuration<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#advanced-scan-configuration" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#advanced-scan-configuration'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<section id="knowledge-base-integration">
+<h4>Knowledge base integration<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#knowledge-base-integration"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>Provide a <code class="docutils literal notranslate"><span class="pre">knowledge_base_id</span></code> to generate more targeted security tests based on your domain-specific knowledge:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-2">    <span class="n">model_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_MODEL_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-3">    <span class="n">knowledge_base_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_KNOWLEDGE_BASE_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"owasp:llm-top-10-2025='LLM08'"</span><span class="p">],</span>
+</span><span id="line-5"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="vulnerability-type-filtering">
+<h4>Vulnerability type filtering<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#vulnerability-type-filtering"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>Similarly to the OWASP LLM Top 10 tags, you can use the <code class="docutils literal notranslate"><span class="pre">gsk:threat-type</span></code> tags to focus on specific vulnerability types:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Scan for specific vulnerabilities</span>
+</span><span id="line-2"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-3">    <span class="n">model_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_MODEL_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-4">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"gsk:threat-type='prompt-injection'"</span><span class="p">],</span>
+</span><span id="line-5"><span class="p">)</span>
+</span><span id="line-6">
+</span><span id="line-7"><span class="c1"># Scan for multiple vulnerability types</span>
+</span><span id="line-8"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-9">    <span class="n">model_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_MODEL_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-10">    <span class="n">knowledge_base_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_KNOWLEDGE_BASE_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-11">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-12">        <span class="s2">"gsk:threat-type='hallucination'"</span><span class="p">,</span>
+</span><span id="line-13">        <span class="s2">"gsk:threat-type='prompt-injection'"</span><span class="p">,</span>
+</span><span id="line-14">        <span class="s2">"gsk:threat-type='harmful-content-generation'"</span><span class="p">,</span>
+</span><span id="line-15">    <span class="p">],</span>
+</span><span id="line-16"><span class="p">)</span>
+</span><span id="line-17">
+</span><span id="line-18"><span class="c1"># Scan for all vulnerability types</span>
+</span><span id="line-19"><span class="n">categories</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">list_categories</span><span class="p">()</span>
+</span><span id="line-20"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-21">    <span class="n">model_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_MODEL_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-22">    <span class="n">knowledge_base_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_KNOWLEDGE_BASE_ID&gt;"</span><span class="p">,</span>
+</span><span id="line-23">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">category</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">],</span>
+</span><span id="line-24"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="complete-workflow-example">
+<h3>Complete workflow example<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#complete-workflow-example" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#complete-workflow-example'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>Here’s a complete CI/CD scanning workflow:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="line-2"><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="line-3"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
+</span><span id="line-4">
+</span><span id="line-5"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="line-6"><span class="n">model_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_MODEL_ID"</span><span class="p">)</span>
+</span><span id="line-7">
+</span><span id="line-8"><span class="c1"># Run security scan with specific tags</span>
+</span><span id="line-9"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-10">    <span class="n">model_id</span><span class="o">=</span><span class="n">model_id</span><span class="p">,</span>
+</span><span id="line-11">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-12">        <span class="s2">"gsk:threat-type='prompt-injection'"</span><span class="p">,</span>
+</span><span id="line-13">        <span class="s2">"owasp:llm-top-10-2025='LLM01'"</span><span class="p">,</span>
+</span><span id="line-14">    <span class="p">],</span>
+</span><span id="line-15"><span class="p">)</span>
+</span><span id="line-16">
+</span><span id="line-17"><span class="c1"># Wait for completion and check result metrics</span>
+</span><span id="line-18"><span class="n">scan_result</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+</span><span id="line-19"><span class="n">scan_result</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
+</span><span id="line-20">
+</span><span id="line-21"><span class="c1"># Check if the grade is worse than A or B (C, D or N/A)</span>
+</span><span id="line-22"><span class="k">if</span> <span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]:</span>
+</span><span id="line-23">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"❌ Security check failed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-24">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="line-25">
+</span><span id="line-26"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Security check passed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="scan-management">
+<h2>Scan management<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#scan-management" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#scan-management'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<section id="launch-a-scan">
+<h3>Launch a scan<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#launch-a-scan" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#launch-a-scan'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can launch a  scan using the <code class="docutils literal notranslate"><span class="pre">hub.scans.create()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-2">    <span class="n">model_id</span><span class="o">=</span><span class="n">model_id</span><span class="p">,</span>
+</span><span id="line-3">    <span class="n">knowledge_base_id</span><span class="o">=</span><span class="n">knowledge_base_id</span><span class="p">,</span> <span class="c1"># optional</span>
+</span><span id="line-4">    <span class="n">tags</span><span class="o">=</span><span class="p">[],</span> <span class="c1"># optional, if not provided, all available categories will be used</span>
+</span><span id="line-5"><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="retrieve-a-scan-result">
+<h3>Retrieve a scan result<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#retrieve-a-scan-result" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#retrieve-a-scan-result'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can retrieve a previously launched scan result using the <code class="docutils literal notranslate"><span class="pre">hub.scans.retrieve()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">scan_id</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<p>You can also retrieve its results calling the <code class="docutils literal notranslate"><span class="pre">results</span></code> property:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">results</span> <span class="o">=</span> <span class="n">scan_result</span><span class="o">.</span><span class="n">results</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="c1"># or using the scans resource</span>
+</span><span id="line-4"><span class="n">results</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">list_probes</span><span class="p">(</span><span class="n">scan_result</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span><span id="line-5">
+</span><span id="line-6"><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+</span><span id="line-7">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Probe Result ID: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> - Status: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="list-scans">
+<h3>List scans<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#list-scans" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#list-scans'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can list scans using the <code class="docutils literal notranslate"><span class="pre">hub.scans.list()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scans</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="n">project_id</span><span class="p">)</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="k">for</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">scans</span><span class="p">:</span>
+</span><span id="line-4">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Scan ID: </span><span class="si">{</span><span class="n">scan</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> - Grade: </span><span class="si">{</span><span class="n">scan</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> - Status: </span><span class="si">{</span><span class="n">scan</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="delete-a-scan-result">
+<h3>Delete a scan result<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#delete-a-scan-result" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#delete-a-scan-result'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can delete a scan using the <code class="docutils literal notranslate"><span class="pre">hub.scans.delete()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">scan_id</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+</section>
+</section>
+</div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
+<div class="mr-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="projects.html">
+<svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+        Manage your projects, agents and knowledge bases
+      </a>
+</div>
+<div class="ml-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="datasets/index.html">
+        Create test datasets
+        <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</a>
+</div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#run-security-scans'" class="reference internal" href="#run-security-scans">Run security scans</a><ul>
+<li><a :data-current="activeSection === '#launch-a-basic-scan'" class="reference internal" href="#launch-a-basic-scan">Launch a basic scan</a><ul>
+<li><a :data-current="activeSection === '#view-scan-metrics'" class="reference internal" href="#view-scan-metrics">View scan metrics</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#advanced-scan-configuration'" class="reference internal" href="#advanced-scan-configuration">Advanced scan configuration</a><ul>
+<li><a :data-current="activeSection === '#knowledge-base-integration'" class="reference internal" href="#knowledge-base-integration">Knowledge base integration</a></li>
+<li><a :data-current="activeSection === '#vulnerability-type-filtering'" class="reference internal" href="#vulnerability-type-filtering">Vulnerability type filtering</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#complete-workflow-example'" class="reference internal" href="#complete-workflow-example">Complete workflow example</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#scan-management'" class="reference internal" href="#scan-management">Scan management</a><ul>
+<li><a :data-current="activeSection === '#launch-a-scan'" class="reference internal" href="#launch-a-scan">Launch a scan</a></li>
+<li><a :data-current="activeSection === '#retrieve-a-scan-result'" class="reference internal" href="#retrieve-a-scan-result">Retrieve a scan result</a></li>
+<li><a :data-current="activeSection === '#list-scans'" class="reference internal" href="#list-scans">List scans</a></li>
+<li><a :data-current="activeSection === '#delete-a-scan-result'" class="reference internal" href="#delete-a-scan-result">Delete a scan result</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 8.1.3</a></p>
+</div>
+</div>
+</footer>
+</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
+<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
+<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
+</svg>
+  Back to top
+</button>
+<script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+<script src="../../_static/doctools.js?v=9bcbadda"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+<script src="../../_static/custom.js?v=9a73f672"></script>
+</body>
+</html>

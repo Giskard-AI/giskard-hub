@@ -51,13 +51,16 @@ Take action on findings
 
 For each detected issue, you can:
 
-**Mark as false positive**
-   If the identified issue doesn't represent a real risk in your context, mark it as a false positive. This updates your security grade automatically.
+.. tab-set::
 
-**Convert to test case**
-   Click **Send to dataset** to save the attack as a reproducible test case. This helps you:
-   
-   * Track fixes over time
-   * Build regression tests
-   * Share examples with your team
+   .. tab-item:: Mark as false positive
+      
+      If the identified issue doesn't represent a real risk in your context, mark it as a false positive. This updates your security grade automatically.
 
+   .. tab-item:: Convert to test case
+      
+      Click **Send to dataset** to save the attack as a reproducible test case. This helps you:
+
+      * Track fixes over time
+      * Build regression tests
+      * Share examples with your team

@@ -45,7 +45,7 @@ jobs:
           token: ${{ secrets.RELEASE_PAT_TOKEN }} # Needed to trigger other actions
 
       - name: Install uv and set the python version
-        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d # v7.1.0
         with:
           python-version: "3.13"
 
@@ -77,7 +77,7 @@ jobs:
 
       - name: Create Github Release
         id: github-release
-        uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2
+        uses: softprops/action-gh-release@6da8fa9354ddfdc4aeace5fc48d7f679b5214090 # v2
         with:
           tag_name: v${{ env.VERSION }}
           fail_on_unmatched_files: true

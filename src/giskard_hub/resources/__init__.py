@@ -5,6 +5,7 @@ from .evaluations import EvaluationsResource
 from .knowledge_bases import KnowledgeBasesResource
 from .models import ModelsResource
 from .projects import ProjectsResource
+from .scans import ScansResource
 from .scheduled_evaluations import ScheduledEvaluationsResource
 
 __all__ = [
@@ -15,5 +16,6 @@ __all__ = [
     "ModelsResource",
     "EvaluationsResource",
     "KnowledgeBasesResource",
+    "ScansResource",
     "ScheduledEvaluationsResource",
 ]

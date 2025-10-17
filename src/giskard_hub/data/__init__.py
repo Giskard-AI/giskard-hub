@@ -6,6 +6,7 @@ from .evaluation import EvaluationRun, Metric, ModelOutput
 from .knowledge_base import Document, KnowledgeBase, Topic
 from .model import Model
 from .project import Project
+from .scan import ProbeAttempt, ProbeResult, ScanResult
 from .scheduled_evaluation import FrequencyOption, ScheduledEvaluation
 
 __all__ = [
@@ -23,4 +24,7 @@ __all__ = [
     "Document",
     "ScheduledEvaluation",
     "FrequencyOption",
+    "ScanResult",
+    "ProbeResult",
+    "ProbeAttempt",
 ]

@@ -103,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../../start/glossary/index.html">Knowledge Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../../start/glossary/business/index.html">AI Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
@@ -112,7 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/business/omission.html">Omission</a></li>
 </ul>
 </li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../../start/glossary/security/index.html">AI Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
@@ -141,6 +141,20 @@
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../ui/scan/index.html">AI Vulnerability Scan<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../../ui/scan/launch-scan.html">Launch a red teaming scan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ui/scan/review-scan-results.html">Review scan results</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../ui/scan/vulnerability-categories/index.html">Vulnerability Categories<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 08)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/data-privacy-exfiltration.html">Data Privacy Exfiltration (OWASP LLM 05)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ui/scan/vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
@@ -160,6 +174,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Quickstart &amp; setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../projects.html">Manage your projects, agents and knowledge bases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scans.html">Launch vulnerability scans</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../datasets/business.html">Detect business failures by generating synthetic tests</a></li>
@@ -502,6 +517,140 @@
 <dd></dd></dl>
 </dd></dl>
 <dl class="py class">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">giskard_hub.resources.</span></span><span class="sig-name descname"><span class="pre">ScansResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../client.html#giskard_hub.client.SyncClient" title="giskard_hub._base_client.SyncClient"><span class="pre">SyncClient</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L17-L176" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIResource</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knowledge_base_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">NOT_GIVEN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">NOT_GIVEN</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">ScanResult</span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L27-L65" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.create" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.create'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>Create and run a new scan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_id</strong> (<em>str</em>) – ID of the model to scan.</p></li>
+<li><p><strong>knowledge_base_id</strong> (<em>str</em><em>, </em><em>optional</em>) – ID of the knowledge base to use for the scan.</p></li>
+<li><p><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of tags to limit the scan to specific categories. If not provided, all categories will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created scan result.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ScanResult</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L106-L119" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.delete" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.delete'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>Delete a scan by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scan_id</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>]</em>) – ID or list of IDs of the scan to delete.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.list">
+<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ScanResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L82-L104" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.list" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.list'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>List all scans or optionally for a given project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>project_id</strong> (<em>str</em><em>, </em><em>optional</em>) – ID of the project to list scans for. If not provided, scans for all projects will be listed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of scan results.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[ScanResult]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.list_attempts">
+<span class="sig-name descname"><span class="pre">list_attempts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_result_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ProbeAttempt</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L158-L176" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.list_attempts" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.list_attempts'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>List all attempts (attacks) for a given probe result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>probe_result_id</strong> (<em>str</em>) – The ID of the probe result to list attempts for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of attempts for the given probe result.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[ProbeAttempt]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.list_categories">
+<span class="sig-name descname"><span class="pre">list_categories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ScanCategory</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L18-L25" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.list_categories" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.list_categories'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>List scan categories that can be use as tags to create/launch a scan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>List[ScanCategory]</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <cite>ScanCategory</cite> objects representing all available scan categories.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.list_probes">
+<span class="sig-name descname"><span class="pre">list_probes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ProbeResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L138-L156" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.list_probes" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.list_probes'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>List all probe results for a given scan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scan_id</strong> (<em>str</em>) – ID of the scan to list probes for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of probe results for the given scan.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[ProbeResult]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.retrieve">
+<span class="sig-name descname"><span class="pre">retrieve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">ScanResult</span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L67-L80" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.retrieve" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.retrieve'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>Retrieve a scan by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scan_id</strong> (<em>str</em>) – ID of the scan to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The retrieved scan result.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ScanResult</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="giskard_hub.resources.ScansResource.retrieve_probe">
+<span class="sig-name descname"><span class="pre">retrieve_probe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_result_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">ProbeResult</span></span></span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scans.py#L121-L136" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScansResource.retrieve_probe" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScansResource.retrieve_probe'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
+<dd><p>Retrieve a probe result by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>probe_result_id</strong> (<em>str</em>) – The ID of the probe result to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The retrieved probe result.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ProbeResult</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
 <dt class="sig sig-object py" id="giskard_hub.resources.ScheduledEvaluationsResource">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">giskard_hub.resources.</span></span><span class="sig-name descname"><span class="pre">ScheduledEvaluationsResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../client.html#giskard_hub.client.SyncClient" title="giskard_hub._base_client.SyncClient"><span class="pre">SyncClient</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/blob/main/src/giskard_hub/resources/scheduled_evaluations.py#L13-L299" rel="nofollow noopener"><span class="viewcode-link"><span class="pre">[source]</span></span><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a><a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#giskard_hub.resources.ScheduledEvaluationsResource" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#giskard_hub.resources.ScheduledEvaluationsResource'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIResource</span></code></p>
@@ -698,6 +847,17 @@
 <li><a :data-current="activeSection === '#giskard_hub.resources.ProjectsResource.list'" class="reference internal" href="#giskard_hub.resources.ProjectsResource.list"><code class="docutils literal notranslate"><span class="pre">ProjectsResource.list()</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.resources.ProjectsResource.retrieve'" class="reference internal" href="#giskard_hub.resources.ProjectsResource.retrieve"><code class="docutils literal notranslate"><span class="pre">ProjectsResource.retrieve()</span></code></a></li>
 <li><a :data-current="activeSection === '#giskard_hub.resources.ProjectsResource.update'" class="reference internal" href="#giskard_hub.resources.ProjectsResource.update"><code class="docutils literal notranslate"><span class="pre">ProjectsResource.update()</span></code></a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource'" class="reference internal" href="#giskard_hub.resources.ScansResource"><code class="docutils literal notranslate"><span class="pre">ScansResource</span></code></a><ul>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.create'" class="reference internal" href="#giskard_hub.resources.ScansResource.create"><code class="docutils literal notranslate"><span class="pre">ScansResource.create()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.delete'" class="reference internal" href="#giskard_hub.resources.ScansResource.delete"><code class="docutils literal notranslate"><span class="pre">ScansResource.delete()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.list'" class="reference internal" href="#giskard_hub.resources.ScansResource.list"><code class="docutils literal notranslate"><span class="pre">ScansResource.list()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.list_attempts'" class="reference internal" href="#giskard_hub.resources.ScansResource.list_attempts"><code class="docutils literal notranslate"><span class="pre">ScansResource.list_attempts()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.list_categories'" class="reference internal" href="#giskard_hub.resources.ScansResource.list_categories"><code class="docutils literal notranslate"><span class="pre">ScansResource.list_categories()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.list_probes'" class="reference internal" href="#giskard_hub.resources.ScansResource.list_probes"><code class="docutils literal notranslate"><span class="pre">ScansResource.list_probes()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.retrieve'" class="reference internal" href="#giskard_hub.resources.ScansResource.retrieve"><code class="docutils literal notranslate"><span class="pre">ScansResource.retrieve()</span></code></a></li>
+<li><a :data-current="activeSection === '#giskard_hub.resources.ScansResource.retrieve_probe'" class="reference internal" href="#giskard_hub.resources.ScansResource.retrieve_probe"><code class="docutils literal notranslate"><span class="pre">ScansResource.retrieve_probe()</span></code></a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#giskard_hub.resources.ScheduledEvaluationsResource'" class="reference internal" href="#giskard_hub.resources.ScheduledEvaluationsResource"><code class="docutils literal notranslate"><span class="pre">ScheduledEvaluationsResource</span></code></a><ul>

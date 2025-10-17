@@ -103,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/index.html">Knowledge Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/business/index.html">AI Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
@@ -112,7 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/omission.html">Omission</a></li>
 </ul>
 </li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/security/index.html">AI Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
@@ -141,6 +141,20 @@
 <li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="current reference internal expandable" href="#">AI Vulnerability Scan<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="launch-scan.html">Launch a red teaming scan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="review-scan-results.html">Review scan results</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="vulnerability-categories/index.html">Vulnerability Categories<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 08)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/data-privacy-exfiltration.html">Data Privacy Exfiltration (OWASP LLM 05)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
@@ -160,6 +174,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/index.html">Quickstart &amp; setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sdk/projects.html">Manage your projects, agents and knowledge bases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sdk/scans.html">Launch vulnerability scans</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../sdk/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
@@ -248,147 +263,47 @@
 </ul>
 <p><strong>How it works:</strong>
 The scan runs dozens of specialized red teaming probes that adapt to your agent’s capabilities and use case. Each probe tests for specific vulnerabilities and provides detailed results.</p>
-<p><strong>What you get:</strong>
-* A security grade (A-D) based on detected vulnerabilities
-* Detailed breakdown by attack category and severity
-* Conversation logs showing exactly how attacks were performed
-* Actionable insights to improve your agent’s defenses</p>
+<p><strong>What you get:</strong></p>
+<ul class="simple">
+<li><p>A security grade (A-D) based on detected vulnerabilities</p></li>
+<li><p>Detailed breakdown by attack category and severity</p></li>
+<li><p>Conversation logs showing exactly how attacks were performed</p></li>
+<li><p>Actionable insights to improve your agent’s defenses</p></li>
+</ul>
 <a class="reference internal image-reference" href="../../../_images/scan-results.png"><img alt='"Example of vulnerability scan results"' class="align-center" src="../../../_images/scan-results.png" style="width: 800px;"/>
 </a>
 <section id="quick-start">
 <h2>Quick start<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#quick-start" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#quick-start'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <ol class="arabic simple">
 <li><p>Go to <strong>Scan</strong> in the left sidebar</p></li>
-<li><p>Click <strong>Launch Scan</strong></p></li>
 <li><p>Select your agent and vulnerability categories to test</p></li>
 <li><p>Click <strong>Launch Scan</strong> to start the red teaming process</p></li>
 <li><p>Review results and take action on detected vulnerabilities</p></li>
 </ol>
-
 </section>
 <section id="vulnerability-categories">
 <h2>Vulnerability categories<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#vulnerability-categories" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#vulnerability-categories'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>The scan tests for these common AI security risks:</p>
-<section id="security-risks">
-<h3>Security Risks<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#security-risks" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#security-risks'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-🔓 Prompt Injection</div>
-<p class="sd-card-text">Malicious prompts that bypass your agent’s safety instructions</p>
+📚 Vulnerability Categories</div>
+<p class="sd-card-text">Detailed information about the vulnerability categories tested by the scan</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>52 specialized probes</strong> across 11 vulnerability categories</p></li>
+<li><p class="sd-card-text"><strong>Detailed attack patterns</strong> and detection indicators</p></li>
+<li><p class="sd-card-text"><strong>Risk-level classifications</strong> to prioritize remediation</p></li>
+<li><p class="sd-card-text"><strong>Comprehensive mitigation strategies</strong> with practical guidance</p></li>
+</ul>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="vulnerability-categories/index.html"><span class="doc">Vulnerability Categories</span></a></div>
 </div>
 </div>
 </div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-📊 Training Data Extraction</div>
-<p class="sd-card-text">Attempts to expose sensitive data from your model’s training</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-🔍 Internal Information Exposure</div>
-<p class="sd-card-text">Leakage of system configurations or internal data</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-🛡️ Data Privacy &amp; Exfiltration</div>
-<p class="sd-card-text">Unauthorized access to user data or privacy violations</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="safety-risks">
-<h3>Safety Risks<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#safety-risks" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#safety-risks'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-⚠️ Harmful Content Generation</div>
-<p class="sd-card-text">Toxic, offensive, or policy-violating content creation</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-🚫 Excessive Agency</div>
-<p class="sd-card-text">Actions beyond intended scope or authority level</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-💥 Denial of Service</div>
-<p class="sd-card-text">Resource exhaustion attacks that disable your system</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="business-risks">
-<h3>Business Risks<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#business-risks" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#business-risks'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-🤔 Hallucination &amp; Misinformation</div>
-<p class="sd-card-text">False or misleading information that damages trust</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-📉 Brand Damaging &amp; Reputation</div>
-<p class="sd-card-text">Outputs that harm your brand or public perception</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-⚖️ Legal &amp; Financial Risk</div>
-<p class="sd-card-text">Content leading to legal liability or financial harm</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-border-1 docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-💼 Misguidance &amp; Unauthorized Advice</div>
-<p class="sd-card-text">Advice outside your agent’s intended expertise</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
@@ -412,12 +327,7 @@ The scan runs dozens of specialized red teaming probes that adapt to your agent�
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
 <li><a :data-current="activeSection === '#quick-start'" class="reference internal" href="#quick-start">Quick start</a></li>
-<li><a :data-current="activeSection === '#vulnerability-categories'" class="reference internal" href="#vulnerability-categories">Vulnerability categories</a><ul>
-<li><a :data-current="activeSection === '#security-risks'" class="reference internal" href="#security-risks">Security Risks</a></li>
-<li><a :data-current="activeSection === '#safety-risks'" class="reference internal" href="#safety-risks">Safety Risks</a></li>
-<li><a :data-current="activeSection === '#business-risks'" class="reference internal" href="#business-risks">Business Risks</a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#vulnerability-categories'" class="reference internal" href="#vulnerability-categories">Vulnerability categories</a></li>
 </ul>
 </div>
 </aside>

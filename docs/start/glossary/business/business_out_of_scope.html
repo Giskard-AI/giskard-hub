@@ -103,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../index.html">Knowledge Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
-<li class="toctree-l2 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="index.html">AI Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
+<li class="toctree-l2 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="addition_of_information.html">Addition of Information</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Business Out of Scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="denial_of_answers.html">Denial of Answers</a></li>
@@ -112,7 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="omission.html">Omission</a></li>
 </ul>
 </li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../security/index.html">AI Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="../security/formatting.html">Output Formatting Issues</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../security/harmful_content.html">Harmful Content Generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../security/information_disclosure.html">Information Disclosure</a></li>
@@ -141,6 +141,20 @@
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/ui/scan/index.html">AI Vulnerability Scan<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/scan/launch-scan.html">Launch a red teaming scan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/scan/review-scan-results.html">Review scan results</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/ui/scan/vulnerability-categories/index.html">Vulnerability Categories<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 08)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/data-privacy-exfiltration.html">Data Privacy Exfiltration (OWASP LLM 05)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
@@ -160,6 +174,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/index.html">Quickstart &amp; setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/projects.html">Manage your projects, agents and knowledge bases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/scans.html">Launch vulnerability scans</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/sdk/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
@@ -234,7 +249,7 @@
 </svg>
 </a>
 <div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="../index.html">Knowledge Glossary</a>
-<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">AI Business Failures</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Business Failures</a>
 <div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Business Out of Scope</span>
 </nav>
 <div id="content" role="main">
@@ -255,36 +270,34 @@
 </section>
 <section id="types-of-out-of-scope-issues">
 <h2>Types of Out of Scope Issues<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#types-of-out-of-scope-issues" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#types-of-out-of-scope-issues'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<dl class="simple">
-<dt><strong>Internal Metrics</strong></dt><dd><ul class="simple">
+<p><strong>Internal Metrics</strong></p>
+<ul class="simple">
 <li><p>Revealing internal performance data</p></li>
 <li><p>Sharing confidential business metrics</p></li>
 <li><p>Exposing operational statistics</p></li>
 <li><p>Disclosing financial information</p></li>
 </ul>
-</dd>
-<dt><strong>Confidential Information</strong></dt><dd><ul class="simple">
+<p><strong>Confidential Information</strong></p>
+<ul class="simple">
 <li><p>Sharing proprietary business information</p></li>
 <li><p>Revealing internal processes or procedures</p></li>
 <li><p>Exposing confidential customer data</p></li>
 <li><p>Disclosing trade secrets or IP</p></li>
 </ul>
-</dd>
-<dt><strong>Competitive Intelligence</strong></dt><dd><ul class="simple">
+<p><strong>Competitive Intelligence</strong></p>
+<ul class="simple">
 <li><p>Providing information about competitors</p></li>
 <li><p>Sharing market analysis not meant for public consumption</p></li>
 <li><p>Revealing strategic positioning details</p></li>
 <li><p>Exposing competitive advantages</p></li>
 </ul>
-</dd>
-<dt><strong>Strategic Details</strong></dt><dd><ul class="simple">
+<p><strong>Strategic Details</strong></p>
+<ul class="simple">
 <li><p>Sharing future business plans</p></li>
 <li><p>Revealing strategic initiatives</p></li>
 <li><p>Exposing business roadmap information</p></li>
 <li><p>Disclosing partnership or acquisition details</p></li>
 </ul>
-</dd>
-</dl>
 </section>
 <section id="business-impact">
 <h2>Business Impact<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#business-impact" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#business-impact'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>

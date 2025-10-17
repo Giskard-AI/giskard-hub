@@ -130,7 +130,7 @@ Then, you can print the results:
     eval_run.print_metrics()
 
 
-.. figure:: /_static/images/cli/metrics_output.png
+.. figure:: /_static/images/sdk/evaluation-metrics-output.png
     :alt: Evaluation metrics output
 
     Evaluation metrics output
@@ -274,7 +274,7 @@ the evaluation run to complete and then print the results:
     # Print the metrics
     eval_run.print_metrics()
 
-.. figure:: /_static/images/cli/metrics_output.png
+.. figure:: /_static/images/sdk/evaluation-metrics-output.png
     :alt: Evaluation metrics output
 
     Evaluation metrics output

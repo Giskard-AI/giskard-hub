@@ -113,5 +113,3 @@ Some work has been funded by the `the European Commission <https://commission.eu
 .. include:: toctree_hub_ui.rst
 .. include:: toctree_hub_sdk.rst
 .. include:: toctree_oss.rst
-
-

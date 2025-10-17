@@ -126,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="start/glossary/index.html">Knowledge Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start/glossary/business/index.html">AI Business Failures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="start/glossary/business/index.html">Business Failures</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/business/addition_of_information.html">Addition of Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
@@ -135,7 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/business/omission.html">Omission</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="start/glossary/security/index.html">AI Security Vulnerabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="start/glossary/security/index.html">Security Vulnerabilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/security/formatting.html">Output Formatting Issues</a></li>
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
@@ -164,6 +164,20 @@
 <li class="toctree-l1"><a class="reference internal" href="hub/ui/scan/index.html">AI Vulnerability Scan</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hub/ui/scan/launch-scan.html">Launch a red teaming scan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hub/ui/scan/review-scan-results.html">Review scan results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/index.html">Vulnerability Categories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 08)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/data-privacy-exfiltration.html">Data Privacy Exfiltration (OWASP LLM 05)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub/ui/scan/vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hub/ui/datasets/index.html">Create test datasets</a><ul>
@@ -183,6 +197,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="hub/sdk/index.html">Quickstart &amp; setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/sdk/projects.html">Manage your projects, agents and knowledge bases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hub/sdk/scans.html">Launch vulnerability scans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hub/sdk/datasets/index.html">Create test datasets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hub/sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hub/sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
@@ -330,10 +345,10 @@
 </li>
       <li><a href="oss/sdk/reference/raget/metrics.html#giskard.rag.metrics.correctness.correctness_metric">correctness_metric() (in module giskard.rag.metrics.correctness)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="oss/sdk/reference/raget/evaluation.html#giskard.llm.evaluators.CorrectnessEvaluator">CorrectnessEvaluator (class in giskard.llm.evaluators)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="oss/sdk/reference/raget/testset_generation.html#giskard.rag.QATestset.count_sample_by_metadata">count_sample_by_metadata() (giskard.rag.QATestset method)</a>
 </li>
       <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ChatTestCasesResource.create">create() (giskard_hub.resources.ChatTestCasesResource method)</a>
@@ -350,6 +365,8 @@
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.create">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.create">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.create">(giskard_hub.resources.ScansResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.create">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
@@ -385,6 +402,8 @@
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ModelsResource.delete">(giskard_hub.resources.ModelsResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.delete">(giskard_hub.resources.ProjectsResource method)</a>
+</li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.delete">(giskard_hub.resources.ScansResource method)</a>
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.delete">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
@@ -510,17 +529,25 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.list">(giskard_hub.resources.ProjectsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.list">(giskard_hub.resources.ScansResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.list">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
       </ul></li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.list_attempts">list_attempts() (giskard_hub.resources.ScansResource method)</a>
+</li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.list_categories">list_categories() (giskard_hub.resources.ScansResource method)</a>
+</li>
       <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.KnowledgeBasesResource.list_documents">list_documents() (giskard_hub.resources.KnowledgeBasesResource method)</a>
 </li>
       <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.EvaluationsResource.list_entries">list_entries() (giskard_hub.resources.EvaluationsResource method)</a>
 </li>
-      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.list_evaluations">list_evaluations() (giskard_hub.resources.ScheduledEvaluationsResource method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.list_evaluations">list_evaluations() (giskard_hub.resources.ScheduledEvaluationsResource method)</a>
+</li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.list_probes">list_probes() (giskard_hub.resources.ScansResource method)</a>
+</li>
       <li><a href="oss/sdk/reference/scan/llm_detectors.html#giskard.scanner.llm.LLMBasicSycophancyDetector">LLMBasicSycophancyDetector (class in giskard.scanner.llm)</a>
 </li>
       <li><a href="oss/sdk/reference/scan/llm_detectors.html#giskard.scanner.llm.LLMCharsInjectionDetector">LLMCharsInjectionDetector (class in giskard.scanner.llm)</a>
@@ -665,11 +692,15 @@
 </li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ProjectsResource.retrieve">(giskard_hub.resources.ProjectsResource method)</a>
 </li>
+        <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.retrieve">(giskard_hub.resources.ScansResource method)</a>
+</li>
         <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScheduledEvaluationsResource.retrieve">(giskard_hub.resources.ScheduledEvaluationsResource method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource.retrieve_probe">retrieve_probe() (giskard_hub.resources.ScansResource method)</a>
+</li>
       <li><a href="oss/sdk/reference/suite.html#giskard.Suite.run">run() (giskard.Suite method)</a>
 </li>
   </ul></td>
@@ -692,6 +723,8 @@
 </li>
       </ul></li>
       <li><a href="oss/sdk/reference/scan/report.html#giskard.scanner.report.ScanReport">ScanReport (class in giskard.scanner.report)</a>
+</li>
+      <li><a href="hub/sdk/reference/resources/index.html#giskard_hub.resources.ScansResource">ScansResource (class in giskard_hub.resources)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">

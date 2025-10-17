@@ -123,7 +123,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
 .. toctree::
    :caption: Giskard Hub UI
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 4
 
    hub/ui/index
    hub/ui/scan/index
@@ -141,6 +141,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
    hub/sdk/index
    hub/sdk/projects
+   hub/sdk/scans
    hub/sdk/datasets/index
    hub/sdk/checks
    hub/sdk/evaluations
