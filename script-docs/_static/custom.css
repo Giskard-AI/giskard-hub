@@ -128,7 +128,7 @@
 
 /* Adjust body padding when banner is visible */
 body.banner-visible {
-  padding-top: 60px;
+  padding-top: 60px; /* Banner height only */
 }
 
 /* Responsive adjustments */
@@ -156,6 +156,11 @@ body.banner-visible {
     right: 15px;
     top: 10px;
     transform: none;
+  }
+
+  /* Adjust body padding for mobile when banner is visible */
+  body.banner-visible {
+    padding-top: 70px; /* Banner height for mobile layout */
   }
 }
 

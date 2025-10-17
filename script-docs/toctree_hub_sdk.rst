@@ -7,7 +7,7 @@
    hub/sdk/projects
    hub/sdk/datasets/index
    hub/sdk/checks
-   hub/sdk/evaluations
+   hub/sdk/evaluations/index
    hub/sdk/reference/index
    GitHub Releases <https://github.com/Giskard-AI/giskard-hub/releases>
    Contact us <https://www.giskard.ai/contact>

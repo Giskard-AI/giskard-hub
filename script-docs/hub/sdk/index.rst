@@ -33,7 +33,7 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
       Build and deploy validation rules and metrics for your tests
 
    .. grid-item-card:: Run and Schedule Evaluations
-      :link: evaluations
+      :link: evaluations/index
       :link-type: doc
 
       Execute tests programmatically in the Hub or locally

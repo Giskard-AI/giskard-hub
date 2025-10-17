@@ -2,7 +2,7 @@
 :og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through automated testing.
 
 ======================================================
-Detect business failures by generating synthetic tests
+Generate business tests
 ======================================================
 
 Business testing focuses on ensuring that your LLM agents meet the specific requirements and expectations of your business domain. Unlike security testing, which focuses on malicious exploitation, business testing evaluates the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.

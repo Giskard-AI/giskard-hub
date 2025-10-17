@@ -3,7 +3,7 @@
 
 
 ===============================================
-AI Vulnerability Scan
+LLM Vulnerability Scanner
 ===============================================
 
 Test your AI agent for safety and security vulnerabilities with automated red teaming attacks.

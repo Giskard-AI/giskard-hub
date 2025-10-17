@@ -2,7 +2,7 @@
 :og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases.
 
 =====================================================
-Manual test creation for fine-grained control
+Manual test creation
 =====================================================
 
 You can create test datasets manually for fine-grained control. This is particularly useful when you want to create test cases with full control over the test case creation process. There are two ways to manually create test cases:

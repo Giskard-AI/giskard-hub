@@ -1,7 +1,7 @@
 2.0.0 (2025-09-25)
 ==================
 
-.. image:: https://player.vimeo.com/video/1121557632?h=17284299f1&badge=0&autopause=0&player_id=0&app_id=58479
+.. image:: https://player.vimeo.com/video/1121557632?h=17284299f1
    :align: center
    :alt: "Vulnerability scanner"
 
