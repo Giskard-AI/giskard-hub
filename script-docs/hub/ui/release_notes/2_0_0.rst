@@ -1,9 +1,20 @@
 2.0.0 (2025-09-25)
 ==================
 
-.. image:: https://player.vimeo.com/video/1121557632?h=17284299f1
-   :align: center
-   :alt: "Vulnerability scanner"
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1121557632?h=17284299f1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="crt-security"
+        data-ready="true"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.10);"
+        allowfullscreen
+    ></iframe>
+    </div>
 
 We're releasing an upgraded LLM vulnerability scanner in Giskard Hub, specifically designed to secure conversational AI agents in production environments. This enterprise version deploys autonomous red teaming agents that conduct dynamic, multi-turn attacks across dozens of vulnerability categories covering more than 40 probes.
 
@@ -43,6 +54,8 @@ What's new?
 **Continuous Red Teaming**
    Detected vulnerabilities automatically convert into reusable tests for continuous validation and integration into golden datasets.
 
+
+
 What's changed?
 ~~~~~~~~~~~~~~~
 
@@ -61,5 +74,20 @@ How to get started?
 3. **Analyze results by severity** - Results are organized by criticality for prioritized review
 4. **Review individual probes** - Each probe provides detailed attack descriptions and explanations
 5. **Turn into continuous tests** - Successful probes can convert into tests for continuous validation
+
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1121565937?h=75d7765bb6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+        title="crt-security"
+        data-ready="true"
+        allowfullscreen
+    ></iframe>
+    </div>
 
 This release enables detection of sophisticated attacks that evolve across multiple conversation turns, automatically generating attacks, analyzing system responses, and modifying approaches to help correct agents with re-executable tests.
