@@ -768,3 +768,18 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 .nboutput.nblast.docutils.container div.prompt.empty {
   display: none !important;
 }
+
+/* Hide toctree sections that are not relevant to current page */
+#left-sidebar nav.hidden-toctree {
+  display: none !important;
+}
+
+/* Navbar highlighting styles */
+header nav a.recently-selected {
+  color: var(--accent-color) !important;
+  font-weight: 600;
+}
+
+.dark header nav a.recently-selected {
+  color: var(--accent-color) !important;
+}

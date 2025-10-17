@@ -576,133 +576,84 @@
     }
   }
 
-  // Function to highlight the most recently selected navbar item
+  // URL path mapping for navbar highlighting using wildcard patterns
+  const navbarPathMapping = [
+    // Main sections
+    { pattern: '/index.html', navbarItem: '/index.html' },
+    { pattern: '/', navbarItem: '/index.html' },
+    
+    // Hub UI section - all pages under /hub/ui/
+    { pattern: '/hub/ui/**', navbarItem: '/hub/ui/index.html' },
+    
+    // Hub SDK section - all pages under /hub/sdk/
+    { pattern: '/hub/sdk/**', navbarItem: '/hub/sdk/index.html' },
+    
+    // Open Source section - all pages under /oss/
+    { pattern: '/oss/**', navbarItem: '/oss/sdk/index.html' },
+    
+    // Start section (Getting Started) - all pages under /start/
+    { pattern: '/start/**', navbarItem: '/index.html' },
+  ];
+
+  // Function to match a path against a wildcard pattern
+  function matchPattern(pattern, path) {
+    // Convert wildcard pattern to regex
+    const regexPattern = pattern
+      .replace(/\*/g, '.*')  // Replace * with .* for regex
+      .replace(/\//g, '\\/'); // Escape forward slashes
+    
+    const regex = new RegExp('^' + regexPattern + '$');
+    return regex.test(path);
+  }
+
+  // Function to get the navbar item for a given URL path
+  function getNavbarItemForPath(path) {
+    // Normalize the path
+    const normalizedPath = path.replace(/\/$/, '') || '/index.html';
+    
+    // Check each pattern in order
+    for (const mapping of navbarPathMapping) {
+      if (matchPattern(mapping.pattern, normalizedPath)) {
+        return mapping.navbarItem;
+      }
+    }
+    
+    // Default fallback
+    return '/index.html';
+  }
+
+  // Function to highlight the navbar item based on URL path mapping
   function highlightNavbarItem() {
     const header = document.querySelector('header');
     if (!header) return;
 
     const currentPath = window.location.pathname;
+    const targetNavbarItem = getNavbarItemForPath(currentPath);
     
     // Find navbar links
     const navbarLinks = header.querySelectorAll('nav a[href]');
-    let bestMatch = null;
-    let currentSection = null;
     
-    // First, determine which navbar section the current page belongs to
-    navbarLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      
-      // Handle different href formats
-      let linkPath = href;
-      
-      // Remove hash from href for comparison
-      if (linkPath.includes('#')) {
-        linkPath = linkPath.split('#')[0];
-      }
-      
-      // Handle relative paths
-      if (linkPath.startsWith('../')) {
-        const pathSegments = currentPath.split('/').filter(seg => seg);
-        const linkSegments = linkPath.split('/').filter(seg => seg);
-        
-        let upLevels = 0;
-        for (const seg of linkSegments) {
-          if (seg === '..') {
-            upLevels++;
-          } else {
-            break;
-          }
-        }
-        
-        const remainingSegments = pathSegments.slice(0, -upLevels);
-        const linkFileName = linkSegments[linkSegments.length - 1];
-        linkPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
-      } else if (linkPath.startsWith('./')) {
-        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-        linkPath = currentDir + linkPath.substring(2);
-      } else if (!linkPath.startsWith('/') && !linkPath.startsWith('http')) {
-        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-        linkPath = currentDir + linkPath;
-      }
-      
-      // Normalize paths for comparison
-      const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/index.html';
-      const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/index.html';
-      
-      // Check if this navbar link matches the current page or is a parent section
-      if (normalizedCurrentPath === normalizedLinkPath || 
-          normalizedCurrentPath.startsWith(normalizedLinkPath + '/')) {
-        bestMatch = link;
-        currentSection = normalizedLinkPath;
-      }
+    // Remove any existing recently-selected classes from navbar
+    header.querySelectorAll('a.recently-selected').forEach(el => {
+      el.classList.remove('recently-selected');
     });
     
-    // Check if we're still in the same section as the previously selected navbar item
-    const lastSelectedHref = sessionStorage.getItem('lastSelectedNavbarItem');
-    let shouldUpdateHighlighting = true;
-    
-    if (lastSelectedHref && currentSection) {
-      // Find the previously selected navbar link
-      const lastSelectedLink = Array.from(navbarLinks).find(link => link.getAttribute('href') === lastSelectedHref);
+    // Find and highlight the target navbar item
+    const targetLink = Array.from(navbarLinks).find(link => {
+      const href = link.getAttribute('href');
+      if (!href) return false;
       
-      if (lastSelectedLink) {
-        // Check if the previously selected section still contains the current page
-        let lastSelectedPath = lastSelectedHref;
-        
-        // Handle relative paths for the last selected link
-        if (lastSelectedPath.startsWith('../')) {
-          const pathSegments = currentPath.split('/').filter(seg => seg);
-          const linkSegments = lastSelectedPath.split('/').filter(seg => seg);
-          
-          let upLevels = 0;
-          for (const seg of linkSegments) {
-            if (seg === '..') {
-              upLevels++;
-            } else {
-              break;
-            }
-          }
-          
-          const remainingSegments = pathSegments.slice(0, -upLevels);
-          const linkFileName = linkSegments[linkSegments.length - 1];
-          lastSelectedPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
-        } else if (lastSelectedPath.startsWith('./')) {
-          const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-          lastSelectedPath = currentDir + lastSelectedPath.substring(2);
-        } else if (!lastSelectedPath.startsWith('/') && !lastSelectedPath.startsWith('http')) {
-          const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-          lastSelectedPath = currentDir + lastSelectedPath;
-        }
-        
-        const normalizedLastSelectedPath = lastSelectedPath.replace(/\/$/, '') || '/index.html';
-        
-        // If current page is still within the last selected section, keep it highlighted
-        if (normalizedCurrentPath === normalizedLastSelectedPath || 
-            normalizedCurrentPath.startsWith(normalizedLastSelectedPath + '/')) {
-          shouldUpdateHighlighting = false;
-          // Keep the existing highlighting
-          lastSelectedLink.classList.add('recently-selected');
-          currentPageState.lastSelectedNavbarItem = lastSelectedLink;
-        }
-      }
-    }
+      // Normalize the href for comparison
+      const normalizedHref = href.replace(/\/$/, '') || '/index.html';
+      return normalizedHref === targetNavbarItem;
+    });
     
-    // Only update highlighting if we're switching to a different section
-    if (shouldUpdateHighlighting) {
-      // Remove any existing recently-selected classes from navbar
-      header.querySelectorAll('a.recently-selected').forEach(el => {
-        el.classList.remove('recently-selected');
-      });
+    if (targetLink) {
+      targetLink.classList.add('recently-selected');
+      currentPageState.lastSelectedNavbarItem = targetLink;
       
-      // Apply recently-selected class to the best match
-      if (bestMatch) {
-        bestMatch.classList.add('recently-selected');
-        currentPageState.lastSelectedNavbarItem = bestMatch;
-        
-        // Store in sessionStorage for persistence across page loads
-        sessionStorage.setItem('lastSelectedNavbarItem', bestMatch.getAttribute('href'));
-      }
+      // Store in sessionStorage for persistence across page loads
+      sessionStorage.setItem('lastSelectedNavbarItem', targetLink.getAttribute('href'));
     }
   }
 
@@ -715,50 +666,22 @@
     if (!lastSelectedHref) return;
     
     const currentPath = window.location.pathname;
+    const currentTargetNavbarItem = getNavbarItemForPath(currentPath);
     
     // Find the navbar link that matches the stored href
     const navbarLinks = header.querySelectorAll('nav a[href]');
     const lastSelectedLink = Array.from(navbarLinks).find(link => link.getAttribute('href') === lastSelectedHref);
     
     if (lastSelectedLink) {
-      // Check if the current page is still within the last selected section
-      let lastSelectedPath = lastSelectedHref;
+      // Check if the stored navbar item still matches the current page's target navbar item
+      const normalizedLastSelectedHref = lastSelectedHref.replace(/\/$/, '') || '/index.html';
       
-      // Handle relative paths for the last selected link
-      if (lastSelectedPath.startsWith('../')) {
-        const pathSegments = currentPath.split('/').filter(seg => seg);
-        const linkSegments = lastSelectedPath.split('/').filter(seg => seg);
-        
-        let upLevels = 0;
-        for (const seg of linkSegments) {
-          if (seg === '..') {
-            upLevels++;
-          } else {
-            break;
-          }
-        }
-        
-        const remainingSegments = pathSegments.slice(0, -upLevels);
-        const linkFileName = linkSegments[linkSegments.length - 1];
-        lastSelectedPath = '/' + remainingSegments.join('/') + '/' + linkFileName;
-      } else if (lastSelectedPath.startsWith('./')) {
-        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-        lastSelectedPath = currentDir + lastSelectedPath.substring(2);
-      } else if (!lastSelectedPath.startsWith('/') && !lastSelectedPath.startsWith('http')) {
-        const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-        lastSelectedPath = currentDir + lastSelectedPath;
-      }
-      
-      const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/index.html';
-      const normalizedLastSelectedPath = lastSelectedPath.replace(/\/$/, '') || '/index.html';
-      
-      // Only restore highlighting if current page is still within the last selected section
-      if (normalizedCurrentPath === normalizedLastSelectedPath || 
-          normalizedCurrentPath.startsWith(normalizedLastSelectedPath + '/')) {
+      if (normalizedLastSelectedHref === currentTargetNavbarItem) {
+        // Still in the same section, restore highlighting
         lastSelectedLink.classList.add('recently-selected');
         currentPageState.lastSelectedNavbarItem = lastSelectedLink;
       } else {
-        // Clear the stored selection if we're no longer in that section
+        // No longer in the same section, clear the stored selection
         sessionStorage.removeItem('lastSelectedNavbarItem');
       }
     }
