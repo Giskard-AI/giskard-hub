@@ -15,6 +15,22 @@ from pathlib import Path
 
 from sphinxawesome_theme import ThemeOptions
 from sphinxawesome_theme.postprocess import Icons
+
+html_permalinks_icon = Icons.permalinks_icon
+
+project = "Giskard"
+copyright = f"{datetime.now().year}, Giskard"
+author = "Giskard"
+
+# Set the master document to 'start/index'
+# master_doc = "start/index"
+
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+
+sys.path.append(os.path.abspath("./sphinx_ext"))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from toctree_utils import generate_sidebar_html, parse_toctree_file
 
 
@@ -52,20 +68,6 @@ def update_sidebar_templates():
 
 update_sidebar_templates()
 
-html_permalinks_icon = Icons.permalinks_icon
-
-project = "Giskard"
-copyright = f"{datetime.now().year}, Giskard"
-author = "Giskard"
-
-# Set the master document to 'start/index'
-# master_doc = "start/index"
-
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-
-sys.path.append(os.path.abspath("./sphinx_ext"))
-
 extensions = [
     "myst_parser",
     "nbsphinx",
@@ -80,7 +82,6 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
     "notfound.extension",
-    "sphinx_reredirects",
     # "sphinx_autodoc_typehints",
 ]
 
