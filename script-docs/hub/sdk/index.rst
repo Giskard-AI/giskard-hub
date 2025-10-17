@@ -14,18 +14,18 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
       Create, update, and organize projects, agents and knowledge bases
 
-   .. grid-item-card:: Scan vulnerabilities in your agents
-      :link: scans
-      :link-type: doc
-
-      Launch several red teaming attacks to find vulnerabilities in your agents
-
    .. grid-item-card:: Manage datasets and chat test cases
       :link: datasets/index
       :link-type: doc
 
       Create, update, and organize test datasets and chat test cases manually or using synthetic data generation
 
+   .. grid-item-card:: Launch vulnerability scans
+      :link: scans
+      :link-type: doc
+
+      Launch several red teaming attacks to find vulnerabilities in your agents
+      
    .. grid-item-card:: Manage checks
       :link: checks
       :link-type: doc

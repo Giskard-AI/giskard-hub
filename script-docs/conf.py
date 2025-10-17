@@ -49,21 +49,21 @@ def update_sidebar_templates():
     }
 
     templates_dir = base_dir / "_templates"
+    sidebars_dir = templates_dir / "sidebars"
+
+    # Ensure the sidebars directory exists
+    sidebars_dir.mkdir(parents=True, exist_ok=True)
 
     for toctree_path, sidebar_template in toctree_files.items():
-        if toctree_path.exists():
-            toctree_data = parse_toctree_file(str(toctree_path))
-            sidebar_html = generate_sidebar_html(toctree_data, sidebar_template)
+        toctree_data = parse_toctree_file(str(toctree_path))
+        sidebar_html = generate_sidebar_html(toctree_data, sidebar_template)
 
-            # Write the generated sidebar template
-            sidebar_path = templates_dir / sidebar_template
-            with open(sidebar_path, "w", encoding="utf-8") as f:
-                f.write(sidebar_html)
+        # Write the generated sidebar template
+        sidebar_path = templates_dir / sidebar_template
+        with open(sidebar_path, "w", encoding="utf-8") as f:
+            f.write(sidebar_html)
 
-            print(f"Updated sidebar template: {sidebar_template}")
-        else:
-            print(f"Could not find toctree file: {toctree_path}")
-            raise FileNotFoundError(f"Could not find toctree file: {toctree_path}")
+        print(f"Updated sidebar template: {sidebar_template}")
 
 
 update_sidebar_templates()
