@@ -5,9 +5,20 @@
 Generate business tests
 ======================================================
 
+This section will guide you through generating business-focused test cases using the Hub interface.
 Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible scenarios. Automated, synthetic test case generation is therefore essential—especially when you lack real user chats to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
 
 By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
+
+Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
+
+.. code-block:: python
+
+    from giskard_hub import HubClient
+
+    hub = HubClient()
+
+You can now use the ``hub.datasets`` and ``hub.knowledge_bases`` clients to control the Giskard Hub!
 
 Document-Based Testing
 ----------------------

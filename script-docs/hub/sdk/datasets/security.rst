@@ -5,6 +5,8 @@
 Generate security tests
 =============================================================
 
+This section will guide you through generating security-focused test cases using the Hub interface.
+
 Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
 
 Adversarial Security Testing

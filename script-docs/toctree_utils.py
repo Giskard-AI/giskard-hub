@@ -132,7 +132,9 @@ def parse_file_toctree(file_path: str) -> list:
 
         # Find all toctree blocks with their options and content
         # First, find the entire toctree blocks
-        toctree_pattern = r"\.\. toctree::\s*\n(.*?)(?=\n\.\.|\n\w|\Z)"
+        # Optimized regex to avoid catastrophic backtracking:
+        # Use negated character class instead of .*? for better performance
+        toctree_pattern = r"\.\. toctree::\s*\n([^\n]*(?:\n(?!\.\.|\w)[^\n]*)*)"
         toctree_blocks = re.findall(toctree_pattern, content, re.DOTALL | re.MULTILINE)
 
         # Process each block to separate options and content
@@ -158,7 +160,8 @@ def parse_file_toctree(file_path: str) -> list:
 
         for options_block, content_block in toctree_matches:
             # Extract caption from options
-            caption_match = re.search(r":caption:\s*(.+)", options_block)
+            # Optimized regex to avoid potential backtracking issues
+            caption_match = re.search(r":caption:\s*([^\n]+)", options_block)
             caption = caption_match.group(1).strip() if caption_match else None
 
             # Parse entries from content
@@ -169,7 +172,11 @@ def parse_file_toctree(file_path: str) -> list:
                 if line and not line.startswith(":") and not line.startswith("#"):
                     # Handle external links (format: "Title <URL>")
                     if "<" in line and ">" in line:
-                        title_match = re.match(r"^([^\n<>]+?)\s*<([^<>]+)>$", line)
+                        # Optimized regex to avoid catastrophic backtracking:
+                        # Use greedy quantifier with negated character class to prevent backtracking
+                        title_match = re.match(
+                            r"^([^\n<>\s]+(?:\s+[^\n<>\s]+)*)\s*<([^<>]+)>$", line
+                        )
                         if title_match:
                             title = title_match.group(1).strip()
                             url = title_match.group(2).strip()
@@ -252,7 +259,8 @@ def parse_toctree_file(
 
             # Extract caption from options (use first caption found)
             if not toctree_data["caption"]:
-                caption_match = re.search(r":caption:\s*(.+)", options_block)
+                # Optimized regex to avoid potential backtracking issues
+                caption_match = re.search(r":caption:\s*([^\n]+)", options_block)
                 if caption_match:
                     toctree_data["caption"] = caption_match.group(1).strip()
 
@@ -378,7 +386,11 @@ def _parse_toctree_entries(
 
         # Handle external links (format: "Title <URL>")
         if "<" in line and ">" in line:
-            title_match = re.match(r"^([^\n<>]+?)\s*<([^<>]+)>$", line)
+            # Optimized regex to avoid catastrophic backtracking:
+            # Use greedy quantifier with negated character class to prevent backtracking
+            title_match = re.match(
+                r"^([^\n<>\s]+(?:\s+[^\n<>\s]+)*)\s*<([^<>]+)>$", line
+            )
             if title_match:
                 title = title_match.group(1).strip()
                 url = title_match.group(2).strip()

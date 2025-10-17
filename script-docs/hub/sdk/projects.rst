@@ -27,11 +27,8 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
 You can now use the ``hub`` client to create, update, and delete projects, agents, and knowledge bases.
 
-Projects
+Manage projects
 --------
-
-Create a project
-________________
 
 You can create a project using the ``hub.projects.create()`` method. Example:
 
@@ -42,16 +39,10 @@ You can create a project using the ``hub.projects.create()`` method. Example:
         description="This is a test project to get started with the Giskard Hub client library",
     )
 
-API Reference
-==============
+For detailed information about Creating, updating, and deleting projects, see the :doc:`/hub/sdk/reference/resources/index` section.
 
-For detailed information about project, agent, and knowledge base management methods, see the :doc:`/hub/sdk/reference/index` section.
-
-Agents
-------
-
-Create an agent
-_______________
+Manage agents
+-------------
 
 You can create an agent using the ``hub.models.create()`` method. Example:
 
@@ -92,13 +83,12 @@ If all is working well, this will return something like:
         metadata={}
     )
 
-Knowledge bases
+For detailed information about agent management methods, see the :doc:`/hub/sdk/reference/resources/index` section.
+
+Manage knowledge bases
 ---------------
 
 The `hub.knowledge_bases` resource allows you to create, retrieve, update, delete, and list knowledge bases, as well as list topics and documents within a knowledge base.
-
-Create a knowledge base
-_______________________
 
 You can create a knowledge base using the ``hub.knowledge_bases.create()`` method. The `data` parameter can be a path (relative or absolute) to a JSON/JSONL file or a list of dicts containing a `text` key and an optional `topic` key.
 
@@ -127,3 +117,5 @@ After creating the knowledge base, we need to wait for it to be ready because we
 .. code-block:: python
 
     kb.wait_for_completion()
+
+For detailed information about knowledge base management methods, see the :doc:`/hub/sdk/reference/resources/index` section.

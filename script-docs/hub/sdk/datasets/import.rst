@@ -5,12 +5,7 @@
 Import tests
 =============================
 
-You can import existing test datasets from a file. This is particularly useful when you already have a dataset that you want to use for evaluation.
-
 In this section, we will walk you through how to import existing datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
-
-Importing datasets
-------------------
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -25,7 +20,7 @@ You can now use the ``hub.datasets`` and ``hub.chat_test_cases`` clients to impo
 Create a dataset
 ________________
 
-As we have seen in the :doc:`/hub/sdk/datasets/index` section, we can create a dataset using the ``hub.datasets.create()`` method.
+As we have seen in the :doc:`/hub/sdk/datasets/manual` section, we can create a dataset using the ``hub.datasets.create()`` method.
 
 .. code-block:: python
 
@@ -75,12 +70,13 @@ We can import the chats into the dataset using the ``hub.chat_test_cases.create(
     )
 
 Import datasets from other tools
+________________________________
 --------------------------------
 
 We can also import datasets from other tools, like Giskard Open Source.
 
 Import a dataset from RAGET
-___________________________
+--------------------------------
 
 We can import a dataset from RAGET but we need to do some post-processing to get the dataset in the correct format.
 We still start by loading the testset we got from :doc:`/oss/sdk/business`.
@@ -163,7 +159,7 @@ We can then format the testset to the correct format and create the dataset usin
         )
 
 Next steps
-----------
+__________
 
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
