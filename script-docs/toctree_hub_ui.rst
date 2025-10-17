@@ -11,3 +11,5 @@
    hub/ui/evaluations-compare
    hub/ui/continuous-red-teaming
    hub/ui/access-rights
+   Contact us <https://www.giskard.ai/contact>
+   Blogs <https://www.giskard.ai/knowledge-categories/blog>

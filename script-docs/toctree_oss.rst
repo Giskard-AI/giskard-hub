@@ -9,4 +9,6 @@
    oss/sdk/legacy
    oss/notebooks/index
    oss/sdk/reference/index
-   GitHub <https://github.com/Giskard-AI/giskard>
+   GitHub Releases <https://github.com/Giskard-AI/giskard/releases>
+   Contact us <https://www.giskard.ai/contact>
+   Blogs <https://www.giskard.ai/knowledge-categories/blog>

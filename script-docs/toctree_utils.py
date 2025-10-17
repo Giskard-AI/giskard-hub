@@ -169,7 +169,7 @@ def parse_file_toctree(file_path: str) -> list:
                 if line and not line.startswith(":") and not line.startswith("#"):
                     # Handle external links (format: "Title <URL>")
                     if "<" in line and ">" in line:
-                        title_match = re.match(r"^(.+?)\s*<(.+)>$", line)
+                        title_match = re.match(r"^([^\n<>]+?)\s*<([^<>]+)>$", line)
                         if title_match:
                             title = title_match.group(1).strip()
                             url = title_match.group(2).strip()
@@ -378,7 +378,7 @@ def _parse_toctree_entries(
 
         # Handle external links (format: "Title <URL>")
         if "<" in line and ">" in line:
-            title_match = re.match(r"^(.+?)\s*<(.+)>$", line)
+            title_match = re.match(r"^([^\n<>]+?)\s*<([^<>]+)>$", line)
             if title_match:
                 title = title_match.group(1).strip()
                 url = title_match.group(2).strip()

@@ -9,4 +9,6 @@
    hub/sdk/checks
    hub/sdk/evaluations
    hub/sdk/reference/index
-   GitHub <https://github.com/Giskard-AI/giskard-hub>
+   GitHub Releases <https://github.com/Giskard-AI/giskard-hub/releases>
+   Contact us <https://www.giskard.ai/contact>
+   Blogs <https://www.giskard.ai/knowledge-categories/blog>
