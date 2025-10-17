@@ -21,7 +21,7 @@ def extract_rst_title(file_path: str) -> str | None:
         with open(file_path, "r", encoding="utf-8") as f:
             for line in f:
                 stripped_line = line.lstrip()
-                if stripped_line and stripped_line[0].isalpha():
+                if stripped_line and stripped_line[0].isalnum():
                     return stripped_line.strip()
         return None
     except (FileNotFoundError, Exception) as e:
@@ -442,6 +442,19 @@ def _parse_toctree_entries(
             else:
                 # Simple filename - resolve relative to the current toctree file's directory
                 entry_path = Path(base_dir) / line
+
+            # Ensure the entry_path has the correct extension
+            if not entry_path.suffix:
+                # No extension, try to find the actual file
+                rst_path = entry_path.with_suffix(".rst")
+                ipynb_path = entry_path.with_suffix(".ipynb")
+                if rst_path.exists():
+                    entry_path = rst_path
+                elif ipynb_path.exists():
+                    entry_path = ipynb_path
+                else:
+                    # Default to .rst if file doesn't exist
+                    entry_path = rst_path
             children = _get_nested_children(str(entry_path), processed_files)
 
             # Try to extract title from file first, fallback to filename
@@ -455,10 +468,43 @@ def _parse_toctree_entries(
             # Determine the correct URL extension
             url_ext = get_url_extension(str(entry_path))
 
+            # Construct the URL using the full path from entry_path
+            # Convert absolute path to relative path from script-docs directory
+            script_docs_path = Path(
+                __file__
+            ).parent  # Use absolute path to script-docs directory
+            try:
+                # Get relative path from script-docs directory
+                relative_path = entry_path.relative_to(script_docs_path)
+                url = f"/{relative_path.with_suffix(url_ext)}"
+            except ValueError:
+                # Fallback: try to extract the relevant parts
+                parts = entry_path.parts
+                if len(parts) > 1:
+                    # Look for script-docs in the path parts
+                    script_docs_index = None
+                    for i, part in enumerate(parts):
+                        if part == "script-docs":
+                            script_docs_index = i
+                            break
+
+                    if script_docs_index is not None and script_docs_index + 1 < len(
+                        parts
+                    ):
+                        # Extract path after script-docs
+                        relevant_parts = parts[script_docs_index + 1 :]
+                        url = f"/{'/'.join(relevant_parts).replace('.rst', url_ext).replace('.ipynb', '.ipynb.html')}"
+                    else:
+                        # Fallback: use the original line-based approach
+                        url = f"/{line}{url_ext}"
+                else:
+                    # Single filename
+                    url = f"/{line}{url_ext}"
+
             entries.append(
                 {
                     "title": title,
-                    "url": f"/{line}{url_ext}",
+                    "url": url,
                     "is_external": False,
                     "children": children,
                 }
@@ -503,7 +549,9 @@ def _get_nested_children(
                 return children
         
         # Get the relative path from script-docs directory for URL construction
-        script_docs_path = Path("script-docs")
+        script_docs_path = Path(
+            __file__
+        ).parent  # Use absolute path to script-docs directory
         file_path_obj = Path(file_path)
 
         # Convert absolute path to relative path from script-docs
@@ -548,29 +596,34 @@ def _get_nested_children(
             for entry in file_toctree_data["entries"]:
                 # Update the URL to be absolute
                 if not entry["is_external"]:
-                    # Extract the path from the current URL (remove leading / and any extension)
+                    # Check if the URL is already correctly constructed (starts with / and has proper path)
                     current_url = entry["url"]
-                    path_part = current_url.lstrip("/")
-                    # Remove both .html and .ipynb.html extensions
-                    if path_part.endswith(".ipynb.html"):
-                        path_part = path_part[:-10]  # Remove .ipynb.html
-                    elif path_part.endswith(".html"):
-                        path_part = path_part[:-5]  # Remove .html
-
-                    # Determine the correct extension for this path
-                    # Try to find the actual file to determine the extension
-                    potential_ipynb = Path("script-docs") / f"{path_part}.ipynb"
-
-                    if potential_ipynb.exists():
-                        url_ext = ".ipynb.html"
+                    if current_url.startswith("/") and len(current_url.split("/")) >= 3:
+                        # URL is already correctly constructed with full path, don't modify it
+                        pass
                     else:
-                        url_ext = ".html"
+                        # Extract the path from the current URL (remove leading / and any extension)
+                        path_part = current_url.lstrip("/")
+                        # Remove both .html and .ipynb.html extensions
+                        if path_part.endswith(".ipynb.html"):
+                            path_part = path_part[:-10]  # Remove .ipynb.html
+                        elif path_part.endswith(".html"):
+                            path_part = path_part[:-5]  # Remove .html
 
-                    # Construct absolute path using the parent URL prefix
-                    if parent_url_prefix:
-                        entry["url"] = f"{parent_url_prefix}/{path_part}{url_ext}"
-                    else:
-                        entry["url"] = f"/{path_part}{url_ext}"
+                        # Determine the correct extension for this path
+                        # Try to find the actual file to determine the extension
+                        potential_ipynb = Path("script-docs") / f"{path_part}.ipynb"
+
+                        if potential_ipynb.exists():
+                            url_ext = ".ipynb.html"
+                        else:
+                            url_ext = ".html"
+
+                        # Construct absolute path using the parent URL prefix
+                        if parent_url_prefix:
+                            entry["url"] = f"{parent_url_prefix}/{path_part}{url_ext}"
+                        else:
+                            entry["url"] = f"/{path_part}{url_ext}"
 
                 # Children URLs are already processed by their own _get_nested_children calls
                 # No need to modify them here as they will have their own absolute paths
@@ -639,15 +692,25 @@ def _discover_files_with_glob_pattern(file_path: str, glob_pattern: str) -> list
             pattern_path = glob_pattern.lstrip("/")
         else:
             # Relative pattern from current file directory
-            pattern_path = file_dir / glob_pattern
+            pattern_path = str(file_dir / glob_pattern)
 
         # Use glob to find matching files
         import glob
+        import os
 
-        discovered_paths = glob.glob(str(pattern_path))
+        # Change to script-docs directory for glob to work correctly
+        script_docs_path = Path(__file__).parent
+        original_cwd = os.getcwd()
+        try:
+            os.chdir(script_docs_path)
+            discovered_paths = glob.glob(str(pattern_path))
+        finally:
+            os.chdir(original_cwd)
 
         for discovered_path in discovered_paths:
-            discovered_file = Path(discovered_path)
+            discovered_file = Path(
+                discovered_path
+            ).resolve()  # Resolve to absolute path
 
             # Skip directories and non-RST files
             if not discovered_file.is_file() or discovered_file.suffix not in [
@@ -661,8 +724,37 @@ def _discover_files_with_glob_pattern(file_path: str, glob_pattern: str) -> list
                 continue
 
             # Construct the URL path
-            # Since we're running from script-docs directory, the discovered files are already relative
-            url_path = f"/{discovered_file.with_suffix('.html')}"
+            # Convert absolute path to relative path from script-docs directory
+            script_docs_path = Path(
+                __file__
+            ).parent  # Use absolute path to script-docs directory
+            try:
+                # Get relative path from script-docs directory
+                relative_path = discovered_file.relative_to(script_docs_path)
+                url_path = f"/{relative_path.with_suffix('.html')}"
+            except ValueError:
+                # If not relative to script-docs, try to extract the relevant parts
+                parts = discovered_file.parts
+                if len(parts) > 1:
+                    # Look for script-docs in the path parts
+                    script_docs_index = None
+                    for i, part in enumerate(parts):
+                        if part == "script-docs":
+                            script_docs_index = i
+                            break
+
+                    if script_docs_index is not None and script_docs_index + 1 < len(
+                        parts
+                    ):
+                        # Extract path after script-docs
+                        relevant_parts = parts[script_docs_index + 1 :]
+                        url_path = f"/{'/'.join(relevant_parts).replace('.rst', '.html').replace('.ipynb', '.ipynb.html')}"
+                    else:
+                        # Fallback: use the filename only
+                        url_path = f"/{discovered_file.name.replace('.rst', '.html').replace('.ipynb', '.ipynb.html')}"
+                else:
+                    # Single filename
+                    url_path = f"/{discovered_file.name.replace('.rst', '.html').replace('.ipynb', '.ipynb.html')}"
 
             # Extract title from file
             file_title = extract_file_title(str(discovered_file))
@@ -756,7 +848,9 @@ def _discover_files_with_glob(
 
             # Construct absolute path using the same logic as _get_nested_children
             # Get the parent URL prefix from the current file's location
-            script_docs_path = Path("script-docs")
+            script_docs_path = Path(
+                __file__
+            ).parent  # Use absolute path to script-docs directory
             try:
                 current_file_relative = file_path_obj.relative_to(script_docs_path)
                 parent_path = current_file_relative.parent
@@ -800,7 +894,38 @@ def _discover_files_with_glob(
             if parent_url_prefix:
                 url_path = f"{parent_url_prefix}/{discovered_file.stem}{url_ext}"
             else:
-                url_path = f"/{discovered_file.stem}{url_ext}"
+                # If no parent prefix, we need to construct the full path from script-docs
+                script_docs_path = Path(
+                    __file__
+                ).parent  # Use absolute path to script-docs directory
+                try:
+                    # Get relative path from script-docs directory
+                    relative_path = discovered_file.relative_to(script_docs_path)
+                    url_path = f"/{relative_path.with_suffix(url_ext)}"
+                except ValueError:
+                    # Fallback: try to extract the relevant parts
+                    parts = discovered_file.parts
+                    if len(parts) > 1:
+                        # Look for script-docs in the path parts
+                        script_docs_index = None
+                        for i, part in enumerate(parts):
+                            if part == "script-docs":
+                                script_docs_index = i
+                                break
+
+                        if (
+                            script_docs_index is not None
+                            and script_docs_index + 1 < len(parts)
+                        ):
+                            # Extract path after script-docs
+                            relevant_parts = parts[script_docs_index + 1 :]
+                            url_path = f"/{'/'.join(relevant_parts).replace('.rst', url_ext).replace('.ipynb', '.ipynb.html')}"
+                        else:
+                            # Fallback: use the filename only
+                            url_path = f"/{discovered_file.stem}{url_ext}"
+                    else:
+                        # Single filename
+                        url_path = f"/{discovered_file.stem}{url_ext}"
 
             # Skip if already exists
             if url_path in existing_urls:
