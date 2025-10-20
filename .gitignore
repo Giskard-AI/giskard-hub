@@ -166,3 +166,5 @@ cython_debug/
 !script-docs/hub/ui/evaluations
 script-docs/_templates/sidebars
 !script-docs/hub/sdk/evaluations
+!script-docs/hub/ui/setup
+!script-docs/hub/sdk/setup

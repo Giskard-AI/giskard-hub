@@ -61,9 +61,6 @@ The parameters for creating a chat test case are:
 
 .. code-block:: python
 
-
-.. code-block:: python
-
     hub.chat_test_cases.create(
         dataset_id=dataset.id,
 
@@ -96,7 +93,8 @@ The parameters for creating a chat test case are:
 For detailed information about creating manual datasets, see the :doc:`/hub/sdk/reference/resources/index` section.
 
 Next steps
-----------
+__________
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
 * **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
+* **Review test case and assign checks** - Make sure to :doc:`/hub/ui/annotate/index`

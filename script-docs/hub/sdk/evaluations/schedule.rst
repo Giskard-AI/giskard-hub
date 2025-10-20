@@ -1,7 +1,7 @@
 :og:title: Giskard Hub SDK - Scheduled Evaluations
 :og:description: Schedule evaluations to run automatically at regular intervals. Detect regressions in agent performance over time with automated testing workflows using the Python SDK.
 
-Run remote evaluations
+Schedule evaluations
 ----------------------
 
 You can schedule evaluations to run automatically at regular intervals. This is useful to detect regressions in your agent's performance over time.

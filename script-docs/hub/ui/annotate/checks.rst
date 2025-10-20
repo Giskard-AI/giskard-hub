@@ -229,3 +229,12 @@ The choice of check depends on the type of vulnerability you're testing for and 
       :link-type: doc
 
       Prompt injection is a critical security vulnerability where malicious users manipulate input prompts to bypass content filters, override model instructions, or extract sensitive information.
+
+Next steps
+----------
+
+Now that you have created a custom check, you can apply it to conversations in your dataset. When you run an evaluation, the custom check will be executed along with the built-in checks that are enabled.
+
+* **Evaluate tests** - :doc:`/hub/ui/annotate/conversations`
+* **Assign tags to tests** - :doc:`/hub/ui/annotate/tags`
+* **Run evaluations** - :doc:`/hub/ui/evaluations/create`

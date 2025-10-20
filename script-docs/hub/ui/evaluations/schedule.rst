@@ -7,6 +7,9 @@ Schedule evaluations
 
 You can schedule evaluations to run automatically at regular intervals. This is useful to detect regressions in your agent's performance over time.
 
+Open the schedule view
+----------------------
+
 On the Evaluations page, click on the "Schedule" tab. This will display a list of all the scheduled evaluations.
 
 .. image:: /_static/images/hub/evaluation-schedule-list.png
@@ -14,12 +17,18 @@ On the Evaluations page, click on the "Schedule" tab. This will display a list o
    :alt: "Evaluation schedule list"
    :width: 800
 
+Create a new schedule
+---------------------
+
 To create a new scheduled evaluation, click on the "Schedule Evaluation" button in the upper right corner of the screen.
 
 .. image:: /_static/images/hub/evaluation-schedule.png
    :align: center
    :alt: "Evaluation schedule"
    :width: 800
+
+Configure the schedule
+----------------------
 
 Next, set the parameters for the evaluation:
 
@@ -39,3 +48,9 @@ Next, set the parameters for the evaluation:
 
 After filling the form, click on the "Schedule evaluation" button, which will create the evaluation run and schedule it to run at the specified frequency and time.
 
+Next steps
+----------
+
+Now that you have scheduled an evaluation, you can take action on the results.
+
+* **Compare evaluations** - :doc:`/hub/ui/evaluations/compare`

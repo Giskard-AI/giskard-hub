@@ -1,15 +1,19 @@
 :og:title: Giskard Hub UI - Conversation Management and Test Cases
 :og:description: Manage and create conversation test cases with intuitive visual tools. Design multi-turn dialogues, add answer examples, and build comprehensive test scenarios for LLM agent evaluation.
 
-Manage test cases
-=================
+Evaluate test cases
+===================
 
 .. image:: /_static/images/hub/annotation-studio.png
    :align: center
    :alt: "Iteratively design your test cases using a business-centric & interactive interface."
    :width: 800
 
-A conversation is a list of messages, alternating between **user** messages and **assistant** roles. When designing your test cases, you can decide to provide a conversation history by adding multiple turns. Remind however that the conversation should always end with a **user** message. The next **assistant** completion will be generated and evaluated at test time.
+A conversation or test case is a list of messages, alternating between **user** messages and **assistant** roles. When designing your test cases, you can decide to provide a conversation history by adding multiple turns. Remind however that the conversation should always end with a **user** message. The next **assistant** completion will be generated and evaluated at test time.
+
+.. note::
+
+  Except for very specific cases, conversations should always end with a user message. The next agent response will be generated and evaluated at runtime.
 
 Simple conversation
 -------------------
@@ -47,3 +51,11 @@ There are multiple ways to provide an answer example:
 
 If you haven't added an answer example, by default, the Hub will populate this field with the assistant answer obtained upon the first evaluation run on your dataset.
 
+Next steps
+----------
+
+Now that you have created a conversation, you can assign checks and tags to it.
+
+* **Assign checks to tests** - :doc:`/hub/ui/annotate/checks`
+* **Assign tags to tests** - :doc:`/hub/ui/annotate/tags`
+* **Run evaluations** - :doc:`/hub/ui/evaluations/create`

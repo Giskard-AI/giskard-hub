@@ -51,3 +51,12 @@ To choose a tag, it is good to stick to a naming convention that you agreed on b
    - **Stick to Agreed Naming Conventions**: Ensure that your team agrees on and follows a consistent naming convention for tags to maintain organization and clarity.
 
      Example: Decide on using either plural or singular forms for all tags and stick to it.
+
+Next steps
+----------
+
+Now that you have assigned tags to tests, you can run evaluations on them.
+
+* **Evaluate tests** - :doc:`/hub/ui/annotate/conversations`
+* **Assign checks to tests** - :doc:`/hub/ui/annotate/checks`
+* **Run evaluations** - :doc:`/hub/ui/evaluations/create`

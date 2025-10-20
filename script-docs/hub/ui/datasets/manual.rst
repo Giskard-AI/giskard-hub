@@ -123,9 +123,6 @@ The screen above shows three sections:
 Approaches for Red Teaming AI Agents
 ____________________________________
 
-
-
-
 Adversarial conversations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -227,5 +224,6 @@ The important thing is to remember that once you have tested what you wanted, yo
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
+* **Agentic vulnerability detection** - Try :doc:`/hub/ui/scan/index`
 * **Generate test cases** - Try :doc:`/hub/ui/datasets/business` or :doc:`/hub/ui/datasets/security`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

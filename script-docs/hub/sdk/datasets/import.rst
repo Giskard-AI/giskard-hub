@@ -71,7 +71,6 @@ We can import the chats into the dataset using the ``hub.chat_test_cases.create(
 
 Import datasets from other tools
 ________________________________
---------------------------------
 
 We can also import datasets from other tools, like Giskard Open Source.
 
@@ -161,5 +160,6 @@ We can then format the testset to the correct format and create the dataset usin
 Next steps
 __________
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

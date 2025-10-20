@@ -53,6 +53,6 @@ Before generating test cases, you need to `create a knowledge base </hub/sdk/pro
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
 * **Generate security vulnerabilities** - Try :doc:`/hub/sdk/datasets/security`
-* **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

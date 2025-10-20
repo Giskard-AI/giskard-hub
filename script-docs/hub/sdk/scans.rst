@@ -33,9 +33,6 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
     hub = HubClient()
 
-Run security scans
-~~~~~~~~~~~~~~~~~~
-
 First, you need to have an agent configured in the Hub. If you haven't created an agent yet, check the Create an agent section in the Projects guide.
 
 Launch a basic scan
