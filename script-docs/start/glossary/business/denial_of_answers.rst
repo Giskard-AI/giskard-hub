@@ -69,7 +69,7 @@ Test Denial of Answers with Giskard
         Use the Hub interface to generate document-based test cases for denial of answers detection. The UI automatically generates queries that test whether models incorrectly refuse to answer legitimate business questions.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate
+      :link: /hub/ui/annotate/checks
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the business boundaries.

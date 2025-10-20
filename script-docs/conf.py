@@ -11,6 +11,7 @@ import os
 import sys
 from dataclasses import asdict
 from datetime import datetime
+from pathlib import Path
 
 from sphinxawesome_theme import ThemeOptions
 from sphinxawesome_theme.postprocess import Icons
@@ -21,10 +22,51 @@ project = "Giskard"
 copyright = f"{datetime.now().year}, Giskard"
 author = "Giskard"
 
+# Set the master document to 'start/index'
+# master_doc = "start/index"
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 sys.path.append(os.path.abspath("./sphinx_ext"))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from toctree_utils import generate_sidebar_html, parse_toctree_file
+
+
+# Generate sidebar templates dynamically
+def update_sidebar_templates():
+    """
+    Dynamically update sidebar templates based on toctree files, using paths relative to this file.
+    """
+    base_dir = Path(__file__).parent.resolve()
+
+    toctree_files = {
+        base_dir / "toctree_hub_ui.rst": "sidebars/sidebar_hub_ui.html",
+        base_dir / "toctree_hub_sdk.rst": "sidebars/sidebar_hub_sdk.html",
+        base_dir / "toctree_oss.rst": "sidebars/sidebar_oss_sdk.html",
+        base_dir / "toctree.rst": "sidebars/sidebar_start.html",
+    }
+
+    templates_dir = base_dir / "_templates"
+    sidebars_dir = templates_dir / "sidebars"
+
+    # Ensure the sidebars directory exists
+    sidebars_dir.mkdir(parents=True, exist_ok=True)
+
+    for toctree_path, sidebar_template in toctree_files.items():
+        toctree_data = parse_toctree_file(str(toctree_path))
+        sidebar_html = generate_sidebar_html(toctree_data, sidebar_template)
+
+        # Write the generated sidebar template
+        sidebar_path = templates_dir / sidebar_template
+        with open(sidebar_path, "w", encoding="utf-8") as f:
+            f.write(sidebar_html)
+
+        print(f"Updated sidebar template: {sidebar_template}")
+
+
+update_sidebar_templates()
 
 extensions = [
     "myst_parser",
@@ -74,7 +116,6 @@ pygments_style = "lovelace"
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 html_theme = "sphinxawesome_theme"
-# html_theme = 'alabaster'
 html_static_path = ["_static"]
 html_baseurl = "/"
 source_suffix = [".rst", ".md"]
@@ -104,6 +145,7 @@ nbsphinx_prolog = """
 """
 # fmt: on
 
+
 theme_options = ThemeOptions(
     show_prev_next=True,
     show_scrolltop=True,
@@ -111,13 +153,22 @@ theme_options = ThemeOptions(
     logo_light="_static/logo_light.png",
     logo_dark="_static/logo_dark.png",
     main_nav_links={
-        "Getting Started": "/index",
+        "Products": "/index",
         "Hub UI": "/hub/ui/index",
         "Hub SDK": "/hub/sdk/index",
         "Open Source": "/oss/sdk/index",
     },
 )
 html_theme_options = asdict(theme_options)
+
+# Use wildcard patterns to support any nested path within the specified routes
+html_sidebars: dict[str, list[str]] = {
+    "hub/ui/**": ["sidebars/sidebar_hub_ui.html"],
+    "hub/sdk/**": ["sidebars/sidebar_hub_sdk.html"],
+    "oss/**": ["sidebars/sidebar_oss_sdk.html"],
+    "start/**": ["sidebars/sidebar_start.html"],
+    "index": ["sidebars/sidebar_start.html"],
+}
 # -- Open Graph configuration -------------------------------------------------
 # https://sphinxext-opengraph.readthedocs.io/en/latest/
 

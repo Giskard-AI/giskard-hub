@@ -1,9 +1,9 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Manual Dataset Creation
-:og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases.
+:og:title: Giskard Hub UI - Manual Test Case Creation
+:og:description: Build test datasets manually with custom test cases and scenarios from the red teaming playground. Create targeted tests for specific LLM agent use cases with intuitive visual tools.
 
-=====================================================
-Manual test creation for fine-grained control
-=====================================================
+====================================================
+Create manual tests
+====================================================
 
 You can create test datasets manually for fine-grained control. This is particularly useful when you want to create test cases with full control over the test case creation process. There are two ways to manually create test cases:
 
@@ -58,7 +58,7 @@ A conversation consists of the following components:
 
 .. note::
 
-   For detailed information about checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
 
 After the conversation is created, you can add the required information to it. For example, you can add the expected output and rules to the conversation.
 
@@ -69,7 +69,7 @@ After the conversation is created, you can add the required information to it. F
 
 .. tip::
 
-    To understand more about how to write an expected response and rules, check out the :doc:`/hub/ui/annotate` section.
+    To understand more about how to write an expected response and rules, check out the :doc:`/hub/ui/annotate/index` section.
 
 Create manual tests from the red teaming playground
 ---------------------------------------------------
@@ -227,5 +227,5 @@ The important thing is to remember that once you have tested what you wanted, yo
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Generate test cases** - Try :doc:`/hub/ui/datasets/business` or :doc:`/hub/ui/datasets/security`

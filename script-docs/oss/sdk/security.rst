@@ -2,7 +2,7 @@
 :og:description: Detect security vulnerabilities, prompt injection attacks, and data leakage in your LLM agents and language models with our free LLM Scan tool.
 
 ======================================================
-Detect security vulnerabilities in LLMs using LLM Scan
+Generate security tests
 ======================================================
 
 What are AI Security Vulnerabilities?

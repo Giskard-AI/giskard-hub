@@ -1,8 +1,8 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Security Testing
-:og:description: Generate and manage security-focused test cases for your LLM agents. Detect vulnerabilities, prompt injection attacks, and security failures through automated testing.
+:og:title: Giskard Hub UI - Security Test Generation
+:og:description: Generate and manage security-focused test cases for your LLM agents. Detect vulnerabilities, prompt injection attacks, and security failures through comprehensive automated testing.
 
 ==============================================================
-Detect security vulnerabilities by generating synthetic tests
+Generate security tests
 ==============================================================
 
 Security testing is a critical component of LLM agent evaluation. It focuses on identifying vulnerabilities that could be exploited by malicious actors or lead to unintended behavior.
@@ -68,6 +68,6 @@ In the Adversarial tab, you can generate an adversarial test dataset within the 
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Detect business failures** - Try :doc:`/hub/ui/datasets/business`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

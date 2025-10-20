@@ -51,13 +51,13 @@ Core concepts
       A specific input-output pair or scenario used to evaluate model behavior and performance.
 
    .. grid-item-card:: Check
-      :link: /hub/ui/evaluations
+      :link: /hub/ui/annotate/checks
       :link-type: doc
 
       A specific test or validation rule that evaluates a particular aspect of model behavior (e.g., correctness, security, fairness, metadata, semantic similarity).
 
    .. grid-item-card:: Evaluation
-      :link: /hub/ui/evaluations
+      :link: /hub/ui/evaluations/index
       :link-type: doc
 
       The process of testing a model against a dataset to assess its performance, safety, and compliance.
@@ -98,13 +98,13 @@ Testing and evaluation
       Testing methodology that intentionally tries to break or exploit models using carefully crafted inputs designed to trigger failures.
 
    .. grid-item-card:: Human-in-the-Loop
-      :link: /hub/ui/annotate
+      :link: /hub/ui/annotate/index
       :link-type: doc
 
       Combining automated testing with human expertise and judgment.
 
    .. grid-item-card:: Regression Testing
-      :link: /hub/ui/evaluations-compare
+      :link: /hub/ui/evaluations/compare
       :link-type: doc
 
       Ensuring that new changes don't break existing functionality.

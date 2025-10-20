@@ -1,8 +1,8 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Import Datasets
-:og:description: Import your existing test data into Giskard Hub. Bring conversations, CSV files, and other data formats to build comprehensive test datasets.
+:og:title: Giskard Hub UI - Dataset Import and Migration
+:og:description: Import your existing test data into Giskard Hub. Bring conversations, CSV files, and other data formats to build comprehensive test datasets with intuitive visual tools.
 
 =============================
-Import Existing Datasets
+Import tests
 =============================
 
 You can import existing test datasets from a file. This is particularly useful when you already have a dataset that you want to use for evaluation.
@@ -41,7 +41,7 @@ Each conversation must be defined as a JSON object with a ``messages`` field con
 
 .. note::
 
-   For detailed information about built-in checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about built-in checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
 
 .. image:: /_static/images/hub/import-conversations-detail.png
    :align: center
@@ -94,5 +94,5 @@ Here's an example of the structure and content in a dataset:
 Next steps
 ----------
 
-* **Review test case** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Generate test cases** - Try :doc:`/hub/ui/datasets/business` or :doc:`/hub/ui/datasets/security`

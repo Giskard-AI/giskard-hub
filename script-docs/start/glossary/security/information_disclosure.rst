@@ -71,7 +71,7 @@ Giskard provides comprehensive tools to test and prevent information disclosure 
       Use the Hub interface to generate adversarial test cases for information disclosure detection. The UI automatically generates queries that attempt to extract internal system details, training data, or confidential information.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate
+      :link: /hub/ui/annotate/checks
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the security boundaries.

@@ -1,6 +1,8 @@
-===============================================
-Launch a red teaming scan
-===============================================
+:og:title: Giskard Hub UI - Launch Vulnerability Scans
+:og:description: Launch comprehensive vulnerability scans for your AI agents. Configure scan parameters, select vulnerability categories, and monitor real-time progress with intuitive visual tools.
+
+Launch a scan
+=============
 
 Start testing your AI agent for security vulnerabilities.
 

@@ -71,12 +71,7 @@ Giskard provides comprehensive tools to test and prevent harmful content generat
       Use the Hub interface to generate adversarial test cases for harmful content detection. The UI automatically generates queries that attempt to trigger violent, illegal, or inappropriate content generation.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate
-      :link-type: doc
-
-      Annotate test cases with test rules to help the model understand the security boundaries.
-
-      :link: /hub/ui/annotate
+      :link: /hub/ui/annotate/index
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the security boundaries.

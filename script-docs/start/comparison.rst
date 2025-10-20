@@ -39,15 +39,15 @@ Feature comparison
 
    * - Tool/function calling tests
      - ❌ Not available
-     - :doc:`✅ Full support </hub/ui/annotate>`
+     - :doc:`✅ Full support </hub/ui/annotate/checks>`
 
    * - Custom tests
      - :doc:`✅ Full support </oss/sdk/security>`
-     - :doc:`✅ Full support </hub/ui/annotate>`
+     - :doc:`✅ Full support </hub/ui/annotate/checks>`
 
    * - Local evaluations
      - :doc:`✅ Full support </oss/sdk/index>`
-     - :doc:`✅ Full support </hub/ui/evaluations>`
+     - :doc:`✅ Full support </hub/ui/evaluations/index>`
 
    * - **Team Collaboration**
      -
@@ -75,19 +75,19 @@ Feature comparison
 
    * - Scheduled evaluation runs
      - ❌ Not available
-     - :doc:`✅ Fully supported </hub/ui/evaluations>`
+     - :doc:`✅ Fully supported </hub/ui/evaluations/index>`
 
    * - Evaluation comparison dashboard
      - ❌ Not available
-     - :doc:`✅ Fully supported </hub/ui/evaluations-compare>`
+     - :doc:`✅ Fully supported </hub/ui/evaluations/compare>`
 
    * - Alerting
      - ❌ Not available
-     - :doc:`✅ Configurable alerts </hub/ui/evaluations>`
+     - :doc:`✅ Configurable alerts </hub/ui/evaluations/index>`
 
    * - Performance tracking
      - ❌ Local only
-     - :doc:`✅ Historical data </hub/ui/evaluations-compare>`
+     - :doc:`✅ Historical data </hub/ui/evaluations/compare>`
 
    * - **Enterprise Security**
      -

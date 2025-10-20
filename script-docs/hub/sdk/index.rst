@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - SDK Quickstart
-:og:description: Get started with the Giskard Hub Python SDK for programmatic LLM agent testing. Install, authenticate, and begin building automated testing workflows.
+:og:title: Giskard Hub SDK - Python Client for Enterprise Agent Testing
+:og:description: Get started with the Giskard Hub Python SDK for programmatic LLM agent testing. Install, authenticate, and begin building automated testing workflows with comprehensive API access.
 
 Quickstart & setup
 ==================
@@ -14,18 +14,18 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
       Create, update, and organize projects, agents and knowledge bases
 
-   .. grid-item-card:: Scan vulnerabilities in your agents
-      :link: scans
-      :link-type: doc
-
-      Launch several red teaming attacks to find vulnerabilities in your agents
-
    .. grid-item-card:: Manage datasets and chat test cases
       :link: datasets/index
       :link-type: doc
 
       Create, update, and organize test datasets and chat test cases manually or using synthetic data generation
 
+   .. grid-item-card:: Launch vulnerability scans
+      :link: scans
+      :link-type: doc
+
+      Launch several red teaming attacks to find vulnerabilities in your agents
+      
    .. grid-item-card:: Manage checks
       :link: checks
       :link-type: doc
@@ -33,7 +33,7 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
       Build and deploy validation rules and metrics for your tests
 
    .. grid-item-card:: Run and Schedule Evaluations
-      :link: evaluations
+      :link: evaluations/index
       :link-type: doc
 
       Execute tests programmatically in the Hub or locally
@@ -198,7 +198,7 @@ These are the attributes you can set for a chat test case (the only required att
 
 .. note::
 
-   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
 
 You can add as many chat test cases as you want to the dataset.
 
@@ -207,7 +207,7 @@ ___________________
 
 .. note:: In this section we will run evaluation against agents configured in
     the Hub. If you want to evaluate a local agent that is not yet exposed with
-    an API, check the :doc:`/hub/sdk/evaluations`.
+    an API, check the :doc:`/hub/sdk/evaluations/index`.
 
 Before running our first evaluation, we'll need to set up an agent. You'll need an API endpoint ready to serve the agent.
 Then, you can configure the agent API in the Hub:

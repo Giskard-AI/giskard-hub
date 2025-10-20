@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - UI Quickstart
-:og:description: Launch enterprise LLM agent testing with team collaboration, continuous red teaming, and comprehensive evaluation workflows. Perfect for business users managing AI safety in production.
+:og:title: Giskard Hub UI - Enterprise Agent Testing Platform
+:og:description: Launch enterprise LLM agent testing with team collaboration, continuous red teaming, and comprehensive evaluation workflows. Perfect for business users managing AI safety in production environments.
 
 ====================
 Quickstart & setup
@@ -18,32 +18,32 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Scan your agent for vulnerabilities
-      :link: scan/index
-      :link-type: doc
-
-      Automatically scan your agent for safety and security failures.
-
    .. grid-item-card:: Create test datasets
       :link: datasets/index
       :link-type: doc
 
       Automate test case generation with a focus on legitimate and adversarial queries.
 
+   .. grid-item-card:: Launch vulnerability scans
+      :link: scan/index
+      :link-type: doc
+
+      Automatically scan your agent for safety and security failures.
+
    .. grid-item-card:: Review tests with human feedback
-      :link: annotate
+      :link: annotate/index
       :link-type: doc
 
       Use domain knowledge to review and refine test cases through humans in the loop.
 
    .. grid-item-card:: Run and schedule evaluations
-      :link: evaluations
+      :link: evaluations/index
       :link-type: doc
 
       Run evaluations and schedule them to run automatically.
 
    .. grid-item-card:: Compare evaluations
-      :link: evaluations-compare
+      :link: evaluations/compare
       :link-type: doc
 
       Compare evaluations to detect regressions and identify patterns.
@@ -67,7 +67,7 @@ It also features a graph showing the agent's performance over time, measured by 
 
 .. note::
 
-   For detailed information about evaluation metrics and checks, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about evaluation metrics and checks, including examples and how they work, see :doc:`/hub/ui/annotate/index`.
 
 Additionally, the dashboard lists your most recent evaluations and datasets for quick access.
 
