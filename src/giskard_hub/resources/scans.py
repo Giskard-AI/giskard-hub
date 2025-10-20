@@ -47,8 +47,6 @@ class ScansResource(APIResource):
         ScanResult
             The created scan result.
         """
-        if not tags or len(tags) == 0:
-            tags = [category.id for category in self.list_categories()]
 
         data = filter_not_given(
             {
