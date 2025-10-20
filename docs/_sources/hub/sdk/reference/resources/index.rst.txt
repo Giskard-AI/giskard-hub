@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Resources Reference
-:og:description: Learn about the resource classes in Giskard Hub. Understand how to access and manage different entities through the SDK.
+:og:title: Giskard Hub SDK - Resource Classes Reference
+:og:description: Learn about the resource classes in Giskard Hub. Understand how to access and manage different entities through the comprehensive Python SDK.
 
 ===================
 Resources reference

@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Client Reference
-:og:description: Learn about the HubClient class in Giskard Hub. Understand how to connect to and interact with the Hub through the Python SDK.
+:og:title: Giskard Hub SDK - HubClient Reference
+:og:description: Learn about the HubClient class in Giskard Hub. Understand how to connect to and interact with the Hub through the comprehensive Python SDK.
 
 ================
 Client reference

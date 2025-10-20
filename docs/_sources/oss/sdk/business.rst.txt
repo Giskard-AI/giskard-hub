@@ -2,7 +2,7 @@
 :og:description: Detect business logic failures, compliance issues, and domain-specific problems in your LLM agents and applications with our free RAG Evaluation Toolkit.
 
 =============================================================
-Detect business failures in LLMs using RAGET
+Generate business tests
 =============================================================
 
 What are AI business failures?

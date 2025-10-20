@@ -22,7 +22,7 @@
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=46da6947" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=27f23bac" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/oss/sdk/reference/models.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
@@ -52,7 +52,7 @@
 <img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../../_static/logo_dark.png" width="24"/>
 <img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
 </a><nav class="flex items-center space-x-6 text-sm font-medium">
-<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Getting Started</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Products</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
@@ -90,145 +90,55 @@
 <img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
 </a>
 <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
-<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
-<a href="/index.html">Getting Started</a>
-<a href="/hub/ui/index.html">Hub UI</a>
-<a href="/hub/sdk/index.html">Hub SDK</a>
-<a href="/oss/sdk/index.html">Open Source</a>
-</nav><nav class="table w-full min-w-full my-6 lg:my-8">
-<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Welcome to Giskard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../start/comparison.html">Open Source vs Hub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../start/enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/index.html">Knowledge Glossary<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../../../start/glossary/testing_methodologies.html">Agent evaluation and testing methodologies</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/business/index.html">Business Failures<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/addition_of_information.html">Addition of Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/business_out_of_scope.html">Business Out of Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/denial_of_answers.html">Denial of Answers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/hallucination.html">Hallucination &amp; Misinformation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/moderation_issues.html">Moderation Issues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/business/omission.html">Omission</a></li>
-</ul>
-</li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/security/index.html">Security Vulnerabilities<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/formatting.html">Output Formatting Issues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/harmful_content.html">Harmful Content Generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/information_disclosure.html">Information Disclosure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/injection.html">Prompt Injection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/robustness.html">Robustness Issues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/security/stereotypes.html">Stereotypes &amp; Discrimination</a></li>
-</ul>
-</li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../start/glossary/llm_benchmarks/index.html">LLM Benchmarks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/reasoning_and_language.html">Reasoning and Language Understanding Benchmarks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/math_problems.html">Mathematical Reasoning Benchmarks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/coding.html">Programming Benchmarks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/conversation_and_chatbot.html">Conversation and Chatbot Benchmarks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/safety.html">Safety Benchmarks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../start/glossary/llm_benchmarks/domain_specific.html">Domain-Specific Benchmarks</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/ui/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/ui/scan/index.html">AI Vulnerability Scan<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/scan/launch-scan.html">Launch a red teaming scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/scan/review-scan-results.html">Review scan results</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/ui/scan/vulnerability-categories/index.html">Vulnerability Categories<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 08)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/data-privacy-exfiltration.html">Data Privacy Exfiltration (OWASP LLM 05)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../hub/ui/scan/vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/datasets/manual.html">Manual test creation for fine-grained control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/datasets/import.html">Import Existing Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/ui/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/ui/annotate.html">Review tests with human feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/ui/evaluations.html">Run and schedule evaluations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/ui/evaluations-compare.html">Compare evaluation results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/ui/access-rights.html">Set access rights</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/projects.html">Manage your projects, agents and knowledge bases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/scans.html">Launch vulnerability scans</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/sdk/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/datasets/security.html">Detect security vulnerabilities by generating synthetic tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/datasets/business.html">Detect business failures by generating synthetic tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/datasets/import.html">Import existing datasets</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/checks.html">Manage your checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hub/sdk/evaluations.html">Run and schedule evaluations</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../../hub/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/reference/client.html">Client reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/reference/entities/index.html">Entities reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../hub/sdk/reference/resources/index.html">Resources reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
-</ul>
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
 <p class="caption" role="heading"><span class="caption-text">Giskard Open Source</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">Detect security vulnerabilities in LLMs using LLM Scan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../business.html">Detect business failures in LLMs using RAGET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../legacy.html">Tabular ML, Predictive NLP, and Computer Vision</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../../notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/security/LLM_QA_IPCC.html">LLM Question Answering over the IPCC Climate Change Report</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/security/LLM_QA_Google.html">LLM Question Answering with Langchain, Qdrant and OpenAI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/security/LLM_QA_Winter_Olympics.html">LLM Question Answering over the 2022 Winter Olympics Wikipedia articles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/security/LLM_Description_Product.html">LLM product description from keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/security/LLM_Newspaper_Comment_Generation.html">LLM Newspaper Comments Generation with LangChain and OpenAI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/security/LLM_QA_Documentation.html">LLM Question Answering over the documentation with Langchain, FAISS and OpenAI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/security.html">Generate security tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/business.html">Generate business tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/legacy.html">Tabular ML, predictive NLP, and computer vision</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_IPCC.html">LLM Question Answering over the IPCC Climate Change Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_Google.html">LLM Question Answering with Langchain, Qdrant and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_Winter_Olympics.html">LLM Question Answering over the 2022 Winter Olympics Wikipedia articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_Description_Product.html">LLM product description from keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_Newspaper_Comment_Generation.html">LLM Newspaper Comments Generation with LangChain and OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_Documentation.html">LLM Question Answering over the documentation with Langchain, FAISS and OpenAI</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Models reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datasets.html">Datasets reference</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l3"><a class="reference internal" href="scan/report.html">Scan report reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scan/llm_detectors.html">LLM detectors reference</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/models.html">Models reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/datasets.html">Datasets reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/sdk/reference/scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/scan/report.html">Scan report reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/scan/llm_detectors.html">LLM detectors reference</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html">LLM tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="suite.html">Test suite reference</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l3"><a class="reference internal" href="raget/testset_generation.html">Testset generation reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="raget/knowledge_base.html">Knowledge base reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="raget/evaluation.html">Evaluation reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="raget/question_generation.html">Question generation reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="raget/metrics.html">Evaluation metrics reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/tests.html">LLM tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/suite.html">Test suite reference</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/sdk/reference/raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/testset_generation.html">Testset generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/knowledge_base.html">Knowledge base reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/evaluation.html">Evaluation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/question_generation.html">Question generation reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/metrics.html">Evaluation metrics reference</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard" rel="nofollow noopener">GitHub<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard/releases" rel="nofollow noopener">GitHub releases<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 </nav>
 </div>
@@ -495,6 +405,6 @@ return an array of <code class="docutils literal notranslate"><span class="pre">
 <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-<script src="../../../_static/custom.js?v=9a73f672"></script>
+<script src="../../../_static/custom.js?v=b8a2f78f"></script>
 </body>
 </html>

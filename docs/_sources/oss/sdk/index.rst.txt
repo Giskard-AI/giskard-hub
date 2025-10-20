@@ -10,19 +10,20 @@ We support two main use cases:
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Detect Security Vulnerabilities by Generating Synthetic Tests using LLM Scan
+   .. grid-item-card:: Generate security tests
       :link: security
       :link-type: doc
 
       Detect security failures, by generating synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
 
-   .. grid-item-card:: Detect Business Failures by Generating Synthetic Tests using RAGET
+   .. grid-item-card:: Generate business tests
       :link: business
       :link-type: doc
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
 .. tip::
+    
    **🚀 Love Giskard Open Source?**
 
    Try it to the next level with **Giskard Hub** - featuring a friendly UI, team collaboration, continuous red teaming, enterprise security, and a **free trial**!

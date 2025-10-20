@@ -1,8 +1,8 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Business Testing
-:og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through automated testing.
+:og:title: Giskard Hub UI - Business Logic Test Generation
+:og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through comprehensive automated testing.
 
 ======================================================
-Detect business failures by generating synthetic tests
+Generate business tests
 ======================================================
 
 Business testing focuses on ensuring that your LLM agents meet the specific requirements and expectations of your business domain. Unlike security testing, which focuses on malicious exploitation, business testing evaluates the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
@@ -79,11 +79,11 @@ Once you click on "Generate," you receive a dataset where:
 
 .. note::
 
-   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate`.
+   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
 
 Next steps
 ----------
 
-* **Review test cases** - Make sure to :doc:`/hub/ui/annotate`
+* **Review test cases** - Make sure to :doc:`/hub/ui/annotate/index`
 * **Detect security vulnerabilities** - Try :doc:`/hub/ui/datasets/security`
 * **Set-up continuous red teaming** - Understand exhaustive and proactive detection with :doc:`/hub/ui/continuous-red-teaming`

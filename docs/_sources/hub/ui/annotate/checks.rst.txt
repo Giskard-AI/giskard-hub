@@ -1,80 +1,13 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Human-in-the-Loop Annotation
-:og:description: Review and refine test cases with domain expertise. Use collaborative annotation workflows to improve test quality and ensure comprehensive coverage.
+:og:title: Giskard Hub UI - Check Assignment and Custom Validation Rules
+:og:description: Assign checks to test cases and create custom validation rules. Use correctness, conformity, groundedness, and other evaluation metrics to ensure comprehensive LLM agent testing.
 
-================================
-Review tests with human feedback
-================================
+Assigning checks to tests
+=========================
 
-Datasets are collection of test cases that will be used to verify the correct operation of your AI agent.
-
-Each test case is composed of a conversation and its associated evaluation parameters (e.g. an expected answer, rules that the agent must respect, etc.).
-
-A conversation is a list of messages. In the simplest case, a conversation is composed by a single message by the user. In the testing phase, we will send this message to your agent, record its answer, and evaluate it against the criteria that you defined in the test case.
-
-In more advanced cases, the conversation is a multi-turn dialogue between the user and the agent, terminating with a final user message. When testing, we will pass the conversation history to your agent to generate the response that will be evaluated.
-
-The Datasets section of the Giskard Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations.
-
-.. note::
-
-  Except for very specific cases, conversations should always end with a user message. The next agent response will be generated and evaluated at runtime.
-
-Create a conversation
-=====================
-
-.. image:: /_static/images/hub/annotation-studio.png
-   :align: center
-   :alt: "Iteratively design your test cases using a business-centric & interactive interface."
-   :width: 800
-
-A conversation is a list of messages, alternating between **user** messages and **assistant** roles. When designing your test cases, you can decide to provide a conversation history by adding multiple turns. Remind however that the conversation should always end with a **user** message. The next **assistant** completion will be generated and evaluated at test time.
-
-Simple conversation
--------------------
-
-In the simplest case, a conversation is composed by a single message by the user. Here's an example:
-
-For example, if you want to test the ability of the agent to handle a multi-turn conversation, you could write the following conversation:
-
-   **User:** Hello, which language is your open-source library written in?
-
-
-Multi-turn conversation
------------------------
-
-If you want to test the ability of the agent to handle a multi-turn conversation, you can write provide a conversation history with previous **assistant** messages:
-
-
-   **User:** Hello, I wanted to have more information about your open-source library.
-
-   **Assistant:** Hello! I'm happy to help you learn more about our library. What would you like to know?
-
-   **User:** Which language is it written in?
-
-You can provide as many turns as you want. Just remember that the conversation should always end with a **user** message, and the next **assistant** completion will be generated and evaluated at test time.
-
-Answer examples
----------------
-
-You can also provide an "answer example" for each test. The answer example will not be used at test time, but it can be useful while annotating the dataset with your evaluation criteria. In fact, you can test your evaluation criteria against the answer example to make sure they are working as expected.
-
-There are multiple ways to provide an answer example:
-  1. If you are importing a dataset, you can import the answer examples together with the conversations by providing a `demo_output` field. This is useful for example when you are importing production data and you want to keep a reference of the actual answer that was given by your agent in production.
-  2. You can generate the agent's answer by clicking on the three-dot button and selecting "Replace the assistant message".
-  3. You can also write your own answer example from scratch. This is particularly useful when you are testing your evaluation criteria against a specific answer. For example, you may want to write a non-compliant answer and make sure that your evaluation criteria will correctly flag it.
-
-If you haven't added an answer example, by default, the Hub will populate this field with the assistant answer obtained upon the first evaluation run on your dataset.
-
-Assign a check to a conversation
-==================================
-
-Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard:
-
-Types of checks
----------------
+Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard.
 
 Correctness Check
-_________________
+-----------------
 
 Check whether all information from the reference answer is present in the agent answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent's answer.
 
@@ -94,6 +27,7 @@ Check whether all information from the reference answer is present in the agent 
    **Success example**:
 
    - The capital of France is Paris, the first settlement dates from 200 BC.
+
 
 
 Conformity Check
@@ -295,55 +229,3 @@ The choice of check depends on the type of vulnerability you're testing for and 
       :link-type: doc
 
       Prompt injection is a critical security vulnerability where malicious users manipulate input prompts to bypass content filters, override model instructions, or extract sensitive information.
-
-Assign a tag to a conversation
-================================
-
-Tags are optional but highly recommended for better organization. They allow you to filter the conversations later on and manage your agent's performance more effectively.
-
-
-How to choose the right tag?
--------------------------------
-
-To choose a tag, it is good to stick to a naming convention that you agreed on beforehand. Ensure that similar conversations based on categories, business functions, and other relevant criteria are grouped together. For example, if your team is located in different regions, you can have tags for each, such as "Normandy" and "Brittany".
-
-.. admonition:: Categories of Tags
-
-   - **Issue-Related Tags**: These tags categorize the types of problems that might occur during a conversation.
-
-     Examples: "Hallucination", "Misunderstanding", "Incorrect Information"
-
-   - **Attack-Oriented Tags**: These tags relate to specific types of adversarial testing or attacks.
-
-     Examples: "SQL Injection Attempt", "Phishing Query", "Illegal Request"
-
-   - **Legitimate Question Tags**: These tags categorize standard, everyday user queries.
-
-     Examples: "Balance Inquiry", "Loan Application", "Account Opening"
-
-   - **Context-Specific Tags**: These tags pertain to specific business contexts or types of interactions.
-
-     Examples: "Caisse d'Epargne", "Banco Popular", "Corporate Banking"
-
-   - **User Behavior Tags**: These tags describe the nature of the user's behavior or the style of interaction.
-
-     Examples: "Confused User", "Angry Customer", "New User"
-
-   - **Temporal Tags**: Depending on the life cycle of the testing process of the agent.
-
-     Examples: "red teaming phase 1", "red teaming phase 2"
-
-
-.. tip::
-
-   - **Use Multiple Tags if Necessary**: Apply multiple tags to a single conversation to cover all relevant aspects.
-
-     Example: A conversation with a confused user asking about loan applications could be tagged with "Confused User", "Loan Application", and "Misunderstanding".
-
-   - **Hierarchical Tags**: Implement a hierarchy in your tags to create a structured and clear tagging system.
-
-     Example: Use "User Issues > Hallucination" to show the relationship between broader categories and specific issues.
-
-   - **Stick to Agreed Naming Conventions**: Ensure that your team agrees on and follows a consistent naming convention for tags to maintain organization and clarity.
-
-     Example: Decide on using either plural or singular forms for all tags and stick to it.

@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Access Rights
-:og:description: Configure role-based access control, manage user permissions, and ensure secure collaboration across your organization's LLM agent testing projects.
+:og:title: Giskard Hub UI - Access Rights and User Management
+:og:description: Configure role-based access control, manage user permissions, and ensure secure collaboration across your organization's LLM agent testing projects with enterprise-grade security.
 
 ==================
 Set access rights
@@ -16,7 +16,7 @@ Configure users and groups
 
    .. tab-item:: User-level permissions
 
-      To manage user-level permissions, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "Users" and then press "Users" in the dropdown.
+      To manage user-level permissions, click the "Settings" icon in the left panel, then select press the dropdown for the "Users" sections. Within the dropdown, you can go to the "Users" section.
 
       .. image:: /_static/images/hub/access-settings.png
          :align: center
@@ -25,7 +25,7 @@ Configure users and groups
 
    .. tab-item:: Group-level permissions
 
-      To manage group-level permissions, click the "Account" icon in the upper right corner of the screen, then select "Settings." From the left panel, choose "Users" and then press "Groups" in the dropdown.
+      To manage group-level permissions, click the "Settings" icon in the left panel, then select press the dropdown for the "Users" sections. Within the dropdown, you can go to the "Groups" section.
 
       .. image:: /_static/images/hub/access-settings-group.png
          :align: center

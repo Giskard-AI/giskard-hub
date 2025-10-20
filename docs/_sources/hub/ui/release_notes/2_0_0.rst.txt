@@ -1,0 +1,93 @@
+2.0.0 (2025-09-25)
+==================
+
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1121557632?h=17284299f1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="crt-security"
+        data-ready="true"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.10);"
+        allowfullscreen
+    ></iframe>
+    </div>
+
+We're releasing an upgraded LLM vulnerability scanner in Giskard Hub, specifically designed to secure conversational AI agents in production environments. This enterprise version deploys autonomous red teaming agents that conduct dynamic, multi-turn attacks across dozens of vulnerability categories covering more than 40 probes.
+
+What's new?
+~~~~~~~~~~~~
+
+**Comprehensive LLM Vulnerabilities Coverage**
+   The scanner covers LLM vulnerabilities across established OWASP categories and business failures:
+
+   * **Prompt Injection (OWASP LLM 01)** - Attacks that manipulate AI agents through carefully crafted prompts
+   * **Training Data Extraction (OWASP LLM 02)** - Attempts to extract or infer information from the AI model's training data
+   * **Data Privacy Exfiltration (OWASP LLM 05)** - Attacks aimed at extracting sensitive information
+   * **Excessive Agency (OWASP LLM 06)** - Tests whether AI agents can be manipulated beyond their intended scope
+   * **Hallucination & Misinformation (OWASP LLM 08)** - Tests for false, inconsistent, or fabricated information
+   * **Denial of Service (OWASP LLM 10)** - Attacks that attempt to cause resource exhaustion
+   * **Internal Information Exposure** - Attempts to extract system prompts and configuration details
+   * **Harmful Content Generation** - Probes that bypass safety measures
+   * **Brand Damage & Reputation** - Tests for reputational risks
+   * **Legal & Financial Risk** - Attacks exposing deployers to liabilities
+   * **Unauthorized Professional Advice** - Tests for advice outside intended scope
+
+**Business Alignment**
+   Evaluates both security vulnerabilities and business failures, automatically validating business logic by generating expected outputs from knowledge bases.
+
+**Domain-specific Attacks**
+   Adapts testing methodologies to agent-specific contexts using bot descriptions, tools specification, and knowledge bases for realistic evaluation.
+
+**Multi-turn Attack Simulation**
+   Implements dynamic multi-turn testing that simulates realistic conversation flows, detecting context-dependent vulnerabilities that emerge through conversation history.
+
+**Adaptive AI Red Teaming**
+   Adjusts attack strategies based on agent resistance, escalating tactics or pivoting approaches when encountering defenses.
+
+**Root-cause Analysis**
+   Every detected vulnerability includes detailed explanations of attack methodology and severity scoring for prioritized remediation.
+
+**Continuous Red Teaming**
+   Detected vulnerabilities automatically convert into reusable tests for continuous validation and integration into golden datasets.
+
+
+
+What's changed?
+~~~~~~~~~~~~~~~
+
+We did not make any changes to the core functionalities of the platform during this release.
+
+What's fixed?
+~~~~~~~~~~~~~
+
+We did not fix any issues during this release.
+
+How to get started?
+~~~~~~~~~~~~~~~~~~~
+
+1. **Configure vulnerability scope** - Select specific vulnerability categories relevant to your use case
+2. **Execute the scan** - The system runs hundreds of probes across security and business logic areas
+3. **Analyze results by severity** - Results are organized by criticality for prioritized review
+4. **Review individual probes** - Each probe provides detailed attack descriptions and explanations
+5. **Turn into continuous tests** - Successful probes can convert into tests for continuous validation
+
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1121565937?h=75d7765bb6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+        title="crt-security"
+        data-ready="true"
+        allowfullscreen
+    ></iframe>
+    </div>
+
+This release enables detection of sophisticated attacks that evolve across multiple conversation turns, automatically generating attacks, analyzing system responses, and modifying approaches to help correct agents with re-executable tests.

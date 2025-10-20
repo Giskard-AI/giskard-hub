@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Scan Vulnerabilities in your agents
-:og:description: Launch several red teaming attacks to find vulnerabilities in your agents.
+:og:title: Giskard Hub SDK - Vulnerability Scanning and Red Teaming
+:og:description: Launch comprehensive red teaming attacks to find vulnerabilities in your agents. Automated security scanning with OWASP LLM Top 10 compliance using the Python SDK.
 
 ==========================
 Launch vulnerability scans
@@ -36,7 +36,7 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 Run security scans
 ~~~~~~~~~~~~~~~~~~
 
-First, you need to have an agent configured in the Hub. If you haven't created an agent yet, check the :ref:`Create an agent <projects:Create an agent>` section in the :doc:`/hub/sdk/projects` guide.
+First, you need to have an agent configured in the Hub. If you haven't created an agent yet, check the Create an agent section in the Projects guide.
 
 Launch a basic scan
 -------------------
@@ -188,60 +188,7 @@ Here's a complete CI/CD scanning workflow:
     
     print(f"✅ Security check passed: Scan with Grade {scan_result.grade.value}")
 
-Scan management
-~~~~~~~~~~~~~~~
+API Reference
+==============
 
-Launch a scan
--------------
-
-You can launch a  scan using the ``hub.scans.create()`` method:
-
-.. code-block:: python
-
-    scan_result = hub.scans.create(
-        model_id=model_id,
-        knowledge_base_id=knowledge_base_id, # optional
-        tags=[], # optional, if not provided, all available categories will be used
-    )
-
-Retrieve a scan result
-----------------------
-
-You can retrieve a previously launched scan result using the ``hub.scans.retrieve()`` method:
-
-.. code-block:: python
-
-    scan_result = hub.scans.retrieve(scan_id)
-
-You can also retrieve its results calling the ``results`` property:
-
-.. code-block:: python
-
-    results = scan_result.results
-
-    # or using the scans resource
-    results = hub.scans.list_probes(scan_result.id)
-
-    for result in results:
-        print(f"Probe Result ID: {result.id} - Status: {result.progress.status.value}")
-
-List scans
-----------
-
-You can list scans using the ``hub.scans.list()`` method:
-
-.. code-block:: python
-
-    scans = hub.scans.list(project_id=project_id)
-    
-    for scan in scans:
-        print(f"Scan ID: {scan.id} - Grade: {scan.grade.value} - Status: {scan.progress.status.value}")
-
-Delete a scan result
----------------------
-
-You can delete a scan using the ``hub.scans.delete()`` method:
-
-.. code-block:: python
-
-    hub.scans.delete(scan_id)
+For detailed information about scan management methods and parameters, see the :doc:`/hub/sdk/reference/index` section.

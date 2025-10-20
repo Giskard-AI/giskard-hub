@@ -128,7 +128,12 @@
 
 /* Adjust body padding when banner is visible */
 body.banner-visible {
-  padding-top: 60px;
+  padding-top: 48px; /* Minimal banner height */
+}
+
+/* Push navigation header down when banner is visible */
+body.banner-visible header {
+  top: 48px !important; /* Position header with minimal gap */
 }
 
 /* Responsive adjustments */
@@ -156,6 +161,16 @@ body.banner-visible {
     right: 15px;
     top: 10px;
     transform: none;
+  }
+
+  /* Adjust body padding for mobile when banner is visible */
+  body.banner-visible {
+    padding-top: 52px; /* Minimal mobile banner height */
+  }
+
+  /* Push navigation header down for mobile when banner is visible */
+  body.banner-visible header {
+    top: 52px !important; /* Position header with minimal gap on mobile */
   }
 }
 
@@ -419,6 +434,33 @@ header nav a:not(.text-foreground):hover {
 .dark header nav a.text-foreground\/60:hover,
 .dark header nav a:not(.text-foreground):hover {
   color: rgba(198, 255, 255, 0.8) !important;
+}
+
+/* Recently selected navbar item styling */
+header nav a.recently-selected {
+  color: var(--accent-color) !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+  position: relative;
+}
+
+header nav a.recently-selected::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  border-radius: 1px;
+}
+
+.dark header nav a.recently-selected {
+  color: var(--accent-color) !important;
+}
+
+.dark header nav a.recently-selected::after {
+  background-color: var(--accent-color);
 }
 
 #left-sidebar p[role="heading"],
@@ -725,4 +767,19 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 }
 .nboutput.nblast.docutils.container div.prompt.empty {
   display: none !important;
+}
+
+/* Hide toctree sections that are not relevant to current page */
+#left-sidebar nav.hidden-toctree {
+  display: none !important;
+}
+
+/* Navbar highlighting styles */
+header nav a.recently-selected {
+  color: var(--accent-color) !important;
+  font-weight: 600;
+}
+
+.dark header nav a.recently-selected {
+  color: var(--accent-color) !important;
 }

@@ -1,5 +1,5 @@
-:og:title: Giskard Hub - Enterprise Agent Testing - Continuous Red Teaming
-:og:description: Implement proactive threat detection and continuous vulnerability assessment for your LLM agents. Monitor for emerging security risks and maintain robust AI safety.
+:og:title: Giskard Hub UI - Continuous Red Teaming and Threat Detection
+:og:description: Implement proactive threat detection and continuous vulnerability assessment for your LLM agents. Monitor for emerging security risks and maintain robust AI safety with automated red teaming.
 
 ======================
 Continuous red teaming
