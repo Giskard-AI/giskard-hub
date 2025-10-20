@@ -1332,7 +1332,7 @@ docs = [
     { name = "notebook", specifier = "==7.4.7" },
     { name = "pandoc", specifier = ">=2.4" },
     { name = "pyarrow", marker = "python_full_version >= '3.12'", specifier = "<21.0.1" },
-    { name = "ragas", specifier = ">=0.3.6,<=0.3.6" },
+    { name = "ragas", specifier = ">=0.3.7,<=0.3.7" },
     { name = "sphinx-autobuild", specifier = ">=2024.10.3" },
     { name = "sphinx-autobuild", marker = "python_full_version >= '3.12'", specifier = "==2025.8.25" },
     { name = "sphinx-autodoc-typehints", marker = "python_full_version >= '3.12'", specifier = "==2.3.0" },
@@ -4091,7 +4091,7 @@ wheels = [
 
 [[package]]
 name = "ragas"
-version = "0.3.6"
+version = "0.3.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "appdirs" },
@@ -4117,9 +4117,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d3/66/27f4b99b4f6a47cc1d7c7ad12184efca069279e56415cdbd39187e1f3565/ragas-0.3.6.tar.gz", hash = "sha256:e829bea3e981983fccff3331cd905de63b765a8a30c45f0d59fe3c4912ee3a59", size = 43410374, upload-time = "2025-10-03T03:57:00.517Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/23/1c/771d37575d2237d669905ad689d2e99268f8e36668be03ec792dbc0747c6/ragas-0.3.7.tar.gz", hash = "sha256:8db0d4fa1a5fc784087cc1e584f730e9646b0dfbbdff21d66f816c0fb70ed1a8", size = 43426926, upload-time = "2025-10-14T16:22:13.315Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/13/3c/2e7207d4c797f8392bb5e8aab980d5c68546b27ec0f4665820c18ee9b97b/ragas-0.3.6-py3-none-any.whl", hash = "sha256:0663bcfcbc4a446d3ad3b3641b41bff18ab8c489a1fe68339e3832b75b2ac8b8", size = 303606, upload-time = "2025-10-03T03:56:58.317Z" },
+    { url = "https://files.pythonhosted.org/packages/18/94/9c35f6347aedc95e66679db87f0638e0ab02d40907a71c25428c60599524/ragas-0.3.7-py3-none-any.whl", hash = "sha256:14c19d43340bc38b23c491073db2b5d09b9ae3b1feb7f36790181a04a542321f", size = 317609, upload-time = "2025-10-14T16:22:11.36Z" },
 ]
 
 [[package]]
