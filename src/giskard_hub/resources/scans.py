@@ -2,7 +2,6 @@ from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given
 from ..data.scan import (
-    SCAN_CATEGORIES,
     ProbeAttempt,
     ProbeResult,
     ScanCategory,
@@ -22,7 +21,8 @@ class ScansResource(APIResource):
         -------
             List[ScanCategory]: A list of `ScanCategory` objects representing all available scan categories.
         """
-        return SCAN_CATEGORIES
+        data = self._client.get(f"{_SCAN_BASE_URL}/categories")
+        return [ScanCategory.from_dict(item) for item in data["items"]]
 
     def create(
         self,
