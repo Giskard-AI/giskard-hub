@@ -1,3 +1,4 @@
+from functools import lru_cache
 from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given
@@ -14,6 +15,7 @@ _PROBE_BASE_URL = "/probes"
 
 
 class ScansResource(APIResource):
+    @lru_cache(maxsize=1)
     def list_categories(self) -> List[ScanCategory]:
         """List scan categories that can be use as tags to create/launch a scan.
 
