@@ -23,18 +23,18 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
       :link-type: doc
 
       Set up projects, agents and knowledge bases.
+   
+   .. grid-item-card:: Launch vulnerability scans
+      :link: scan/index
+      :link-type: doc
+
+      Automatically scan your agent for safety and security failures.
 
    .. grid-item-card:: Create test cases and datasets
       :link: datasets/index
       :link-type: doc
 
       Create test cases and datasets manually or using synthetic data generation.
-
-   .. grid-item-card:: Launch vulnerability scans
-      :link: scan/index
-      :link-type: doc
-
-      Automatically scan your agent for safety and security failures.
 
    .. grid-item-card:: Evaluate tests and assign validation rules
       :link: annotate/index

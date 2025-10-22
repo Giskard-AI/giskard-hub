@@ -35,6 +35,17 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
 First, you need to have an agent configured in the Hub. If you haven't created an agent yet, check the Create an agent section in the Projects guide.
 
+
+Attack overview
+---------------
+
+The vulnerability scan test suite includes various attack patterns designed to test for specific vulnerabilities in your agent. 
+We recommend running a full scan regularly but you can also run targeted scans for specific vulnerability types during development. 
+
+.. tip::
+    
+    For a full overview of the attacks, see the :doc:`/hub/ui/scan/vulnerability-categories/index` section.
+
 Launch a basic scan
 -------------------
 

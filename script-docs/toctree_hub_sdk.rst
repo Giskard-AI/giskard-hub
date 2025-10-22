@@ -5,8 +5,8 @@
 
    hub/sdk/index
    hub/sdk/setup/index
-   hub/sdk/datasets/index
    hub/sdk/scans
+   hub/sdk/datasets/index
    hub/sdk/checks
    hub/sdk/evaluations/index
    hub/sdk/reference/index

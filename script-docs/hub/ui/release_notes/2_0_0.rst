@@ -57,8 +57,8 @@ What's new?
 What's changed?
 ~~~~~~~~~~~~~~~
 
-- [DEPRECATION] Removed support for importing and exporting knowledge bases (KB) in CSV format. Only JSON and JSONL formats are now supported for KB import/export.
-- [DEPRECATION] In the client library version 2.0.0, legacy functions have been deprecated and removed. Notably, the previous 'conversations' functionality has been replaced by 'chat_test_cases' to improve clarity and consistency across the product.
+- Removed support for importing and exporting knowledge bases (KB) in CSV format. Only JSON and JSONL formats are now supported for KB import/export.
+- In the client library version 2.0.0, legacy functions have been deprecated and removed. Notably, the previous 'conversations' functionality has been replaced by 'chat_test_cases' to improve clarity and consistency across the product.
 
 What's fixed?
 ~~~~~~~~~~~~~

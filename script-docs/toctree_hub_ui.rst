@@ -5,8 +5,8 @@
 
    hub/ui/index
    hub/ui/setup/index
-   hub/ui/datasets/index
    hub/ui/scan/index
+   hub/ui/datasets/index   
    hub/ui/annotate/index
    hub/ui/evaluations/index
    hub/ui/continuous-red-teaming
