@@ -28,8 +28,8 @@
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
-<link href="checks.html" rel="next" title="Manage checks and metrics"/>
-<link href="datasets/import.html" rel="prev" title="Import tests"/>
+<link href="datasets/index.html" rel="next" title="Create test cases and datasets"/>
+<link href="setup/knowledge_bases.html" rel="prev" title="Setup knowledge bases"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -94,9 +94,17 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="/hub/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/projects.html">Manage projects, agents and knowledge bases</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Manage datasets and chat test cases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/projects.html">Setup projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/agents.html">Setup agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/knowledge_bases.html">Setup knowledge bases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/manual.html">Create manual tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/security.html">Generate security tests</a></li>
@@ -104,15 +112,14 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/import.html">Import tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Manage checks and metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Evaluate tests and assign validation rules</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Manage evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/local.html">Run local evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/remote.html">Run remote evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/schedule.html">Schedule evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/compare.html">Compare evaluations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/schedule.html">Run remote evaluations</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
@@ -123,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/reference/resources/index.html">Resources reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/releases" rel="nofollow noopener">GitHub releases<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
@@ -174,11 +182,18 @@
 </span><span id="line-3"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
-<section id="run-security-scans">
-<h2>Run security scans<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#run-security-scans" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#run-security-scans'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>First, you need to have an agent configured in the Hub. If you haven’t created an agent yet, check the Create an agent section in the Projects guide.</p>
+<section id="attack-overview">
+<h2>Attack overview<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#attack-overview" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#attack-overview'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>The vulnerability scan test suite includes various attack patterns designed to test for specific vulnerabilities in your agent.
+We recommend running a full scan regularly but you can also run targeted scans for specific vulnerability types during development.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a full overview of the attacks, see the <a class="reference internal" href="../ui/scan/vulnerability-categories/index.html"><span class="doc">Attack categories</span></a> section.</p>
+</div>
+</section>
 <section id="launch-a-basic-scan">
-<h3>Launch a basic scan<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#launch-a-basic-scan" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#launch-a-basic-scan'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<h2>Launch a basic scan<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#launch-a-basic-scan" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#launch-a-basic-scan'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>Once you have an agent configured in the Hub, you can launch a security scan. If you are running this in a CI/CD pipeline, we recommend setting the model ID in the environment.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">model_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_MODEL_ID"</span><span class="p">)</span>  <span class="c1"># or use agent.id</span>
 </span></code></pre></div>
@@ -213,7 +228,7 @@
 </span></code></pre></div>
 </div>
 <section id="view-scan-metrics">
-<h4>View scan metrics<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#view-scan-metrics"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<h3>View scan metrics<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#view-scan-metrics" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#view-scan-metrics'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <p>You can view a detailed breakdown of the scan results using the <code class="docutils literal notranslate"><span class="pre">print_metrics()</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
 </span></code></pre></div>
@@ -229,9 +244,9 @@
 </section>
 </section>
 <section id="advanced-scan-configuration">
-<h3>Advanced scan configuration<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#advanced-scan-configuration" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#advanced-scan-configuration'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<h2>Advanced scan configuration<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#advanced-scan-configuration" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#advanced-scan-configuration'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <section id="knowledge-base-integration">
-<h4>Knowledge base integration<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#knowledge-base-integration"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<h3>Knowledge base integration<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#knowledge-base-integration" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#knowledge-base-integration'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <p>Provide a <code class="docutils literal notranslate"><span class="pre">knowledge_base_id</span></code> to generate more targeted security tests based on your domain-specific knowledge:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">model_id</span><span class="o">=</span><span class="s2">"&lt;GISKARD_HUB_MODEL_ID&gt;"</span><span class="p">,</span>
@@ -242,7 +257,7 @@
 </div>
 </section>
 <section id="vulnerability-type-filtering">
-<h4>Vulnerability type filtering<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#vulnerability-type-filtering"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<h3>Vulnerability type filtering<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#vulnerability-type-filtering" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#vulnerability-type-filtering'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <p>Similarly to the OWASP LLM Top 10 tags, you can use the <code class="docutils literal notranslate"><span class="pre">gsk:threat-type</span></code> tags to focus on specific vulnerability types:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># Scan for specific vulnerabilities</span>
 </span><span id="line-2"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
@@ -273,7 +288,7 @@
 </section>
 </section>
 <section id="complete-workflow-example">
-<h3>Complete workflow example<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#complete-workflow-example" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#complete-workflow-example'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<h2>Complete workflow example<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#complete-workflow-example" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#complete-workflow-example'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>Here’s a complete CI/CD scanning workflow:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </span><span id="line-2"><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -306,19 +321,18 @@
 <p>For detailed information about scan management methods and parameters, see the <a class="reference internal" href="reference/index.html"><span class="doc">API reference</span></a> section.</p>
 </section>
 </section>
-</section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="datasets/import.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="setup/knowledge_bases.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Import tests
+        Setup knowledge bases
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="checks.html">
-        Manage checks and metrics
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="datasets/index.html">
+        Create test cases and datasets
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
@@ -327,7 +341,7 @@
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
-<li><a :data-current="activeSection === '#run-security-scans'" class="reference internal" href="#run-security-scans">Run security scans</a><ul>
+<li><a :data-current="activeSection === '#attack-overview'" class="reference internal" href="#attack-overview">Attack overview</a></li>
 <li><a :data-current="activeSection === '#launch-a-basic-scan'" class="reference internal" href="#launch-a-basic-scan">Launch a basic scan</a><ul>
 <li><a :data-current="activeSection === '#view-scan-metrics'" class="reference internal" href="#view-scan-metrics">View scan metrics</a></li>
 </ul>
@@ -338,8 +352,6 @@
 </ul>
 </li>
 <li><a :data-current="activeSection === '#complete-workflow-example'" class="reference internal" href="#complete-workflow-example">Complete workflow example</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </aside>

@@ -18,41 +18,41 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Create test datasets
-      :link: datasets/index
+   .. grid-item-card:: Setup projects, agents and knowledge bases
+      :link: setup/index
       :link-type: doc
 
-      Automate test case generation with a focus on legitimate and adversarial queries.
-
+      Set up projects, agents and knowledge bases.
+   
    .. grid-item-card:: Launch vulnerability scans
       :link: scan/index
       :link-type: doc
 
       Automatically scan your agent for safety and security failures.
 
-   .. grid-item-card:: Review tests with human feedback
+   .. grid-item-card:: Create test cases and datasets
+      :link: datasets/index
+      :link-type: doc
+
+      Create test cases and datasets manually or using synthetic data generation.
+
+   .. grid-item-card:: Evaluate tests and assign validation rules
       :link: annotate/index
       :link-type: doc
 
       Use domain knowledge to review and refine test cases through humans in the loop.
 
-   .. grid-item-card:: Run and schedule evaluations
+   .. grid-item-card:: Run, schedule and compare evaluations
       :link: evaluations/index
       :link-type: doc
 
       Run evaluations and schedule them to run automatically.
 
-   .. grid-item-card:: Compare evaluations
-      :link: evaluations/compare
+   .. grid-item-card:: Release notes
+      :link: release_notes/index
       :link-type: doc
 
-      Compare evaluations to detect regressions and identify patterns.
-
-   .. grid-item-card:: Continuous red teaming
-      :link: continuous-red-teaming
-      :link-type: doc
-
-      Detect emerging vulnerabilities through proactive red teaming.
+      View the latest features and changes.
 
 .. note::
 
@@ -159,7 +159,6 @@ The endpoint's response should have the following structure:
             "some_key": "whatever value"
         }
     }
-
 
 Import a knowledge base
 ========================

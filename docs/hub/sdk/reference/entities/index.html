@@ -94,9 +94,17 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="/hub/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/projects.html">Manage projects, agents and knowledge bases</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Manage datasets and chat test cases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/projects.html">Setup projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/agents.html">Setup agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/knowledge_bases.html">Setup knowledge bases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/manual.html">Create manual tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/security.html">Generate security tests</a></li>
@@ -104,15 +112,14 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/import.html">Import tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Manage checks and metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Evaluate tests and assign validation rules</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Manage evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/local.html">Run local evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/remote.html">Run remote evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/schedule.html">Schedule evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/compare.html">Compare evaluations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/schedule.html">Run remote evaluations</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
@@ -123,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/reference/resources/index.html">Resources reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/releases" rel="nofollow noopener">GitHub releases<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>

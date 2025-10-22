@@ -12,6 +12,9 @@ On the Evaluations page, click on "Run evaluation" button in the upper right cor
    :alt: "List of evaluations"
    :width: 800
 
+Configure the evaluation
+------------------------
+
 Next, set the parameters for the evaluation:
 
 - ``Agent``: Select the agent you wish to evaluate.
@@ -24,6 +27,9 @@ Next, set the parameters for the evaluation:
    :align: center
    :alt: "New evaluation run"
    :width: 800
+
+Checks used in the evaluation
+-----------------------------
 
 The evaluation run is automatically named and assessed against the checks (built-in and custom ones) that were enabled in each conversation. The built-in checks include:
 
@@ -42,6 +48,9 @@ The evaluation run is automatically named and assessed against the checks (built
 .. note::
 
    For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
+
+View evaluation results
+-----------------------
 
 The pie chart below displays the number of evaluations that passed, failed, or were unexecuted.
 
@@ -66,3 +75,11 @@ When you click on a conversation in the Evaluation Runs, you’ll see detailed i
    :align: center
    :alt: "Evaluation detail"
    :width: 800
+
+Next steps
+----------
+
+Now that you have created an evaluation, you can take action on the results.
+
+* **Compare evaluations** - :doc:`/hub/ui/evaluations/compare`
+* **Schedule evaluations** - :doc:`/hub/ui/evaluations/schedule`

@@ -29,7 +29,7 @@
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
 <link href="security.html" rel="next" title="Generate security tests"/>
-<link href="index.html" rel="prev" title="Manage datasets and chat test cases"/>
+<link href="index.html" rel="prev" title="Create test cases and datasets"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -94,9 +94,17 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="/hub/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/projects.html">Manage projects, agents and knowledge bases</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Manage datasets and chat test cases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/projects.html">Setup projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/agents.html">Setup agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/knowledge_bases.html">Setup knowledge bases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/manual.html">Create manual tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/security.html">Generate security tests</a></li>
@@ -104,15 +112,14 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/import.html">Import tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Manage checks and metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Evaluate tests and assign validation rules</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Manage evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/local.html">Run local evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/remote.html">Run remote evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/schedule.html">Schedule evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/compare.html">Compare evaluations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/schedule.html">Run remote evaluations</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
@@ -123,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/reference/resources/index.html">Resources reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard-hub/releases" rel="nofollow noopener">GitHub releases<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
@@ -145,7 +153,7 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Manage datasets and chat test cases</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Create test cases and datasets</a>
 <div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Create manual tests</span>
 </nav>
 <div id="content" role="main">
@@ -186,7 +194,7 @@
 <li><p><strong>messages</strong> (required): A list of messages, without the last assistant answer.  Each message is a dictionary with keys <code class="docutils literal notranslate"><span class="pre">role</span></code> and <code class="docutils literal notranslate"><span class="pre">content</span></code>.</p></li>
 <li><p><strong>demo_output</strong> (optional): A dictionary with the last assistant answer</p></li>
 <li><p><strong>tags</strong> (optional): A list of tags you can use to categorize and organize the chat test cases</p></li>
-<li><p><strong>checks</strong> (optional): A list of checks. For more information on checks, see the <a class="reference internal" href="../checks.html"><span class="doc">Manage checks and metrics</span></a> section.</p></li>
+<li><p><strong>checks</strong> (optional): A list of checks. For more information on checks, see the <a class="reference internal" href="../checks.html"><span class="doc">Evaluate tests and assign validation rules</span></a> section.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -195,9 +203,6 @@ the chat test case to your agent and expect it to generate an assistant answer. 
 be evaluated against the checks.</p>
 <p>If you want to show the last assistant answer to the user, you can include it in the chat test case as <code class="docutils literal notranslate"><span class="pre">demo_output</span></code>.
 In this way, it will be shown in the dataset, but not used in the evaluation.</p>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">
-</span></code></pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">hub</span><span class="o">.</span><span class="n">chat_test_cases</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
 </span><span id="line-2">    <span class="n">dataset_id</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
@@ -230,13 +235,14 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 </span></code></pre></div>
 </div>
 <p>For detailed information about creating manual datasets, see the <a class="reference internal" href="../reference/resources/index.html"><span class="doc">Resources reference</span></a> section.</p>
-<section id="next-steps">
-<h3>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<ul class="simple">
-<li><p><strong>Review test case</strong> - Make sure to <a class="reference internal" href="../../ui/annotate/index.html"><span class="doc">Review tests with human feedback</span></a></p></li>
-<li><p><strong>Generate test cases</strong> - Try <a class="reference internal" href="business.html"><span class="doc">Generate business tests</span></a> or <a class="reference internal" href="security.html"><span class="doc">Generate security tests</span></a></p></li>
-</ul>
 </section>
+<section id="next-steps">
+<h2>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<ul class="simple">
+<li><p><strong>Agentic vulnerability detection</strong> - Try <a class="reference internal" href="../scans.html"><span class="doc">Launch vulnerability scans</span></a></p></li>
+<li><p><strong>Generate test cases</strong> - Try <a class="reference internal" href="business.html"><span class="doc">Generate business tests</span></a> or <a class="reference internal" href="security.html"><span class="doc">Generate security tests</span></a></p></li>
+<li><p><strong>Review test case and assign checks</strong> - Make sure to <a class="reference internal" href="../../ui/annotate/index.html"><span class="doc">Evaluate tests and assign validation rules</span></a></p></li>
+</ul>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
@@ -245,7 +251,7 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Manage datasets and chat test cases
+        Create test cases and datasets
       </a>
 </div>
 <div class="ml-auto">
@@ -260,10 +266,8 @@ In this way, it will be shown in the dataset, but not used in the evaluation.</p
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
 <li><a :data-current="activeSection === '#create-a-dataset'" class="reference internal" href="#create-a-dataset">Create a dataset</a></li>
-<li><a :data-current="activeSection === '#create-a-chat-test-case'" class="reference internal" href="#create-a-chat-test-case">Create a chat test case</a><ul>
+<li><a :data-current="activeSection === '#create-a-chat-test-case'" class="reference internal" href="#create-a-chat-test-case">Create a chat test case</a></li>
 <li><a :data-current="activeSection === '#next-steps'" class="reference internal" href="#next-steps">Next steps</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </aside>

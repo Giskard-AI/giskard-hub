@@ -8,31 +8,31 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Manage projects, agents and knowledge bases
-      :link: projects
+   .. grid-item-card:: Setup projects, agents and knowledge bases
+      :link: setup/index
       :link-type: doc
 
-      Create, update, and organize projects, agents and knowledge bases
-
-   .. grid-item-card:: Manage datasets and chat test cases
-      :link: datasets/index
-      :link-type: doc
-
-      Create, update, and organize test datasets and chat test cases manually or using synthetic data generation
-
+      Setup and organize projects, agents and knowledge bases
+   
    .. grid-item-card:: Launch vulnerability scans
       :link: scans
       :link-type: doc
 
-      Launch several red teaming attacks to find vulnerabilities in your agents
-      
-   .. grid-item-card:: Manage checks
+      Automatically scan your agent for safety and security failures.
+
+   .. grid-item-card:: Create test cases and datasets
+      :link: datasets/index
+      :link-type: doc
+
+      Create, update, and delete test cases and datasets manually or using synthetic data generation
+
+   .. grid-item-card:: Define validation rules with checks
       :link: checks
       :link-type: doc
 
-      Build and deploy validation rules and metrics for your tests
+      Define validation rules and metrics for your tests
 
-   .. grid-item-card:: Run and Schedule Evaluations
+   .. grid-item-card:: Run, schedule and compare evaluations
       :link: evaluations/index
       :link-type: doc
 
@@ -78,13 +78,10 @@ Alternatively, you can pass these values directly to the client:
 
    Make sure you are using the correct URL for your Giskard Hub instance. The URL should end with ``/_api``.
 
-You can now use the client to interact with the Hub. You will be able to control the Hub programmatically, independently
+You can now use the client to interact with the Hub programmatically. Let's start by initializing a client instance:
 
 Running your first evaluation
 -----------------------------
-
-You can now use the client to interact with the Hub. You will be able to control the Hub programmatically, independently
-of the UI. Let's start by initializing a client instance:
 
 .. code-block:: python
 

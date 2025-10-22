@@ -15,9 +15,9 @@
 <meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
 <meta content="What are AI business failures?: Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual r..." name="description"/>
-<title>Generate business tests | Giskard  documentation</title>
-<meta content="Generate business tests | Giskard  documentation" property="og:title"/>
-<meta content="Generate business tests | Giskard  documentation" name="twitter:title"/>
+<title>Generate business tests with RAGET | Giskard  documentation</title>
+<meta content="Generate business tests with RAGET | Giskard  documentation" property="og:title"/>
+<meta content="Generate business tests with RAGET | Giskard  documentation" name="twitter:title"/>
 <link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
 <link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="legacy.html" rel="next" title="Tabular ML, predictive NLP, and computer vision"/>
-<link href="security.html" rel="prev" title="Generate security tests"/>
+<link href="security.html" rel="prev" title="Generate security tests with LLM Scan"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -94,8 +94,8 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Open Source</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="/oss/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/security.html">Generate security tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/business.html">Generate business tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/security.html">Generate security tests with LLM Scan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/oss/sdk/business.html">Generate business tests with RAGET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="/oss/sdk/legacy.html">Tabular ML, predictive NLP, and computer vision</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
@@ -158,11 +158,11 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Generate business tests</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Generate business tests with RAGET</span>
 </nav>
 <div id="content" role="main">
-<section id="generate-business-tests">
-<h1>Generate business tests<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#generate-business-tests"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<section id="generate-business-tests-with-raget">
+<h1>Generate business tests with RAGET<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#generate-business-tests-with-raget"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
 <section id="what-are-ai-business-failures">
 <h2>What are AI business failures?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-are-ai-business-failures" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-are-ai-business-failures'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>Business failures in LLMs are failures that impact the business logic, accuracy, and reliability of your AI system. These include hallucinations, incorrect factual responses, inappropriate content generation, and failures to follow business rules.</p>
@@ -174,7 +174,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the agent’s ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
-If you want to detect security failures, check out the <a class="reference internal" href="security.html"><span class="doc">Generate security tests</span></a>.</p>
+If you want to detect security failures, check out the <a class="reference internal" href="security.html"><span class="doc">Generate security tests with LLM Scan</span></a>.</p>
 </div>
 </section>
 <section id="how-raget-works">
@@ -634,7 +634,7 @@ Besides that, you need to define a clear system prompt and a user prompt that ca
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Generate security tests
+        Generate security tests with LLM Scan
       </a>
 </div>
 <div class="ml-auto">

@@ -95,12 +95,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/index.html">Quickstart &amp; setup</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/datasets/index.html">Create test datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/manual.html">Create manual tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/import.html">Import tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/security.html">Generate security tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/business.html">Generate business tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/setup/projects.html">Setup projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/setup/agents.html">Setup agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/setup/knowledge_bases.html">Setup knowledge bases</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
@@ -127,15 +126,24 @@
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Review tests with human feedback<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/conversations.html">Manage test cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/manual.html">Create manual tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/import.html">Import tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/security.html">Generate security tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/business.html">Generate business tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Evaluate tests and assign validation rules<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/conversations.html">Evaluate test cases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/checks.html">Assigning checks to tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/tags.html">Assigning tags to tests</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Manage evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/schedule.html">Schedule evaluations</a></li>
@@ -150,6 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_0.html">2.0.0 (2025-09-25)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
@@ -171,7 +180,7 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Manage evaluations</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Run, schedule and compare evaluations</a>
 <div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Compare evaluations</span>
 </nav>
 <div id="content" role="main">
@@ -185,10 +194,18 @@
 <li><p><strong>Make data-driven decisions</strong>: Use metrics to guide development priorities</p></li>
 </ul>
 <p>In this section, we will walk you through how to compare evaluations in Giskard Hub.</p>
+<section id="how-to-compare-evaluations">
+<h2>How to compare evaluations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#how-to-compare-evaluations" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-compare-evaluations'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>On the Evaluations page, select at least two evaluations to compare, then click the “Compare” button in the top right corner of the table. The page will display a comparison of the selected evaluations.</p>
 <a class="reference internal image-reference" href="../../../_images/comparison-overview.png"><img alt='"Compare evaluation runs"' class="align-center" src="../../../_images/comparison-overview.png" style="width: 800px;"/>
 </a>
+</section>
+<section id="understanding-the-comparison-view">
+<h2>Understanding the comparison view<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#understanding-the-comparison-view" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#understanding-the-comparison-view'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>First, it shows the success rate - the percentage of conversations that the checks passed in each evaluation. It also displays the percentage of each specific check. Then it presents a table listing the conversations, which can be filtered by results, such as whether the conversations in agenth evaluations passed or failed the checks.</p>
+</section>
+<section id="conversation-level-analysis">
+<h2>Conversation-level analysis<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#conversation-level-analysis" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conversation-level-analysis'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>Clicking on a conversation will show a detailed comparison.</p>
 <a class="reference internal image-reference" href="../../../_images/comparison-detail.png"><img alt='"Comparison details"' class="align-center" src="../../../_images/comparison-detail.png" style="width: 800px;"/>
 </a>
@@ -199,8 +216,16 @@
 <p>During this process you might uncover patterns and issues that you can address in your agent.</p>
 <p>For example, if you created a custom check to verify whether the agent starts with “I’m sorry,” it is useful to know how many conversations fail this requirement.
 If the failure rate is high, you can chose to adjust the evaluation, create more representative test cases or adjust your Agent deployment.</p>
-<p>If you need more information on setting up efficient evaluations for your agent, check out the <a class="reference internal" href="../annotate/index.html"><span class="doc">Review tests with human feedback</span></a> section.</p>
+<p>If you need more information on setting up efficient evaluations for your agent, check out the <a class="reference internal" href="../annotate/index.html"><span class="doc">Evaluate tests and assign validation rules</span></a> section.</p>
 </div>
+</section>
+<section id="next-steps">
+<h2>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>Now that you have compared evaluations, you can take action on the results.</p>
+<ul class="simple">
+<li><p><strong>Schedule evaluations</strong> - <a class="reference internal" href="schedule.html"><span class="doc">Schedule evaluations</span></a></p></li>
+</ul>
+</section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
@@ -219,7 +244,16 @@ If the failure rate is high, you can chose to adjust the evaluation, create more
 </svg>
 </a>
 </div>
-</div></div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#how-to-compare-evaluations'" class="reference internal" href="#how-to-compare-evaluations">How to compare evaluations</a></li>
+<li><a :data-current="activeSection === '#understanding-the-comparison-view'" class="reference internal" href="#understanding-the-comparison-view">Understanding the comparison view</a></li>
+<li><a :data-current="activeSection === '#conversation-level-analysis'" class="reference internal" href="#conversation-level-analysis">Conversation-level analysis</a></li>
+<li><a :data-current="activeSection === '#next-steps'" class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</div>
+</aside>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">
