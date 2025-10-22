@@ -66,3 +66,11 @@ For each detected issue, you can:
       * Track fixes over time
       * Build regression tests
       * Share examples with your team
+
+Next steps
+----------
+
+Now that you have reviewed the scan results, you can take action on the detected vulnerabilities.
+
+* **Review test cases** - :doc:`/hub/ui/annotate/index`
+* **Run and schedule evaluations** - :doc:`/hub/ui/evaluations/index`

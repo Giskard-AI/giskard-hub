@@ -40,3 +40,10 @@ Once started, you can track the scan's progress in real-time:
    :width: 800
 
 The scan typically takes 5-15 minutes depending on your agent's complexity and the number of categories selected.
+
+Next steps
+----------
+
+Now that you have launched a scan, you can review the scan results and take action on the detected vulnerabilities.
+
+* **Review scan results** - :doc:`/hub/ui/scan/review-scan-results`

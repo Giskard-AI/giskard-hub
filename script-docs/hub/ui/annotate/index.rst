@@ -1,11 +1,9 @@
 :og:title: Giskard Hub UI - Human-in-the-Loop Annotation and Review
 :og:description: Review and refine test cases with domain expertise. Use collaborative annotation workflows to improve test quality and ensure comprehensive coverage with intuitive visual tools.
 
-================================
-Review tests with human feedback
-================================
-
-Datasets are collection of test cases that will be used to verify the correct operation of your AI agent.
+====================================================
+Evaluate tests and assign validation rules
+====================================================
 
 Each test case is composed of a conversation and its associated evaluation parameters (e.g. an expected answer, rules that the agent must respect, etc.).
 
@@ -13,18 +11,15 @@ A conversation is a list of messages. In the simplest case, a conversation is co
 
 In more advanced cases, the conversation is a multi-turn dialogue between the user and the agent, terminating with a final user message. When testing, we will pass the conversation history to your agent to generate the response that will be evaluated.
 
-The Datasets section of the Giskard Hub provides an interface for reviewing and assigning evaluation criteria (checks) to conversations.
-
-.. note::
-
-  Except for very specific cases, conversations should always end with a user message. The next agent response will be generated and evaluated at runtime.
+In this section, we will walk you through how to annotate tests with checks and tags using the Hub interface.
 
 .. grid:: 1 1 2 2
-   .. grid-item-card:: Create a conversation
+
+   .. grid-item-card:: Evaluate test cases
       :link: conversations
       :link-type: doc
 
-      Learn about conversation in test cases and how to manage and create them.
+      Learn about evaluation parameters in test cases and how to manage and create them.
 
    .. grid-item-card:: Create and assign checks
       :link: checks

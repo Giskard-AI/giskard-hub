@@ -73,7 +73,7 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 .. tip::
    **⚖️ Unsure about the difference between Open Source and Hub?**
 
-   Check out our :doc:`/start/comparison` guide to learn more about the differnt features.
+   Check out our :doc:`/start/comparison` guide to learn more about the different features.
 
 Open research
 -------------

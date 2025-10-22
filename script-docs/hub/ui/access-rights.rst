@@ -49,7 +49,7 @@ Configure users and groups
 
 
 Configure Global Permissions
-____________________________
+----------------------------
 
 Global permissions apply access rights across all projects. You can configure Create, Read, Edit, and Delete permissions for each page or entity. This is available in the following pages: Project, Dataset, Agent, Knowledge Base, and Evaluation. Additionally, for features like the Playground, API Key Authentication, and Permission, you can enable or disable the users’ right to use it.
 
@@ -71,7 +71,7 @@ The rights are as follows:
    :width: 800
 
 Configure Scoped Permissions
-____________________________
+----------------------------
 
 Scoped permissions allow for granular control. For each project, you can specify which pages or entities users are allowed to access. An example of where this may be useful is if you want your users to read everything in a project but only allow a few people to edit the dataset.
 

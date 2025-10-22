@@ -1,8 +1,8 @@
 :og:title: Giskard Hub UI - Evaluations Management
 :og:description: Run and manage LLM agent evaluations through the user interface. Execute tests, schedule automated evaluations, and analyze results with comprehensive reporting and visual analytics.
 
-Manage evaluations
-==================
+Run, schedule and compare evaluations
+=====================================
 
 Evaluations are the core of the testing process in Giskard Hub. They allow you to run your test datasets against your agents and evaluate their performance using the checks that you have defined.
 
@@ -26,17 +26,27 @@ In this section, we will walk you through how to manage evaluations in Giskard H
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Create evaluations
+   .. grid-item-card:: Run evaluations
       :link: /hub/ui/evaluations/create
       :link-type: doc
 
       Create evaluations
 
-   .. grid-item-card:: Giskard Hub SDK
-      :link: /hub/sdk/index
+   .. grid-item-card:: Schedule evaluations
+      :link: /hub/ui/evaluations/schedule
       :link-type: doc
 
-      As a developer, you can use an SDK to interact with the Giskard Hub programmatically.
+      Schedule evaluations to run automatically.
+
+   .. grid-item-card:: Compare evaluations
+      :link: /hub/ui/evaluations/compare
+      :link-type: doc
+
+      Compare evaluations to see if there are any regressions.
+
+.. note::
+
+   Local evaluations are supported via the SDK. To run evaluations against local development agents, see :doc:`/hub/sdk/evaluations/local`.
 
 
 .. toctree::

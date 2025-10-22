@@ -1,9 +1,9 @@
 :og:title: Giskard Hub SDK - Checks and Metrics Management
 :og:description: Create, manage, and deploy custom validation rules and metrics for your LLM agent tests. Build specialized testing logic tailored to your business requirements using the Python SDK.
 
-=========================
-Manage checks and metrics
-=========================
+=============================================
+Evaluate tests and assign validation rules
+=============================================
 
 Checks are validation rules that are used to evaluate the responses of your agents. They can be used to ensure that your agents are behaving correctly and following the rules that you have defined.
 
@@ -330,3 +330,10 @@ You can use a semantic similarity check to verify that the agent's response is s
             "reference": "The capital of France is Paris, which is located in the northern part of the country.",
             "threshold": 0.8
         }
+
+Next steps
+----------
+
+Now that you have created a check, you can use it in your chat test cases.
+
+* **Run evaluations** - :doc:`/hub/sdk/evaluations/index`

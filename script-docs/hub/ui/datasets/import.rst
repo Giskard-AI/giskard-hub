@@ -94,5 +94,7 @@ Here's an example of the structure and content in a dataset:
 Next steps
 ----------
 
+* **Agentic vulnerability detection** - Try :doc:`/hub/ui/scan/index`
+* **Generate business failures** - Try :doc:`/hub/ui/datasets/business`
+* **Generate security failures** - Try :doc:`/hub/ui/datasets/security`
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`
-* **Generate test cases** - Try :doc:`/hub/ui/datasets/business` or :doc:`/hub/ui/datasets/security`

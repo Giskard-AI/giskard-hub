@@ -2,7 +2,7 @@
 :og:description: Create, manage, and organize test datasets programmatically. Import chat test cases, generate synthetic data, and build comprehensive test datasets using the Python SDK.
 
 ===================================
-Manage datasets and chat test cases
+Create test cases and datasets
 ===================================
 
 This section will guide you through creating your own test datasets programmatically.
