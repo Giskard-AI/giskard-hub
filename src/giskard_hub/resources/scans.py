@@ -1,8 +1,8 @@
+from functools import lru_cache
 from typing import List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given
 from ..data.scan import (
-    SCAN_CATEGORIES,
     ProbeAttempt,
     ProbeResult,
     ScanCategory,
@@ -15,6 +15,7 @@ _PROBE_BASE_URL = "/probes"
 
 
 class ScansResource(APIResource):
+    @lru_cache(maxsize=1)
     def list_categories(self) -> List[ScanCategory]:
         """List scan categories that can be use as tags to create/launch a scan.
 
@@ -22,7 +23,8 @@ class ScansResource(APIResource):
         -------
             List[ScanCategory]: A list of `ScanCategory` objects representing all available scan categories.
         """
-        return SCAN_CATEGORIES
+        data = self._client.get(f"{_SCAN_BASE_URL}/categories")
+        return [ScanCategory.from_dict(item) for item in data["items"]]
 
     def create(
         self,
@@ -47,8 +49,6 @@ class ScansResource(APIResource):
         ScanResult
             The created scan result.
         """
-        if not tags or len(tags) == 0:
-            tags = [category.id for category in self.list_categories()]
 
         data = filter_not_given(
             {
