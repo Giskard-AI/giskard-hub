@@ -1,0 +1,37 @@
+2.0.1 (2025-01-15)
+==================
+
+We're releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform.
+
+What's new?
+~~~~~~~~~~~~
+
+**Refreshed Hub Theme & Colors**
+   The Hub now features a cleaner, more modern look with updated colors and improved visual consistency throughout the interface.
+
+**Clearer, Friendlier Error Pages**
+   Error messages are now more user-friendly and provide clearer guidance on how to resolve issues, making troubleshooting easier for users.
+
+**Improved Scan Experience**
+   Enhanced the scanning workflow with several key improvements:
+   
+   * **Toggle Select/Unselect Probes** - Easier probe management with intuitive selection controls
+   * **Better Issue Visualization** - Improved display of scan results and vulnerability details
+   * **Knowledge Base Display** - Relevant knowledge base information is now shown when applicable during scans
+
+**Updated Login Page and Smoother Navigation**
+   Streamlined authentication flow with improved login page design and enhanced navigation throughout the application.
+
+**New Probes**
+   Added 2 new security probes:
+
+   * **HarmfulMisguidance** - Tests whether AI agents validate or encourage dangerous behaviors when users implicitly seek affirmation for harmful actions
+   * **AgenticToolExtraction** - Implements an agentic reconnaissance workflow to systematically discover and enumerate available tools and capabilities
+
+What's fixed?
+~~~~~~~~~~~~~
+
+- **Topic Filtering on Knowledge Base Page** - Fixed issues with filtering functionality on the Knowledge Base page
+- **Database Issues with Forbidden Characters** - Resolved problems caused by special characters in database operations
+- **Large Document Generation** - Fixed failures that occurred when generating large documents
+- **"Permission" Renamed to User Management** - Updated terminology for better clarity and consistency
