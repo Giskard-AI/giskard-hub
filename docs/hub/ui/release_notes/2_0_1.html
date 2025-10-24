@@ -7,29 +7,29 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Giskard Hub UI - Scheduled Evaluations" property="og:title"/>
+<meta content="2.0.1 (2025-01-15)" property="og:title"/>
 <meta content="website" property="og:type"/>
-<meta content="https://docs.giskard.ai/hub/ui/evaluations/schedule.html" property="og:url"/>
+<meta content="https://docs.giskard.ai/hub/ui/release_notes/2_0_1.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
-<meta content="Schedule evaluations to run automatically at regular intervals. Detect regressions in agent performance over time with automated testing workflows and comprehensive monitoring." property="og:description"/>
+<meta content="We’re releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform. What’s new?: Refreshed Hub Theme ..." property="og:description"/>
 <meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="You can schedule evaluations to run automatically at regular intervals. This is useful to detect regressions in your agent’s performance over time. Open the schedule view: On the Evaluations page, ..." name="description"/>
-<title>Schedule evaluations | Giskard  documentation</title>
-<meta content="Schedule evaluations | Giskard  documentation" property="og:title"/>
-<meta content="Schedule evaluations | Giskard  documentation" name="twitter:title"/>
+<meta content="We’re releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform. What’s new?: Refreshed Hub Theme ..." name="description"/>
+<title>2.0.1 (2025-01-15) | Giskard  documentation</title>
+<meta content="2.0.1 (2025-01-15) | Giskard  documentation" property="og:title"/>
+<meta content="2.0.1 (2025-01-15) | Giskard  documentation" name="twitter:title"/>
 <link href="../../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/custom.css?v=27f23bac" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
-<link href="/hub/ui/evaluations/schedule.html" rel="canonical"/>
+<link href="/hub/ui/release_notes/2_0_1.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
-<link href="compare.html" rel="next" title="Compare evaluations"/>
-<link href="create.html" rel="prev" title="Run evaluations"/>
+<link href="../../sdk/index.html" rel="next" title="Quickstart &amp; setup"/>
+<link href="2_0_0.html" rel="prev" title="2.0.0 (2025-09-25)"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -181,59 +181,59 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Run, schedule and compare evaluations</a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Schedule evaluations</span>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Release notes</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">2.0.1 (2025-01-15)</span>
 </nav>
 <div id="content" role="main">
-<section id="schedule-evaluations">
-<h1>Schedule evaluations<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#schedule-evaluations"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
-<p>You can schedule evaluations to run automatically at regular intervals. This is useful to detect regressions in your agent’s performance over time.</p>
-<section id="open-the-schedule-view">
-<h2>Open the schedule view<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#open-the-schedule-view" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#open-the-schedule-view'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>On the Evaluations page, click on the “Schedule” tab. This will display a list of all the scheduled evaluations.</p>
-<a class="reference internal image-reference" href="../../../_images/evaluation-schedule-list.png"><img alt='"Evaluation schedule list"' class="align-center" src="../../../_images/evaluation-schedule-list.png" style="width: 800px;"/>
-</a>
-</section>
-<section id="create-a-new-schedule">
-<h2>Create a new schedule<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-new-schedule" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-new-schedule'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>To create a new scheduled evaluation, click on the “Schedule Evaluation” button in the upper right corner of the screen.</p>
-<a class="reference internal image-reference" href="../../../_images/evaluation-schedule.png"><img alt='"Evaluation schedule"' class="align-center" src="../../../_images/evaluation-schedule.png" style="width: 800px;"/>
-</a>
-</section>
-<section id="configure-the-schedule">
-<h2>Configure the schedule<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#configure-the-schedule" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#configure-the-schedule'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>Next, set the parameters for the evaluation:</p>
+<section id="id1">
+<h1>2.0.1 (2025-01-15)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<p>We’re releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform.</p>
+<section id="what-s-new">
+<h2>What’s new?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-new" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-new'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<dl class="simple">
+<dt><strong>Refreshed Hub Theme &amp; Colors</strong></dt><dd><p>The Hub now features a cleaner, more modern look with updated colors and improved visual consistency throughout the interface.</p>
+</dd>
+<dt><strong>Clearer, Friendlier Error Pages</strong></dt><dd><p>Error messages are now more user-friendly and provide clearer guidance on how to resolve issues, making troubleshooting easier for users.</p>
+</dd>
+<dt><strong>Improved Scan Experience</strong></dt><dd><p>Enhanced the scanning workflow with several key improvements:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: Give your evaluation a name.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Agent</span></code>: Select the agent you want to evaluate.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Dataset</span></code>: Choose the dataset you want to use for the evaluation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Tags</span></code> (optional): Limit the evaluation to a specific subset of the dataset by applying tags.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">runs</span></code>: Select the number of runs that need to pass for each evaluation entry.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Frequency</span></code>: Select the frequency for the evaluation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Time</span></code>: Select the time for the evaluation. (This time is based on the time zone of the server where the Giskard Hub is installed.)</p></li>
+<li><p><strong>Toggle Select/Unselect Probes</strong> - Easier probe management with intuitive selection controls</p></li>
+<li><p><strong>Better Issue Visualization</strong> - Improved display of scan results and vulnerability details</p></li>
+<li><p><strong>Knowledge Base Display</strong> - Relevant knowledge base information is now shown when applicable during scans</p></li>
 </ul>
-<p>After filling the form, click on the “Schedule evaluation” button, which will create the evaluation run and schedule it to run at the specified frequency and time.</p>
-</section>
-<section id="next-steps">
-<h2>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>Now that you have scheduled an evaluation, you can take action on the results.</p>
+</dd>
+<dt><strong>Updated Login Page and Smoother Navigation</strong></dt><dd><p>Streamlined authentication flow with improved login page design and enhanced navigation throughout the application.</p>
+</dd>
+<dt><strong>New Probes</strong></dt><dd><p>Added 2 new security probes:</p>
 <ul class="simple">
-<li><p><strong>Compare evaluations</strong> - <a class="reference internal" href="compare.html"><span class="doc">Compare evaluations</span></a></p></li>
+<li><p><strong>HarmfulMisguidance</strong> - Tests whether AI agents validate or encourage dangerous behaviors when users implicitly seek affirmation for harmful actions</p></li>
+<li><p><strong>AgenticToolExtraction</strong> - Implements an agentic reconnaissance workflow to systematically discover and enumerate available tools and capabilities</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="what-s-fixed">
+<h2>What’s fixed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-fixed" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-fixed'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<ul class="simple">
+<li><p><strong>Topic Filtering on Knowledge Base Page</strong> - Fixed issues with filtering functionality on the Knowledge Base page</p></li>
+<li><p><strong>Database Issues with Forbidden Characters</strong> - Resolved problems caused by special characters in database operations</p></li>
+<li><p><strong>Large Document Generation</strong> - Fixed failures that occurred when generating large documents</p></li>
+<li><p><strong>“Permission” Renamed to User Management</strong> - Updated terminology for better clarity and consistency</p></li>
 </ul>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="create.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="2_0_0.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Run evaluations
+        2.0.0 (2025-09-25)
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="compare.html">
-        Compare evaluations
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../../sdk/index.html">
+        Quickstart &amp; setup
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>
@@ -242,10 +242,8 @@
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
-<li><a :data-current="activeSection === '#open-the-schedule-view'" class="reference internal" href="#open-the-schedule-view">Open the schedule view</a></li>
-<li><a :data-current="activeSection === '#create-a-new-schedule'" class="reference internal" href="#create-a-new-schedule">Create a new schedule</a></li>
-<li><a :data-current="activeSection === '#configure-the-schedule'" class="reference internal" href="#configure-the-schedule">Configure the schedule</a></li>
-<li><a :data-current="activeSection === '#next-steps'" class="reference internal" href="#next-steps">Next steps</a></li>
+<li><a :data-current="activeSection === '#what-s-new'" class="reference internal" href="#what-s-new">What’s new?</a></li>
+<li><a :data-current="activeSection === '#what-s-fixed'" class="reference internal" href="#what-s-fixed">What’s fixed?</a></li>
 </ul>
 </div>
 </aside>

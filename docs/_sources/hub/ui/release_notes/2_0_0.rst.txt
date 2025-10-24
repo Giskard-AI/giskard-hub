@@ -63,8 +63,8 @@ What's changed?
 What's fixed?
 ~~~~~~~~~~~~~
 
-- Fixed an issue with document embedding when handling a single large document (#86).
-- Resolved a bug related to access of notification preferences, ensuring all users have appropriate access regardless of their permissions (#87).
+- Fixed an issue with document embedding when handling a single large document.
+- Resolved a bug related to access of notification preferences, ensuring all users have appropriate access regardless of their permissions.
 - Corrected a problem where new environment creation did not set the Keycloak secret correctly.
 - Fixed mismatches between displayed statistics and actual items in evaluation lists.
 - Addressed a bug affecting failure category editing.
