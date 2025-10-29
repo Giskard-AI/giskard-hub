@@ -65,7 +65,7 @@ The library provides a set of tools for testing and evaluating LLMs, including:
 
       As a developer, you can use the Open Source SDK to get familiar with basic testset generation for business and security failures.
 
-   .. grid-item-card:: Deeplearning.AI ↗
+   .. grid-item-card:: Deeplearning.AI
       :link: https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/
 
       Our course on red teaming LLM applications on Deeplearning.AI helps you understand how to test, red team and evaluate LLM applications.

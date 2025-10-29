@@ -785,17 +785,7 @@ header nav a.recently-selected {
 }
 
 /* Fix duplicate external link icons in sidebar */
-/* The theme adds external link icons via ::after, so hide any duplicate SVGs */
+/* Hide any duplicate SVG elements (in case multiple SVGs are added as children) */
 #left-sidebar a.reference.external svg:not(:first-of-type) {
-  display: none !important;
-}
-
-/* If icons are added via pseudo-elements, ensure only one shows */
-#left-sidebar a.reference.external {
-  position: relative;
-}
-
-/* Hide duplicate icons added via ::before if ::after already has one */
-#left-sidebar a.reference.external::before {
   display: none !important;
 }
