@@ -13,4 +13,4 @@
    start/enterprise-trial
    GitHub releases <https://github.com/Giskard-AI/giskard-hub/releases>
    Contact us <https://www.giskard.ai/contact>
-   Blogs <https://www.giskard.ai/knowledge-categories/blog>
+   Blog <https://www.giskard.ai/knowledge-categories/blog>

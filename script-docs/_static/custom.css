@@ -783,3 +783,9 @@ header nav a.recently-selected {
 .dark header nav a.recently-selected {
   color: var(--accent-color) !important;
 }
+
+/* Fix duplicate external link icons in sidebar */
+/* Hide any duplicate SVG elements (in case multiple SVGs are added as children) */
+#left-sidebar a.reference.external svg:not(:first-of-type) {
+  display: none !important;
+}
