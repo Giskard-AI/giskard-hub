@@ -22,14 +22,14 @@
 <link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../_static/custom.css?v=27f23bac" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
 <link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/hub/ui/index.html" rel="canonical"/>
 <link href="../../_static/favicon.ico" rel="icon"/>
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="setup/index.html" rel="next" title="Setup projects, agents and knowledge bases"/>
-<link href="../../start/glossary/llm_benchmarks/domain_specific.html" rel="prev" title="Domain-Specific Benchmarks"/>
+<link href="release_notes/2_0_1.html" rel="prev" title="2.0.1 (2025-10-24)"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -52,7 +52,7 @@
 <img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../_static/logo_dark.png" width="24"/>
 <img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
 </a><nav class="flex items-center space-x-6 text-sm font-medium">
-<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Products</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Overview</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground" href="/hub/ui/index.html">Hub UI</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
@@ -156,12 +156,12 @@
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_0.html">2.0.0 (2025-09-25)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_1.html">2.0.1 (2025-01-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_1.html">2.0.1 (2025-10-24)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blog<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 </nav>
 </div>
@@ -248,6 +248,14 @@ Release notes</div>
 </div>
 </div>
 </div>
+<dl class="simple">
+<dt><strong>Latest Releases:</strong></dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="release_notes/2_0_1.html"><span class="doc">Release 2.0.1 (October 24, 2024)</span></a></p></li>
+<li><p><a class="reference internal" href="release_notes/2_0_0.html"><span class="doc">Release 2.0.0</span></a></p></li>
+<li><p><a class="reference internal" href="release_notes/index.html"><span class="doc">All release notes</span></a></p></li>
+</ul>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Throughout this user guide, we’ll use a banking app called Zephyr Bank, designed by data scientists. The app’s agent provides customer service support on their website, offering knowledge about the bank’s products, services, and more.</p>
@@ -381,11 +389,11 @@ Release notes</div>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../../start/glossary/llm_benchmarks/domain_specific.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="release_notes/2_0_1.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Domain-Specific Benchmarks
+        2.0.1 (2025-10-24)
       </a>
 </div>
 <div class="ml-auto">
@@ -428,6 +436,6 @@ Release notes</div>
 <script src="../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-<script src="../../_static/custom.js?v=b8a2f78f"></script>
+<script src="../../_static/custom.js?v=5d86a3d6"></script>
 </body>
 </html>

@@ -703,7 +703,7 @@
     banner.className = 'enterprise-trial-banner';
     const baseUrl = window.location.origin;
     banner.innerHTML = `
-      <span>🚀 Ready to scale your AI testing? <a href="${baseUrl}/start/enterprise-trial.html">Request your free enterprise trial today! 🛡️</a> </span>
+      <span>📄 Learn about the research behind our Red Teaming: <a href="https://www.giskard.ai/knowledge/llm-security-50-adversarial-attacks-for-ai-red-teaming" target="_blank">Download our LLM Security Attacks Whitepaper</a></span>
       <button class="close-btn" aria-label="Close banner">×</button>
     `;
 

@@ -14,7 +14,7 @@
 <meta content="Create, manage, and organize projects, agents and knowledge bases through the user interface. Set up workspaces, configure access controls, and manage team collaboration." property="og:description"/>
 <meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="In this section, we will walk you through how to setup agents using the Hub interface. Agents are configured through an API endpoint. They can be evaluated against datasets. Create a new agent: On ..." name="description"/>
+<meta content='In this section, we will walk you through how to setup agents using the Hub interface. Create a new agent: On the Agents page, click on the “New agent” button."List of agents" Agent field...' name="description"/>
 <title>Setup agents | Giskard  documentation</title>
 <meta content="Setup agents | Giskard  documentation" property="og:title"/>
 <meta content="Setup agents | Giskard  documentation" name="twitter:title"/>
@@ -22,7 +22,7 @@
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=27f23bac" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/hub/ui/setup/agents.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
@@ -52,7 +52,7 @@
 <img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../../_static/logo_dark.png" width="24"/>
 <img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
 </a><nav class="flex items-center space-x-6 text-sm font-medium">
-<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Products</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Overview</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
@@ -156,12 +156,12 @@
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_0.html">2.0.0 (2025-09-25)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_1.html">2.0.1 (2025-01-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_1.html">2.0.1 (2025-10-24)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blogs<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg><svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blog<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
 </nav>
 </div>
@@ -188,7 +188,10 @@
 <section id="setup-agents">
 <h1>Setup agents<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#setup-agents"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
 <p>In this section, we will walk you through how to setup agents using the Hub interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Agents are configured through an API endpoint. They can be evaluated against datasets.</p>
+</div>
 <section id="create-a-new-agent">
 <h2>Create a new agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-new-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-new-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>On the Agents page, click on the “New agent” button.</p>
@@ -312,6 +315,6 @@
 <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-<script src="../../../_static/custom.js?v=b8a2f78f"></script>
+<script src="../../../_static/custom.js?v=5d86a3d6"></script>
 </body>
 </html>
