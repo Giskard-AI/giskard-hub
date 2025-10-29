@@ -1031,7 +1031,7 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
 
         html_lines.append(f'{indent}<li class="{css_class}" {alpine_data}>')
         html_lines.append(
-            f'{indent}  <a {alpine_class} {alpine_click} class="{link_class} {expandable_class}" href="{entry["url"]}">{title_with_icon}<button {alpine_click.replace("@click", "@click.prevent.stop")} type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewBox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>'
+            f'{indent}  <a {alpine_class} {alpine_click} class="{link_class} {expandable_class}" href="{entry["url"]}">{title_with_icon}</a>'
         )
         html_lines.append(f"{indent}  <ul {alpine_show}>")
 
