@@ -103,5 +103,10 @@ This release enables detection of sophisticated attacks that evolve across multi
 Hub SDK
 -------
 
+Versions released since 2.0.0 Hub UI release and before 2.0.1 Hub UI release.
+
 .. include:: ../../sdk/release_notes/2_0_0.rst
-   :start-after: ==============
+
+.. include:: ../../sdk/release_notes/2_0_1.rst
+
+.. include:: ../../sdk/release_notes/2_0_2.rst

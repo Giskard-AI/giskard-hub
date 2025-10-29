@@ -1,7 +1,7 @@
 2.0.2 (2025-10-06)
-==================
+~~~~~~~~~~~~~~~~~~
 
 What's fixed?
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 - Fixed usage of OpenAPI description endpoint as health check in and replaced with a custom health check endpoint.

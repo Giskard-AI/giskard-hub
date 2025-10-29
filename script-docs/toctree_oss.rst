@@ -16,6 +16,6 @@
    :hidden:
    :maxdepth: 4
 
-   start/enterprise-trial
+   start/comparison
    Contact us <https://www.giskard.ai/contact>
    Blog <https://www.giskard.ai/knowledge-categories/blog>

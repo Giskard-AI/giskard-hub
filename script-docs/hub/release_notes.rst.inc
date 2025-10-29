@@ -7,7 +7,7 @@ Click on a release below to browse the release notes for that version:
 
 .. note::
    
-   The release notes for individual versions of the hub SDK redirect to code updates on the GitHub repository. For an example on the SDK usage linked to new UI features, please look at the Hub UI release notes.
+   The release notes for individual versions of Hub UI and Hub SDK are asynchronous. For a full overview of the changes, **please look at the release notes for the Hub UI**.
    
 .. list-table::
    :header-rows: 1
