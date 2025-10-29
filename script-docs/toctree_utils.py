@@ -124,7 +124,6 @@ def parse_file_toctree(file_path: str) -> list:
         List of entries found in toctree directives, including nested segments
     """
     entries: list = []
-    base_dir = Path(file_path).parent
 
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -232,18 +231,20 @@ def parse_toctree_file(
     """
     Parse a toctree file and extract navigation structure with nested items.
     Handles multiple toctree directives in a single file and recursively parses nested files.
+    Each toctree with a caption becomes a separate section with its own header.
 
     Args:
         toctree_path: Path to the toctree file
         processed_files: Set of files already processed to prevent infinite loops
 
     Returns:
-        Dictionary containing caption and entries from all toctrees in the file
+        Dictionary containing "sections" (list of sections, each with "caption" and "entries")
+        For backward compatibility, also includes "caption" and "entries" (from first section)
     """
     if processed_files is None:
         processed_files = set()
 
-    toctree_data: dict = {"caption": "", "entries": []}
+    sections: list = []
     base_dir = Path(toctree_path).parent
 
     try:
@@ -253,27 +254,36 @@ def parse_toctree_file(
         # Find all toctree blocks in the file
         toctree_blocks = _extract_toctree_blocks(content)
 
-        # Process each toctree block
+        # Process each toctree block as a separate section
         for toctree_block in toctree_blocks:
             options_block, content_block = toctree_block
 
-            # Extract caption from options (use first caption found)
-            if not toctree_data["caption"]:
-                # Optimized regex to avoid potential backtracking issues
-                caption_match = re.search(r":caption:\s*([^\n]+)", options_block)
-                if caption_match:
-                    toctree_data["caption"] = caption_match.group(1).strip()
+            # Extract caption from options
+            caption_match = re.search(r":caption:\s*([^\n]+)", options_block)
+            caption = caption_match.group(1).strip() if caption_match else ""
 
             # Parse entries from this toctree block
             entries = _parse_toctree_entries(
                 content_block, str(base_dir), toctree_path, processed_files
             )
-            toctree_data["entries"].extend(entries)
+
+            # Only add section if it has entries or a caption
+            if entries or caption:
+                sections.append({"caption": caption, "entries": entries})
 
     except FileNotFoundError:
         print(f"Warning: Could not find toctree file: {toctree_path}")
     except Exception as e:
         print(f"Error parsing toctree file {toctree_path}: {e}")
+
+    # For backward compatibility and when there's only one section, also provide top-level caption/entries
+    toctree_data: dict = {"sections": sections}
+    if sections:
+        toctree_data["caption"] = sections[0]["caption"]
+        toctree_data["entries"] = sections[0]["entries"]
+    else:
+        toctree_data["caption"] = ""
+        toctree_data["entries"] = []
 
     return toctree_data
 
@@ -308,11 +318,16 @@ def _extract_toctree_blocks(content: str) -> list:
             line = lines[i]
             stripped = line.strip()
 
-            # Stop if we hit another directive or section
-            if stripped.startswith("..") and not stripped.startswith(".. toctree::"):
+            # Stop if we hit another toctree directive (explicit check for multiple toctrees)
+            if stripped.startswith(".. toctree::"):
                 break
+
+            # Stop if we hit another directive (but not toctree, which we handled above)
+            if stripped.startswith(".."):
+                break
+
+            # Stop if we hit a non-indented line that's not empty (new section)
             if stripped and not line.startswith(" ") and not line.startswith("\t"):
-                # This is a new section, stop processing
                 break
 
             # Skip empty lines
@@ -326,7 +341,8 @@ def _extract_toctree_blocks(content: str) -> list:
                 # This is content (page references)
                 content_lines.append(stripped)
 
-        # Only add if we have content
+        # Add the toctree block if it has content
+        # (toctrees with only options but no content are typically incomplete/unused)
         if content_lines:
             options_block = "\n".join(options_lines)
             content_block = "\n".join(content_lines)
@@ -975,24 +991,55 @@ def _discover_files_with_glob(
 def generate_sidebar_html(toctree_data: dict, sidebar_name: str) -> str:
     """
     Generate HTML sidebar template from toctree data with nested structure.
+    Supports multiple sections with separate headers when multiple toctrees are present.
 
     Args:
-        toctree_data: Parsed toctree data
+        toctree_data: Parsed toctree data (with "sections" list or "caption"/"entries" for backward compatibility)
         sidebar_name: Name for the sidebar template file
 
     Returns:
         HTML content for the sidebar template
     """
-    html_parts = [
-        '<nav class="table w-full min-w-full my-6 lg:my-8">',
-        f'  <p class="caption" role="heading"><span class="caption-text">{toctree_data["caption"]}</span></p>',
-        '  <ul class="current">',
-    ]
+    html_parts = []
 
-    for entry in toctree_data["entries"]:
-        html_parts.extend(_generate_entry_html(entry, level=1))
+    # Check if we have multiple sections
+    if "sections" in toctree_data and len(toctree_data["sections"]) > 1:
+        # Multiple sections - generate all captions and lists in the same nav table
+        html_parts.append('<nav class="table w-full min-w-full my-6 lg:my-8">')
 
-    html_parts.extend(["  </ul>", "</nav>"])
+        for section in toctree_data["sections"]:
+            if not section.get("entries"):
+                continue  # Skip empty sections
+
+            caption = section.get("caption", "")
+            if caption:
+                html_parts.append(
+                    f'  <p class="caption" role="heading"><span class="caption-text">{caption}</span></p>'
+                )
+            html_parts.append('  <ul class="current">')
+
+            for entry in section["entries"]:
+                html_parts.extend(_generate_entry_html(entry, level=1))
+
+            html_parts.append("  </ul>")
+
+        html_parts.append("</nav>")
+    else:
+        # Single section - use backward compatible format
+        caption = toctree_data.get("caption", "")
+        entries = toctree_data.get("entries", [])
+
+        html_parts.append('<nav class="table w-full min-w-full my-6 lg:my-8">')
+        if caption:
+            html_parts.append(
+                f'  <p class="caption" role="heading"><span class="caption-text">{caption}</span></p>'
+            )
+        html_parts.append('  <ul class="current">')
+
+        for entry in entries:
+            html_parts.extend(_generate_entry_html(entry, level=1))
+
+        html_parts.extend(["  </ul>", "</nav>"])
 
     return "\n".join(html_parts)
 
