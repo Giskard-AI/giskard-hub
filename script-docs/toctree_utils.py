@@ -1014,9 +1014,8 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
 
     if entry["is_external"]:
         link_class = "reference external"
-        # Add external link icon for external links
-        external_icon = '<svg fill="currentColor" height="1em" stroke="none" viewBox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg>'
-        title_with_icon = f'{entry["title"]}{external_icon}'
+        # Theme already adds external link icon via awesome_external_links
+        title_with_icon = entry["title"]
     else:
         link_class = "reference internal"
         title_with_icon = entry["title"]

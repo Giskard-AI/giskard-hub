@@ -153,7 +153,7 @@ theme_options = ThemeOptions(
     logo_light="_static/logo_light.png",
     logo_dark="_static/logo_dark.png",
     main_nav_links={
-        "Products": "/index",
+        "Overview": "/index",
         "Hub UI": "/hub/ui/index",
         "Hub SDK": "/hub/sdk/index",
         "Open Source": "/oss/sdk/index",

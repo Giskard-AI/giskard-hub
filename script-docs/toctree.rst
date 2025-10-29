@@ -1,5 +1,5 @@
 .. toctree::
-   :caption: Giskard Offerings
+   :caption: Giskard Overview
    :hidden:
    :maxdepth: 4
 
@@ -7,5 +7,6 @@
    start/comparison
    start/enterprise-trial
    start/glossary/index
+   hub/ui/release_notes/index
    Contact us <https://www.giskard.ai/contact>
-   Blogs <https://www.giskard.ai/knowledge-categories/blog>
+   Blog <https://www.giskard.ai/knowledge-categories/blog>

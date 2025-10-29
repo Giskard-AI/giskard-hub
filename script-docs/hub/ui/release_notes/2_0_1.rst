@@ -1,4 +1,4 @@
-2.0.1 (2025-01-15)
+2.0.1 (2025-10-24)
 ==================
 
 We're releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform.
@@ -21,12 +21,6 @@ What's new?
 
 **Updated Login Page and Smoother Navigation**
    Streamlined authentication flow with improved login page design and enhanced navigation throughout the application.
-
-**New Probes**
-   Added 2 new security probes:
-
-   * **HarmfulMisguidance** - Tests whether AI agents validate or encourage dangerous behaviors when users implicitly seek affirmation for harmful actions
-   * **AgenticToolExtraction** - Implements an agentic reconnaissance workflow to systematically discover and enumerate available tools and capabilities
 
 What's fixed?
 ~~~~~~~~~~~~~

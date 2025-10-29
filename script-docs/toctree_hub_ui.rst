@@ -14,4 +14,4 @@
    hub/ui/release_notes/index
    start/enterprise-trial
    Contact us <https://www.giskard.ai/contact>
-   Blogs <https://www.giskard.ai/knowledge-categories/blog>
+   Blog <https://www.giskard.ai/knowledge-categories/blog>

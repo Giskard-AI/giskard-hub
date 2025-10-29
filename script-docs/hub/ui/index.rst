@@ -54,6 +54,11 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
       View the latest features and changes.
 
+**Latest Releases:**
+   - :doc:`Release 2.0.1 (October 24, 2024) <release_notes/2_0_1>`
+   - :doc:`Release 2.0.0 <release_notes/2_0_0>`
+   - :doc:`All release notes <release_notes/index>`
+
 .. note::
 
     Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's agent provides customer service support on their website, offering knowledge about the bank's products, services, and more.
