@@ -23,6 +23,8 @@ Click on a release below to browse the release notes for that version:
        | :doc:`/hub/sdk/release_notes/2_0_2`
    * - :doc:`/hub/ui/release_notes/2_0_1`
      - 
+   * - 
+     - | :doc:`/hub/sdk/release_notes/2_1_0`
 
 We Value Your Feedback
 ----------------------

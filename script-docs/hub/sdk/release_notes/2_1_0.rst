@@ -1,0 +1,48 @@
+2.1.0 (2025-10-30)
+~~~~~~~~~~~~~~~~~~
+
+We launched support for the LLM vulnerability scan feature that was released in the :doc:`/hub/ui/release_notes/2_0_1` Hub UI release.
+
+What's new?
+^^^^^^^^^^^^^
+
+- SDK support for the LLM vulnerability scan feature in the Hub UI through `.scans.create()`.
+
+How to get started?
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    import os
+    import sys
+    from giskard_hub import HubClient
+
+    hub = HubClient(...)
+    model_id = os.getenv("GISKARD_HUB_MODEL_ID")
+    knowledge_base_id = os.getenv("GISKARD_HUB_KNOWLEDGE_BASE_ID")
+
+    # Run security scan with specific tags
+    scan_result = hub.scans.create(
+        model_id=model_id,
+        knowledge_base_id=knowledge_base_id,
+        tags=[
+            "gsk:threat-type='prompt-injection'",
+            "owasp:llm-top-10-2025='LLM01'",
+        ],
+    )
+
+    # Wait for completion and check result metrics
+    scan_result.wait_for_completion(timeout=1200)
+    scan_result.print_metrics()
+
+    # Check if the grade is worse than A or B (C, D or N/A)
+    if scan_result.grade not in ["A", "B"]:
+        print(f"❌ Security check failed: Scan with Grade {scan_result.grade.value}")
+        sys.exit(1)
+    
+    print(f"✅ Security check passed: Scan with Grade {scan_result.grade.value}")
+
+.. tip::
+
+   Check out the :doc:`/hub/sdk/scans` section for a full guide on how to use the scan feature with the SDK.
+

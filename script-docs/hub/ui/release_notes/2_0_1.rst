@@ -36,4 +36,4 @@ What's fixed?
 Hub SDK
 -------
 
-No releases since 2.0.1 UI release yet.
+.. include:: ../../sdk/release_notes/2_1_0.rst
