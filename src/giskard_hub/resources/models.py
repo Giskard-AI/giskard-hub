@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from ..data._base import NOT_GIVEN, filter_not_given, maybe_to_dict
 from ..data.chat import ChatMessage
@@ -15,15 +15,18 @@ def _maybe_headers_to_list(headers: Dict[str, str] | None):
 
 
 class ModelsResource(APIResource):
+    _base_url = "/v2/models"
+
     def retrieve(self, model_id: str) -> Model:
-        return self._client.get(f"/models/{model_id}", cast_to=Model)
+        response = self._client.get(f"{self._base_url}/{model_id}")
+        return Model.from_dict(response["data"], _client=self._client)
 
     # pylint: disable=too-many-arguments
     def create(
         self,
         *,
         name: str,
-        description: str,
+        description: Optional[str] = None,
         url: str,
         supported_languages: List[str],
         headers: Dict[str, str] = None,
@@ -39,11 +42,13 @@ class ModelsResource(APIResource):
                 "project_id": project_id,
             }
         )
-        return self._client.post(
-            "/models",
+
+        response = self._client.post(
+            self._base_url,
             json=data,
-            cast_to=Model,
         )
+
+        return Model.from_dict(response["data"], _client=self._client)
 
     # pylint: disable=too-many-arguments
     def update(
@@ -67,23 +72,31 @@ class ModelsResource(APIResource):
                 "project_id": project_id,
             }
         )
-        return self._client.patch(
-            f"/models/{model_id}",
+
+        response = self._client.patch(
+            f"{self._base_url}/{model_id}",
             json=data,
-            cast_to=Model,
         )
+
+        return Model.from_dict(response["data"], _client=self._client)
 
     def delete(self, model_id: str | List[str]) -> None:
-        self._client.delete("/models", params={"model_ids": model_id})
+        if isinstance(model_id, str):
+            self._client.delete(f"{self._base_url}/{model_id}")
+            return
+        self._client.delete(self._base_url, params={"model_ids": model_id})
 
     def list(self, project_id: str) -> List[Model]:
-        return self._client.get(
-            "/models", params={"project_id": project_id}, cast_to=Model
-        )
+        response = self._client.get(self._base_url, params={"project_id": project_id})
+
+        return [
+            Model.from_dict(item, _client=self._client) for item in response["data"]
+        ]
 
     def chat(self, model_id: str, messages: List[ChatMessage]) -> ModelOutput:
-        return self._client.post(
-            f"/models/{model_id}/chat",
+        response = self._client.post(
+            f"{self._base_url}/{model_id}/completions",
             json={"messages": [maybe_to_dict(msg) for msg in messages]},
-            cast_to=ModelOutput,
         )
+
+        return ModelOutput.from_dict(response["data"], _client=self._client)
