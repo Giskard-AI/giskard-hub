@@ -35,7 +35,6 @@ Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/
 
 First, you need to have an agent configured in the Hub. If you haven't created an agent yet, check the Create an agent section in the Projects guide.
 
-
 Attack overview
 ---------------
 
@@ -160,7 +159,6 @@ Similarly to the OWASP LLM Top 10 tags, you can use the ``gsk:threat-type`` tags
         knowledge_base_id="<GISKARD_HUB_KNOWLEDGE_BASE_ID>",
         tags=[category.id for category in categories],
     )
-
 
 Complete workflow example
 -------------------------

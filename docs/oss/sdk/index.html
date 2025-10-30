@@ -29,7 +29,7 @@
 <link href="../../search.html" rel="search" title="Search"/>
 <link href="../../genindex.html" rel="index" title="Index"/>
 <link href="security.html" rel="next" title="Generate security tests with LLM Scan"/>
-<link href="../../hub/sdk/reference/resources/index.html" rel="prev" title="Resources reference"/>
+<link href="../../hub/sdk/release_notes/2_0_0.html" rel="prev" title="2.0.0 (2025-09-23)"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -102,12 +102,6 @@
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_IPCC.html">LLM Question Answering over the IPCC Climate Change Report</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_Google.html">LLM Question Answering with Langchain, Qdrant and OpenAI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_Winter_Olympics.html">LLM Question Answering over the 2022 Winter Olympics Wikipedia articles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_Description_Product.html">LLM product description from keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_Newspaper_Comment_Generation.html">LLM Newspaper Comments Generation with LangChain and OpenAI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/security/LLM_QA_Documentation.html">LLM Question Answering over the documentation with Langchain, FAISS and OpenAI</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
@@ -136,7 +130,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard/releases" rel="nofollow noopener">GitHub releases<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Giskard-AI/giskard/releases" rel="nofollow noopener">Release notes<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="/start/comparison.html">Open Source vs Hub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blog<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
 </ul>
@@ -441,11 +439,11 @@ This will return a report object that contains the evaluation results.</p>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../../hub/sdk/reference/resources/index.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../../hub/sdk/release_notes/2_0_0.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        Resources reference
+        2.0.0 (2025-09-23)
       </a>
 </div>
 <div class="ml-auto">

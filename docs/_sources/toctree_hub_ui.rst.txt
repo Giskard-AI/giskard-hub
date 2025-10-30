@@ -12,6 +12,12 @@
    hub/ui/continuous-red-teaming
    hub/ui/access-rights
    hub/ui/release_notes/index
+
+.. toctree::
+   :caption: General
+   :hidden:
+   :maxdepth: 4
    start/enterprise-trial
+   
    Contact us <https://www.giskard.ai/contact>
    Blog <https://www.giskard.ai/knowledge-categories/blog>

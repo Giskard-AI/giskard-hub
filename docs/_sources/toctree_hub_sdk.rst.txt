@@ -10,7 +10,14 @@
    hub/sdk/checks
    hub/sdk/evaluations/index
    hub/sdk/reference/index
+   hub/sdk/release_notes/index
+
+
+.. toctree::
+   :caption: General
+   :hidden:
+   :maxdepth: 4
+
    start/enterprise-trial
-   GitHub releases <https://github.com/Giskard-AI/giskard-hub/releases>
    Contact us <https://www.giskard.ai/contact>
    Blog <https://www.giskard.ai/knowledge-categories/blog>
