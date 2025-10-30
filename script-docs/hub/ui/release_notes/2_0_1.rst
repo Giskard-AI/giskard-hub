@@ -3,6 +3,9 @@
 
 We're releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform.
 
+Hub UI
+------
+
 What's new?
 ~~~~~~~~~~~~
 
@@ -29,3 +32,8 @@ What's fixed?
 - **Database Issues with Forbidden Characters** - Resolved problems caused by special characters in database operations
 - **Large Document Generation** - Fixed failures that occurred when generating large documents
 - **"Permission" Renamed to User Management** - Updated terminology for better clarity and consistency
+
+Hub SDK
+-------
+
+.. include:: ../../sdk/release_notes/2_1_0.rst

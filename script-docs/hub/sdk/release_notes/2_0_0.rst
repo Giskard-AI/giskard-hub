@@ -1,0 +1,15 @@
+2.0.0 (2025-09-23)
+~~~~~~~~~~~~~~~~~~
+
+What's changed?
+^^^^^^^^^^^^^^^
+
+
+- [BREAKING] Removed CSV support for knowledge base creation. Only JSON and JSONL formats are now supported.
+- [BREAKING] Dropped Python 3.9 support.
+- [BREAKING] Renamed 'conversations' to 'chat_test_cases' to improve clarity and consistency across the product.
+
+What's fixed?
+^^^^^^^^^^^^^
+
+- Local evaluations do not have failure categories in the job results, thus the failure classifier is skipped.

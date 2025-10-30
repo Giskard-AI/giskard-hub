@@ -7,6 +7,6 @@
    start/comparison
    start/enterprise-trial
    start/glossary/index
-   hub/ui/release_notes/index
+   start/release_notes
    Contact us <https://www.giskard.ai/contact>
    Blog <https://www.giskard.ai/knowledge-categories/blog>

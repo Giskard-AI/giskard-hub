@@ -1,0 +1,7 @@
+2.0.1 (2025-10-01)
+~~~~~~~~~~~~~~~~~~
+
+What's fixed?
+^^^^^^^^^^^^^
+
+- Fixed a bug where `dataset.create_test_case` did not filter out attributes that are not allowed to be set by the API.

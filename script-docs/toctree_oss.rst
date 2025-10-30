@@ -9,6 +9,13 @@
    oss/sdk/legacy
    oss/notebooks/index
    oss/sdk/reference/index
-   GitHub releases <https://github.com/Giskard-AI/giskard/releases>
+   Release notes <https://github.com/Giskard-AI/giskard/releases>
+
+.. toctree::
+   :caption: General
+   :hidden:
+   :maxdepth: 4
+
+   start/comparison
    Contact us <https://www.giskard.ai/contact>
    Blog <https://www.giskard.ai/knowledge-categories/blog>
