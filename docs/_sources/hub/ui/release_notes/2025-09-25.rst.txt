@@ -105,12 +105,12 @@ Hub SDK
 
 Versions released since 2.0.0 Hub UI release and before 2.0.1 Hub UI release.
 
-.. include:: ../../sdk/release_notes/2_0_0.rst
+.. include:: ../../sdk/release_notes/2025-09-23.rst
 
-.. include:: ../../sdk/release_notes/2_0_1.rst
+.. include:: ../../sdk/release_notes/2025-10-01.rst
 
-.. include:: ../../sdk/release_notes/2_0_2.rst
+.. include:: ../../sdk/release_notes/2025-10-06.rst
 
 .. note::
 
-   See the :doc:`/hub/sdk/release_notes/2_1_0` section for the release notes on using the SDK for the LLM vulnerability scan feature.
+   See the :doc:`/hub/sdk/release_notes/2025-10-30` section for the release notes on using the SDK for the LLM vulnerability scan feature.

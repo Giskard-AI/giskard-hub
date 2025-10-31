@@ -7,29 +7,29 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="2.0.0 (2025-09-25)" property="og:title"/>
+<meta content="2.0.1 (2025-10-24)" property="og:title"/>
 <meta content="website" property="og:type"/>
-<meta content="https://docs.giskard.ai/hub/ui/release_notes/2_0_0.html" property="og:url"/>
+<meta content="https://docs.giskard.ai/hub/ui/release_notes/2025-10-24.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
-<meta content="We’re releasing an upgraded LLM vulnerability scanner in Giskard Hub, specifically designed to secure conversational AI agents in production environments. This enterprise version deploys autonomous..." property="og:description"/>
+<meta content="We’re releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform. Hub UI: What’s new?: Refreshed Hu..." property="og:description"/>
 <meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="We’re releasing an upgraded LLM vulnerability scanner in Giskard Hub, specifically designed to secure conversational AI agents in production environments. This enterprise version deploys autonomous..." name="description"/>
-<title>2.0.0 (2025-09-25) | Giskard  documentation</title>
-<meta content="2.0.0 (2025-09-25) | Giskard  documentation" property="og:title"/>
-<meta content="2.0.0 (2025-09-25) | Giskard  documentation" name="twitter:title"/>
+<meta content="We’re releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform. Hub UI: What’s new?: Refreshed Hu..." name="description"/>
+<title>2.0.1 (2025-10-24) | Giskard  documentation</title>
+<meta content="2.0.1 (2025-10-24) | Giskard  documentation" property="og:title"/>
+<meta content="2.0.1 (2025-10-24) | Giskard  documentation" name="twitter:title"/>
 <link href="../../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
-<link href="/hub/ui/release_notes/2_0_0.html" rel="canonical"/>
+<link href="/hub/ui/release_notes/2025-10-24.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
 <link href="../../sdk/index.html" rel="next" title="Quickstart &amp; setup"/>
-<link href="2_0_1.html" rel="prev" title="2.0.1 (2025-10-24)"/>
+<link href="2025-09-25.html" rel="prev" title="2.0.0 (2025-09-25)"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -155,8 +155,8 @@
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_0.html">2.0.0 (2025-09-25)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2_0_1.html">2.0.1 (2025-10-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-10-24.html">2.0.1 (2025-10-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-09-25.html">2.0.0 (2025-09-25)</a></li>
 </ul>
 </li>
 </ul>
@@ -185,120 +185,88 @@
 </svg>
 </a>
 <div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Release notes</a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">2.0.0 (2025-09-25)</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">2.0.1 (2025-10-24)</span>
 </nav>
 <div id="content" role="main">
 <section id="id1">
-<h1>2.0.0 (2025-09-25)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
-<div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
-<iframe allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen="" data-ready="true" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://player.vimeo.com/video/1121557632?h=17284299f1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.10);" title="crt-security"></iframe>
-</div><p>We’re releasing an upgraded LLM vulnerability scanner in Giskard Hub, specifically designed to secure conversational AI agents in production environments. This enterprise version deploys autonomous red teaming agents that conduct dynamic, multi-turn attacks across dozens of vulnerability categories covering more than 40 probes.</p>
+<h1>2.0.1 (2025-10-24)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<p>We’re releasing a focused update that enhances the user experience with a refreshed interface, improved error handling, and better reliability across the platform.</p>
 <section id="hub-ui">
 <h2>Hub UI<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#hub-ui" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#hub-ui'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <section id="what-s-new">
 <h3>What’s new?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-new" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-new'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <dl class="simple">
-<dt><strong>Comprehensive LLM Vulnerabilities Coverage</strong></dt><dd><p>The scanner covers LLM vulnerabilities across established OWASP categories and business failures:</p>
+<dt><strong>Refreshed Hub Theme &amp; Colors</strong></dt><dd><p>The Hub now features a cleaner, more modern look with updated colors and improved visual consistency throughout the interface.</p>
+</dd>
+<dt><strong>Clearer, Friendlier Error Pages</strong></dt><dd><p>Error messages are now more user-friendly and provide clearer guidance on how to resolve issues, making troubleshooting easier for users.</p>
+</dd>
+<dt><strong>Improved Scan Experience</strong></dt><dd><p>Enhanced the scanning workflow with several key improvements:</p>
 <ul class="simple">
-<li><p><strong>Prompt Injection (OWASP LLM 01)</strong> - Attacks that manipulate AI agents through carefully crafted prompts</p></li>
-<li><p><strong>Training Data Extraction (OWASP LLM 02)</strong> - Attempts to extract or infer information from the AI model’s training data</p></li>
-<li><p><strong>Data Privacy Exfiltration (OWASP LLM 05)</strong> - Attacks aimed at extracting sensitive information</p></li>
-<li><p><strong>Excessive Agency (OWASP LLM 06)</strong> - Tests whether AI agents can be manipulated beyond their intended scope</p></li>
-<li><p><strong>Hallucination &amp; Misinformation (OWASP LLM 08)</strong> - Tests for false, inconsistent, or fabricated information</p></li>
-<li><p><strong>Denial of Service (OWASP LLM 10)</strong> - Attacks that attempt to cause resource exhaustion</p></li>
-<li><p><strong>Internal Information Exposure</strong> - Attempts to extract system prompts and configuration details</p></li>
-<li><p><strong>Harmful Content Generation</strong> - Probes that bypass safety measures</p></li>
-<li><p><strong>Brand Damage &amp; Reputation</strong> - Tests for reputational risks</p></li>
-<li><p><strong>Legal &amp; Financial Risk</strong> - Attacks exposing deployers to liabilities</p></li>
-<li><p><strong>Unauthorized Professional Advice</strong> - Tests for advice outside intended scope</p></li>
+<li><p><strong>Toggle Select/Unselect Probes</strong> - Easier probe management with intuitive selection controls</p></li>
+<li><p><strong>Better Issue Visualization</strong> - Improved display of scan results and vulnerability details</p></li>
+<li><p><strong>Knowledge Base Display</strong> - Relevant knowledge base information is now shown when applicable during scans</p></li>
 </ul>
 </dd>
-<dt><strong>Business Alignment</strong></dt><dd><p>Evaluates both security vulnerabilities and business failures, automatically validating business logic by generating expected outputs from knowledge bases.</p>
-</dd>
-<dt><strong>Domain-specific Attacks</strong></dt><dd><p>Adapts testing methodologies to agent-specific contexts using bot descriptions, tools specification, and knowledge bases for realistic evaluation.</p>
-</dd>
-<dt><strong>Multi-turn Attack Simulation</strong></dt><dd><p>Implements dynamic multi-turn testing that simulates realistic conversation flows, detecting context-dependent vulnerabilities that emerge through conversation history.</p>
-</dd>
-<dt><strong>Adaptive AI Red Teaming</strong></dt><dd><p>Adjusts attack strategies based on agent resistance, escalating tactics or pivoting approaches when encountering defenses.</p>
-</dd>
-<dt><strong>Root-cause Analysis</strong></dt><dd><p>Every detected vulnerability includes detailed explanations of attack methodology and severity scoring for prioritized remediation.</p>
-</dd>
-<dt><strong>Continuous Red Teaming</strong></dt><dd><p>Detected vulnerabilities automatically convert into reusable tests for continuous validation and integration into golden datasets.</p>
+<dt><strong>Updated Login Page and Smoother Navigation</strong></dt><dd><p>Streamlined authentication flow with improved login page design and enhanced navigation throughout the application.</p>
 </dd>
 </dl>
-</section>
-<section id="what-s-changed">
-<h3>What’s changed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-changed" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-changed'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<ul class="simple">
-<li><p>Removed support for importing and exporting knowledge bases (KB) in CSV format. Only JSON and JSONL formats are now supported for KB import/export.</p></li>
-<li><p>In the client library version 2.0.0, legacy functions have been deprecated and removed. Notably, the previous ‘conversations’ functionality has been replaced by ‘chat_test_cases’ to improve clarity and consistency across the product.</p></li>
-</ul>
 </section>
 <section id="what-s-fixed">
 <h3>What’s fixed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-fixed" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-fixed'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
 <ul class="simple">
-<li><p>Fixed an issue with document embedding when handling a single large document.</p></li>
-<li><p>Resolved a bug related to access of notification preferences, ensuring all users have appropriate access regardless of their permissions.</p></li>
-<li><p>Corrected a problem where new environment creation did not set the Keycloak secret correctly.</p></li>
-<li><p>Fixed mismatches between displayed statistics and actual items in evaluation lists.</p></li>
-<li><p>Addressed a bug affecting failure category editing.</p></li>
-<li><p>Fixed incorrect styling on the “move conversation” button.</p></li>
-<li><p>Resolved issues with failure categories not functioning properly when using a local model.</p></li>
+<li><p><strong>Topic Filtering on Knowledge Base Page</strong> - Fixed issues with filtering functionality on the Knowledge Base page</p></li>
+<li><p><strong>Database Issues with Forbidden Characters</strong> - Resolved problems caused by special characters in database operations</p></li>
+<li><p><strong>Large Document Generation</strong> - Fixed failures that occurred when generating large documents</p></li>
+<li><p><strong>“Permission” Renamed to User Management</strong> - Updated terminology for better clarity and consistency</p></li>
 </ul>
-</section>
-<section id="how-to-get-started">
-<h3>How to get started?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#how-to-get-started" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-get-started'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<ol class="arabic simple">
-<li><p><strong>Configure vulnerability scope</strong> - Select specific vulnerability categories relevant to your use case</p></li>
-<li><p><strong>Execute the scan</strong> - The system runs hundreds of probes across security and business logic areas</p></li>
-<li><p><strong>Analyze results by severity</strong> - Results are organized by criticality for prioritized review</p></li>
-<li><p><strong>Review individual probes</strong> - Each probe provides detailed attack descriptions and explanations</p></li>
-<li><p><strong>Turn into continuous tests</strong> - Successful probes can convert into tests for continuous validation</p></li>
-</ol>
-<div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
-<iframe allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen="" data-ready="true" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://player.vimeo.com/video/1121565937?h=75d7765bb6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="crt-security"></iframe>
-</div><p>This release enables detection of sophisticated attacks that evolve across multiple conversation turns, automatically generating attacks, analyzing system responses, and modifying approaches to help correct agents with re-executable tests.</p>
 </section>
 </section>
 <section id="hub-sdk">
 <h2>Hub SDK<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#hub-sdk" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#hub-sdk'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>Versions released since 2.0.0 Hub UI release and before 2.0.1 Hub UI release.</p>
 <section id="id2">
-<h3>2.0.0 (2025-09-23)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id2" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id2'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<h3>2.1.0 (2025-10-30)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id2" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id2'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>We launched support for the LLM vulnerability scan feature that was released in the <a class="reference internal" href="#"><span class="doc">2.0.1 (2025-10-24)</span></a> Hub UI release.</p>
 <section id="id3">
-<h4>What’s changed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id3"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<h4>What’s new?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id3"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
 <ul class="simple">
-<li><p>[BREAKING] Removed CSV support for knowledge base creation. Only JSON and JSONL formats are now supported.</p></li>
-<li><p>[BREAKING] Dropped Python 3.9 support.</p></li>
-<li><p>[BREAKING] Renamed ‘conversations’ to ‘chat_test_cases’ to improve clarity and consistency across the product.</p></li>
+<li><p>SDK support for the LLM vulnerability scan feature in the Hub UI through <cite>.scans.create()</cite>.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h4>What’s fixed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id4"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
-<ul class="simple">
-<li><p>Local evaluations do not have failure categories in the job results, thus the failure classifier is skipped.</p></li>
-</ul>
-</section>
-</section>
-<section id="id5">
-<h3>2.0.1 (2025-10-01)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id5" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id5'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<section id="id6">
-<h4>What’s fixed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id6"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
-<ul class="simple">
-<li><p>Fixed a bug where <cite>dataset.create_test_case</cite> did not filter out attributes that are not allowed to be set by the API.</p></li>
-</ul>
-</section>
-</section>
-<section id="id7">
-<h3>2.0.2 (2025-10-06)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id7" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
-<section id="id8">
-<h4>What’s fixed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id8"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
-<ul class="simple">
-<li><p>Fixed usage of OpenAPI description endpoint as health check in and replaced with a custom health check endpoint.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>See the <a class="reference internal" href="../../sdk/release_notes/2_1_0.html"><span class="doc">2.1.0 (2025-10-30)</span></a> section for the release notes on using the SDK for the LLM vulnerability scan feature.</p>
+<section id="how-to-get-started">
+<h4>How to get started?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#how-to-get-started"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="line-2"><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="line-3"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
+</span><span id="line-4">
+</span><span id="line-5"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="line-6"><span class="n">model_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_MODEL_ID"</span><span class="p">)</span>
+</span><span id="line-7"><span class="n">knowledge_base_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_KNOWLEDGE_BASE_ID"</span><span class="p">)</span>
+</span><span id="line-8">
+</span><span id="line-9"><span class="c1"># Run security scan with specific tags</span>
+</span><span id="line-10"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-11">    <span class="n">model_id</span><span class="o">=</span><span class="n">model_id</span><span class="p">,</span>
+</span><span id="line-12">    <span class="n">knowledge_base_id</span><span class="o">=</span><span class="n">knowledge_base_id</span><span class="p">,</span>
+</span><span id="line-13">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-14">        <span class="s2">"gsk:threat-type='prompt-injection'"</span><span class="p">,</span>
+</span><span id="line-15">        <span class="s2">"owasp:llm-top-10-2025='LLM01'"</span><span class="p">,</span>
+</span><span id="line-16">    <span class="p">],</span>
+</span><span id="line-17"><span class="p">)</span>
+</span><span id="line-18">
+</span><span id="line-19"><span class="c1"># Wait for completion and check result metrics</span>
+</span><span id="line-20"><span class="n">scan_result</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+</span><span id="line-21"><span class="n">scan_result</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
+</span><span id="line-22">
+</span><span id="line-23"><span class="c1"># Check if the grade is worse than A or B (C, D or N/A)</span>
+</span><span id="line-24"><span class="k">if</span> <span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]:</span>
+</span><span id="line-25">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"❌ Security check failed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-26">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="line-27">
+</span><span id="line-28"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Security check passed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check out the <a class="reference internal" href="../../sdk/scans.html"><span class="doc">Launch vulnerability scans</span></a> section for a full guide on how to use the scan feature with the SDK.</p>
 </div>
 </section>
 </section>
@@ -306,11 +274,11 @@
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="2_0_1.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="2025-09-25.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        2.0.1 (2025-10-24)
+        2.0.0 (2025-09-25)
       </a>
 </div>
 <div class="ml-auto">
@@ -326,23 +294,13 @@
 <ul>
 <li><a :data-current="activeSection === '#hub-ui'" class="reference internal" href="#hub-ui">Hub UI</a><ul>
 <li><a :data-current="activeSection === '#what-s-new'" class="reference internal" href="#what-s-new">What’s new?</a></li>
-<li><a :data-current="activeSection === '#what-s-changed'" class="reference internal" href="#what-s-changed">What’s changed?</a></li>
 <li><a :data-current="activeSection === '#what-s-fixed'" class="reference internal" href="#what-s-fixed">What’s fixed?</a></li>
-<li><a :data-current="activeSection === '#how-to-get-started'" class="reference internal" href="#how-to-get-started">How to get started?</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#hub-sdk'" class="reference internal" href="#hub-sdk">Hub SDK</a><ul>
-<li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2">2.0.0 (2025-09-23)</a><ul>
-<li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3">What’s changed?</a></li>
-<li><a :data-current="activeSection === '#id4'" class="reference internal" href="#id4">What’s fixed?</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#id5'" class="reference internal" href="#id5">2.0.1 (2025-10-01)</a><ul>
-<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">What’s fixed?</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">2.0.2 (2025-10-06)</a><ul>
-<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">What’s fixed?</a></li>
+<li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2">2.1.0 (2025-10-30)</a><ul>
+<li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3">What’s new?</a></li>
+<li><a :data-current="activeSection === '#how-to-get-started'" class="reference internal" href="#how-to-get-started">How to get started?</a></li>
 </ul>
 </li>
 </ul>

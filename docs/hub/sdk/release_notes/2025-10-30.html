@@ -7,29 +7,29 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="2.0.0 (2025-09-23)" property="og:title"/>
+<meta content="2.1.0 (2025-10-30)" property="og:title"/>
 <meta content="website" property="og:type"/>
-<meta content="https://docs.giskard.ai/hub/sdk/release_notes/2_0_0.html" property="og:url"/>
+<meta content="https://docs.giskard.ai/hub/sdk/release_notes/2025-10-30.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
-<meta content="What’s changed?:[BREAKING] Removed CSV support for knowledge base creation. Only JSON and JSONL formats are now supported.,[BREAKING] Dropped Python 3.9 support.,[BREAKING] Renamed ‘conversations’ ..." property="og:description"/>
+<meta content="We launched support for the LLM vulnerability scan feature that was released in the 2.0.1 (2025-10-24) Hub UI release. What’s new?: SDK support for the LLM vulnerability scan feature in the Hub UI ..." property="og:description"/>
 <meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
 <meta content="Giskard Documentation" property="og:image:alt"/>
-<meta content="What’s changed?:[BREAKING] Removed CSV support for knowledge base creation. Only JSON and JSONL formats are now supported.,[BREAKING] Dropped Python 3.9 support.,[BREAKING] Renamed ‘conversations’ ..." name="description"/>
-<title>2.0.0 (2025-09-23) | Giskard  documentation</title>
-<meta content="2.0.0 (2025-09-23) | Giskard  documentation" property="og:title"/>
-<meta content="2.0.0 (2025-09-23) | Giskard  documentation" name="twitter:title"/>
+<meta content="We launched support for the LLM vulnerability scan feature that was released in the 2.0.1 (2025-10-24) Hub UI release. What’s new?: SDK support for the LLM vulnerability scan feature in the Hub UI ..." name="description"/>
+<title>2.1.0 (2025-10-30) | Giskard  documentation</title>
+<meta content="2.1.0 (2025-10-30) | Giskard  documentation" property="og:title"/>
+<meta content="2.1.0 (2025-10-30) | Giskard  documentation" name="twitter:title"/>
 <link href="../../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
-<link href="/hub/sdk/release_notes/2_0_0.html" rel="canonical"/>
+<link href="/hub/sdk/release_notes/2025-10-30.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
 <link href="../../../oss/sdk/index.html" rel="next" title="Quickstart &amp; setup"/>
-<link href="2_0_1.html" rel="prev" title="2.0.1 (2025-10-01)"/>
+<link href="2025-10-06.html" rel="prev" title="2.0.2 (2025-10-06)"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -133,10 +133,10 @@
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2_0_0.html">2.0.0 (2025-09-23)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2_0_1.html">2.0.1 (2025-10-01)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2_1_0.html">2.1.0 (2025-10-30)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2_0_2.html">2.0.2 (2025-10-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2025-10-30.html">2.1.0 (2025-10-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2025-10-06.html">2.0.2 (2025-10-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2025-10-01.html">2.0.1 (2025-10-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2025-09-23.html">2.0.0 (2025-09-23)</a></li>
 </ul>
 </li>
 </ul>
@@ -165,33 +165,63 @@
 </svg>
 </a>
 <div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Release notes</a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">2.0.0 (2025-09-23)</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">2.1.0 (2025-10-30)</span>
 </nav>
 <div id="content" role="main">
 <section id="id1">
-<h1>2.0.0 (2025-09-23)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
-<section id="what-s-changed">
-<h2>What’s changed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-changed" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-changed'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<h1>2.1.0 (2025-10-30)<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<p>We launched support for the LLM vulnerability scan feature that was released in the <a class="reference internal" href="../../ui/release_notes/2025-10-24.html"><span class="doc">2.0.1 (2025-10-24)</span></a> Hub UI release.</p>
+<section id="what-s-new">
+<h2>What’s new?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-new" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-new'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <ul class="simple">
-<li><p>[BREAKING] Removed CSV support for knowledge base creation. Only JSON and JSONL formats are now supported.</p></li>
-<li><p>[BREAKING] Dropped Python 3.9 support.</p></li>
-<li><p>[BREAKING] Renamed ‘conversations’ to ‘chat_test_cases’ to improve clarity and consistency across the product.</p></li>
+<li><p>SDK support for the LLM vulnerability scan feature in the Hub UI through <cite>.scans.create()</cite>.</p></li>
 </ul>
 </section>
-<section id="what-s-fixed">
-<h2>What’s fixed?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#what-s-fixed" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-fixed'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<ul class="simple">
-<li><p>Local evaluations do not have failure categories in the job results, thus the failure classifier is skipped.</p></li>
-</ul>
+<section id="how-to-get-started">
+<h2>How to get started?<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#how-to-get-started" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-get-started'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="line-2"><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="line-3"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
+</span><span id="line-4">
+</span><span id="line-5"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="line-6"><span class="n">model_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_MODEL_ID"</span><span class="p">)</span>
+</span><span id="line-7"><span class="n">knowledge_base_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GISKARD_HUB_KNOWLEDGE_BASE_ID"</span><span class="p">)</span>
+</span><span id="line-8">
+</span><span id="line-9"><span class="c1"># Run security scan with specific tags</span>
+</span><span id="line-10"><span class="n">scan_result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">scans</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="line-11">    <span class="n">model_id</span><span class="o">=</span><span class="n">model_id</span><span class="p">,</span>
+</span><span id="line-12">    <span class="n">knowledge_base_id</span><span class="o">=</span><span class="n">knowledge_base_id</span><span class="p">,</span>
+</span><span id="line-13">    <span class="n">tags</span><span class="o">=</span><span class="p">[</span>
+</span><span id="line-14">        <span class="s2">"gsk:threat-type='prompt-injection'"</span><span class="p">,</span>
+</span><span id="line-15">        <span class="s2">"owasp:llm-top-10-2025='LLM01'"</span><span class="p">,</span>
+</span><span id="line-16">    <span class="p">],</span>
+</span><span id="line-17"><span class="p">)</span>
+</span><span id="line-18">
+</span><span id="line-19"><span class="c1"># Wait for completion and check result metrics</span>
+</span><span id="line-20"><span class="n">scan_result</span><span class="o">.</span><span class="n">wait_for_completion</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+</span><span id="line-21"><span class="n">scan_result</span><span class="o">.</span><span class="n">print_metrics</span><span class="p">()</span>
+</span><span id="line-22">
+</span><span id="line-23"><span class="c1"># Check if the grade is worse than A or B (C, D or N/A)</span>
+</span><span id="line-24"><span class="k">if</span> <span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]:</span>
+</span><span id="line-25">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"❌ Security check failed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="line-26">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="line-27">
+</span><span id="line-28"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Security check passed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check out the <a class="reference internal" href="../scans.html"><span class="doc">Launch vulnerability scans</span></a> section for a full guide on how to use the scan feature with the SDK.</p>
+</div>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="2_0_1.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="2025-10-06.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
-        2.0.1 (2025-10-01)
+        2.0.2 (2025-10-06)
       </a>
 </div>
 <div class="ml-auto">
@@ -205,8 +235,8 @@
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
-<li><a :data-current="activeSection === '#what-s-changed'" class="reference internal" href="#what-s-changed">What’s changed?</a></li>
-<li><a :data-current="activeSection === '#what-s-fixed'" class="reference internal" href="#what-s-fixed">What’s fixed?</a></li>
+<li><a :data-current="activeSection === '#what-s-new'" class="reference internal" href="#what-s-new">What’s new?</a></li>
+<li><a :data-current="activeSection === '#how-to-get-started'" class="reference internal" href="#how-to-get-started">How to get started?</a></li>
 </ul>
 </div>
 </aside>

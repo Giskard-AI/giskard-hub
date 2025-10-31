@@ -36,4 +36,4 @@ What's fixed?
 Hub SDK
 -------
 
-.. include:: ../../sdk/release_notes/2_1_0.rst
+.. include:: ../../sdk/release_notes/2025-10-30.rst

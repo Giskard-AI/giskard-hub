@@ -7,6 +7,5 @@ Release notes
    :hidden:
    :maxdepth: 4
    :glob:
-   :reversed:
 
    *
