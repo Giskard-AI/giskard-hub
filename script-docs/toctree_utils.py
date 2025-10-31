@@ -701,6 +701,20 @@ def _get_nested_children(
     return children
 
 
+def _sort_paths_by_date(paths: list[str]) -> list[str]:
+    """
+    Sort file paths alphabetically in reverse order (most recent dates first).
+    Since date format is YYYY-MM-DD, reverse alphabetical sorting gives newest first.
+
+    Args:
+        paths: List of file paths to sort
+
+    Returns:
+        Sorted list of paths with most recent dates first
+    """
+    return sorted(paths, reverse=True)
+
+
 def _discover_files_with_glob_pattern(file_path: str, glob_pattern: str) -> list:
     """
     Use a specific glob pattern to discover files.
@@ -739,6 +753,9 @@ def _discover_files_with_glob_pattern(file_path: str, glob_pattern: str) -> list
             discovered_paths = glob.glob(str(pattern_path))
         finally:
             os.chdir(original_cwd)
+
+        # Sort paths by date, most recent first
+        discovered_paths = _sort_paths_by_date(discovered_paths)
 
         for discovered_path in discovered_paths:
             discovered_file = Path(
@@ -856,9 +873,12 @@ def _discover_files_with_glob(
             str(file_dir / "*/*/*.ipynb"),
         ]
 
-        discovered_paths = set()
+        discovered_paths_set = set()
         for pattern in patterns:
-            discovered_paths.update(glob.glob(pattern))
+            discovered_paths_set.update(glob.glob(pattern))
+
+        # Sort paths by date, most recent first (reverse alphabetical)
+        discovered_paths = _sort_paths_by_date(list(discovered_paths_set))
 
         # Get existing URLs to avoid duplicates
         existing_urls = set()

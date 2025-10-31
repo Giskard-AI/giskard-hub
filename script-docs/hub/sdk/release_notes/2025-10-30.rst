@@ -1,7 +1,7 @@
 2.1.0 (2025-10-30)
 ~~~~~~~~~~~~~~~~~~
 
-We launched support for the LLM vulnerability scan feature that was released in the :doc:`/hub/ui/release_notes/2_0_1` Hub UI release.
+We launched support for the LLM vulnerability scan feature that was released in the :doc:`/hub/ui/release_notes/2025-10-24` Hub UI release.
 
 What's new?
 ^^^^^^^^^^^^^
