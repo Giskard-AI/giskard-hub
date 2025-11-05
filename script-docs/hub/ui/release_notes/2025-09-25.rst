@@ -31,7 +31,7 @@ What's new?
    * **Training Data Extraction (OWASP LLM 02)** - Attempts to extract or infer information from the AI model's training data
    * **Data Privacy Exfiltration (OWASP LLM 05)** - Attacks aimed at extracting sensitive information
    * **Excessive Agency (OWASP LLM 06)** - Tests whether AI agents can be manipulated beyond their intended scope
-   * **Hallucination & Misinformation (OWASP LLM 08)** - Tests for false, inconsistent, or fabricated information
+   * **Hallucination & Misinformation (OWASP LLM 09)** - Tests for false, inconsistent, or fabricated information
    * **Denial of Service (OWASP LLM 10)** - Attacks that attempt to cause resource exhaustion
    * **Internal Information Exposure** - Attempts to extract system prompts and configuration details
    * **Harmful Content Generation** - Probes that bypass safety measures
