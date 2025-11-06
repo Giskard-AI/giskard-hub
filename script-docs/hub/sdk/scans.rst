@@ -125,7 +125,7 @@ Provide a ``knowledge_base_id`` to generate more targeted security tests based o
     scan_result = hub.scans.create(
         model_id="<GISKARD_HUB_MODEL_ID>",
         knowledge_base_id="<GISKARD_HUB_KNOWLEDGE_BASE_ID>",
-        tags=["owasp:llm-top-10-2025='LLM08'"],
+        tags=["owasp:llm-top-10-2025='LLM09'"],
     )
 
 Vulnerability type filtering

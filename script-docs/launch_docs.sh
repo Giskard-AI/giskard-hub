@@ -7,4 +7,4 @@ echo "📝 Press Ctrl+C to stop the server"
 echo "----------------------------------------"
 
 # Launch sphinx-autobuild
-uv run sphinx-autobuild . _build/html --port 8000 --open-browser --host 127.0.0.1
+uv run sphinx-autobuild . _build/html --port 8000 --open-browser --host 127.0.0.1 --ignore _templates/sidebars
