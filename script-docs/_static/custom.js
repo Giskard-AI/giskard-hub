@@ -9,22 +9,26 @@
 
   // Inject Google Tag Manager if not already present
   if (!document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
-    // GTM script in head
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PQ9MJ64');
+    // Initialize dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
 
-    // GTM noscript in body
+    // GTM script in head - insert as first child of head for proper loading
+    var gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PQ9MJ64';
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var firstScript = head.querySelector('script');
+    if (firstScript) {
+      head.insertBefore(gtmScript, firstScript);
+    } else {
+      head.appendChild(gtmScript);
+    }
+
+    // GTM noscript in body - insert at the very beginning of body
     if (!document.querySelector('noscript iframe[src*="googletagmanager.com/ns.html"]')) {
       var noscript = document.createElement('noscript');
       var iframe = document.createElement('iframe');
