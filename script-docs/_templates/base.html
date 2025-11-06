@@ -1,11 +1,54 @@
 {% extends "!base.html" %}
 
 {% block extrahead %}
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-PQ9MJ64');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Axeptio Cookie Consent -->
+<!-- 
+  Note: Axeptio is likely loaded dynamically via Google Tag Manager or injected via JavaScript.
+  To find the actual clientId:
+  1. Open https://legacy-docs.giskard.ai/en/stable/ in a browser
+  2. Open Developer Tools (F12 or right-click > Inspect)
+  3. Go to the Network tab and filter by "axeptio"
+  4. Or go to the Elements tab and search for "axeptio" in the loaded HTML
+  5. Or check the Console tab and type: window.axeptioSettings
+  6. Or check Google Tag Manager configuration for the Axeptio tag
+  
+  The clientId will be in the format: window.axeptioSettings.clientId or in a script tag
+-->
+<script src="https://static.axept.io/axeptio.js"></script>
+<script>
+  window.axeptioSettings = {
+    clientId: "62de63128eece758431a8f76"
+  };
+</script>
+<!-- End Axeptio Cookie Consent -->
+
 {{ super() }}
 <!-- Enterprise Trial Banner will be injected by custom.js -->
 {% endblock %}
 
 {% block body %}
-<!-- Enterprise Trial Banner will be injected by custom.js -->
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ9MJ64"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 {{ super() }}
+<!-- Enterprise Trial Banner will be injected by custom.js -->
 {% endblock %}
