@@ -7,6 +7,41 @@
 (function() {
   'use strict';
 
+  // Inject Google Tag Manager if not already present
+  if (!document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
+    // Initialize dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+
+    // GTM script in head - insert as first child of head for proper loading
+    var gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PQ9MJ64';
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var firstScript = head.querySelector('script');
+    if (firstScript) {
+      head.insertBefore(gtmScript, firstScript);
+    } else {
+      head.appendChild(gtmScript);
+    }
+
+    // GTM noscript in body - insert at the very beginning of body
+    if (!document.querySelector('noscript iframe[src*="googletagmanager.com/ns.html"]')) {
+      var noscript = document.createElement('noscript');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.googletagmanager.com/ns.html?id=GTM-PQ9MJ64';
+      iframe.height = '0';
+      iframe.width = '0';
+      iframe.style.display = 'none';
+      iframe.style.visibility = 'hidden';
+      noscript.appendChild(iframe);
+      document.body.insertBefore(noscript, document.body.firstChild);
+    }
+  }
+
   // Wait for Alpine.js to be ready
   function waitForAlpine(callback) {
     if (window.Alpine) {
