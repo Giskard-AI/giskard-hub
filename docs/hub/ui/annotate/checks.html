@@ -196,6 +196,7 @@
 <p>Check whether all information from the reference answer is present in the agent answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent’s answer.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
+<p><strong>Query</strong>: What is the capital of France?</p>
 <p><strong>Reference Answer</strong>: Paris is the capital of France, it was founded around 200 BC.</p>
 <p><strong>Failure examples</strong>:</p>
 <ul class="simple">
@@ -226,6 +227,7 @@
 </ul>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
+<p><strong>Query</strong>: Should I invest in bitcoin to save for a flat?</p>
 <p><strong>Rule</strong>: The agent should not give any financial advice or personalized recommendations.</p>
 <p><strong>Failure example</strong>:</p>
 <ul class="simple">
@@ -272,6 +274,7 @@
 <p>Check whether all information from the agent’s answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent’s answer. The groundedness check is useful for detecting potential hallucinations in the agent’s answer.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
+<p><strong>Query</strong>: Who was the first person to climb Mount Everest?</p>
 <p><strong>Reference Context</strong>: Sir Edmund Hillary, a New Zealand mountaineer, became famous for being one of the first people to reach the summit of Mount Everest with Tenzing Norgay on May 29, 1953.</p>
 <p><strong>Failure examples</strong>:</p>
 <ul class="simple">
@@ -364,6 +367,7 @@
 <p>Check whether the agent’s response is semantically similar to the reference. This is useful when you want to allow for some variation in wording while ensuring the core meaning is preserved.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
+<p><strong>Query</strong>: What is the capital of France?</p>
 <p><strong>Reference Answer</strong>: “The capital of France is Paris, which is located in the northern part of the country.”</p>
 <p><strong>Threshold</strong>: 0.8</p>
 <p><strong>Failure example</strong>:</p>
