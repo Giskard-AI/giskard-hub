@@ -47,7 +47,7 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 Install the client library
 --------------------------
 
-The library is compatible with Python 3.9 to 3.12.
+The library is compatible with Python 3.10 to 3.14.
 
 .. code-block:: bash
 

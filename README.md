@@ -17,7 +17,7 @@ Access the full docs at: https://docs.giskard.ai/
 
 ## Install the client library
 
-The library is compatible with Python 3.10 to 3.13.
+The library is compatible with Python 3.10 to 3.14.
 
 ```bash
 pip install giskard-hub
