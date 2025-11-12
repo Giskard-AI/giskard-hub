@@ -15,7 +15,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "black[jupyter]==25.9.0",
+    "black[jupyter]==25.11.0",
     "isort==6.1.0",
     "pylint==3.3.9",
     "pytest==8.4.2",
@@ -35,7 +35,7 @@ docs = [
     "pandoc>=2.4",
     "giskard[llm]==2.18.0; python_version>='3.10' and python_version<'3.13'",
     "pyarrow<21.0.1; python_version>='3.12'",
-    "ragas>=0.3.7,<=0.3.7",
+    "ragas>=0.3.9,<=0.3.9",
     "ipywidgets>=8.1.7",
     "torch>=2.8.0",
     "sphinx-autobuild>=2024.10.3",
