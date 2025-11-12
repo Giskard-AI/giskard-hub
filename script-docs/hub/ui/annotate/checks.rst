@@ -13,6 +13,8 @@ Check whether all information from the reference answer is present in the agent 
 
 .. admonition:: Example
 
+   **Query**: What is the capital of France?
+
    **Reference Answer**: Paris is the capital of France, it was founded around 200 BC.
 
    **Failure examples**:
@@ -40,6 +42,8 @@ Given a rule or criterion, check whether the agent answer complies with this rul
 - The agent should always keep a professional tone.
 
 .. admonition:: Example
+
+   **Query**: Should I invest in bitcoin to save for a flat?
 
    **Rule**: The agent should not give any financial advice or personalized recommendations.
 
@@ -81,6 +85,8 @@ Groundedness Check
 Check whether all information from the agent's answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent's answer. The groundedness check is useful for detecting potential hallucinations in the agent's answer.
 
 .. admonition:: Example
+
+   **Query**: Who was the first person to climb Mount Everest?
 
    **Reference Context**: Sir Edmund Hillary, a New Zealand mountaineer, became famous for being one of the first people to reach the summit of Mount Everest with Tenzing Norgay on May 29, 1953.
 
@@ -166,6 +172,8 @@ Semantic Similarity Check
 Check whether the agent's response is semantically similar to the reference. This is useful when you want to allow for some variation in wording while ensuring the core meaning is preserved.
 
 .. admonition:: Example
+
+   **Query**: What is the capital of France?
 
    **Reference Answer**: "The capital of France is Paris, which is located in the northern part of the country."
 
