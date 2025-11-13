@@ -60,12 +60,11 @@ High-level workflow
    :align: center
 
    graph LR
-       A[Setup] --> B[Red Team Scan]
-       B --> C[Review Scan Results]
-       C --> D[Create Test Cases]
+       B[Red Team Scan] -->  D[Create Test Cases]
        D --> F[Annotate & Assign Checks]
        F --> G[Run Evaluations]
        G --> H[Review Results]
+       H --> F
        H --> B
 
 .. note::

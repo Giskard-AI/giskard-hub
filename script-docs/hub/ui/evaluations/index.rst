@@ -54,7 +54,7 @@ High-level workflow
        A[Run Evaluation] --> B[Evaluation Results]
        B --> C[Review Results]
        C --> D{Action Needed?}
-       D -->|Create Task| E[Review Task]
+       D -->|Create Task| E[Iterate on Test Cases]
        D -->|Fix Issues| F[Update Test/Agent]
        D -->|No Issues| A
        E --> A

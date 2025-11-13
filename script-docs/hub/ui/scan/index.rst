@@ -62,11 +62,11 @@ High-level workflow
        B --> C[Review Vulnerabilities]
        C --> D{Take Action}
        D -->|Convert to Test| E[Send to Dataset]
-       D -->|Create Task| F[Review Task]
+       D -->|Create Task| F[Distribute Task]
        D -->|False Positive| G[Mark False Positive]
        E --> H[Iterate on Test Cases]
-       F --> I[Fix Issues]
-       I --> A
+       F --> H
+       H --> A
        G --> A
 
 Vulnerability categories
