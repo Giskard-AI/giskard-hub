@@ -10,6 +10,7 @@
    hub/ui/annotate/index
    hub/ui/evaluations/index
    hub/ui/continuous-red-teaming
+   hub/ui/event-logs
    hub/ui/access-rights
    hub/ui/release_notes/index
 
