@@ -44,6 +44,22 @@ In this section, we will walk you through how to manage evaluations in Giskard H
 
       Compare evaluations to see if there are any regressions.
 
+High-level workflow
+-------------------
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Run Evaluation] --> B[Evaluation Results]
+       B --> C[Review Results]
+       C --> D{Action Needed?}
+       D -->|Create Task| E[Review Task]
+       D -->|Fix Issues| F[Update Test/Agent]
+       D -->|No Issues| A
+       E --> A
+       F --> A
+
 .. note::
 
    Local evaluations are supported via the SDK. To run evaluations against local development agents, see :doc:`/hub/sdk/evaluations/local`.

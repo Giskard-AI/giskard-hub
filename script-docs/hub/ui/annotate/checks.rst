@@ -10,8 +10,11 @@ Assigning checks to tests
 
 Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard.
 
+Create a check
+--------------
+
 Correctness Check
------------------
+__________________
 
 Check whether all information from the reference answer is present in the agent answer without contradiction. Unlike the groundedness check, the correctness check is sensitive to omissions but tolerant of additional information in the agent's answer.
 
@@ -37,7 +40,7 @@ Check whether all information from the reference answer is present in the agent 
 
 
 Conformity Check
------------------
+________________
 
 Given a rule or criterion, check whether the agent answer complies with this rule. This can be used to check business specific behavior or constraints. A conformity check may have several rules. Each rule should check a unique and unambiguous behavior. Here are a few examples of rules:
 
@@ -84,7 +87,7 @@ Given a rule or criterion, check whether the agent answer complies with this rul
      - *Examples of generic rules that are likely to be used more than once*: "The agent should not discriminate based on gender, sexual orientation, religion, or profession." "The agent should answer in English."
 
 Groundedness Check
-------------------
+__________________
 
 Check whether all information from the agent's answer is present in the given context without contradiction. Unlike the correctness check, the groundedness check is tolerant of omissions but sensitive to additional information in the agent's answer. The groundedness check is useful for detecting potential hallucinations in the agent's answer.
 
@@ -110,7 +113,7 @@ Check whether all information from the agent's answer is present in the given co
 
 
 String Matching Check
----------------------
+_____________________
 
 Check whether the given keyword or sentence is present in the agent answer.
 
@@ -129,7 +132,7 @@ Check whether the given keyword or sentence is present in the agent answer.
    - Hello, how may I help you today?
 
 Metadata Check
----------------
+_______________
 
 Check whether the agent answer contains the expected value at the specified JSON path. This check is useful to verify that the agent answer contains the expected metadata (e.g. whether a tool is called). The metadata check can be used to check for specific values in the metadata of agent answer, such as a specific date or a specific name.
 
@@ -171,7 +174,7 @@ Check whether the agent answer contains the expected value at the specified JSON
    - Metadata: ``{"output": {"success": true}}``
 
 Semantic Similarity Check
--------------------------
+_________________________
 
 Check whether the agent's response is semantically similar to the reference. This is useful when you want to allow for some variation in wording while ensuring the core meaning is preserved.
 
@@ -189,7 +192,7 @@ Check whether the agent's response is semantically similar to the reference. Thi
 
 
 Custom Check
-------------
+____________
 
 Custom checks are built on top of the built-in checks (Conformity, Correctness, Groundedness, String Matching, Metadata, and Semantic Similarity) and can be used to evaluate the quality of your agent's responses.
 
@@ -223,10 +226,114 @@ Next, set the parameters for the check:
 
 Once you have created a custom check, you can apply it to conversations in your dataset. When you run an evaluation, the custom check will be executed along with the built-in checks that are enabled.
 
-How to choose the right check?
--------------------------------
+How to iterate on checks?
+-------------------------
 
-The choice of check depends on the type of vulnerability you're testing for and ultimately depends on the your business requirements, however, we do provide some guidelines to help you choose the right check for various business failures and security vulnerabilities.
+Remove or replace a check
+_________________________
+
+When you need to improve or replace an existing check, it's important to iterate on the new check separately and in isolation before replacing the old one. This workflow ensures that you can test and validate the new check without disrupting your existing evaluation setup.
+
+Create and isolate a new check
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you identify that an existing check needs improvement or replacement:
+
+1. **Create a new check** - Build a new check that addresses the issues you've identified with the current check
+2. **Keep it isolated** - Initially, only apply the new check to a subset of conversations or a specific dataset
+3. **Iterate separately** - Refine the new check independently without modifying the existing check
+
+This isolation allows you to:
+* Test the new check without affecting your current evaluation metrics
+* Compare results between the old and new checks
+* Make adjustments to the new check based on feedback
+
+Test the new check
+^^^^^^^^^^^^^^^^^^
+
+Once your new check has reached a stable state and performs well on the isolated dataset:
+
+1. **Evaluate performance** - Review how the new check performs on the test conversations
+2. **Test across other datasets** - Apply the new check to other datasets to validate its effectiveness more broadly
+3. **Compare with the old check** - Run both checks side-by-side to understand the differences in results
+
+If the new check performs well:
+
+* It demonstrates consistent behavior across multiple datasets
+* It captures the evaluation criteria you need
+* It can potentially replace the old check
+
+If the new check doesn't meet expectations:
+
+* Continue iterating on the new check
+* Consider whether the issues are specific to certain types of conversations
+* Evaluate if both checks serve different purposes
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Identify Check Issues] --> B[Create New Check]
+       B --> C[Isolate on Subset]
+       C --> D[Iterate & Refine]
+       D --> E{Check Stable?}
+       E -->|No| D
+       E -->|Yes| F[Test on Other Datasets]
+       F --> G{Performs Well?}
+       G -->|Yes| H[Compare with Old Check]
+       G -->|No| I{Both Checks Relevant?}
+       I -->|Yes| J[Keep Both Checks]
+       I -->|No| K[Continue Iterating]
+       K --> D
+       H --> L{Can Replace Old?}
+       L -->|Yes| M[Replace Old Check]
+       L -->|No| I
+
+Evaluate check relevance
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+When deciding whether to replace an old check or keep both:
+
+**If the new check can replace the old one:**
+* The new check covers all the evaluation criteria of the old check
+* The new check performs better or more accurately
+* The new check is more maintainable or easier to understand
+* You can safely remove the old check and apply the new one across all relevant conversations
+
+**If both checks are relevant:**
+* Each check serves a distinct purpose or tests different aspects
+* The old check captures important evaluation criteria that the new check doesn't cover
+* You need both checks to ensure comprehensive evaluation
+* Keep both checks enabled on the appropriate conversations
+
+**If the new check isn't ready:**
+* Continue iterating on the new check in isolation
+* Gather more feedback and test results
+* Refine the check parameters or logic before making a decision
+
+Best practices
+^^^^^^^^^^^^^^
+
+* **Isolate first** - Always test new checks in isolation before replacing existing ones
+* **Compare results** - Run both checks side-by-side to understand differences
+* **Test broadly** - Validate new checks across multiple datasets before replacement
+* **Document changes** - Keep track of why checks were replaced or why both are needed
+* **Gradual rollout** - Consider a phased approach when replacing checks across many conversations
+
+Choose the right check
+______________________
+
+The choice of check depends on the type of vulnerability you're testing for and ultimately depends on your business requirements. The following workflow helps you select the appropriate check based on whether you're testing for business failures or security vulnerabilities.
+
+Identify the vulnerability type
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Start by determining what type of issue you're testing for:
+
+* **Business Failures** - Issues affecting accuracy, reliability, and correctness of AI responses in normal usage scenarios
+* **Security Vulnerabilities** - Issues that can be exploited by malicious actors to compromise system integrity or extract sensitive information
+
+For detailed information about specific vulnerability types, see:
 
 .. grid:: 1 1 2 2
 
@@ -242,6 +349,35 @@ The choice of check depends on the type of vulnerability you're testing for and 
 
       Prompt injection is a critical security vulnerability where malicious users manipulate input prompts to bypass content filters, override model instructions, or extract sensitive information.
 
+Checks for Business failures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* **Hallucinations** - Use **Groundedness Check** to detect when the agent generates information not present in the given context
+* **Omission** - Use **Correctness Check** to ensure all information from the reference answer is present (sensitive to omissions)
+* **Addition of Information** - Use **Groundedness Check** to detect when the agent adds information not in the context (sensitive to additional information)
+* **Business Out of Scope** - Use **Conformity Check** with rules defining what's in scope (e.g., "The agent should only answer questions about banking products")
+* **Denial of Answers** - Use **Conformity Check** with rules about when to answer (e.g., "The agent should answer legitimate questions in scope")
+* **Moderation Issues** - Use **Conformity Check** with rules about moderation behavior (e.g., "The agent should refuse harmful requests appropriately")
+
+Checks for Security vulnerabilities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* **Prompt Injection** - Use **Conformity Check** with rules about following instructions and not being manipulated (e.g., "The agent should not execute instructions from user input")
+* **Harmful Content Generation** - Use **Conformity Check** with rules prohibiting harmful content (e.g., "The agent should not generate violent, illegal, or inappropriate content")
+* **Information Disclosure** - Use **Conformity Check** with rules about confidentiality (e.g., "The agent should not reveal internal system details or training data")
+* **Output Formatting Issues** - Use **Metadata Check** to verify expected structure, or **String Matching Check** for specific required strings
+* **Robustness Issues** - Use **Conformity Check** for behavioral rules, or **Semantic Similarity Check** if you need to allow variation while maintaining core meaning
+* **Stereotypes & Discrimination** - Use **Conformity Check** with rules about bias and discrimination (e.g., "The agent should not discriminate based on gender, race, or other protected characteristics")
+
+Combine checks
+^^^^^^^^^^^^^^
+
+You may need to combine multiple checks to comprehensively test for certain vulnerabilities:
+
+* **Hallucination detection** - Combine **Groundedness Check** (detects additions) with **Correctness Check** (detects omissions) for comprehensive coverage
+* **Security testing** - Use **Conformity Check** for behavioral rules and **Metadata Check** to verify system behavior (e.g., tool calls, security flags)
+* **Quality assurance** - Combine **Semantic Similarity Check** (allows variation) with **Correctness Check** (ensures completeness) for balanced evaluation
+
 Next steps
 ----------
 
@@ -249,4 +385,5 @@ Now that you have created a custom check, you can apply it to conversations in y
 
 * **Evaluate tests** - :doc:`/hub/ui/annotate/conversations`
 * **Assign tags to tests** - :doc:`/hub/ui/annotate/tags`
+* **Manage tasks** - :doc:`/hub/ui/annotate/tasks`
 * **Run evaluations** - :doc:`/hub/ui/evaluations/create`

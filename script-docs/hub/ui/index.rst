@@ -9,7 +9,6 @@ Quickstart & setup
 
 The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-step workflow:
 
-
 .. image:: /_static/images/hub/hub-workflow.png
    :align: center
    :alt: "The hub workflow"
@@ -53,6 +52,21 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
       :link-type: doc
 
       View the latest features and changes.
+
+High-level workflow
+-------------------
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Setup] --> B[Red Team Scan]
+       B --> C[Review Scan Results]
+       C --> D[Create Test Cases]
+       D --> F[Annotate & Assign Checks]
+       F --> G[Run Evaluations]
+       G --> H[Review Results]
+       H --> B
 
 .. note::
 

@@ -26,6 +26,20 @@ In this section, we will walk you through how to setup projects, agents and know
 
       Setup and organize knowledge bases we can use to test your agents
 
+High-level workflow
+-------------------
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Create Project] --> B[Setup Agent]
+       A --> C[Import Knowledge Base]
+       B --> D[Configure Endpoint]
+       C --> E[Upload Documents]
+       D --> F[Ready for Testing]
+       E --> F
+       
 .. toctree::
    :hidden:
    :maxdepth: 4

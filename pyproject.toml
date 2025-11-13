@@ -33,6 +33,7 @@ docs = [
     "sphinxext-opengraph[social_cards]>=0.12.0; python_version>='3.12'",
     "sphinx-notfound-page>=1.1.0; python_version>='3.12'",
     "pandoc>=2.4",
+    "sphinxcontrib-mermaid>=0.9.0; python_version>='3.12'",
     "giskard[llm]==2.18.0; python_version>='3.10' and python_version<'3.13'",
     "pyarrow<21.0.1; python_version>='3.12'",
     "ragas>=0.3.7,<=0.3.7",

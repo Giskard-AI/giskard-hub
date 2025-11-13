@@ -2,7 +2,7 @@
 :og:description: Create, manage, and deploy custom validation rules and metrics for your LLM agent tests. Build specialized testing logic tailored to your business requirements using the Python SDK.
 
 =============================================
-Evaluate tests and assign validation rules
+Iterate on tests and metrics
 =============================================
 
 Checks are validation rules that are used to evaluate the responses of your agents. They can be used to ensure that your agents are behaving correctly and following the rules that you have defined.

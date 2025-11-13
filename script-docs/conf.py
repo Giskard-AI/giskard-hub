@@ -78,6 +78,7 @@ extensions = [
     "sphinx.ext.linkcode",
     "sphinx.ext.githubpages",
     "sphinx_click",
+    "sphinxcontrib.mermaid",
     "fix_dataclass",
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",

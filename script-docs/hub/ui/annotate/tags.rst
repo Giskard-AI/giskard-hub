@@ -59,4 +59,5 @@ Now that you have assigned tags to tests, you can run evaluations on them.
 
 * **Evaluate tests** - :doc:`/hub/ui/annotate/conversations`
 * **Assign checks to tests** - :doc:`/hub/ui/annotate/checks`
+* **Manage tasks** - :doc:`/hub/ui/annotate/tasks`
 * **Run evaluations** - :doc:`/hub/ui/evaluations/create`

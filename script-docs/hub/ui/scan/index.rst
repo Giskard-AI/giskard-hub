@@ -51,6 +51,23 @@ Quick start
 
       Review results and take action on detected vulnerabilities
 
+High-level workflow
+-------------------
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Launch Scan] --> B[Scan Results]
+       B --> C[Review Vulnerabilities]
+       C --> D{Take Action}
+       D -->|Convert to Test| E[Send to Dataset]
+       D -->|Create Task| F[Review Task]
+       D -->|False Positive| G[Mark False Positive]
+       E --> H[Iterate on Test Cases]
+       F --> I[Fix Issues]
+       I --> A
+       G --> A
 
 Vulnerability categories
 ------------------------
