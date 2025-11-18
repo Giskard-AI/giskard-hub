@@ -79,7 +79,7 @@ Open research
 -------------
 
 **Giskard Research** contributes to research on AI safety and security to showcase and understand the latest advancements in the field.
-Some work has been funded by the `the European Commission <https://commission.europa.eu/index_en>`_, `Bpirance <https://www.bpifrance.com/>`_, and we've collaborated with leading companies like the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Google DeepMind <https://deepmind.google/>`_.
+Some work has been funded by the `the European Commission <https://commission.europa.eu/index_en>`_, `Bpifrance <https://www.bpifrance.com/>`_, and we've collaborated with leading AI research organizations like the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Google DeepMind <https://deepmind.google/>`_.
 
 
 .. grid:: 1 1 2 2
