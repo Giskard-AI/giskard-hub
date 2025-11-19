@@ -37,10 +37,27 @@ In this section, we will walk you through how to create test cases and datasets 
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
 
+High-level workflow
+-------------------
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Create Dataset] --> B{Source}
+       B -->|Manual| C[Create Manually]
+       B -->|Import| D[Import Existing]
+       B -->|Generate| E[Generate Tests]
+       B -->|Scan Results| F[From Scan]
+       C --> G[Test Cases]
+       D --> G
+       E --> G
+       F --> G
+       G --> H[Iterate on Test Cases]
+
 .. tip::
    
    For advanced automated discovery of weaknesses such as prompt injection or hallucinations, check out our :doc:`Vulnerability Scanner </hub/ui/scan/index>`, which uses automated agents to generate tests for common security and robustness issues.
-
 
 .. toctree::
    :maxdepth: 2
