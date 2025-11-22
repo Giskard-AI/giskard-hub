@@ -4,6 +4,10 @@
 Assigning checks to tests
 =========================
 
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/VLejoLvDy-o?si=MHhUR4NTc-Nk5MjM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Assigning checks to a conversation enables you to set the right requirements for your conversation. Various checks are available at Giskard.
 
 Correctness Check
