@@ -272,7 +272,7 @@ If the new check doesn't meet expectations:
 .. mermaid::
    :align: center
 
-   graph LR
+   graph TD
        A[Identify Check Issues] --> B[Create New Check]
        B --> C[Isolate on Subset]
        C --> D[Iterate & Refine]
@@ -282,12 +282,12 @@ If the new check doesn't meet expectations:
        F --> G{Performs Well?}
        G -->|Yes| H[Compare with Old Check]
        G -->|No| I{Both Checks Relevant?}
-       I -->|Yes| J[Keep Both Checks]
-       I -->|No| K[Continue Iterating]
-       K --> D
        H --> L{Can Replace Old?}
        L -->|Yes| M[Replace Old Check]
        L -->|No| I
+       I -->|Yes| J[Keep Both Checks]
+       I -->|No| K[Continue Iterating]
+       K --> D
 
 Evaluate check relevance
 ^^^^^^^^^^^^^^^^^^^^^^^^

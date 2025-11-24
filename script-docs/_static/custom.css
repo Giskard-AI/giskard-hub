@@ -789,3 +789,98 @@ header nav a.recently-selected {
 #left-sidebar a.reference.external svg:not(:first-of-type) {
   display: none !important;
 }
+
+/* Mermaid diagram styling */
+pre.mermaid,
+pre.mermaid.align-center {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 1rem 0 !important;
+}
+
+.mermaid {
+  font-family: "Osmose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Mermaid node text */
+.mermaid .nodeLabel,
+.mermaid .node text,
+.mermaid .label text,
+.mermaid .edgeLabel text,
+.mermaid span.nodeLabel {
+  font-family: "Osmose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Light mode - mermaid nodes */
+.mermaid .node rect,
+.mermaid .node polygon {
+  fill: #f8fafc !important;
+  stroke: #0f1729 !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+}
+
+.mermaid .node text,
+.mermaid span.nodeLabel {
+  fill: #0f1729 !important;
+  color: #0f1729 !important;
+}
+
+/* Light mode - mermaid edges/paths */
+.mermaid .edgePath path.path,
+.mermaid .flowchart-link,
+.mermaid path.path {
+  stroke: rgba(15, 23, 41, 0.6) !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid .edgeLabel {
+  background-color: white !important;
+  color: #0f1729 !important;
+}
+
+.mermaid marker path,
+.mermaid .marker path,
+.mermaid #arrowhead path {
+  fill: rgba(15, 23, 41, 0.6) !important;
+}
+
+/* Dark mode - mermaid nodes */
+.dark .mermaid .node rect,
+.dark .mermaid .node polygon {
+  fill: #004040 !important;
+  stroke: #40dedf !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+}
+
+.dark .mermaid .node text,
+.dark .mermaid span.nodeLabel {
+  fill: #c6ffff !important;
+  color: #c6ffff !important;
+}
+
+/* Dark mode - mermaid edges/paths */
+.dark .mermaid .edgePath path.path,
+.dark .mermaid .flowchart-link,
+.dark .mermaid path.path {
+  stroke: rgba(198, 255, 255, 0.6) !important;
+  stroke-width: 2px !important;
+}
+
+.dark .mermaid .edgeLabel {
+  background-color: #002929 !important;
+  color: #c6ffff !important;
+}
+
+.dark .mermaid marker path,
+.dark .mermaid .marker path,
+.dark .mermaid #arrowhead path {
+  fill: rgba(198, 255, 255, 0.6) !important;
+}
