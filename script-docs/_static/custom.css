@@ -807,7 +807,7 @@ pre.mermaid.align-center {
 .mermaid span.nodeLabel {
   font-family: "Osmose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, sans-serif !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 
 .mermaid .node rect,
@@ -893,6 +893,7 @@ pre.mermaid.align-center {
 .dark .mermaid .edgeLabel {
   background-color: #002929 !important;
   color: #c6ffff !important;
+  font-weight: 600;
 }
 
 .dark .mermaid marker path,
