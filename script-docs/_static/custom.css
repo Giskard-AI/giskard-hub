@@ -128,12 +128,14 @@
 
 /* Adjust body padding when banner is visible */
 body.banner-visible {
-  padding-top: 48px; /* Minimal banner height */
+  padding-top: 48px;
+  /* Minimal banner height */
 }
 
 /* Push navigation header down when banner is visible */
 body.banner-visible header {
-  top: 48px !important; /* Position header with minimal gap */
+  top: 48px !important;
+  /* Position header with minimal gap */
 }
 
 /* Responsive adjustments */
@@ -165,12 +167,14 @@ body.banner-visible header {
 
   /* Adjust body padding for mobile when banner is visible */
   body.banner-visible {
-    padding-top: 52px; /* Minimal mobile banner height */
+    padding-top: 52px;
+    /* Minimal mobile banner height */
   }
 
   /* Push navigation header down for mobile when banner is visible */
   body.banner-visible header {
-    top: 52px !important; /* Position header with minimal gap on mobile */
+    top: 52px !important;
+    /* Position header with minimal gap on mobile */
   }
 }
 
@@ -205,7 +209,7 @@ html {
 }
 
 #content ul:not(.search) p,
-#content ul:not(.search) > li {
+#content ul:not(.search)>li {
   margin-top: 0.5rem !important;
 }
 
@@ -378,29 +382,16 @@ header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
 }
 
 html[data-content_root="./"] header nav a.text-foreground,
-html[data-content_root="./"]
-  header
-  nav
-  a[class*="text-foreground"]:not([class*="text-foreground/60"]),
+html[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]),
 body[data-content_root="./"] header nav a.text-foreground,
-body[data-content_root="./"]
-  header
-  nav
-  a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
+body[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
   color: rgba(15, 23, 41, 0.6) !important;
 }
 
 html.dark[data-content_root="./"] header nav a.text-foreground,
-html.dark[data-content_root="./"]
-  header
-  nav
-  a[class*="text-foreground"]:not([class*="text-foreground/60"]),
+html.dark[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]),
 .dark body[data-content_root="./"] header nav a.text-foreground,
-.dark
-  body[data-content_root="./"]
-  header
-  nav
-  a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
+.dark body[data-content_root="./"] header nav a[class*="text-foreground"]:not([class*="text-foreground/60"]) {
   color: rgba(198, 255, 255, 0.6) !important;
 }
 
@@ -409,16 +400,9 @@ html[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
 body[data-content_root="./"] header nav a[href="/index.html"],
 body[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
 html.dark[data-content_root="./"] header nav a[href="/index.html"],
-html.dark[data-content_root="./"]
-  header
-  nav
-  a[href="/index.html"].text-foreground,
+html.dark[data-content_root="./"] header nav a[href="/index.html"].text-foreground,
 .dark body[data-content_root="./"] header nav a[href="/index.html"],
-.dark
-  body[data-content_root="./"]
-  header
-  nav
-  a[href="/index.html"].text-foreground {
+.dark body[data-content_root="./"] header nav a[href="/index.html"].text-foreground {
   color: var(--accent-color) !important;
 }
 
@@ -661,8 +645,8 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
   opacity: 1 !important;
 }
 
-.dark div.nboutput.container div.output_area > *,
-.dark div.nbinput.container div.input_area > *,
+.dark div.nboutput.container div.output_area>*,
+.dark div.nbinput.container div.input_area>*,
 .dark div.rendered_html *,
 .dark .jp-RenderedHTMLCommon * {
   color: #c6ffff !important;
@@ -731,14 +715,17 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
   .nboutput.nblast.docutils.container tbody tr:nth-child(even) {
     background: #40dedf21 !important;
   }
+
   .nboutput.nblast.docutils.container tbody tr:nth-child(odd) {
     background: transparent !important;
   }
 }
+
 @media (prefers-color-scheme: light) {
   .nboutput.nblast.docutils.container tbody tr:nth-child(even) {
     background: #f1f5f921 !important;
   }
+
   .nboutput.nblast.docutils.container tbody tr:nth-child(odd) {
     background: transparent !important;
   }
@@ -747,24 +734,29 @@ body[data-content_root="./"] header nav a[class*="text-foreground"] {
 .nboutput.nblast.docutils.container .alert {
   background: #edf4fa21 !important;
 }
+
 .nboutput.nblast.docutils.container .alert-info,
 .nboutput.nblast.docutils.container .alert-warning,
 .nboutput.nblast.docutils.container .alert-danger,
 .nboutput.nblast.docutils.container .alert-success {
   background: #edf4fa21 !important;
 }
+
 .nboutput.nblast.docutils.container .card,
 .nboutput.nblast.docutils.container .test-card,
 .panel,
 .nboutput.nblast.docutils.container .panel-default {
   background: #edf4fa21 !important;
 }
+
 .nboutput.nblast.docutils.container .dark {
   background: transparent !important;
 }
+
 .nboutput.nblast.docutils.container .test-result {
   background: transparent !important;
 }
+
 .nboutput.nblast.docutils.container div.prompt.empty {
   display: none !important;
 }
@@ -790,7 +782,11 @@ header nav a.recently-selected {
   display: none !important;
 }
 
-/* Mermaid diagram styling */
+/* ==========================================================================
+   Mermaid Diagram Styling
+   ========================================================================== */
+
+/* Base styles (shared between light and dark) */
 pre.mermaid,
 pre.mermaid.align-center {
   border: none !important;
@@ -804,7 +800,6 @@ pre.mermaid.align-center {
     Oxygen, Ubuntu, Cantarell, sans-serif !important;
 }
 
-/* Mermaid node text */
 .mermaid .nodeLabel,
 .mermaid .node text,
 .mermaid .label text,
@@ -815,14 +810,30 @@ pre.mermaid.align-center {
   font-weight: 500 !important;
 }
 
-/* Light mode - mermaid nodes */
 .mermaid .node rect,
 .mermaid .node polygon {
-  fill: #f8fafc !important;
-  stroke: #0f1729 !important;
   stroke-width: 1.5px !important;
   rx: 8px !important;
   ry: 8px !important;
+}
+
+.mermaid .edgePath path.path,
+.mermaid .flowchart-link,
+.mermaid path.path {
+  stroke-width: 2px !important;
+}
+
+.edgeLabel p {
+  background: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Light Mode
+   -------------------------------------------------------------------------- */
+.mermaid .node rect,
+.mermaid .node polygon {
+  fill: #f8fafc !important;
+  stroke: rgba(15, 23, 41, 0.2) !important;
 }
 
 .mermaid .node text,
@@ -831,12 +842,12 @@ pre.mermaid.align-center {
   color: #0f1729 !important;
 }
 
-/* Light mode - mermaid edges/paths */
 .mermaid .edgePath path.path,
 .mermaid .flowchart-link,
-.mermaid path.path {
-  stroke: rgba(15, 23, 41, 0.6) !important;
-  stroke-width: 2px !important;
+.mermaid path.path,
+.mermaid path[class*="flowchart-link"] {
+  stroke: #0f1729 !important;
+  stroke-opacity: 0.3 !important;
 }
 
 .mermaid .edgeLabel {
@@ -847,17 +858,22 @@ pre.mermaid.align-center {
 .mermaid marker path,
 .mermaid .marker path,
 .mermaid #arrowhead path {
-  fill: rgba(15, 23, 41, 0.6) !important;
+  fill: rgba(15, 23, 41, 0.3) !important;
 }
 
-/* Dark mode - mermaid nodes */
+
+.labelBkg {
+  background: white !important;
+}
+
+/* --------------------------------------------------------------------------
+   Dark Mode
+   -------------------------------------------------------------------------- */
 .dark .mermaid .node rect,
 .dark .mermaid .node polygon {
   fill: #004040 !important;
-  stroke: #40dedf !important;
-  stroke-width: 1.5px !important;
-  rx: 8px !important;
-  ry: 8px !important;
+  stroke: #c6ffff !important;
+  stroke: rgba(198, 255, 255, 0.2) !important;
 }
 
 .dark .mermaid .node text,
@@ -866,12 +882,12 @@ pre.mermaid.align-center {
   color: #c6ffff !important;
 }
 
-/* Dark mode - mermaid edges/paths */
 .dark .mermaid .edgePath path.path,
 .dark .mermaid .flowchart-link,
-.dark .mermaid path.path {
-  stroke: rgba(198, 255, 255, 0.6) !important;
-  stroke-width: 2px !important;
+.dark .mermaid path.path,
+.dark .mermaid path[class*="flowchart-link"] {
+  stroke: #cde0e0 !important;
+  stroke-opacity: 0.25 !important;
 }
 
 .dark .mermaid .edgeLabel {
@@ -882,5 +898,9 @@ pre.mermaid.align-center {
 .dark .mermaid marker path,
 .dark .mermaid .marker path,
 .dark .mermaid #arrowhead path {
-  fill: rgba(198, 255, 255, 0.6) !important;
+  fill: rgba(198, 255, 255, 0.3) !important;
+}
+
+.dark .labelBkg {
+  background: #002929 !important;
 }
