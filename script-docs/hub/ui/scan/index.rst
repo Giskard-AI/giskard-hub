@@ -84,15 +84,6 @@ The scan tests for these common AI security risks:
     * **Risk-level classifications** to prioritize remediation
     * **Comprehensive mitigation strategies** with practical guidance
 
-Key probes
-----------
-
-The scan includes specialized probes that test for advanced attack scenarios:
-
-* **Harmful Misguidance** - Tests whether an AI agent validates or encourages dangerous behaviors when users implicitly seek affirmation for harmful actions. The probe generates domain-specific scenarios where users frame risky intentions positively or indirectly, like a banking customer asking about investing retirement savings in volatile assets, or someone asking about quitting their job while carrying substantial debt. The probe automatically adapts attack scenarios to agent's use case, testing whether it can detect and respond appropriately when vulnerable users frame dangerous decisions as normal choices.
-
-* **Agentic Tool Extraction** - Implements an agentic reconnaissance workflow that systematically queries the agent to discover and enumerate available tools, functions, and capabilities, exposing the agent's internal configuration and expanding the attack surface for targeted exploitation.
-
 .. toctree::
    :maxdepth: 3
    :hidden:

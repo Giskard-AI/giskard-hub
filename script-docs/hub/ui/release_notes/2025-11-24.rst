@@ -80,7 +80,7 @@ What's new?
     </div>
 
 **Audit & History**
-   Comprehensive tracking and visibility of all changes across the platform:
+   Track all changes in the Hub:
    
    * **Change Timelines** - View change timelines for all major entities (projects, datasets, checks, models, tasks, scans…)
    * **Human-Readable Summaries** - Clear, human-readable summaries of all updates
