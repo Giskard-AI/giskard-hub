@@ -36,7 +36,7 @@ To create a check, click on the "Create a new check" button in the upper right c
 
 After, you can configure the check parameters which depends on the check type. This will look something like this:
 
-.. image:: /_static/images/hub/create-checks-detail.png
+.. image:: /_static/images/hub/checks-create-configure.png
    :align: center
    :alt: "Create a new check"
    :width: 800
@@ -233,7 +233,7 @@ The advantage of custom checks is that they can be tailored to your specific use
 
 On the Checks page, you can create custom checks by clicking on the "New check" button in the upper right corner of the screen.
 
-.. image:: /_static/images/hub/create-checks-list.png
+.. image:: /_static/images/hub/checks-create.png
    :align: center
    :alt: "List of checks"
    :width: 800
@@ -252,7 +252,7 @@ Next, set the parameters for the check:
 - ``Semantic Similarity``: The output of the agent should be semantically similar to the reference.
 - And a set of parameters specific to the check type. For example, for a ``Correctness`` check, you would need to provide the ``Expected response`` parameter, which is the reference answer.
 
-.. image:: /_static/images/hub/create-checks-detail.png
+.. image:: /_static/images/hub/checks-create-configure.png
    :align: center
    :alt: "Create a new check"
    :width: 800
