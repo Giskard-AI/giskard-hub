@@ -25,6 +25,10 @@ Click on a release below to browse the release notes for that version:
      - 
    * - 
      - | :doc:`/hub/sdk/release_notes/2025-10-30`
+   * - :doc:`/hub/ui/release_notes/2025-11-24`
+     -
+   * - :doc:`/hub/ui/release_notes/2025-11-25`
+     - 
 
 We Value Your Feedback
 ----------------------

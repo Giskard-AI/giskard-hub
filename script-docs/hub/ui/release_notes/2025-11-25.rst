@@ -1,0 +1,8 @@
+2.1.1 (2025-11-25)
+==================
+
+What's Changed
+---------------
+
+- fix: package only needed wheel by @Hartorn in #1176
+- chore: Update cronjob time to Monday 1am by @Hartorn in #1178

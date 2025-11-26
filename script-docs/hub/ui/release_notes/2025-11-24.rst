@@ -1,0 +1,101 @@
+2.1.0 (2025-11-24)
+==================
+
+We are releasing a new version of the Hub UI that introduces audit logs, a new task management system, enhanced scans, and improved UI and content.
+This helps you manage your quality assurance process, track your scans, and improve the collaboration with your team.
+
+Hub UI
+------
+
+What's new?
+~~~~~~~~~~~~
+
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1140819940?h=7be84b6c71&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="release-demo"
+        data-ready="true"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.10);"
+        allowfullscreen
+    ></iframe>
+    </div>
+
+**Tasks & Follow-up Workflow**
+   Streamline your quality assurance process with a comprehensive task management system:
+   
+   * **Create Tasks from Failures** - Create tasks directly from failed evaluations or scans
+   * **Assign Owners with Notifications** - Assign task owners with email notifications (opt-out available)
+   * **Auto-Draft Bad Tests** - Creating a task from a bad test can automatically mark it as Draft
+   * **Hide Noisy Results** - Hide noisy or sensitive eval results while still tracking them via tasks
+
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1140820125?h=f35533df6d&amp;fl=tl&amp;fe=ec&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="release-demo"
+        data-ready="true"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.10);"
+        allowfullscreen
+    ></iframe>
+    </div>
+    
+**Draft Conversations & Datasets**
+   Better control over your content lifecycle:
+   
+   * **Clearer Draft/Published Toggle** - More intuitive toggle with helpful explanations
+   * **Draft Filter in Tables** - Draft filter added to dataset tables with clearer status labels
+   * **Consistent Exclusion** - Draft conversations are consistently excluded from evaluation runs
+
+**Enhanced Scans**
+   Improved scanning capabilities and usability:
+   
+   * **New Built-in Probes** - Two new built-in probes added to the scanning toolkit
+   * **JSON Export** - Export scan results in JSON format directly from the UI
+   * **UI Improvements** - Various improvements for better readability and stability
+
+.. raw:: html
+
+    <div style="position: relative; width: 100%; max-width: 100%; padding-top: 56.25%;">
+    <iframe 
+        src="https://player.vimeo.com/video/1140111264?h=d28fd97518&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="release-demo"
+        data-ready="true"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,0.10);"
+        allowfullscreen
+    ></iframe>
+    </div>
+
+**Audit & History**
+   Comprehensive tracking and visibility:
+   
+   * **Change Timelines** - View change timelines for all major entities (projects, datasets, checks, models, tasks, scans…)
+   * **Human-Readable Summaries** - Clear, human-readable summaries of all updates
+   * **Project-Wide Search** - Search audits across the whole project
+
+**UI & Content Improvements**
+   Enhanced user experience throughout the platform:
+   
+   * **Markdown Support** - Descriptions and error messages now support Markdown formatting
+   * **Better Navigation** - Clearer labels, improved empty states, and more consistent navigation
+
+What's fixed?
+~~~~~~~~~~~~~
+
+- **Email Reliability** - More robust TLS handling for outbound email
+
+Hub SDK
+-------
+
+No changes yet.

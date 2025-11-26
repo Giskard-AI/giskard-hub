@@ -7,28 +7,116 @@ Review test results
 
 This section guides you through the business workflow for reviewing test results. This workflow is designed for business users who need to review evaluation results, understand failures, and determine the appropriate actions to take.
 
-Starting point
---------------
+Starting reviews
+----------------
 
-You can start reviewing test results from two entry points:
+After reviewing the test results, understanding the reasons for failure, and reviewing the conversation flow, you need to decide on the appropriate action.
 
-**From an evaluation run:**
+.. include:: workflow.rst.inc
 
-- Open an evaluation run directly
-- Navigate through the test cases to find ones that need review
+From an evaluation run
+______________________
+
+When reviewing a failure directly from a test execution (not from a task), follow these steps:
+
+1. **Review the failure** - After a test execution, review the failure details
+2. **Determine the appropriate action** - Based on your review, decide which of the following scenarios applies:
 
 .. note::
 
    To review evaluation runs, you first need to run an evaluation. For information on running evaluations, see :doc:`/hub/ui/evaluations/create`. For information on viewing evaluation results, see :doc:`/hub/ui/evaluations/index`.
 
-**From a task:**
+If the agent is incorrect, the test is well written
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Open a task that has been assigned to you
-- Navigate to the linked test case or evaluation run
+If the agent is incorrect and the test is correctly identifying the issue:
+
+- **Open a task** and assign it to the bot developer or the KB manager
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Create a task with a clear description of what needs to be fixed in the test
+
+If the agent is correct, the test should be rewritten
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the bot's answer is actually correct and the test should be modified:
+
+**Option 1: Rewrite the test immediately**
+
+- **Go to the linked test case** in the dataset
+- **Change the test requirements** - Rewrite checks, modify validation rules, or adjust other test criteria as needed
+- **Retest multiple times** - Regenerate the bot answer and retest until the result is always PASS
+- **Save the changes** - If the test case was in draft, undraft it
+- **Close the task** (if applicable) - You can also set the task as closed
+
+**Option 2: Handle it later**
+
+- **Draft the test case** - Mark the test case as draft to prevent it from being used in evaluations
+- **Open a task** - Create a task to track that this test case needs to be modified
+- **Determine the test case value:**
+  
+  * **If the test case has no value** - Remove it from the dataset
+  
+  * **If the test case has value** - Complete the modification workflow:
+    
+    - Go to the linked test case in the dataset
+    - Change the test requirements (rewrite checks, etc.)
+    - Retest multiple times until the result is always PASS (regenerate a bot answer, and retest)
+    - Save the changes and if the test case was in draft, undraft it
+    - You can also set the task as closed
 
 .. note::
 
-   Tasks are created from evaluation runs or scan results. For information on creating tasks, see :doc:`/hub/ui/annotate/distribute_tasks`.
+   For detailed information about modifying test cases, see :doc:`/hub/ui/annotate/modify_test_cases`.
+
+If you don't know
+^^^^^^^^^^^^^^^^^
+
+If you're uncertain whether the bot's answer is correct:
+
+- **Put the test case in draft** - Mark the test case as draft to prevent it from being used in evaluations
+- **Open a task** and assign it to the domain expert
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Create a task with your questions and concerns, then assign it to the domain expert who can make this determination
+
+From an assigned task
+_____________________
+
+When reviewing a task that has been assigned to you, follow these steps:
+
+1. **Open the task** - Open the task that has been assigned to you
+2. **Read the failure details** - Review the description, result, and explanation for the failure
+3. **Determine the appropriate action** - Based on your review, decide which of the following scenarios applies:
+
+.. note::
+
+   For information on creating tasks, see :doc:`/hub/ui/annotate/distribute_tasks`.
+
+If the agent is incorrect, the test is well written
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **Assign the task to the developer** who should correct the test
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Reassign the task to the appropriate developer with a clear description of what needs to be fixed
+
+If the agent is correct, the test should be rewritten
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the test is correct and the test should be rewritten:
+
+- **Provide the reason** why the test should be rewritten in the description of the task
+- **Assign the task to the product owner** so that he or she can rewrite the test
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Update the task description with your findings and reassign it to the product owner
+
+If you don't know
+^^^^^^^^^^^^^^^^^
+
+If you're uncertain whether the test is correct and need a discussion:
+
+- **Provide the reason** why you don't know and why it needs to be discussed in the task description
+- **Assign the task to the right person** with the knowledge to make this determination, or reassign it to the product owner
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Update the task with your questions and concerns, then reassign it to the appropriate person
 
 Review the check result 
 -----------------------
@@ -169,45 +257,6 @@ Reviewing metadata helps you understand:
 * Whether the response structure matches expectations
 
 For more information about metadata checks and other check types, see :doc:`/hub/ui/annotate/overview`.
-
-Take the right action
----------------------
-
-After reviewing the test results, understanding the reasons for failure, and reviewing the conversation flow, you need to decide on the appropriate action.
-
-.. include:: workflow.rst.inc
-
-If you agree, close the task
-_________________________________________________
-
-If you agree that the test result is correct (either a pass or a legitimate failure):
-
-1. **Review the task** - Make sure you've thoroughly reviewed all aspects
-2. **Navigate to the test case** - As shown in :doc:`/hub/ui/annotate/distribute_tasks`
-3. **Add any final comments** - Document your review findings
-4. **Close the task** - Mark the task as completed
-
-This indicates that the test case is working as intended and no further action is needed.
-
-If you disagree, modify the test case
-_______________________________________________________________________________________
-
-If you don't agree with the test result, you have two options:
-
-**Option 1: Modify the test case yourself**
-
-- If you have the necessary permissions and knowledge
-- Navigate to the "Modify test cases" workflow :doc:`/hub/ui/annotate/modify_test_cases`
-- Make the necessary changes to the test case or checks
-- Validate the changes and rerun the test
-
-**Option 2: Assign the task to the product owner**
-
-- If you don't have the necessary permissions or technical knowledge
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
-- Create or update a task assigned to the product owner
-- Provide a clear description of what needs to be modified
-- Include your review findings and recommendations
 
 Best practices
 --------------
