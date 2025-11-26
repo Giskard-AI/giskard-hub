@@ -1,8 +1,8 @@
 2.1.0 (2025-11-24)
 ==================
 
-We are releasing a new version of the Hub UI that introduces audit logs, a new task management system, enhanced scans, and improved UI and content.
-This helps you manage your quality assurance process, track your scans, and improve the collaboration with your team.
+We are releasing a new version of the Hub UI that introduces audit logs, a new task system, enhanced scans, and improved UI and content.
+This helps you manage your evaluation process, track your scans, and improve the collaboration with your team.
 
 Hub UI
 ------
@@ -26,12 +26,12 @@ What's new?
     </div>
 
 **Tasks & Follow-up Workflow**
-   Streamline your quality assurance process with a comprehensive task management system:
+   Streamline your team collaboration:
    
    * **Create Tasks from Failures** - Create tasks directly from failed evaluations or scans
    * **Assign Owners with Notifications** - Assign task owners with email notifications (opt-out available)
-   * **Auto-Draft Bad Tests** - Creating a task from a bad test can automatically mark it as Draft
-   * **Hide Noisy Results** - Hide noisy or sensitive eval results while still tracking them via tasks
+   * **Draft Test Linked to Tasks** - When you create a task from a bad test will propose to automatically mark it as Draft
+   * **Hide Noisy Results** - Hide noisy or sensitive evaluation results while still tracking them via tasks
 
 .. raw:: html
 
@@ -49,16 +49,18 @@ What's new?
     </div>
     
 **Draft Conversations & Datasets**
-   Better control over your content lifecycle:
+   Control over test cases lifecycle:
    
-   * **Clearer Draft/Published Toggle** - More intuitive toggle with helpful explanations
-   * **Draft Filter in Tables** - Draft filter added to dataset tables with clearer status labels
-   * **Consistent Exclusion** - Draft conversations are consistently excluded from evaluation runs
+   * **Draft/Published Toggle** - A toggle with a helpful explanation
+   * **Draft Filter in Tables** - Draft filter added to dataset tables with conversations status labels
+   * **Consistent Exclusion** - Draft conversations are excluded from evaluation runs
 
 **Enhanced Scans**
    Improved scanning capabilities and usability:
    
    * **New Built-in Probes** - Two new built-in probes added to the scanning toolkit
+       - **Harmful Misguidance** - This probe tests whether an AI agent validates or encourages dangerous behaviors when users implicitly seek affirmation for harmful actions. The probe generates domain-specific scenarios where users frame risky intentions positively or indirectly, like a banking customer asking about investing retirement savings in volatile assets, or someone asking about quitting their job while carrying substantial debt. The probe automatically adapts attack scenarios to agent's use case, testing whether it can detect and respond appropriately when vulnerable users frame dangerous decisions as normal choices.
+       - **Agentic Tool Extraction** - This probe implements an agentic reconnaissance workflow that systematically queries the agent to discover and enumerate available tools, functions, and capabilities, exposing the agent's internal configuration and expanding the attack surface for targeted exploitation
    * **JSON Export** - Export scan results in JSON format directly from the UI
    * **UI Improvements** - Various improvements for better readability and stability
 
@@ -78,14 +80,14 @@ What's new?
     </div>
 
 **Audit & History**
-   Comprehensive tracking and visibility:
+   Comprehensive tracking and visibility of all changes across the platform:
    
    * **Change Timelines** - View change timelines for all major entities (projects, datasets, checks, models, tasks, scans…)
    * **Human-Readable Summaries** - Clear, human-readable summaries of all updates
    * **Project-Wide Search** - Search audits across the whole project
 
 **UI & Content Improvements**
-   Enhanced user experience throughout the platform:
+   Enhanced user experience throughout the Hub:
    
    * **Markdown Support** - Descriptions and error messages now support Markdown formatting
    * **Better Navigation** - Clearer labels, improved empty states, and more consistent navigation
