@@ -26,7 +26,7 @@ What's new?
     </div>
 
 **Tasks & Follow-up Workflow**
-   Streamline your team collaboration:
+   Simplify your team collaboration:
    
    * **Create Tasks from Failures** - Create tasks directly from failed evaluations or scans
    * **Assign Owners with Notifications** - Assign task owners with email notifications (opt-out available)
