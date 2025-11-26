@@ -10,7 +10,10 @@ This section guides you through the business workflow for reviewing test results
 Starting reviews
 ----------------
 
-After reviewing the test results, understanding the reasons for failure, and reviewing the conversation flow, you need to decide on the appropriate action.
+There are two main ways to review test results:
+
+* From an evaluation run
+* From an assigned task
 
 From an evaluation run
 ______________________
@@ -50,13 +53,13 @@ If the agent is incorrect and the test is correctly identifying the issue:
 If the agent is correct, the test should be rewritten
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the bot's answer is actually correct and the test should be modified:
+If the agent's answer is actually correct and the test should be modified:
 
 **Option 1: Rewrite the test immediately**
 
 - **Go to the linked test case** in the dataset
 - **Change the test requirements** - Rewrite checks, modify validation rules, or adjust other test criteria as needed
-- **Retest multiple times** - Regenerate the bot answer and retest until the result is always PASS
+- **Retest multiple times** - Regenerate the agent answer and retest until the result is always PASS
 - **Save the changes** - If the test case was in draft, undraft it
 - **Close the task** (if applicable) - You can also set the task as closed
 
@@ -72,7 +75,7 @@ If the bot's answer is actually correct and the test should be modified:
     
     - Go to the linked test case in the dataset
     - Change the test requirements (rewrite checks, etc.)
-    - Retest multiple times until the result is always PASS (regenerate a bot answer, and retest)
+    - Retest multiple times until the result is always PASS (regenerate a agent answer, and retest)
     - Save the changes and if the test case was in draft, undraft it
     - You can also set the task as closed
 
@@ -83,7 +86,7 @@ If the bot's answer is actually correct and the test should be modified:
 If you don't know
 ^^^^^^^^^^^^^^^^^
 
-If you're uncertain whether the bot's answer is correct:
+If you're uncertain whether the agent's answer is correct:
 
 - **Put the test case in draft** - Mark the test case as draft to prevent it from being used in evaluations
 - **Open a task** and assign it to the domain expert
@@ -122,7 +125,7 @@ If the agent is incorrect, the test is well written
 If the agent is correct, the test should be rewritten
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the test is correct and the test should be rewritten:
+If the test case is correct and the test should be rewritten:
 
 - **Provide the reason** why the test should be rewritten in the description of the task
 - **Assign the task to the product owner** so that he or she can rewrite the test
@@ -132,7 +135,7 @@ If the test is correct and the test should be rewritten:
 If you don't know
 ^^^^^^^^^^^^^^^^^
 
-If you're uncertain whether the test is correct and need a discussion:
+If you're uncertain whether the test case is correct and need a discussion:
 
 - **Provide the reason** why you don't know and why it needs to be discussed in the task description
 - **Assign the task to the right person** with the knowledge to make this determination, or reassign it to the product owner
@@ -145,7 +148,7 @@ Interpreting test results
 Check pass/fail
 ___________________
 
-When reviewing a test case, the first thing to check is whether the test passed or failed. By opening the test case, you can see the metrics along with the failure category and tags on the right side of the screen.
+When reviewing a test case, the first thing to check is whether the test case passed or failed. By opening the test case, you can see the metrics along with the failure category and tags on the right side of the screen.
 
 .. image:: /_static/images/hub/review-test-metrics.png
    :align: center
@@ -154,7 +157,7 @@ When reviewing a test case, the first thing to check is whether the test passed 
 
 **PASS:**
 
-- The test case met all the evaluation criteria
+- The test case met all the evaluation criteria (checks)
 - All checks that were enabled on the test case passed
 - The agent's response was acceptable according to the validation rules
 
@@ -162,9 +165,8 @@ When reviewing a test case, the first thing to check is whether the test passed 
 
 - The test case did not meet one or more evaluation criteria
 - At least one check that was enabled on the test case failed
-- The agent's response did not comply with the validation rules
 
-To understand why a test failed, you need to review the specific checks that were applied. 
+To understand why a test case failed, you need to review the specific checks that were applied. 
 
 .. note::
 
@@ -182,7 +184,7 @@ Each check provides an explanation of why it passed or failed. This explanation 
 
 * What the check was evaluating
 * What criteria were applied
-* Why the test passed or failed
+* Why the test case passed or failed
 * What specific aspects of the agent's response caused the result
 
 .. note::
@@ -226,7 +228,7 @@ When reviewing the conversation flow, consider:
 Conversation structure 
 ______________________
 
-A conversation, or test case, is composed of a sequence of messages between the **user** and the **assistant**, alternating between each role. When designing your test cases, you can provide conversation history by adding multiple turns (multi-turn), but the conversation should always end with a **user** message. The agent's next **assistant** completion will be generated and evaluated at test time.
+A conversation, or test case, is composed of a sequence of messages between the **user** and the **assistant**, alternating between each role. When designing your test cases, you can provide conversation history by adding multiple turns (multi-turn), but the conversation should always end with a **user** message. The agent's next **assistant** completion will be generated and evaluated at test case time.
 
 Simple conversation
 ___________________

@@ -49,8 +49,6 @@ The annotation workflow involves two distinct personas with different responsibi
 - Modifies check requirements
 - Validates checks and structures test cases
 
-.. include:: workflow.rst.inc
-
 Find your tasks
 -----------------
 
@@ -88,8 +86,6 @@ You can create tasks from two main sources: evaluation runs and scan results. Ta
    * Coordinate review workflows across your team
    * Ensure quality control before publishing test cases
    
-   Tasks are particularly useful when reviewing large evaluation runs or scan results with many items to review.
-
 From scan results
 __________________
 
@@ -179,10 +175,9 @@ __________
 
 Set the initial status of the task:
 
-* **Open** - Task is created and ready to be worked on
+* **Open** - Task is created and ready to be reviewed
 * **In Progress** - Task is currently being worked on
-* **Completed** - Task has been finished
-* **Closed** - Task is resolved and no longer active
+* **Resolved** - Task has been finished
 
 You can change the status as the task progresses through the review process.
 
@@ -200,9 +195,9 @@ _____________
 
 An important feature related to tasks is the ability to set conversations to draft. This workflow ensures that:
 
-* Subsequent evaluation runs don't reuse conversations before they're published
+* Subsequent evaluation runs don't reuse conversations that are not ready to be used again
 * Your evaluation metrics remain unbiased
-* Quality control is maintained throughout the review process
+* Quality control of other evaluations is maintained throughout the review process
 
 When you go to the conversation linked to an evaluation run and create a task, you can set the linked failed test case to draft status. Before using it again, you need to resolve all associated tasks. 
 Similarly, you can select a conversation from a dataset and set it to draft status. 
@@ -218,7 +213,7 @@ Follow the review process
 Once tasks are created, follow the review process:
 
 1. **Open the task and view it** - Check the current status and any updates
-2. **Add your input** - Provide feedback, comments, or additional context
+2. **Add your input** - Provide feedback, comments, or additional context in the description of the task
 3. **Assign the right people** - Make sure the task is assigned to the appropriate team members
 4. **Close the task** - When the work is complete
 5. **Undraft the conversation** - Once all tasks are resolved, you can undraft the conversation to make it available for future evaluation runs
@@ -230,14 +225,14 @@ Once tasks are created, follow the review process:
 Communicate with your team
 --------------------------
 
-You can add additional structure and metadata to your test cases to better organize and understand them.
+You can add additional structure and context to your tasks and test cases to better understand the work to be done.
 
 Update task descriptions
 ________________________
 
-You can add a description to a test case to document:
+You can add a description to a task to communicate:
 
-* What the test case is testing
+* What the work is about
 * Why it's important
 * What behavior or scenario it represents
 * Any special considerations or context
@@ -273,7 +268,7 @@ Best practices
 
 * **Set clear priorities** - Use task priorities to help team members focus on the most important work first
 * **Provide detailed descriptions** - Include enough context in task descriptions so assignees understand what needs to be done
-* **Assign appropriately** - Match tasks to team members based on their expertise (DS for technical issues, business experts for domain knowledge)
+* **Assign appropriately** - Match tasks to team members based on their expertise (DS for technical issues, business experts for domain knowledge, etc.)
 * **Resolve before publishing** - Always resolve all tasks before undrafting conversations to maintain dataset quality
 * **Regular review** - Check task status regularly to ensure the review process is progressing
 

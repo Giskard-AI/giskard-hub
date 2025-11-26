@@ -66,8 +66,6 @@ The annotation workflow involves two personas with distinct workflows:
 - Modifies check requirements
 - Validates checks and structures test cases
 
-.. include:: workflow.rst.inc
-
 Next steps
 ----------
 

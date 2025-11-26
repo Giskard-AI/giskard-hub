@@ -30,9 +30,6 @@ Draft/Undraft your test case
 
 Drafting and undrafting test cases allows you to control which test cases are included in evaluation runs.
 
-Draft your test case
-____________________
-
 Setting a test case to draft status:
 
 * **Excludes it from evaluation runs** - Draft test cases are not used in evaluations until they are undrafted
@@ -50,22 +47,6 @@ You can also set a test case to draft when creating a task from an evaluation ru
 .. note::
 
    For more information about creating tasks and setting test cases to draft, see :doc:`/hub/ui/annotate/distribute_tasks`.
-
-Undraft your test case
-______________________
-
-Undrafting a test case makes it available for evaluation runs again:
-
-* **Includes it in evaluations** - The test case will be used in future evaluation runs
-* **Indicates completion** - Shows that the test case has been reviewed and is ready
-* **Requires resolved tasks** - All associated tasks should be resolved before undrafting
-
-To undraft a test case:
-
-1. Ensure all associated tasks are resolved
-2. Open the test case you want to undraft
-3. Remove the draft status using the draft toggle or option
-4. The test case will be included in future evaluation runs
 
 Hide/Unhide
 ___________
@@ -187,15 +168,15 @@ Rerunning the bot answer helps you:
 * Ensure that your modifications don't break the check
 * Catch issues before using the check in full evaluation runs
 
-Rerunning the judge
-___________________
+Rerunning the check evaluation
+______________________________
 
-You may also need to validate the judge's evaluation by rerunning it multiples for each of the regenereated answers.
+You may also need to validate the check evaluation by rerunning it multiples for each of the regenereated answers.
 
-1. **Review judge explanations** - Understand how the judge evaluated the response
-2. **Check for consistency** - Ensure the judge provides consistent evaluations
-3. **Validate against examples** - Test the judge against known good and bad examples
-4. **Adjust if needed** - Modify the judge prompt or configuration if results are inconsistent
+1. **Review check explanations** - Understand how the check evaluated the response
+2. **Check for consistency** - Ensure the check provides consistent evaluations
+3. **Validate against examples** - Test the check against known good and bad examples
+4. **Adjust if needed** - Modify the check prompt or configuration if results are inconsistent
 
 For more information about iterating on checks, see :doc:`/hub/ui/annotate/overview`.
 
@@ -204,10 +185,10 @@ Structure your test cases with tags
 
 Tags are optional but highly recommended labels that help you organize and filter your test cases. Tags help you analyze evaluation results by allowing you to:
 
-* **Filter results** - Focus on specific test types or scenarios
+* **Filter results** - Focus on specific test cases or scenarios
 * **Compare performance** - See how your agent performs across different test categories
 * **Identify weak areas** - Discover which types of tests have higher failure rates
-* **Organize reviews** - Review test results by category or domain
+* **Organize reviews** - Review test cases by category or domain
 
 .. note::
 
