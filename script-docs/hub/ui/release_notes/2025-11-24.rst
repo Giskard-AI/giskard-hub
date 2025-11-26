@@ -30,7 +30,7 @@ What's new?
    
    * **Create Tasks from Failures** - Create tasks directly from failed evaluations or scans
    * **Assign Owners with Notifications** - Assign task owners with email notifications (opt-out available)
-   * **Draft Test Linked to Tasks** - When you create a task from a bad test will propose to automatically mark it as Draft
+   * **Auto-Draft Bad Tests** - When you create a task from a bad test will propose to automatically mark it as Draft
    * **Hide Noisy Results** - Hide noisy or sensitive evaluation results while still tracking them via tasks
 
 .. raw:: html
