@@ -36,7 +36,7 @@ but since generative AI agents can encounter an infinite number of scenarios, au
 
         Import existing test datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
-.. tip::
+.. note::
    
    For advanced automated discovery of weaknesses such as prompt injection or hallucinations, check out our :doc:`Vulnerability Scanner </hub/sdk/scans>`, which uses automated agents to generate tests for common security and robustness issues.
 

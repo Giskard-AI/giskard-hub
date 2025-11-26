@@ -33,9 +33,9 @@ Built-in checks
 
 Giskard provides a set of built-in checks that you can use to evaluate your agents. These checks form the foundation of :ref:`custom-checks` but they can also be used independently as shown in :ref:`add-checks-to-conversations`.
 
-.. tip::
+.. note::
 
-    For more background information on the built-in checks, see the :doc:`/hub/ui/annotate/checks` section.
+    For more background information on the built-in checks, see the :doc:`/hub/ui/annotate/overview` section.
 
 .. _custom-checks:
 

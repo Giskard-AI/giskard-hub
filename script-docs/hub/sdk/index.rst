@@ -32,11 +32,11 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
       Define validation rules and metrics for your tests
 
-   .. grid-item-card:: Run, schedule and compare evaluations
+   .. grid-item-card:: Run, review, schedule and compare evaluation runs
       :link: evaluations/index
       :link-type: doc
 
-      Execute tests programmatically in the Hub or locally
+      Execute tests, review results, schedule and compare evaluations programmatically in the Hub or locally
 
    .. grid-item-card:: API Reference
       :link: reference/index
@@ -74,7 +74,7 @@ Alternatively, you can pass these values directly to the client:
         token="your-token"
     )
 
-.. tip::
+.. note::
 
    Make sure you are using the correct URL for your Giskard Hub instance. The URL should end with ``/_api``.
 
@@ -195,7 +195,7 @@ These are the attributes you can set for a chat test case (the only required att
 
 .. note::
 
-   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
+   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 
 You can add as many chat test cases as you want to the dataset.
 

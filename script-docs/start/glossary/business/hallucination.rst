@@ -57,7 +57,7 @@ Giskard provides comprehensive tools to test and prevent hallucination vulnerabi
       Use the Hub interface to generate document-based test cases for hallucination detection. The UI automatically generates queries based on your knowledge base and evaluates responses for factual accuracy.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the business boundaries.

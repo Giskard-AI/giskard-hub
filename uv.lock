@@ -1306,6 +1306,7 @@ docs = [
     { name = "sphinxawesome-theme", marker = "python_full_version >= '3.12'" },
     { name = "sphinxcontrib-mermaid", marker = "python_full_version >= '3.12'" },
     { name = "sphinxext-opengraph", extra = ["social-cards"], marker = "python_full_version >= '3.12'" },
+    { name = "sphinxext-rediraffe" },
     { name = "torch", version = "2.8.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin'" },
     { name = "torch", version = "2.8.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform != 'darwin'" },
 ]
@@ -1343,6 +1344,7 @@ docs = [
     { name = "sphinxawesome-theme", marker = "python_full_version >= '3.12'", specifier = "==5.3.2" },
     { name = "sphinxcontrib-mermaid", marker = "python_full_version >= '3.12'", specifier = ">=0.9.0" },
     { name = "sphinxext-opengraph", extras = ["social-cards"], marker = "python_full_version >= '3.12'", specifier = ">=0.12.0" },
+    { name = "sphinxext-rediraffe" },
     { name = "torch", marker = "sys_platform != 'darwin'", specifier = ">=2.8.0", index = "https://download.pytorch.org/whl/cpu" },
     { name = "torch", marker = "sys_platform == 'darwin'", specifier = ">=2.8.0" },
 ]
@@ -4909,6 +4911,18 @@ wheels = [
 [package.optional-dependencies]
 social-cards = [
     { name = "matplotlib", marker = "python_full_version >= '3.12'" },
+]
+
+[[package]]
+name = "sphinxext-rediraffe"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "sphinx" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e3/a9/ab13d156049eea633f992424f3e92cb40e3f1b606bb6d01d40a27457d38a/sphinxext_rediraffe-0.3.0.tar.gz", hash = "sha256:f319b3ccb7c3c3b6f63ffa6fd3eeb171b6d272df55075a9e84364394f391f507", size = 22114 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/87/55/ab40a0d1378ee5c859590a633052cf1d0a1f8435af87558a9f7cd576601a/sphinxext_rediraffe-0.3.0-py3-none-any.whl", hash = "sha256:f4220beafa99c99177488276b8e4fcf61fbeeec4253c1e4aae841a18c475330c", size = 7194 },
 ]
 
 [[package]]

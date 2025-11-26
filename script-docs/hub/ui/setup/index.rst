@@ -33,11 +33,10 @@ High-level workflow
    :align: center
 
    graph LR
-       A[Create Project] --> B[Setup Agent]
-       A --> C[Import Knowledge Base]
-       B --> D[Configure Endpoint]
+       A([<a href="projects.html" target="_self">Create Project</a>]) --> B([<a href="agents.html" target="_self">Create Agent</a>])
+       A --> C([<a href="knowledge_bases.html" target="_self">Create Knowledge Base</a>])
        C --> E[Upload Documents]
-       D --> F[Ready for Testing]
+       B --> F[<a href="../scan/index.html" target="_self">Ready for Testing</a>]
        E --> F
        
 .. toctree::

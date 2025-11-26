@@ -2,85 +2,100 @@
 :og:description: Review and refine test cases with domain expertise. Use collaborative annotation workflows to improve test quality and ensure comprehensive coverage with intuitive visual tools.
 
 ====================================================
-Iterate on tests and metrics
+Review and refine test cases and metrics
 ====================================================
 
 The annotation workflow in Giskard Hub enables you to continuously improve your test cases and evaluation metrics through an iterative, collaborative process. 
 
 Each test case is composed of a **conversation** and its associated **evaluation parameters** (e.g., an expected answer, rules that the agent must respect, etc.).
 
-The annotation workflow follows these steps:
+The annotation workflow follows a task-oriented approach with two distinct personas and workflows:
 
-1. **Review results** - Review test cases and evaluation runs to identify issues  
-2. **Assign evaluation criteria** - Define checks and tags to measure quality (correctness, groundedness, conformity, etc.)  
-3. **Structure your dataset** - Use tags to organize your test cases and evaluate them efficiently  
-4. **Distribute tasks** - Use tasks to coordinate team reviews and ensure quality (review scan results, evaluation runs, and test cases)  
+1. **Distribute tasks** - Organize your review work by creating and assigning tasks to team members
+2. **Review test results** - Business workflow for reviewing evaluation results and understanding failures
+3. **Modify test cases** - Product owner workflow for refining test cases and validation rules
 
-This section guides you through reviewing results, creating and refining test cases, assigning evaluation criteria, and managing team workflows.
+This section guides you through the complete task-oriented workflow from task distribution to test case refinement.
 
 Getting started
 ---------------
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Review test cases
-      :link: conversations
+   .. grid-item-card:: Understand metrics, failure categories and tags
+      :link: overview
       :link-type: doc
 
-      Create and manage test cases (conversations). Design multi-turn dialogues, add answer examples, and build comprehensive test scenarios.
+      Understand metrics, failure categories and tags to review test results. 
 
-   .. grid-item-card:: Create and assign checks
-      :link: checks
+   .. grid-item-card:: Distribute tasks to organize your review work
+      :link: distribute_tasks
       :link-type: doc
 
-      Define evaluation criteria with checks. Create custom validation rules to measure correctness, conformity, groundedness, and other metrics.
+      Create and manage tasks to coordinate team reviews. Assign work for scan results, evaluation runs, and test cases to ensure quality and collaboration.
 
-   .. grid-item-card:: Create and assign tags
-      :link: tags
+   .. grid-item-card:: Review test results
+      :link: review_test_results
       :link-type: doc
 
-      Organize and categorize test cases with tags. Filter conversations, manage performance metrics, and maintain structured test datasets.
+      Review evaluation results and understand test failures. Follow the business workflow to analyze check results, understand reasons, and take appropriate actions.
 
-   .. grid-item-card:: Distribute review tasks among your team
-      :link: tasks
+   .. grid-item-card:: Modify test cases
+      :link: modify_test_cases
       :link-type: doc
 
-      Coordinate team workflows with tasks. Assign review work for scan results, evaluation runs, and test cases to ensure quality and collaboration.
+      Refine test cases and validation rules. Follow the product owner workflow to draft/undraft test cases, enable/disable checks, and structure your dataset.
 
-High-level workflow
--------------------
+Workflow overview
+------------------
 
-.. mermaid::
-   :align: center
+The annotation workflow involves two personas with distinct workflows:
 
-   graph LR
-    X[Scan Results] --> A["Iterate on test cases"]
-    KB[Generated Test] --> A
-     A --> D["Distribute Tasks"]
-     D --> A
-     A --> C1["Assign Checks"]
-     A --> C2["Assign Tags"]
-     C1 --> E["Run Evaluations"]
-     C2 --> E
-     E --> A
+**Business Persona (Review Workflow):**
+
+- Reviews test results from evaluation runs or tasks
+- Understands check results and failure reasons
+- Reviews conversation flow and metadata
+- Takes action: closes tasks if results are acceptable, or assigns modification work
+
+**Product Owner Persona (Modification Workflow):**
+
+- Modifies test cases based on review feedback
+- Drafts/undrafts test cases
+- Enables/disables checks
+- Modifies check requirements
+- Validates checks and structures test cases
+
+.. include:: workflow.rst.inc
 
 Next steps
 ----------
 
-Now that you understand the annotation workflow, explore the specific features:
+Now that you understand the task-oriented annotation workflow, explore the specific workflows:
 
-* **Start with reviewing results** - Review scan results or evaluation runs to identify areas for improvement
-* **Create test cases** - Build conversations that represent your test scenarios
-* **Define evaluation criteria** - Assign checks to measure agent performance
-* **Organize your dataset** - Use tags to structure and filter your test cases
-* **Coordinate team work** - Use tasks to distribute review work and ensure quality
+* **Start with task distribution** - Learn how to create and manage tasks to organize your review work :doc:`distribute_tasks`
+* **Review test results** - Follow the business workflow to review evaluation results :doc:`review_test_results`
+* **Modify test cases** - Follow the product owner workflow to refine test cases and checks :doc:`modify_test_cases`
+
+.. tip::
+
+   **💡 Getting started with annotation workflows**
+
+   If you're new to Giskard Hub, we recommend starting with:
+   
+   1. **Run an evaluation** or **review scan results** to identify test cases that need attention
+   2. **Create tasks** to organize the review work
+   3. **Review test results** following the business workflow
+   4. **Modify test cases** as needed following the product owner workflow
+   
+   For more information, see :doc:`/hub/ui/evaluations/create` and :doc:`/hub/ui/scan/index`.
 
 .. toctree::
    :hidden:
    :maxdepth: 3
 
-   conversations
-   checks
-   tags
-   tasks
-   
+   overview
+   distribute_tasks
+   review_test_results
+   modify_test_cases
+

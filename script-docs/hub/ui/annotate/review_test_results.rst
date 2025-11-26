@@ -12,44 +12,33 @@ Starting point
 
 You can start reviewing test results from two entry points:
 
-**From a task (redirection to the assign page):**
-
-- Open a task that has been assigned to you
-- Navigate to the linked test case or evaluation run
-- Review the test results to understand what needs to be reviewed
-
-.. note::
-
-   Tasks are created from evaluation runs or scan results. For information on creating tasks, see :doc:`/hub/ui/annotate_new/distribute_tasks`.
-
-**From an evaluation run (redirect to overall):**
+**From an evaluation run:**
 
 - Open an evaluation run directly
 - Navigate through the test cases to find ones that need review
-- Review the overall results and individual test case results
 
 .. note::
 
    To review evaluation runs, you first need to run an evaluation. For information on running evaluations, see :doc:`/hub/ui/evaluations/create`. For information on viewing evaluation results, see :doc:`/hub/ui/evaluations/index`.
 
-The goal of the review: if you agree with the result, close the task. If you don't agree, modify the test case (redirect to the "Modify test cases" section).
+**From a task:**
 
-.. tip::
+- Open a task that has been assigned to you
+- Navigate to the linked test case or evaluation run
 
-   **💡 Review workflow best practices**
+.. note::
 
-   When reviewing test results:
-   
-   * Start by understanding the overall evaluation context
-   * Review check results systematically (PASS/FAIL)
-   * Read explanations carefully to understand failure reasons
-   * Review conversation flow to assess test case structure
-   * Make informed decisions about whether to close tasks or request modifications
+   Tasks are created from evaluation runs or scan results. For information on creating tasks, see :doc:`/hub/ui/annotate/distribute_tasks`.
 
-Review the check result of the test case
-----------------------------------------
+Review the check result 
+-----------------------
 
-When reviewing a test case, the first thing to check is whether the test passed or failed.
+When reviewing a test case, the first thing to check is whether the test passed or failed. By opening the test case, you can see the metrics along with the failure category and tags on the right side of the screen.
+
+.. image:: /_static/images/hub/review-test-metrics.png
+   :align: center
+   :alt: "Review test metrics"
+   :width: 800
 
 **PASS:**
 
@@ -67,11 +56,7 @@ To understand why a test failed, you need to review the specific checks that wer
 
 .. note::
 
-   For detailed information about checks and how they work, see :doc:`/hub/ui/annotate/checks`. For information on enabling/disabling checks, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate_new/modify_test_cases`.
-
-.. note::
-
-   The "navigation" button allows you to navigate between different test cases in an evaluation run or between different evaluation runs. Use it to efficiently review multiple test results.
+   For detailed information about checks and how they work, see :doc:`/hub/ui/annotate/overview`. For information on enabling/disabling checks, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate/modify_test_cases`.
 
 Understand the reason
 ---------------------
@@ -88,7 +73,9 @@ Each check provides an explanation of why it passed or failed. This explanation 
 * Why the test passed or failed
 * What specific aspects of the agent's response caused the result
 
-For more information about checks and how to enable/disable them, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate_new/modify_test_cases`. For comprehensive information about all check types, see :doc:`/hub/ui/annotate/checks`.
+.. note::
+
+   For more information about checks and how to enable/disable them, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate/modify_test_cases`. For comprehensive information about all check types, see :doc:`/hub/ui/annotate/overview`.
 
 Review the category of fail (if it's a fail)
 _____________________________________________
@@ -110,15 +97,22 @@ When a test fails, it is categorized based on the type of failure. Understanding
 
 .. note::
 
-   You can change the categories used for classification. The system uses AI to automatically classify failures, but you can adjust these categories to better match your business needs.
+   You can change the categories used for classification but before doing so, we recommend you to read about the best practices for modifying test cases in :doc:`/hub/ui/annotate/modify_test_cases`.
 
 Review the flow of the conversation
 -----------------------------------
 
 Understanding the conversation flow helps you assess whether the test case structure is appropriate and whether the agent's response makes sense in context.
 
-Conversation structure and answer examples
-__________________________________________
+When reviewing the conversation flow, consider:
+
+* Whether the conversation structure makes sense
+* Whether the user messages are clear and unambiguous
+* Whether the conversation history provides necessary context
+* Whether the test case accurately represents the scenario you want to test
+
+Conversation structure 
+______________________
 
 A conversation, or test case, is composed of a sequence of messages between the **user** and the **assistant**, alternating between each role. When designing your test cases, you can provide conversation history by adding multiple turns (multi-turn), but the conversation should always end with a **user** message. The agent's next **assistant** completion will be generated and evaluated at test time.
 
@@ -142,7 +136,8 @@ To test multi-turn capabilities or provide more context, you can add several alt
 
 You can add as many turns as needed, but always ensure the conversation ends with a user message, since the assistant’s reply will be evaluated at runtime.
 
-**Answer examples**
+Conversation Answer Examples
+____________________________
 
 You can also provide an "answer example" for each test case. This answer example is not used during evaluation runs, but helps when annotating the dataset or validating your evaluation criteria. For example, you might want to:
 
@@ -154,14 +149,7 @@ If you do not provide an answer example, the Hub will automatically use the assi
 
 .. note::
 
-   For more detailed information about creating and managing conversations, see :doc:`/hub/ui/annotate/conversations`.
-
-When reviewing the conversation flow, consider:
-
-* Whether the conversation structure makes sense
-* Whether the user messages are clear and unambiguous
-* Whether the conversation history provides necessary context
-* Whether the test case accurately represents the scenario you want to test
+   For more detailed information about creating and managing conversations, see :doc:`/hub/ui/annotate/review_test_results`.
 
 Conversation metadata
 _____________________
@@ -180,12 +168,14 @@ Reviewing metadata helps you understand:
 * Whether system-level requirements were met
 * Whether the response structure matches expectations
 
-For more information about metadata checks and other check types, see :doc:`/hub/ui/annotate/checks`.
+For more information about metadata checks and other check types, see :doc:`/hub/ui/annotate/overview`.
 
 Take the right action
 ---------------------
 
 After reviewing the test results, understanding the reasons for failure, and reviewing the conversation flow, you need to decide on the appropriate action.
+
+.. include:: workflow.rst.inc
 
 If you agree, close the task
 _________________________________________________
@@ -193,8 +183,9 @@ _________________________________________________
 If you agree that the test result is correct (either a pass or a legitimate failure):
 
 1. **Review the task** - Make sure you've thoroughly reviewed all aspects
-2. **Add any final comments** - Document your review findings
-3. **Close the task** - Mark the task as completed
+2. **Navigate to the test case** - As shown in :doc:`/hub/ui/annotate/distribute_tasks`
+3. **Add any final comments** - Document your review findings
+4. **Close the task** - Mark the task as completed
 
 This indicates that the test case is working as intended and no further action is needed.
 
@@ -206,40 +197,17 @@ If you don't agree with the test result, you have two options:
 **Option 1: Modify the test case yourself**
 
 - If you have the necessary permissions and knowledge
-- Navigate to the "Modify test cases" workflow :doc:`/hub/ui/annotate_new/modify_test_cases`
+- Navigate to the "Modify test cases" workflow :doc:`/hub/ui/annotate/modify_test_cases`
 - Make the necessary changes to the test case or checks
 - Validate the changes and rerun the test
 
 **Option 2: Assign the task to the product owner**
 
 - If you don't have the necessary permissions or technical knowledge
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate_new/distribute_tasks`
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
 - Create or update a task assigned to the product owner
 - Provide a clear description of what needs to be modified
 - Include your review findings and recommendations
-
-The product owner can then:
-- Modify the test case structure
-- Adjust the checks or validation rules
-- Remove the test case if it's not relevant
-- Draft/undraft the test case as needed
-
-Decision workflow
------------------
-
-.. mermaid::
-   :align: center
-
-   graph TD
-       A[Review Test Result] --> B{Agree with Result?}
-       B -->|Yes| C[Close Task]
-       B -->|No| D{Have Permissions?}
-       D -->|Yes| E[Modify Test Case]
-       D -->|No| F[Assign to Product Owner]
-       E --> G[Validate Changes]
-       F --> H[Product Owner Modifies]
-       G --> I[Task Complete]
-       H --> I
 
 Best practices
 --------------
@@ -255,6 +223,6 @@ Next steps
 
 Now that you understand how to review test results, you can:
 
-* **Modify test cases** - Learn how to refine test cases and checks :doc:`/hub/ui/annotate_new/modify_test_cases`
-* **Distribute tasks** - Create and manage tasks to organize review work :doc:`/hub/ui/annotate_new/distribute_tasks`
+* **Modify test cases** - Learn how to refine test cases and checks :doc:`/hub/ui/annotate/modify_test_cases`
+* **Distribute tasks** - Create and manage tasks to organize review work :doc:`/hub/ui/annotate/distribute_tasks`
 

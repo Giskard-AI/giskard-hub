@@ -83,6 +83,7 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
     "notfound.extension",
+    "sphinxext.rediraffe",
     # "sphinx_autodoc_typehints",
 ]
 
@@ -161,6 +162,14 @@ theme_options = ThemeOptions(
     },
 )
 html_theme_options = asdict(theme_options)
+
+# -- Redirects configuration -------------------------------------------------
+rediraffe_redirects = {
+    "hub/ui/annotate/tasks.rst": "hub/ui/annotate/index.rst",
+    "hub/ui/annotate/checks.rst": "hub/ui/annotate/overview.rst",
+    "hub/ui/annotate/tags.rst": "hub/ui/annotate/overview.rst",
+    "hub/ui/annotate/conversations.rst": "hub/ui/annotate/overview.rst",
+}
 
 # Use wildcard patterns to support any nested path within the specified routes
 html_sidebars: dict[str, list[str]] = {

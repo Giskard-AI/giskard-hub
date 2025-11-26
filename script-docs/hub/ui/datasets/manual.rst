@@ -58,7 +58,7 @@ A conversation consists of the following components:
 
 .. note::
 
-   For detailed information about checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
+   For detailed information about checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 
 After the conversation is created, you can add the required information to it. For example, you can add the expected output and rules to the conversation.
 
@@ -67,7 +67,7 @@ After the conversation is created, you can add the required information to it. F
    :alt: "Iteratively design your test cases using a business-centric & interactive interface."
    :width: 800
 
-.. tip::
+.. note::
 
     To understand more about how to write an expected response and rules, check out the :doc:`/hub/ui/annotate/index` section.
 

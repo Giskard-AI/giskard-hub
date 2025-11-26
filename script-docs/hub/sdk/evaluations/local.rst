@@ -25,8 +25,8 @@ As usual, let's initialize the Hub client and set our current project ID:
 
     project_id = os.getenv("HUB_PROJECT_ID")
 
-Configure an agent
-__________________
+Define your local model
+_______________________
 
 To execute a local model, you just need to define a Python function. This
 function should take a list of messages and return an output message.

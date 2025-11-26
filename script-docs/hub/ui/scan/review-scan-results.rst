@@ -51,21 +51,17 @@ This shows you:
 Take action on findings
 -----------------------
 
-For each detected issue, you can:
+For each detected issue, you have two main actions:
 
-.. tab-set::
+- **Mark as false positive:**  
+  If the identified issue is not a real risk for your use case (for example, it is expected behavior or not relevant to your deployment), you can mark it as a false positive. This will immediately update your agent's security grade and help you track which findings require action.
 
-   .. tab-item:: Mark as false positive
-      
-      If the identified issue doesn't represent a real risk in your context, mark it as a false positive. This updates your security grade automatically.
+- **Convert to test case:**  
+  You can save the detected attack as a reproducible test case by clicking **Send to dataset**. This allows you to track fixes over time, build regression tests to make sure the issue doesn't reappear, and share concrete examples with your team for further analysis and improvement.
 
-   .. tab-item:: Convert to test case
-      
-      Click **Send to dataset** to save the attack as a reproducible test case. This helps you:
+.. note:: 
 
-      * Track fixes over time
-      * Build regression tests
-      * Share examples with your team
+   To learn more about reviewing test cases, see :doc:`/hub/ui/annotate/review_test_results`.
 
 Next steps
 ----------

@@ -106,7 +106,7 @@ Now that you understand event logs, you can:
 
 For more information about working with specific entity types, see:
 
-* :doc:`/hub/ui/annotate/checks` - Learn about checks and validation rules
+* :doc:`/hub/ui/annotate/overview` - Learn about checks and validation rules
 * :doc:`/hub/ui/datasets/index` - Understand dataset management
 * :doc:`/hub/ui/evaluations/index` - Explore evaluation workflows
 

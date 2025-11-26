@@ -7,7 +7,7 @@
    hub/ui/setup/index
    hub/ui/scan/index
    hub/ui/datasets/index   
-   hub/ui/annotate_new/index
+   hub/ui/annotate/index
    hub/ui/evaluations/index
    hub/ui/continuous-red-teaming
    hub/ui/event-logs

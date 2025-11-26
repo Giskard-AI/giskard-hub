@@ -41,7 +41,7 @@ Attack overview
 The vulnerability scan test suite includes various attack patterns designed to test for specific vulnerabilities in your agent. 
 We recommend running a full scan regularly but you can also run targeted scans for specific vulnerability types during development. 
 
-.. tip::
+.. note::
     
     For a full overview of the attacks, see the :doc:`/hub/ui/scan/vulnerability-categories/index` section.
 

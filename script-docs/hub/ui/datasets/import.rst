@@ -41,7 +41,7 @@ Each conversation must be defined as a JSON object with a ``messages`` field con
 
 .. note::
 
-   For detailed information about built-in checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
+   For detailed information about built-in checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 
 .. image:: /_static/images/hub/import-conversations-detail.png
    :align: center

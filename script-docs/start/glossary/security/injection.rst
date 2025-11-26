@@ -62,7 +62,7 @@ Giskard provides comprehensive tools to test and prevent prompt injection vulner
       Use the Hub interface to generate adversarial test cases for prompt injection detection. The UI automatically generates malicious inputs and evaluates responses against security rules.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the security boundaries.

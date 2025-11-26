@@ -41,7 +41,7 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
       Use domain knowledge to review and refine test cases through humans in the loop.
 
-   .. grid-item-card:: Run, schedule and compare evaluations
+   .. grid-item-card:: Run, review, schedule and compare evaluation runs
       :link: evaluations/index
       :link-type: doc
 
