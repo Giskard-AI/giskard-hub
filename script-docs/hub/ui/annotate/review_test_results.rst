@@ -12,8 +12,6 @@ Starting reviews
 
 After reviewing the test results, understanding the reasons for failure, and reviewing the conversation flow, you need to decide on the appropriate action.
 
-.. include:: workflow.rst.inc
-
 From an evaluation run
 ______________________
 
@@ -21,6 +19,20 @@ When reviewing a failure directly from a test execution (not from a task), follo
 
 1. **Review the failure** - After a test execution, review the failure details
 2. **Determine the appropriate action** - Based on your review, decide which of the following scenarios applies:
+
+.. mermaid::
+   :align: center
+
+   graph LR
+       A[Review Failure] --> B{Agent Answer<br/>Correct?}
+       B -->|No| C[<a href="distribute_tasks.html" target="_self">Assign to Developer<br/>or KB Manager</a>]
+       B -->|Yes| F{Handle Now?}
+       B -->|Don't Know| E[<a href="distribute_tasks.html" target="_self">Put in Draft<br/>Assign to Domain Expert</a>]
+       F -->|Yes| G[<a href="modify_test_cases.html" target="_self">Modify Test Case</a>]
+       F -->|No| H[<a href="distribute_tasks.html" target="_self">Create Task</a>]
+       H --> I{Has Value?}
+       I -->|No| J[Remove Test]
+       I -->|Yes| G
 
 .. note::
 
@@ -87,6 +99,15 @@ When reviewing a task that has been assigned to you, follow these steps:
 2. **Read the failure details** - Review the description, result, and explanation for the failure
 3. **Determine the appropriate action** - Based on your review, decide which of the following scenarios applies:
 
+.. mermaid::
+   :align: center
+
+   graph LR
+       B[Review Failure] --> C{Agent Answer<br/>Correct?}
+       C -->|No| D[<a href="distribute_tasks.html" target="_self">Assign to Developer</a>]
+       C -->|Yes| E[<a href="distribute_tasks.html" target="_self">Update Task Description<br/>Assign to Product Owner</a>]
+       C -->|Don't Know| F[<a href="distribute_tasks.html" target="_self">Update Task Description<br/>Assign to Expert or PO</a>]
+
 .. note::
 
    For information on creating tasks, see :doc:`/hub/ui/annotate/distribute_tasks`.
@@ -118,8 +139,11 @@ If you're uncertain whether the test is correct and need a discussion:
 - Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
 - Update the task with your questions and concerns, then reassign it to the appropriate person
 
-Review the check result 
------------------------
+Interpreting test results
+-------------------------
+
+Check pass/fail
+___________________
 
 When reviewing a test case, the first thing to check is whether the test passed or failed. By opening the test case, you can see the metrics along with the failure category and tags on the right side of the screen.
 
@@ -146,13 +170,13 @@ To understand why a test failed, you need to review the specific checks that wer
 
    For detailed information about checks and how they work, see :doc:`/hub/ui/annotate/overview`. For information on enabling/disabling checks, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate/modify_test_cases`.
 
-Understand the reason
----------------------
+Check failure reason
+_____________________
 
 To understand why a test passed or failed, you need to review the explanation for each check and understand the failure categories.
 
 Read the explanation for each check
-____________________________________
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Each check provides an explanation of why it passed or failed. This explanation helps you understand:
 
@@ -165,8 +189,8 @@ Each check provides an explanation of why it passed or failed. This explanation 
 
    For more information about checks and how to enable/disable them, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate/modify_test_cases`. For comprehensive information about all check types, see :doc:`/hub/ui/annotate/overview`.
 
-Review the category of fail (if it's a fail)
-_____________________________________________
+Check failure category
+______________________
 
 When a test fails, it is categorized based on the type of failure. Understanding these categories helps you:
 
