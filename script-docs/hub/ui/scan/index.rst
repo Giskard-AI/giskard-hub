@@ -8,6 +8,10 @@ Launch vulnerability scans
 
 Test your AI agent for safety and security vulnerabilities with automated red teaming attacks.
 
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/uiyWEcVJgvc?si=ViEyFCdxwNkJtZ_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 The vulnerability scan helps you identify weaknesses in your AI agent by testing it against common attack patterns. This includes:
 
 * Prompt injection attempts
