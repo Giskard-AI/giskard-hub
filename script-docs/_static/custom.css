@@ -810,13 +810,6 @@ pre.mermaid.align-center {
   font-weight: 600 !important;
 }
 
-.mermaid .node rect,
-.mermaid .node polygon {
-  stroke-width: 1.5px !important;
-  rx: 8px !important;
-  ry: 8px !important;
-}
-
 .mermaid .edgePath path.path,
 .mermaid .flowchart-link,
 .mermaid path.path {
@@ -832,6 +825,9 @@ pre.mermaid.align-center {
    -------------------------------------------------------------------------- */
 .mermaid .node rect,
 .mermaid .node polygon {
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
   fill: #f8fafc !important;
   stroke: rgba(15, 23, 41, 0.2) !important;
 }
@@ -871,6 +867,9 @@ pre.mermaid.align-center {
    -------------------------------------------------------------------------- */
 .dark .mermaid .node rect,
 .dark .mermaid .node polygon {
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
   fill: #004040 !important;
   stroke: #c6ffff !important;
   stroke: rgba(198, 255, 255, 0.2) !important;
