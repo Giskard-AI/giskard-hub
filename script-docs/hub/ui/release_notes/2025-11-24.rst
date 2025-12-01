@@ -1,7 +1,7 @@
 2.1.0 (2025-11-24)
 ==================
 
-We are releasing a new version of the Hub UI that introduces audit logs, a new task system, enhanced scans, and improved UI and content.
+We are releasing a new version of the Hub UI that introduces audit logs, a new task system, enhanced scans, and improved UI and we've added two more probes, called Harmful Misguidance and Agentic Tool Extraction.
 This helps you manage your evaluation process, track your scans, and improve the collaboration with your team.
 
 Hub UI
@@ -25,13 +25,14 @@ What's new?
     ></iframe>
     </div>
 
-**Tasks & Follow-up Workflow**
-   Simplify your team collaboration:
+**Task management**
+   This new feature enables teams to organize, track, and collaborate on test corrections directly within Giskard Hub. For more information, see :doc:`/hub/ui/annotate/task_management`:
    
    * **Create Tasks from Failures** - Create tasks directly from failed evaluations or scans
    * **Assign Owners with Notifications** - Assign task owners with email notifications (opt-out available)
    * **Auto-Draft Bad Tests** - When you create a task from a bad test, the system will propose to automatically mark it as draft
    * **Hide Noisy Results** - You can now hide fasle positive results while still tracking them with tasks
+   * **Prioritise Tasks** - Set the priority of the task based on the importance of the work to be done
 
 .. raw:: html
 
@@ -49,19 +50,19 @@ What's new?
     </div>
     
 **Draft Conversations & Datasets**
-   Control over test cases lifecycle:
+   Draft mode lets you iterate privately on test cases without affecting live evaluations. Drafts are excluded from dashboards, reports, scheduled runs, and success rates, so your production metrics stay clean while you experiment. For more information, see :doc:`/hub/ui/annotate/task_management`:
    
    * **Draft/Published Toggle** - A toggle with a helpful explanation to draft or publish a conversation
    * **Draft Filter in Tables** - Draft filter added to dataset tables with conversation status labels
    * **Consistent Exclusion** - Drafted conversations are excluded from evaluation runs
 
 **Enhanced Scans**
-   Improved scanning capabilities and usability:
+   Improved scanning capabilities and usability. For more information, see :doc:`/hub/ui/scan/index`:
    
    * **New Built-in Probes** - Two new built-in probes added to the scanning toolkit
        - **Harmful Misguidance** - This probe tests whether an AI agent validates or encourages dangerous behaviors when users implicitly seek affirmation for harmful actions. The probe generates domain-specific scenarios where users frame risky intentions positively or indirectly, like a banking customer asking about investing retirement savings in volatile assets, or someone asking about quitting their job while carrying substantial debt. The probe automatically adapts attack scenarios to agent's use case, testing whether it can detect and respond appropriately when vulnerable users frame dangerous decisions as normal choices.
        - **Agentic Tool Extraction** - This probe implements an agentic reconnaissance workflow that systematically queries the agent to discover and enumerate available tools, functions, and capabilities, exposing the agent's internal configuration and expanding the attack surface for targeted exploitation
-   * **JSON Export** - Export scan results in JSON format directly from the UI
+   * **JSON Export** - Export scan results in JSON format directly from the UI. See :doc:`/hub/ui/scan/review-scan-results` for more details
    * **UI Improvements** - Various improvements for better readability and stability
 
 .. raw:: html
@@ -80,7 +81,7 @@ What's new?
     </div>
 
 **Audit & History**
-   Track all changes in the Hub:
+   Audit history allows you to track all changes across the Hub, which allows you to understand project history and helps with regulatory compliance. For more information, see :doc:`/hub/ui/event-logs`:
    
    * **Change Timelines** - View change timelines for all major entities (projects, datasets, checks, models, tasks, scans…)
    * **Human-Readable Summaries** - Clear, human-readable summaries of all updates

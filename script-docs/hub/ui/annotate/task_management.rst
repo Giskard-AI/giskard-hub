@@ -1,4 +1,4 @@
-:og:title: Giskard Hub UI - Task Management and Work Distribution
+:og:title: Giskard Hub UI - Task Management
 :og:description: Manage and distribute work among team members with Tasks. Assign tasks for reviewing scan results, evaluation runs, and test cases to ensure quality and collaboration.
 
 ====================================================
@@ -16,8 +16,9 @@ Tasks allow you to manage and distribute work among you and your coworkers.
 Tasks provide several key benefits for managing evaluation workflows:
 
 * **Quality assurance** - Ensure all test cases are reviewed before being used in evaluations
+* **Priority management** - Set the priority of the task based on the importance of the work to be done
 * **Team collaboration** - Distribute work among team members based on their expertise
-* **Traceability** - Track who is responsible for what and when work is completed
+* **Traceability** - Track and change the status of the task and when work is completed
 * **Dataset reliability** - Prevent biased evaluation metrics by ensuring conversations are properly reviewed
 * **Workflow control** - Manage the review process systematically without missing any evaluations
 
@@ -194,9 +195,11 @@ _____________
 
 An important feature related to tasks is the ability to set conversations to draft. This workflow ensures that:
 
-* Subsequent evaluation runs don't reuse conversations that are not ready to be used again
-* Your evaluation metrics remain unbiased
-* Quality control of other evaluations is maintained throughout the review process
+* Conversations set to draft are:
+  - Not reused in subsequent evaluation runs until they are ready
+  - Excluded from dashboards, reports, scheduled runs, and success rates—keeping production metrics clean while you experiment
+  - Helping to maintain unbiased evaluation metrics
+  - Ensuring quality control is upheld throughout the review process
 
 When you go to the conversation linked to an evaluation run and create a task, you can set the linked failed test case to draft status. Before using it again, you need to resolve all associated tasks. 
 Similarly, you can select a conversation from a dataset and set it to draft status. 
@@ -238,7 +241,7 @@ You can add a description to a task to communicate:
 
 .. tip::
 
-   For more information about task descriptions, see :doc:`/hub/ui/annotate/distribute_tasks`.
+   For more information about task descriptions, see :doc:`/hub/ui/annotate/task_management`.
 
 Comment on a test case
 _______________________

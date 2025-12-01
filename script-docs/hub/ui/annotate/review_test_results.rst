@@ -30,11 +30,11 @@ When reviewing a failure directly from a test execution (not from a task), follo
 
    graph LR
        A[Review Failure] --> B{Agent Answer<br/>Correct?}
-       B -->|No| C[<a href="distribute_tasks.html" target="_self">Open Task<br/>Assign to Developer<br/>or KB Manager</a>]
+       B -->|No| C[<a href="task_management.html" target="_self">Open Task<br/>Assign to Developer<br/>or KB Manager</a>]
        B -->|Yes| F{Rewrite Now?}
-       B -->|Don't Know| E[<a href="distribute_tasks.html" target="_self">Put in Draft<br/>Open Task<br/>Assign to Domain Expert</a>]
+       B -->|Don't Know| E[<a href="task_management.html" target="_self">Put in Draft<br/>Open Task<br/>Assign to Domain Expert</a>]
        F -->|Yes| G{Can Answer<br/>Questions?}
-       F -->|No| H[<a href="distribute_tasks.html" target="_self">Draft Test Case<br/>Create Task<br/>Assign to PO</a>]
+       F -->|No| H[<a href="task_management.html" target="_self">Draft Test Case<br/>Create Task<br/>Assign to PO</a>]
        G -->|Yes| I[<a href="modify_test_cases.html" target="_self">Rewrite Test<br/>Retest<br/>Save</a>]
        G -->|No| J{Has Value?}
        J -->|No| K[Remove Test]
@@ -50,7 +50,7 @@ If the agent is incorrect, the test is well written
 If the agent is incorrect and the test is correctly identifying the issue:
 
 - **Open a task** and assign the agent developer or the KB manager
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/task_management`
 - Create a task with a clear description of what needs to be fixed
 
 If the agent is correct, the test should be rewritten
@@ -63,7 +63,7 @@ If the agent is correct and the test was too strict, you need to rewrite the tes
 - **Draft the test case** - Mark the test case as draft to prevent it from being used in evaluations
 - **Open a task** where you can track that this test case needs to be modified
 - **Assign the product owner** to the task
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/task_management`
 
 **Option 2: You are able to answer at least one of these questions:**
 
@@ -100,7 +100,7 @@ If you don't know if the agent answers correctly or not and there needs to be a 
 
 - **Put in draft** - Mark the test case as draft to prevent it from being used in evaluations
 - **Open a task** and assign the domain expert
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/task_management`
 - Create a task with your questions and concerns, then assign it to the domain expert who can make this determination
 
 From an assigned task
@@ -117,19 +117,19 @@ When reviewing a task that has been assigned to you, follow these steps:
 
    graph LR
        B[Review Failure] --> C{Agent Answer<br/>Correct?}
-       C -->|No| D[<a href="distribute_tasks.html" target="_self">Assign to Developer</a>]
-       C -->|Yes| E[<a href="distribute_tasks.html" target="_self">Update Task Description<br/>Assign to Product Owner</a>]
-       C -->|Don't Know| F[<a href="distribute_tasks.html" target="_self">Update Task Description<br/>Assign to Expert or PO</a>]
+       C -->|No| D[<a href="task_management.html" target="_self">Assign to Developer</a>]
+       C -->|Yes| E[<a href="task_management.html" target="_self">Update Task Description<br/>Assign to Product Owner</a>]
+       C -->|Don't Know| F[<a href="task_management.html" target="_self">Update Task Description<br/>Assign to Expert or PO</a>]
 
 .. tip::
 
-   For information on creating tasks, see :doc:`/hub/ui/annotate/distribute_tasks`.
+   For information on creating tasks, see :doc:`/hub/ui/annotate/task_management`.
 
 If the agent is incorrect, the test is well written
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - **Assign the task to the developer** who should correct the test
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/task_management`
 - Reassign the task to the appropriate developer with a clear description of what needs to be fixed
 
 If the agent is correct, the test should be rewritten
@@ -146,7 +146,7 @@ If the agent answers correctly in reality and the test was too strict:
   
 - **Assign the product owner** so that he or she can rewrite the test based on your input
 
-   * Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+   * Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/task_management`
    * Update the task description with your answer and reassign it to the product owner
 
 If you don't know if the agent answers correctly or not. There needs to be a discussion
@@ -156,7 +156,7 @@ If you don't know if the agent answers correctly or not and there needs to be a 
 
 - **Provide the reason** why you don't know and why it needs to be discussed
 - **Assign the right person** with the knowledge or re-assign the product owner
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/task_management`
 - Update the task with your questions and concerns, then reassign it to the appropriate person
 
 Interpreting test results
@@ -316,5 +316,5 @@ Next steps
 Now that you understand how to review test results, you can:
 
 * **Modify test cases** - Learn how to refine test cases and checks :doc:`/hub/ui/annotate/modify_test_cases`
-* **Distribute tasks** - Create and manage tasks to organize review work :doc:`/hub/ui/annotate/distribute_tasks`
+* **Distribute tasks** - Create and manage tasks to organize review work :doc:`/hub/ui/annotate/task_management`
 

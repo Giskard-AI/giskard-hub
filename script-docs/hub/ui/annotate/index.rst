@@ -29,7 +29,7 @@ Getting started
       Understand metrics, failure categories and tags to review test results. 
 
    .. grid-item-card:: Distribute tasks to organize your review work
-      :link: distribute_tasks
+      :link: task_management
       :link-type: doc
 
       Create and manage tasks to coordinate team reviews. Assign work for scan results, evaluation runs, and test cases to ensure quality and collaboration.
@@ -71,11 +71,11 @@ Next steps
 
 Now that you understand the task-oriented annotation workflow, explore the specific workflows:
 
-* **Start with task distribution** - Learn how to create and manage tasks to organize your review work :doc:`distribute_tasks`
+* **Start with task distribution** - Learn how to create and manage tasks to organize your review work :doc:`task_management`
 * **Review test results** - Follow the business workflow to review evaluation results :doc:`review_test_results`
 * **Modify test cases** - Follow the product owner workflow to refine test cases and checks :doc:`modify_test_cases`
 
-.. tip::
+.. note::
 
    **💡 Getting started with annotation workflows**
 
@@ -93,7 +93,7 @@ Now that you understand the task-oriented annotation workflow, explore the speci
    :maxdepth: 3
 
    overview
-   distribute_tasks
+   task_management
    review_test_results
    modify_test_cases
 

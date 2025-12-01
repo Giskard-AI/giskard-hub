@@ -46,7 +46,7 @@ You can also set a test case to draft when creating a task from an evaluation ru
 
 .. tip::
 
-   For more information about creating tasks and setting test cases to draft, see :doc:`/hub/ui/annotate/distribute_tasks`.
+   For more information about creating tasks and setting test cases to draft, see :doc:`/hub/ui/annotate/task_management`.
 
 Hide/Unhide
 ___________
@@ -200,7 +200,7 @@ Next steps
 Now that you understand how to modify test cases, you can:
 
 * **Review test results** - Understand how test results are reviewed :doc:`/hub/ui/annotate/review_test_results`
-* **Distribute tasks** - Learn how tasks are created and managed :doc:`/hub/ui/annotate/distribute_tasks`
+* **Distribute tasks** - Learn how tasks are created and managed :doc:`/hub/ui/annotate/task_management`
 * **Learn about checks** - Get detailed information about check types :doc:`/hub/ui/annotate/overview`
 * **Learn about tags** - Understand how to organize with tags :doc:`/hub/ui/annotate/overview`
 

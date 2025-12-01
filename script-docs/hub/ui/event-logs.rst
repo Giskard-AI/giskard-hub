@@ -60,15 +60,6 @@ To view the event history for a specific entity in the Event logs overview:
    :alt: "Event logs history"
    :width: 100%
 
-Event logs for specific entities
---------------------------------
-
-Every entity in Giskard Hub maintains a complete history of all modifications. This includes:
-
-* **Checks** - Custom validation rules and their configurations
-* **Datasets** - Test case collections and their metadata
-* **Evaluation test cases** - Individual test cases within evaluations
-
 Best practices
 --------------
 
