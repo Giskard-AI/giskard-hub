@@ -94,8 +94,8 @@
 <p class="caption" role="heading"><span class="caption-text">Giskard Hub SDK</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="/hub/sdk/index.html">Quickstart &amp; setup</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/hub/sdk/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/projects.html">Setup projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/agents.html">Setup agents</a></li>
@@ -103,8 +103,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scan/index.html">Launch vulnerability scans</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/manual.html">Create manual tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/security.html">Generate security tests</a></li>
@@ -113,8 +113,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/sdk/annotate/index.html">Review and refine test cases and metrics</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/local.html">Run local evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/remote.html">Run remote evaluations</a></li>
@@ -122,16 +122,16 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/compare.html">Compare evaluations</a></li>
 </ul>
 </li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/hub/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/reference/client.html">Client reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/reference/entities/index.html">Entities reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/reference/resources/index.html">Resources reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/hub/sdk/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2025-10-30.html">2.1.0 (2025-10-30)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/release_notes/2025-10-06.html">2.0.2 (2025-10-06)</a></li>
@@ -271,6 +271,6 @@
 <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-<script src="../../../_static/custom.js?v=45d2bafa"></script>
+<script src="../../../_static/custom.js?v=0797e52e"></script>
 </body>
 </html>

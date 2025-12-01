@@ -97,20 +97,20 @@
 <li class="toctree-l1"><a class="reference internal" href="/oss/sdk/security.html">Generate security tests with LLM Scan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="/oss/sdk/business.html">Generate business tests with RAGET</a></li>
 <li class="toctree-l1"><a class="reference internal" href="/oss/sdk/legacy.html">Tabular ML, predictive NLP, and computer vision</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/oss/notebooks/index.html">Example notebooks<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/business/RAGET_IPCC.html">RAG Evaluation Toolkit on an IPCC Climate Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/oss/notebooks/business/RAGET_Banking_Supervision.html">RAG Evaluation Toolkit on a Banking Supervisory Process Agent</a></li>
 </ul>
 </li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l1" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/oss/sdk/reference/index.html">API reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/models.html">Models reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/datasets.html">Datasets reference</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/sdk/reference/scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l2" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/oss/sdk/reference/scan/index.html">LLM scan reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/scan/report.html">Scan report reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/scan/llm_detectors.html">LLM detectors reference</a></li>
@@ -118,8 +118,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/tests.html">LLM tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/oss/sdk/reference/suite.html">Test suite reference</a></li>
-<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/oss/sdk/reference/raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<li class="toctree-l2" x-data="{ expanded: false }">
+<a :class="{ 'expanded' : expanded }" class="reference internal expandable" href="/oss/sdk/reference/raget/index.html">RAG Evaluation Toolkit reference<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/testset_generation.html">Testset generation reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="/oss/sdk/reference/raget/knowledge_base.html">Knowledge base reference</a></li>
@@ -445,6 +445,6 @@ If GiskardTest: remove the test(s) by reference</p>
 <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-<script src="../../../_static/custom.js?v=45d2bafa"></script>
+<script src="../../../_static/custom.js?v=0797e52e"></script>
 </body>
 </html>
