@@ -3,6 +3,7 @@
 
 Run remote evaluations
 ----------------------
+
 This section will guide you through running evaluations against a remote model.
 
 In production, you will want to run evaluations against agents that are configured in the Hub and exposed with an API.
@@ -19,44 +20,11 @@ As usual, let's initialize the Hub client and set our current project ID:
 
     project_id = os.getenv("HUB_PROJECT_ID")
 
-Configure an agent
-__________________
 
 First, we need to configure the agent that we want to evaluate. The agent will
-need to be accessible from a remote API endpoint.
+need to be accessible from a remote API endpoint. For more information about how to configure an agent, see :doc:`/hub/sdk/setup/agents`.
 
-We can configure the agent endpoint in the Hub:
-
-.. code-block:: python
-
-    agent = hub.models.create(
-        project_id=project_id,
-        name="MyAgent (staging)",
-        description="An agent that answers questions about the weather",
-        url="https://my-agent.staging.example.com/chat",
-        supported_languages=["en"],
-
-        # if your agent endpoint needs special headers:
-        headers={"X-API-Key": "SECRET_TOKEN"},
-    )
-
-You can test that everything is working by sending a test request to the agent
-
-.. code-block:: python
-
-    response = model.chat(messages=[{
-        "role": "user",
-        "content": "What's the weather like in Rome?"
-    }])
-
-    print(response)
-    # ModelOutput(message=ChatMessage(role='assistant', content='It is sunny!'))
-
-Create a evaluation
-___________________
-
-
-Now that the agent is configured, we can launch an evaluation run. We first need
+After configuring the agent, we can launch an evaluation run. We first need
 to know which dataset we will run the evaluation on. If you are running this in
 the CI/CD pipeline, we recommend setting the dataset ID in the environment.
 
@@ -137,7 +105,7 @@ That covers the basics of running evaluations in the Hub. You can now integrate
 this code in your CI/CD pipeline to automatically evaluate your agents every
 time you deploy a new version.
 
-.. note::
+.. tip::
 
     If you want to run evaluations on a local model that is not yet exposed with an API, check :doc:`/hub/sdk/evaluations/local`.
 

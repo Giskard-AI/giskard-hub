@@ -33,7 +33,7 @@ You can schedule evaluations using the ``hub.scheduled_evaluations.create()`` me
         day_of_week=1, # 1-7 (1 is Monday)
     )
 
-.. note::
+.. tip::
 
     The time of the evaluation is specified in the UTC timezone.
 

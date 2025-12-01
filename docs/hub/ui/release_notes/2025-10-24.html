@@ -22,13 +22,13 @@
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=54470181" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/hub/ui/release_notes/2025-10-24.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
-<link href="../../sdk/index.html" rel="next" title="Quickstart &amp; setup"/>
+<link href="2025-11-24.html" rel="next" title="2.1.0 (2025-11-24)"/>
 <link href="2025-09-25.html" rel="prev" title="2.0.0 (2025-09-25)"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
@@ -135,26 +135,30 @@
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Evaluate tests and assign validation rules<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Review and refine test cases and metrics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/conversations.html">Evaluate test cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/checks.html">Assigning checks to tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/tags.html">Assigning tags to tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/overview.html">Understand metrics, failure categories and tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/task_management.html">Distribute tasks to organize your review work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/review_test_results.html">Review test results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/modify_test_cases.html">Modify the test cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run and review evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/schedule.html">Schedule evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/compare.html">Compare evaluations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/event-logs.html">Track event logs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/access-rights.html">Set access rights</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-25.html">2.1.1 (2025-11-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-24.html">2.1.0 (2025-11-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-10-24.html">2.0.1 (2025-10-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-09-25.html">2.0.0 (2025-09-25)</a></li>
 </ul>
@@ -266,7 +270,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Check out the <a class="reference internal" href="../../sdk/scans.html"><span class="doc">Launch vulnerability scans</span></a> section for a full guide on how to use the scan feature with the SDK.</p>
+<p>Check out the <a class="reference internal" href="../../sdk/scan/index.html"><span class="doc">Launch vulnerability scans</span></a> section for a full guide on how to use the scan feature with the SDK.</p>
 </div>
 </section>
 </section>
@@ -282,8 +286,8 @@
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../../sdk/index.html">
-        Quickstart &amp; setup
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="2025-11-24.html">
+        2.1.0 (2025-11-24)
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>

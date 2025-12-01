@@ -22,7 +22,7 @@
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=54470181" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/hub/sdk/evaluations/remote.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
@@ -102,7 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/knowledge_bases.html">Setup knowledge bases</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scan/index.html">Launch vulnerability scans</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
@@ -112,9 +112,9 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/import.html">Import tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Evaluate tests and assign validation rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/annotate/index.html">Review and refine test cases and metrics</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/local.html">Run local evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/remote.html">Run remote evaluations</a></li>
@@ -164,7 +164,7 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Run, schedule and compare evaluations</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Run, review, schedule and compare evaluation runs</a>
 <div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Run remote evaluations</span>
 </nav>
 <div id="content" role="main">
@@ -182,37 +182,9 @@
 </span><span id="line-7"><span class="n">project_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"HUB_PROJECT_ID"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<section id="configure-an-agent">
-<h2>Configure an agent<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#configure-an-agent" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#configure-an-agent'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <p>First, we need to configure the agent that we want to evaluate. The agent will
-need to be accessible from a remote API endpoint.</p>
-<p>We can configure the agent endpoint in the Hub:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">agent</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span><span id="line-2">    <span class="n">project_id</span><span class="o">=</span><span class="n">project_id</span><span class="p">,</span>
-</span><span id="line-3">    <span class="n">name</span><span class="o">=</span><span class="s2">"MyAgent (staging)"</span><span class="p">,</span>
-</span><span id="line-4">    <span class="n">description</span><span class="o">=</span><span class="s2">"An agent that answers questions about the weather"</span><span class="p">,</span>
-</span><span id="line-5">    <span class="n">url</span><span class="o">=</span><span class="s2">"https://my-agent.staging.example.com/chat"</span><span class="p">,</span>
-</span><span id="line-6">    <span class="n">supported_languages</span><span class="o">=</span><span class="p">[</span><span class="s2">"en"</span><span class="p">],</span>
-</span><span id="line-7">
-</span><span id="line-8">    <span class="c1"># if your agent endpoint needs special headers:</span>
-</span><span id="line-9">    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"X-API-Key"</span><span class="p">:</span> <span class="s2">"SECRET_TOKEN"</span><span class="p">},</span>
-</span><span id="line-10"><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<p>You can test that everything is working by sending a test request to the agent</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[{</span>
-</span><span id="line-2">    <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-</span><span id="line-3">    <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"What's the weather like in Rome?"</span>
-</span><span id="line-4"><span class="p">}])</span>
-</span><span id="line-5">
-</span><span id="line-6"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</span><span id="line-7"><span class="c1"># ModelOutput(message=ChatMessage(role='assistant', content='It is sunny!'))</span>
-</span></code></pre></div>
-</div>
-</section>
-<section id="create-a-evaluation">
-<h2>Create a evaluation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#create-a-evaluation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#create-a-evaluation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
-<p>Now that the agent is configured, we can launch an evaluation run. We first need
+need to be accessible from a remote API endpoint. For more information about how to configure an agent, see <a class="reference internal" href="../setup/agents.html"><span class="doc">Setup agents</span></a>.</p>
+<p>After configuring the agent, we can launch an evaluation run. We first need
 to know which dataset we will run the evaluation on. If you are running this in
 the CI/CD pipeline, we recommend setting the dataset ID in the environment.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">dataset_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"HUB_EVAL_DATASET_ID"</span><span class="p">)</span>
@@ -280,11 +252,10 @@ of <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <p>That covers the basics of running evaluations in the Hub. You can now integrate
 this code in your CI/CD pipeline to automatically evaluate your agents every
 time you deploy a new version.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>If you want to run evaluations on a local model that is not yet exposed with an API, check <a class="reference internal" href="local.html"><span class="doc">Run local evaluations</span></a>.</p>
 </div>
-</section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
@@ -303,14 +274,7 @@ time you deploy a new version.</p>
 </svg>
 </a>
 </div>
-</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
-<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
-<ul>
-<li><a :data-current="activeSection === '#configure-an-agent'" class="reference internal" href="#configure-an-agent">Configure an agent</a></li>
-<li><a :data-current="activeSection === '#create-a-evaluation'" class="reference internal" href="#create-a-evaluation">Create a evaluation</a></li>
-</ul>
-</div>
-</aside>
+</div></div>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">

@@ -22,7 +22,7 @@
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=54470181" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/hub/ui/setup/index.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
@@ -135,26 +135,30 @@
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Evaluate tests and assign validation rules<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Review and refine test cases and metrics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/conversations.html">Evaluate test cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/checks.html">Assigning checks to tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/tags.html">Assigning tags to tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/overview.html">Understand metrics, failure categories and tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/task_management.html">Distribute tasks to organize your review work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/review_test_results.html">Review test results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/modify_test_cases.html">Modify the test cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run and review evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/schedule.html">Schedule evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/compare.html">Compare evaluations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/event-logs.html">Track event logs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/access-rights.html">Set access rights</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-25.html">2.1.1 (2025-11-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-24.html">2.1.0 (2025-11-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-10-24.html">2.0.1 (2025-10-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-09-25.html">2.0.0 (2025-09-25)</a></li>
 </ul>
@@ -221,7 +225,17 @@ Setup knowledge bases</div>
 </div>
 </div>
 </div>
-
+<section id="high-level-workflow">
+<h2>High-level workflow<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#high-level-workflow" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#high-level-workflow'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<pre align="center" class="mermaid align-center">
+        graph LR
+    A([&lt;a href="projects.html" target="_self"&gt;Create Project&lt;/a&gt;]) --&gt; B([&lt;a href="agents.html" target="_self"&gt;Create Agent&lt;/a&gt;])
+    A --&gt; C([&lt;a href="knowledge_bases.html" target="_self"&gt;Create Knowledge Base&lt;/a&gt;])
+    C --&gt; E[Upload Documents]
+    B --&gt; F[&lt;a href="../scan/index.html" target="_self"&gt;Ready for Testing&lt;/a&gt;]
+    E --&gt; F
+    </pre>
+</section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
@@ -240,7 +254,13 @@ Setup knowledge bases</div>
 </svg>
 </a>
 </div>
-</div></div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#high-level-workflow'" class="reference internal" href="#high-level-workflow">High-level workflow</a></li>
+</ul>
+</div>
+</aside>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">
@@ -263,6 +283,14 @@ Setup knowledge bases</div>
 <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs" type="module"></script>
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
 <script src="../../../_static/custom.js?v=45d2bafa"></script>
 </body>
 </html>

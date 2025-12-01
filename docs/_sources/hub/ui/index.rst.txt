@@ -9,7 +9,6 @@ Quickstart & setup
 
 The Hub is the user interface from which you can perform LLM evaluations. It implements the following 4-step workflow:
 
-
 .. image:: /_static/images/hub/hub-workflow.png
    :align: center
    :alt: "The hub workflow"
@@ -36,13 +35,13 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
       Create test cases and datasets manually or using synthetic data generation.
 
-   .. grid-item-card:: Evaluate tests and assign validation rules
+   .. grid-item-card:: Review and refine test cases and metrics
       :link: annotate/index
       :link-type: doc
 
-      Use domain knowledge to review and refine test cases through humans in the loop.
+      Review and refine test cases and metrics with humans in the loop.
 
-   .. grid-item-card:: Run, schedule and compare evaluations
+   .. grid-item-card:: Run, review, schedule and compare evaluation runs
       :link: evaluations/index
       :link-type: doc
 
@@ -54,7 +53,12 @@ The Hub is the user interface from which you can perform LLM evaluations. It imp
 
       View the latest features and changes.
 
-.. note::
+High-level workflow
+-------------------
+
+.. include:: ./graph.rst.inc
+
+.. tip::
 
     Throughout this user guide, we'll use a banking app called Zephyr Bank, designed by data scientists. The app's agent provides customer service support on their website, offering knowledge about the bank's products, services, and more.
 
@@ -65,7 +69,7 @@ The Dashboard is the first page you'll see upon logging in. It provides an overv
 
 It also features a graph showing the agent's performance over time, measured by the average success rate of the evaluations. The success rate is calculated based on some evaluation metrics, such as Conformity, Correctness, Groundedness, String Matching, Metadata, Semantic Similarity, and more. We'll delve into these metrics in more detail in the Evaluations section.
 
-.. note::
+.. tip::
 
    For detailed information about evaluation metrics and checks, including examples and how they work, see :doc:`/hub/ui/annotate/index`.
 
@@ -99,7 +103,7 @@ Setup an agent
 
 This section guides you through creating a new agent.
 
-.. note::
+.. tip::
 
     Agents are configured through an API endpoint. They can be evaluated against datasets.
 
@@ -165,7 +169,7 @@ Import a knowledge base
 
 This section guides you through importing your custom knowledge base.
 
-.. note::
+.. tip::
 
     A **Knowledge Base** is a domain-specific collection of information. You can have several knowledge bases for different areas of your business.
 

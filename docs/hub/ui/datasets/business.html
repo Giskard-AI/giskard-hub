@@ -22,13 +22,13 @@
 <link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=54470181" rel="stylesheet" type="text/css"/>
 <link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
 <link href="/hub/ui/datasets/business.html" rel="canonical"/>
 <link href="../../../_static/favicon.ico" rel="icon"/>
 <link href="../../../search.html" rel="search" title="Search"/>
 <link href="../../../genindex.html" rel="index" title="Index"/>
-<link href="../annotate/index.html" rel="next" title="Evaluate tests and assign validation rules"/>
+<link href="../annotate/index.html" rel="next" title="Review and refine test cases and metrics"/>
 <link href="security.html" rel="prev" title="Generate security tests"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
@@ -135,26 +135,30 @@
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Evaluate tests and assign validation rules<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Review and refine test cases and metrics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/conversations.html">Evaluate test cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/checks.html">Assigning checks to tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/tags.html">Assigning tags to tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/overview.html">Understand metrics, failure categories and tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/task_management.html">Distribute tasks to organize your review work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/review_test_results.html">Review test results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/modify_test_cases.html">Modify the test cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run and review evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/schedule.html">Schedule evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/compare.html">Compare evaluations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/event-logs.html">Track event logs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="/hub/ui/access-rights.html">Set access rights</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-25.html">2.1.1 (2025-11-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-24.html">2.1.0 (2025-11-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-10-24.html">2.0.1 (2025-10-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-09-25.html">2.0.0 (2025-09-25)</a></li>
 </ul>
@@ -205,8 +209,8 @@
 <li><p><strong>Inconsistent responses</strong>: The AI provides contradictory information across similar queries</p></li>
 </ul>
 <p>To detect these failures effectively, we need to synthesize representative sets of agent’s legitimate user queries and expected answers, focusing on <strong>context-groundedness</strong> and <strong>correctness</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><strong>Legitimate queries</strong> are normal user inputs without malicious intent. Failure in these test cases often indicates hallucinations or incorrect answers. To automate this process, internal data (e.g., the knowledge base retrieved by the RAG) can be used as a seed to generate expected responses from the agent. A well-structured synthetic data process for legitimate queries should be:</p>
 <ul class="simple">
 <li><p><strong>Exhaustive</strong>: Create diverse test cases by ensuring coverage of all documents and/or topics used by the agent. We recommend you create 20 conversations per topic.</p></li>
@@ -235,8 +239,8 @@ It automatically clusters your knowledge base documents into key topics. You can
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Knowledge</span> <span class="pre">Base</span></code>: Choose the knowledge base you want to use as a reference.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Topics</span></code>: Select the topics within the chosen knowledge base from which you want to generate examples.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Giskard can automatically cluster your knowledge base into topics for you, or, if your knowledge base already includes tags or categories, you can use those existing tags as topics. This flexibility ensures that topic selection aligns with your business context and data organization.</p>
 </div>
 <div class="admonition tip">
@@ -250,9 +254,9 @@ It automatically clusters your knowledge base documents into key topics. You can
 <li><p>The <strong>groundedness check</strong> is enabled by default: the context for each test consists of the relevant knowledge documents needed to answer the query, ensuring the agent’s response is based on the provided ground truth.</p></li>
 <li><p>The <strong>correctness check</strong> is initially disabled, but the expected answer (reference output) is automatically prefilled by the Hub. To evaluate your agent with the correctness check, you can enable it manually for individual conversations or in bulk by selecting multiple conversations in the Dataset tab and enabling the correctness check for all of them.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see <a class="reference internal" href="../annotate/checks.html"><span class="doc">Assigning checks to tests</span></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see <a class="reference internal" href="../annotate/overview.html"><span class="doc">Understand metrics, failure categories and tags</span></a>.</p>
 </div>
 </section>
 <section id="next-steps">
@@ -260,7 +264,7 @@ It automatically clusters your knowledge base documents into key topics. You can
 <ul class="simple">
 <li><p><strong>Agentic vulnerability detection</strong> - Try <a class="reference internal" href="../scan/index.html"><span class="doc">Launch vulnerability scans</span></a></p></li>
 <li><p><strong>Generate security vulnerabilities</strong> - Try <a class="reference internal" href="security.html"><span class="doc">Generate security tests</span></a></p></li>
-<li><p><strong>Review test cases</strong> - Make sure to <a class="reference internal" href="../annotate/index.html"><span class="doc">Evaluate tests and assign validation rules</span></a></p></li>
+<li><p><strong>Review test cases</strong> - Make sure to <a class="reference internal" href="../annotate/index.html"><span class="doc">Review and refine test cases and metrics</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -275,7 +279,7 @@ It automatically clusters your knowledge base documents into key topics. You can
 </div>
 <div class="ml-auto">
 <a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../annotate/index.html">
-        Evaluate tests and assign validation rules
+        Review and refine test cases and metrics
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
 </svg>

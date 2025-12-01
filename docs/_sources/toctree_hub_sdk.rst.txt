@@ -5,9 +5,9 @@
 
    hub/sdk/index
    hub/sdk/setup/index
-   hub/sdk/scans
+   hub/sdk/scan/index
    hub/sdk/datasets/index
-   hub/sdk/checks
+   hub/sdk/annotate/index
    hub/sdk/evaluations/index
    hub/sdk/reference/index
    hub/sdk/release_notes/index

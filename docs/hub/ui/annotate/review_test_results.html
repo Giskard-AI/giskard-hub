@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Giskard Hub UI - Review Test Results" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://docs.giskard.ai/hub/ui/annotate/review_test_results.html" property="og:url"/>
+<meta content="Giskard Documentation" property="og:site_name"/>
+<meta content="Review evaluation results and understand test failures. Follow the business workflow to analyze check results, understand reasons, and take appropriate actions." property="og:description"/>
+<meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
+<meta content="Giskard Documentation" property="og:image:alt"/>
+<meta content="This section guides you through the business workflow for reviewing test results. This workflow is designed for business users who need to review evaluation results, understand failures, and determ..." name="description"/>
+<title>Review test results | Giskard  documentation</title>
+<meta content="Review test results | Giskard  documentation" property="og:title"/>
+<meta content="Review test results | Giskard  documentation" name="twitter:title"/>
+<link href="../../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=54470181" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="/hub/ui/annotate/review_test_results.html" rel="canonical"/>
+<link href="../../../_static/favicon.ico" rel="icon"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="modify_test_cases.html" rel="next" title="Modify the test cases"/>
+<link href="task_management.html" rel="prev" title="Distribute tasks to organize your review work"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" @scroll.window="showScrollTop = pageYOffset &gt; 100" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../../_static/logo_dark.png" width="24"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
+</a><nav class="flex items-center space-x-6 text-sm font-medium">
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Overview</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/sdk/index.html">Hub SDK</a>
+<a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/oss/sdk/index.html">Open Source</a>
+</nav></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="16" src="../../../_static/logo_dark.png" width="16"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
+<p class="caption" role="heading"><span class="caption-text">Giskard Hub UI</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/index.html">Quickstart &amp; setup</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/setup/index.html">Setup projects, agents and knowledge bases<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/setup/projects.html">Setup projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/setup/agents.html">Setup agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/setup/knowledge_bases.html">Setup knowledge bases</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/scan/index.html">Launch vulnerability scans<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/scan/launch-scan.html">Launch a scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/scan/review-scan-results.html">Review scan results</a></li>
+<li class="toctree-l2" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/scan/vulnerability-categories/index.html">Attack categories<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/prompt-injection.html">Prompt Injection (OWASP LLM 01)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/harmful-content-generation.html">Harmful Content Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/hallucination-misinformation.html">Hallucination &amp; Misinformation (OWASP LLM 09)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/excessive-agency.html">Excessive Agency (OWASP LLM 06)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/data-privacy-exfiltration.html">Data Privacy &amp; Exfiltration (OWASP LLM 05)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/internal-information-exposure.html">Internal Information Exposure (OWASP LLM 01-07)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/training-data-extraction.html">Training Data Extraction (OWASP LLM 02)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/denial-of-service.html">Denial of Service (OWASP LLM 10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/brand-damage-reputation.html">Brand Damage &amp; Reputation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/legal-financial-risk.html">Legal &amp; Financial Risk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="/hub/ui/scan/vulnerability-categories/misguidance-unauthorized-advice.html">Misguidance &amp; Unauthorized Advice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/manual.html">Create manual tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/import.html">Import tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/security.html">Generate security tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/datasets/business.html">Generate business tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/annotate/index.html">Review and refine test cases and metrics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/overview.html">Understand metrics, failure categories and tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/task_management.html">Distribute tasks to organize your review work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/review_test_results.html">Review test results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/annotate/modify_test_cases.html">Modify the test cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/create.html">Run and review evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/schedule.html">Schedule evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/evaluations/compare.html">Compare evaluations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/continuous-red-teaming.html">Continuous red teaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/event-logs.html">Track event logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/ui/access-rights.html">Set access rights</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/ui/release_notes/index.html">Release notes<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-25.html">2.1.1 (2025-11-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-11-24.html">2.1.0 (2025-11-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-10-24.html">2.0.1 (2025-10-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/hub/ui/release_notes/2025-09-25.html">2.0.0 (2025-09-25)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="/start/enterprise-trial.html">Request your enterprise trial</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/contact" rel="nofollow noopener">Contact us<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.giskard.ai/knowledge-categories/blog" rel="nofollow noopener">Blog<svg fill="currentColor" height="1em" stroke="none" viewbox="0 96 960 960" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M188 868q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360 336q0-17 11.5-28.5T400 296h320q17 0 28.5 11.5T760 336v320q0 17-11.5 28.5T720 696q-17 0-28.5-11.5T680 656V432L244 868q-11 11-28 11t-28-11Z"></path></svg></a></li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../../index.html">
+<span class="hidden md:inline">Giskard  documentation</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="index.html">Review and refine test cases and metrics</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Review test results</span>
+</nav>
+<div id="content" role="main">
+<section id="review-test-results">
+<h1>Review test results<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#review-test-results"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<p>This section guides you through the business workflow for reviewing test results. This workflow is designed for business users who need to review evaluation results, understand failures, and determine the appropriate actions to take.</p>
+<section id="starting-reviews">
+<h2>Starting reviews<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#starting-reviews" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#starting-reviews'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>There are two main ways to review test results:</p>
+<ul class="simple">
+<li><p>From an evaluation run</p></li>
+<li><p>From an assigned task</p></li>
+</ul>
+<section id="from-an-evaluation-run">
+<h3>From an evaluation run<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#from-an-evaluation-run" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#from-an-evaluation-run'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>When reviewing a failure directly from a test execution (not from a task), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Review a fail after a test execution</strong> - After a test execution, review the failure details</p></li>
+<li><p><strong>Determine the appropriate action</strong> - Based on your review, decide which of the following scenarios applies:</p></li>
+</ol>
+<pre align="center" class="mermaid align-center">
+        graph LR
+    A[Review Failure] --&gt; B{Agent Answer&lt;br/&gt;Correct?}
+    B --&gt;|No| C[&lt;a href="task_management.html" target="_self"&gt;Open Task&lt;br/&gt;Assign to Developer&lt;br/&gt;or KB Manager&lt;/a&gt;]
+    B --&gt;|Yes| F{Rewrite Now?}
+    B --&gt;|Don't Know| E[&lt;a href="task_management.html" target="_self"&gt;Put in Draft&lt;br/&gt;Open Task&lt;br/&gt;Assign to Domain Expert&lt;/a&gt;]
+    F --&gt;|Yes| G{Can Answer&lt;br/&gt;Questions?}
+    F --&gt;|No| H[&lt;a href="task_management.html" target="_self"&gt;Draft Test Case&lt;br/&gt;Create Task&lt;br/&gt;Assign to PO&lt;/a&gt;]
+    G --&gt;|Yes| I[&lt;a href="modify_test_cases.html" target="_self"&gt;Rewrite Test&lt;br/&gt;Retest&lt;br/&gt;Save&lt;/a&gt;]
+    G --&gt;|No| J{Has Value?}
+    J --&gt;|No| K[Remove Test]
+    J --&gt;|Yes| H
+    </pre><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To review evaluation runs, you first need to run an evaluation. For information on running evaluations, see <a class="reference internal" href="../evaluations/create.html"><span class="doc">Run and review evaluations</span></a>. For information on viewing evaluation results, see <a class="reference internal" href="../evaluations/index.html"><span class="doc">Run, review, schedule and compare evaluation runs</span></a>.</p>
+</div>
+<section id="if-the-agent-is-incorrect-the-test-is-well-written">
+<h4>If the agent is incorrect, the test is well written<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#if-the-agent-is-incorrect-the-test-is-well-written"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>If the agent is incorrect and the test is correctly identifying the issue:</p>
+<ul class="simple">
+<li><p><strong>Open a task</strong> and assign the agent developer or the KB manager</p></li>
+<li><p>Navigate to the “Distribute tasks” workflow <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+<li><p>Create a task with a clear description of what needs to be fixed</p></li>
+</ul>
+</section>
+<section id="if-the-agent-is-correct-the-test-should-be-rewritten">
+<h4>If the agent is correct, the test should be rewritten<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#if-the-agent-is-correct-the-test-should-be-rewritten"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>If the agent is correct and the test was too strict, you need to rewrite the test. You have the following options:</p>
+<p><strong>Option 1: You want to do it later</strong></p>
+<ul class="simple">
+<li><p><strong>Draft the test case</strong> - Mark the test case as draft to prevent it from being used in evaluations</p></li>
+<li><p><strong>Open a task</strong> where you can track that this test case needs to be modified</p></li>
+<li><p><strong>Assign the product owner</strong> to the task</p></li>
+<li><p>Navigate to the “Distribute tasks” workflow <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+</ul>
+<p><strong>Option 2: You are able to answer at least one of these questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Is there any minimum information the agent must not omit (e.g., a number, a fact)?</p></li>
+<li><p>Is there any block of information the agent must not go beyond (a page of a website, a section of a document)?</p></li>
+<li><p>Is there any information you do not want to appear in the agent’s answer?</p></li>
+</ol>
+<p>If you can answer at least one of these questions:</p>
+<ul class="simple">
+<li><p><strong>Go to the linked test case</strong> in the dataset</p></li>
+<li><p><strong>Rewrite the test requirement:</strong></p>
+<ul>
+<li><p>If question 1 is true: Enable correctness check by putting the minimum info as reference</p></li>
+<li><p>If question 2 is true: Enable groundedness check and put the block of info as context</p></li>
+<li><p>If question 3 is true: Write a negative rule (“the agent should not…”) in a conformity check</p></li>
+</ul>
+</li>
+<li><p><strong>Retest various times</strong> until the result is always PASS (regenerate a agent answer, and retest)</p></li>
+<li><p><strong>Save</strong> the changes</p></li>
+<li><p><strong>If the test case was in draft, undraft it</strong></p></li>
+<li><p><strong>You can also set the task as closed</strong> (if applicable)</p></li>
+</ul>
+<p><strong>Option 3: The test does not have value</strong></p>
+<ul class="simple">
+<li><p><strong>Remove it from the dataset</strong></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For detailed information about modifying test cases, see <a class="reference internal" href="modify_test_cases.html"><span class="doc">Modify the test cases</span></a>.</p>
+</div>
+</section>
+<section id="if-you-don-t-know-there-needs-to-be-a-discussion">
+<h4>If you don’t know, there needs to be a discussion<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#if-you-don-t-know-there-needs-to-be-a-discussion"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>If you don’t know if the agent answers correctly or not and there needs to be a discussion:</p>
+<ul class="simple">
+<li><p><strong>Put in draft</strong> - Mark the test case as draft to prevent it from being used in evaluations</p></li>
+<li><p><strong>Open a task</strong> and assign the domain expert</p></li>
+<li><p>Navigate to the “Distribute tasks” workflow <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+<li><p>Create a task with your questions and concerns, then assign it to the domain expert who can make this determination</p></li>
+</ul>
+</section>
+</section>
+<section id="from-an-assigned-task">
+<h3>From an assigned task<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#from-an-assigned-task" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#from-an-assigned-task'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>When reviewing a task that has been assigned to you, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Open the task</strong> - Open the task that has been assigned to you</p></li>
+<li><p><strong>Read the failure details</strong> - Review the description, result, and explanation for the failure</p></li>
+<li><p><strong>Determine the appropriate action</strong> - Based on your review, decide which of the following scenarios applies:</p></li>
+</ol>
+<pre align="center" class="mermaid align-center">
+        graph LR
+    B[Review Failure] --&gt; C{Agent Answer&lt;br/&gt;Correct?}
+    C --&gt;|No| D[&lt;a href="task_management.html" target="_self"&gt;Assign to Developer&lt;/a&gt;]
+    C --&gt;|Yes| E[&lt;a href="task_management.html" target="_self"&gt;Update Task Description&lt;br/&gt;Assign to Product Owner&lt;/a&gt;]
+    C --&gt;|Don't Know| F[&lt;a href="task_management.html" target="_self"&gt;Update Task Description&lt;br/&gt;Assign to Expert or PO&lt;/a&gt;]
+    </pre><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For information on creating tasks, see <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a>.</p>
+</div>
+<section id="id1">
+<h4>If the agent is incorrect, the test is well written<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id1"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<ul class="simple">
+<li><p><strong>Assign the task to the developer</strong> who should correct the test</p></li>
+<li><p>Navigate to the “Distribute tasks” workflow <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+<li><p>Reassign the task to the appropriate developer with a clear description of what needs to be fixed</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>If the agent is correct, the test should be rewritten<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#id2"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>If the agent answers correctly in reality and the test was too strict:</p>
+<ul>
+<li><p><strong>Provide the reason</strong> why the agent answer is ok, in the description of the task</p></li>
+<li><p><strong>Answer at least one of these questions</strong> to help guide the test rewrite:</p>
+<ul class="simple">
+<li><p>Is there any minimum information the agent must not omit (e.g., a number, a fact)?</p></li>
+<li><p>Is there any block of information the agent must not go beyond (a page of a website, a section of a document)?</p></li>
+<li><p>Is there any information you do not want to appear in the agent’s answer?</p></li>
+</ul>
+</li>
+<li><p><strong>Assign the product owner</strong> so that he or she can rewrite the test based on your input</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Navigate to the “Distribute tasks” workflow <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+<li><p>Update the task description with your answer and reassign it to the product owner</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="if-you-don-t-know-if-the-agent-answers-correctly-or-not-there-needs-to-be-a-discussion">
+<h4>If you don’t know if the agent answers correctly or not. There needs to be a discussion<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#if-you-don-t-know-if-the-agent-answers-correctly-or-not-there-needs-to-be-a-discussion"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>If you don’t know if the agent answers correctly or not and there needs to be a discussion:</p>
+<ul class="simple">
+<li><p><strong>Provide the reason</strong> why you don’t know and why it needs to be discussed</p></li>
+<li><p><strong>Assign the right person</strong> with the knowledge or re-assign the product owner</p></li>
+<li><p>Navigate to the “Distribute tasks” workflow <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+<li><p>Update the task with your questions and concerns, then reassign it to the appropriate person</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="interpreting-test-results">
+<h2>Interpreting test results<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#interpreting-test-results" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#interpreting-test-results'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<section id="check-pass-fail">
+<h3>Check pass/fail<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#check-pass-fail" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#check-pass-fail'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>When reviewing a test case, the first thing to check is whether the test case passed or failed. By opening the test case, you can see the metrics along with the failure category and tags on the right side of the screen.</p>
+<a class="reference internal image-reference" href="../../../_images/review-test-metrics.png"><img alt='"Review test metrics"' class="align-center" src="../../../_images/review-test-metrics.png" style="width: 800px;"/>
+</a>
+<p><strong>PASS:</strong></p>
+<ul class="simple">
+<li><p>The test case met all the evaluation criteria (checks)</p></li>
+<li><p>All checks that were enabled on the test case passed</p></li>
+<li><p>The agent’s response was acceptable according to the validation rules</p></li>
+</ul>
+<p><strong>FAIL:</strong></p>
+<ul class="simple">
+<li><p>The test case did not meet one or more evaluation criteria</p></li>
+<li><p>At least one check that was enabled on the test case failed</p></li>
+</ul>
+<p>To understand why a test case failed, you need to review the specific checks that were applied.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For detailed information about checks and how they work, see <a class="reference internal" href="overview.html"><span class="doc">Understand metrics, failure categories and tags</span></a>. For information on enabling/disabling checks, see the “Enable/Disable checks” section in <a class="reference internal" href="modify_test_cases.html"><span class="doc">Modify the test cases</span></a>.</p>
+</div>
+</section>
+<section id="check-failure-reason">
+<h3>Check failure reason<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#check-failure-reason" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#check-failure-reason'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>To understand why a test passed or failed, you need to review the explanation for each check and understand the failure categories.</p>
+<section id="read-the-explanation-for-each-check">
+<h4>Read the explanation for each check<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#read-the-explanation-for-each-check"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h4>
+<p>Each check provides an explanation of why it passed or failed. This explanation helps you understand:</p>
+<ul class="simple">
+<li><p>What the check was evaluating</p></li>
+<li><p>What criteria were applied</p></li>
+<li><p>Why the test case passed or failed</p></li>
+<li><p>What specific aspects of the agent’s response caused the result</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more information about checks and how to enable/disable them, see the “Enable/Disable checks” section in <a class="reference internal" href="modify_test_cases.html"><span class="doc">Modify the test cases</span></a>. For comprehensive information about all check types, see <a class="reference internal" href="overview.html"><span class="doc">Understand metrics, failure categories and tags</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="check-failure-category">
+<h3>Check failure category<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#check-failure-category" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#check-failure-category'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>When a test fails, it is categorized based on the type of failure. Understanding these categories helps you:</p>
+<ul class="simple">
+<li><p>Identify patterns in failures</p></li>
+<li><p>Prioritize which issues to address first</p></li>
+<li><p>Assign tasks to the right team members</p></li>
+</ul>
+<p><strong>Common failure categories:</strong></p>
+<ul class="simple">
+<li><p><strong>Hallucination</strong> - The agent generated information not present in the context</p></li>
+<li><p><strong>Omission</strong> - The agent failed to include required information</p></li>
+<li><p><strong>Conformity violation</strong> - The agent did not follow business rules or constraints</p></li>
+<li><p><strong>Groundedness issue</strong> - The agent’s answer contains information not grounded in the provided context</p></li>
+<li><p><strong>Metadata mismatch</strong> - The agent’s metadata does not match expected values</p></li>
+<li><p><strong>String matching failure</strong> - Required keywords or phrases are missing</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can change the categories used for classification but before doing so, we recommend you to read about the best practices for modifying test cases in <a class="reference internal" href="modify_test_cases.html"><span class="doc">Modify the test cases</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="review-the-flow-of-the-conversation">
+<h2>Review the flow of the conversation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#review-the-flow-of-the-conversation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#review-the-flow-of-the-conversation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>Understanding the conversation flow helps you assess whether the test case structure is appropriate and whether the agent’s response makes sense in context.</p>
+<p>When reviewing the conversation flow, consider:</p>
+<ul class="simple">
+<li><p>Whether the conversation structure makes sense</p></li>
+<li><p>Whether the user messages are clear and unambiguous</p></li>
+<li><p>Whether the conversation history provides necessary context</p></li>
+<li><p>Whether the test case accurately represents the scenario you want to test</p></li>
+</ul>
+<section id="conversation-structure">
+<h3>Conversation structure<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#conversation-structure" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conversation-structure'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>A conversation, or test case, is composed of a sequence of messages between the <strong>user</strong> and the <strong>assistant</strong>, alternating between each role. When designing your test cases, you can provide conversation history by adding multiple turns (multi-turn), but the conversation should always end with a <strong>user</strong> message. The agent’s next <strong>assistant</strong> completion will be generated and evaluated at test case time.</p>
+</section>
+<section id="simple-conversation">
+<h3>Simple conversation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#simple-conversation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#simple-conversation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>In the simplest scenario, a conversation consists of a single message from the user. For example:</p>
+<blockquote>
+<div><p><strong>User:</strong> Hello, which language is your open-source library written in?</p>
+</div></blockquote>
+</section>
+<section id="multi-turn-conversation">
+<h3>Multi-turn conversation<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#multi-turn-conversation" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#multi-turn-conversation'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>To test multi-turn capabilities or provide more context, you can add several alternating messages. For instance:</p>
+<blockquote>
+<div><p><strong>User:</strong> Hello, I wanted to have more information about your open-source library.</p>
+<p><strong>Assistant:</strong> Hello! I’m happy to help you learn more about our library. What would you like to know?</p>
+<p><strong>User:</strong> Which language is it written in?</p>
+</div></blockquote>
+<p>You can add as many turns as needed, but always ensure the conversation ends with a user message, since the assistant’s reply will be evaluated at runtime.</p>
+</section>
+<section id="conversation-answer-examples">
+<h3>Conversation Answer Examples<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#conversation-answer-examples" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conversation-answer-examples'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>You can also provide an “answer example” for each test case. This answer example is not used during evaluation runs, but helps when annotating the dataset or validating your evaluation criteria. For example, you might want to:</p>
+<ol class="arabic simple">
+<li><p>Import answer examples together with conversations by providing a <cite>demo_output</cite> field in your dataset.</p></li>
+<li><p>Generate the agent’s answer by replacing the assistant message directly in the interface.</p></li>
+<li><p>Write your own answer example to check specific behaviors or validation rules.</p></li>
+</ol>
+<p>If you do not provide an answer example, the Hub will automatically use the assistant reply generated during the first evaluation run as the default example.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more detailed information about creating and managing conversations, see <a class="reference internal" href="#"><span class="doc">Review test results</span></a>.</p>
+</div>
+</section>
+<section id="conversation-metadata">
+<h3>Conversation metadata<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#conversation-metadata" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#conversation-metadata'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<p>The conversation metadata provides additional information about the agent’s response, which a developer decided to pass along with the answer, such as:</p>
+<ul class="simple">
+<li><p>Tool calls that were made</p></li>
+<li><p>System flags or status indicators</p></li>
+<li><p>Additional context or structured data</p></li>
+<li><p>Any other information the agent includes in its response</p></li>
+</ul>
+<p>Reviewing metadata helps you understand:</p>
+<ul class="simple">
+<li><p>What actions the agent took during the conversation</p></li>
+<li><p>Whether the agent followed expected workflows</p></li>
+<li><p>Whether system-level requirements were met</p></li>
+<li><p>Whether the response structure matches expectations</p></li>
+</ul>
+<p>For more information about metadata checks and other check types, see <a class="reference internal" href="overview.html"><span class="doc">Understand metrics, failure categories and tags</span></a>.</p>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best practices<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#best-practices" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#best-practices'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<ul class="simple">
+<li><p><strong>Review thoroughly</strong> - Take time to understand all aspects of the test result before making a decision</p></li>
+<li><p><strong>Document your findings</strong> - Add comments to tasks to help others understand your review</p></li>
+<li><p><strong>Use appropriate actions</strong> - Close tasks when results are correct, assign modification work when changes are needed</p></li>
+<li><p><strong>Collaborate effectively</strong> - Work with product owners and other team members to ensure test cases are accurate</p></li>
+<li><p><strong>Maintain quality</strong> - Only close tasks when you’re confident the test results are correct</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next steps<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#next-steps" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#next-steps'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<p>Now that you understand how to review test results, you can:</p>
+<ul class="simple">
+<li><p><strong>Modify test cases</strong> - Learn how to refine test cases and checks <a class="reference internal" href="modify_test_cases.html"><span class="doc">Modify the test cases</span></a></p></li>
+<li><p><strong>Distribute tasks</strong> - Create and manage tasks to organize review work <a class="reference internal" href="task_management.html"><span class="doc">Distribute tasks to organize your review work</span></a></p></li>
+</ul>
+</section>
+</section>
+</div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
+<div class="mr-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="task_management.html">
+<svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+        Distribute tasks to organize your review work
+      </a>
+</div>
+<div class="ml-auto">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="modify_test_cases.html">
+        Modify the test cases
+        <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</a>
+</div>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#starting-reviews'" class="reference internal" href="#starting-reviews">Starting reviews</a><ul>
+<li><a :data-current="activeSection === '#from-an-evaluation-run'" class="reference internal" href="#from-an-evaluation-run">From an evaluation run</a><ul>
+<li><a :data-current="activeSection === '#if-the-agent-is-incorrect-the-test-is-well-written'" class="reference internal" href="#if-the-agent-is-incorrect-the-test-is-well-written">If the agent is incorrect, the test is well written</a></li>
+<li><a :data-current="activeSection === '#if-the-agent-is-correct-the-test-should-be-rewritten'" class="reference internal" href="#if-the-agent-is-correct-the-test-should-be-rewritten">If the agent is correct, the test should be rewritten</a></li>
+<li><a :data-current="activeSection === '#if-you-don-t-know-there-needs-to-be-a-discussion'" class="reference internal" href="#if-you-don-t-know-there-needs-to-be-a-discussion">If you don’t know, there needs to be a discussion</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#from-an-assigned-task'" class="reference internal" href="#from-an-assigned-task">From an assigned task</a><ul>
+<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1">If the agent is incorrect, the test is well written</a></li>
+<li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2">If the agent is correct, the test should be rewritten</a></li>
+<li><a :data-current="activeSection === '#if-you-don-t-know-if-the-agent-answers-correctly-or-not-there-needs-to-be-a-discussion'" class="reference internal" href="#if-you-don-t-know-if-the-agent-answers-correctly-or-not-there-needs-to-be-a-discussion">If you don’t know if the agent answers correctly or not. There needs to be a discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#interpreting-test-results'" class="reference internal" href="#interpreting-test-results">Interpreting test results</a><ul>
+<li><a :data-current="activeSection === '#check-pass-fail'" class="reference internal" href="#check-pass-fail">Check pass/fail</a></li>
+<li><a :data-current="activeSection === '#check-failure-reason'" class="reference internal" href="#check-failure-reason">Check failure reason</a><ul>
+<li><a :data-current="activeSection === '#read-the-explanation-for-each-check'" class="reference internal" href="#read-the-explanation-for-each-check">Read the explanation for each check</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#check-failure-category'" class="reference internal" href="#check-failure-category">Check failure category</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#review-the-flow-of-the-conversation'" class="reference internal" href="#review-the-flow-of-the-conversation">Review the flow of the conversation</a><ul>
+<li><a :data-current="activeSection === '#conversation-structure'" class="reference internal" href="#conversation-structure">Conversation structure</a></li>
+<li><a :data-current="activeSection === '#simple-conversation'" class="reference internal" href="#simple-conversation">Simple conversation</a></li>
+<li><a :data-current="activeSection === '#multi-turn-conversation'" class="reference internal" href="#multi-turn-conversation">Multi-turn conversation</a></li>
+<li><a :data-current="activeSection === '#conversation-answer-examples'" class="reference internal" href="#conversation-answer-examples">Conversation Answer Examples</a></li>
+<li><a :data-current="activeSection === '#conversation-metadata'" class="reference internal" href="#conversation-metadata">Conversation metadata</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#best-practices'" class="reference internal" href="#best-practices">Best practices</a></li>
+<li><a :data-current="activeSection === '#next-steps'" class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2025, Giskard Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 8.1.3</a></p>
+</div>
+</div>
+</footer>
+</div><button :class="{'opacity-0 invisible' : !showScrollTop}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 p-2 z-10 rounded-sm bg-gray-700 text-xs text-white transition-all duration-1000 hover:bg-gray-950 focus:bg-gray-950" id="scrolltop" x-cloak="">
+<svg aria-hidden="true" class="inline fill-current mb-[2px]" height="14" viewbox="0 96 960 960" width="14" xmlns="http://www.w3.org/2000/svg">
+<path d="M450 896V370L202 618l-42-42 320-320 320 320-42 42-248-248v526h-60Z"></path>
+</svg>
+  Back to top
+</button>
+<script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+<script src="../../../_static/doctools.js?v=9bcbadda"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../../../_static/theme.js?v=073f68d9"></script>
+<script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs" type="module"></script>
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+<script src="../../../_static/custom.js?v=45d2bafa"></script>
+</body>
+</html>

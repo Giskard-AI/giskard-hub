@@ -71,7 +71,7 @@ Giskard provides comprehensive tools to test and prevent moderation issues vulne
       Use the Hub interface to generate document-based test cases for moderation issues detection. The UI automatically generates queries that test whether models apply appropriate content moderation to valid business queries.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the business boundaries.

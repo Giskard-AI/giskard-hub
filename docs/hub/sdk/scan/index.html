@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
 <head>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta charset="utf-8"/>
@@ -9,7 +9,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Giskard Hub SDK - Vulnerability Scanning and Red Teaming" property="og:title"/>
 <meta content="website" property="og:type"/>
-<meta content="https://docs.giskard.ai/hub/sdk/scans.html" property="og:url"/>
+<meta content="https://docs.giskard.ai/hub/sdk/scan/index.html" property="og:url"/>
 <meta content="Giskard Documentation" property="og:site_name"/>
 <meta content="Launch comprehensive red teaming attacks to find vulnerabilities in your agents. Automated security scanning with OWASP LLM Top 10 compliance using the Python SDK." property="og:description"/>
 <meta content="https://docs.giskard.ai/_static/open-graph-image.png" property="og:image"/>
@@ -18,18 +18,18 @@
 <title>Launch vulnerability scans | Giskard  documentation</title>
 <meta content="Launch vulnerability scans | Giskard  documentation" property="og:title"/>
 <meta content="Launch vulnerability scans | Giskard  documentation" name="twitter:title"/>
-<link href="../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
-<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
-<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
-<link href="../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
-<link href="../../_static/custom.css?v=26cd18f9" rel="stylesheet" type="text/css"/>
-<link href="../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
-<link href="/hub/sdk/scans.html" rel="canonical"/>
-<link href="../../_static/favicon.ico" rel="icon"/>
-<link href="../../search.html" rel="search" title="Search"/>
-<link href="../../genindex.html" rel="index" title="Index"/>
-<link href="datasets/index.html" rel="next" title="Create test cases and datasets"/>
-<link href="setup/knowledge_bases.html" rel="prev" title="Setup knowledge bases"/>
+<link href="../../../_static/pygments.css?v=beddf052" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/pygments-dark.css?v=d7994ac5" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/custom.css?v=54470181" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/awesome-sphinx-design.css?v=15e0fffa" rel="stylesheet" type="text/css"/>
+<link href="/hub/sdk/scan/index.html" rel="canonical"/>
+<link href="../../../_static/favicon.ico" rel="icon"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../datasets/index.html" rel="next" title="Create test cases and datasets"/>
+<link href="../setup/knowledge_bases.html" rel="prev" title="Setup knowledge bases"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -48,9 +48,9 @@
       Skip to content
     </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
 <div class="hidden mr-4 md:flex">
-<a class="flex items-center mr-6" href="../../index.html">
-<img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../_static/logo_dark.png" width="24"/>
-<img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
+<a class="flex items-center mr-6" href="../../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="24" src="../../../_static/logo_dark.png" width="24"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="24" src="../../../_static/logo_light.png" width="24"/><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Giskard  documentation</span>
 </a><nav class="flex items-center space-x-6 text-sm font-medium">
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/index.html">Overview</a>
 <a class="transition-colors hover:text-foreground/80 text-foreground/60" href="/hub/ui/index.html">Hub UI</a>
@@ -63,7 +63,7 @@
 <span class="sr-only">Toggle navigation menu</span>
 </button>
 <div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
-<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../../search.html" class="relative flex items-center group" id="searchbox" method="get">
 <input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
 <kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
 <span class="text-xs">⌘</span>
@@ -85,9 +85,9 @@
 </div>
 </header>
 <div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
-<a class="!justify-start text-sm md:!hidden bg-background" href="../../index.html">
-<img alt="Logo" class="mr-2 hidden dark:block" height="16" src="../../_static/logo_dark.png" width="16"/>
-<img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
+<a class="!justify-start text-sm md:!hidden bg-background" href="../../../index.html">
+<img alt="Logo" class="mr-2 hidden dark:block" height="16" src="../../../_static/logo_dark.png" width="16"/>
+<img alt="Logo" class="mr-2 dark:hidden" height="16" src="../../../_static/logo_light.png" width="16"/><span class="font-bold text-clip whitespace-nowrap">Giskard  documentation</span>
 </a>
 <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
@@ -102,7 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/setup/knowledge_bases.html">Setup knowledge bases</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scans.html">Launch vulnerability scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/scan/index.html">Launch vulnerability scans</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
 <a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/datasets/index.html">Create test cases and datasets<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
@@ -112,9 +112,9 @@
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/datasets/import.html">Import tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/checks.html">Evaluate tests and assign validation rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/hub/sdk/annotate/index.html">Review and refine test cases and metrics</a></li>
 <li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') || $el.querySelector('.current') ? true : false }">
-<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, schedule and compare evaluations<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
+<a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="/hub/sdk/evaluations/index.html">Run, review, schedule and compare evaluation runs<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a>
 <ul x-show="expanded">
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/local.html">Run local evaluations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="/hub/sdk/evaluations/remote.html">Run remote evaluations</a></li>
@@ -158,7 +158,7 @@
 <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
 <div class="w-full min-w-0 mx-auto">
 <nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
-<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../index.html">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../../index.html">
 <span class="hidden md:inline">Giskard  documentation</span>
 <svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
@@ -170,7 +170,10 @@
 <section id="launch-vulnerability-scans">
 <h1>Launch vulnerability scans<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#launch-vulnerability-scans"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
 <p>Security scanning is a critical component of AI agent testing that allows you to automatically probe your models for vulnerabilities and security issues using Giskard Hub’s integrated red teaming capabilities.</p>
-<p>The Giskard Hub provides a comprehensive scanning system that enables you to:</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="400" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/uiyWEcVJgvc?si=ViEyFCdxwNkJtZ_1" title="YouTube video player" width="100%"></iframe><p>The Giskard Hub provides a comprehensive scanning system that enables you to:</p>
 <ul class="simple">
 <li><p><strong>Automated vulnerability detection</strong>: Run scans that automatically test for common AI vulnerabilities</p></li>
 <li><p><strong>Targeted threat assessment</strong>: Focus on specific vulnerability types using tags and filtering</p></li>
@@ -183,11 +186,7 @@
 <li><p>A <strong>scan</strong> is a security assessment that runs various red teaming attacks against your agent to identify potential vulnerabilities and security weaknesses.</p></li>
 </ul>
 <p>We recommend systematically launching scans every time before deploying an updated agent in a pre-production or staging environment. This allows you to collaborate with your team to ensure that your agent is secure and resilient against potential attacks.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Scans can only be launched with agents that are configured in the Hub and exposed via an API endpoint. Local agents are not currently supported for scanning.</p>
-</div>
-<p>Let’s start by initializing the Hub client or take a look at the <a class="reference internal" href="index.html"><span class="doc">Quickstart &amp; setup</span></a> section to see how to install the SDK and connect to the Hub.</p>
+<p>Let’s start by initializing the Hub client or take a look at the <a class="reference internal" href="../index.html"><span class="doc">Quickstart &amp; setup</span></a> section to see how to install the SDK and connect to the Hub.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="kn">from</span><span class="w"> </span><span class="nn">giskard_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubClient</span>
 </span><span id="line-2">
 </span><span id="line-3"><span class="n">hub</span> <span class="o">=</span> <span class="n">HubClient</span><span class="p">()</span>
@@ -200,7 +199,7 @@
 We recommend running a full scan regularly but you can also run targeted scans for specific vulnerability types during development.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For a full overview of the attacks, see the <a class="reference internal" href="../ui/scan/vulnerability-categories/index.html"><span class="doc">Attack categories</span></a> section.</p>
+<p>For a full overview of the attacks, see the <a class="reference internal" href="../../ui/scan/vulnerability-categories/index.html"><span class="doc">Attack categories</span></a> section.</p>
 </div>
 </section>
 <section id="launch-a-basic-scan">
@@ -219,8 +218,8 @@ We recommend running a full scan regularly but you can also run targeted scans f
 </span><span id="line-7"><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Running scans with all OWASP LLM Top 10 categories can be token-intensive and may take significant time to complete. Consider running targeted scans for specific vulnerability types during development.</p>
 </div>
 <p>The security scan will be queued and processed by the Hub. The <code class="docutils literal notranslate"><span class="pre">create</span></code> method will immediately return a scan object while the scan is running. Note that this object will not contain the scan results until the scan is completed.</p>
@@ -251,7 +250,14 @@ We recommend running a full scan regularly but you can also run targeted scans f
 <li><p><strong>Severity</strong>: The highest severity level found (CRITICAL, MAJOR, MINOR, SAFE)</p></li>
 <li><p><strong>Results</strong>: Number of issues found and total number of attacks performed</p></li>
 </ul>
-<img alt="Scan metrics output" class="align-center" src="../../_images/scan-metrics-output.png"/>
+<img alt="Scan metrics output" class="align-center" src="../../../_images/scan-metrics-output.png"/>
+</section>
+<section id="review-scan-results">
+<h3>Review scan results<a @click.prevent="window.navigator.clipboard.writeText($el.href); $el.setAttribute('data-tooltip', 'Copied!'); setTimeout(() =&gt; $el.setAttribute('data-tooltip', 'Copy link to this element'), 2000)" aria-label="Copy link to this element" class="headerlink" data-tooltip="Copy link to this element" href="#review-scan-results" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#review-scan-results'"><svg height="1em" viewbox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more information on reviewing scan results and taking action on detected vulnerabilities, see the <a class="reference internal" href="../../ui/scan/review-scan-results.html"><span class="doc">Review scan results</span></a> section of the UI documentation.</p>
+</div>
 </section>
 </section>
 <section id="advanced-scan-configuration">
@@ -329,12 +335,12 @@ We recommend running a full scan regularly but you can also run targeted scans f
 </span><span id="line-26"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Security check passed: Scan with Grade </span><span class="si">{</span><span class="n">scan_result</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>For detailed information about scan management methods and parameters, see the <a class="reference internal" href="reference/index.html"><span class="doc">API reference</span></a> section.</p>
+<p>For detailed information about scan management methods and parameters, see the <a class="reference internal" href="../reference/index.html"><span class="doc">API reference</span></a> section.</p>
 </section>
 </section>
 </div><div class="flex justify-between items-center pt-6 mt-12 border-t border-border gap-4">
 <div class="mr-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="setup/knowledge_bases.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../setup/knowledge_bases.html">
 <svg class="mr-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="15 18 9 12 15 6"></polyline>
 </svg>
@@ -342,7 +348,7 @@ We recommend running a full scan regularly but you can also run targeted scans f
       </a>
 </div>
 <div class="ml-auto">
-<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="datasets/index.html">
+<a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input hover:bg-accent hover:text-accent-foreground py-2 px-4" href="../datasets/index.html">
         Create test cases and datasets
         <svg class="ml-2 h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <polyline points="9 18 15 12 9 6"></polyline>
@@ -355,6 +361,7 @@ We recommend running a full scan regularly but you can also run targeted scans f
 <li><a :data-current="activeSection === '#attack-overview'" class="reference internal" href="#attack-overview">Attack overview</a></li>
 <li><a :data-current="activeSection === '#launch-a-basic-scan'" class="reference internal" href="#launch-a-basic-scan">Launch a basic scan</a><ul>
 <li><a :data-current="activeSection === '#view-scan-metrics'" class="reference internal" href="#view-scan-metrics">View scan metrics</a></li>
+<li><a :data-current="activeSection === '#review-scan-results'" class="reference internal" href="#review-scan-results">Review scan results</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#advanced-scan-configuration'" class="reference internal" href="#advanced-scan-configuration">Advanced scan configuration</a><ul>
@@ -381,13 +388,13 @@ We recommend running a full scan regularly but you can also run targeted scans f
 </svg>
   Back to top
 </button>
-<script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-<script src="../../_static/doctools.js?v=9bcbadda"></script>
-<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
-<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+<script src="../../../_static/doctools.js?v=9bcbadda"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../../../_static/theme.js?v=073f68d9"></script>
+<script src="../../../_static/design-tabs.js?v=f930bc37"></script>
 <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-<script src="../../_static/custom.js?v=45d2bafa"></script>
+<script src="../../../_static/custom.js?v=45d2bafa"></script>
 </body>
 </html>

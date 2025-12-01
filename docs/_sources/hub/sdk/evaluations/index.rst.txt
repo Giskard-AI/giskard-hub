@@ -1,9 +1,9 @@
 :og:title: Giskard Hub SDK - Evaluations Management
 :og:description: Run and manage LLM agent evaluations programmatically. Execute tests, schedule automated evaluations, and analyze results through the comprehensive Python SDK.
 
-======================================
-Run, schedule and compare evaluations
-======================================
+=================================================
+Run, review, schedule and compare evaluation runs
+=================================================
 
 In this section, we will walk you through how to run and manage evaluations using the SDK.
 
@@ -34,6 +34,11 @@ Evaluations are the core of the testing process in Giskard Hub. They allow you t
         :link-type: doc
 
         Compare evaluations to see if there are any regressions.
+
+High-level workflow
+-------------------
+
+.. include:: ../../ui/evaluations/graph.rst.inc
 
 .. toctree::
    :hidden:

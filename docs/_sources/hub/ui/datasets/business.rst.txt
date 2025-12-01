@@ -26,7 +26,7 @@ AI business failures occur when AI systems fail to provide **correct** and **gro
 
 To detect these failures effectively, we need to synthesize representative sets of agent's legitimate user queries and expected answers, focusing on **context-groundedness** and **correctness**.
 
-.. note::
+.. tip::
 
    **Legitimate queries** are normal user inputs without malicious intent. Failure in these test cases often indicates hallucinations or incorrect answers. To automate this process, internal data (e.g., the knowledge base retrieved by the RAG) can be used as a seed to generate expected responses from the agent. A well-structured synthetic data process for legitimate queries should be:
 
@@ -64,7 +64,7 @@ In this case, dataset generation requires two additional pieces of information:
 - ``Knowledge Base``: Choose the knowledge base you want to use as a reference.
 - ``Topics``: Select the topics within the chosen knowledge base from which you want to generate examples.
 
-  .. note::
+  .. tip::
 
      Giskard can automatically cluster your knowledge base into topics for you, or, if your knowledge base already includes tags or categories, you can use those existing tags as topics. This flexibility ensures that topic selection aligns with your business context and data organization.
 
@@ -77,9 +77,9 @@ Once you click on "Generate," you receive a dataset where:
 - The **groundedness check** is enabled by default: the context for each test consists of the relevant knowledge documents needed to answer the query, ensuring the agent's response is based on the provided ground truth.
 - The **correctness check** is initially disabled, but the expected answer (reference output) is automatically prefilled by the Hub. To evaluate your agent with the correctness check, you can enable it manually for individual conversations or in bulk by selecting multiple conversations in the Dataset tab and enabling the correctness check for all of them.
 
-.. note::
+.. tip::
 
-   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
+   For detailed information about checks like groundedness, correctness, conformity, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 
 Next steps
 ----------

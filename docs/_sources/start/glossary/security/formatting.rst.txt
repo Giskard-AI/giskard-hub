@@ -71,7 +71,7 @@ Giskard provides comprehensive tools to test and prevent output formatting vulne
       Use the Hub interface to generate adversarial test cases for output formatting issue detection. The UI automatically generates queries that attempt to manipulate response structure for malicious purposes.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the security boundaries.
