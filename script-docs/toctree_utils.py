@@ -1091,7 +1091,7 @@ def _generate_entry_html(entry: dict, level: int = 1) -> list:
     if entry.get("children"):
         # Entry with children - create expandable structure with Alpine.js
         expandable_class = "expandable"
-        alpine_data = "x-data=\"{ expanded: false }\""
+        alpine_data = 'x-data="{ expanded: false }"'
         alpine_class = ":class=\"{ 'expanded' : expanded }\""
         alpine_show = 'x-show="expanded"'
 
