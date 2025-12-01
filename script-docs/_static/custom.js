@@ -44,9 +44,10 @@
 
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/index.html';
 
-    // Find the link matching current page
+    // Find the link matching current page - prefer exact matches
     const navLinks = sidebar.querySelectorAll('a[href]');
     let currentLink = null;
+    let bestMatchLength = -1;
 
     for (const link of navLinks) {
       const href = link.getAttribute('href');
@@ -54,29 +55,42 @@
 
       const linkPath = href.split('#')[0].replace(/\/$/, '') || '/index.html';
 
-      if (currentPath === linkPath || currentPath.endsWith(linkPath)) {
+      // Exact match always wins
+      if (currentPath === linkPath) {
         currentLink = link;
         break;
+      }
+
+      // Otherwise look for longest matching path
+      if (currentPath.endsWith(linkPath) && linkPath.length > bestMatchLength) {
+        currentLink = link;
+        bestMatchLength = linkPath.length;
       }
     }
 
     if (!currentLink) return;
 
-    // Mark all parent <li> elements with data-expand attribute BEFORE Alpine.js initializes
+    // Mark the current link
+    currentLink.classList.add('current');
+
+    // Mark all parent <li> elements to be expanded BEFORE Alpine.js initializes
     let parentLi = currentLink.closest('li');
     while (parentLi) {
       if (parentLi.hasAttribute('x-data')) {
-        // Modify the x-data attribute to start expanded
+        // Modify the x-data attribute to start expanded ONLY if not already true
         const currentXData = parentLi.getAttribute('x-data');
-        if (currentXData.includes('expanded: false')) {
+        if (currentXData && currentXData.includes('expanded: false')) {
           parentLi.setAttribute('x-data', currentXData.replace('expanded: false', 'expanded: true'));
+        }
+        // Also mark the parent's link as current for highlighting
+        const parentLink = parentLi.querySelector(':scope > a');
+        if (parentLink) {
+          parentLink.classList.add('current');
         }
       }
       parentLi.classList.add('current');
       parentLi = parentLi.parentElement?.closest('li');
     }
-
-    currentLink.classList.add('current');
   }
 
   // Save expanded state and scroll position before navigation
@@ -114,9 +128,9 @@
     sidebar.querySelectorAll('[x-data]').forEach(element => {
       const link = element.querySelector('a');
       if (link && expandedHrefs.has(link.href)) {
-        // Modify x-data before Alpine initializes
+        // Modify x-data before Alpine initializes ONLY if it's currently false
         const currentXData = element.getAttribute('x-data');
-        if (currentXData.includes('expanded: false')) {
+        if (currentXData && currentXData.includes('expanded: false')) {
           element.setAttribute('x-data', currentXData.replace('expanded: false', 'expanded: true'));
         }
       }
