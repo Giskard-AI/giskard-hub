@@ -49,7 +49,7 @@ If the agent is incorrect, the test is well written
 
 If the agent is incorrect and the test is correctly identifying the issue:
 
-- **Open a task** and assign the bot developer or the KB manager
+- **Open a task** and assign the agent developer or the KB manager
 - Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
 - Create a task with a clear description of what needs to be fixed
 
@@ -67,9 +67,9 @@ If the agent is correct and the test was too strict, you need to rewrite the tes
 
 **Option 2: You are able to answer at least one of these questions:**
 
-1. Is there any minimum information the bot must not omit (e.g., a number, a fact)?
-2. Is there any block of information the bot must not go beyond (a page of a website, a section of a document)?
-3. Is there any information you do not want to appear in the bot's answer?
+1. Is there any minimum information the agent must not omit (e.g., a number, a fact)?
+2. Is there any block of information the agent must not go beyond (a page of a website, a section of a document)?
+3. Is there any information you do not want to appear in the agent's answer?
 
 If you can answer at least one of these questions:
 
@@ -78,9 +78,9 @@ If you can answer at least one of these questions:
   
   * If question 1 is true: Enable correctness check by putting the minimum info as reference
   * If question 2 is true: Enable groundedness check and put the block of info as context
-  * If question 3 is true: Write a negative rule ("the bot should not...") in a conformity check
+  * If question 3 is true: Write a negative rule ("the agent should not...") in a conformity check
   
-- **Retest various times** until the result is always PASS (regenerate a bot answer, and retest)
+- **Retest various times** until the result is always PASS (regenerate a agent answer, and retest)
 - **Save** the changes
 - **If the test case was in draft, undraft it**
 - **You can also set the task as closed** (if applicable)
@@ -135,14 +135,14 @@ If the agent is incorrect, the test is well written
 If the agent is correct, the test should be rewritten
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the age answers correctly in reality and the test was too strict:
+If the agent answers correctly in reality and the test was too strict:
 
-- **Provide the reason** why the bot answer is ok, in the description of the task
+- **Provide the reason** why the agent answer is ok, in the description of the task
 - **Answer at least one of these questions** to help guide the test rewrite:
   
-  * Is there any minimum information the bot must not omit (e.g., a number, a fact)?
-  * Is there any block of information the bot must not go beyond (a page of a website, a section of a document)?
-  * Is there any information you do not want to appear in the bot's answer?
+  * Is there any minimum information the agent must not omit (e.g., a number, a fact)?
+  * Is there any block of information the agent must not go beyond (a page of a website, a section of a document)?
+  * Is there any information you do not want to appear in the agent's answer?
   
 - **Assign the product owner** so that he or she can rewrite the test based on your input
 
@@ -150,7 +150,7 @@ If the age answers correctly in reality and the test was too strict:
    * Update the task description with your answer and reassign it to the product owner
 
 If you don't know if the agent answers correctly or not. There needs to be a discussion
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don't know if the agent answers correctly or not and there needs to be a discussion:
 

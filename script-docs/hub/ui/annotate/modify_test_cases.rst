@@ -152,7 +152,7 @@ Validate the check
 
 After modifying a check, you should validate it to ensure it works correctly.
 
-Rerunning the bot answer
+Rerunning the agent answer
 ________________________
 
 To validate that your check modifications work correctly:
@@ -162,7 +162,7 @@ To validate that your check modifications work correctly:
 3. **Review the explanation** - Understand why the check passed or failed
 4. **Compare with expectations** - Verify that the result matches what you intended
 
-Rerunning the bot answer helps you:
+Rerunning the agent answer helps you:
 
 * Verify that the check correctly evaluates the agent's response in different scenarios
 * Ensure that your modifications don't break the check
