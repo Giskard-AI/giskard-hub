@@ -30,8 +30,8 @@ What's new?
    
    * **Create Tasks from Failures** - Create tasks directly from failed evaluations or scans
    * **Assign Owners with Notifications** - Assign task owners with email notifications (opt-out available)
-   * **Auto-Draft Bad Tests** - When you create a task from a bad test will propose to automatically mark it as Draft
-   * **Hide Noisy Results** - Hide noisy results while still tracking them with tasks
+   * **Auto-Draft Bad Tests** - When you create a task from a bad test, the system will propose to automatically mark it as draft
+   * **Hide Noisy Results** - You can now hide fasle positive results while still tracking them with tasks
 
 .. raw:: html
 
@@ -51,9 +51,9 @@ What's new?
 **Draft Conversations & Datasets**
    Control over test cases lifecycle:
    
-   * **Draft/Published Toggle** - A toggle with a helpful explanation
-   * **Draft Filter in Tables** - Draft filter added to dataset tables with conversations status labels
-   * **Consistent Exclusion** - Draft conversations are skipped during evaluation runs
+   * **Draft/Published Toggle** - A toggle with a helpful explanation to draft or publish a conversation
+   * **Draft Filter in Tables** - Draft filter added to dataset tables with conversation status labels
+   * **Consistent Exclusion** - Drafted conversations are excluded from evaluation runs
 
 **Enhanced Scans**
    Improved scanning capabilities and usability:

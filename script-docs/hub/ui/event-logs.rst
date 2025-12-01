@@ -21,7 +21,6 @@ Event logs are essential for maintaining accountability and understanding the ev
 * **Identify authors** - Know who made each change
 * **Understand impact** - Recognize how changes affect your evaluations
 * **Maintain compliance** - Keep complete audit trails for regulatory requirements
-* **Enable rollback** - Understand changes to potentially revert them if needed
 
 Event logs overview
 -------------------
@@ -69,24 +68,6 @@ Every entity in Giskard Hub maintains a complete history of all modifications. T
 * **Checks** - Custom validation rules and their configurations
 * **Datasets** - Test case collections and their metadata
 * **Evaluation test cases** - Individual test cases within evaluations
-* **Other entities** - All project-related entities track their changes
-
-Viewing event history
-_____________________
-
-To view the event history for any entity:
-
-1. Navigate to the entity you want to inspect (e.g., a check, dataset, test case, etc.)
-2. Open the entity to view its details
-3. Click the **History** button
-4. Review the list of all changes
-
-Underneath you can view an example of the event history for a check.
-
-.. image:: /_static/images/hub/event-logs-conversations.png
-   :align: center
-   :alt: "Event logs history conversations"
-   :width: 100%
 
 Best practices
 --------------
