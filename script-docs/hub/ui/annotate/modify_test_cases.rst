@@ -51,10 +51,10 @@ You can also set a test case to draft when creating a task from an evaluation ru
 Hide/Unhide
 ___________
 
-In addition to drafting, you can hide test cases to organize your evaluation overvieq:
+In addition to drafting, you can hide false positive results to organize your evaluation overview:
 
-* **Hide** - Makes the test case less visible in the evaluation overview and for the metrics computations in the dashboard
-* **Unhide** - Makes the test case visible again in the evaluation overview
+* **Hide** - Makes the false positive result less visible in the evaluation overview and for the metrics computations in the dashboard
+* **Unhide** - Makes the false positive result visible again in the evaluation overview
 
 .. tip::
 
@@ -76,7 +76,7 @@ After modifying a test case or its checks, you should rerun the test to validate
 **How to rerun:**
 
 1. Make your modifications to the test case
-2. Use the "Rerun" or "Test" option to run the test case in isolation
+2. Use the "Test" option to run the test case in isolation
 3. Review the results to see if your changes had the intended effect
 4. Continue iterating if needed
 
@@ -137,11 +137,12 @@ You can enable multiple checks on a single test case to evaluate different aspec
 
 Disabling a check removes it from the evaluation for that specific test case, but the check definition remains available for use on other test cases.
 
-Modify check requirement
+Modify check requirements
 --------------------------
 
-You can modify the requirements of a check to better match your evaluation criteria. However, modifying the requirements of a check will affect all test cases that have that check enabled. Therefore, it is recommended to modify the requirements of a check only if you are sure that the changes are correct for all test cases. 
-Instead, you can create a new check with the new requirements, iterate on it and enable it on the test cases that need it, before modifying the old check.
+You can adjust the parameters of most built-in checks (like context or reference answer) specifically for the current test case by editing them directly within the test case view. These changes only impact the selected test case. 
+
+If you want to change the requirements of a custom check (such as its overall rules or similarity threshold), you must edit the custom check itself from the Checks page. Modifying a custom check will affect all test cases using that check. For major or experimental changes, it's recommended to create a new custom check instead—then enable it only on the test cases where you want the new behavior.
 
 .. tip::
 
