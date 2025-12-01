@@ -44,8 +44,8 @@
 
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/index.html';
 
-    // Find the link matching current page - prefer exact matches
-    const navLinks = sidebar.querySelectorAll('a[href]');
+    // Find the link matching current page - prefer links within toctree items
+    const navLinks = sidebar.querySelectorAll('li[class*="toctree-"] a[href]');
     let currentLink = null;
     let bestMatchLength = -1;
 
