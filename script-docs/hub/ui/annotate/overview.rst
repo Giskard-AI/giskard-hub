@@ -270,6 +270,11 @@ Failure categories
 
 Failure categories help you understand the root cause of test failures and identify patterns in how your agent is failing. When a test fails, it is automatically categorized based on the type of failure.
 
+Create a failure category
+_________________________
+
+To add or edit failure categories, go to **Settings** → **Project Settings**. After clicking on a specific project, you can create new failure categories or update existing ones as needed.
+
 Assign failure categories
 _________________________
 
@@ -284,35 +289,50 @@ When a test fails, a failure category is assigned to the test automatically, how
 
     You can read about modifying test cases in :doc:`/hub/ui/annotate/modify_test_cases`.
 
-Available failure categories
-_____________________________
+Defining the right failure categories
+_____________________________________
 
-.. list-table::
-   :header-rows: 1
-   :widths: 20 80
+Failure categories help you understand the root cause of test failures and identify patterns in how your agent is failing. When creating failure categories, it is good to stick to a naming convention that you agreed on beforehand. Ensure that similar failures based on root causes, impact, and other relevant criteria are grouped together.
 
-   * - Category
-     - Description
-   * - Contradiction
-     - The agent's answer conflicts with known facts or contradicts previous statements/context.
-   * - Addition
-     - The agent adds information that is not present in the context or known sources.
-   * - Denial of answer
-     - The agent does not answer the question or provides an answer that is not in the context or known sources.
-   * - Business out of scope
-     - The agent's response is not in the scope of the question or the context.
-   * - Omission
-     - The agent leaves out important information required for a correct answer.
-   * - Prompt injection
-     - The agent's response is a prompt injection or jailbreak attack.
-   * - Sycophancy
-     - The agent's response is sycophantic or agrees with the input bias.
-   * - Inappropriate content
-     - The agent's response contains inappropriate content or violates moderation guidelines.
-   * - Data disclosure
-     - The agent's response discloses sensitive data or confidential information.
-   * - Non-conform input
-     - The agent's response does not comply with the instructions or the context.
+.. admonition:: Types of Failure Categories
+
+   - **Accuracy-Related Failures**: These categories capture failures related to the correctness and completeness of information in the agent's response.
+
+     Examples: "Contradiction", "Omission", "Addition", "Incorrect Information"
+
+   - **Security-Related Failures**: These categories relate to failures that pose security risks or vulnerabilities.
+
+     Examples: "Prompt Injection", "Data Disclosure", "Unauthorized Access"
+
+   - **Compliance-Related Failures**: These categories pertain to failures where the agent violates business rules, policies, or scope constraints.
+
+     Examples: "Business Out of Scope", "Non-Conform Input", "Policy Violation"
+
+   - **Content Quality Failures**: These categories describe failures related to the appropriateness and quality of the agent's response.
+
+     Examples: "Inappropriate Content", "Unprofessional Tone", "Off-Topic Response"
+
+   - **Behavioral Failures**: These categories capture failures related to the agent's behavior or interaction style.
+
+     Examples: "Sycophancy", "Denial of Answer", "Overly Defensive"
+
+   - **Context-Awareness Failures**: These categories relate to failures where the agent fails to properly understand or use the provided context.
+
+     Examples: "Context Misunderstanding", "Missing Context Reference", "Context Contradiction"
+
+.. tip::
+
+   - **Create Categories Based on Root Causes**: Focus on categorizing failures by their underlying root cause rather than surface-level symptoms to enable more effective fixes.
+
+     Example: Instead of creating separate categories for "Wrong Date" and "Wrong Name", consider a broader "Factual Error" category that captures the root cause.
+
+   - **Use Categories for Prioritization**: Focus on fixing the most common failure categories first to have the greatest impact on your agent's performance.
+
+     Example: If "Accuracy-Related Failures" are the most frequent, prioritize improving your agent's fact-checking and information retrieval capabilities.
+
+   - **Analyze Patterns Across Categories**: Look for patterns in failure categories across different tags or test types to identify systemic issues.
+
+     Example: If "Security-Related Failures" are concentrated in conversations tagged with "Adversarial Testing", you may need to strengthen your agent's security defenses.
 
 Tags
 ----

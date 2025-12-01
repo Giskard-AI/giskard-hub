@@ -89,7 +89,7 @@ The metrics view helps you:
 Failure category view
 _____________________
 
-The failure categories view groups test failures by their failure category. This view is useful to understand the root cause of your failures and identify patterns in how your agent is failing.
+The failure categories view groups test failures by their failure category. This view is useful to understand the root cause of your failures and identify patterns in how your agent is failing. You can also manually update the failure category to a different one.
 
 The pie chart below displays the number of evaluations that passed, failed, or were unexecuted.
 
@@ -107,7 +107,7 @@ Using failure categories helps you:
 
 .. tip::
    
-   You can read about failure category definitions in :doc:`/hub/ui/annotate/overview`.
+   You can read about failure category changes in :doc:`/hub/ui/annotate/modify_test_cases`.
 
 Tags view
 _________
