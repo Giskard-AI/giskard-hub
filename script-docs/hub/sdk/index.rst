@@ -15,7 +15,7 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
       Setup and organize projects, agents and knowledge bases
    
    .. grid-item-card:: Launch vulnerability scans
-      :link: scans
+      :link: scan/index
       :link-type: doc
 
       Automatically scan your agent for safety and security failures.
@@ -26,23 +26,28 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
       Create, update, and delete test cases and datasets manually or using synthetic data generation
 
-   .. grid-item-card:: Define validation rules with checks
-      :link: checks
+   .. grid-item-card:: Review and refine test cases and metrics
+      :link: annotate/index
       :link-type: doc
 
-      Define validation rules and metrics for your tests
+      Review and refine test cases and metrics
 
-   .. grid-item-card:: Run, schedule and compare evaluations
+   .. grid-item-card:: Run, review, schedule and compare evaluation runs
       :link: evaluations/index
       :link-type: doc
 
-      Execute tests programmatically in the Hub or locally
+      Execute tests, review results, schedule and compare evaluations programmatically in the Hub or locally
 
    .. grid-item-card:: API Reference
       :link: reference/index
       :link-type: doc
 
       Complete SDK documentation for the Hub entities and resources
+
+High-level workflow
+-------------------
+
+.. include:: ../ui/graph.rst.inc
 
 Install the client library
 --------------------------
@@ -193,16 +198,16 @@ These are the attributes you can set for a chat test case (the only required att
             - ``expected_value_type``: The expected type of the value at the JSON path, one of ``string``, ``number``, ``boolean``.
         - For the ``semantic_similarity`` check, the parameters are ``reference`` (type: ``str``) and ``threshold`` (type: ``float``), where ``reference`` is the expected output and ``threshold`` is the similarity score below which the check will fail.
 
-.. note::
+.. tip::
 
-   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/checks`.
+   For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 
 You can add as many chat test cases as you want to the dataset.
 
 Configure an Agent
 ___________________
 
-.. note:: In this section we will run evaluation against agents configured in
+.. tip:: In this section we will run evaluation against agents configured in
     the Hub. If you want to evaluate a local agent that is not yet exposed with
     an API, check the :doc:`/hub/sdk/evaluations/index`.
 

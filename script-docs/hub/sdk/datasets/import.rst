@@ -161,5 +161,5 @@ Next steps
 __________
 
 * **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
-* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scan/index`
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

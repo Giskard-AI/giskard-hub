@@ -1,0 +1,4 @@
+2.1.1 (2025-11-25)
+==================
+
+Hotfix release,emergency fix on email sending.

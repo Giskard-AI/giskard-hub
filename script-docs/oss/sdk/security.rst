@@ -17,7 +17,7 @@ Giskard provides a set of automated scanning capabilities to detect these vulner
 
    For more up-to-date business failure testing and a collaborative UI, see the :doc:`Giskard Hub Security Scanning </hub/sdk/datasets/security>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
 
-.. note::
+.. tip::
 
    Security vulnerabilities are different from business failures. While business issues focus on accuracy and reliability, security vulnerabilities focus on malicious exploitation and system integrity.
    If you want to detect business failures, check out the :doc:`/oss/sdk/business` guide.

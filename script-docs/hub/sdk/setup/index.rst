@@ -31,6 +31,11 @@ In this section, we will walk you through how to setup projects, agents and know
 
       Setup and organize knowledge bases we can use to test your agents
 
+High-level workflow
+-------------------
+
+.. include:: ../../ui/setup/graph.rst.inc
+   
 .. toctree::
    :hidden:
    :maxdepth: 4

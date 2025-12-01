@@ -71,7 +71,7 @@ Giskard provides comprehensive tools to test and prevent robustness vulnerabilit
       Use the Hub interface to generate adversarial test cases for robustness issue detection. The UI automatically generates edge cases and adversarial inputs that test model resilience.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the security boundaries.

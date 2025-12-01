@@ -50,9 +50,9 @@ The parameters for creating a chat test case are:
 - **messages** (required): A list of messages, without the last assistant answer.  Each message is a dictionary with keys ``role`` and ``content``.
 - **demo_output** (optional): A dictionary with the last assistant answer
 - **tags** (optional): A list of tags you can use to categorize and organize the chat test cases
-- **checks** (optional): A list of checks. For more information on checks, see the :doc:`/hub/sdk/checks` section.
+- **checks** (optional): A list of checks. For more information on checks, see the :doc:`/hub/sdk/annotate/index` section.
 
-.. note:: **Do not include last assistant answer in the list of messages.** In fact, during evaluation, we will pass
+.. tip:: **Do not include last assistant answer in the list of messages.** In fact, during evaluation, we will pass
     the chat test case to your agent and expect it to generate an assistant answer. The newly generated answer will
     be evaluated against the checks.
 
@@ -95,6 +95,6 @@ For detailed information about creating manual datasets, see the :doc:`/hub/sdk/
 Next steps
 __________
 
-* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scan/index`
 * **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
 * **Review test case and assign checks** - Make sure to :doc:`/hub/ui/annotate/index`

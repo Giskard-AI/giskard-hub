@@ -2,10 +2,16 @@
 :og:description: Create, manage, and deploy custom validation rules and metrics for your LLM agent tests. Build specialized testing logic tailored to your business requirements using the Python SDK.
 
 =============================================
-Evaluate tests and assign validation rules
+Review and refine test cases and metrics
 =============================================
 
 Checks are validation rules that are used to evaluate the responses of your agents. They can be used to ensure that your agents are behaving correctly and following the rules that you have defined.
+
+|
+
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/VLejoLvDy-o?si=FXzYphE06Oi1fiBH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The Giskard Hub provides a set of built-in checks that cover common use cases, such as:
 
@@ -17,6 +23,10 @@ The Giskard Hub provides a set of built-in checks that cover common use cases, s
 * **Semantic Similarity**: Verifies that the agent's response is semantically similar to the expected output.
 
 You can also create custom checks to address specific business requirements or domain-specific validation needs.
+
+.. tip::
+
+    For more background on the process of reviewing and refining test cases and metrics, see the :doc:`/hub/ui/annotate/index` section of the UI documentation.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -35,7 +45,7 @@ Giskard provides a set of built-in checks that you can use to evaluate your agen
 
 .. tip::
 
-    For more background information on the built-in checks, see the :doc:`/hub/ui/annotate/checks` section.
+    For more background information on the built-in checks, see the :doc:`/hub/ui/annotate/overview` section.
 
 .. _custom-checks:
 

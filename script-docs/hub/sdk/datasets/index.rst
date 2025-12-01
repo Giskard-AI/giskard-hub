@@ -38,7 +38,12 @@ but since generative AI agents can encounter an infinite number of scenarios, au
 
 .. tip::
    
-   For advanced automated discovery of weaknesses such as prompt injection or hallucinations, check out our :doc:`Vulnerability Scanner </hub/sdk/scans>`, which uses automated agents to generate tests for common security and robustness issues.
+   For advanced automated discovery of weaknesses such as prompt injection or hallucinations, check out our :doc:`Vulnerability Scanner </hub/sdk/scan/index>`, which uses automated agents to generate tests for common security and robustness issues.
+
+High-level workflow
+-------------------
+
+.. include:: ../../ui/datasets/graph.rst.inc
 
 .. toctree::
    :hidden:

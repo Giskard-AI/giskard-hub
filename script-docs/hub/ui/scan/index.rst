@@ -51,6 +51,10 @@ Quick start
 
       Review results and take action on detected vulnerabilities
 
+High-level workflow
+-------------------
+
+.. include:: graph.rst.inc
 
 Vulnerability categories
 ------------------------
@@ -65,7 +69,7 @@ The scan tests for these common AI security risks:
 
     Detailed information about the vulnerability categories tested by the scan
 
-    * **52 specialized probes** across 11 vulnerability categories
+    * **55 specialized probes** across 11 vulnerability categories
     * **Detailed attack patterns** and detection indicators  
     * **Risk-level classifications** to prioritize remediation
     * **Comprehensive mitigation strategies** with practical guidance

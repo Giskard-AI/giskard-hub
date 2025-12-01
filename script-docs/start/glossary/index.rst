@@ -51,7 +51,7 @@ Core concepts
       A specific input-output pair or scenario used to evaluate model behavior and performance.
 
    .. grid-item-card:: Check
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       A specific test or validation rule that evaluates a particular aspect of model behavior (e.g., correctness, security, fairness, metadata, semantic similarity).

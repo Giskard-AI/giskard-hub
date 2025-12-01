@@ -6,7 +6,7 @@ Setup knowledge bases
 
 In this section, we will walk you through how to setup knowledge bases using the Hub interface.
 
-.. note::
+.. tip::
 
     A **Knowledge Base** is a domain-specific collection of information. You can have several knowledge bases for different areas of your business.
 

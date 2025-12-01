@@ -7,6 +7,12 @@ Launch vulnerability scans
 
 Security scanning is a critical component of AI agent testing that allows you to automatically probe your models for vulnerabilities and security issues using Giskard Hub's integrated red teaming capabilities.
 
+|
+
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/uiyWEcVJgvc?si=ViEyFCdxwNkJtZ_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 The Giskard Hub provides a comprehensive scanning system that enables you to:
 
 * **Automated vulnerability detection**: Run scans that automatically test for common AI vulnerabilities
@@ -20,10 +26,6 @@ In this section, we will walk you through how to run and manage scans using the 
 - A **scan** is a security assessment that runs various red teaming attacks against your agent to identify potential vulnerabilities and security weaknesses.
 
 We recommend systematically launching scans every time before deploying an updated agent in a pre-production or staging environment. This allows you to collaborate with your team to ensure that your agent is secure and resilient against potential attacks.
-
-.. important::
-   
-   Scans can only be launched with agents that are configured in the Hub and exposed via an API endpoint. Local agents are not currently supported for scanning.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
@@ -66,7 +68,7 @@ We can now launch the scan:
         tags=tags,
     )
 
-.. note::
+.. tip::
 
     Running scans with all OWASP LLM Top 10 categories can be token-intensive and may take significant time to complete. Consider running targeted scans for specific vulnerability types during development.
 
@@ -111,6 +113,12 @@ This will display a formatted table showing:
    :alt: Scan metrics output
    :align: center
 
+Review scan results
+___________________
+
+.. tip::
+   
+   For more information on reviewing scan results and taking action on detected vulnerabilities, see the :doc:`/hub/ui/scan/review-scan-results` section of the UI documentation.
 
 Advanced scan configuration
 ---------------------------

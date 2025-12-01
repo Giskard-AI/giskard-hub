@@ -104,7 +104,7 @@ Some work has been funded by the `the European Commission <https://commission.eu
 
       - `RealPerformance website <https://realperformance.giskard.ai/>`_
 
-.. note::
+.. tip::
 
    Are you interested in supporting our research? Check out our `Open Collective funding page for Phare <https://opencollective.com/phare-llm-benchmark>`_.
 

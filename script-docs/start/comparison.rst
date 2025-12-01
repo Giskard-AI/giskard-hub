@@ -39,11 +39,11 @@ Feature comparison
 
    * - Tool/function calling tests
      - ❌ Not available
-     - :doc:`✅ Full support </hub/ui/annotate/checks>`
+     - :doc:`✅ Full support </hub/ui/annotate/overview>`
 
    * - Custom tests
      - :doc:`✅ Full support </oss/sdk/security>`
-     - :doc:`✅ Full support </hub/ui/annotate/checks>`
+     - :doc:`✅ Full support </hub/ui/annotate/overview>`
 
    * - Local evaluations
      - :doc:`✅ Full support </oss/sdk/index>`

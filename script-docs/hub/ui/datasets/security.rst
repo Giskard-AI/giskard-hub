@@ -29,7 +29,7 @@ while adversarial prompts may lead to the generation of harmful or biased conten
 such as agents revealing sensitive data or being manipulated to bypass safety filters.
 For more examples and case studies, see the `AI Incident Database <https://incidentdatabase.ai/>`_ and `Realharm <https://realharm.giskard.ai/>`_.
 
-.. note::
+.. tip::
 
    Here are the key properties of an effective synthetic data generation process for adversarial queries:
 

@@ -16,7 +16,7 @@ Business failures in LLMs are failures that impact the business logic, accuracy,
 
    For more up-to-date business failure testing and a collaborative UI, see the :doc:`Giskard Hub Business Failure Testing </hub/sdk/datasets/business>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
 
-.. note::
+.. tip::
 
    Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
    If you want to detect security failures, check out the :doc:`/oss/sdk/security`.

@@ -75,7 +75,7 @@ Giskard provides comprehensive tools to test and detect business out of scope vu
       Use the Hub interface to generate document-based test cases for business out of scope detection. The UI automatically generates queries that test whether models stay within defined business boundaries.
 
    .. grid-item-card:: Annotate test cases with test rules
-      :link: /hub/ui/annotate/checks
+      :link: /hub/ui/annotate/overview
       :link-type: doc
 
       Annotate test cases with test rules to help the model understand the business boundaries.
