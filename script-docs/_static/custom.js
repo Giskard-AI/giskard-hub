@@ -165,4 +165,80 @@
     }
   });
 
+  // Enterprise trial banner management
+  function createEnterpriseTrialBanner() {
+    // Check if banner already exists to avoid duplicates
+    if (document.querySelector('.enterprise-trial-banner')) {
+      return;
+    }
+
+    // Check if banner was closed in this tab session
+    if (sessionStorage.getItem('enterprise-trial-banner-closed') === 'true') {
+      return;
+    }
+
+    // Create banner element
+    const banner = document.createElement('div');
+    banner.className = 'enterprise-trial-banner';
+    banner.innerHTML = `
+      <span>📄 Learn about the research behind our Red Teaming: <a href="https://www.giskard.ai/knowledge/llm-security-50-adversarial-attacks-for-ai-red-teaming" target="_blank">Download our LLM Security Attacks Whitepaper</a></span>
+      <button class="close-btn" aria-label="Close banner">×</button>
+    `;
+
+    // Add banner to page
+    document.body.appendChild(banner);
+    document.body.classList.add('banner-visible');
+
+    // Handle close button
+    const closeBtn = banner.querySelector('.close-btn');
+    closeBtn.addEventListener('click', () => {
+      // Hide banner with smooth animation
+      banner.style.transform = 'translateY(-100%)';
+      banner.style.opacity = '0';
+
+      // Remove banner and update body class after animation
+      setTimeout(() => {
+        if (banner.parentNode) {
+          banner.remove();
+          document.body.classList.remove('banner-visible');
+          // Remember that banner was closed in this tab session
+          sessionStorage.setItem('enterprise-trial-banner-closed', 'true');
+        }
+      }, 300);
+    });
+
+    // Update banner theme when page theme changes
+    function updateBannerTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      banner.classList.toggle('dark', isDark);
+    }
+
+    // Initial theme check
+    updateBannerTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          updateBannerTheme();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+
+  // Initialize banner on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    createEnterpriseTrialBanner();
+  });
+
+  // Handle banner persistence on navigation
+  if (sessionStorage.getItem('enterprise-trial-banner-closed') !== 'true') {
+    createEnterpriseTrialBanner();
+  }
+
 })();
