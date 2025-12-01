@@ -35,6 +35,11 @@ Evaluations are the core of the testing process in Giskard Hub. They allow you t
 
         Compare evaluations to see if there are any regressions.
 
+High-level workflow
+-------------------
+
+.. include:: ../../ui/evaluations/graph.rst.inc
+
 .. toctree::
    :hidden:
    :maxdepth: 1

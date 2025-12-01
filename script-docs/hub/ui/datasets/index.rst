@@ -40,21 +40,9 @@ In this section, we will walk you through how to create test cases and datasets 
 High-level workflow
 -------------------
 
-.. mermaid::
-   :align: center
+.. include:: graph.rst.inc
 
-   graph LR
-       A[Create Dataset] --> B{Source}
-       B -->|Manual| C([<a href="manual.html" target="_self">Create Manually</a>])
-       B -->|Import| D([<a href="import.html" target="_self">Import Existing</a>])
-       B -->|Generate| E([<a href="business.html" target="_self">Generate Tests</a>])
-       B -->|Scan Results| F([<a href="../scan/index.html" target="_self">From Scan</a>])
-       C --> H[<a href="../annotate/index.html" target="_self">Iterate on Test Cases</a>]
-       D --> H
-       E --> H
-       F --> H
-
-.. note::
+.. tip::
    
    For advanced automated discovery of weaknesses such as prompt injection or hallucinations, check out our :doc:`Vulnerability Scanner </hub/ui/scan/index>`, which uses automated agents to generate tests for common security and robustness issues.
 

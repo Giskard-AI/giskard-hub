@@ -48,13 +48,13 @@ The ``generate_adversarial`` method creates test cases designed to expose securi
     for chat_test_case in security_dataset.chat_test_cases:
         print(chat_test_case.messages[0].content)
 
-.. note::
+.. tip::
 
    You can also use the `Giskard Hub UI </hub/ui/datasets/security>`_ to generate security test cases if you prefer a visual interface.
 
 Next steps
 ----------
 
-* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scan/index`
 * **Generate business failures** - Try :doc:`/hub/sdk/datasets/business`
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

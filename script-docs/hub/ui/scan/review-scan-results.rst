@@ -59,7 +59,7 @@ For each detected issue, you have two main actions:
 - **Convert to test case:**  
   You can save the detected attack as a reproducible test case by clicking **Send to dataset**. This allows you to track fixes over time, build regression tests to make sure the issue doesn't reappear, and share concrete examples with your team for further analysis and improvement.
 
-.. note:: 
+.. tip:: 
 
    To learn more about reviewing test cases, see :doc:`/hub/ui/annotate/review_test_results`.
 

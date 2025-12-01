@@ -6,7 +6,7 @@ Setup agents
 
 In this section, we will walk you through how to setup agents using the Hub interface.
 
-.. note::
+.. tip::
 
     Agents are configured through an API endpoint. They can be evaluated against datasets.
 

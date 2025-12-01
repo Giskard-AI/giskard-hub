@@ -80,6 +80,6 @@ Scoped permissions allow for granular control. For each project, you can specify
    :alt: "Set scope of permissions"
    :width: 800
 
-.. note::
+.. tip::
 
     Users need to log in first before an admin can give them any permissions in the Hub.

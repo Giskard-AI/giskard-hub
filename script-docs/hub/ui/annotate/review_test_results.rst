@@ -20,7 +20,7 @@ ______________________
 
 When reviewing a failure directly from a test execution (not from a task), follow these steps:
 
-1. **Review the failure** - After a test execution, review the failure details
+1. **Review a fail after a test execution** - After a test execution, review the failure details
 2. **Determine the appropriate action** - Based on your review, decide which of the following scenarios applies:
 
 .. mermaid::
@@ -28,16 +28,17 @@ When reviewing a failure directly from a test execution (not from a task), follo
 
    graph LR
        A[Review Failure] --> B{Agent Answer<br/>Correct?}
-       B -->|No| C[<a href="distribute_tasks.html" target="_self">Assign to Developer<br/>or KB Manager</a>]
-       B -->|Yes| F{Handle Now?}
-       B -->|Don't Know| E[<a href="distribute_tasks.html" target="_self">Put in Draft<br/>Assign to Domain Expert</a>]
-       F -->|Yes| G[<a href="modify_test_cases.html" target="_self">Modify Test Case</a>]
-       F -->|No| H[<a href="distribute_tasks.html" target="_self">Create Task</a>]
-       H --> I{Has Value?}
-       I -->|No| J[Remove Test]
-       I -->|Yes| G
+       B -->|No| C[<a href="distribute_tasks.html" target="_self">Open Task<br/>Assign to Developer<br/>or KB Manager</a>]
+       B -->|Yes| F{Rewrite Now?}
+       B -->|Don't Know| E[<a href="distribute_tasks.html" target="_self">Put in Draft<br/>Open Task<br/>Assign to Domain Expert</a>]
+       F -->|Yes| G{Can Answer<br/>Questions?}
+       F -->|No| H[<a href="distribute_tasks.html" target="_self">Draft Test Case<br/>Create Task<br/>Assign to PO</a>]
+       G -->|Yes| I[<a href="modify_test_cases.html" target="_self">Rewrite Test<br/>Retest<br/>Save</a>]
+       G -->|No| J{Has Value?}
+       J -->|No| K[Remove Test]
+       J -->|Yes| H
 
-.. note::
+.. tip::
 
    To review evaluation runs, you first need to run an evaluation. For information on running evaluations, see :doc:`/hub/ui/evaluations/create`. For information on viewing evaluation results, see :doc:`/hub/ui/evaluations/index`.
 
@@ -46,50 +47,57 @@ If the agent is incorrect, the test is well written
 
 If the agent is incorrect and the test is correctly identifying the issue:
 
-- **Open a task** and assign it to the bot developer or the KB manager
+- **Open a task** and assign the bot developer or the KB manager
 - Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
-- Create a task with a clear description of what needs to be fixed in the test
+- Create a task with a clear description of what needs to be fixed
 
 If the agent is correct, the test should be rewritten
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the agent's answer is actually correct and the test should be modified:
+If the agent is correct and the test was too strict, you need to rewrite the test. You have the following options:
 
-**Option 1: Rewrite the test immediately**
-
-- **Go to the linked test case** in the dataset
-- **Change the test requirements** - Rewrite checks, modify validation rules, or adjust other test criteria as needed
-- **Retest multiple times** - Regenerate the agent answer and retest until the result is always PASS
-- **Save the changes** - If the test case was in draft, undraft it
-- **Close the task** (if applicable) - You can also set the task as closed
-
-**Option 2: Handle it later**
+**Option 1: You want to do it later**
 
 - **Draft the test case** - Mark the test case as draft to prevent it from being used in evaluations
-- **Open a task** - Create a task to track that this test case needs to be modified
-- **Determine the test case value:**
-  
-  * **If the test case has no value** - Remove it from the dataset
-  
-  * **If the test case has value** - Complete the modification workflow:
-    
-    - Go to the linked test case in the dataset
-    - Change the test requirements (rewrite checks, etc.)
-    - Retest multiple times until the result is always PASS (regenerate a agent answer, and retest)
-    - Save the changes and if the test case was in draft, undraft it
-    - You can also set the task as closed
+- **Open a task** where you can track that this test case needs to be modified
+- **Assign the product owner** to the task
+- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
 
-.. note::
+**Option 2: You are able to answer at least one of these questions:**
+
+1. Is there any minimum information the bot must not omit (e.g., a number, a fact)?
+2. Is there any block of information the bot must not go beyond (a page of a website, a section of a document)?
+3. Is there any information you do not want to appear in the bot's answer?
+
+If you can answer at least one of these questions:
+
+- **Go to the linked test case** in the dataset
+- **Rewrite the test requirement:**
+  
+  * If question 1 is true: Enable correctness check by putting the minimum info as reference
+  * If question 2 is true: Enable groundedness check and put the block of info as context
+  * If question 3 is true: Write a negative rule ("the bot should not...") in a conformity check
+  
+- **Retest various times** until the result is always PASS (regenerate a bot answer, and retest)
+- **Save** the changes
+- **If the test case was in draft, undraft it**
+- **You can also set the task as closed** (if applicable)
+
+**Option 3: The test does not have value**
+
+- **Remove it from the dataset**
+
+.. tip::
 
    For detailed information about modifying test cases, see :doc:`/hub/ui/annotate/modify_test_cases`.
 
-If you don't know
-^^^^^^^^^^^^^^^^^
+If you don't know, there needs to be a discussion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you're uncertain whether the agent's answer is correct:
+If you don't know if the agent answers correctly or not and there needs to be a discussion:
 
-- **Put the test case in draft** - Mark the test case as draft to prevent it from being used in evaluations
-- **Open a task** and assign it to the domain expert
+- **Put in draft** - Mark the test case as draft to prevent it from being used in evaluations
+- **Open a task** and assign the domain expert
 - Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
 - Create a task with your questions and concerns, then assign it to the domain expert who can make this determination
 
@@ -111,7 +119,7 @@ When reviewing a task that has been assigned to you, follow these steps:
        C -->|Yes| E[<a href="distribute_tasks.html" target="_self">Update Task Description<br/>Assign to Product Owner</a>]
        C -->|Don't Know| F[<a href="distribute_tasks.html" target="_self">Update Task Description<br/>Assign to Expert or PO</a>]
 
-.. note::
+.. tip::
 
    For information on creating tasks, see :doc:`/hub/ui/annotate/distribute_tasks`.
 
@@ -125,20 +133,27 @@ If the agent is incorrect, the test is well written
 If the agent is correct, the test should be rewritten
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the test case is correct and the test should be rewritten:
+If the age answers correctly in reality and the test was too strict:
 
-- **Provide the reason** why the test should be rewritten in the description of the task
-- **Assign the task to the product owner** so that he or she can rewrite the test
-- Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
-- Update the task description with your findings and reassign it to the product owner
+- **Provide the reason** why the bot answer is ok, in the description of the task
+- **Answer at least one of these questions** to help guide the test rewrite:
+  
+  * Is there any minimum information the bot must not omit (e.g., a number, a fact)?
+  * Is there any block of information the bot must not go beyond (a page of a website, a section of a document)?
+  * Is there any information you do not want to appear in the bot's answer?
+  
+- **Assign the product owner** so that he or she can rewrite the test based on your input
 
-If you don't know
-^^^^^^^^^^^^^^^^^
+   * Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
+   * Update the task description with your answer and reassign it to the product owner
 
-If you're uncertain whether the test case is correct and need a discussion:
+If you don't know if the agent answers correctly or not. There needs to be a discussion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Provide the reason** why you don't know and why it needs to be discussed in the task description
-- **Assign the task to the right person** with the knowledge to make this determination, or reassign it to the product owner
+If you don't know if the agent answers correctly or not and there needs to be a discussion:
+
+- **Provide the reason** why you don't know and why it needs to be discussed
+- **Assign the right person** with the knowledge or re-assign the product owner
 - Navigate to the "Distribute tasks" workflow :doc:`/hub/ui/annotate/distribute_tasks`
 - Update the task with your questions and concerns, then reassign it to the appropriate person
 
@@ -168,7 +183,7 @@ When reviewing a test case, the first thing to check is whether the test case pa
 
 To understand why a test case failed, you need to review the specific checks that were applied. 
 
-.. note::
+.. tip::
 
    For detailed information about checks and how they work, see :doc:`/hub/ui/annotate/overview`. For information on enabling/disabling checks, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate/modify_test_cases`.
 
@@ -187,7 +202,7 @@ Each check provides an explanation of why it passed or failed. This explanation 
 * Why the test case passed or failed
 * What specific aspects of the agent's response caused the result
 
-.. note::
+.. tip::
 
    For more information about checks and how to enable/disable them, see the "Enable/Disable checks" section in :doc:`/hub/ui/annotate/modify_test_cases`. For comprehensive information about all check types, see :doc:`/hub/ui/annotate/overview`.
 
@@ -209,7 +224,7 @@ When a test fails, it is categorized based on the type of failure. Understanding
 * **Metadata mismatch** - The agent's metadata does not match expected values
 * **String matching failure** - Required keywords or phrases are missing
 
-.. note::
+.. tip::
 
    You can change the categories used for classification but before doing so, we recommend you to read about the best practices for modifying test cases in :doc:`/hub/ui/annotate/modify_test_cases`.
 
@@ -261,7 +276,7 @@ You can also provide an "answer example" for each test case. This answer example
 
 If you do not provide an answer example, the Hub will automatically use the assistant reply generated during the first evaluation run as the default example.
 
-.. note::
+.. tip::
 
    For more detailed information about creating and managing conversations, see :doc:`/hub/ui/annotate/review_test_results`.
 

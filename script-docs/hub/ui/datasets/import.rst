@@ -39,7 +39,7 @@ Each conversation must be defined as a JSON object with a ``messages`` field con
 - ``tags``: a list of tags to categorize the conversation
 - ``checks``: a list of checks to evaluate the conversation, they can be built-in or custom ones
 
-.. note::
+.. tip::
 
    For detailed information about built-in checks like correctness, conformity, groundedness, string matching, metadata, and semantic similarity, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 

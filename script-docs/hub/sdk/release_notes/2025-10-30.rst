@@ -44,5 +44,5 @@ How to get started?
 
 .. tip::
 
-   Check out the :doc:`/hub/sdk/scans` section for a full guide on how to use the scan feature with the SDK.
+   Check out the :doc:`/hub/sdk/scan/index` section for a full guide on how to use the scan feature with the SDK.
 

@@ -45,7 +45,7 @@ The evaluation run is automatically named and assessed against the checks (built
 
 - **Semantic Similarity**: Verifies that the agent's response is semantically similar to the expected output.
 
-.. note::
+.. tip::
 
    For detailed information about these checks, including examples and how they work, see :doc:`/hub/ui/annotate/overview`.
 
@@ -82,7 +82,7 @@ The metrics view helps you:
 * Understand which custom checks are most effective
 * Prioritize which checks need refinement or adjustment
 
-.. note::
+.. tip::
    
    You can read about metric definitions in :doc:`/hub/ui/annotate/overview`.
 
@@ -105,7 +105,7 @@ Using failure categories helps you:
 * **Assign tasks** - Route issues to the right team members based on category
 * **Track improvements** - Monitor how failure rates change over time
 
-.. note::
+.. tip::
    
    You can read about failure category definitions in :doc:`/hub/ui/annotate/overview`.
 
@@ -126,7 +126,7 @@ Using tags helps you:
 * **Identify weak areas** - Discover which types of tests have higher failure rates
 * **Organize reviews** - Review test results by category or domain
 
-.. note::
+.. tip::
    
    You can read about tag definitions in :doc:`/hub/ui/annotate/overview`.
 

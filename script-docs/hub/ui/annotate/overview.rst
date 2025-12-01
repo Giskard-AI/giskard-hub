@@ -100,7 +100,7 @@ Given a rule or criterion, check whether the agent answer complies with this rul
    - I'm sorry, I cannot give you specific financial advice, to get personalized recommandation I suggest that you contact our dedicated customer service.
 
 
-.. note::
+.. tip::
 
    To write effective rules, remember the following best practices:
 
@@ -170,7 +170,7 @@ Metadata
 
 Check whether the agent answer contains the expected value at the specified JSON path. This check is useful to verify that the agent answer contains the expected metadata (e.g. whether a tool is called). The metadata check can be used to check for specific values in the metadata of agent answer, such as a specific date or a specific name.
 
-.. note::
+.. tip::
 
     We recommend using a tool like `json-path-evaluator <https://mockoon.com/tools/json-object-path-evaluator/>`_ to evaluate the JSON path rules.
 

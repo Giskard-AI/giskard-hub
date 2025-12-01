@@ -7,7 +7,7 @@ Modify the test cases
 
 This section guides you through the product owner workflow for modifying test cases. This workflow is designed for product owners and technical team members who need to refine test cases, adjust validation rules, and structure datasets based on review feedback.
 
-.. note::
+.. tip::
 
    Test cases (conversations) are part of datasets. For information on creating and managing datasets, see :doc:`/hub/ui/datasets/index`.
 
@@ -44,7 +44,7 @@ To draft a test case:
 
 You can also set a test case to draft when creating a task from an evaluation run. This ensures that failed test cases are automatically excluded from subsequent evaluations until they are reviewed and fixed.
 
-.. note::
+.. tip::
 
    For more information about creating tasks and setting test cases to draft, see :doc:`/hub/ui/annotate/distribute_tasks`.
 
@@ -56,7 +56,7 @@ In addition to drafting, you can hide test cases to organize your evaluation ove
 * **Hide** - Makes the test case less visible in the evaluation overview and for the metrics computations in the dashboard
 * **Unhide** - Makes the test case visible again in the evaluation overview
 
-.. note::
+.. tip::
 
    You can look at understanding the overview of evaluations in :doc:`/hub/ui/evaluations/create`.
 
@@ -126,7 +126,7 @@ It is important to understand any changes you make to the checks and how they wi
 - **Modify check requirement** - Modify the requirements of a check to better match your evaluation criteria
 - **Validate the check** - Validate the check to ensure it works correctly
 
-.. note::
+.. tip::
 
    For an overview of the different checks and how to choose the right one, see :doc:`/hub/ui/annotate/overview`.
 
@@ -143,7 +143,7 @@ Modify check requirement
 You can modify the requirements of a check to better match your evaluation criteria. However, modifying the requirements of a check will affect all test cases that have that check enabled. Therefore, it is recommended to modify the requirements of a check only if you are sure that the changes are correct for all test cases. 
 Instead, you can create a new check with the new requirements, iterate on it and enable it on the test cases that need it, before modifying the old check.
 
-.. note::
+.. tip::
 
    To get a full overview of the different checks and the parameters to configure them, see :doc:`/hub/ui/annotate/overview`.
 
@@ -190,7 +190,7 @@ Tags are optional but highly recommended labels that help you organize and filte
 * **Identify weak areas** - Discover which types of tests have higher failure rates
 * **Organize reviews** - Review test cases by category or domain
 
-.. note::
+.. tip::
 
    For more information about tags, see :doc:`/hub/ui/annotate/overview`.
 

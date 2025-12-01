@@ -71,7 +71,7 @@ Create a task
 
 You can create tasks from two main sources: evaluation runs and scan results. Tasks help you track and assign work items to the appropriate team members.
 
-.. note::
+.. tip::
 
    Tasks can be linked to test cases (conversations) from datasets. For information on creating and managing datasets, see :doc:`/hub/ui/datasets/index`.
 
@@ -91,7 +91,7 @@ __________________
 
 When reviewing scan results, you can create tasks to track and assign work items. This is useful for organizing the review of vulnerabilities and issues found during scans.
 
-.. note::
+.. tip::
 
    To create a task from scan results, you first need to launch a scan. For information on how to launch scans, see :doc:`/hub/ui/scan/launch-scan`. For information on reviewing scan results, see :doc:`/hub/ui/scan/review-scan-results`.
 
@@ -117,7 +117,7 @@ _____________________
 
 You can create tasks when reviewing evaluation runs. This is useful for tracking test cases that need attention after an evaluation.
 
-.. note::
+.. tip::
 
    To create a task from an evaluation run, you first need to run an evaluation. For information on how to run evaluations, see :doc:`/hub/ui/evaluations/create`.
 
@@ -218,7 +218,7 @@ Once tasks are created, follow the review process:
 4. **Close the task** - When the work is complete
 5. **Undraft the conversation** - Once all tasks are resolved, you can undraft the conversation to make it available for future evaluation runs
 
-.. note::
+.. tip::
 
    You can find a full example of the review process in the :doc:`/hub/ui/annotate/modify_test_cases` documentation.
 
@@ -237,7 +237,7 @@ You can add a description to a task to communicate:
 * What behavior or scenario it represents
 * Any special considerations or context
 
-.. note::
+.. tip::
 
    For more information about task descriptions, see :doc:`/hub/ui/annotate/distribute_tasks`.
 

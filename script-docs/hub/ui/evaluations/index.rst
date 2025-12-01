@@ -47,19 +47,9 @@ In this section, we will walk you through how to manage evaluations in Giskard H
 High-level workflow
 -------------------
 
-.. mermaid::
-   :align: center
+.. include:: graph.rst.inc
 
-   graph LR
-       A([<a href="create.html" target="_self">Run Evaluation</a>]) --> C([<a href="review-results.html" target="_self">Review Results</a>])
-       C --> D{Action Needed?}
-       D -->|Giskard Hub issue| E[<a href="../annotate/index.html" target="_self">Iterate on Test Cases</a>]
-       D -->|External issue| F[Update KB/Agent]
-       D -->|No issue| A
-       E --> A
-       F --> A
-
-.. note::
+.. tip::
 
    Local evaluations are supported via the SDK. To run evaluations against local development agents, see :doc:`/hub/sdk/evaluations/local`.
 

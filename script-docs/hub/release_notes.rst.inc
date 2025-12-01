@@ -5,7 +5,7 @@ Explore Release Notes
 
 Click on a release below to browse the release notes for that version:
 
-.. note::
+.. tip::
    
    The release notes for individual versions of Hub UI and Hub SDK are asynchronous. For a full overview of the changes, **please look at the release notes for the Hub UI**.
    

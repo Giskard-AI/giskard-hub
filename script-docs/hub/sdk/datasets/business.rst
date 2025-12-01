@@ -46,13 +46,13 @@ Before generating test cases, you need to `create a knowledge base </hub/sdk/pro
     for chat_test_case in business_dataset.chat_test_cases:
         print(chat_test_case.messages[0].content)
 
-.. note::
+.. tip::
 
    You can also use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate business test cases if you prefer a visual interface.
 
 Next steps
 ----------
 
-* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scans`
+* **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scan/index`
 * **Generate security vulnerabilities** - Try :doc:`/hub/sdk/datasets/security`
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

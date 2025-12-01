@@ -27,6 +27,11 @@ We recommend systematically launching scans every time before deploying an updat
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
 
+High-level workflow
+-------------------
+
+.. include:: ../ui/scan/graph.rst.inc
+
 .. code-block:: python
 
     from giskard_hub import HubClient
@@ -41,7 +46,7 @@ Attack overview
 The vulnerability scan test suite includes various attack patterns designed to test for specific vulnerabilities in your agent. 
 We recommend running a full scan regularly but you can also run targeted scans for specific vulnerability types during development. 
 
-.. note::
+.. tip::
     
     For a full overview of the attacks, see the :doc:`/hub/ui/scan/vulnerability-categories/index` section.
 
@@ -66,7 +71,7 @@ We can now launch the scan:
         tags=tags,
     )
 
-.. note::
+.. tip::
 
     Running scans with all OWASP LLM Top 10 categories can be token-intensive and may take significant time to complete. Consider running targeted scans for specific vulnerability types during development.
 

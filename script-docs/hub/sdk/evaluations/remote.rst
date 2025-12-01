@@ -105,7 +105,7 @@ That covers the basics of running evaluations in the Hub. You can now integrate
 this code in your CI/CD pipeline to automatically evaluate your agents every
 time you deploy a new version.
 
-.. note::
+.. tip::
 
     If you want to run evaluations on a local model that is not yet exposed with an API, check :doc:`/hub/sdk/evaluations/local`.
 

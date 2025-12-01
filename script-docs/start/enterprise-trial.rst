@@ -18,7 +18,7 @@ What's included in your trial
   - No SSO or enterprise security features
   - A quota for API calls needed to run synthetic generation of LLM agent tests and LLM judges
 
-.. note::
+.. tip::
 
    🔒 **Unsure if our trial infrastructure meets your company's security standards?** Visit our `trust center <https://trust.giskard.ai>`_ to learn more about our security practices and compliance.
 
@@ -30,7 +30,7 @@ Getting started
    * Visit our `contact page <https://www.giskard.ai/contact>`_
    * We suggest adding some information about your organization and LLM use case.
 
-.. note::
+.. tip::
 
    🚦 **A quick heads-up from the Giskard team!** To make sure every trial gets the treatment they deserve, we run trials in small, focused batches.
    This means we can't provide access to everyone at once. Priority goes to teams with the most mission-critical agent use cases.
