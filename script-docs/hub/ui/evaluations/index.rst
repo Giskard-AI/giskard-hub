@@ -47,12 +47,11 @@ In this section, we will walk you through how to manage evaluations in Giskard H
 High-level workflow
 -------------------
 
-.. include:: graph.rst.inc
+.. include:: ./graph.rst.inc
 
 .. tip::
 
    Local evaluations are supported via the SDK. To run evaluations against local development agents, see :doc:`/hub/sdk/evaluations/local`.
-
 
 .. toctree::
    :hidden:

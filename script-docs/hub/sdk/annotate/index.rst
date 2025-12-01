@@ -7,6 +7,12 @@ Review and refine test cases and metrics
 
 Checks are validation rules that are used to evaluate the responses of your agents. They can be used to ensure that your agents are behaving correctly and following the rules that you have defined.
 
+|
+
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/VLejoLvDy-o?si=FXzYphE06Oi1fiBH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 The Giskard Hub provides a set of built-in checks that cover common use cases, such as:
 
 * **Correctness**: Verifies if the agent's response matches the expected output (reference answer).

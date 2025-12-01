@@ -13,7 +13,6 @@ Tasks allow you to manage and distribute work among you and your coworkers.
 
    <iframe width="100%" height="400" src="https://www.youtube.com/embed/u5ctBhfArNY?si=76o_0VIQzdPXFELk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-
 Tasks provide several key benefits for managing evaluation workflows:
 
 * **Quality assurance** - Ensure all test cases are reviewed before being used in evaluations

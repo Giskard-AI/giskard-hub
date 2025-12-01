@@ -24,6 +24,12 @@ Metrics
 
 Metrics provide quantitative measurements of your agent's performance across different checks. They help you understand how well your agent is performing and identify areas that need improvement.
 
+|
+
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/VLejoLvDy-o?si=FXzYphE06Oi1fiBH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Create a check
 ______________
 
