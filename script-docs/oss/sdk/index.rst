@@ -26,7 +26,7 @@ We support two main use cases:
     
    **🚀 Love Giskard Open Source?**
 
-   Try it to the next level with **Giskard Hub** - featuring a friendly UI, team collaboration, continuous red teaming, enterprise security, and a **free trial**!
+   Try it to the next level with **Giskard Hub** - featuring a friendly UI, team collaboration, continuous red teaming, enterprise security, and a **trial**!
 
    `Explore our features to Giskard Hub </start/comparison.html>`_ and learn how it can help you with enterprise-grade AI testing.
 
@@ -189,9 +189,9 @@ We can now evaluate the test suite against another model.
 .. tip::
    **🚀 Looking for SOTA security testing?**
 
-   Try our enterprise-grade solution with a **free trial**. Get access to advanced security detection, team collaboration, continuous red teaming, and more.
+   Try our enterprise-grade solution with a **trial**. Get access to advanced security detection, team collaboration, continuous red teaming, and more.
 
-   `Request your free enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
+   `Request your enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
 
 Detect business failures with RAGET
 -----------------------------------
@@ -285,9 +285,9 @@ This will return a report object that contains the evaluation results.
 .. tip::
    **🚀 Is every single business failure too much for you?**
 
-   Try our enterprise-grade solution with a **free trial**. Get access to advanced business logic validation, team collaboration, continuous red teaming, and more.
+   Try our enterprise-grade solution with a **trial**. Get access to advanced business logic validation, team collaboration, continuous red teaming, and more.
 
-   `Request your free enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
+   `Request your enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
 
 Next steps
 ----------

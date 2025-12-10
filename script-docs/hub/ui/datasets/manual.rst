@@ -94,7 +94,7 @@ We recommend you to try different approaches to create conversations, for exampl
 - Legitimate questions that you think your users may ask the agent
 - Out of scope questions that the agent is not supposed to answer
 
-We will give some examples below. If you're interested in learning new ways to test your agents and LLM applications, we also recommend you to check out our free course on `Red Teaming LLM Applications <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_ on DeepLearningAI.
+We will give some examples below. If you're interested in learning new ways to test your agents and LLM applications, we also recommend you to check out our course on `Red Teaming LLM Applications <https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/>`_ on DeepLearningAI.
 
 Create a manual test
 ____________________

@@ -197,9 +197,9 @@ You can access the correctness of the agent aggregated in various ways or analyz
 
    **🚀 Is every single business failure too much for you?**
 
-   Try our enterprise-grade solution with a **free trial**. Get access to advanced business logic validation, team collaboration, continuous red teaming, and more.
+   Try our enterprise-grade solution with a **trial**. Get access to advanced business logic validation, team collaboration, continuous red teaming, and more.
 
-   `Request your free enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
+   `Request your enterprise trial today </start/enterprise-trial.html>`_ and see the difference for yourself!
 
 
 Customizing business failure testing
