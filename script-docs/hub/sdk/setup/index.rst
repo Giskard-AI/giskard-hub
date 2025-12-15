@@ -14,7 +14,7 @@ In this section, we will walk you through how to setup keys, IDs, projects, agen
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Configure API keys and find entity IDs
-      :link: ids
+      :link: keys
       :link-type: doc
 
       Retrieve API keys and entity IDs programmatically
@@ -46,7 +46,7 @@ High-level workflow
    :hidden:
    :maxdepth: 4
 
-   ids
+   keys
    projects
    agents
    knowledge_bases
