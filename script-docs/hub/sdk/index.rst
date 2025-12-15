@@ -8,11 +8,11 @@ The Giskard Hub SDK provides a Python interface to interact with the Giskard Hub
 
 .. grid:: 1 1 2 2
 
-   .. grid-item-card:: Setup projects, agents and knowledge bases
+   .. grid-item-card:: Setup API keys, projects, agents and knowledge bases
       :link: setup/index
       :link-type: doc
 
-      Setup and organize projects, agents and knowledge bases
+      Setup and organize API keys, projects, agents and knowledge bases
    
    .. grid-item-card:: Launch vulnerability scans
       :link: scan/index
@@ -61,7 +61,14 @@ The library is compatible with Python 3.10 to 3.14.
 Authentication
 --------------
 
-To use the SDK, you need to authenticate with the Hub. You can do this by setting the following environment variables:
+You can find your API key and Hub URL in the Hub UI. After login, click your user badge in the bottom left corner and copy the "API Key" value.
+
+.. image:: /_static/images/sdk/api-key.png
+   :align: center
+   :alt: "API key"
+   :width: 800
+
+To use the SDK, you need to authenticate with the Hub using this API key. You can do this by setting the following environment variables:
 
 .. code-block:: bash
 
