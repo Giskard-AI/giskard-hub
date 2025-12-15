@@ -70,7 +70,7 @@ Alternatively, you can pass these values directly to the client:
     from giskard_hub import HubClient
 
     hub = HubClient(
-        url="https://your-hub-url",
+        hub_url="https://your-hub-url",
         token="your-token"
     )
 
