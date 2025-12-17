@@ -1,26 +1,16 @@
 [project]
-name = "giskard-hub"
-version = "2.1.0"
-description = "The giskard_hub library allows you to interact with the Giskard Hub, a platform that centralizes the validation process of LLM applications, empowering product teams to ensure all functional, business & legal requirements are met, and keeping them in close contact with the development team to avoid delayed deployment timelines."
+name = "giskard-docs"
+version = "0.1.0"
+description = "The giskard documentation"
 authors = [
     {name = "Giskard Team", email = "hello@giskard.ai"}
 ]
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
-dependencies = [
-    "httpx>=0.27.0,<1",
-    "rich>=13.7.1",
-    "python-dateutil>=2.9.0.post0",
-]
+dependencies = []
 
 [dependency-groups]
 dev = [
-    "black[jupyter]==25.9.0",
-    "isort==6.1.0",
-    "pylint==3.3.9",
-    "pytest==8.4.2",
-]
-docs = [
     "sphinxawesome-theme==5.3.2; python_version>='3.12'",
     "myst-parser==4.0.1; python_version>='3.12'",
     "notebook==7.4.7",
@@ -45,28 +35,6 @@ docs = [
 Homepage = "https://github.com/Giskard-AI/giskard-hub"
 Repository = "https://github.com/Giskard-AI/giskard-hub"
 Documentation = "https://docs.giskard.ai/"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/giskard_hub"]
-
-[tool.isort]
-profile = "black"
-extend_skip_glob = [".history/*"]
-
-[tool.pylint.master]
-fail-under = "10"
-
-[tool.pylint.reports]
-reports = "y"
-output-format = "colorized"
-
-[tool.pylint.'MESSAGES CONTROL']
-disable = "missing-function-docstring,missing-class-docstring,missing-module-docstring,line-too-long,too-few-public-methods"
-enable = ["useless-suppression", "use-symbolic-message-instead"]
 
 [[tool.uv.index]]
 name = "pytorch_cpu"
