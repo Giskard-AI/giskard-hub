@@ -69,7 +69,7 @@ Giskard provides comprehensive tools to test and detect business out of scope vu
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Business Dataset Creation
-      :link: /hub/ui/datasets/business
+      :link: /hub/ui/datasets/knowledge_base
       :link-type: doc
 
       Use the Hub interface to generate document-based test cases for business out of scope detection. The UI automatically generates queries that test whether models stay within defined business boundaries.

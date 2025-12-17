@@ -27,11 +27,11 @@ Feature comparison
 
    * - Security vulnerability detection
      - :doc:`Basic coverage </oss/sdk/security>`
-     - :doc:`State-of-the-art detection </hub/ui/datasets/security>`
+     - :doc:`State-of-the-art detection </hub/ui/scan/index>`
 
    * - Business failure detection
      - :doc:`Basic coverage </oss/sdk/business>`
-     - :doc:`State-of-the-art detection </hub/ui/datasets/business>`
+     - :doc:`State-of-the-art detection </hub/ui/datasets/knowledge_base>`
 
    * - Continuous red teaming
      - ❌ Not available

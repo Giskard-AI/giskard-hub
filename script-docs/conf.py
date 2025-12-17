@@ -169,6 +169,9 @@ rediraffe_redirects = {
     "hub/ui/annotate/checks.rst": "hub/ui/annotate/overview.rst",
     "hub/ui/annotate/tags.rst": "hub/ui/annotate/overview.rst",
     "hub/ui/annotate/conversations.rst": "hub/ui/annotate/overview.rst",
+    "hub/ui/datasets/security.rst": "hub/ui/scan/index.rst",
+    "hub/ui/datasets/business.rst": "hub/ui/datasets/knowledge_base.rst",
+    "hub/sdk/datasets/business.rst": "hub/sdk/datasets/knowledge_base.rst",
 }
 
 # Use wildcard patterns to support any nested path within the specified routes

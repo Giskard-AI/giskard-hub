@@ -65,7 +65,7 @@ Giskard provides comprehensive tools to test and prevent robustness vulnerabilit
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Security Dataset Creation
-      :link: /hub/ui/datasets/security
+      :link: /hub/ui/scan/index
       :link-type: doc
 
       Use the Hub interface to generate adversarial test cases for robustness issue detection. The UI automatically generates edge cases and adversarial inputs that test model resilience.

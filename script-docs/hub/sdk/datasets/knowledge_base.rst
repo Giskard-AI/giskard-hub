@@ -1,11 +1,11 @@
-:og:title: Giskard Hub SDK - Business Logic Test Generation
-:og:description: Generate and manage business logic test cases programmatically. Test compliance, domain-specific scenarios, and business requirements in your LLM agents using the Python SDK.
+:og:title: Giskard Hub SDK - Knowledge Base Test Generation
+:og:description: Generate and manage knowledge base test cases programmatically. Test compliance, domain-specific scenarios, and business requirements in your LLM agents using the Python SDK.
 
 ======================================================
-Generate business tests
+Generate knowledge base tests
 ======================================================
 
-This section will guide you through generating business-focused test cases using the Hub interface.
+This section will guide you through generating knowledge base-focused test cases using the Hub SDK.
 Generative AI agents can face an endless variety of real-world scenarios, making it impossible to manually enumerate all possible scenarios. Automated, synthetic test case generation is therefore essential—especially when you lack real user chats to import as tests. However, a major challenge is to ensure that these synthetic cases are tailored to your business context, rather than being overly generic.
 
 By generating domain-specific synthetic tests, you can proactively identify and address these types of failures before they impact your users or business operations.
@@ -29,26 +29,26 @@ Before generating test cases, you need to `create a knowledge base </hub/sdk/pro
 
 .. code-block:: python
 
-    # Generate document-based test cases for business testing
-    business_dataset = hub.datasets.generate_document_based(
+    # Generate document-based test cases for knowledge base testing
+    knowledge_base_dataset = hub.datasets.generate_document_based(
         model_id=model.id,
         knowledge_base_id=knowledge_base.id,
-        dataset_name="Business Logic Tests",
+        dataset_name="Knowledge Base Tests",
         description="Test cases based on company knowledge base",
         n_questions=15, # total number of questions to generate
         topic_ids=["topic-uuid-1", "topic-uuid-2"]  # Optional: filter by specific topics
     )
 
     # Wait for the dataset to be created
-    business_dataset.wait_for_completion()
+    knowledge_base_dataset.wait_for_completion()
 
     # List the chat test cases in the dataset
-    for chat_test_case in business_dataset.chat_test_cases:
+    for chat_test_case in knowledge_base_dataset.chat_test_cases:
         print(chat_test_case.messages[0].content)
 
 .. tip::
 
-   You can also use the `Giskard Hub UI </hub/ui/datasets/business>`_ to generate business test cases if you prefer a visual interface.
+   You can also use the `Giskard Hub UI </hub/ui/datasets/knowledge_base>`_ to generate knowledge base test cases if you prefer a visual interface.
 
 Next steps
 ----------

@@ -69,7 +69,7 @@ Giskard provides comprehensive tools to test and prevent stereotypes and discrim
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Hub UI - Security Dataset Creation
-      :link: /hub/ui/datasets/security
+      :link: /hub/ui/scan/index
       :link-type: doc
 
       Use the Hub interface to generate adversarial test cases for stereotypes and discrimination detection. The UI automatically generates queries that test for biased responses and discriminatory behavior.

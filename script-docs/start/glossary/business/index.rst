@@ -61,7 +61,7 @@ To begin testing your AI systems for business failures:
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Giskard Hub UI Business Dataset
-      :link: /hub/ui/datasets/business
+      :link: /hub/ui/datasets/knowledge_base
       :link-type: doc
 
       Our state-of-the-art enterprise-grade business failure testing.

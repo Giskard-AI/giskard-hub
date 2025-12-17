@@ -61,7 +61,7 @@ To begin securing your AI systems:
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Giskard Hub UI Security Dataset
-      :link: /hub/ui/datasets/security
+      :link: /hub/ui/scan/index
       :link-type: doc
 
       Our state-of-the-art enterprise-grade security vulnerability testing.

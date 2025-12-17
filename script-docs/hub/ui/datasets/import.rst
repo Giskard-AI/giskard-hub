@@ -95,6 +95,6 @@ Next steps
 ----------
 
 * **Agentic vulnerability detection** - Try :doc:`/hub/ui/scan/index`
-* **Generate business failures** - Try :doc:`/hub/ui/datasets/business`
-* **Generate security failures** - Try :doc:`/hub/ui/datasets/security`
+* **Generate knowledge base tests** - Try :doc:`/hub/ui/datasets/knowledge_base`
+* **Generate scenario tests** - Try :doc:`/hub/ui/datasets/scenario`
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

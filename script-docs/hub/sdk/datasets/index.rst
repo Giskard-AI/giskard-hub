@@ -24,8 +24,8 @@ but since generative AI agents can encounter an infinite number of scenarios, au
 
         Detect security failures, by generating synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
 
-    .. grid-item-card:: Generate business tests
-        :link: business
+    .. grid-item-card:: Generate knowledge base tests
+        :link: knowledge_base
         :link-type: doc
 
         Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
@@ -51,5 +51,5 @@ High-level workflow
 
    manual
    security
-   business
+   knowledge_base
    import

@@ -65,7 +65,7 @@ Giskard provides comprehensive tools to test and prevent output formatting vulne
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Security Dataset Creation
-      :link: /hub/ui/datasets/security
+      :link: /hub/ui/scan/index
       :link-type: doc
 
       Use the Hub interface to generate adversarial test cases for output formatting issue detection. The UI automatically generates queries that attempt to manipulate response structure for malicious purposes.

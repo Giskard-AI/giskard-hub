@@ -14,7 +14,7 @@ Business failures in LLMs are failures that impact the business logic, accuracy,
 
    Remember: Business failure testing is an ongoing process. Regularly test your agents and update your business failure test suites to stay ahead of emerging failures.
 
-   For more up-to-date business failure testing and a collaborative UI, see the :doc:`Giskard Hub Business Failure Testing </hub/sdk/datasets/business>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
+   For more up-to-date business failure testing and a collaborative UI, see the :doc:`Giskard Hub Knowledge Base Testing </hub/sdk/datasets/knowledge_base>` guide. Giskard Hub's enterprise subscription leverages continuous monitoring of the latest LLM business failures and state-of-the-art research, while the open-source vulnerability database is based on 2023 data and is not regularly updated.
 
 .. tip::
 

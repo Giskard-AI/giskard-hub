@@ -63,7 +63,7 @@ Test Denial of Answers with Giskard
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Hub UI - Business Dataset Creation
-      :link: /hub/ui/datasets/business
+      :link: /hub/ui/datasets/knowledge_base
       :link-type: doc
 
         Use the Hub interface to generate document-based test cases for denial of answers detection. The UI automatically generates queries that test whether models incorrectly refuse to answer legitimate business questions.

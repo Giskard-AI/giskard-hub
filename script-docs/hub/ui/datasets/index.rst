@@ -8,7 +8,7 @@ Create test cases and datasets
 A **dataset** is a collection of conversations used to evaluate your agents. We allow manual test creation for fine-grained control,
 but since generative AI agents can encounter an infinite number of test cases, automated test case generation is often necessary, especially when you don't have any test conversations to import.
 
-In this section, we will walk you through how to create test cases and datasets using the Hub interface. In general, we cover five different ways to create datasets:
+In this section, we will walk you through how to create test cases and datasets using the Hub interface. In general, we cover four different ways to create datasets:
 
 .. grid:: 1 1 2 2
 
@@ -24,15 +24,15 @@ In this section, we will walk you through how to create test cases and datasets 
 
       Import existing test datasets from a JSONL or CSV file, obtained from another tool, like Giskard Open Source.
 
-   .. grid-item-card:: Generate security tests
-      :link: security
+   .. grid-item-card:: Generate scenario tests
+      :link: scenario
       :link-type: doc
 
-      Detect security failures, by generating synthetic test cases to detect security failures, like *stereotypes & discrimination* or *prompt injection*, using adversarial queries.
+      Create targeted, business-specific tests using scenario-based dataset generation. Test your agents with specific personas and business rules without editing your agent's core functionality.
 
-   .. grid-item-card:: Generate business tests
+   .. grid-item-card:: Generate knowledge base tests
       :link-type: doc
-      :link: business
+      :link: knowledge_base
 
 
       Detect business failures, by generating synthetic test cases to detect business failures, like *hallucinations* or *denial to answer questions*, using document-based queries and knowledge bases.
@@ -52,5 +52,5 @@ High-level workflow
 
    manual
    import
-   security
-   business
+   scenario
+   knowledge_base

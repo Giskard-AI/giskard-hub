@@ -65,7 +65,7 @@ Giskard provides comprehensive tools to test and prevent moderation issues vulne
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Hub UI - Business Dataset Creation
-      :link: /hub/ui/datasets/business
+      :link: /hub/ui/datasets/knowledge_base
       :link-type: doc
 
       Use the Hub interface to generate document-based test cases for moderation issues detection. The UI automatically generates queries that test whether models apply appropriate content moderation to valid business queries.

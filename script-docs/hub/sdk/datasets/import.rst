@@ -160,6 +160,6 @@ We can then format the testset to the correct format and create the dataset usin
 Next steps
 __________
 
-* **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
+* **Generate test cases** - Try :doc:`/hub/sdk/datasets/knowledge_base` or :doc:`/hub/sdk/datasets/security`
 * **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scan/index`
 * **Review test case** - Make sure to :doc:`/hub/ui/annotate/index`

@@ -50,13 +50,13 @@ Creating your own evaluation benchmarks with Giskard
 .. grid:: 1 1 2 2
 
    .. grid-item-card:: Giskard Hub AI security vulnerabilities evaluation
-      :link: /hub/ui/datasets/security
+      :link: /hub/ui/scan/index
       :link-type: doc
 
       Our state-of-the-art enterprise-grade security evaluation datasets.
 
    .. grid-item-card:: Giskard Hub AI business failures evaluation
-      :link: /hub/ui/datasets/business
+      :link: /hub/ui/datasets/knowledge_base
       :link-type: doc
 
       Our state-of-the-art enterprise-grade business failures evaluation datasets.

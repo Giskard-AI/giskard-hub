@@ -1,7 +1,8 @@
 2.2.0 (2025-12-16)
 ==================
 
-Release v2.2.0 is out!
+We are releasing a new version of the Hub UI that introduces scenario-based generation, bulk move operations from evaluations, improved list displays with search and filters, and two new probes. This helps you create more targeted test cases, efficiently build golden datasets, and better navigate your Hub resources.
+
 
 Hub UI
 ------
@@ -9,17 +10,27 @@ Hub UI
 What's new?
 ~~~~~~~~~~~
 
+.. raw:: html
+
+   <iframe width="100%" height="400" src="https://www.youtube.com/embed/g_fsrGyJF4E?si=6ohbPagZyCNU7OCp&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 **Scenario-based generation**
-   Improved generation with customizable scenarios and full control over the generation theme
+   Users are able to create more targeted, business-specific tests without editing the agent description. Replace "adversarial generation" with "scenario-based dataset generation" driven by explicit scenarios and business rules. This helps to generate more realistic test cases. Users provide a description and rules. For example: Persona using slang/emojis asking about loans; rules enforce professional tone and refusal to do interest calculations. The three ways of generating test cases are now: Scan, Knowledge Base, and Scenario-based.
 
-**Mass move test cases**
-   Batch operation to move test cases from an evaluation to a dataset
+**Bulk move from evaluations**
+   The goal is to easily move the relevant conversations to build the golden dataset. On a specific evaluation, you can select the conversations you want and move them to a specific dataset. You can move or duplicate conversations.
 
-**Upgrade to lidar v0.2.1**
-   Adds two new probes
+**Better display of lists**
+   Be able to easily search and/or filter. There is now a search bar and filters for the following items: datasets, agents, knowledge bases, and checks.
 
-**Improved Markdown rendering**
-   Enhanced Markdown rendering in Scan results
+**Enhanced Scans**
+   Improved scanning capabilities with new probes and better rendering:
+   
+   * **New Built-in Probes** - Two new built-in probes added to the scanning toolkit
+      - **CoT Forgery** (OWASP LLM 06 - Excessive Agency) - This probe implements the Chain-of-Thought (CoT) forgery attack strategy, which appends realistic and compliant reasoning traces to harmful requests that mimic the format and tone of legitimate reasoning steps, causing the model to continue the compliant reasoning pattern and answer requests it should refuse.
+      - **ChatInject** (OWASP LLM 01 - Prompt Injection) - This probe tests whether agents can be manipulated through malicious instructions formatted to match their native chat templates. Unlike traditional plain-text injection attacks, ChatInject exploits the structured role-based formatting (system, user, assistant tags) that agents use internally. By wrapping attack payloads with forged chat template tokens, mimicking the model's own instruction hierarchy, attackers can bypass defenses that rely on role priority. The probe includes a multi-turn variant that sends persuasive conversation, delimited with adequate separation tokens, inside one message to confuse the agent under test. This technique achieves significantly higher success rates than standard injection methods and transfers effectively across models, even when the target model's exact template structure is unknown.
+   * **Improved Markdown rendering** - Enhanced Markdown rendering in Scan results
 
 What's fixed?
 ~~~~~~~~~~~~~
@@ -32,12 +43,6 @@ What's fixed?
    - Added missing parameters
    - Fixed prefix handling for Domino's exports
    - Fixed metadata display in evaluation results
-
-Misc
-~~~~
-
-- Upgrade to Node.js 24
-- Multiple dependency updates
 
 Hub SDK
 -------

@@ -1,17 +1,17 @@
-:og:title: Giskard Hub UI - Business Logic Test Generation
-:og:description: Generate and manage business logic test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through comprehensive automated testing.
+:og:title: Giskard Hub UI - Knowledge Base Test Generation
+:og:description: Generate and manage knowledge base test cases for your LLM agents. Test compliance, domain-specific scenarios, and business requirements through comprehensive automated testing.
 
 ======================================================
-Generate business tests
+Generate knowledge base tests
 ======================================================
 
-Business testing focuses on ensuring that your LLM agents meet the specific requirements and expectations of your business domain. Unlike security testing, which focuses on malicious exploitation, business testing evaluates the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
+Knowledge base testing focuses on ensuring that your LLM agents meet the specific requirements and expectations of your business domain. It evaluates the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios based on your knowledge base.
 
-In this section, we will walk you through how to generate business-focused test cases using the Hub interface.
+In this section, we will walk you through how to generate knowledge base-focused test cases using the Hub interface.
 
 AI systems in business environments must provide accurate, reliable responses that align with your organization's knowledge and policies. However, manually creating comprehensive test cases for every possible business scenario is impractical and often leaves critical failure modes undetected.
 
-Giskard Hub solves this challenge by enabling **business users to directly generate synthetic business tests from knowledge bases without requiring coding skills**.
+Giskard Hub solves this challenge by enabling **business users to directly generate synthetic tests from knowledge bases without requiring coding skills**.
 
 What are AI business failures?
 ------------------------------
@@ -37,8 +37,8 @@ To detect these failures effectively, we need to synthesize representative sets 
 
 .. tip::
 
-   Business failures are different from security failures. While security failures focus on malicious exploitation and system integrity, business failures focus on the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
-   If you want to detect security failures, check out the :doc:`/hub/ui/datasets/security`.
+   Knowledge base failures are different from security failures. While security failures focus on malicious exploitation and system integrity, knowledge base failures focus on the agent's ability to provide accurate, reliable, and appropriate responses in normal usage scenarios.
+   If you want to test specific personas and business rules, check out :doc:`/hub/ui/datasets/scenario`.
 
 Document-based tests generation
 -------------------------------
@@ -50,9 +50,9 @@ Then, for each topic/cluster of knowledge base documents, it generates represent
 
 These clusters and topics are then used to generate dedicated tests that challenge the agent to answer questions about specific topics in ways that might not align with your business rules.
 
-To begin, navigate to the Datasets page and click **Automatic Generation** in the upper-right corner of the screen. This will open a modal with two options: Adversarial or Document-Based. Select the Document-Based option.
+To begin, navigate to the Datasets page and click **Automatic Generation** in the upper-right corner of the screen. This will open a modal with three options: Scan, Knowledge Base, and Scenario. Select the **Knowledge Base** option.
 
-The Document Based tab allows you to generate a dataset with examples based on your knowledge base.
+The Knowledge Base tab allows you to generate a dataset with examples based on your knowledge base.
 
 .. image:: /_static/images/hub/generate-dataset-document-based.png
    :align: center
@@ -70,7 +70,7 @@ In this case, dataset generation requires two additional pieces of information:
 
   .. tip::
 
-     Synthetic test case generation in Giskard is designed to provide broad coverage across your knowledge base. While absolute statistical exhaustiveness isn't feasible, Giskard's approach—clustering documents into key topics and generating multiple test cases per topic—helps ensure that all major areas are represented. By recommending the creation of at least 20 conversations per topic and leveraging agenth automated clustering and your own domain-specific tags, Giskard maximizes the likelihood of uncovering gaps or failures across your business knowledge.
+     Synthetic test case generation in Giskard is designed to provide broad coverage across your knowledge base. While absolute statistical exhaustiveness isn't feasible, Giskard's approach—clustering documents into key topics and generating multiple test cases per topic—helps ensure that all major areas are represented. By recommending the creation of at least 20 conversations per topic and leveraging agent automated clustering and your own domain-specific tags, Giskard maximizes the likelihood of uncovering gaps or failures across your business knowledge.
 
 Once you click on "Generate," you receive a dataset where:
 
@@ -85,5 +85,5 @@ Next steps
 ----------
 
 * **Agentic vulnerability detection** - Try :doc:`/hub/ui/scan/index`
-* **Generate security vulnerabilities** - Try :doc:`/hub/ui/datasets/security`
+* **Generate scenario tests** - Try :doc:`/hub/ui/datasets/scenario`
 * **Review test cases** - Make sure to :doc:`/hub/ui/annotate/index`

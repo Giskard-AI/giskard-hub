@@ -96,5 +96,5 @@ Next steps
 __________
 
 * **Agentic vulnerability detection** - Try :doc:`/hub/sdk/scan/index`
-* **Generate test cases** - Try :doc:`/hub/sdk/datasets/business` or :doc:`/hub/sdk/datasets/security`
+* **Generate test cases** - Try :doc:`/hub/sdk/datasets/knowledge_base` or :doc:`/hub/sdk/datasets/security`
 * **Review test case and assign checks** - Make sure to :doc:`/hub/ui/annotate/index`
