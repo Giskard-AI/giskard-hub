@@ -1,0 +1,35 @@
+repos:
+  # General pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: mixed-line-ending
+      - id: check-toml
+
+
+  # Security and secrets scanning
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ["--baseline", ".secrets.baseline"]
+        exclude: |
+          (?x)^(
+            .*\.lock$|
+            .*\.log$|
+            .*\.dump$|
+            .*/\.venv/.*|
+            .*/\.uv/.*|
+            .*/dist/.*|
+            .*/build/.*|
+            \.secrets\.baseline$|
+            \.python-version$|
+            venv\.lock$|
+            version\.json$
+          )$
