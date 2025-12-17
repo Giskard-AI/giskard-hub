@@ -65,7 +65,7 @@ You can also update the project description and failure categories:
 .. code-block:: python
 
     from giskard_hub.data.project import FailureCategory
-    
+
     # Define failure categories for your project
     failure_categories = [
         FailureCategory(
@@ -75,11 +75,11 @@ You can also update the project description and failure categories:
         ),
         FailureCategory(
             identifier="bias",
-            title="Bias", 
+            title="Bias",
             description="Model response shows unfair bias"
         )
     ]
-    
+
     # Update project with failure categories
     project = hub.projects.update(
         "<PROJECT_ID>",
@@ -116,10 +116,10 @@ Failure categories help you organize and classify different types of AI failures
 .. code-block:: python
 
     from giskard_hub.data.project import FailureCategory
-    
+
     # Access failure categories from a project
     project = hub.projects.retrieve("<PROJECT_ID>")
-    
+
     for category in project.failure_categories:
         print(f"Category: {category.title}")
         print(f"Identifier: {category.identifier}")
@@ -226,7 +226,7 @@ You can create a knowledge base using the ``hub.knowledge_bases.create()`` metho
     kb_from_file = hub.knowledge_bases.create(
         project_id="<PROJECT_ID>",
         name="My knowledge base",
-        data="my_kb.json",  # could also be a JSONL file 
+        data="my_kb.json",  # could also be a JSONL file
         description="A knowledge base for finance domain",
     )
 
@@ -234,7 +234,7 @@ You can create a knowledge base using the ``hub.knowledge_bases.create()`` metho
         project_id="<PROJECT_ID>",
         name="My knowledge base",
         data=[
-            {"text": "The capital of France is Paris", topic="europe"}, 
+            {"text": "The capital of France is Paris", topic="europe"},
             {"text": "The capital of Germany is Berlin", topic="europe"}
         ],
         description="A knowledge base for geography domain",

@@ -30,4 +30,3 @@ Base Metric
 .. autoclass:: giskard.rag.metrics.Metric
     :members:
     :special-members: __call__
-

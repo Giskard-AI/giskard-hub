@@ -106,4 +106,3 @@ Best Practices
 * **Documentation**: Maintain detailed testing procedures and results
 * **Automation**: Automate repetitive testing tasks for efficiency
 * **Human Oversight**: Combine automated testing with human expertise
-

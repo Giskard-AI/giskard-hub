@@ -353,5 +353,3 @@ If you encounter issues with security scanning:
 
 * Join our `Discord community <https://discord.gg/giskard>`_ and ask questions in the ``#support`` channel
 * Review our :doc:`glossary on AI terminology </start/glossary/index>` to better understand the terminology used in the documentation.
-
-

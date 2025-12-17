@@ -22,7 +22,7 @@ In this section, we will walk you through how to run and manage scans using the 
 We recommend systematically launching scans every time before deploying an updated agent in a pre-production or staging environment. This allows you to collaborate with your team to ensure that your agent is secure and resilient against potential attacks.
 
 .. important::
-   
+
    Scans can only be launched with agents that are configured in the Hub and exposed via an API endpoint. Local agents are not currently supported for scanning.
 
 Let's start by initializing the Hub client or take a look at the :doc:`/hub/sdk/index` section to see how to install the SDK and connect to the Hub.
@@ -185,7 +185,7 @@ Here's a complete CI/CD scanning workflow:
     if scan_result.grade not in ["A", "B"]:
         print(f"❌ Security check failed: Scan with Grade {scan_result.grade.value}")
         sys.exit(1)
-    
+
     print(f"✅ Security check passed: Scan with Grade {scan_result.grade.value}")
 
 Scan management
@@ -233,7 +233,7 @@ You can list scans using the ``hub.scans.list()`` method:
 .. code-block:: python
 
     scans = hub.scans.list(project_id=project_id)
-    
+
     for scan in scans:
         print(f"Scan ID: {scan.id} - Grade: {scan.grade.value} - Status: {scan.progress.status.value}")
 

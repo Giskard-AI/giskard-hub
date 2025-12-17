@@ -124,4 +124,3 @@ Next, set the parameters for the evaluation:
 - ``Time``: Select the time for the evaluation. (This time is based on the time zone of the server where the Giskard Hub is installed.)
 
 After filling the form, click on the "Schedule evaluation" button, which will create the evaluation run and schedule it to run at the specified frequency and time.
-

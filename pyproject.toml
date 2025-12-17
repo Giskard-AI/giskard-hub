@@ -44,4 +44,3 @@ explicit = true
 [tool.uv.sources]
 # Use CPU-only PyTorch for non-macOS systems, default PyPI for macOS
 torch = { index = "pytorch_cpu", marker = "platform_system != 'Darwin'" }
-

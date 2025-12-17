@@ -56,8 +56,7 @@ For each detected issue, you can:
 
 **Convert to test case**
    Click **Send to dataset** to save the attack as a reproducible test case. This helps you:
-   
+
    * Track fixes over time
    * Build regression tests
    * Share examples with your team
-
