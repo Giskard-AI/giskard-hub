@@ -34,13 +34,12 @@ What's new?
 What's fixed?
 ~~~~~~~~~~~~~
 
-- **Permission fix for "Add checks" button** - Fixed permission issue
-- **Permission fix for "Add task" button** - Fixed permission issue
-- **Better handling of LiteLLM-specific embedding exceptions** - Improved error handling
-- **Improved Scan error handling** - Enhanced error handling for scans
+- **Permission fix for "Add checks" button** - Fixed permission issue for test case creation
+- **Permission fix for "Add task" button** - Fixed permission issue for task creation
+- **Better handling of LiteLLM-specific embedding exceptions** - Improved error handling for embedding generation errors
+- **Improved Scan error handling** - Enhanced error handling for vulnerability scan errors
 - **Export fixes**:
-   - Added missing parameters
-   - Fixed prefix handling for Domino's exports
+   - Added missing parameters to export options
    - Fixed metadata display in evaluation results
 
 Hub SDK
