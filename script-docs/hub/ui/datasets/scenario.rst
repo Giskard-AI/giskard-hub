@@ -7,12 +7,14 @@ Generate scenario-based tests
 
 Scenario-based dataset generation allows you to create more targeted, business-specific tests without ever needing to edit your agent's core description and functionality. This is super useful if you want to move beyond general testing and simulate how your agents handle specific personas and complex business logic.
 
-For example, you might want to test:
-- Customers using slang or emojis to ask about loans
-- Ensuring agents adhere to strict compliance rules
-- Specific user personas that interact with your bots
+Scenario-based generations are a powerful way to ensure your agent is prepared for real-world user scenarios and personas. They are:
 
-There are three distinct ways to generate datasets: the **Scan**, the **Knowledge Base**, and now also the **Scenario**.
+- **Fully customizable**: Tailored to whatever kind of personas you envision and are important for your departments
+- **Rule-driven**: Move from generic stress testing to rule-driven scenarios
+- **Higher quality**: Get higher quality datasets that are more reliable for evaluations
+- **Business-focused**: Ultimately, an agent that truly understands your business boundaries
+
+By moving from generic stress testing to rule-driven scenarios, you get higher quality datasets that are more reliable for evaluations, and ultimately, an agent that truly understands your business boundaries.
 
 .. raw:: html
 
@@ -21,7 +23,7 @@ There are three distinct ways to generate datasets: the **Scan**, the **Knowledg
 Getting started
 ---------------
 
-To begin, navigate to the Datasets page and click **Automatic Generation** in the upper-right corner of the screen. This will open a modal with three options: Knowledge Base, and Scenario. Select the **Scenario** option.
+To begin, navigate to the Datasets page and click **Generate** in the upper-right corner of the screen. This will open a modal with three options: Knowledge Base, and Scenario. Select the **Scenario** option.
 
 .. image:: /_static/images/hub/scenario-select.png
    :align: center
@@ -78,18 +80,6 @@ Review and evaluate
 You can see that you have a generated user message that adheres to the persona. You can generate an answer so that you can actually evaluate your agent's response and see if the rules adhere.
 
 After generating an example response, you can also test the evaluation. If the evaluation passes, you have a meaningful test example. This specific example can then be used for a specific evaluation dataset and for evaluation runs where you would need to iterate on a high-quality dataset.
-
-Benefits
---------
-
-Scenario-based generations are a powerful way to ensure your agent is prepared for real-world user scenarios and personas. They are:
-
-- **Fully customizable**: Tailored to whatever kind of personas you envision and are important for your departments
-- **Rule-driven**: Move from generic stress testing to rule-driven scenarios
-- **Higher quality**: Get higher quality datasets that are more reliable for evaluations
-- **Business-focused**: Ultimately, an agent that truly understands your business boundaries
-
-By moving from generic stress testing to rule-driven scenarios, you get higher quality datasets that are more reliable for evaluations, and ultimately, an agent that truly understands your business boundaries.
 
 Next steps
 ----------
