@@ -1,6 +1,5 @@
 evaluations/
 test-folder/
-docs/
 
 .history
 # Byte-compiled / optimized / DLL files
@@ -73,8 +72,6 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
 
 # PyBuilder
 .pybuilder/
