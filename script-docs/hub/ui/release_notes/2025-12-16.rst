@@ -1,0 +1,45 @@
+2.2.0 (2025-12-16)
+==================
+
+Release v2.2.0 is out!
+
+Hub UI
+------
+
+What's new?
+~~~~~~~~~~~
+
+**Scenario-based generation**
+   Improved generation with customizable scenarios and full control over the generation theme
+
+**Mass move test cases**
+   Batch operation to move test cases from an evaluation to a dataset
+
+**Upgrade to lidar v0.2.1**
+   Adds two new probes
+
+**Improved Markdown rendering**
+   Enhanced Markdown rendering in Scan results
+
+What's fixed?
+~~~~~~~~~~~~~
+
+- **Permission fix for "Add checks" button** - Fixed permission issue
+- **Permission fix for "Add task" button** - Fixed permission issue
+- **Better handling of LiteLLM-specific embedding exceptions** - Improved error handling
+- **Improved Scan error handling** - Enhanced error handling for scans
+- **Export fixes**:
+   - Added missing parameters
+   - Fixed prefix handling for Domino's exports
+   - Fixed metadata display in evaluation results
+
+Misc
+~~~~
+
+- Upgrade to Node.js 24
+- Multiple dependency updates
+
+Hub SDK
+-------
+
+No changes yet.

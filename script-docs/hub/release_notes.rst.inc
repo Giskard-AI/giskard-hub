@@ -29,6 +29,8 @@ Click on a release below to browse the release notes for that version:
      -
    * - :doc:`/hub/ui/release_notes/2025-11-25`
      - 
+   * - :doc:`/hub/ui/release_notes/2025-12-16`
+     - 
 
 We Value Your Feedback
 ----------------------
