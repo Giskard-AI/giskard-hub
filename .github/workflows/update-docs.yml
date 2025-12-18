@@ -1,0 +1,69 @@
+name: Update docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      REF_NAME: ${{ github.ref_name }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          ref: docs
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_PAT_TOKEN }} # Needed to trigger other actions
+
+      - name: Configure git
+        run: |
+          git config --global user.name 'BotReleaser'
+          git config --global user.email 'bot.releaser@users.noreply.github.com'
+
+      - name: Merge latest code
+        run: |
+          set -euo pipefail
+          # Validate ref name strictly using git's own rules
+          if ! git check-ref-format --branch "$REF_NAME"; then
+            echo "Invalid ref name: '$REF_NAME'" >&2
+            exit 1
+          fi
+          git fetch --prune
+          # Ensure the remote branch exists under origin
+          if ! git show-ref --verify --quiet "refs/remotes/origin/$REF_NAME"; then
+            echo "Remote branch 'origin/$REF_NAME' not found" >&2
+            exit 1
+          fi
+          git merge "origin/$REF_NAME"
+
+      - name: Install uv and set the python version
+        uses: astral-sh/setup-uv@2ddd2b9cb38ad8efd50337e8ab201519a34c9f24 # v7.1.1
+        with:
+          python-version: "3.12" # giskard 2.18.0 requires python <3.13
+
+      # REQUIRED BY NBSphinx
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Install deps
+        run: make install
+
+      - name: Build the docs
+        run: make doc
+
+      - name: Adding built docs
+        run: |
+          git add -f ./docs
+          git commit -m "Docs for latest tag" --allow-empty
+
+      - name: Push to docs
+        run: |
+          git push origin docs
