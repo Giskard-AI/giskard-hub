@@ -9,12 +9,14 @@ from ._resource import APIResource
 
 
 class DatasetsResource(APIResource):
+    _base_url = "/datasets"
+
     def retrieve(self, dataset_id: str):
-        return self._client.get(f"/datasets/{dataset_id}", cast_to=Dataset)
+        return self._client.get(f"{self._base_url}/{dataset_id}", cast_to=Dataset)
 
     def create(self, *, name: str, description: str, project_id: str) -> Dataset:
         return self._client.post(
-            "/datasets",
+            self._base_url,
             json={
                 "name": name,
                 "description": description,
@@ -35,17 +37,17 @@ class DatasetsResource(APIResource):
             {"name": name, "description": description, "project_id": project_id}
         )
         return self._client.patch(
-            f"/datasets/{dataset_id}",
+            f"{self._base_url}/{dataset_id}",
             json=data,
             cast_to=Dataset,
         )
 
     def delete(self, dataset_id: str | List[str]) -> None:
-        self._client.delete("/datasets", params={"datasets_ids": dataset_id})
+        self._client.delete(self._base_url, params={"datasets_ids": dataset_id})
 
     def list(self, project_id: str) -> List[Dataset]:
         return self._client.get(
-            "/datasets", params={"project_id": project_id}, cast_to=Dataset
+            self._base_url, params={"project_id": project_id}, cast_to=Dataset
         )
 
     def generate_adversarial(  # pylint: disable=too-many-arguments
@@ -80,7 +82,7 @@ class DatasetsResource(APIResource):
             }
         )
         return self._client.post(
-            "/datasets/generate",
+            f"{self._base_url}/generate",
             json=payload,
             cast_to=Dataset,
         )
@@ -123,7 +125,7 @@ class DatasetsResource(APIResource):
         )
 
         return self._client.post(
-            "/datasets/generate/knowledge",
+            f"{self._base_url}/generate/knowledge",
             json=payload,
             cast_to=Dataset,
         )

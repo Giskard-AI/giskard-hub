@@ -65,7 +65,7 @@ class ChatTestCasesResource(APIResource):
         )
 
     def delete(self, chat_test_case_id: str | List[str]) -> None:
-        return self._client.delete(
+        self._client.delete(
             "/chat-test-cases", params={"chat_test_case_ids": chat_test_case_id}
         )
 

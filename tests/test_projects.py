@@ -294,27 +294,22 @@ def test_update_forbidden(projects_resource, mock_client):
 # Tests for ProjectsResource.delete()
 def test_delete_single_project_id(projects_resource, mock_client):
     """Test deletion with single project ID."""
-    mock_client.delete.return_value = {"success": True}
-
-    result = projects_resource.delete("proj_123")
+    projects_resource.delete("proj_123")
 
     mock_client.delete.assert_called_once_with(
         "/projects", params={"project_ids": "proj_123"}
     )
-    assert result == {"success": True}
 
 
 def test_delete_multiple_project_ids(projects_resource, mock_client):
     """Test deletion with multiple project IDs."""
-    mock_client.delete.return_value = {"success": True}
     project_ids = ["proj_123", "proj_456", "proj_789"]
 
-    result = projects_resource.delete(project_ids)
+    projects_resource.delete(project_ids)
 
     mock_client.delete.assert_called_once_with(
         "/projects", params={"project_ids": project_ids}
     )
-    assert result == {"success": True}
 
 
 def test_delete_not_found(projects_resource, mock_client):

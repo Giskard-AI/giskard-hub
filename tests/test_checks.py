@@ -312,28 +312,24 @@ def test_checks_update_partial(mock_client, sample_check_data):
 
 def test_checks_delete_single(mock_client):
     checks_resource = ChecksResource(mock_client)
-    result = checks_resource.delete(check_id="check_123")
+    checks_resource.delete(check_id="check_123")
 
     assert mock_client.delete.called
     mock_client.delete.assert_called_once_with(
         "/checks", params={"check_ids": "check_123"}
     )
 
-    assert result is None
-
 
 def test_checks_delete_multiple(mock_client):
     check_ids = ["check_123", "check_456", "check_789"]
 
     checks_resource = ChecksResource(mock_client)
-    result = checks_resource.delete(check_id=check_ids)
+    checks_resource.delete(check_id=check_ids)
 
     assert mock_client.delete.called
     mock_client.delete.assert_called_once_with(
         "/checks", params={"check_ids": check_ids}
     )
-
-    assert result is None
 
 
 def test_checks_list_empty_project(mock_client):

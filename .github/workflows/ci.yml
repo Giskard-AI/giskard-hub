@@ -7,15 +7,14 @@ on:
       - dev
   pull_request:
 
-permissions:
-  contents: read
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   pre_checks:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -39,6 +38,8 @@ jobs:
         run: make check_linting
 
   test:
+    permissions:
+      contents: read
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:

@@ -8,8 +8,10 @@ from ._resource import APIResource
 
 
 class ProjectsResource(APIResource):
+    _base_url = "/projects"
+
     def retrieve(self, project_id: str):
-        return self._client.get(f"/projects/{project_id}", cast_to=Project)
+        return self._client.get(f"{self._base_url}/{project_id}", cast_to=Project)
 
     def create(
         self,
@@ -25,7 +27,7 @@ class ProjectsResource(APIResource):
             }
         )
         return self._client.post(
-            "/projects",
+            self._base_url,
             json=data,
             cast_to=Project,
         )
@@ -50,14 +52,14 @@ class ProjectsResource(APIResource):
         )
 
         return self._client.patch(
-            f"/projects/{project_id}",
+            f"{self._base_url}/{project_id}",
             json=data,
             cast_to=Project,
         )
 
-    def delete(self, project_id: str | List[str]):
-        return self._client.delete("/projects", params={"project_ids": project_id})
+    def delete(self, project_id: str | List[str]) -> None:
+        self._client.delete(self._base_url, params={"project_ids": project_id})
 
     def list(self):
-        data = self._client.get("/projects")
+        data = self._client.get(self._base_url)
         return [Project.from_dict(item, _client=self._client) for item in data]

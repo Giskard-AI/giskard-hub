@@ -34,7 +34,7 @@ class ChecksResource(APIResource):
         )
 
     def delete(self, check_id: Union[str, List[str]]) -> None:
-        return self._client.delete(self._base_url, params={"check_ids": check_id})
+        self._client.delete(self._base_url, params={"check_ids": check_id})
 
     # pylint: disable=too-many-arguments
     def create(
