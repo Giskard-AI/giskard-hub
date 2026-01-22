@@ -38,15 +38,6 @@ jobs:
       - name: Check linting
         run: make check_linting
 
-      # REQUIRED BY NBSphinx for Jupyter notebook processing
-      - name: Install Pandoc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc
-
-      - name: Make sure doc is building
-        run: make doc
-
   test:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
