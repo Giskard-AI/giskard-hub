@@ -15,8 +15,10 @@ def _maybe_headers_to_list(headers: Dict[str, str] | None):
 
 
 class ModelsResource(APIResource):
+    _base_url = "/models"
+
     def retrieve(self, model_id: str) -> Model:
-        return self._client.get(f"/models/{model_id}", cast_to=Model)
+        return self._client.get(f"{self._base_url}/{model_id}", cast_to=Model)
 
     # pylint: disable=too-many-arguments
     def create(
@@ -40,7 +42,7 @@ class ModelsResource(APIResource):
             }
         )
         return self._client.post(
-            "/models",
+            self._base_url,
             json=data,
             cast_to=Model,
         )
@@ -68,22 +70,22 @@ class ModelsResource(APIResource):
             }
         )
         return self._client.patch(
-            f"/models/{model_id}",
+            f"{self._base_url}/{model_id}",
             json=data,
             cast_to=Model,
         )
 
     def delete(self, model_id: str | List[str]) -> None:
-        self._client.delete("/models", params={"model_ids": model_id})
+        self._client.delete(self._base_url, params={"model_ids": model_id})
 
     def list(self, project_id: str) -> List[Model]:
         return self._client.get(
-            "/models", params={"project_id": project_id}, cast_to=Model
+            self._base_url, params={"project_id": project_id}, cast_to=Model
         )
 
     def chat(self, model_id: str, messages: List[ChatMessage]) -> ModelOutput:
         return self._client.post(
-            f"/models/{model_id}/chat",
+            f"{self._base_url}/{model_id}/chat",
             json={"messages": [maybe_to_dict(msg) for msg in messages]},
             cast_to=ModelOutput,
         )

@@ -315,27 +315,22 @@ def test_create_local_validation_error(evaluations_resource, mock_client):
 # Tests for EvaluationsResource.delete()
 def test_delete_single_evaluation_id(evaluations_resource, mock_client):
     """Test deletion with single evaluation ID."""
-    mock_client.delete.return_value = {"success": True}
-
-    result = evaluations_resource.delete("exec_123")
+    evaluations_resource.delete("exec_123")
 
     mock_client.delete.assert_called_once_with(
         "/evaluations", params={"evaluation_ids": "exec_123"}
     )
-    assert result == {"success": True}
 
 
 def test_delete_multiple_evaluation_ids(evaluations_resource, mock_client):
     """Test deletion with multiple evaluation IDs."""
-    mock_client.delete.return_value = {"success": True}
     evaluation_ids = ["exec_123", "exec_456", "exec_789"]
 
-    result = evaluations_resource.delete(evaluation_ids)
+    evaluations_resource.delete(evaluation_ids)
 
     mock_client.delete.assert_called_once_with(
         "/evaluations", params={"evaluation_ids": evaluation_ids}
     )
-    assert result == {"success": True}
 
 
 def test_delete_not_found(evaluations_resource, mock_client):

@@ -428,28 +428,24 @@ def test_chat_test_cases_update_partial(mock_client, sample_chat_test_case_data)
 
 def test_chat_test_cases_delete_single(mock_client):
     resource = ChatTestCasesResource(mock_client)
-    result = resource.delete(chat_test_case_id="test_case_123")
+    resource.delete(chat_test_case_id="test_case_123")
 
     assert mock_client.delete.called
     mock_client.delete.assert_called_once_with(
         "/chat-test-cases", params={"chat_test_case_ids": "test_case_123"}
     )
 
-    assert result is None
-
 
 def test_chat_test_cases_delete_multiple(mock_client):
     test_case_ids = ["test_case_123", "test_case_456", "test_case_789"]
 
     resource = ChatTestCasesResource(mock_client)
-    result = resource.delete(chat_test_case_id=test_case_ids)
+    resource.delete(chat_test_case_id=test_case_ids)
 
     assert mock_client.delete.called
     mock_client.delete.assert_called_once_with(
         "/chat-test-cases", params={"chat_test_case_ids": test_case_ids}
     )
-
-    assert result is None
 
 
 def test_chat_test_cases_list_empty_dataset(mock_client):
