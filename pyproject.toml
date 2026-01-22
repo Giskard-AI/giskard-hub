@@ -15,7 +15,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "black[jupyter]==25.9.0",
+    "black[jupyter]==25.12.0",
     "isort==6.1.0",
     "pylint==3.3.9",
     "pytest==8.4.2",
