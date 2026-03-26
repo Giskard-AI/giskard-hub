@@ -1,5 +1,6 @@
 evaluations/
 test-folder/
+*.pem
 
 .history
 # Byte-compiled / optimized / DLL files
