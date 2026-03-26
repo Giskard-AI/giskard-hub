@@ -35,8 +35,9 @@ jobs:
       - name: Check if organization member
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTOR: ${{ github.actor }}
         run: |
-          if ! gh api orgs/Giskard-AI/members/${{ github.actor }} --silent 2>/dev/null; then
+          if ! gh api "orgs/Giskard-AI/members/${ACTOR}" --silent 2>/dev/null; then
             echo "Job failed due to user not being a member of Giskard-AI organization" >&2
             exit 1
           fi
